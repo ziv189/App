@@ -24,7 +24,7 @@ function Star({ top, left, size, delay, duration }) {
   )
 }
 
-export default function LandingPage() {
+export default function LandingPage({ onNewQuest }) {
   const [cursorVisible, setCursorVisible] = useState(true)
 
   useEffect(() => {
@@ -94,6 +94,7 @@ export default function LandingPage() {
         <div className="flex flex-col items-center gap-5 mt-4 w-full max-w-xs">
           {/* New Quest */}
           <button
+            onClick={onNewQuest}
             className="pulse-btn w-full py-4 px-6 bg-yellow-400 text-black border-4 border-yellow-600 hover:bg-yellow-300 hover:border-yellow-500 active:translate-y-[2px] transition-all duration-75 cursor-pointer"
             style={{
               fontFamily: "'Press Start 2P', cursive",
