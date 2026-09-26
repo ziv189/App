@@ -19,6 +19,8 @@
  *   --no-meshopt         Skip EXT_meshopt_compression (keeps plain float geometry)
  *   --report-only        Read the input and print its budget report without writing anything
  *   --verbose            Show every glTF-Transform log line
+ *   --lightmap <file>    Record the baked lightmap that belongs to this model (file name next to the
+ *                        output .glb), so the game applies it. See docs/ASSET_PIPELINE.md.
  *
  * KTX2 (GPU-compressed) textures are added in the first real-asset milestone; the game's
  * loader already reads KTX2, Draco and meshopt files.
@@ -61,6 +63,11 @@ function parseArgs(argv) {
       case '--verbose':
         options.verbose = true;
         break;
+      case '--lightmap': {
+        const file = next();
+        options.edit = (doc) => doc.getRoot().listScenes()[0].setExtras({ sosies: { lightmap: file, lightmapIntensity: 1 } });
+        break;
+      }
       default:
         if (a.startsWith('--')) throw new Error(`Unknown option ${a}`);
         positional.push(a);

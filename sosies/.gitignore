@@ -8,6 +8,7 @@ dist-packed/
 public/assets/tech-test/*
 !public/assets/tech-test/living-room.glb
 !public/assets/tech-test/sky-dusk-2k.hdr
+!public/assets/tech-test/living-room-lightmap.exr
 !public/assets/tech-test/CREDITS.md
 *.log
 .DS_Store

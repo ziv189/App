@@ -83,6 +83,7 @@ export class DebugPanel {
       `position    ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}  yaw ${deg(this.player.yaw)}°  pitch ${deg(this.player.pitch)}°`,
       `movement    ${this.player.horizontalSpeed.toFixed(2)} m/s, ${this.player.isGrounded ? 'grounded' : 'airborne'}${this.player.isCrouched ? ', crouched' : ''}`,
       `collision   ${this.level.collisionTriangles.toLocaleString('en-US')} triangles (${this.level.collisionSource})`,
+      `lighting    ${this.level.lightmapMaterials.length > 0 ? `baked lightmap on ${this.level.lightmapMaterials.length} materials` : 'real-time lights'}`,
     ].join('\n');
   }
 
@@ -116,7 +117,16 @@ export class DebugPanel {
 
     const lighting = this.gui.addFolder('Lighting');
     const scene = this.scene;
-    lighting.add(scene, 'environmentIntensity', 0, 3, 0.01).name('sky light');
+    if (this.level.lightmapMaterials.length > 0) {
+      const baked = { strength: 1 };
+      lighting
+        .add(baked, 'strength', 0, 3, 0.01)
+        .name('baked light')
+        .onChange((v: number) => {
+          for (const m of this.level.lightmapMaterials) m.lightMapIntensity = v * Math.PI;
+        });
+    }
+    lighting.add(scene, 'environmentIntensity', 0, 3, 0.01).name('reflections');
     lighting.add(scene, 'backgroundIntensity', 0, 3, 0.01).name('sky brightness');
     scene.traverse((obj) => {
       if (obj instanceof DirectionalLight) lighting.add(obj, 'intensity', 0, 10, 0.05).name(obj.name || 'sun');

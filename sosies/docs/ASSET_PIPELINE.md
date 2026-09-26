@@ -57,3 +57,52 @@ graphics memory: the test room's 16 small textures already take about 72 MB, and
 characters will have many more, larger ones. For characters and rooms we'll switch textures to
 **KTX2** (GPU-compressed, typically 4–8× less graphics memory). The game can already load KTX2, Draco and meshopt
 files; the optimizer gains a KTX2 mode in the first real-asset milestone.
+
+## Baked lighting (global illumination)
+
+A browser can't compute bounced light in real time, so every room's lighting is **baked**: Blender's Cycles
+renderer calculates the light from lamps, windows and the sky, including light bouncing between surfaces,
+and stores it in a *lightmap* image. The game multiplies each surface's colour by it.
+
+What the game expects from a baked room:
+
+- a `.glb` whose static meshes have a **second UV map** (glTF `TEXCOORD_1`) laying them out on the lightmap;
+- the lightmap next to it: a half-float **EXR** (DWAA compression, about 2.5 MB at 2048 px);
+- a note in the `.glb` naming that file (the optimizer's `--lightmap` option writes it).
+
+### Baking a room
+
+1. Set up the room in **Blender 4.5 LTS** with its real lighting: lamps as Point/Spot/Area lights, a sky HDRI
+   in the World for the windows, and emission on anything that glows. Check it with a Cycles render.
+2. Give anything that must *not* get a lightmap (glass, lampshades, anything that moves) the custom property
+   `sosies_nobake = 1`. If the room already has hand-made lightmap UVs, name that UV map `Lightmap` (2nd
+   slot) and add `--keep-uvs` below; otherwise the script unwraps and packs them automatically.
+3. Bake (on an NVIDIA graphics card add `--device OPTIX` for a much faster bake):
+
+   ```bat
+   blender --background --factory-startup --python tools\blender\bake_lightmaps.py -- ^
+     --input room.blend --output room-baked.glb ^
+     --lightmap public\assets\<area>\<room>-lightmap.exr --size 2048 --samples 128
+   ```
+
+4. Optimize and link the lightmap:
+
+   ```bat
+   npm run optimize -- room-baked.glb public\assets\<area>\<room>.glb --join --lightmap <room>-lightmap.exr
+   ```
+
+Models without lights of their own can take a **light rig** (JSON: world HDRI, sun, lamps placed on named
+materials, emissive materials, no-bake materials) with `--rig`; `tools/blender/rigs/living-room.json` is the
+test room's. `npm run assets:test-room` runs the whole chain for the test room.
+
+### Budgets
+
+| | Guideline |
+| --- | --- |
+| Lightmap size | 2048 px per room (about 1-2 cm per pixel); 4096 for large or hero spaces |
+| File size | about 2.5 MB per 2048 px EXR |
+| Graphics memory | 32 MB per 2048 px lightmap (half-float RGBA) |
+| Bake time | test room (580k triangles): about 4 minutes at 2048 px / 64 samples on a 4-core CPU |
+
+Moving things (doors, props, characters) are not baked; they get their light from the room's reflection
+probe and real-time lights, which arrive with the characters milestone.

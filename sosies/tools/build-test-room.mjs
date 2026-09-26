@@ -5,8 +5,13 @@
  * You don't need to run this: the finished files (public/assets/tech-test/) are already in the
  * repository. This script records exactly how they were made, so they can be reproduced or tweaked.
  *
- *   npm run assets:test-room            (reuses earlier downloads)
- *   npm run assets:test-room -- --force (downloads everything again)
+ *   npm run assets:test-room                     (reuses earlier downloads)
+ *   npm run assets:test-room -- --force          (downloads everything again)
+ *   npm run assets:test-room -- --no-bake        (skip Blender; the game then uses real-time lights)
+ *   npm run assets:test-room -- --samples 256 --size 2048 --device OPTIX   (bake settings)
+ *
+ * Baking needs Blender 4.5 LTS (https://www.blender.org/download/lts/4-5/). It is found on the PATH,
+ * in its default install folder, or wherever the BLENDER environment variable points.
  *
  * Sources (both licenses allow redistribution):
  *  - "Living Room" (originally "The White Room Cycles") by Jay-Artist on Blend Swap, CC BY 3.0.
@@ -15,7 +20,8 @@
  *  - "Kloppenheim 01 (Pure Sky)" HDRI by Greg Zaal and Jarod Guest, Poly Haven, CC0.
  *
  * Steps: download + verify -> unzip -> fix texture paths -> OBJ to glTF (obj2gltf, fetched on demand
- * with npx) -> remove the render-only light panels and close the back-wall opening -> optimize.
+ * with npx) -> remove the render-only light panels and close the back-wall opening -> bake lighting
+ * in Blender (tools/blender/bake_lightmaps.py with rigs/living-room.json) -> optimize.
  */
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -24,12 +30,21 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { unzipSync } from 'three/examples/jsm/libs/fflate.module.js';
-import { optimizeGltf, report } from './lib/gltf.mjs';
+import { editGltf, optimizeGltf, report } from './lib/gltf.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = join(ROOT, '.cache', 'test-room');
 const OUT = join(ROOT, 'public', 'assets', 'tech-test');
 const FORCE = process.argv.includes('--force');
+const BAKE = !process.argv.includes('--no-bake');
+const option = (name, fallback) => {
+  const i = process.argv.indexOf(`--${name}`);
+  return i > 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
+};
+const BAKE_SIZE = option('size', '2048');
+const BAKE_SAMPLES = option('samples', '64');
+const BAKE_DEVICE = option('device', 'CPU');
+const LIGHTMAP_FILE = 'living-room-lightmap.exr';
 
 const ROOM = {
   url: 'https://casual-effects.com/g3d/data10/research/model/living_room/living_room.zip',
@@ -86,9 +101,19 @@ async function cachedDownload(url, path, hash, algorithm) {
 function run(command, args) {
   const windows = process.platform === 'win32';
   const result = windows
-    ? spawnSync([command, ...args.map((a) => `"${a}"`)].join(' '), { stdio: 'inherit', shell: true })
+    ? spawnSync([`"${command}"`, ...args.map((a) => `"${a}"`)].join(' '), { stdio: 'inherit', shell: true })
     : spawnSync(command, args, { stdio: 'inherit' });
+  if (result.error) throw result.error;
   if (result.status !== 0) throw new Error(`${command} ${args[0] ?? ''} failed`);
+}
+
+function findBlender() {
+  if (process.env.BLENDER) return process.env.BLENDER;
+  const candidates = {
+    win32: ['C:\\Program Files\\Blender Foundation\\Blender 4.5\\blender.exe'],
+    darwin: ['/Applications/Blender.app/Contents/MacOS/Blender'],
+  }[process.platform] ?? [];
+  return candidates.find((path) => existsSync(path)) ?? 'blender';
 }
 
 /** Removes the emissive panels the original renders used as area lights and closes the back wall. */
@@ -112,10 +137,10 @@ async function main() {
   if (FORCE) await rm(CACHE, { recursive: true, force: true });
   await mkdir(OUT, { recursive: true });
 
-  console.log('1/4 Downloading "Living Room" from the McGuire Computer Graphics Archive ...');
+  console.log('1/5 Downloading "Living Room" from the McGuire Computer Graphics Archive ...');
   const zip = await cachedDownload(ROOM.url, join(CACHE, 'living_room.zip'), ROOM.sha256, 'sha256');
 
-  console.log('2/4 Unpacking and converting OBJ to glTF (first run fetches obj2gltf, about 130 MB) ...');
+  console.log('2/5 Unpacking and converting OBJ to glTF (first run fetches obj2gltf, about 130 MB) ...');
   const dir = join(CACHE, 'living_room');
   for (const [name, bytes] of Object.entries(unzipSync(new Uint8Array(zip)))) {
     if (name.endsWith('/')) continue;
@@ -128,15 +153,63 @@ async function main() {
   await writeFile(mtlPath, (await readFile(mtlPath, 'utf8')).replace(/\\/g, '/'));
   const rawGlb = join(dir, 'living_room.glb');
   run('npx', ['--yes', OBJ2GLTF, '-i', join(dir, 'living_room.obj'), '-o', rawGlb]);
+  const cleanGlb = join(CACHE, 'living_room.clean.glb');
+  await editGltf(rawGlb, cleanGlb, cleanUpRoom);
 
-  console.log('3/4 Downloading the sky HDRI from Poly Haven ...');
+  console.log('3/5 Downloading the sky HDRI from Poly Haven ...');
   const sky = await cachedDownload(SKY.url, join(CACHE, SKY.file), SKY.md5, 'md5');
   await writeFile(join(OUT, SKY.file), sky);
 
-  console.log('4/4 Optimizing for the browser (WebP textures, meshopt geometry) ...');
+  let source = cleanGlb;
+  if (BAKE) {
+    console.log(`4/5 Baking lighting in Blender (${BAKE_SIZE}px lightmap, ${BAKE_SAMPLES} samples; takes a few minutes) ...`);
+    const bakedGlb = join(CACHE, 'living_room.baked.glb');
+    try {
+      run(findBlender(), [
+        '--background',
+        '--factory-startup',
+        '--python',
+        join(ROOT, 'tools', 'blender', 'bake_lightmaps.py'),
+        '--',
+        '--input',
+        cleanGlb,
+        '--output',
+        bakedGlb,
+        '--lightmap',
+        join(OUT, LIGHTMAP_FILE),
+        '--rig',
+        join(ROOT, 'tools', 'blender', 'rigs', 'living-room.json'),
+        '--size',
+        BAKE_SIZE,
+        '--samples',
+        BAKE_SAMPLES,
+        '--device',
+        BAKE_DEVICE,
+      ]);
+    } catch (err) {
+      if (err.code === 'ENOENT') {
+        throw new Error(
+          'Blender was not found. Install Blender 4.5 LTS, or set BLENDER to its path, or run with --no-bake.',
+        );
+      }
+      throw err;
+    }
+    source = bakedGlb;
+  } else {
+    console.log('4/5 Skipping the lighting bake (--no-bake): the game will use real-time lights.');
+    await rm(join(OUT, LIGHTMAP_FILE), { force: true });
+  }
+
+  console.log('5/5 Optimizing for the browser (WebP textures, meshopt geometry) ...');
   const glbPath = join(OUT, 'living-room.glb');
-  // Static scenery: joining meshes by material saves draw calls.
-  const doc = await optimizeGltf(rawGlb, glbPath, { join: true, edit: cleanUpRoom });
+  // Static scenery: joining meshes by material saves draw calls. The scene extras tell the game
+  // which lightmap belongs to this model.
+  const doc = await optimizeGltf(source, glbPath, {
+    join: true,
+    edit: (d) => {
+      if (BAKE) d.getRoot().listScenes()[0].setExtras({ sosies: { lightmap: LIGHTMAP_FILE, lightmapIntensity: 1 } });
+    },
+  });
   console.log(await report(doc, glbPath));
 
   await writeFile(join(OUT, 'CREDITS.md'), CREDITS);

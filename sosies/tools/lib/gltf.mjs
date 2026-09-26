@@ -75,9 +75,16 @@ export async function optimizeGltf(input, output, options = {}) {
   doc.setLogger(logger);
   if (opts.edit) await opts.edit(doc);
 
+  // Lightmapped models carry a second UV set that no texture references; by default prune() would
+  // delete it (and renumber UV sets), so keep every vertex attribute when one is present.
+  const hasLightmapUvs = doc
+    .getRoot()
+    .listMeshes()
+    .some((mesh) => mesh.listPrimitives().some((prim) => prim.getAttribute('TEXCOORD_1')));
+
   const transforms = [dedup(), instance({ min: 5 })];
   if (opts.join) transforms.push(join());
-  transforms.push(weld(), resample(), prune(), sparse());
+  transforms.push(weld(), resample(), prune({ keepAttributes: hasLightmapUvs }), sparse());
 
   if (opts.textures === 'webp') {
     // Colour-ish maps: lossy WebP is fine.
@@ -118,6 +125,16 @@ export async function optimizeGltf(input, output, options = {}) {
   await doc.transform(...transforms);
   await io.write(output, doc);
   logger.summary();
+  return doc;
+}
+
+/** Applies `edit` to a glTF file and writes the result without any compression (e.g. before baking). */
+export async function editGltf(input, output, edit) {
+  const io = await createIO();
+  const doc = await io.read(input);
+  doc.setLogger(new QuietLogger(false));
+  await edit(doc);
+  await io.write(output, doc);
   return doc;
 }
 

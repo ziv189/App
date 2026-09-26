@@ -33,6 +33,9 @@ function glow(meshes: Mesh[], color: number, intensity: number): void {
  * TECH TEST (not game content): a furnished living room at dusk, lit by the window and two lamps.
  * It exists to test movement, collision, lighting, post-processing and performance until the first
  * real SOSIES location replaces it. Model: "Living Room" by Jay-Artist (CC BY 3.0), see CREDITS.md.
+ *
+ * The lighting is baked in Blender (tools/blender/rigs/living-room.json describes the same window
+ * and lamps). If the model has no lightmap, equivalent real-time lights are used instead.
  */
 export const techTest: LevelDef = {
   id: 'tech-test',
@@ -54,9 +57,16 @@ export const techTest: LevelDef = {
   },
   // By the door, looking down the room towards the bay window.
   spawn: { position: [0.3, 0.5, 6.6], yawDeg: 0 },
-  look: { exposure: 1, aoRadius: 0.5, aoIntensity: 2.5, bloomThreshold: 0.8 },
+  look: { exposure: 1, aoRadius: 0.5, aoIntensity: 1.5, bloomThreshold: 0.8 },
+  lightmapBytes: 3_000_000,
+  // Middle of the room at eye height.
+  reflectionProbe: { position: [0.3, 1.5, 4.3], intensity: 0.35 },
   fetchHint: 'git pull   (the test room is part of the repository)',
-  setup: ({ scene, root }) => {
+  setup: ({ scene, root, lightmapped }) => {
+    glow(meshesWith(root, 'LampshaderOuter'), 0xffb36b, 1.6);
+    glow(meshesWith(root, 'CeilingLampshade'), 0xffc68a, 1.2);
+    if (lightmapped) return; // the window and lamps are already in the baked lighting
+
     // Cool dusk light coming in through the bay window.
     const dusk = new DirectionalLight(0x9db0d6, 1.4);
     dusk.name = 'Window light';
@@ -75,10 +85,8 @@ export const techTest: LevelDef = {
     scene.add(dusk, dusk.target);
 
     // Floor lamp by the window: a shadowed spot shining down, plus a soft unshadowed glow.
-    const shades = meshesWith(root, 'LampshaderOuter');
-    const lamp = centreOf(shades);
+    const lamp = centreOf(meshesWith(root, 'LampshaderOuter'));
     if (lamp) {
-      glow(shades, 0xffb36b, 1.6);
       const spot = new SpotLight(0xffb36b, 12, 0, Math.PI / 2.6, 0.6, 2);
       spot.name = 'Floor lamp';
       spot.position.copy(lamp);
@@ -93,10 +101,8 @@ export const techTest: LevelDef = {
     }
 
     // Paper lantern in the middle of the ceiling: no shadows, to keep the frame cheap.
-    const lanternShade = meshesWith(root, 'CeilingLampshade');
-    const lantern = centreOf(lanternShade);
+    const lantern = centreOf(meshesWith(root, 'CeilingLampshade'));
     if (lantern) {
-      glow(lanternShade, 0xffc68a, 1.2);
       const bulb = new PointLight(0xffc68a, 2.5, 0, 2);
       bulb.name = 'Ceiling lantern';
       bulb.position.copy(lantern);

@@ -6,7 +6,7 @@
  *   npm run build:artifact
  *
  * - Builds with VITE_PACKED_ASSETS=1 into dist-packed/: the host only serves standard web file types,
- *   so .glb and .hdr files ship as base64 text (.b64.txt) that the game decodes (see src/assets/Assets.ts).
+ *   so .glb, .hdr and .exr files ship as base64 text (.b64.txt) that the game decodes (see src/assets/Assets.ts).
  * - The host wraps the page in its own <html>/<head>/<body>, so this keeps the title, inlines the
  *   stylesheet, and keeps the markup and scripts.
  * Prints a JSON manifest of { publishedPath: { from, contentType } } for the publish call.
@@ -26,7 +26,7 @@ const CONTENT_TYPES = {
   '.wasm': 'application/wasm',
   '.txt': 'text/plain',
 };
-const PACK = /\.(glb|hdr)$/i;
+const PACK = /\.(glb|hdr|exr)$/i;
 const TEXT_LIMIT = 16 * 1024 * 1024;
 
 async function* walk(dir) {

@@ -1,6 +1,7 @@
 import {
   DirectionalLight,
   FogExp2,
+  type MeshStandardMaterial,
   PointLight,
   Quaternion,
   SpotLight,
@@ -14,6 +15,8 @@ import {
 } from 'three';
 import { collectMeshes, type Physics } from '../physics/Physics';
 import { applySky, type SkyDef } from '../render/Environment';
+import { applyLightmap, readBakeInfo } from '../render/Lightmap';
+import { captureReflectionProbe } from '../render/ReflectionProbe';
 import type { LookSettings } from '../render/PostFX';
 import { Assets, assetUrl, type ProgressTracker } from './Assets';
 
@@ -38,6 +41,13 @@ export interface LevelDef {
   spawn: { position: [number, number, number]; yawDeg: number };
   fog?: { color: number; density: number };
   look?: Partial<LookSettings>;
+  /** Approximate size of the baked lightmap (progress bar only), if the model has one. */
+  lightmapBytes?: number;
+  /**
+   * Where to capture the room for reflections (after lighting is set up), and how strong they are.
+   * Replaces the sky as the environment for glossy surfaces; the sky stays visible through windows.
+   */
+  reflectionProbe?: { position: [number, number, number]; intensity: number };
   /** Shell command that produces missing files (shown in the error message). */
   fetchHint: string;
   /** Adds things the file doesn't contain, e.g. lights. */
@@ -48,6 +58,8 @@ export interface LevelContext {
   scene: Scene;
   root: Object3D;
   renderer: WebGLRenderer;
+  /** True when the model came with baked lighting (real-time lights would light it twice). */
+  lightmapped: boolean;
 }
 
 export interface LoadedLevel {
@@ -57,6 +69,8 @@ export interface LoadedLevel {
   textures: Texture[];
   collisionTriangles: number;
   collisionSource: string;
+  /** Materials using the baked lightmap (the debug panel scales their strength). */
+  lightmapMaterials: MeshStandardMaterial[];
 }
 
 export class MissingAssetError extends Error {}
@@ -96,6 +110,20 @@ export async function loadLevel(
   const root = gltf.scene;
   root.name = `level:${def.id}`;
   root.updateMatrixWorld(true);
+
+  // Baked lighting: the pipeline records the lightmap file in the glTF's scene extras.
+  let lightmapMaterials: MeshStandardMaterial[] = [];
+  const bake = readBakeInfo(root);
+  if (bake) {
+    progress.setStatus('Loading baked lighting');
+    const folder = def.gltf.path.slice(0, def.gltf.path.lastIndexOf('/') + 1);
+    const lightmap = await assets.loadExr(
+      assetUrl(folder + bake.lightmap),
+      progress.download('lightmap', def.lightmapBytes ?? 4_000_000),
+    );
+    progress.finish('lightmap');
+    lightmapMaterials = applyLightmap(root, lightmap, bake.lightmapIntensity ?? 1);
+  }
 
   // Sort nodes by naming convention.
   const colliders: Mesh[] = [];
@@ -141,7 +169,14 @@ export async function loadLevel(
 
   if (def.fog) scene.fog = new FogExp2(def.fog.color, def.fog.density);
   scene.add(root);
-  def.setup?.({ scene, root, renderer });
+  def.setup?.({ scene, root, renderer, lightmapped: lightmapMaterials.length > 0 });
+
+  if (def.reflectionProbe) {
+    progress.setStatus('Capturing reflections');
+    await yieldToBrowser();
+    scene.environment = captureReflectionProbe(renderer, scene, def.reflectionProbe.position);
+    scene.environmentIntensity = def.reflectionProbe.intensity;
+  }
 
   // Every texture the level uses, so the game can upload them all before play starts.
   const textures = new Set<Texture>();
@@ -151,7 +186,15 @@ export async function loadLevel(
     }
   }
 
-  return { def, root, spawn: { feet, yaw }, textures: [...textures], collisionTriangles, collisionSource };
+  return {
+    def,
+    root,
+    spawn: { feet, yaw },
+    textures: [...textures],
+    collisionTriangles,
+    collisionSource,
+    lightmapMaterials,
+  };
 }
 
 export type ShadowCastingLight = DirectionalLight | SpotLight | PointLight;

@@ -1,0 +1,60 @@
+{
+  "_comment": "Light rig for the TECH TEST living room. Coordinates are in game space (+Y up, metres). Lights 'at' a material sit at the centre of the objects using it.",
+  "world": {
+    "hdri": "../../../public/assets/tech-test/sky-dusk-2k.hdr",
+    "strength": 1.3,
+    "rotationDeg": 0
+  },
+  "lights": [
+    {
+      "name": "Dusk",
+      "type": "SUN",
+      "direction": [
+        0,
+        -4.2,
+        9.5
+      ],
+      "color": "#a9b8d4",
+      "strength": 2.5,
+      "angleDeg": 4
+    },
+    {
+      "name": "Floor lamp bulb",
+      "type": "POINT",
+      "at": {
+        "material": "LampshaderOuter"
+      },
+      "color": "#ffb36b",
+      "power": 100,
+      "radius": 0.04
+    },
+    {
+      "name": "Lantern bulb",
+      "type": "POINT",
+      "at": {
+        "material": "CeilingLampshade"
+      },
+      "color": "#ffc68a",
+      "power": 35,
+      "radius": 0.05
+    }
+  ],
+  "emissive": {
+    "LampshaderOuter": {
+      "color": "#ffb36b",
+      "strength": 1.6
+    },
+    "CeilingLampshade": {
+      "color": "#ffc68a",
+      "strength": 1.2
+    }
+  },
+  "noShadow": [
+    "LampshaderOuter",
+    "CeilingLampshade"
+  ],
+  "noBake": [
+    "LampshaderOuter",
+    "CeilingLampshade"
+  ]
+}

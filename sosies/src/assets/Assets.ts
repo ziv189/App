@@ -1,5 +1,6 @@
 import type { DataTexture, WebGLRenderer } from 'three';
 import { DRACO_GLTF_CONFIG, DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
@@ -7,7 +8,7 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 /**
  * The build published as a claude.ai page can only serve standard web file types, so it ships binary
- * assets (.glb, .hdr) as base64 text files next to the page (see tools/make-artifact.mjs). Every other
+ * assets (.glb, .hdr, .exr) as base64 text files next to the page (see tools/make-artifact.mjs). Every other
  * build loads the files directly.
  */
 const PACKED = import.meta.env.VITE_PACKED_ASSETS === '1';
@@ -16,7 +17,7 @@ const PACKED_SUFFIX = '.b64.txt';
 /** Resolves a path inside /public against the app's base URL (works in dev, builds and desktop wrappers). */
 export const assetUrl = (path: string) => {
   const url = `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
-  return PACKED && /\.(glb|hdr)$/i.test(path) ? url + PACKED_SUFFIX : url;
+  return PACKED && /\.(glb|hdr|exr)$/i.test(path) ? url + PACKED_SUFFIX : url;
 };
 
 /** Downloads a base64-packed asset (reporting progress in decoded bytes) and returns its bytes. */
@@ -100,6 +101,7 @@ export class ProgressTracker {
 export class Assets {
   readonly gltf: GLTFLoader;
   readonly hdr: HDRLoader;
+  readonly exr: EXRLoader;
   private readonly draco: DRACOLoader;
   private readonly ktx2: KTX2Loader;
 
@@ -111,6 +113,7 @@ export class Assets {
       .setKTX2Loader(this.ktx2)
       .setMeshoptDecoder(MeshoptDecoder);
     this.hdr = new HDRLoader();
+    this.exr = new EXRLoader();
   }
 
   async loadGltf(url: string, onProgress?: (e: ProgressEvent) => void): Promise<GLTF> {
@@ -122,6 +125,12 @@ export class Assets {
   async loadHdr(url: string, onProgress?: (e: ProgressEvent) => void): Promise<DataTexture> {
     if (!url.endsWith(PACKED_SUFFIX)) return this.hdr.loadAsync(url, onProgress);
     return this.hdr.createDataTexture(await fetchPacked(url, onProgress));
+  }
+
+  /** Half-float EXR, e.g. a baked lightmap. */
+  async loadExr(url: string, onProgress?: (e: ProgressEvent) => void): Promise<DataTexture> {
+    if (!url.endsWith(PACKED_SUFFIX)) return this.exr.loadAsync(url, onProgress);
+    return this.exr.createDataTexture(await fetchPacked(url, onProgress));
   }
 
   /**

@@ -3,8 +3,8 @@
 First-person psychological horror for desktop browsers (Chrome, Edge, Firefox), built with
 TypeScript + Three.js and no game engine. Later it can be wrapped as a desktop app for Steam.
 
-**Current state: Milestone 0 (foundation).** This is a walkable tech test: the engine, controls, physics,
-lighting pipeline and asset pipeline running in a furnished living room at dusk. The room is a free,
+**Current state: Milestone 1 (baked lighting).** This is a walkable tech test: the engine, controls, physics,
+baked global illumination and asset pipeline running in a furnished living room at dusk. The room is a free,
 credited model used only for testing; it is not SOSIES content and gets replaced by the real house.
 
 ---
@@ -97,7 +97,7 @@ Browser notes:
 | --- | --- |
 | `START-SOSIES.bat` | Double-click: installs, downloads test assets if needed, starts the game and opens the browser. |
 | `npm run dev` | Starts the game and opens it at <http://localhost:5173>. Code changes reload automatically. |
-| `npm run assets:test-room` | Rebuilds the test room from its original download. Not needed normally: the result is already in the repository. |
+| `npm run assets:test-room` | Rebuilds the test room from its original download and re-bakes its lighting (needs Blender 4.5 LTS, about 5 minutes). Not needed normally: the result is already in the repository. |
 | `npm run optimize -- in.glb out.glb` | Optimizes any glTF/GLB for the web and prints its budget report. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
 | `npm test` | Runs the unit tests. |
 | `npm run typecheck` | Checks the TypeScript for errors. |
@@ -113,6 +113,7 @@ Browser notes:
 | Post-processing | [postprocessing](https://github.com/pmndrs/postprocessing) + [N8AO](https://github.com/N8python/n8ao) | Proven effect stack: ambient occlusion, bloom, AgX tone mapping, SMAA, vignette, grain. |
 | Physics & movement | [Rapier](https://rapier.rs) | Its character controller handles walls, slopes, stairs and staying on the floor. |
 | Assets | glTF 2.0 (`.glb`), [glTF-Transform](https://gltf-transform.dev), meshopt, Draco, KTX2 | Industry-standard 3D format and optimizer. |
+| Baked lighting | [Blender 4.5 LTS](https://www.blender.org) Cycles, `tools/blender/bake_lightmaps.py` | Realistic bounced light, calculated offline and stored in lightmaps. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
 | Tooling | Vite, TypeScript, Vitest | Fast dev server, type safety, unit tests. |
 | Debug | [stats-gl](https://github.com/RenaudRohlinger/stats-gl), [lil-gui](https://lil-gui.georgealways.com) | FPS/CPU/GPU graphs and live tuning sliders. |
 

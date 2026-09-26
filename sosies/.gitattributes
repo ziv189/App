@@ -3,3 +3,4 @@
 # Test-room assets are binary.
 *.glb binary
 *.hdr binary
+*.exr binary
