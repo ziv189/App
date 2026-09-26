@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.cache/
+# Downloaded tech-test assets (not game content; licensed for local evaluation only)
+public/assets/tech-test/
+*.log
+.DS_Store
