@@ -1,0 +1,291 @@
+{
+ "_about": "Sound effects fetched by tools/audio/fetch_sfx.py (Freesound, CC0 only). Pick = index into the most-downloaded matching results.",
+ "sounds": [
+  {
+   "name": "step_wood",
+   "mode": "slice",
+   "count": 6,
+   "maxlen": 0.5,
+   "id": 331451
+  },
+  {
+   "name": "step_snow",
+   "mode": "slice",
+   "count": 6,
+   "maxlen": 0.6,
+   "id": 613849
+  },
+  {
+   "name": "step_tile",
+   "mode": "slice",
+   "count": 6,
+   "maxlen": 0.5,
+   "id": 170506
+  },
+  {
+   "name": "step_concrete",
+   "mode": "slice",
+   "count": 6,
+   "maxlen": 0.5,
+   "id": 167686
+  },
+  {
+   "name": "stairs_creak",
+   "mode": "slice",
+   "count": 4,
+   "maxlen": 1.2,
+   "id": 553210
+  },
+  {
+   "name": "door_open",
+   "id": 125957
+  },
+  {
+   "name": "door_close",
+   "id": 117614
+  },
+  {
+   "name": "door_locked",
+   "id": 321087
+  },
+  {
+   "name": "deadbolt",
+   "id": 213996
+  },
+  {
+   "name": "lock_motor",
+   "id": 364926
+  },
+  {
+   "name": "switch",
+   "id": 278205
+  },
+  {
+   "name": "buzz",
+   "mode": "loop",
+   "level": -26,
+   "id": 553075
+  },
+  {
+   "name": "flicker",
+   "id": 484157
+  },
+  {
+   "name": "wind_ext",
+   "mode": "loop",
+   "maxlen": 60,
+   "level": -20,
+   "id": 22606
+  },
+  {
+   "name": "wind_int",
+   "mode": "loop",
+   "maxlen": 60,
+   "level": -24,
+   "id": 69512
+  },
+  {
+   "name": "creak",
+   "mode": "slice",
+   "count": 5,
+   "maxlen": 2.0,
+   "id": 502507
+  },
+  {
+   "name": "clock_tick",
+   "mode": "loop",
+   "maxlen": 20,
+   "level": -24,
+   "id": 125968
+  },
+  {
+   "name": "clock_chime",
+   "mode": "slice",
+   "count": 2,
+   "maxlen": 3.5,
+   "id": 347139
+  },
+  {
+   "name": "clock_wind",
+   "id": 125320
+  },
+  {
+   "name": "rocking_chair",
+   "mode": "loop",
+   "maxlen": 12,
+   "level": -22,
+   "id": 119097
+  },
+  {
+   "name": "static",
+   "mode": "loop",
+   "maxlen": 8,
+   "level": -24,
+   "id": 35291
+  },
+  {
+   "name": "servo",
+   "id": 264592
+  },
+  {
+   "name": "vibrate",
+   "id": 515295
+  },
+  {
+   "name": "phone_ring",
+   "id": 275163
+  },
+  {
+   "name": "answer_beep",
+   "id": 671234
+  },
+  {
+   "name": "tap_water",
+   "mode": "loop",
+   "maxlen": 10,
+   "level": -22,
+   "id": 405231
+  },
+  {
+   "name": "drip",
+   "mode": "slice",
+   "count": 3,
+   "maxlen": 0.6,
+   "id": 119938
+  },
+  {
+   "name": "ice_crack",
+   "id": 342546
+  },
+  {
+   "name": "ice_sing",
+   "mode": "loop",
+   "maxlen": 40,
+   "level": -22,
+   "id": 737896
+  },
+  {
+   "name": "splash",
+   "id": 9508
+  },
+  {
+   "name": "underwater",
+   "mode": "loop",
+   "maxlen": 15,
+   "level": -22,
+   "id": 504641
+  },
+  {
+   "name": "heartbeat",
+   "mode": "loop",
+   "maxlen": 10,
+   "level": -20,
+   "id": 273150
+  },
+  {
+   "name": "breath",
+   "mode": "loop",
+   "maxlen": 12,
+   "level": -24,
+   "id": 112557
+  },
+  {
+   "name": "giggle",
+   "id": 203230
+  },
+  {
+   "name": "stinger",
+   "id": 460042
+  },
+  {
+   "name": "impact",
+   "id": 177242
+  },
+  {
+   "name": "breaker",
+   "id": 131599
+  },
+  {
+   "name": "power_down",
+   "id": 169994
+  },
+  {
+   "name": "server_hum",
+   "mode": "loop",
+   "maxlen": 15,
+   "level": -30,
+   "id": 211994
+  },
+  {
+   "name": "fridge_hum",
+   "mode": "loop",
+   "maxlen": 15,
+   "level": -32,
+   "id": 338115
+  },
+  {
+   "name": "musicbox_wind",
+   "id": 149992
+  },
+  {
+   "name": "paper",
+   "id": 211246
+  },
+  {
+   "name": "pickup",
+   "id": 334219
+  },
+  {
+   "name": "glitch",
+   "query": "digital glitch",
+   "min": 0.2,
+   "max": 3
+  },
+  {
+   "name": "pour",
+   "query": "pouring water",
+   "min": 1,
+   "max": 8
+  },
+  {
+   "name": "zipper",
+   "id": 51176
+  },
+  {
+   "name": "basement_amb",
+   "id": 489401,
+   "mode": "loop",
+   "maxlen": 40,
+   "level": -26
+  },
+  {
+   "name": "room_tone",
+   "query": "room tone",
+   "min": 20,
+   "max": 300,
+   "mode": "loop",
+   "maxlen": 30,
+   "level": -34
+  },
+  {
+   "name": "knock",
+   "id": 268500
+  },
+  {
+   "name": "child_run",
+   "id": 766741
+  },
+  {
+   "name": "door_slam",
+   "id": 571797
+  },
+  {
+   "name": "scare",
+   "id": 753746
+  },
+  {
+   "name": "ice_break",
+   "id": 329744
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+# Sound effects
+
+All sounds are from [Freesound](https://freesound.org) and dedicated to the public domain (CC0) by their authors. Credited here anyway, with thanks.
+
+- `answer_beep`: "Answering Machine BEEP 1" by Beetlemuse, <https://freesound.org/s/671234/>
+- `basement_amb`: "Ambient Unfinished Basement.wav" by more7859, <https://freesound.org/s/489401/>
+- `breaker`: "Kill Switch (Large Breaker Switch) .WAV" by EchoCinematics, <https://freesound.org/s/131599/>
+- `breath`: "Frightened Breathing.aiff" by nickrave, <https://freesound.org/s/112557/>
+- `buzz`: "Foley_Mechanism_Light_Buzz_Short_Loop_Mono_DR05.wav" by Nox_Sound, <https://freesound.org/s/553075/>
+- `child_run`: "FEETHmn_Running Up Stairs_ODIMog_OWISFX" by OMogadime, <https://freesound.org/s/766741/>
+- `clock_chime`: "Antique fireplace clock bell one strike" by Kinoton, <https://freesound.org/s/347139/>
+- `clock_tick`: "Grandfather clock.wav" by Ryding, <https://freesound.org/s/125968/>
+- `clock_wind`: "Clock Wind.wav" by adeluc4, <https://freesound.org/s/125320/>
+- `creak`: "Creaking Wood 4 Steps" by Rudmer_Rotteveel, <https://freesound.org/s/502507/>
+- `deadbolt`: "door bolt 5.wav" by FenrirFangs, <https://freesound.org/s/213996/>
+- `door_close`: "Door close.wav" by soundmary, <https://freesound.org/s/117614/>
+- `door_locked`: "Door Locked" by BenjaminNelan, <https://freesound.org/s/321087/>
+- `door_open`: "Opening a creaking door" by Ryding, <https://freesound.org/s/125957/>
+- `door_slam`: "Door slamming hard" by NachtmahrTV, <https://freesound.org/s/571797/>
+- `drip`: "Water Dripping on Water.aif" by ftpalad, <https://freesound.org/s/119938/>
+- `flicker`: "fluorescent light flickering 1.wav" by TemperMode, <https://freesound.org/s/484157/>
+- `fridge_hum`: "Residential kitchen roomtone, refrigerator fridge hum.wav" by SpliceSound, <https://freesound.org/s/338115/>
+- `giggle`: "child giggle" by RaspberryTickle, <https://freesound.org/s/203230/>
+- `glitch`: "interference.aif" by electrosnail, <https://freesound.org/s/58929/>
+- `heartbeat`: "Heart Beating" by michorvath, <https://freesound.org/s/273150/>
+- `ice_break`: "Ice break" by humanoide9000, <https://freesound.org/s/329744/>
+- `ice_crack`: "Ice cracking" by timbreknight, <https://freesound.org/s/342546/>
+- `ice_sing`: "Ice - Lake fractures" by Vrymaa, <https://freesound.org/s/737896/>
+- `impact`: "Cinematic Impact" by deleted_user_3277771, <https://freesound.org/s/177242/>
+- `knock`: "door_knock.wav" by wjtaylor, <https://freesound.org/s/268500/>
+- `lock_motor`: "Door, Auto Locking.wav" by LilMati, <https://freesound.org/s/364926/>
+- `musicbox_wind`: "wind up music box.wav" by freesound21, <https://freesound.org/s/149992/>
+- `paper`: "PageRustle" by Tomoyo%20Ichijouji, <https://freesound.org/s/211246/>
+- `phone_ring`: "Phone Old Landline Ringing" by robotjay, <https://freesound.org/s/275163/>
+- `pickup`: "Clothes Rustling 1" by WasabiWielder, <https://freesound.org/s/334219/>
+- `pour`: "Pouring Liquid.wav" by Dvideoguy, <https://freesound.org/s/207781/>
+- `power_down`: "Power Down" by peepholecircus, <https://freesound.org/s/169994/>
+- `rocking_chair`: "Rocking chair; creaky_1-2.aif" by domrodrig, <https://freesound.org/s/119097/>
+- `room_tone`: "Room_Tone_Ambience_Medium_Control_Low_Hum.wav" by gchase, <https://freesound.org/s/144046/>
+- `scare`: "JumpscareSound_Remake_Freesound.wav" by TheTVBunny, <https://freesound.org/s/753746/>
+- `server_hum`: "Computer Hum Noise" by qubodup, <https://freesound.org/s/211994/>
+- `servo`: "servomotor.wav" by vacuumfan7072, <https://freesound.org/s/264592/>
+- `splash`: "SPLASH.wav" by petenice, <https://freesound.org/s/9508/>
+- `stairs_creak`: "Wooden Stairs" by NachtmahrTV, <https://freesound.org/s/553210/>
+- `static`: "continuous static.wav" by Jace, <https://freesound.org/s/35291/>
+- `step_concrete`: "FootSteps in a Concrete Corridor 2" by cris, <https://freesound.org/s/167686/>
+- `step_snow`: "Footsteps_Mountain_Boots_Snow_Walk_Mono.wav" by Nox_Sound, <https://freesound.org/s/613849/>
+- `step_tile`: "Footsteps, Tile, Male Sneakers, Slow Pace.wav" by SpliceSound, <https://freesound.org/s/170506/>
+- `step_wood`: "Walking On A Wooden Floor" by ralph.whitehead, <https://freesound.org/s/331451/>
+- `stinger`: "Piano Shock Impact" by DianneLaChauveSouris, <https://freesound.org/s/460042/>
+- `switch`: "Switch Flip #1" by IanStarGem, <https://freesound.org/s/278205/>
+- `tap_water`: "Sink_Water_Running.wav" by NigelWright, <https://freesound.org/s/405231/>
+- `underwater`: "Underwater Ambience" by Fission9, <https://freesound.org/s/504641/>
+- `vibrate`: "Phone vibration" by Breviceps, <https://freesound.org/s/515295/>
+- `wind_ext`: "DMP013016 HEAVYSNOWSTORM.wav" by martypinso, <https://freesound.org/s/22606/>
+- `wind_int`: "Winter wind whistling through window.mp3" by audible-edge, <https://freesound.org/s/69512/>
+- `zipper`: "Zipper Unzip 3 (Slow) .wav" by RutgerMuller, <https://freesound.org/s/51176/>

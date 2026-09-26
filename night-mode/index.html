@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>SOSIES</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="view" tabindex="-1"></canvas>
+
+      <div id="hud" hidden>
+        <div id="reticle"></div>
+        <div id="watermark"></div>
+        <div id="hud-hint"></div>
+      </div>
+
+      <section id="screen-loading" class="screen">
+        <h1 class="title">SOSIES</h1>
+        <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <p class="status" id="loading-status">Starting…</p>
+        <p class="hint" id="loading-hint"></p>
+      </section>
+
+      <section id="screen-start" class="screen" hidden>
+        <h1 class="title">SOSIES</h1>
+        <p class="subtitle" id="start-subtitle"></p>
+        <button class="primary" id="btn-start" type="button">Click to begin</button>
+        <p class="hint">Mouse &amp; keyboard: click to capture the mouse · Controller: press <kbd>A</kbd></p>
+        <p class="hint warn touch-only">SOSIES is played with a keyboard and mouse, or a controller, on a computer.</p>
+        <p class="hint warn" id="start-hint"></p>
+        <p class="credits" id="start-credits"></p>
+      </section>
+
+      <section id="screen-pause" class="screen" hidden>
+        <h2 class="heading">Paused</h2>
+        <button class="primary" id="btn-resume" type="button">Resume</button>
+        <p class="hint warn" id="resume-hint"></p>
+        <div class="columns">
+          <form class="panel" id="settings-form" autocomplete="off">
+            <h3>Settings</h3>
+            <label>Graphics quality
+              <select name="quality">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="ultra">Ultra</option>
+              </select>
+            </label>
+            <label>Mouse sensitivity <output name="mouseSensitivityOut"></output>
+              <input type="range" name="mouseSensitivity" min="0.1" max="4" step="0.05" />
+            </label>
+            <label>Controller look speed <output name="gamepadSensitivityOut"></output>
+              <input type="range" name="gamepadSensitivity" min="0.2" max="3" step="0.05" />
+            </label>
+            <label>Field of view <output name="fovOut"></output>
+              <input type="range" name="fov" min="70" max="110" step="1" />
+            </label>
+            <label class="check"><input type="checkbox" name="invertY" /> Invert look up/down</label>
+            <label class="check"><input type="checkbox" name="headBob" /> Head bob</label>
+          </form>
+          <div class="panel controls">
+            <h3>Controls</h3>
+            <table>
+              <tr><th></th><th>Keyboard &amp; mouse</th><th>Controller</th></tr>
+              <tr><td>Move</td><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows</td><td>Left stick</td></tr>
+              <tr><td>Look</td><td>Mouse</td><td>Right stick</td></tr>
+              <tr><td>Run</td><td>Hold <kbd>Shift</kbd></td><td>Click <kbd>L3</kbd></td></tr>
+              <tr><td>Crouch</td><td><kbd>C</kbd> (toggle)</td><td><kbd>B</kbd> (toggle)</td></tr>
+              <tr><td>Pause</td><td><kbd>Esc</kbd></td><td><kbd>Start</kbd></td></tr>
+              <tr><td>Debug panel</td><td><kbd>`</kbd> (key left of 1)</td><td>—</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-error" class="screen" hidden>
+        <h2 class="heading">Something went wrong</h2>
+        <pre class="error" id="error-text"></pre>
+        <button class="primary" id="btn-copy-error" type="button">Copy these details</button>
+      </section>
+    </div>
+    <script>
+      // Boot guard: a plain script that runs before the game code, so the page explains itself even when
+      // the game code can't load at all. (The file: check must change when we package the desktop app.)
+      (function () {
+        function show(message) {
+          document.getElementById('screen-loading').hidden = true;
+          document.getElementById('screen-error').hidden = false;
+          document.getElementById('error-text').textContent = message;
+        }
+        document.getElementById('btn-copy-error').addEventListener('click', function () {
+          var text = document.getElementById('error-text').textContent;
+          var button = this;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(function () {
+              button.textContent = 'Copied';
+            });
+          }
+        });
+        if (location.protocol === 'file:') {
+          show(
+            'This page was opened straight from the folder, which browsers block for games like this.\n\n' +
+              'Close this tab and double-click START-SOSIES.bat in the sosies folder instead. It starts the ' +
+              'game server and opens the game in your browser.'
+          );
+          return;
+        }
+        function bootError(detail) {
+          if (!window.sosiesBooted) {
+            show('The game code failed to load:\n\n' + detail + '\n\nPress F12, open the Console tab and send me a screenshot.');
+          }
+        }
+        window.addEventListener('error', function (e) {
+          bootError(e.message || String(e.error));
+        });
+        window.addEventListener('unhandledrejection', function (e) {
+          bootError((e.reason && e.reason.message) || String(e.reason));
+        });
+        setTimeout(function () {
+          if (window.sosiesBooted) return;
+          var local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+          show(
+            'The game code did not start within 30 seconds.\n\n' +
+              (local
+                ? '1. Check that the START-SOSIES window (or the terminal running "npm run dev") is still open and shows no errors.\n'
+                : '1. Check your internet connection.\n') +
+              '2. Reload this page (F5).\n' +
+              '3. Still stuck? Press F12, open the Console tab and send me a screenshot.'
+          );
+        }, 30000);
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

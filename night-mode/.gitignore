@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-artifact/
+dist-packed/
+.cache/
+# Raw source downloads and Blender working files live outside the repo (tools/fetch-sources.mjs recreates them).
+assets-src/downloads/
+assets-src/work/
+*.blend1
+*.log
+.DS_Store
