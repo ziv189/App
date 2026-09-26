@@ -15,6 +15,7 @@ import {
   PlaneGeometry,
   Points,
   PointsMaterial,
+  Quaternion,
   Scene,
   SphereGeometry,
   SpotLight,
@@ -28,12 +29,22 @@ import type { GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import type { AudioEngine, SoundHandle } from '../audio/AudioEngine';
 import type { Voice } from '../audio/Voice';
 import { Character } from '../characters/Character';
-import { collisionGroups, LAYER, RAPIER, type Physics } from '../physics/Physics';
+import type { Physics } from '../physics/Physics';
 import type { PlayerController } from '../player/PlayerController';
 import type { Ui } from '../ui/Ui';
 import type { CellId } from '../world/Cell';
 import type { World } from '../world/World';
 import { faceStudio, Screens, type Feed } from './Screens';
+
+const UP = new Vector3(0, 1, 0);
+const X_AXIS = new Vector3(1, 0, 0);
+const turnQ = new Quaternion();
+
+/** Turns an object about one of its own axes, relative to the orientation it was loaded with. */
+function turnLocal(obj: Object3D, axis: Vector3, angle: number): void {
+  const base = ((obj.userData.baseQuat as Quaternion | undefined) ??= obj.quaternion.clone());
+  obj.quaternion.copy(base).multiply(turnQ.setFromAxisAngle(axis, angle));
+}
 
 /** Layer only the bathroom mirror's camera sees (Ivy standing behind the player). */
 export const MIRROR_LAYER = 3;
@@ -41,7 +52,9 @@ export const MIRROR_LAYER = 3;
 interface SecurityCamera {
   cell: CellId;
   obj: Object3D;
-  baseYaw: number;
+  /** Rest orientation; the sweep turns it about the vertical. Its lens looks along local +Z. */
+  baseQuat: Quaternion;
+  sweep: number;
   led: Mesh;
   phase: number;
 }
@@ -83,6 +96,7 @@ export class Fx {
   private clockTime = 0;
   private rocking = false;
   private rockTime = 0;
+  private rockAngle = 0;
   private rockSound: SoundHandle | null = null;
   private coldOn = false;
   private breathTimer = 3;
@@ -92,6 +106,7 @@ export class Fx {
   private readonly tmp2 = new Vector3();
   private warned = new Set<string>();
   private wakeTimers: number[] = [];
+  private readonly qTmp = new Quaternion();
   private iceHole: Object3D | null = null;
   private videoActive = false;
 
@@ -118,12 +133,12 @@ export class Fx {
           this.screens.register(name.replace(/_screen$/, ''), obj, { curve: name.startsWith('tv') || name.startsWith('monitor') ? 0.12 : 0.02 });
         }
         if (name.startsWith('cam_') && !this.cams.some((c) => c.obj === obj)) {
+          // aim it along its marker (M_cam_x): the lens looks along the camera's local +Z
+          if (cell.markers.has(name)) obj.quaternion.setFromAxisAngle(UP, cell.markerYaw(name) + Math.PI);
           const led = new Mesh(new SphereGeometry(0.012, 8, 6), new MeshBasicMaterial({ color: 0x220000 }));
-          const marker = cell.markers.get(name);
           obj.add(led);
-          led.position.set(0, 0.0, 0.0);
-          this.cams.push({ cell: cellId, obj, baseYaw: obj.rotation.y, led, phase: Math.random() * 6 });
-          void marker;
+          led.position.set(0.035, 0.2, 0.19); // beside the lens
+          this.cams.push({ cell: cellId, obj, baseQuat: obj.quaternion.clone(), sweep: 0, led, phase: Math.random() * 6 });
         }
       }
       if (cellId === 'living' && !this.pendulum) {
@@ -317,7 +332,7 @@ export class Fx {
 
   clockDoor(open: boolean): void {
     const door = this.d.world.cells.get('living')?.dynamic.get('clock_door');
-    if (door) door.rotation.y = open ? 1.6 * Number(door.userData.open_sign ?? -1) : 0;
+    if (door) turnLocal(door, UP, open ? 1.6 * Number(door.userData.open_sign ?? -1) : 0);
     this.d.world.cells.get('living')?.setDoorOpen('clock', open ? 1 : 0);
   }
 
@@ -343,8 +358,9 @@ export class Fx {
     if (!this.camerasOn || w.current?.def.id !== cam.cell) return false;
     const p = this.d.player.position;
     const eye = this.d.player.eyeHeight;
-    const origin = cam.obj.getWorldPosition(this.tmp);
-    const fwd = new Vector3(0, 0, 1).applyQuaternion(cam.obj.getWorldQuaternion(cam.obj.quaternion.clone()));
+    // from the lens (the object's origin is its wall mount, inside the wall's collision)
+    const origin = cam.obj.localToWorld(this.tmp.set(0, 0.19, 0.3));
+    const fwd = new Vector3(0, 0, 1).applyQuaternion(cam.obj.getWorldQuaternion(new Quaternion()));
     for (const h of [eye - 0.05, eye * 0.55]) {
       const target = this.tmp2.set(p.x, p.y + h, p.z);
       const dir = target.clone().sub(origin);
@@ -352,9 +368,7 @@ export class Fx {
       if (dist > 14) continue;
       dir.normalize();
       if (Math.abs(fwd.angleTo(new Vector3(dir.x, fwd.y !== 0 ? dir.y : 0, dir.z))) > MathUtils.degToRad(48)) continue;
-      const ray = new RAPIER.Ray(origin, dir);
-      const hit = this.d.physics.world.castRay(ray, dist - 0.3, true, undefined, collisionGroups(LAYER.ALL, LAYER.WORLD));
-      if (!hit) return true;
+      if (this.d.physics.castRay(origin, dir, dist - 0.3) === null) return true;
     }
     return false;
   }
@@ -386,7 +400,7 @@ export class Fx {
 
   musicBoxOpen(open: boolean): void {
     const lid = this.d.world.cells.get('bedroom')?.dynamic.get('musicbox_lid');
-    if (lid) lid.rotation.x = open ? -1.7 : 0;
+    if (lid) turnLocal(lid, X_AXIS, open ? -1.7 : 0); // hinged along its back edge (local X)
   }
 
   footprints(on: boolean): void {
@@ -484,7 +498,7 @@ export class Fx {
 
   breaker(): void {
     const lever = this.d.world.cells.get('basement')?.dynamic.get('breaker_lever');
-    if (lever) lever.rotation.x = MathUtils.degToRad(-100);
+    if (lever) turnLocal(lever, X_AXIS, MathUtils.degToRad(-100));
   }
 
   async sitDown(): Promise<void> {
@@ -631,13 +645,14 @@ export class Fx {
     if (chair) {
       if (this.rocking) this.rockTime += dt;
       const target = this.rocking ? Math.sin(this.rockTime * 2.1) * 0.12 : 0;
-      chair.rotation.x = MathUtils.damp(chair.rotation.x, target, 3, dt);
+      this.rockAngle = MathUtils.damp(this.rockAngle, target, 3, dt);
+      turnLocal(chair, X_AXIS, this.rockAngle);
     }
     // security cameras
     for (const c of this.cams) {
       if (this.sweeping) c.phase += dt * 0.5;
-      const target = c.baseYaw + (this.sweeping ? Math.sin(c.phase) * 0.6 : 0);
-      c.obj.rotation.y = MathUtils.damp(c.obj.rotation.y, target, 4, dt);
+      c.sweep = MathUtils.damp(c.sweep, this.sweeping ? Math.sin(c.phase) * 0.6 : 0, 4, dt);
+      c.obj.quaternion.copy(c.baseQuat).premultiply(this.qTmp.setFromAxisAngle(UP, c.sweep));
     }
     if (this.seeking) {
       const s = this.seeking;

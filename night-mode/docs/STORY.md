@@ -68,7 +68,7 @@ Ivy asks Alex to find three things "Mom packed away":
    "As long as you want, bug."*).
 2. **Her tablet** (bathroom): her last recording, Jan 14, 2:09 AM, the ice singing: *"It's singing tonight.
    I'm gonna get closer."*
-3. **Her red mitten** (living room, under the bay window): soaking wet, ice cold.
+3. **Her red mitten** (her bedroom, under the window): soaking wet, ice cold, in a puddle of lake water.
 
 Scares: the **bathroom mirror** (Ivy stands behind Alex in the reflection), wet child footprints on the landing
 leading to Ivy's locked door, the rocking chair rocking, the clock striking thirteen.
@@ -83,7 +83,7 @@ the basement, across the lake to the road"*); his friend's replies go unanswered
 - Kitchen: the answering machine finally plays Dana's goodbye: *"We're not coming back, sweetheart."*
 - Alex's own booking: *Booked by: Hale, D. — Payment: WREN HOME house account.* Ivy: *"I booked you."*
 - The basement key is inside the **grandfather clock** Alex wound in chapter 1. Taking it cuts every light; the
-  landline rings; a whisper right beside Alex: *"Don't go down there."* The door under the stairs creaks open.
+  whisper right beside Alex: *"Don't go down there."* The cellar door in the kitchen creaks open.
 
 ### Chapter 5 — The Basement (3:00 AM)
 Bare bulb, pipes, boxes marked *IVY — KEEP*, Wren's computer with Ivy's face watching from the monitor, the
@@ -109,11 +109,12 @@ Bare bulb, pipes, boxes marked *IVY — KEEP*, Wren's computer with Ivy's face w
 | Space | Source | Notes |
 | --- | --- | --- |
 | Exterior: driveway, porch, garden, dock, frozen lake | *Victorian Style House* (Bitterli, CC0) + Poly Haven trees, pier, snow/ice textures, night sky | Prologue, ending 3 |
-| Hall + stairs + landing | *The Wooden Staircase* (Wig42, CC BY 3.0) | Hub; front door, basement door under the stairs |
+| Hall + stairs + landing | *The Wooden Staircase* (Wig42, CC BY 3.0) | Hub; front door, the nook under the stairs |
 | Living room | *The White Room* (Jay-Artist, CC BY 3.0) | Clock, TV, rocking chair, bay window |
-| Kitchen | *Country Kitchen* (Jay-Artist, CC BY 3.0) | Chores list, back door, answering machine, charger |
+| Kitchen | *Country Kitchen* (Jay-Artist, CC BY 3.0) | Chores list, back door, cellar door, answering machine, charger, Wren's panel |
 | Master bedroom | *Bedroom* (SlykDrako, CC0) | Music box, laptop logs, realtor folder |
 | Bathroom | *Contemporary Bathroom* (Mareck, CC0) | Mirror scare, tablet |
+| Ivy's room | Built for this game from Poly Haven props and textures (CC0) | The mitten, her drawing |
 | Basement | Built for this game from Poly Haven props and textures (CC0) | Finale |
 
 Rooms were made for single renders, so missing ceilings and walls are rebuilt with the rooms' own materials.

@@ -24,6 +24,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'hall',
+    exposure: { moon: 1.5 },
     title: 'Hall',
     file: 'assets/rooms/hall.glb',
     approxBytes: 7_000_000,
@@ -43,6 +44,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'living',
+    exposure: { moon: 1.5 },
     title: 'Living room',
     file: 'assets/rooms/living.glb',
     approxBytes: 7_000_000,
@@ -60,6 +62,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'kitchen',
+    exposure: { moon: 1.5 },
     title: 'Kitchen',
     file: 'assets/rooms/kitchen.glb',
     approxBytes: 8_000_000,
@@ -77,6 +80,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'bedroom',
+    exposure: { moon: 1.5 },
     title: 'Bedroom',
     file: 'assets/rooms/bedroom.glb',
     approxBytes: 6_000_000,
@@ -93,6 +97,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'bathroom',
+    exposure: { moon: 1.5 },
     title: 'Bathroom',
     file: 'assets/rooms/bathroom.glb',
     approxBytes: 6_000_000,
@@ -109,6 +114,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'ivy',
+    exposure: { moon: 1.5 },
     title: "Ivy's room",
     file: 'assets/rooms/ivy.glb',
     approxBytes: 4_000_000,

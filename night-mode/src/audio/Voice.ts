@@ -65,6 +65,9 @@ export class Voice {
   }
 
   /** Plays a line (queued after any line still playing). Resolves when it has finished. */
+  /** Debug: lines stop after a moment (scripted test runs). */
+  fast = false;
+
   say(id: string, opts: SayOptions = {}): Promise<void> {
     const run = async () => {
       const line = this.line(id);
@@ -73,7 +76,12 @@ export class Voice {
       const handle = await this.audio.play(`voice/${id}`, { reverb: 0.25, ...opts, bus: 'voice' });
       this.current = { id, line, handle };
       if (opts.subtitle !== false) this.onSubtitle?.(style, line.text);
-      await handle.ended;
+      if (this.fast) {
+        await Promise.race([handle.ended, new Promise((r) => setTimeout(r, 250))]);
+        handle.stop(0.05);
+      } else {
+        await handle.ended;
+      }
       if (this.current?.handle === handle) {
         this.current = null;
         this.onSubtitleClear?.();

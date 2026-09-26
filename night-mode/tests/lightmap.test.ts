@@ -50,13 +50,13 @@ describe('applyLightmaps', () => {
     applyLightmaps(root, new DataTexture(new Uint16Array(4), 1, 1), null, u);
     const shader = {
       uniforms: {} as Record<string, unknown>,
-      fragmentShader: '#include <lightmap_pars_fragment>\nvec4 lightMapTexel = texture2D( lightMap, vLightMapUv );',
+      fragmentShader: '#include <lightmap_pars_fragment>\n#include <lights_fragment_maps>',
       vertexShader: '',
     };
     const mat = baked.material as MeshStandardMaterial;
     mat.onBeforeCompile(shader as never, undefined as never);
     expect(shader.uniforms.lightMapMix).toBe(u.lightMapMix);
-    expect(shader.fragmentShader).toContain('mix( texture2D( lightMap, vLightMapUv ), texture2D( lightMap2, vLightMapUv ), lightMapMix )');
+    expect(shader.fragmentShader).toContain('mix( texture2D( lightMap, vLightMapUv ), texture2D( lightMap2, vLightMapUv ) * vec4( lightMap2Tint, 1.0 ), lightMapMix )');
     // with no moon lightmap the room keeps its lamps' light in both states
     expect(u.lightMap2.value).toBe(mat.lightMap);
   });

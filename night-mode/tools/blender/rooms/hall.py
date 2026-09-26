@@ -95,22 +95,18 @@ def build():
     # ---- props
     ch = L.ph_model('Chandelier_02', (-0.8, -3.0, FOYER_CEILING - 0.908), name='foyer_chandelier')
     L.nocollide(ch)
-    cam1 = L.ph_model('security_camera_01', (-3.85, -4.7, 3.55), yaw_deg=-135, name='cam_foyer')
-    L.dynamic(cam1, 'cam_foyer')
-    L.marker('cam_foyer', (-3.85, -4.7, 3.5), -45, camera='hall1')
-    cam2 = L.ph_model('security_camera_01', (-3.85, -0.7, 6.1), yaw_deg=-135, name='cam_landing')
-    L.dynamic(cam2, 'cam_landing')
-    L.marker('cam_landing', (-3.85, -0.7, 6.05), -45, camera='hall2')
+    L.security_camera('cam_foyer', (-3.85, -4.7, 3.55), -45)
+    L.security_camera('cam_landing', (-3.85, -0.7, 6.1), -45)
     plant = L.ph_model('potted_plant_02', (-3.55, 4.6, LANDING), yaw_deg=30, name='plant_landing')
     L.proxy('plant_landing', (-3.55, 4.6, LANDING + 0.45), (0.8, 0.8, 0.9))
 
     # Jordan's phone lies on the floor in the nook under the stairs (a hiding place in chapter 2)
     phone_mat = L.simple_material('NM_PhoneBlack', (0.02, 0.02, 0.025), rough=0.25)
     phone = L.add_box('jordan_phone', (-0.08, -0.037, 0), (0.08, 0.037, 0.008), phone_mat)
-    phone.location = (-1.25, 4.35, FLOOR + 0.001)
+    phone.location = (-1.5, 4.25, FLOOR + 0.001)
     phone.rotation_euler = (0, 0, 0.6)
     L.dynamic(phone, 'jordan_phone')
-    L.proxy('jordan_phone', (-1.25, 4.35, FLOOR + 0.05), (0.35, 0.35, 0.15))
+    L.proxy('jordan_phone', (-1.5, 4.25, FLOOR + 0.05), (0.35, 0.35, 0.15))
 
     footprints()
 
@@ -118,7 +114,7 @@ def build():
     L.proxy('photos', (2.3, 1.1, 2.95), (0.3, 0.7, 0.9))
 
     # ---- markers
-    L.marker('hide_nook', (-1.0, 4.2, FLOOR), 90, hide='nook')
+    L.marker('hide_nook', (-1.6, 4.6, FLOOR), 90, hide='nook')
     L.marker('landing', (-2.9, 1.8, LANDING), 180)
     L.marker('stairs_bottom', (1.5, 0.6, FLOOR), 0)
     L.marker('foyer', (-0.8, -3.2, FLOOR), 0)

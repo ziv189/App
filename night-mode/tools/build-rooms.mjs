@@ -58,7 +58,10 @@ async function main() {
       if (flag('--no-bake')) pyArgs.push('--no-bake');
       const r = spawnSync(blender(), pyArgs, { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', maxBuffer: 1 << 28 });
       for (const line of (r.stdout ?? '').split('\n')) if (/^\[(room|bake)\]|Error|Traceback/.test(line)) console.log(line);
-      if (r.status !== 0) throw new Error(`Blender failed for ${room}`);
+      if (r.status !== 0) {
+        const tail = (r.stdout ?? '').trim().split('\n').slice(-25).join('\n');
+        throw new Error(`Blender failed for ${room} (${r.error?.message ?? (r.signal ? `killed by ${r.signal}` : `exit code ${r.status}`)}). Last output:\n${tail}`);
+      }
     }
     console.log(`=== ${room}: optimize`);
     const input = join(ROOT, 'assets-src', 'work', `${room}-baked.glb`);

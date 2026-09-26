@@ -1,5 +1,7 @@
 import {
+  Color,
   LinearFilter,
+  ShaderChunk,
   type DataTexture,
   type Material,
   type Mesh,
@@ -41,6 +43,8 @@ export interface LightmapUniforms {
   lightMap2: { value: Texture | null };
   lightMapMix: { value: number };
   lightMapScale: { value: number };
+  /** Colour grade of the second (moonlight) state: cold light for the rooms inside. */
+  lightMap2Tint?: { value: Color };
 }
 
 export function prepareLightmapTexture(texture: DataTexture): DataTexture {
@@ -91,14 +95,19 @@ function patchBlend(mat: MeshStandardMaterial, uniforms: LightmapUniforms): void
     shader.uniforms.lightMap2 = uniforms.lightMap2;
     shader.uniforms.lightMapMix = uniforms.lightMapMix;
     shader.uniforms.lightMapScale = uniforms.lightMapScale;
+    shader.uniforms.lightMap2Tint = uniforms.lightMap2Tint ?? { value: new Color(1, 1, 1) };
     shader.fragmentShader = shader.fragmentShader
       .replace(
         '#include <lightmap_pars_fragment>',
-        '#include <lightmap_pars_fragment>\n#ifdef USE_LIGHTMAP\nuniform sampler2D lightMap2;\nuniform float lightMapMix;\nuniform float lightMapScale;\n#endif',
+        '#include <lightmap_pars_fragment>\n#ifdef USE_LIGHTMAP\nuniform sampler2D lightMap2;\nuniform float lightMapMix;\nuniform float lightMapScale;\nuniform vec3 lightMap2Tint;\n#endif',
       )
+      // the sampling line lives in a chunk that three.js expands after this hook: expand it here
       .replace(
-        'vec4 lightMapTexel = texture2D( lightMap, vLightMapUv );',
-        'vec4 lightMapTexel = mix( texture2D( lightMap, vLightMapUv ), texture2D( lightMap2, vLightMapUv ), lightMapMix ) * lightMapScale;',
+        '#include <lights_fragment_maps>',
+        ShaderChunk.lights_fragment_maps.replace(
+          'vec4 lightMapTexel = texture2D( lightMap, vLightMapUv );',
+          'vec4 lightMapTexel = mix( texture2D( lightMap, vLightMapUv ), texture2D( lightMap2, vLightMapUv ) * vec4( lightMap2Tint, 1.0 ), lightMapMix ) * lightMapScale;',
+        ),
       );
   });
 }

@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Scene, Timer, Vector3, type WebGLRenderer } from 'three';
+import { MathUtils, PerspectiveCamera, Scene, Timer, Vector3, type WebGLRenderer } from 'three';
 import type { GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { Assets, assetUrl, ProgressTracker } from '../assets/Assets';
 import { AudioEngine } from '../audio/AudioEngine';
@@ -664,6 +664,26 @@ export class Game implements StoryHost {
       game: this,
       jump: (id: ChapterId) => this.startFrom(id, false),
       speakers: SPEAKERS,
+      /** Scripted tests: story waits k times shorter, voice lines cut short. */
+      fast: (k = 10) => {
+        this.story.timeScale = k;
+        this.voice.fast = k > 1;
+      },
+      /** Stands the player at a marker in a room, lit on (0) or moonlit (1), e.g. nm.view('kitchen', 'door_hall', 1). */
+      view: async (cell: CellId, marker: string, night = 0, yawDeg?: number, pitchDeg = 0) => {
+        this.state = 'playing';
+        this.ui.show('none');
+        this.ui.setBlack(false);
+        this.world.nightTarget = night;
+        this.world.brightnessTarget = 1;
+        await this.world.load(cell);
+        await this.place(cell, marker);
+        const c = this.world.current!;
+        c.night = night;
+        c.applyLighting();
+        this.world.exposure = c.targetExposure;
+        if (yawDeg !== undefined) this.player.teleport(this.player.position.clone(), MathUtils.degToRad(yawDeg), MathUtils.degToRad(pitchDeg));
+      },
     };
   }
 }

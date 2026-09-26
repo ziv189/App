@@ -172,6 +172,19 @@ def screen_from_material(obj, material_name, name, offset=0.002, inset=0.0):
     return q
 
 
+def security_camera(name, location, facing_yaw_deg, marker_drop=0.05):
+    """A ceiling-corner security camera (Poly Haven security_camera_01) looking along facing_yaw.
+    The model's lens points along its -Y; the turn stays on the object (not baked into the mesh), so the
+    game can sweep it and knows where it looks (its local +Z after export)."""
+    cam = ph_model('security_camera_01', (0, 0, 0), yaw_deg=0, name=f'DYN_{name}')
+    cam.location = Vector(location)
+    cam.rotation_mode = 'XYZ'
+    cam.rotation_euler = (0, 0, math.radians(facing_yaw_deg + 180))
+    dynamic(cam)
+    marker(name, (location[0], location[1], location[2] - marker_drop), facing_yaw_deg, camera=name)
+    return cam
+
+
 def surface_z(x, y, z_from=3.0, default=0.0):
     """Height of the first surface below (x, y, z_from): for standing props on tables and counters."""
     dg = bpy.context.evaluated_depsgraph_get()
@@ -413,6 +426,8 @@ def ph_model(asset_id, location, yaw_deg=0.0, scale=1.0, name=None, join_meshes=
     obj = join(meshes, name or asset_id)
     select_only([obj])
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+    # the glTF importer leaves objects in quaternion mode, where rotation_euler is silently ignored
+    obj.rotation_mode = 'XYZ'
     return obj
 
 

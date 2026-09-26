@@ -224,6 +224,9 @@ def make_lightmap_uvs(objects, size, margin_px, density=None):
         mesh = o.data
         if len(mesh.uv_layers) == 0:
             mesh.uv_layers.new(name="UVMap")  # keep the lightmap as the 2nd set (TEXCOORD_1)
+        for extra in [l for l in list(mesh.uv_layers)[1:] if l.name != LIGHTMAP_UV]:
+            log(f"removing extra UV map {extra.name} from {o.name} (the lightmap must be TEXCOORD_1)")
+            mesh.uv_layers.remove(extra)
         first = mesh.uv_layers[0]
         layer = mesh.uv_layers.get(LIGHTMAP_UV) or mesh.uv_layers.new(name=LIGHTMAP_UV)
         first.active_render = True  # materials keep sampling their textures with the 1st set

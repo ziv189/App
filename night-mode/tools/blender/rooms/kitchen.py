@@ -141,9 +141,7 @@ def build():
     lamp.location.z -= hi.z - CEIL
     L.nocollide(lamp)
 
-    cam = L.ph_model('security_camera_01', (EAST - 0.12, NORTH - 0.35, CEIL - 0.2), yaw_deg=135, name='cam_kitchen')
-    L.dynamic(cam, 'cam_kitchen')
-    L.marker('cam_kitchen', (EAST - 0.12, NORTH - 0.35, CEIL - 0.25), 135, camera='kitchen')
+    L.security_camera('cam_kitchen', (EAST - 0.12, NORTH - 0.35, CEIL - 0.2), 135)  # north-east corner, looking south-west
 
     # ---- bake lights
     L.light('pendant', 'POINT', (0.19, 1.62, 2.36), 90, '#ffd2a0', radius=0.1, states=('on',))

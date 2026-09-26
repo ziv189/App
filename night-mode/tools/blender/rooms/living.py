@@ -87,6 +87,7 @@ def rocking_chair():
     L.set_origin(chair, (0, -0.05, 0))
     chair.location = CHAIR
     # the model faces -Y; turn it to face the fireplace (north-west)
+    chair.rotation_mode = 'XYZ'
     chair.rotation_euler = (0, 0, math.radians(200))
     L.dynamic(chair)
     L.tag(chair, nm_collide=1)
@@ -119,14 +120,12 @@ def build():
     chandelier.location.z -= hi.z - CEIL
     L.nocollide(chandelier)
 
-    cam = L.ph_model('security_camera_01', (EAST - 0.12, -0.9, CEIL - 0.2), yaw_deg=135, name='cam_living')
-    L.dynamic(cam, 'cam_living')
-    L.marker('cam_living', (EAST - 0.12, -0.9, CEIL - 0.25), -135, camera='living')
+    L.security_camera('cam_living', (EAST - 0.12, -1.65, CEIL - 0.2), 135)  # east wall by the bay, looking south-west
 
     # ---- bake lights
-    L.light('pendant', 'POINT', (0.38, -2.9, 2.45), 120, '#ffd2a0', radius=0.2, states=('on',))
+    L.light('pendant', 'POINT', (0.38, -2.9, 2.45), 120, '#ffd2a0', radius=0.35, states=('on',))
     L.light('floor_lamp', 'POINT', (2.72, -1.69, 1.42), 60, '#ffc07a', radius=0.12, states=('on',))
-    L.light('south_chandelier', 'POINT', (0.3, -6.1, CEIL - 0.55), 110, '#ffcf9a', radius=0.25, states=('on',))
+    L.light('south_chandelier', 'POINT', (0.3, -6.1, CEIL - 0.55), 110, '#ffcf9a', radius=0.7, states=('on',))  # soft: sharp shadows alias in the lightmap
     L.light('fire_glow', 'POINT', (-2.2, -2.9, 0.35), 8, '#ff8a3a', radius=0.2, states=('on',))
     # moonlight through the bay window
     L.light('bay_moon', 'AREA', (0.2, 0.2, 2.1), 70, '#9fb4e6', states=('moon', 'on'), direction=(0, -1, -0.35))

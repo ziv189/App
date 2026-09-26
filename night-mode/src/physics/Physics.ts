@@ -9,6 +9,10 @@ export const LAYER = { WORLD: 0x0001, PLAYER: 0x0002, ALL: 0xffff } as const;
 /** Rapier packs "belongs to" (high 16 bits) and "can touch" (low 16 bits) into one number. */
 export const collisionGroups = (belongsTo: number, canTouch: number) => ((belongsTo << 16) | canTouch) >>> 0;
 
+const WORLD_ONLY = collisionGroups(LAYER.ALL, LAYER.WORLD);
+const DOWN = new Vector3(0, -1, 0);
+const isEnabled = (c: RAPIER.Collider) => c.isEnabled();
+
 /**
  * Thin wrapper around a Rapier physics world. The level is static triangle-mesh collision; the player
  * is a kinematic capsule moved by Rapier's character controller (see PlayerController).
@@ -61,11 +65,26 @@ export class Physics {
     return collider;
   }
 
+  /** Makes collider changes (a room's collision switched on or off) visible to ray casts and the
+   *  character controller right away: Rapier only updates its broad phase during a step. */
+  refresh(): void {
+    this.world.step();
+  }
+
+  /**
+   * Ray against the level geometry of the rooms that are switched on: the distance to the first hit, or
+   * null. (Rapier's ray casts still see disabled colliders, and every room's collision shares one world.)
+   */
+  castRay(from: Vector3, dir: Vector3, maxDistance: number): number | null {
+    const ray = new RAPIER.Ray({ x: from.x, y: from.y, z: from.z }, { x: dir.x, y: dir.y, z: dir.z });
+    const hit = this.world.castRay(ray, maxDistance, true, undefined, WORLD_ONLY, undefined, undefined, isEnabled);
+    return hit ? hit.timeOfImpact : null;
+  }
+
   /** Straight-down ray against level geometry only: the height of the first surface below `from`, or null. */
   groundHeightBelow(from: Vector3, maxDistance = 50): number | null {
-    const ray = new RAPIER.Ray({ x: from.x, y: from.y, z: from.z }, { x: 0, y: -1, z: 0 });
-    const hit = this.world.castRay(ray, maxDistance, true, undefined, collisionGroups(LAYER.ALL, LAYER.WORLD));
-    return hit ? from.y - hit.timeOfImpact : null;
+    const toi = this.castRay(from, DOWN, maxDistance);
+    return toi === null ? null : from.y - toi;
   }
 
   dispose(): void {

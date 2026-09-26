@@ -90,8 +90,11 @@ export class Story {
     this.objectiveText = null;
   }
 
+  /** Debug: story time runs this much faster (waits end sooner). */
+  timeScale = 1;
+
   update(dt: number): void {
-    this.time += dt;
+    this.time += dt * this.timeScale;
     if (this.waiters.length) {
       const due = this.waiters.filter((w) => w.at <= this.time);
       if (due.length) {

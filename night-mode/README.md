@@ -1,158 +1,74 @@
-# SOSIES
+# NIGHT MODE
 
-First-person psychological horror for desktop browsers (Chrome, Edge, Firefox), built with
-TypeScript + Three.js and no game engine. Later it can be wrapped as a desktop app for Steam.
+*One night house-sitting a Victorian lake house run by a friendly AI. At 10 PM it switches to Night Mode.*
 
-**Current state: Milestone 1 (baked lighting).** This is a walkable tech test: the engine, controls, physics,
-baked global illumination and asset pipeline running in a furnished living room at dusk. The room is a free,
-credited model used only for testing; it is not SOSIES content and gets replaced by the real house.
+A first-person horror story for desktop browsers (Chrome, Edge, Firefox), about 30 minutes long, with three
+endings. Written, designed and built by Claude (Anthropic) in one session: story, code, levels, lighting,
+voices, music and sound, all generated or assembled from free assets. Built with TypeScript and Three.js,
+no game engine.
+
+> **Hale House, Lake Ellery, Minnesota. January 14.** You're Alex, a student who house-sits through an app.
+> The owner, Dana, left you a list of chores, a door code, and a note about the house's assistant: *"Wren will
+> look after you. She gets lonely at night. Please don't go down to the lake."*
 
 ---
 
-## 0. Quickest: play it in your browser
+## Play it
 
-Open **<https://claude.ai/artifact/N4PXKLcm2YN845Wrj6KMik>** (private to your claude.ai account) and click
-**Click to begin**. Nothing to install. To run it from your own PC instead (needed for development), follow
-the steps below.
+**In your browser:** open the link Claude gave you (a private claude.ai page) and click **New game**.
+Use headphones. The first load downloads about 90 MB.
 
-## 1. One-time setup (Windows)
+**From your own PC (Windows):**
 
-1. Install **Node.js 24 LTS** from <https://nodejs.org> (Windows installer, default options).
-2. Install **Git** from <https://git-scm.com/download/win> (default options).
-3. Get the code. Open **Command Prompt** (Start menu → type `cmd`) and run these lines one at a time:
+1. Install **Node.js 24 LTS** from <https://nodejs.org> (default options).
+2. Get the code: download [this ZIP](https://github.com/ziv189/App/archive/refs/heads/claude/laughing-albattani-ns6xsm.zip)
+   and unzip it somewhere outside OneDrive (for example `C:\Games`), or `git clone` the repo and check out the
+   branch `claude/laughing-albattani-ns6xsm`.
+3. Open the `night-mode` folder and double-click **`START-NIGHT-MODE.bat`**. The first run installs the tools
+   (a minute or two); then the game opens in your browser. Keep the black window open while you play.
 
-   ```bat
-   cd %USERPROFILE%
-   git clone https://github.com/ziv189/App.git
-   cd App
-   git checkout claude/laughing-albattani-ns6xsm
-   ```
+On macOS/Linux: `cd night-mode && npm install && npm run dev`.
 
-   The game is now in `C:\Users\<you>\App\sosies`. Already cloned it before? Skip this step: run `git pull`
-   inside your `App` folder instead. (No Git? Download
-   [this ZIP](https://github.com/ziv189/App/archive/refs/heads/claude/laughing-albattani-ns6xsm.zip) and unzip it
-   somewhere outside OneDrive, e.g. `C:\Games`.)
+## Controls
 
-## 2. Run it
+| | Keyboard and mouse | Controller |
+| --- | --- | --- |
+| Look / move | Mouse / WASD | Sticks |
+| Use, read, open | **E** or left click | A |
+| Phone (messages, booking, notes) | **Tab** | Y |
+| Phone flashlight | **F** | X |
+| Crouch | **C** | B |
+| Pause, settings | **Esc** | Start |
 
-**Double-click `START-SOSIES.bat`** in the `sosies` folder. It:
+Settings: brightness, volume, mouse sensitivity, field of view, subtitles, head bob, graphics quality.
 
-1. checks Node.js is installed and new enough,
-2. installs or updates the game's tools (`npm install`),
-3. starts the game server and **opens the game in your browser**.
+## The story (no spoilers)
 
-Keep its black window open while you play; close it to stop the game. If anything fails, the window stays open
-with the error: copy all its text and send it to me. (If Windows asks whether to run it, choose *More info → Run
-anyway*; it's a plain text script you can read in Notepad.)
+The prologue starts outside in the snow. Chapter 1 is a gentle tour of the house and its chores. At ten o'clock
+Wren switches the house to Night Mode, and the rest of the night is about finding out who else lives here, what
+happened to the family, and why the last house-sitter never checked out. There are three endings; the title
+screen counts the ones you've found, and finished chapters can be replayed from **Chapters**.
 
-To get my latest changes later: in Command Prompt, `cd %USERPROFILE%\App` then `git pull`, then double-click
-`START-SOSIES.bat` again.
+The full design document (**spoilers**) is in [docs/STORY.md](docs/STORY.md).
 
-<details>
-<summary>Manual alternative (Command Prompt)</summary>
+## How it was made
 
-```bat
-cd %USERPROFILE%\App\sosies
+- **Engine** (`src/`): Three.js WebGL2 renderer with post-processing (AgX tone mapping, bloom, N8AO ambient
+  occlusion, film grain), Rapier physics for the first-person controller, a WebAudio engine with 3D sound and
+  room reverb, and a small story runtime (`src/story/`) that the five chapters are written in.
+- **Rooms**: each room is a separate scene with light baked in Blender/Cycles in two states (lamps on, and
+  moonlight only) that the game blends between. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md).
+- **People**: Microsoft Rocketbox avatars with lip-sync driven by the voice files' phoneme timings.
+- **Voices**: Kokoro text-to-speech. Wren's voice is synthetic on purpose; that's part of the story.
+- **Credits**: in the game (title screen → Credits) and in `public/assets/audio/sfx/CREDITS.md`.
+
+## For developers
+
+```bash
 npm install
-npm run dev
+npm run dev          # local game with hot reload (add ?debug for window.nm: nm.jump('ch3') etc.)
+npm test             # unit tests
+npm run typecheck
+npm run build        # production build in dist/
+npm run build:artifact   # the hosted build (dist-artifact/)
 ```
-
-</details>
-
-### If it doesn't load
-
-| What you see | What it means / what to do |
-| --- | --- |
-| The START-SOSIES window closes instantly or shows red `npm error` lines | Copy the whole window's text and send it to me. |
-| PowerShell: *"running scripts is disabled on this system"* | Use `START-SOSIES.bat` or Command Prompt instead of PowerShell. |
-| Browser: *"This site can't be reached"* | The game server isn't running. Start `START-SOSIES.bat` and keep its window open. |
-| *"This page was opened straight from the folder"* | You opened `index.html` directly. Use `START-SOSIES.bat`; it opens the right address. |
-| Stuck on the SOSIES loading screen | The line under the bar names the step it's on; after 45 s a hint appears. Send me a screenshot of it plus the Console tab (`F12` → *Console*). |
-| *"Missing file"* screen | Your copy is incomplete or out of date. Run `git pull` in the `App` folder (the test room is part of the repository). |
-| *"SOSIES needs WebGL 2"* | Turn on the browser's hardware acceleration and update your graphics driver. |
-| Any other error screen | Click **Copy these details** and paste them to me. |
-| Errors mentioning `EPERM` or `OneDrive` | Move the project out of OneDrive (e.g. to `C:\Games`) and try again. |
-
-## 3. Controls
-
-| Action | Mouse & keyboard | Controller |
-| --- | --- | --- |
-| Move | `W` `A` `S` `D` or arrow keys | Left stick |
-| Look | Mouse | Right stick |
-| Run | Hold `Shift` | Click `L3` (stops when you let go of the stick) |
-| Crouch | `C` (toggle) | `B` (toggle) |
-| Pause / settings | `Esc` | `Start` |
-| Debug panel | `` ` `` (the key left of `1`) | — |
-
-Browser notes:
-
-- The browser only lets a page capture the mouse after a click, so the game starts with **Click to begin**.
-  `Esc` always gives the mouse back to you (the browser enforces this) and opens the pause menu.
-- Controllers appear after you **press a button once** (browser privacy rule).
-- Crouch is not on `Ctrl`, because `Ctrl+W` closes the browser tab.
-
-## 4. Commands
-
-| Command | What it does |
-| --- | --- |
-| `START-SOSIES.bat` | Double-click: installs, downloads test assets if needed, starts the game and opens the browser. |
-| `npm run dev` | Starts the game and opens it at <http://localhost:5173>. Code changes reload automatically. |
-| `npm run assets:test-room` | Rebuilds the test room from its original download and re-bakes its lighting (needs Blender 4.5 LTS, about 5 minutes). Not needed normally: the result is already in the repository. |
-| `npm run optimize -- in.glb out.glb` | Optimizes any glTF/GLB for the web and prints its budget report. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
-| `npm test` | Runs the unit tests. |
-| `npm run typecheck` | Checks the TypeScript for errors. |
-| `npm run build` | Builds the release version into `dist/`. |
-| `npm run preview` | Serves the `dist/` build at <http://localhost:4173>. |
-| `npm run build:artifact` | Packages the game as a claude.ai page in `dist-artifact/` (binary assets as base64 text). |
-
-## 5. How it's built
-
-| Part | Library | Why |
-| --- | --- | --- |
-| Rendering | [three.js](https://threejs.org) r186, WebGL 2 | The standard 3D library for the web; PBR materials, glTF, shadows. |
-| Post-processing | [postprocessing](https://github.com/pmndrs/postprocessing) + [N8AO](https://github.com/N8python/n8ao) | Proven effect stack: ambient occlusion, bloom, AgX tone mapping, SMAA, vignette, grain. |
-| Physics & movement | [Rapier](https://rapier.rs) | Its character controller handles walls, slopes, stairs and staying on the floor. |
-| Assets | glTF 2.0 (`.glb`), [glTF-Transform](https://gltf-transform.dev), meshopt, Draco, KTX2 | Industry-standard 3D format and optimizer. |
-| Baked lighting | [Blender 4.5 LTS](https://www.blender.org) Cycles, `tools/blender/bake_lightmaps.py` | Realistic bounced light, calculated offline and stored in lightmaps. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
-| Tooling | Vite, TypeScript, Vitest | Fast dev server, type safety, unit tests. |
-| Debug | [stats-gl](https://github.com/RenaudRohlinger/stats-gl), [lil-gui](https://lil-gui.georgealways.com) | FPS/CPU/GPU graphs and live tuning sliders. |
-
-```
-sosies/
-  START-SOSIES.bat      one-click start on Windows
-  index.html            page shell: canvas + menus
-  src/
-    main.ts             entry: checks WebGL 2, loads the engine
-    core/               Game (state + main loop), fixed-timestep loop, settings
-    render/             renderer, post-processing, quality presets, sky lighting
-    input/              keyboard, mouse (pointer lock) and controller input
-    physics/            Rapier world + level collision
-    player/             first-person controller (capsule, crouch, head bob, footsteps)
-    assets/             glTF/HDR loading, level loading conventions
-    levels/             level definitions (techTest.ts)
-    ui/                 menus and debug overlay
-  tools/                asset scripts (download + optimize; shared code in tools/lib)
-  tests/                unit tests
-  docs/                 asset pipeline guide
-  public/assets/        game assets (tech-test files are downloaded here, not committed)
-```
-
-The game runs physics at a fixed 60 steps per second and interpolates the camera between steps, so movement
-feels the same on 60, 144 or 240 Hz monitors.
-
-## 6. Performance tips
-
-- **Low FPS on a laptop**: the browser may be using the integrated GPU. In Windows *Settings → System → Display →
-  Graphics*, set your browser to *High performance*, and check the browser's hardware acceleration setting is on.
-  Lower *Graphics quality* in the pause menu to compare.
-- **`npm run assets:test-room` fails behind a company proxy**: set `NODE_USE_ENV_PROXY=1` along with your usual
-  `HTTPS_PROXY`, then run it again.
-
-## 7. Credits (tech test only)
-
-- Test room: "Living Room" (originally "The White Room Cycles") by Jay-Artist,
-  [Blend Swap](https://www.blendswap.com/blends/view/41683), licensed
-  [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). OBJ conversion by Benedikt Bitterli, Nicholas Hull
-  (NVIDIA) and Morgan McGuire, [McGuire Computer Graphics Archive](https://casual-effects.com/data). Modified for
-  real-time use (converted to glTF, render-only light panels removed, back-wall opening closed, compressed).
-- Sky: *Kloppenheim 01 (Pure Sky)* HDRI by Greg Zaal and Jarod Guest, [Poly Haven](https://polyhaven.com) (CC0).

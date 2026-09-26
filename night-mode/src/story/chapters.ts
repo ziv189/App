@@ -213,6 +213,7 @@ const ch1: Chapter = {
     s.set('chapter', 'ch1');
     c.save('ch1');
     commonHandlers(c);
+    s.show('hall', 'jordan_phone', false); // it turns up in chapter 2
     s.lockDoor('hall', 'front', 'stay');
     s.lockDoor('hall', 'ivy', 'ivy');
     s.lockDoor('kitchen', 'basement', 'cellar');

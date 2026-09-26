@@ -89,9 +89,16 @@ export class World {
   /** Makes a loaded room the current one. */
   async activate(id: CellId): Promise<Cell> {
     const cell = await this.load(id);
-    if (this.current && this.current !== cell) this.current.setActive(false);
+    const previous = this.current;
+    if (previous && previous !== cell) previous.setActive(false);
     this.current = cell;
     cell.setActive(true);
+    this.physics.refresh();
+    // Free the GPU copies of rooms two steps away (all eight rooms' textures and lightmaps would take
+    // ~700 MB). They upload again the next time they're drawn, behind a door's fade.
+    for (const other of this.cells.values()) {
+      if (other !== cell && other !== previous) for (const t of other.textures) t.dispose();
+    }
     cell.night = this.nightTarget;
     cell.brightness = this.brightnessTarget;
     cell.applyLighting();

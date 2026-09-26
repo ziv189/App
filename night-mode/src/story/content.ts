@@ -57,7 +57,7 @@ export const JORDAN_THREAD: PhoneMessage[] = [
 export const DANA_LIST_HTML = `
 <h3>Alex —</h3>
 <p>Thank you for doing this! A few little things:</p>
-<p>1. Water the plants (living room, kitchen, upstairs landing). Can is by the sink.</p>
+<p>1. Water the plants (living room, kitchen, upstairs landing). The can is on the counter by the kitchen window.</p>
 <p>2. Wind the grandfather clock in the living room. The key hangs on its side. Wren can't do that one.</p>
 <p>3. Make sure the back door is locked.</p>
 <p>4. Say goodnight to Wren before bed. She likes that.</p>

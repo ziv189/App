@@ -65,6 +65,10 @@ def clean_attributes(objs):
         for layer in list(me.uv_layers)[1:]:
             if layer.name != B.LIGHTMAP_UV:
                 me.uv_layers.remove(layer)
+        # one name for everyone: joining merges UV maps by name, and a second name would push the
+        # lightmap UVs to TEXCOORD_2
+        if len(me.uv_layers) and me.uv_layers[0].name != B.LIGHTMAP_UV:
+            me.uv_layers[0].name = 'UVMap'
         for attr in list(me.color_attributes):
             me.color_attributes.remove(attr)
 
@@ -111,6 +115,8 @@ def build_collision(static, extra=(), max_tris=60000):
     if n > max_tris:
         L.decimate(col, max_tris)
     col['nm_nobake'] = 1
+    # it overlaps the real surfaces, so if the bake could see it, it would shadow them with its own triangles
+    col.hide_render = True
     L.log(f'collision: {len(picks)} objects -> {L.tris(col):,} triangles')
     return col
 

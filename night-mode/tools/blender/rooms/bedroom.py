@@ -72,13 +72,11 @@ def build():
 
     desk()
 
-    music_box(Vector((-1.95, -1.25, DRESSER_TOP)), -90)
+    music_box(Vector((-1.95, -1.25, DRESSER_TOP)), 0)  # facing south; its lid hinges along X
     L.proxy('musicbox', (-1.9, -1.25, DRESSER_TOP + 0.1), (0.45, 0.45, 0.3))
     L.marker('musicbox', (-1.9, -1.25, DRESSER_TOP + 0.1), -90)
 
-    cam = L.ph_model('security_camera_01', (EAST - 0.12, SOUTH + 0.12, CEIL - 0.18), yaw_deg=45, name='cam_bedroom')
-    L.dynamic(cam, 'cam_bedroom')
-    L.marker('cam_bedroom', (EAST - 0.12, SOUTH + 0.12, CEIL - 0.23), 45, camera='bedroom')
+    L.security_camera('cam_bedroom', (EAST - 0.12, SOUTH + 0.12, CEIL - 0.18), 45)  # south-east corner, looking north-west
 
     # ---- bake lights: the ceiling lamp, both bedside lamps, a little desk light; moonlight at the curtains
     L.light('ceiling', 'POINT', (1.0, -1.54, 1.95), 70, '#ffd8b0', radius=0.12, states=('on',))

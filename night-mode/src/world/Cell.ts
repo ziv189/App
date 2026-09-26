@@ -41,6 +41,8 @@ export interface CellDef {
   /** Reflection probe position (game space). */
   probe: [number, number, number];
   exterior?: boolean;
+  /** Camera exposure per lighting state, overriding the value baked into the room file. */
+  exposure?: { on?: number; moon?: number };
 }
 
 interface CellMeta {
@@ -84,6 +86,7 @@ export class Cell {
     lightMap2: { value: null },
     lightMapMix: { value: 0 },
     lightMapScale: { value: 1 },
+    lightMap2Tint: { value: new Color(1, 1, 1) },
   };
   readonly bounds = new Box3();
   readonly textures: Texture[] = [];
@@ -109,7 +112,9 @@ export class Cell {
     root.add(gltf.scene);
     const cell = new Cell(def, root);
     const meta: CellMeta = typeof gltf.scene.userData.nm === 'string' ? JSON.parse(gltf.scene.userData.nm) : {};
-    cell.exposure = { on: 1, moon: 2.4, ...meta.exposure };
+    cell.exposure = { on: 1, moon: 2.4, ...meta.exposure, ...def.exposure };
+    // moonlight indoors reads colder than the bake's physically warm-ish bounce off wood and wallpaper
+    if (!def.exterior) cell.lightmap.lightMap2Tint!.value.setRGB(0.66, 0.8, 1.12);
     root.updateMatrixWorld(true);
 
     const folder = def.file.slice(0, def.file.lastIndexOf('/') + 1);
