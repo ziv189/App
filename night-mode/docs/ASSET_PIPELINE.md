@@ -22,6 +22,7 @@ then does the rest:
 
 1. **Clean up**: vertex colours and extra UV sets are removed; heavy props are decimated.
 2. **Collision**: one simplified `COL_static` mesh from the solid, player-sized parts (plus invisible walls).
+   It is hidden from the bake: it overlaps the real surfaces and would shadow them with its own triangles.
 3. **Lightmap UVs**: every static mesh is joined, welded and unwrapped into one atlas (second UV set).
    Tiny parts (nails, hinges) are left out; big far-away surfaces (the lake) get fewer pixels per metre.
 4. **Bake**: Cycles bakes diffuse light (direct + bounced) once per lighting state: `on` (the house lights) and

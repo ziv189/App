@@ -59,6 +59,12 @@ interface SecurityCamera {
   phase: number;
 }
 
+/** Ivy's idle clip holds her arms out from her sides; seen full-length, they hang down instead. */
+function armsDown(c: Character): void {
+  c.addPoseFix('Bip01_L_UpperArm', UP, 38);
+  c.addPoseFix('Bip01_R_UpperArm', UP, -38);
+}
+
 interface Deps {
   renderer: WebGLRenderer;
   scene: Scene;
@@ -186,6 +192,7 @@ export class Fx {
     if (chars.ivy && !this.ivyLake && w.cells.has('exterior')) {
       this.ivyLake = new Character(chars.ivy);
       this.ivyLake.play('idle');
+      armsDown(this.ivyLake);
       const exterior = w.cells.get('exterior')!;
       const spot = exterior.markers.get('lakefigure');
       if (spot) {
@@ -268,6 +275,7 @@ export class Fx {
     this.mirror.getReflectionCamera(this.d.camera).layers.enable(MIRROR_LAYER);
     this.ivyMirror = new Character(ivyGltf);
     this.ivyMirror.play('idle');
+    armsDown(this.ivyMirror);
     this.ivyMirror.blinking = false;
     this.ivyMirror.expression = { smile: 0.2, sad: 0.4, eyesWide: 0.6, jaw: 0.08, browsUp: 0.2 };
     this.ivyMirror.root.traverse((o) => o.layers.set(MIRROR_LAYER));
@@ -538,7 +546,7 @@ export class Fx {
       back.y = 0;
       back.normalize();
       const p = this.d.player.position;
-      this.ivyMirror.root.position.set(p.x + back.x * 0.75, p.y, p.z + back.z * 0.75);
+      this.ivyMirror.root.position.set(p.x + back.x * 0.5, p.y, p.z + back.z * 0.5);
       this.ivyMirror.root.rotation.y = Math.atan2(-back.x, -back.z);
       void bath;
     }

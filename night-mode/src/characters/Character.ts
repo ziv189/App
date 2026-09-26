@@ -47,6 +47,8 @@ export class Character {
   private blinkTimer = 2;
   private blinkPhase = -1;
   private readonly visemeWeights = new Map<string, number>();
+  /** Bone rotations applied on top of the animation (see addPoseFix). */
+  private readonly poseFixes: { bone: Object3D; q: Quaternion }[] = [];
   private readonly current: Expression = { smile: 0, sad: 0, eyesWide: 0, jaw: 0, browsUp: 0 };
   private readonly tmpQ = new Quaternion();
   private readonly tmpV = new Vector3();
@@ -68,6 +70,15 @@ export class Character {
     });
   }
 
+  /**
+   * Turns a bone by `degrees` about its own `axis` after every animation update. The mocap idle was made
+   * for a different rest pose and holds the arms out; this lowers them for full-body appearances.
+   */
+  addPoseFix(boneName: string, axis: Vector3, degrees: number): void {
+    const bone = this.root.getObjectByName(boneName);
+    if (bone) this.poseFixes.push({ bone, q: new Quaternion().setFromAxisAngle(axis, (degrees * Math.PI) / 180) });
+  }
+
   play(name: string, fade = 0.4): void {
     const next = this.actions.get(name);
     if (!next || next === this.active) return;
@@ -85,6 +96,7 @@ export class Character {
 
   update(dt: number, mouth: { viseme: string; weight: number } = { viseme: 'sil', weight: 0 }): void {
     this.mixer.update(dt);
+    for (const f of this.poseFixes) f.bone.quaternion.multiply(f.q);
     // blinking
     if (this.blinking) {
       this.blinkTimer -= dt;
