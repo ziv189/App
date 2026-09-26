@@ -1,5 +1,5 @@
 import RAPIER from '@dimforge/rapier3d-compat';
-import { InstancedMesh, Matrix4, Vector3, type Mesh, type Object3D } from 'three';
+import { InstancedMesh, Matrix4, Quaternion, Vector3, type Mesh, type Object3D } from 'three';
 
 export { RAPIER };
 
@@ -59,6 +59,29 @@ export class Physics {
     const desc = RAPIER.ColliderDesc.cuboid(halfExtents.x, halfExtents.y, halfExtents.z)
       .setTranslation(center.x, center.y, center.z)
       .setRotation(q)
+      .setCollisionGroups(collisionGroups(LAYER.WORLD, LAYER.ALL));
+    const collider = this.world.createCollider(desc);
+    this.world.step();
+    return collider;
+  }
+
+  /**
+   * An invisible ramp over a staircase. Its top surface runs `lift` above the line from `from` to `to`
+   * (the bottom and top of the flight's walking line, through the step edges), so the player walks up
+   * and down smoothly instead of relying on step-climbing, which old stair models with tall steps and
+   * overhanging treads defeat.
+   */
+  addRamp(from: Vector3, to: Vector3, width: number, lift = 0.02, thickness = 0.1): RAPIER.Collider {
+    const along = to.clone().sub(from);
+    const length = along.length();
+    const z = along.clone().normalize();
+    const x = new Vector3(0, 1, 0).cross(z).normalize();
+    const y = z.clone().cross(x).normalize();
+    const q = new Quaternion().setFromRotationMatrix(new Matrix4().makeBasis(x, y, z));
+    const center = from.clone().add(to).multiplyScalar(0.5).addScaledVector(y, lift - thickness / 2);
+    const desc = RAPIER.ColliderDesc.cuboid(width / 2, thickness / 2, length / 2 + 0.02)
+      .setTranslation(center.x, center.y, center.z)
+      .setRotation({ x: q.x, y: q.y, z: q.z, w: q.w })
       .setCollisionGroups(collisionGroups(LAYER.WORLD, LAYER.ALL));
     const collider = this.world.createCollider(desc);
     this.world.step();

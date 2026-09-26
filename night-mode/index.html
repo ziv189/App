@@ -30,13 +30,13 @@
           <div class="phone-status"><span id="phone-time">8:02</span><span class="phone-icons"><span id="phone-signal">▂▄▆</span> <span id="phone-battery">82%</span></span></div>
           <div class="phone-header"><button type="button" id="phone-back" hidden>‹</button><div id="phone-title">Messages</div></div>
           <div class="phone-content" id="phone-content"></div>
-          <div class="phone-footer"><button type="button" id="phone-light">Flashlight</button><button type="button" id="phone-close">Close <kbd>Tab</kbd></button></div>
+          <div class="phone-footer"><button type="button" id="phone-light">Flashlight</button><button type="button" id="phone-close">Close <kbd id="phone-close-key">Tab</kbd></button></div>
         </div>
       </div>
 
       <div id="reader" hidden>
         <div class="paper" id="reader-paper"><div id="reader-body"></div></div>
-        <div class="reader-hint">Press <kbd>E</kbd> or click to put it down</div>
+        <div class="reader-hint">Press <kbd id="reader-key">E</kbd> or click to put it down</div>
       </div>
 
       <div id="keypad" hidden>
@@ -112,17 +112,17 @@
           </form>
           <div class="panel controls">
             <h3>Controls</h3>
+            <p class="controls-help" id="controls-help">Click a key to change it, then press the new key.</p>
             <table>
-              <tr><th></th><th>Keyboard &amp; mouse</th><th>Controller</th></tr>
-              <tr><td>Move</td><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td>Left stick</td></tr>
-              <tr><td>Look</td><td>Mouse</td><td>Right stick</td></tr>
-              <tr><td>Interact</td><td><kbd>E</kbd> or left click</td><td><kbd>A</kbd></td></tr>
-              <tr><td>Phone</td><td><kbd>Tab</kbd></td><td><kbd>Y</kbd></td></tr>
-              <tr><td>Flashlight</td><td><kbd>F</kbd></td><td><kbd>X</kbd></td></tr>
-              <tr><td>Run</td><td>Hold <kbd>Shift</kbd></td><td>Click <kbd>L3</kbd></td></tr>
-              <tr><td>Crouch / hide</td><td><kbd>C</kbd></td><td><kbd>B</kbd></td></tr>
-              <tr><td>Pause</td><td><kbd>Esc</kbd></td><td><kbd>Start</kbd></td></tr>
+              <thead><tr><th></th><th>Keyboard</th><th>Controller</th></tr></thead>
+              <tbody id="controls-body"></tbody>
+              <tbody>
+                <tr><td>Look</td><td>Mouse</td><td>Right stick</td></tr>
+                <tr><td>Use (also)</td><td>Left click</td><td></td></tr>
+                <tr><td>Pause</td><td><kbd>Esc</kbd></td><td><kbd>Start</kbd></td></tr>
+              </tbody>
             </table>
+            <button type="button" class="secondary small" id="btn-keys-reset">Reset keys</button>
           </div>
         </div>
       </section>

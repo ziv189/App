@@ -44,7 +44,7 @@ const halfHeightFor = (height: number) => height / 2 - RADIUS;
 
 /**
  * First-person body: a capsule moved by Rapier's kinematic character controller (walls, stairs up to
- * 30 cm, slopes up to 45 degrees, stays glued to the floor going downstairs), plus the camera on top.
+ * 35 cm, slopes up to 45 degrees, stays glued to the floor going downstairs), plus the camera on top.
  *
  * Movement runs in fixed steps (fixedUpdate); the camera is updated every rendered frame (update)
  * and interpolated between steps so it is smooth on any refresh rate.
@@ -85,8 +85,9 @@ export class PlayerController {
     this.kcc = world.createCharacterController(SKIN);
     this.kcc.setMaxSlopeClimbAngle(MathUtils.degToRad(45));
     this.kcc.setMinSlopeSlideAngle(MathUtils.degToRad(50));
-    this.kcc.enableAutostep(0.3, 0.15, false);
-    this.kcc.enableSnapToGround(0.3);
+    this.kcc.enableAutostep(0.35, 0.15, false);
+    // keeps the feet on the floor walking down stairs and slopes (the old house has 29 cm porch steps)
+    this.kcc.enableSnapToGround(0.45);
     this.kcc.setApplyImpulsesToDynamicBodies(true);
     this.collider = world.createCollider(
       RAPIER.ColliderDesc.capsule(halfHeightFor(STAND_HEIGHT), RADIUS).setCollisionGroups(
@@ -186,8 +187,9 @@ export class PlayerController {
       this.velocity.z += (dz / diff) * maxChange;
     }
 
-    // Small constant push down while grounded keeps the controller in contact with the floor.
-    this.velocity.y = this.grounded ? -1 : Math.max(this.velocity.y - GRAVITY * dt, -30);
+    // No downward push while grounded: snap-to-ground keeps the feet down, and any downward part of the
+    // move stops Rapier's autostep from climbing stairs taller than about 15 cm.
+    this.velocity.y = this.grounded ? 0 : Math.max(this.velocity.y - GRAVITY * dt, -30);
 
     this.kcc.computeColliderMovement(this.collider, {
       x: this.velocity.x * dt,

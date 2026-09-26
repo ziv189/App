@@ -5,6 +5,7 @@ import { AudioEngine } from '../audio/AudioEngine';
 import { SPEAKERS, Voice } from '../audio/Voice';
 import { Fx } from '../fx/Fx';
 import { Input, type InputFrame } from '../input/Input';
+import { keysHtml, keysText, type Action } from '../input/bindings';
 import { verticalFovFromHorizontal16x9 } from '../input/math';
 import { Physics } from '../physics/Physics';
 import { PlayerController } from '../player/PlayerController';
@@ -350,6 +351,8 @@ export class Game implements StoryHost {
       ending: (id) => this.ending(id),
       save: (chapterId) => this.writeSave({ chapter: chapterId }),
       place: (cell, marker) => this.place(cell, marker),
+      keyHtml: (action: Action) => keysHtml(this.settings.get().keys, action),
+      keyText: (action: Action) => keysText(this.settings.get().keys, action),
     };
   }
 
@@ -368,6 +371,8 @@ export class Game implements StoryHost {
   private openPhone(owner: 'alex' | 'jordan' = 'alex', app?: string): Promise<void> {
     if (this.ui.modal) return Promise.resolve();
     this.phone.time = this.story.clock.replace(/ [AP]M$/, '');
+    // new messages open straight away, like a notification tapped on a real phone
+    if (!app && owner === 'alex') app = Object.values(this.phone.threads).find((t) => t.unread > 0)?.id;
     return this.withModal(() => this.ui.openPhone(owner === 'alex' ? this.phone.alex() : this.phone.jordanPhone(), app));
   }
 
@@ -455,7 +460,7 @@ export class Game implements StoryHost {
     this.scene.fog = null;
     if (!this.hintedFlashlight && this.world.nightTarget > 0.5 && !this.fx.flashlightOn && this.state === 'playing') {
       this.hintedFlashlight = true;
-      this.ui.setKeyHint('Press <kbd>F</kbd> to use your phone as a flashlight');
+      this.ui.setKeyHint(`Press ${keysHtml(this.settings.get().keys, 'flashlight')} to use your phone as a flashlight`);
       window.setTimeout(() => this.ui.setKeyHint(null), 6000);
     }
   }
@@ -521,6 +526,9 @@ export class Game implements StoryHost {
     this.timer.update(time);
     const dt = Math.min(0.1, this.timer.getDelta());
     this.renderer.info.reset();
+    // while playing, keys like Tab and Space must not move focus or scroll the page (inside a page that
+    // embeds the game, Tab would otherwise take the keyboard away from it)
+    this.input.captureKeys = this.state === 'playing';
     const input = this.input.poll(dt, this.settings.get());
     this.lastInput = input;
 

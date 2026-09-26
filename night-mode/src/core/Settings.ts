@@ -1,3 +1,4 @@
+import { DEFAULT_KEYS, sanitizeKeys, type KeyBindings } from '../input/bindings';
 import { QUALITY_LEVELS, type QualityLevel } from '../render/quality';
 
 export interface Settings {
@@ -15,6 +16,8 @@ export interface Settings {
   /** Master volume 0..1. */
   volume: number;
   subtitles: boolean;
+  /** Keyboard keys for each action (see input/bindings.ts). */
+  keys: KeyBindings;
 }
 
 export const DEFAULT_SETTINGS: Readonly<Settings> = {
@@ -27,6 +30,7 @@ export const DEFAULT_SETTINGS: Readonly<Settings> = {
   brightness: 1,
   volume: 0.9,
   subtitles: true,
+  keys: DEFAULT_KEYS as KeyBindings,
 };
 
 const STORAGE_KEY = 'nightmode.settings.v1';
@@ -55,6 +59,7 @@ export function sanitizeSettings(raw: unknown): Settings {
     brightness: num(r.brightness, d.brightness, 0.6, 1.8),
     volume: num(r.volume, d.volume, 0, 1),
     subtitles: bool(r.subtitles, d.subtitles),
+    keys: sanitizeKeys(r.keys),
   };
 }
 

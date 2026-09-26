@@ -1,4 +1,5 @@
 import type { Settings, SettingsStore } from '../core/Settings';
+import { ACTIONS, keyName, rebind, RESERVED_KEYS, sanitizeKeys, type Action, type KeyBindings } from '../input/bindings';
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => {
   const el = document.getElementById(id);
@@ -146,6 +147,16 @@ export class Ui {
     $('reader').addEventListener('click', () => this.closeReader());
     this.form.addEventListener('input', () => this.readForm());
     this.form.addEventListener('submit', (e) => e.preventDefault());
+    $('controls-body').addEventListener('click', (e) => {
+      const button = (e.target as HTMLElement).closest<HTMLButtonElement>('button.keybind');
+      if (button) this.startRebind(button.dataset.action as Action);
+    });
+    $('btn-keys-reset').addEventListener('click', () => {
+      this.stopRebind();
+      this.settings.update({ keys: sanitizeKeys(null) });
+    });
+    // captures the next key for "click a key to change it", before the game's own key handling sees it
+    window.addEventListener('keydown', (e) => this.onRebindKey(e), { capture: true });
     settings.onChange((s) => this.writeForm(s));
     this.writeForm(settings.get());
     this.buildKeypad();
@@ -160,6 +171,7 @@ export class Ui {
   // ------------------------------------------------------------------------------------ screens
 
   show(screen: ScreenName): void {
+    if (screen !== 'pause' && this.rebinding) this.stopRebind();
     this.screen = screen;
     for (const name of ['loading', 'title', 'pause', 'ending', 'credits', 'error'] as const) {
       $(`screen-${name}`).hidden = name !== screen;
@@ -251,7 +263,7 @@ export class Ui {
     }
     this.prompt.hidden = false;
     this.promptText.textContent = text;
-    this.promptKey.textContent = opts.key ?? 'E';
+    this.promptKey.textContent = opts.key ?? keyName(this.settings.get().keys.use[0] ?? 'KeyE');
     this.prompt.classList.toggle('locked', Boolean(opts.locked));
     this.reticle.classList.add('active');
   }
@@ -626,6 +638,52 @@ export class Ui {
 
   // ----------------------------------------------------------------------------------- settings
 
+  private rebinding: Action | null = null;
+
+  private renderControls(keys: Readonly<KeyBindings>): void {
+    $('controls-body').innerHTML = ACTIONS.map(({ id, label, pad }) => {
+      const text = this.rebinding === id ? 'Press a key…' : keys[id].length ? keys[id].map(keyName).join(' / ') : '—';
+      const waiting = this.rebinding === id ? ' waiting' : '';
+      return `<tr><td>${label}</td><td><button type="button" class="keybind${waiting}" data-action="${id}">${text}</button></td><td>${pad}</td></tr>`;
+    }).join('');
+  }
+
+  private startRebind(action: Action): void {
+    this.rebinding = action;
+    this.setControlsHelp('Press the new key for this action. Esc cancels.');
+    this.renderControls(this.settings.get().keys);
+  }
+
+  private stopRebind(): void {
+    this.rebinding = null;
+    this.setControlsHelp('Click a key to change it, then press the new key.');
+    this.renderControls(this.settings.get().keys);
+  }
+
+  private setControlsHelp(text: string, warn = false): void {
+    const help = $('controls-help');
+    help.textContent = text;
+    help.classList.toggle('warn', warn);
+  }
+
+  private onRebindKey(e: KeyboardEvent): void {
+    const action = this.rebinding;
+    if (!action) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    if (e.code === 'Escape') {
+      this.stopRebind();
+      return;
+    }
+    if (RESERVED_KEYS.has(e.code) || !e.code) {
+      this.setControlsHelp(`${keyName(e.code) || 'That key'} is used for pausing or the door keypad. Pick another key.`, true);
+      return;
+    }
+    this.rebinding = null;
+    this.settings.update({ keys: rebind(this.settings.get().keys, action, e.code) });
+    this.setControlsHelp(`${ACTIONS.find((a) => a.id === action)?.label}: ${keyName(e.code)}`);
+  }
+
   private readForm(): void {
     const f = this.form.elements as HTMLFormControlsCollection & Record<string, HTMLInputElement | HTMLSelectElement>;
     const n = (name: string) => Number((f.namedItem(name) as HTMLInputElement).value);
@@ -662,6 +720,9 @@ export class Ui {
     check('subtitles', s.subtitles);
     check('invertY', s.invertY);
     check('headBob', s.headBob);
+    this.renderControls(s.keys);
+    $('phone-close-key').textContent = keyName(s.keys.phone[0] ?? 'Tab');
+    $('reader-key').textContent = keyName(s.keys.use[0] ?? 'KeyE');
     this.subtitlesEnabled = s.subtitles;
     if (!s.subtitles) this.clearSubtitle();
   }

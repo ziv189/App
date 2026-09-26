@@ -7,6 +7,7 @@ import type { CellDef, CellId } from './Cell';
 export const CELLS: CellDef[] = [
   {
     id: 'exterior',
+    ramps: [{ from: [-5.35, -1.122, 7.02], to: [-5.35, -0.389, 5.509], width: 2.9 }],
     title: 'Garden and lake',
     file: 'assets/rooms/exterior.glb',
     approxBytes: 9_000_000,
@@ -24,6 +25,13 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'hall',
+    // the staircase: two flights of 29 cm steps; the upper flight's treads and the top of the landing
+    // are missing from the room's collision mesh
+    ramps: [
+      { from: [1.45, 0.03, -0.55], to: [1.45, 1.79, -3.125], width: 1.6 },
+      { from: [1.01, 1.79, -4.15], to: [-1.575, 3.56, -4.15], width: 1.6 },
+    ],
+    floors: [{ min: [-4.1, 3.3, -5.05], max: [-1.55, 3.56, -3.25] }],
     exposure: { moon: 1.5 },
     title: 'Hall',
     file: 'assets/rooms/hall.glb',
@@ -129,6 +137,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'basement',
+    ramps: [{ from: [-0.9, 0, -2.5], to: [2.375, 2.35, -2.5], width: 0.8 }],
     title: 'Basement',
     file: 'assets/rooms/basement.glb',
     approxBytes: 5_000_000,

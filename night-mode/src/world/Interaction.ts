@@ -12,7 +12,7 @@ export interface InteractTarget {
  * interaction volumes (I_ boxes), within arm's reach. Walls in between block it.
  */
 export class Interaction {
-  reach = 2.1;
+  reach = 2.5;
   private readonly ray = new Raycaster();
   private readonly centre = new Vector2(0, 0);
 

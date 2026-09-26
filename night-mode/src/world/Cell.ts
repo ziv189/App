@@ -43,6 +43,13 @@ export interface CellDef {
   exterior?: boolean;
   /** Camera exposure per lighting state, overriding the value baked into the room file. */
   exposure?: { on?: number; moon?: number };
+  /**
+   * Invisible ramps laid over staircases (game space): `from`/`to` are the bottom and top of the flight's
+   * walking line, through the step edges.
+   */
+  ramps?: { from: [number, number, number]; to: [number, number, number]; width: number }[];
+  /** Invisible floor boxes (game space, top at max[1]) that patch holes in a room's collision. */
+  floors?: { min: [number, number, number]; max: [number, number, number] }[];
 }
 
 interface CellMeta {
@@ -92,6 +99,8 @@ export class Cell {
   readonly textures: Texture[] = [];
   lightmapMaterials: MeshStandardMaterial[] = [];
   collider: RAPIER.Collider | null = null;
+  /** Ramps and floor patches from the cell definition, switched on and off with the room. */
+  readonly extraColliders: RAPIER.Collider[] = [];
   exposure: Record<string, number> = { on: 1, moon: 2.4 };
   sky: Texture | null = null;
   /** 0 = the lights of the house are on, 1 = only moonlight. */
@@ -189,6 +198,13 @@ export class Cell {
       cell.collider = added?.collider ?? null;
       cell.collider?.setEnabled(false);
     }
+    for (const r of def.ramps ?? []) cell.extraColliders.push(physics.addRamp(new Vector3(...r.from), new Vector3(...r.to), r.width));
+    for (const f of def.floors ?? []) {
+      const min = new Vector3(...f.min);
+      const max = new Vector3(...f.max);
+      cell.extraColliders.push(physics.addBox(min.clone().add(max).multiplyScalar(0.5), max.clone().sub(min).multiplyScalar(0.5)));
+    }
+    for (const c of cell.extraColliders) c.setEnabled(false);
     cell.bounds.setFromObject(gltf.scene);
     root.visible = false;
     return cell;
@@ -214,6 +230,7 @@ export class Cell {
   setActive(active: boolean): void {
     this.root.visible = active;
     this.collider?.setEnabled(active);
+    for (const c of this.extraColliders) c.setEnabled(active);
   }
 
   /** How open a door leaf is (0..1 of ~80 degrees). */

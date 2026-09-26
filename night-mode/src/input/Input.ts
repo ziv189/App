@@ -1,6 +1,7 @@
 import type { Settings } from '../core/Settings';
 import type { UiInput } from '../ui/Ui';
 import { applyResponseCurve, clampLength, radialDeadzone, type Vec2 } from './math';
+import type { Action } from './bindings';
 
 export type InputDevice = 'keyboardMouse' | 'gamepad';
 
@@ -45,7 +46,9 @@ const DIGIT = /^(?:Digit|Numpad)(\d)$/;
 
 export class Input {
   /** Set by the game while playing, so movement keys don't scroll or trigger browser shortcuts. */
+  /** While true, the game's keys don't do their browser default (Tab moving focus, Space scrolling...). */
   captureKeys = false;
+  private boundCodes = new Set<string>();
   /** Called when the browser refuses to capture the mouse (e.g. clicking again too quickly after Esc). */
   onPointerLockFailed: (() => void) | null = null;
   /**
@@ -114,25 +117,29 @@ export class Input {
     const hit = (code: string) => this.pressed.has(code);
     const invert = settings.invertY ? -1 : 1;
 
+    const keys = settings.keys;
+    this.boundCodes = new Set(Object.values(keys).flat());
+    const down = (a: Action) => keys[a].some(key);
+    const tapped = (a: Action) => keys[a].some(hit);
     let move = clampLength({
-      x: Number(key('KeyD') || key('ArrowRight')) - Number(key('KeyA') || key('ArrowLeft')),
-      y: Number(key('KeyW') || key('ArrowUp')) - Number(key('KeyS') || key('ArrowDown')),
+      x: Number(down('right')) - Number(down('left')),
+      y: Number(down('forward')) - Number(down('back')),
     });
     const mouseScale = MOUSE_RADIANS_PER_COUNT * settings.mouseSensitivity;
     const look = { x: this.mouseDX * mouseScale, y: -this.mouseDY * mouseScale * invert };
-    let sprint = key('ShiftLeft') || key('ShiftRight');
-    let crouchPressed = hit('KeyC');
-    let interactPressed = hit('KeyE') || this.mouseClicked;
+    let sprint = down('run');
+    let crouchPressed = tapped('crouch');
+    let interactPressed = tapped('use') || this.mouseClicked;
     let pausePressed = hit('Escape');
     let gamepadConfirmPressed = false;
-    let flashlightPressed = hit('KeyF');
-    let phonePressed = hit('Tab');
+    let flashlightPressed = tapped('flashlight');
+    let phonePressed = tapped('phone');
     const ui: UiInput = {
-      up: hit('ArrowUp') || hit('KeyW'),
-      down: hit('ArrowDown') || hit('KeyS'),
-      select: hit('KeyE') || hit('Enter') || hit('Space') || this.mouseClicked,
+      up: hit('ArrowUp') || tapped('forward'),
+      down: hit('ArrowDown') || tapped('back'),
+      select: tapped('use') || hit('Enter') || hit('Space') || this.mouseClicked,
       back: hit('Backspace') || hit('KeyQ') || this.mouseRightClicked,
-      close: hit('Escape') || hit('Tab'),
+      close: hit('Escape') || tapped('phone'),
       digits: this.typed.join(''),
       erase: hit('Backspace'),
       mouseDX: this.mouseDX,
@@ -224,7 +231,7 @@ export class Input {
 
   private onKeyDown = (e: KeyboardEvent) => {
     const typing = e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement;
-    if (this.captureKeys && !typing && GAME_KEYS.has(e.code)) e.preventDefault();
+    if (this.captureKeys && !typing && (GAME_KEYS.has(e.code) || this.boundCodes.has(e.code))) e.preventDefault();
     if (e.repeat) return;
     // digits are kept in order: a slow frame can span several key presses on the door keypad
     const digit = DIGIT.exec(e.code);

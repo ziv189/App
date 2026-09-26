@@ -2,6 +2,7 @@ import { Vector3 } from 'three';
 import type { AudioEngine } from '../audio/AudioEngine';
 import type { Voice } from '../audio/Voice';
 import type { Fx } from '../fx/Fx';
+import type { Action } from '../input/bindings';
 import type { PlayerController } from '../player/PlayerController';
 import type { Ui } from '../ui/Ui';
 import type { CellId } from '../world/Cell';
@@ -38,6 +39,9 @@ export interface Ctx {
   save(chapter: ChapterId): void;
   /** Makes the player stand at a marker (no fade) - used by chapter setups. */
   place(cell: CellId, marker: string): Promise<void>;
+  /** The key(s) bound to an action, for hints: as <kbd> HTML, or as plain text ("Tab or P"). */
+  keyHtml(action: Action): string;
+  keyText(action: Action): string;
 }
 
 export interface Chapter {
@@ -161,11 +165,9 @@ const prologue: Chapter = {
     void s.sfx('vibrate', { volume: 0.9 });
     c.phone.receive('host', ARRIVAL_MESSAGES);
     s.toast('SitterSafe · 5 new messages from Dana H.', 5);
-    c.ui.setKeyHint('Press <kbd>Tab</kbd> to check your phone');
-    await s.until(() => s.is('readArrival'));
-    c.ui.setKeyHint(null);
-    s.objective('Go to the front door');
+    c.ui.setKeyHint(`Press ${c.keyHtml('phone')} to check your phone`);
     let wrong = 0;
+    // the keypad works from the start: reading Dana's messages gives the code, but nothing waits for it
     s.on('keypad', {
       prompt: 'Enter the door code',
       action: async () => {
@@ -174,13 +176,19 @@ const prologue: Chapter = {
           s.off('keypad');
           s.set('codeEntered');
         } else if (++wrong >= 1) {
-          s.toast("The code is in Dana's messages (Tab).", 4);
+          s.toast(`The code is in Dana's messages (${c.keyText('phone')}).`, 4);
         }
       },
     });
     s.lockDoor('exterior', 'front', 'keypad');
     s.lockDoor('exterior', 'back', 'back');
     s.lockDoor('exterior', 'coal', 'stuck');
+    s.objective("Read Dana's messages");
+    void (async () => {
+      await s.until(() => s.is('readArrival') || s.is('codeEntered'));
+      c.ui.setKeyHint(null);
+      if (!s.is('codeEntered')) s.objective('Go to the front door');
+    })().catch(s.report.bind(s));
     await s.until(() => s.is('codeEntered'));
     void s.sfx('lock_motor', { at: c.fx.anchor('exterior', 'keypad'), volume: 0.8 });
     s.unlockDoor('exterior', 'front');
@@ -417,7 +425,7 @@ const ch2: Chapter = {
       c.fx.cameraSweep(false);
       if (!caught) break;
       await c.fx.jumpScare('found');
-      if (round >= 2) s.toast('The cameras have blind spots. Try the nook under the stairs, and crouch (C).', 7);
+      if (round >= 2) s.toast(`The cameras have blind spots. Try the nook under the stairs, and crouch (${c.keyText('crouch')}).`, 7);
       await s.say('i_again');
     }
     s.music('', { fade: 3 });
@@ -671,7 +679,7 @@ const ch4: Chapter = {
     c.phone.bookingHtml = BOOKING_HTML_REVEALED;
     void s.sfx('vibrate', { volume: 0.8 });
     s.toast('SitterSafe · Your booking was updated', 5);
-    s.objective('Check your booking (Tab)');
+    s.objective(`Check your booking (${c.keyText('phone')})`);
     const seen = c.phone.bookingSeen;
     await s.until(() => c.phone.bookingSeen > seen);
     await s.until(() => !c.ui.phoneOpen);
@@ -691,7 +699,7 @@ const ch4: Chapter = {
     void s.sfx('power_down', { volume: 0.9 });
     s.lights({ brightness: 0.12, nightMode: false });
     c.fx.clockRunning(false);
-    if (!c.player.moveLocked) c.ui.setKeyHint(c.fx.flashlightOn ? null : 'Press <kbd>F</kbd> for your phone\'s flashlight');
+    if (!c.player.moveLocked) c.ui.setKeyHint(c.fx.flashlightOn ? null : `Press ${c.keyHtml('flashlight')} for your phone's flashlight`);
     await s.wait(3);
     c.ui.setKeyHint(null);
     await c.fx.whisperBehind('i_dontgo');
@@ -766,7 +774,7 @@ const ch5: Chapter = {
       s.music('lullaby_box_dying', { loop: false, volume: 0.9, fade: 0.5 });
       await s.wait(2.5);
       await s.say('i_sleepy');
-      c.ui.setKeyHint('Press <kbd>E</kbd> to stay');
+      c.ui.setKeyHint(`Press ${c.keyHtml('use')} to stay`);
       const pressed = s.pressed().then(() => true);
       const timeout = s.wait(12).then(() => false);
       for (const p of [pressed, timeout]) p.catch(() => undefined); // the loser may be cancelled later

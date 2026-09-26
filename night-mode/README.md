@@ -34,14 +34,16 @@ On macOS/Linux: `cd night-mode && npm install && npm run dev`.
 
 | | Keyboard and mouse | Controller |
 | --- | --- | --- |
-| Look / move | Mouse / WASD | Sticks |
+| Look / move | Mouse / WASD (or arrow keys) | Sticks |
 | Use, read, open | **E** or left click | A |
-| Phone (messages, booking, notes) | **Tab** | Y |
+| Phone (messages, booking, notes) | **Tab** or **P** | Y |
 | Phone flashlight | **F** | X |
 | Crouch | **C** | B |
+| Run | **Shift** | Click L3 |
 | Pause, settings | **Esc** | Start |
 
-Settings: brightness, volume, mouse sensitivity, field of view, subtitles, head bob, graphics quality.
+Every key can be changed: **Esc → Controls**, click a key, press the new one (**Reset keys** undoes it).
+Other settings: brightness, volume, mouse sensitivity, field of view, subtitles, head bob, graphics quality.
 
 ## The story (no spoilers)
 
