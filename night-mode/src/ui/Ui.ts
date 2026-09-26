@@ -691,6 +691,7 @@ export class Ui {
     this.settings.update({
       quality: (f.namedItem('quality') as HTMLSelectElement).value as Settings['quality'],
       brightness: n('brightness'),
+      gamma: n('gamma'),
       volume: n('volume'),
       mouseSensitivity: n('mouseSensitivity'),
       gamepadSensitivity: n('gamepadSensitivity'),
@@ -709,6 +710,8 @@ export class Ui {
     set('quality', s.quality);
     set('brightness', String(s.brightness));
     out('brightness', `${Math.round(s.brightness * 100)}%`);
+    set('gamma', String(s.gamma));
+    out('gamma', s.gamma.toFixed(2));
     set('volume', String(s.volume));
     out('volume', `${Math.round(s.volume * 100)}%`);
     set('mouseSensitivity', String(s.mouseSensitivity));

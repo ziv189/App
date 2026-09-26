@@ -10,7 +10,9 @@ import { verticalFovFromHorizontal16x9 } from '../input/math';
 import { Physics } from '../physics/Physics';
 import { PlayerController } from '../player/PlayerController';
 import { createRenderer } from '../render/createRenderer';
-import { DEFAULT_LOOK, PostFX } from '../render/PostFX';
+import { installHeightFog } from '../render/HeightFog';
+import { NIGHT } from '../render/nightConfig';
+import { PostFX } from '../render/PostFX';
 import { pixelRatioFor, QUALITY_PRESETS, type QualityLevel } from '../render/quality';
 import { CHAPTERS, chapter, type ChapterId, type Ctx } from '../story/chapters';
 import { ENDINGS, type EndingId } from '../story/content';
@@ -88,6 +90,7 @@ export class Game implements StoryHost {
   private nightDoorLines = 0;
 
   constructor(canvas: HTMLCanvasElement) {
+    installHeightFog(); // before any material compiles
     this.renderer = createRenderer(canvas);
     this.input = new Input(canvas);
     this.ui = new Ui(this.settings);
@@ -172,7 +175,8 @@ export class Game implements StoryHost {
         clock: () => this.story.clock,
       });
       this.story = new Story(this);
-      this.post.setLook({ ...DEFAULT_LOOK, vignetteDarkness: 0.62, grain: 0.14, bloomThreshold: 0.75, aoRadius: 0.6, aoIntensity: 1.6 });
+      this.post.setLook({ aoRadius: 0.6, aoIntensity: 1.6 });
+      this.post.applyNight();
       this.ui.setCredits(CREDITS_HTML);
 
       progress.setStatus('Loading the house');
@@ -549,6 +553,7 @@ export class Game implements StoryHost {
     this.fx.update(dt);
     this.audio.updateListener(this.camera);
     this.renderer.toneMappingExposure = this.world.exposure * this.settings.get().brightness;
+    this.post.setDayLook(this.world.dawn);
     this.post.render(dt);
   }
 
@@ -646,9 +651,15 @@ export class Game implements StoryHost {
     if (s.quality !== this.appliedQuality) {
       this.appliedQuality = s.quality;
       this.post.applyQuality(preset);
-      if (this.fx) this.fx.flashlight.shadow.mapSize.set(preset.shadowMapSize / 2, preset.shadowMapSize / 2);
+      if (this.fx) {
+        this.fx.flashlight.shadow.mapSize.set(preset.shadowMapSize / 2, preset.shadowMapSize / 2);
+        this.fx.moonBeams.setShadowMapSize(Math.min(preset.shadowMapSize, 2048));
+        this.fx.setNightDetail(s.quality !== 'low');
+      }
+      this.world?.setAnisotropy(preset.anisotropy);
     }
     this.audio.setMasterVolume(s.volume);
+    this.post.setGamma(s.gamma);
     this.camera.fov = verticalFovFromHorizontal16x9(s.fov);
     this.resize();
   }
@@ -674,6 +685,13 @@ export class Game implements StoryHost {
   debugApi() {
     return {
       game: this,
+      /** The night look's config (render/nightConfig.ts): change values, then call applyNight(). */
+      night: NIGHT,
+      applyNight: () => {
+        this.post.applyNight();
+        this.world.applyNight();
+        this.fx.applyNight();
+      },
       jump: (id: ChapterId) => this.startFrom(id, false),
       speakers: SPEAKERS,
       /** Scripted tests: story waits k times shorter, voice lines cut short. */

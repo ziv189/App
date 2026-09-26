@@ -56,9 +56,12 @@ The full design document (**spoilers**) is in [docs/STORY.md](docs/STORY.md).
 
 ## How it was made
 
-- **Engine** (`src/`): Three.js WebGL2 renderer with post-processing (AgX tone mapping, bloom, N8AO ambient
-  occlusion, film grain), Rapier physics for the first-person controller, a WebAudio engine with 3D sound and
-  room reverb, and a small story runtime (`src/story/`) that the five chapters are written in.
+- **Engine** (`src/`): Three.js WebGL2 renderer with post-processing (ACES tone mapping, a night colour grade,
+  bloom, N8AO ambient occlusion, film grain), Rapier physics for the first-person controller, a WebAudio engine
+  with 3D sound and room reverb, and a small story runtime (`src/story/`) that the five chapters are written in.
+- **Night**: a procedural sky, height fog, moonbeams through the windows, glowing lamps and window light on the
+  snow, mist, swaying pines. Every value is in `src/render/nightConfig.ts`; see
+  [docs/NIGHT_LOOK.md](docs/NIGHT_LOOK.md).
 - **Rooms**: each room is a separate scene with light baked in Blender/Cycles in two states (lamps on, and
   moonlight only) that the game blends between. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md).
 - **People**: Microsoft Rocketbox avatars with lip-sync driven by the voice files' phoneme timings.

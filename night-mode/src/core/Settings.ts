@@ -13,6 +13,8 @@ export interface Settings {
   headBob: boolean;
   /** Screen brightness multiplier (exposure). */
   brightness: number;
+  /** Midtone gamma after the grade: above 1 lifts the shadows (dark screens, bright rooms). */
+  gamma: number;
   /** Master volume 0..1. */
   volume: number;
   subtitles: boolean;
@@ -28,6 +30,7 @@ export const DEFAULT_SETTINGS: Readonly<Settings> = {
   fov: 90,
   headBob: true,
   brightness: 1,
+  gamma: 1,
   volume: 0.9,
   subtitles: true,
   keys: DEFAULT_KEYS as KeyBindings,
@@ -57,6 +60,7 @@ export function sanitizeSettings(raw: unknown): Settings {
     fov: num(r.fov, d.fov, 70, 110),
     headBob: bool(r.headBob, d.headBob),
     brightness: num(r.brightness, d.brightness, 0.6, 1.8),
+    gamma: num(r.gamma, d.gamma, 0.7, 1.6),
     volume: num(r.volume, d.volume, 0, 1),
     subtitles: bool(r.subtitles, d.subtitles),
     keys: sanitizeKeys(r.keys),

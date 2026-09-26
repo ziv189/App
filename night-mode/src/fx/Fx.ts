@@ -34,6 +34,10 @@ import type { PlayerController } from '../player/PlayerController';
 import type { Ui } from '../ui/Ui';
 import type { CellId } from '../world/Cell';
 import type { World } from '../world/World';
+import { applyGroundNight } from '../render/SnowGround';
+import { applyWindNight } from '../world/Trees';
+import { MoonBeams } from './MoonBeams';
+import { NightOutdoors } from './NightOutdoors';
 import { faceStudio, Screens, type Feed } from './Screens';
 
 const UP = new Vector3(0, 1, 0);
@@ -109,7 +113,10 @@ export class Fx {
   private rockSound: SoundHandle | null = null;
   private coldOn = false;
   private breathTimer = 3;
-  private snow: Points | null = null;
+  /** Lamps, window light, mist, falling snow and telegraph poles outside (see NightOutdoors). */
+  private outdoors: NightOutdoors | null = null;
+  /** The moon through the windows indoors, while the house lights are off. */
+  readonly moonBeams: MoonBeams;
   private scareQuad: Mesh | null = null;
   private readonly tmp = new Vector3();
   private readonly tmp2 = new Vector3();
@@ -129,6 +136,7 @@ export class Fx {
     this.flashlight.shadow.normalBias = 0.02;
     this.flashlight.shadow.camera.near = 0.1;
     d.scene.add(this.flashlight, this.flashlight.target);
+    this.moonBeams = new MoonBeams(d.scene);
   }
 
   // ----------------------------------------------------------------------------------- setup
@@ -137,6 +145,7 @@ export class Fx {
   attach(chars: { ivy?: GLTF; dana?: GLTF; jordan?: GLTF }): void {
     const w = this.d.world;
     for (const [cellId, cell] of w.cells) {
+      this.moonBeams.attach(cell);
       for (const [name, obj] of cell.dynamic) {
         if (name.endsWith('_screen') && obj instanceof Mesh && !this.screens.has(name.replace(/_screen$/, ''))) {
           if (name === 'tablet_screen') {
@@ -222,6 +231,10 @@ export class Fx {
       exterior.root.add(this.ivyLake.root);
       this.setupLakeFeed();
     }
+    if (!this.outdoors && w.cells.has('exterior')) {
+      this.outdoors = new NightOutdoors(w.cells.get('exterior')!, this.d.renderer);
+      this.outdoors.setDetail(this.nightDetail);
+    }
     if (chars.jordan && !this.jordan && w.cells.has('exterior')) {
       this.jordan = new Character(chars.jordan);
       this.jordan.play('float');
@@ -257,11 +270,16 @@ export class Fx {
         const fog = this.d.scene.fog;
         const env = this.d.scene.environment;
         const flash = this.flashlight.visible;
+        const sky = w.nightSky.mesh.visible;
+        const beam = this.moonBeams.light.intensity;
         cur?.root && (cur.root.visible = false);
         exterior.root.visible = true;
         this.flashlight.visible = false;
+        this.moonBeams.light.intensity = 0;
         if (this.ivyLake) this.ivyLake.update(1 / 24);
-        this.d.scene.fog = new FogExp2(0x0b1018, 0.018);
+        // the camera sees the night outside: its sky and fog
+        w.nightSky.mesh.visible = true;
+        this.d.scene.fog = w.nightFog;
         restore = () => {
           exterior.root.visible = cur === exterior;
           if (cur) cur.root.visible = true;
@@ -269,6 +287,8 @@ export class Fx {
           this.d.scene.fog = fog;
           this.d.scene.environment = env;
           this.flashlight.visible = flash;
+          w.nightSky.mesh.visible = sky;
+          this.moonBeams.light.intensity = beam;
         };
       },
       after: () => restore?.(),
@@ -767,6 +787,23 @@ export class Fx {
     await this.d.ui.fade(1, 1.5);
   }
 
+  private nightDetail = true;
+
+  /** Low graphics quality leaves out the costlier night effects (mist, light shafts, dust, half the snow). */
+  setNightDetail(full: boolean): void {
+    this.nightDetail = full;
+    this.outdoors?.setDetail(full);
+    this.moonBeams.setDetail(full);
+  }
+
+  /** Re-reads the night config (lamps, snow, mist, moon beams) after it changed. */
+  applyNight(): void {
+    this.outdoors?.apply();
+    this.moonBeams.apply();
+    applyWindNight();
+    applyGroundNight();
+  }
+
   // ----------------------------------------------------------------------------------- per frame
 
   update(dt: number): void {
@@ -830,8 +867,9 @@ export class Fx {
         this.puff();
       }
     }
-    // snow outside
-    this.updateSnow(dt, cur?.def.id === 'exterior');
+    // the night outside: lamps, window light, mist, snow; and the moon through the windows inside
+    this.outdoors?.update(cur?.def.id === 'exterior');
+    this.moonBeams.update(cur ?? null);
     this.ivyMirror?.update(dt);
     this.ivyLake?.update(0);
     this.jordan?.update(dt);
@@ -867,44 +905,6 @@ export class Fx {
       }
     };
     requestAnimationFrame(step);
-  }
-
-  private updateSnow(dt: number, outside: boolean): void {
-    if (!outside) {
-      if (this.snow) this.snow.visible = false;
-      return;
-    }
-    const count = 5000;
-    if (!this.snow) {
-      const geo = new BufferGeometry();
-      const pos = new Float32Array(count * 3);
-      for (let i = 0; i < count; i++) {
-        pos[i * 3] = (Math.random() - 0.5) * 40;
-        pos[i * 3 + 1] = Math.random() * 14;
-        pos[i * 3 + 2] = (Math.random() - 0.5) * 40;
-      }
-      geo.setAttribute('position', new BufferAttribute(pos, 3));
-      const mat = new PointsMaterial({ size: 0.045, map: softDot(), transparent: true, opacity: 0.8, depthWrite: false, color: 0xcfd8ea });
-      this.snow = new Points(geo, mat);
-      this.snow.frustumCulled = false;
-      this.d.scene.add(this.snow);
-    }
-    this.snow.visible = true;
-    const p = this.d.player.position;
-    this.snow.position.set(p.x, p.y - 4, p.z);
-    const arr = (this.snow.geometry.getAttribute('position') as BufferAttribute).array as Float32Array;
-    const t = performance.now() / 1000;
-    for (let i = 0; i < count; i++) {
-      arr[i * 3 + 1]! -= dt * (0.9 + (i % 7) * 0.08);
-      arr[i * 3]! += dt * (0.6 + Math.sin(t * 0.7 + i) * 0.3);
-      if (arr[i * 3 + 1]! < 0) {
-        arr[i * 3 + 1] = 14;
-        arr[i * 3] = (Math.random() - 0.5) * 40;
-        arr[i * 3 + 2] = (Math.random() - 0.5) * 40;
-      }
-      if (arr[i * 3]! > 20) arr[i * 3] = -20;
-    }
-    this.snow.geometry.getAttribute('position').needsUpdate = true;
   }
 }
 

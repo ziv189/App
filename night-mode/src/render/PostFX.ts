@@ -5,7 +5,6 @@ import {
   ChromaticAberrationEffect,
   EffectComposer,
   EffectPass,
-  HueSaturationEffect,
   NoiseEffect,
   RenderPass,
   SMAAEffect,
@@ -15,6 +14,8 @@ import {
   type Pass,
 } from 'postprocessing';
 import { HalfFloatType, Vector2, type PerspectiveCamera, type Scene, type WebGLRenderer } from 'three';
+import { NIGHT } from './nightConfig';
+import { NightGrade } from './NightGrade';
 import type { QualityPreset } from './quality';
 
 /** Level-tunable look. The delusion system will drive several of these at runtime later. */
@@ -29,34 +30,43 @@ export interface LookSettings {
   aoIntensity: number;
   /** World-space AO radius in metres (roughly the size of the crevices that darken). */
   aoRadius: number;
-  /** Colour saturation after tone mapping, -1..1 (AgX desaturates bright colours; this gives some back). */
-  saturation: number;
+}
+
+/** The look from the night config (NIGHT): tone mapping, bloom, lens. */
+function nightLook(): Partial<LookSettings> {
+  return {
+    toneMapping: NIGHT.grade.toneMapping === 'aces' ? ToneMappingMode.ACES_FILMIC : ToneMappingMode.AGX,
+    bloomIntensity: NIGHT.bloom.intensity,
+    bloomThreshold: NIGHT.bloom.threshold,
+    vignetteDarkness: NIGHT.lens.vignette,
+    grain: NIGHT.lens.grain,
+  };
 }
 
 export const DEFAULT_LOOK: LookSettings = {
   exposure: 1,
-  toneMapping: ToneMappingMode.AGX,
-  bloomIntensity: 0.55,
-  bloomThreshold: 0.85,
-  vignetteDarkness: 0.55,
-  grain: 0.12,
+  toneMapping: ToneMappingMode.ACES_FILMIC,
+  bloomIntensity: 0.75,
+  bloomThreshold: 0.82,
+  vignetteDarkness: 0.6,
+  grain: 0.1,
   chromaticAberration: 0.0006,
   aoIntensity: 2.5,
   aoRadius: 1.2,
-  saturation: 0.18,
+  ...nightLook(),
 };
 
 /**
  * Post-processing chain (pmndrs "postprocessing" + N8AO):
- *   scene (linear HDR) -> ambient occlusion -> bloom + tone mapping -> SMAA -> lens & film
- *   (chromatic aberration, vignette, grain) -> screen
+ *   scene (linear HDR) -> ambient occlusion -> bloom + tone mapping + night grade -> SMAA -> lens & film
+ *   (chromatic aberration, vignette, grain, dithering) -> screen
  */
 export class PostFX {
   readonly composer: EffectComposer;
   readonly ao: N8AOPostPass;
   readonly bloom: BloomEffect;
   readonly toneMapping: ToneMappingEffect;
-  readonly saturation: HueSaturationEffect;
+  readonly grade: NightGrade;
   readonly smaa: SMAAEffect;
   readonly chromaticAberration: ChromaticAberrationEffect;
   readonly vignette: VignetteEffect;
@@ -77,9 +87,9 @@ export class PostFX {
     this.renderPass = new RenderPass(scene, camera);
     this.ao = new N8AOPostPass(scene, camera, 1, 1);
     this.ao.configuration.distanceFalloff = 1;
-    this.bloom = new BloomEffect({ mipmapBlur: true, luminanceSmoothing: 0.25, radius: 0.72 });
-    this.toneMapping = new ToneMappingEffect({ mode: ToneMappingMode.AGX });
-    this.saturation = new HueSaturationEffect({ saturation: DEFAULT_LOOK.saturation });
+    this.bloom = new BloomEffect({ mipmapBlur: true, luminanceSmoothing: NIGHT.bloom.smoothing, radius: NIGHT.bloom.radius });
+    this.toneMapping = new ToneMappingEffect({ mode: DEFAULT_LOOK.toneMapping });
+    this.grade = new NightGrade();
     this.smaa = new SMAAEffect();
     this.chromaticAberration = new ChromaticAberrationEffect({
       offset: new Vector2(),
@@ -108,6 +118,32 @@ export class PostFX {
     return this.look;
   }
 
+  /** Re-reads the night config (NIGHT): tone mapping, bloom, lens and the grade. */
+  applyNight(): void {
+    this.bloom.luminanceMaterial.smoothing = NIGHT.bloom.smoothing;
+    this.bloom.mipmapBlurPass.radius = NIGHT.bloom.radius;
+    this.grade.apply();
+    this.setLook(this.dayLook ? {} : nightLook());
+  }
+
+  private dayLook = false;
+
+  /**
+   * The dawn after one ending keeps the game's original day look: its own tone mapping (AgX) and no
+   * night grade. Everything else is night.
+   */
+  setDayLook(day: boolean): void {
+    if (day === this.dayLook) return;
+    this.dayLook = day;
+    this.grade.setDay(day);
+    this.toneMapping.mode = day ? ToneMappingMode.AGX : (nightLook().toneMapping ?? ToneMappingMode.ACES_FILMIC);
+  }
+
+  /** The player's gamma (Settings). */
+  setGamma(gamma: number): void {
+    this.grade.gamma = gamma;
+  }
+
   setLook(patch: Partial<LookSettings>): void {
     this.look = { ...this.look, ...patch };
     const l = this.look;
@@ -120,7 +156,6 @@ export class PostFX {
     this.chromaticAberration.offset.set(l.chromaticAberration, l.chromaticAberration);
     this.ao.configuration.intensity = l.aoIntensity;
     this.ao.configuration.aoRadius = l.aoRadius;
-    this.saturation.saturation = l.saturation;
   }
 
   setSize(width: number, height: number): void {
@@ -136,12 +171,11 @@ export class PostFX {
     for (const pass of this.composer.passes.slice()) this.composer.removePass(pass);
     for (const pass of this.effectPasses) pass.fullscreenMaterial.dispose();
 
-    const hdrEffects = this.bloomEnabled ? [this.bloom, this.toneMapping, this.saturation] : [this.toneMapping, this.saturation];
-    this.effectPasses = [
-      new EffectPass(this.camera, ...hdrEffects),
-      new EffectPass(this.camera, this.smaa),
-      new EffectPass(this.camera, this.chromaticAberration, this.vignette, this.grain),
-    ];
+    const hdrEffects = this.bloomEnabled ? [this.bloom, this.toneMapping, this.grade] : [this.toneMapping, this.grade];
+    const lens = new EffectPass(this.camera, this.chromaticAberration, this.vignette, this.grain);
+    // dark gradients (night sky, fog) band on 8-bit screens without it
+    lens.dithering = true;
+    this.effectPasses = [new EffectPass(this.camera, ...hdrEffects), new EffectPass(this.camera, this.smaa), lens];
     const passes: Pass[] = [this.renderPass];
     if (this.aoEnabled) passes.push(this.ao);
     passes.push(...this.effectPasses);

@@ -20,6 +20,9 @@ import {
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
 import { assetUrl, type Assets } from '../assets/Assets';
 import type { Physics } from '../physics/Physics';
+import { createNightFog } from '../render/HeightFog';
+import { NIGHT } from '../render/nightConfig';
+import { NightSky, nightTime } from '../render/NightSky';
 import { captureReflectionProbe } from '../render/ReflectionProbe';
 import { Cell, type CellDef, type CellId } from './Cell';
 import { CELLS, DOOR_LINKS } from './cells';
@@ -42,6 +45,8 @@ export class World {
   brightnessTarget = 1;
   /** Blue accent lights of Night Mode. */
   nightModeLights = false;
+  /** Anisotropic filtering for the rooms' textures (quality preset): keeps the floors and the snow sharp at low angles. */
+  private anisotropy = 1;
   exposure = 1;
   private readonly loading = new Map<CellId, Promise<Cell>>();
   private readonly skies = new Map<string, Promise<Texture>>();
@@ -56,6 +61,9 @@ export class World {
   private outdoorViews: [WebGLCubeRenderTarget, WebGLCubeRenderTarget] | null = null;
   private capturingOutdoors: Promise<void> | null = null;
   private outdoorState = -1;
+  /** The night sky and fog outdoors (see render/NightSky.ts, render/HeightFog.ts and render/nightConfig.ts). */
+  readonly nightSky = new NightSky();
+  readonly nightFog = createNightFog();
 
   constructor(
     private readonly scene: Scene,
@@ -69,6 +77,8 @@ export class World {
       scene.add(l);
       this.accentLights.push(l);
     }
+    this.nightSky.mesh.visible = false;
+    scene.add(this.nightSky.mesh);
   }
 
   def(id: CellId): CellDef {
@@ -83,6 +93,7 @@ export class World {
     if (!p) {
       p = Cell.load(this.def(id), this.assets, this.physics, onProgress).then((cell) => {
         this.cells.set(id, cell);
+        this.applyAnisotropy(cell, false);
         this.scene.add(cell.root);
         // doors that open onto the outdoors show them: the black backing of the doorway becomes a
         // window onto the outdoor view (the rooms are separate spaces, with wall behind their doors)
@@ -178,9 +189,6 @@ export class World {
   captureOutdoorViews(): Promise<void> {
     this.capturingOutdoors ??= (async () => {
       const ext = await this.load('exterior');
-      const extSky = ext.def.sky;
-      if (!extSky) return;
-      const sky = await this.sky(extSky.hdri, extSky.intensity, extSky.tint);
       const targets: [WebGLCubeRenderTarget, WebGLCubeRenderTarget] = [
         new WebGLCubeRenderTarget(512, { type: HalfFloatType }),
         new WebGLCubeRenderTarget(512, { type: HalfFloatType }),
@@ -209,14 +217,16 @@ export class World {
         intensity: this.scene.backgroundIntensity,
         rotation: this.scene.backgroundRotation.clone(),
         environment: this.scene.environment,
+        fog: this.scene.fog,
+        skyVisible: this.nightSky.mesh.visible,
         night: ext.night,
         brightness: ext.brightness,
       };
       const accents = this.accentLights.map((l) => l.visible);
       for (const l of this.accentLights) l.visible = false;
-      this.scene.background = sky;
-      this.scene.backgroundIntensity = 1;
-      this.scene.backgroundRotation.set(0, MathUtils.degToRad(extSky.rotationDeg ?? 0), 0);
+      this.scene.background = null;
+      this.nightSky.mesh.visible = true;
+      this.scene.fog = this.nightFog;
       this.scene.environment = null;
       try {
         for (const [i, night] of [0, 1].entries()) {
@@ -234,11 +244,13 @@ export class World {
         this.scene.backgroundIntensity = saved.intensity;
         this.scene.backgroundRotation.copy(saved.rotation);
         this.scene.environment = saved.environment;
+        this.scene.fog = saved.fog;
+        this.nightSky.mesh.visible = saved.skyVisible;
         ext.night = saved.night;
         ext.brightness = saved.brightness;
         ext.applyLighting();
       }
-      this.outdoorExposure = [ext.exposure.on ?? 1, ext.exposure.moon ?? 1];
+      this.outdoorExposure = [NIGHT.exposure.exteriorOn, NIGHT.exposure.exteriorMoon];
       this.outdoorViews = targets;
       this.outdoorState = -1;
       if (this.current && !this.current.def.exterior) {
@@ -292,7 +304,23 @@ export class World {
     if (this.current) await this.applySky(this.current);
   }
 
+  /** True while the sky is re-graded for dawn (the day look: no night sky, fog or night grade). */
+  get dawn(): boolean {
+    return this.skyOverride !== null && Boolean(this.current?.def.exterior);
+  }
+
   private async applySky(cell: Cell): Promise<void> {
+    // outdoors at night: the procedural sky and the height fog; indoors: neither (the windows show the
+    // captured outdoors)
+    const night = Boolean(cell.def.exterior) && !this.skyOverride;
+    cell.dawn = Boolean(cell.def.exterior) && this.skyOverride !== null;
+    this.nightSky.mesh.visible = night;
+    if (cell.def.exterior) this.scene.fog = night ? this.nightFog : null;
+    else if (this.scene.fog === this.nightFog) this.scene.fog = null;
+    if (night) {
+      this.scene.background = null;
+      return;
+    }
     if (this.showOutdoorView(cell)) return;
     const s = cell.def.sky;
     if (!s) {
@@ -314,6 +342,31 @@ export class World {
     });
   }
 
+  /** Sets the anisotropic filtering of every room's textures (from the quality preset, capped by the GPU). */
+  setAnisotropy(level: number): void {
+    const n = Math.max(1, Math.min(level, this.renderer.capabilities.getMaxAnisotropy()));
+    if (n === this.anisotropy) return;
+    this.anisotropy = n;
+    for (const cell of this.cells.values()) this.applyAnisotropy(cell, true);
+  }
+
+  private applyAnisotropy(cell: Cell, reupload: boolean): void {
+    for (const t of cell.textures) {
+      // colour, normal and roughness maps (the lightmaps have no mipmaps: nothing to filter)
+      if (!t.generateMipmaps || t.anisotropy === this.anisotropy) continue;
+      t.anisotropy = this.anisotropy;
+      if (reupload) t.needsUpdate = true;
+    }
+  }
+
+  /** Re-reads the night config (sky, fog) after it changed. */
+  applyNight(): void {
+    this.nightSky.apply();
+    this.nightFog.color.set(NIGHT.fog.color);
+    this.nightFog.density = NIGHT.fog.density;
+    this.probeDirty = true;
+  }
+
   /** Re-captures reflections after the lighting has changed noticeably. */
   markProbeDirty(): void {
     this.probeDirty = true;
@@ -332,6 +385,8 @@ export class World {
   }
 
   update(dt: number): void {
+    nightTime.value += dt;
+    this.nightSky.update(dt);
     const cell = this.current;
     if (!cell) return;
     const beforeNight = cell.night;

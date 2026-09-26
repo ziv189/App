@@ -13,6 +13,9 @@ import {
 } from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { addShaderPatch } from '../render/Lightmap';
+import { moonlit } from '../render/Moonlit';
+import { NIGHT } from '../render/nightConfig';
+import { nightTime } from '../render/NightSky';
 import { applySnowCover } from '../render/Snow';
 
 interface Tree {
@@ -53,9 +56,11 @@ export function plantTrees(root: Object3D, groundAt: (x: number, z: number) => n
   applySnowCover(foliageMaterial);
   moonlit(foliageMaterial);
   needles(foliageMaterial);
+  sway(foliageMaterial);
   const trunkMaterial = new MeshStandardMaterial({ color: 0x3a2a1f, roughness: 0.95 });
   trunkMaterial.name = 'NM_FirTrunks';
   moonlit(trunkMaterial);
+  sway(trunkMaterial);
   const foliage = new InstancedMesh(firGeometry(), foliageMaterial, trees.length);
   const trunks = new InstancedMesh(trunkGeometry(), trunkMaterial, trees.length);
   foliage.name = 'firs';
@@ -104,21 +109,45 @@ export function plantTrees(root: Object3D, groundAt: (x: number, z: number) => n
   return obstacles;
 }
 
+/** Wind in the pines (NIGHT.wind), shared by both materials. */
+export const windUniforms = {
+  windSway: { value: NIGHT.wind.sway },
+  windSpeed: { value: NIGHT.wind.speed },
+};
+
+export function applyWindNight(): void {
+  windUniforms.windSway.value = NIGHT.wind.sway;
+  windUniforms.windSpeed.value = NIGHT.wind.speed;
+}
+
 /**
- * The rest of the outdoors has its moonlight baked in; the firs aren't part of the bake, so they get
- * the same moon (and a little sky) in their shader. Snow on the branches picks it up and shows.
+ * The trees sway in the wind: each bends from its foot (nothing at the base, most at the top) with
+ * its own phase, a slow swing with a quicker one on top.
  */
-function moonlit(material: MeshStandardMaterial): void {
-  addShaderPatch(material, 'nm-moonlit', (shader) => {
-    shader.fragmentShader = shader.fragmentShader.replace(
-      '#include <opaque_fragment>',
-      /* glsl */ `{
-		vec3 wn = inverseTransformDirection( normal, viewMatrix );
-		float moon = max( dot( wn, normalize( vec3( 0.35, 0.8, -0.45 ) ) ), 0.0 );
-		outgoingLight += diffuseColor.rgb * ( vec3( 0.2, 0.25, 0.4 ) * moon + vec3( 0.035, 0.045, 0.08 ) * ( 0.6 + 0.4 * wn.y ) );
+function sway(material: MeshStandardMaterial): void {
+  addShaderPatch(material, 'nm-sway', (shader) => {
+    shader.uniforms.time = nightTime;
+    shader.uniforms.windSway = windUniforms.windSway;
+    shader.uniforms.windSpeed = windUniforms.windSpeed;
+    shader.vertexShader = shader.vertexShader
+      .replace('#include <common>', '#include <common>\nuniform float time;\nuniform float windSway;\nuniform float windSpeed;')
+      .replace(
+        '#include <project_vertex>',
+        /* glsl */ `vec4 mvPosition = vec4( transformed, 1.0 );
+#ifdef USE_INSTANCING
+	mvPosition = instanceMatrix * mvPosition;
+	{
+		vec3 treeBase = instanceMatrix[ 3 ].xyz;
+		float treeH = length( instanceMatrix[ 1 ].xyz );
+		float bend = transformed.y * transformed.y;
+		float ph = dot( treeBase.xz, vec2( 0.21, 0.17 ) );
+		float w = sin( time * windSpeed + ph ) + 0.35 * sin( time * windSpeed * 2.37 + ph * 1.9 );
+		mvPosition.xz += vec2( 0.8, 0.45 ) * windSway * treeH * 0.1 * bend * w;
 	}
-	#include <opaque_fragment>`,
-    );
+#endif
+mvPosition = modelViewMatrix * mvPosition;
+gl_Position = projectionMatrix * mvPosition;`,
+      );
   });
 }
 

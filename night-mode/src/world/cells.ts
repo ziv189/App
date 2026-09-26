@@ -25,6 +25,14 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'hall',
+    // the moon down the stairwell through the skylight, and through the transom over the front door
+    moonBeam: {
+      dir: [0.15, -0.9, -0.42],
+      windows: [
+        { min: [-1.4, 7.1, -2.65], max: [0.4, 7.1, -0.55] },
+        { min: [-1.25, 2.55, 4.95], max: [-0.35, 3.02, 4.95] },
+      ],
+    },
     // the staircase: two flights of 29 cm steps; the upper flight's treads and the top of the landing
     // are missing from the room's collision mesh
     ramps: [
@@ -52,6 +60,15 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'living',
+    // through the three panes of the bay
+    moonBeam: {
+      dir: [0.3, -0.62, 1.0],
+      windows: [
+        { min: [-1.25, 1.15, 1.3], max: [-0.75, 2.65, 1.3] },
+        { min: [-0.15, 1.15, 1.3], max: [0.65, 2.05, 1.3] },
+        { min: [1.15, 1.15, 1.3], max: [1.65, 2.65, 1.3] },
+      ],
+    },
     // a Victorian parlour: sage-green walls, an oxblood leather sofa
     palette: { Walls: '#8fa88c', SofaLeather: '#8a3b2c', RadiatorPanelsEnamel: '#d8d2c4' },
     exposure: { moon: 3.4 },
@@ -72,6 +89,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'kitchen',
+    moonBeam: { dir: [-0.3, -0.7, 1.0], windows: [{ min: [-0.55, 1.05, -2.47], max: [0.65, 2.95, -2.47] }] },
     // a farmhouse kitchen: butter-yellow walls, duck-egg cupboards
     palette: { Walls: '#ead7a4', CupboardUnits: '#8fb5ae', WindowFrame: '#e8e1d0' },
     exposure: { on: 0.75, moon: 1.5 },
@@ -116,6 +134,8 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'bathroom',
+    // moonlight through the blinds
+    moonBeam: { dir: [1.0, -0.72, 0.3], windows: [{ min: [-2.5, 0.55, -1.75], max: [-2.5, 2.05, -1.05] }] },
     // pale green paper and warm white woodwork
     palette: { Wallpaper: '#b9d6b9', WhiteWood: '#efe5d3' },
     exposure: { on: 0.55, moon: 1.5 },
@@ -135,6 +155,7 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'ivy',
+    moonBeam: { dir: [0.3, -0.72, -1.0], windows: [{ min: [-0.5, 1.0, 1.7], max: [0.5, 1.95, 1.7] }] },
     exposure: { on: 1.25, moon: 2.2 },
     title: "Ivy's room",
     file: 'assets/rooms/ivy.glb',

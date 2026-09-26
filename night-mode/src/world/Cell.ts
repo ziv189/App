@@ -15,7 +15,9 @@ import {
 import { assetUrl, type Assets } from '../assets/Assets';
 import { RAPIER, type Physics } from '../physics/Physics';
 import { applyLightmaps, type LightmapUniforms } from '../render/Lightmap';
+import { NIGHT } from '../render/nightConfig';
 import { applySnowCover } from '../render/Snow';
+import { applySnowGround } from '../render/SnowGround';
 import { plantTrees } from './Trees';
 
 /** Outside, snow settles on everything facing up except these (the snow itself, ice, glass, the porch floors). */
@@ -58,6 +60,12 @@ export interface CellDef {
   palette?: Record<string, string>;
   /** Mirrors that reflect the room for real (game space): centre, size, and the direction they face. */
   mirrors?: { center: [number, number, number]; width: number; height: number; yawDeg: number }[];
+  /**
+   * Moonlight through the windows while the house lights are off: the direction the light travels
+   * (game space) and the window openings it comes through (flat boxes: min and max corners, one axis
+   * the same in both), for the visible shafts. The pools on the floor come from a real-time shadow.
+   */
+  moonBeam?: { dir: [number, number, number]; windows: { min: [number, number, number]; max: [number, number, number] }[] };
 }
 
 interface CellMeta {
@@ -115,6 +123,8 @@ export class Cell {
   night = 0;
   /** Extra multiplier on the baked light (flicker, power cut). */
   brightness = 1;
+  /** Dawn behind the "Goodnight" ending: the day look (photographed sky, exposure as baked). */
+  dawn = false;
   private readonly emissive: EmissiveEntry[] = [];
 
   private constructor(
@@ -132,7 +142,7 @@ export class Cell {
     cell.exposure = { on: 1, moon: 2.4, ...meta.exposure, ...def.exposure };
     // moonlight indoors reads colder than the bake's physically warm-ish bounce off wood and wallpaper
     // moonlight indoors is cold, but not so blue that the rooms lose their colours
-    if (!def.exterior) cell.lightmap.lightMap2Tint!.value.setRGB(0.8, 0.88, 1.06);
+    if (!def.exterior) cell.lightmap.lightMap2Tint!.value.setRGB(...NIGHT.interiorMoonTint);
     root.updateMatrixWorld(true);
 
     const folder = def.file.slice(0, def.file.lastIndexOf('/') + 1);
@@ -181,6 +191,8 @@ export class Cell {
       for (const mat of mats) {
         if (seenMaterials.has(mat)) continue;
         seenMaterials.add(mat);
+        // glass lets the moon through (the real-time moonbeams indoors)
+        if (/glass/i.test(mat.name)) mesh.castShadow = false;
         if (mat.userData.sosies_glass) {
           convertGlass(mat as MeshPhysicalMaterial);
           mesh.renderOrder = 2;
@@ -196,6 +208,10 @@ export class Cell {
           });
         }
         if (def.exterior && !NO_SNOW.test(mat.name) && !mat.transparent && 'roughness' in mat) applySnowCover(mat);
+        // the snow and the ice themselves: drifts, glints, glassy patches on paths and ice
+        if (def.exterior && /^NM_(Snow|Ice)/.test(mat.name) && 'roughness' in mat) {
+          applySnowGround(mat as MeshStandardMaterial, /^NM_Ice/.test(mat.name) ? 'ice' : /^NM_Snow(Path|Road)/.test(mat.name) ? 'path' : 'snow');
+        }
         const paint = def.palette?.[mat.name];
         if (paint && 'color' in mat) (mat as MeshStandardMaterial).color.set(paint);
         for (const value of Object.values(mat)) if ((value as Texture | null)?.isTexture) cell.textures.push(value as Texture);
@@ -217,12 +233,7 @@ export class Cell {
     }
     if (def.exterior) {
       // real 3D firs in place of the picture-card forest (see Trees.ts), solid to walk into
-      const collider = cell.collider;
-      const trees = plantTrees(root, (x, z) => {
-        if (!collider) return null;
-        const toi = collider.castRay(new RAPIER.Ray({ x, y: 120, z }, { x: 0, y: -1, z: 0 }), 300, true);
-        return toi >= 0 ? 120 - toi : null;
-      });
+      const trees = plantTrees(root, (x, z) => cell.groundAt(x, z));
       cell.extraColliders.push(...physics.addCylinders(trees));
     }
     for (const c of cell.extraColliders) c.setEnabled(false);
@@ -261,6 +272,35 @@ export class Cell {
     d.leaf.rotation.y = d.closedY + d.sign * MathUtils.degToRad(80) * amount;
   }
 
+  /**
+   * Height of the room's collision surface under (x, z), game space, or null if there is none. Works
+   * while the room is inactive (its collider switched off).
+   */
+  groundAt(x: number, z: number, fromY = 120): number | null {
+    if (!this.collider) return null;
+    const toi = this.collider.castRay(new RAPIER.Ray({ x, y: fromY, z }, { x: 0, y: -1, z: 0 }), fromY + 200, true);
+    return toi >= 0 ? fromY - toi : null;
+  }
+
+  /**
+   * Distance along a ray (game space, `dir` normalised) to the room's collision surface, or null if it
+   * escapes (e.g. out through a window). Works while the room is inactive.
+   */
+  rayHit(from: { x: number; y: number; z: number }, dir: { x: number; y: number; z: number }, max = 50): number | null {
+    if (!this.collider) return null;
+    const toi = this.collider.castRay(new RAPIER.Ray(from, dir), max, true);
+    return toi >= 0 ? toi : null;
+  }
+
+  /** How strongly the glowing materials whose name matches shine right now, relative to normal (0 = off). */
+  glowLevel(pattern: RegExp): number {
+    const e = this.emissive.find((x) => pattern.test(x.material.name));
+    if (!e) return 0;
+    const onInState = e.states.has('on') ? 1 - this.night : 0;
+    const onInMoon = e.states.has('moon') ? this.night : 0;
+    return e.boost * Math.max(onInState, onInMoon) * this.brightness;
+  }
+
   /** Multiplies the glow of the materials whose name matches (e.g. the windows lighting up one by one). */
   setGlow(pattern: RegExp, boost: number): void {
     for (const e of this.emissive) if (pattern.test(e.material.name)) e.boost = boost;
@@ -278,8 +318,15 @@ export class Cell {
     }
   }
 
-  /** Exposure the camera should use here for the current light state. */
+  /**
+   * Exposure the camera should use here for the current light state. Outdoors it comes from the night
+   * config; moonlit rooms keep their own balance but darker (NIGHT.exposure.interiorMoonScale), so the
+   * moon reads as moonlight, not as a dim day.
+   */
   get targetExposure(): number {
-    return MathUtils.lerp(this.exposure.on ?? 1, this.exposure.moon ?? 2.4, this.night);
+    const e = NIGHT.exposure;
+    if (this.def.exterior && !this.dawn) return MathUtils.lerp(e.exteriorOn, e.exteriorMoon, this.night);
+    if (this.dawn) return MathUtils.lerp(this.exposure.on ?? 1, this.exposure.moon ?? 2.4, this.night);
+    return MathUtils.lerp(this.exposure.on ?? 1, (this.exposure.moon ?? 2.4) * e.interiorMoonScale, this.night);
   }
 }
