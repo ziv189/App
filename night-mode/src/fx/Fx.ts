@@ -94,6 +94,7 @@ export class Fx {
   private dana: Character | null = null;
   private jordan: Character | null = null;
   private mirror: Reflector | null = null;
+  private readonly mirrorsAdded = new Set<CellId>();
   private readonly cams: SecurityCamera[] = [];
   private camerasOn = false;
   private sweeping = false;
@@ -189,6 +190,23 @@ export class Fx {
       });
     }
     if (chars.ivy && !this.ivyMirror && w.cells.has('bathroom')) this.setupMirror(chars.ivy);
+    // the other mirrors in the house: real reflections (each only renders while it is on screen)
+    for (const [cellId, cell] of w.cells) {
+      if (this.mirrorsAdded.has(cellId)) continue;
+      this.mirrorsAdded.add(cellId);
+      for (const m of cell.def.mirrors ?? []) {
+        const res = 384;
+        const mirror = new Reflector(new PlaneGeometry(m.width, m.height), {
+          textureWidth: m.width >= m.height ? Math.round(res * (m.width / m.height)) : res,
+          textureHeight: m.height > m.width ? Math.min(1024, Math.round(res * (m.height / m.width))) : res,
+          color: new Color(0.82, 0.84, 0.86),
+          clipBias: 0.003,
+        });
+        mirror.position.set(...m.center);
+        mirror.rotation.y = MathUtils.degToRad(m.yawDeg);
+        cell.root.add(mirror);
+      }
+    }
     if (chars.ivy && !this.ivyLake && w.cells.has('exterior')) {
       this.ivyLake = new Character(chars.ivy);
       this.ivyLake.play('idle');

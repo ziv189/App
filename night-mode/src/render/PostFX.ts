@@ -5,6 +5,7 @@ import {
   ChromaticAberrationEffect,
   EffectComposer,
   EffectPass,
+  HueSaturationEffect,
   NoiseEffect,
   RenderPass,
   SMAAEffect,
@@ -28,6 +29,8 @@ export interface LookSettings {
   aoIntensity: number;
   /** World-space AO radius in metres (roughly the size of the crevices that darken). */
   aoRadius: number;
+  /** Colour saturation after tone mapping, -1..1 (AgX desaturates bright colours; this gives some back). */
+  saturation: number;
 }
 
 export const DEFAULT_LOOK: LookSettings = {
@@ -40,6 +43,7 @@ export const DEFAULT_LOOK: LookSettings = {
   chromaticAberration: 0.0006,
   aoIntensity: 2.5,
   aoRadius: 1.2,
+  saturation: 0.18,
 };
 
 /**
@@ -52,6 +56,7 @@ export class PostFX {
   readonly ao: N8AOPostPass;
   readonly bloom: BloomEffect;
   readonly toneMapping: ToneMappingEffect;
+  readonly saturation: HueSaturationEffect;
   readonly smaa: SMAAEffect;
   readonly chromaticAberration: ChromaticAberrationEffect;
   readonly vignette: VignetteEffect;
@@ -74,6 +79,7 @@ export class PostFX {
     this.ao.configuration.distanceFalloff = 1;
     this.bloom = new BloomEffect({ mipmapBlur: true, luminanceSmoothing: 0.25, radius: 0.72 });
     this.toneMapping = new ToneMappingEffect({ mode: ToneMappingMode.AGX });
+    this.saturation = new HueSaturationEffect({ saturation: DEFAULT_LOOK.saturation });
     this.smaa = new SMAAEffect();
     this.chromaticAberration = new ChromaticAberrationEffect({
       offset: new Vector2(),
@@ -114,6 +120,7 @@ export class PostFX {
     this.chromaticAberration.offset.set(l.chromaticAberration, l.chromaticAberration);
     this.ao.configuration.intensity = l.aoIntensity;
     this.ao.configuration.aoRadius = l.aoRadius;
+    this.saturation.saturation = l.saturation;
   }
 
   setSize(width: number, height: number): void {
@@ -129,7 +136,7 @@ export class PostFX {
     for (const pass of this.composer.passes.slice()) this.composer.removePass(pass);
     for (const pass of this.effectPasses) pass.fullscreenMaterial.dispose();
 
-    const hdrEffects = this.bloomEnabled ? [this.bloom, this.toneMapping] : [this.toneMapping];
+    const hdrEffects = this.bloomEnabled ? [this.bloom, this.toneMapping, this.saturation] : [this.toneMapping, this.saturation];
     this.effectPasses = [
       new EffectPass(this.camera, ...hdrEffects),
       new EffectPass(this.camera, this.smaa),

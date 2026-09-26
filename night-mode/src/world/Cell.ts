@@ -50,6 +50,13 @@ export interface CellDef {
   ramps?: { from: [number, number, number]; to: [number, number, number]; width: number }[];
   /** Invisible floor boxes (game space, top at max[1]) that patch holes in a room's collision. */
   floors?: { min: [number, number, number]; max: [number, number, number] }[];
+  /**
+   * Colours for the room's materials by name (hex): the source scenes are mostly white and grey. The
+   * colour multiplies the material's texture, and the baked light still falls on it.
+   */
+  palette?: Record<string, string>;
+  /** Mirrors that reflect the room for real (game space): centre, size, and the direction they face. */
+  mirrors?: { center: [number, number, number]; width: number; height: number; yawDeg: number }[];
 }
 
 interface CellMeta {
@@ -123,7 +130,8 @@ export class Cell {
     const meta: CellMeta = typeof gltf.scene.userData.nm === 'string' ? JSON.parse(gltf.scene.userData.nm) : {};
     cell.exposure = { on: 1, moon: 2.4, ...meta.exposure, ...def.exposure };
     // moonlight indoors reads colder than the bake's physically warm-ish bounce off wood and wallpaper
-    if (!def.exterior) cell.lightmap.lightMap2Tint!.value.setRGB(0.66, 0.8, 1.12);
+    // moonlight indoors is cold, but not so blue that the rooms lose their colours
+    if (!def.exterior) cell.lightmap.lightMap2Tint!.value.setRGB(0.8, 0.88, 1.06);
     root.updateMatrixWorld(true);
 
     const folder = def.file.slice(0, def.file.lastIndexOf('/') + 1);
@@ -187,6 +195,8 @@ export class Cell {
           });
         }
         if (def.exterior && !NO_SNOW.test(mat.name) && !mat.transparent && 'roughness' in mat) applySnowCover(mat);
+        const paint = def.palette?.[mat.name];
+        if (paint && 'color' in mat) (mat as MeshStandardMaterial).color.set(paint);
         for (const value of Object.values(mat)) if ((value as Texture | null)?.isTexture) cell.textures.push(value as Texture);
       }
     });

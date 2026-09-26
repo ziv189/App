@@ -391,7 +391,13 @@ def tree_spots():
     for (x, y, k, s) in ((-21, -9, 'fir_a', 1.0), (-24, -3, 'fir_b', 0.9), (13, -6, 'fir_b', 1.05), (17, 2, 'fir_a', 0.95),
                          (11, 20, 'fir_c', 1.0), (16, 23, 'sapling_a', 1.0), (-19, 19, 'fir_a', 1.0), (-25, 23, 'fir_b', 1.1),
                          (-14, -17, 'sapling_b', 0.9), (6, -18, 'sapling_a', 0.85), (19, -20, 'fir_c', 1.0),
-                         (-33, 12, 'fir_a', 1.1), (26, 12, 'fir_b', 1.0)):
+                         (-33, 12, 'fir_a', 1.1), (26, 12, 'fir_b', 1.0),
+                         # more of the garden: flanking the lawn, beside the house, in the back garden (clear of
+                         # the front walk, the driveway, the path to the pier and the title shot of the house)
+                         (-18, -24, 'fir_b', 1.0), (-11, -26, 'fir_c', 0.9), (10, -25, 'fir_a', 1.05), (15, -12, 'fir_b', 1.1),
+                         (-20, -14, 'fir_c', 1.0), (-9.5, -13, 'sapling_b', 0.8), (3.5, -12, 'sapling_a', 0.8),
+                         (-17, 1, 'fir_a', 1.15), (8, 4, 'fir_b', 1.0), (12, 9.5, 'fir_c', 1.05), (-21, 14, 'fir_a', 1.1),
+                         (0, 16, 'fir_b', 1.0), (4, 24, 'sapling_b', 0.9), (-24, 29, 'fir_c', 1.0), (8, 13, 'sapling_a', 0.85)):
         add(x, y, k, s)
     # the woods around the property and along the shores, thicker further out
     tries = 0

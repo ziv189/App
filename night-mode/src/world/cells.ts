@@ -52,6 +52,8 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'living',
+    // a Victorian parlour: sage-green walls, an oxblood leather sofa
+    palette: { Walls: '#8fa88c', SofaLeather: '#8a3b2c', RadiatorPanelsEnamel: '#d8d2c4' },
     exposure: { moon: 3.4 },
     title: 'Living room',
     file: 'assets/rooms/living.glb',
@@ -70,6 +72,8 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'kitchen',
+    // a farmhouse kitchen: butter-yellow walls, duck-egg cupboards
+    palette: { Walls: '#ead7a4', CupboardUnits: '#8fb5ae', WindowFrame: '#e8e1d0' },
     exposure: { on: 0.75, moon: 1.5 },
     title: 'Kitchen',
     file: 'assets/rooms/kitchen.glb',
@@ -88,6 +92,13 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'bedroom',
+    // the wardrobe's mirror door and the mirror over the dresser (both on the west wall, facing the room)
+    mirrors: [
+      { center: [-2.117, 0.954, -0.0125], width: 0.459, height: 1.635, yawDeg: 90 },
+      { center: [-2.102, 1.16, 1.5925], width: 0.773, height: 0.556, yawDeg: 90 },
+    ],
+    // dusty-blue walls, a burgundy blanket
+    palette: { Walls: '#86a0c6', Blankets: '#7f2d36', Curtains: '#efe6d8' },
     exposure: { on: 0.7, moon: 1.6 },
     title: 'Bedroom',
     file: 'assets/rooms/bedroom.glb',
@@ -105,6 +116,8 @@ export const CELLS: CellDef[] = [
   },
   {
     id: 'bathroom',
+    // pale green paper and warm white woodwork
+    palette: { Wallpaper: '#b9d6b9', WhiteWood: '#efe5d3' },
     exposure: { on: 0.55, moon: 1.5 },
     title: 'Bathroom',
     file: 'assets/rooms/bathroom.glb',

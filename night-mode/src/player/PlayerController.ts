@@ -18,9 +18,9 @@ export interface PlayerTuning {
 }
 
 export const DEFAULT_TUNING: PlayerTuning = {
-  walkSpeed: 1.55,
-  runSpeed: 3.1,
-  crouchSpeed: 0.85,
+  walkSpeed: 2.0,
+  runSpeed: 4.0,
+  crouchSpeed: 1.0,
   acceleration: 8,
   deceleration: 11,
   headBob: 1,
@@ -201,9 +201,14 @@ export class PlayerController {
     this.collider.setTranslation({ x: c.x + moved.x, y: c.y + moved.y, z: c.z + moved.z });
     this.grounded = this.kcc.computedGrounded();
 
-    // Keep only the motion that actually happened, so pushing into a wall doesn't store up speed.
-    this.velocity.x = moved.x / dt;
-    this.velocity.z = moved.z / dt;
+    // Pushing into a wall doesn't store up speed: keep only the motion that happened when most of the
+    // move was blocked. (On stairs and ramps the controller turns part of the move into climbing; that
+    // must not count as blocked, or the speed drains away every step and climbing slows to a crawl.)
+    const wanted = Math.hypot(this.velocity.x, this.velocity.z) * dt;
+    if (wanted > 1e-6 && Math.hypot(moved.x, moved.z) < wanted * 0.6) {
+      this.velocity.x = moved.x / dt;
+      this.velocity.z = moved.z / dt;
+    }
     if (this.grounded) this.velocity.y = 0;
 
     const center = this.collider.translation();

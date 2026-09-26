@@ -1,10 +1,18 @@
 import {
+  CubeCamera,
   DataUtils,
+  DoubleSide,
   EquirectangularReflectionMapping,
   FloatType,
+  HalfFloatType,
   MathUtils,
   PointLight,
+  ShaderMaterial,
+  WebGLCubeRenderTarget,
   type DataTexture,
+  type Material,
+  type Mesh,
+  type Object3D,
   type Scene,
   type Texture,
   type WebGLRenderer,
@@ -20,6 +28,12 @@ import { CELLS, DOOR_LINKS } from './cells';
  * All rooms of the house. They share the origin; only the current one is shown and has collision.
  * Rooms load in the background in story order, so play can start as soon as the first two are ready.
  */
+/** Materials of the house itself in the exterior scene: left out of the view captured from inside it. */
+const HOUSE_MATERIALS =
+  /^(WhitePaint|RoofTiles|WhiteDiffuse|BlackDiffuse|Pink|BrickTextureBase|GarageDoorBase|DeckWoodBase|Brown|DarkerGrey|NM_WindowGlow|NM_Keypad|security_camera)/;
+/** Where the outdoor view is seen from: the middle of the house at first-floor eye height (exterior space). */
+const OUTDOOR_VIEW_POINT = [-5.5, 1.25, -5.8] as const;
+
 export class World {
   readonly cells = new Map<CellId, Cell>();
   current: Cell | null = null;
@@ -38,6 +52,10 @@ export class World {
   private flickerPhase = 0;
   /** Replaces the current room's sky grading (e.g. dawn behind the "Goodnight" ending). */
   private skyOverride: { intensity: number; tint: [number, number, number] } | null = null;
+  /** The outdoors seen from inside the house, per lighting state (lamps on, moonlight); see captureOutdoorViews. */
+  private outdoorViews: [WebGLCubeRenderTarget, WebGLCubeRenderTarget] | null = null;
+  private capturingOutdoors: Promise<void> | null = null;
+  private outdoorState = -1;
 
   constructor(
     private readonly scene: Scene,
@@ -66,6 +84,15 @@ export class World {
       p = Cell.load(this.def(id), this.assets, this.physics, onProgress).then((cell) => {
         this.cells.set(id, cell);
         this.scene.add(cell.root);
+        // doors that open onto the outdoors show them: the black backing of the doorway becomes a
+        // window onto the outdoor view (the rooms are separate spaces, with wall behind their doors)
+        if (!cell.def.exterior) {
+          for (const doorId of cell.doors.keys()) {
+            if (this.destination(id, doorId)?.cell !== 'exterior') continue;
+            const gap = cell.root.getObjectByName(`door_${doorId}_gap`) as Mesh | undefined;
+            if (gap?.isMesh) gap.material = this.portal;
+          }
+        }
         return cell;
       });
       this.loading.set(id, p);
@@ -102,6 +129,8 @@ export class World {
     cell.night = this.nightTarget;
     cell.brightness = this.brightnessTarget;
     cell.applyLighting();
+    // the first time indoors, render the view out of the windows (behind the door's fade)
+    if (!cell.def.exterior && !this.outdoorViews && this.cells.has('exterior')) await this.captureOutdoorViews();
     await this.applySky(cell);
     this.placeAccentLights(cell);
     this.probeDirty = true;
@@ -141,6 +170,122 @@ export class World {
     return p;
   }
 
+  /**
+   * Renders the real outdoors (the snowy yard, fences, the pine forest, the lake) into cube maps seen from
+   * inside the house, once per lighting state, with the house itself left out. Indoor rooms show them
+   * behind their windows and through doors that open outside, instead of a photographed sky.
+   */
+  captureOutdoorViews(): Promise<void> {
+    this.capturingOutdoors ??= (async () => {
+      const ext = await this.load('exterior');
+      const extSky = ext.def.sky;
+      if (!extSky) return;
+      const sky = await this.sky(extSky.hdri, extSky.intensity, extSky.tint);
+      const targets: [WebGLCubeRenderTarget, WebGLCubeRenderTarget] = [
+        new WebGLCubeRenderTarget(512, { type: HalfFloatType }),
+        new WebGLCubeRenderTarget(512, { type: HalfFloatType }),
+      ];
+      const camera = new CubeCamera(0.1, 900, targets[0]);
+      camera.position.set(...OUTDOOR_VIEW_POINT);
+
+      const roots = new Map<Object3D, boolean>();
+      for (const c of this.cells.values()) {
+        roots.set(c.root, c.root.visible);
+        c.root.visible = c === ext;
+      }
+      const hidden: Material[] = [];
+      ext.root.traverse((o) => {
+        if (!(o as Mesh).isMesh) return;
+        const list = (o as Mesh).material;
+        for (const m of Array.isArray(list) ? list : [list]) {
+          if (m.visible && HOUSE_MATERIALS.test(m.name)) {
+            m.visible = false;
+            hidden.push(m);
+          }
+        }
+      });
+      const saved = {
+        background: this.scene.background,
+        intensity: this.scene.backgroundIntensity,
+        rotation: this.scene.backgroundRotation.clone(),
+        environment: this.scene.environment,
+        night: ext.night,
+        brightness: ext.brightness,
+      };
+      const accents = this.accentLights.map((l) => l.visible);
+      for (const l of this.accentLights) l.visible = false;
+      this.scene.background = sky;
+      this.scene.backgroundIntensity = 1;
+      this.scene.backgroundRotation.set(0, MathUtils.degToRad(extSky.rotationDeg ?? 0), 0);
+      this.scene.environment = null;
+      try {
+        for (const [i, night] of [0, 1].entries()) {
+          ext.night = night;
+          ext.brightness = 1;
+          ext.applyLighting();
+          camera.renderTarget = targets[i]!;
+          camera.update(this.renderer, this.scene);
+        }
+      } finally {
+        for (const m of hidden) m.visible = true;
+        for (const [root, visible] of roots) root.visible = visible;
+        this.accentLights.forEach((l, i) => (l.visible = accents[i]!));
+        this.scene.background = saved.background;
+        this.scene.backgroundIntensity = saved.intensity;
+        this.scene.backgroundRotation.copy(saved.rotation);
+        this.scene.environment = saved.environment;
+        ext.night = saved.night;
+        ext.brightness = saved.brightness;
+        ext.applyLighting();
+      }
+      this.outdoorExposure = [ext.exposure.on ?? 1, ext.exposure.moon ?? 1];
+      this.outdoorViews = targets;
+      this.outdoorState = -1;
+      if (this.current && !this.current.def.exterior) {
+        await this.applySky(this.current);
+        this.probeDirty = true;
+      }
+    })();
+    return this.capturingOutdoors;
+  }
+
+  private outdoorExposure: [number, number] = [1, 1];
+
+  /** Draws the outdoor view as if the surface were a hole in the wall (doorways that lead outside). */
+  private readonly portal = new ShaderMaterial({
+    side: DoubleSide,
+    uniforms: { view: { value: null }, intensity: { value: 1 } },
+    vertexShader: /* glsl */ `
+      varying vec3 vWorld;
+      void main() {
+        vec4 w = modelMatrix * vec4(position, 1.0);
+        vWorld = w.xyz;
+        gl_Position = projectionMatrix * viewMatrix * w;
+      }`,
+    fragmentShader: /* glsl */ `
+      uniform samplerCube view;
+      uniform float intensity;
+      varying vec3 vWorld;
+      void main() {
+        gl_FragColor = vec4(textureCube(view, normalize(vWorld - cameraPosition)).rgb * intensity, 1.0);
+      }`,
+  });
+
+  /** Shows the outdoor view that matches the room's lighting (lamps on, or moonlight). */
+  private showOutdoorView(cell: Cell): boolean {
+    if (!this.outdoorViews || cell.def.exterior) return false;
+    const state = cell.night >= 0.5 ? 1 : 0;
+    this.scene.background = this.outdoorViews[state].texture;
+    this.scene.backgroundRotation.set(0, 0, 0);
+    // a little darker than standing outside: eyes used to a lit room see less of the night
+    this.scene.backgroundIntensity = (0.7 * this.outdoorExposure[state]) / Math.max(0.2, cell.targetExposure);
+    this.portal.uniforms.view!.value = this.outdoorViews[state].texture;
+    this.portal.uniforms.intensity!.value = this.scene.backgroundIntensity;
+    if (state !== this.outdoorState) this.probeDirty = true;
+    this.outdoorState = state;
+    return true;
+  }
+
   /** Re-grades the sky of the current room (null: back to its own). */
   async setSkyMood(mood: { intensity: number; tint: [number, number, number] } | null): Promise<void> {
     this.skyOverride = mood;
@@ -148,6 +293,7 @@ export class World {
   }
 
   private async applySky(cell: Cell): Promise<void> {
+    if (this.showOutdoorView(cell)) return;
     const s = cell.def.sky;
     if (!s) {
       this.scene.background = null;
@@ -206,6 +352,7 @@ export class World {
     const accentOn = this.nightModeLights && this.brightnessTarget > 0.2;
     for (const l of this.accentLights) l.intensity = MathUtils.damp(l.intensity, accentOn ? 1.2 * flickerMul : 0, 2, dt);
     this.exposure = MathUtils.damp(this.exposure, cell.targetExposure, 1.5, dt);
+    if (this.outdoorViews && !cell.def.exterior) this.showOutdoorView(cell);
     if (Math.abs(beforeNight - cell.night) > 0.0005) this.probeTimer += dt;
     if (this.probeTimer > 0.6 || (this.probeTimer > 0 && cell.night === this.nightTarget)) {
       this.probeTimer = 0;

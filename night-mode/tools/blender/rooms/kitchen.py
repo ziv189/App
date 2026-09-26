@@ -127,11 +127,12 @@ def build():
     L.nocollide(note)
     L.proxy('list', (-0.45, -0.72, tz + 0.1), (0.45, 0.45, 0.25))
 
-    # the watering can on the counter by the window end of the units
-    cz = L.surface_z(-2.15, 2.1, 2.0, 0.985)
-    can = L.ph_model('watering_can_metal_01', (-2.12, 2.05, cz), yaw_deg=60, name='DYN_watering_can')
+    # the watering can on the counter top at the window end of the units (probe from below the wall
+    # cabinets, or the ray lands on a cabinet shelf)
+    cz = L.surface_z(-1.75, 2.2, 1.3, 0.985)
+    can = L.ph_model('watering_can_metal_01', (-1.75, 2.2, cz), yaw_deg=60, name='DYN_watering_can')
     L.dynamic(can, 'watering_can')
-    L.proxy('watering_can', (-2.12, 2.05, cz + 0.15), (0.5, 0.5, 0.4))
+    L.proxy('watering_can', (-1.75, 2.2, cz + 0.15), (0.5, 0.5, 0.4))
 
     plant = L.ph_model('potted_plant_01', (1.6, 2.25, FLOOR), yaw_deg=10, name='plant_kitchen')
     L.proxy('plant_kitchen', (1.6, 2.25, FLOOR + 0.45), (0.6, 0.6, 0.9))
