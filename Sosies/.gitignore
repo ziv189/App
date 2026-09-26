@@ -1,0 +1,71 @@
+# =====================================================================
+# SOSIES - .gitignore for the Unreal Engine project
+#
+# This file lives in Sosies/:
+#   "/Name"  = only at the top level of Sosies/
+#   "Name/"  = a folder with that name anywhere inside Sosies/
+# =====================================================================
+
+# ---- Folders Unreal regenerates by itself (never commit) --------------
+# Note: if we ever add a precompiled plugin to Sosies/Plugins (e.g. DLSS),
+# add an exception such as  !Plugins/<PluginName>/Binaries/
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# ---- IDE / project files generated from the .uproject -----------------
+.vs/
+.idea/
+.vscode/
+*.sln
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.xcodeproj/
+*.xcworkspace/
+*.code-workspace
+compile_commands.json
+
+# ---- Build folder: keep only hand-made platform files -----------------
+# (Unreal writes generated files here; icons and pak lists are ours.
+#  Revisit at M13 when we set up the Steam build.)
+/Build/*
+!/Build/*/
+/Build/*/**
+!/Build/*/PakBlacklist*.txt
+!/Build/**/*.ico
+
+# ---- Packaged builds (package OUTSIDE the repo; this is a safety net) -
+/Packaged/
+
+# ---- Compiled code objects (C++ later; normally inside Intermediate/) --
+# (*.obj is deliberately NOT listed: it is also a 3D model format.)
+*.o
+*.pch
+*.gch
+
+# ---- OS and tool clutter -------------------------------------------------
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*.swp
+*~
+*.blend1
+*.blend2
+
+# ---- Licensed third-party content: NOT allowed in a public repository ----
+# ziv189/App is public (the owner's choice, see Docs/Decisions.md D-003).
+# Fab's Standard License only allows sharing source assets privately
+# (with collaborators or through a private repository), so the default
+# Fab / Megascans import folders stay out of Git and get their own backup.
+# MetaHuman output gets the same protection until we review its licence
+# at M3. If the repository is ever made private, delete this block.
+# See Docs/Decisions.md D-004.
+/Content/Fab/
+/Content/Megascans/
+/Content/MSPresets/
+/Content/MetaHumans/
