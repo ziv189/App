@@ -15,8 +15,9 @@ no game engine.
 
 ## Play it
 
-**In your browser:** open the link Claude gave you (a private claude.ai page) and click **New game**.
-Use headphones. The first load downloads about 90 MB.
+**In your browser:** open <https://claude.ai/artifact/Bf4Gct1wiUo7L1owZZ9eLm> (a private claude.ai page: it opens
+for its owner and for people the owner shares it with) and click **New game**. Use headphones. The game downloads
+about 170 MB; the title screen appears first and the rooms keep loading behind it.
 
 **From your own PC (Windows):**
 
