@@ -23,6 +23,8 @@ export class Overlay {
   private readonly hud = $('hud');
   private readonly form = $<HTMLFormElement>('settings-form');
   private current: ScreenName = 'loading';
+  private lastProgressText = '';
+  private lastProgressAt = performance.now();
 
   constructor(private readonly settings: SettingsStore) {
     $('btn-start').addEventListener('click', () => this.onStart?.());
@@ -31,6 +33,7 @@ export class Overlay {
     this.form.addEventListener('submit', (e) => e.preventDefault());
     settings.onChange((s) => this.writeForm(s));
     this.writeForm(settings.get());
+    window.setInterval(() => this.checkLoadingStall(), 5000);
   }
 
   get screen(): ScreenName {
@@ -41,12 +44,18 @@ export class Overlay {
     this.current = screen;
     for (const [name, el] of Object.entries(this.screens)) el.hidden = name !== screen;
     this.hud.hidden = screen !== 'none';
-    if (screen === 'pause') this.setResumeHint('');
+    this.showLockHint('');
   }
 
   setProgress(fraction: number, status: string): void {
     $('progress-bar').style.width = `${Math.round(Math.min(1, Math.max(0, fraction)) * 100)}%`;
     $('loading-status').textContent = status;
+    const text = `${status}|${fraction.toFixed(3)}`;
+    if (text !== this.lastProgressText) {
+      this.lastProgressText = text;
+      this.lastProgressAt = performance.now();
+      $('loading-hint').textContent = '';
+    }
   }
 
   setStartSubtitle(text: string): void {
@@ -57,13 +66,26 @@ export class Overlay {
     $('watermark').textContent = text;
   }
 
-  setResumeHint(text: string): void {
+  /** Shown on the start and pause screens when the browser refuses to capture the mouse. */
+  showLockHint(text: string): void {
+    $('start-hint').textContent = text;
     $('resume-hint').textContent = text;
   }
 
   showError(message: string): void {
     $('error-text').textContent = message;
     this.show('error');
+  }
+
+  /** If loading stops moving, say so and tell the player what to send (the stuck step stays visible). */
+  private checkLoadingStall(): void {
+    if (this.current !== 'loading') return;
+    const seconds = Math.round((performance.now() - this.lastProgressAt) / 1000);
+    if (seconds >= 45) {
+      $('loading-hint').textContent =
+        `No progress for ${seconds} s. If this doesn't change, press F12, open the Console tab and ` +
+        'send me a screenshot of it together with this screen.';
+    }
   }
 
   private readForm(): void {

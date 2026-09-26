@@ -1,10 +1,14 @@
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import './style.css';
+import { errorReport } from './core/diagnostics';
+
+// Tells the boot guard in index.html that the game code arrived and is running.
+window.sosiesBooted = true;
 
 function showFatal(message: string): void {
   document.getElementById('screen-loading')!.hidden = true;
   document.getElementById('screen-error')!.hidden = false;
-  document.getElementById('error-text')!.textContent = message;
+  document.getElementById('error-text')!.textContent = errorReport(message);
 }
 
 async function boot(): Promise<void> {

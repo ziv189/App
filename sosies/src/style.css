@@ -129,6 +129,16 @@ body {
   letter-spacing: 0.03em;
 }
 
+.hint.warn {
+  max-width: 560px;
+  color: #d9b37a;
+}
+
+#loading-hint {
+  max-width: 560px;
+  line-height: 1.5;
+}
+
 .status {
   margin: 0;
   min-height: 1.4em;

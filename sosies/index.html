@@ -20,6 +20,7 @@
         <h1 class="title">SOSIES</h1>
         <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
         <p class="status" id="loading-status">Starting…</p>
+        <p class="hint" id="loading-hint"></p>
       </section>
 
       <section id="screen-start" class="screen" hidden>
@@ -27,12 +28,13 @@
         <p class="subtitle" id="start-subtitle"></p>
         <button class="primary" id="btn-start" type="button">Click to begin</button>
         <p class="hint">Mouse &amp; keyboard: click to capture the mouse · Controller: press <kbd>A</kbd></p>
+        <p class="hint warn" id="start-hint"></p>
       </section>
 
       <section id="screen-pause" class="screen" hidden>
         <h2 class="heading">Paused</h2>
         <button class="primary" id="btn-resume" type="button">Resume</button>
-        <p class="hint" id="resume-hint"></p>
+        <p class="hint warn" id="resume-hint"></p>
         <div class="columns">
           <form class="panel" id="settings-form" autocomplete="off">
             <h3>Settings</h3>
@@ -74,8 +76,57 @@
       <section id="screen-error" class="screen" hidden>
         <h2 class="heading">Something went wrong</h2>
         <pre class="error" id="error-text"></pre>
+        <button class="primary" id="btn-copy-error" type="button">Copy these details</button>
       </section>
     </div>
+    <script>
+      // Boot guard: a plain script that runs before the game code, so the page explains itself even when
+      // the game code can't load at all. (The file: check must change when we package the desktop app.)
+      (function () {
+        function show(message) {
+          document.getElementById('screen-loading').hidden = true;
+          document.getElementById('screen-error').hidden = false;
+          document.getElementById('error-text').textContent = message;
+        }
+        document.getElementById('btn-copy-error').addEventListener('click', function () {
+          var text = document.getElementById('error-text').textContent;
+          var button = this;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(function () {
+              button.textContent = 'Copied';
+            });
+          }
+        });
+        if (location.protocol === 'file:') {
+          show(
+            'This page was opened straight from the folder, which browsers block for games like this.\n\n' +
+              'Close this tab and double-click START-SOSIES.bat in the sosies folder instead. It starts the ' +
+              'game server and opens the game in your browser.'
+          );
+          return;
+        }
+        function bootError(detail) {
+          if (!window.sosiesBooted) {
+            show('The game code failed to load:\n\n' + detail + '\n\nPress F12, open the Console tab and send me a screenshot.');
+          }
+        }
+        window.addEventListener('error', function (e) {
+          bootError(e.message || String(e.error));
+        });
+        window.addEventListener('unhandledrejection', function (e) {
+          bootError((e.reason && e.reason.message) || String(e.reason));
+        });
+        setTimeout(function () {
+          if (window.sosiesBooted) return;
+          show(
+            'The game code did not start within 30 seconds.\n\n' +
+              '1. Check that the START-SOSIES window (or the terminal running "npm run dev") is still open and shows no errors.\n' +
+              '2. Reload this page (F5).\n' +
+              '3. Still stuck? Press F12, open the Console tab and send me a screenshot.'
+          );
+        }, 30000);
+      })();
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

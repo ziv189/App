@@ -80,15 +80,17 @@ export class Assets {
 
   /**
    * Checks that a file exists before we try to parse it. (A missing file would otherwise come back as
-   * the dev server's HTML page and fail with a confusing parse error.)
+   * the dev server's HTML page and fail with a confusing parse error.) Only a definite "missing" answer
+   * returns false; if the check itself can't tell, the real download reports any problem.
    */
   static async exists(url: string): Promise<boolean> {
     try {
       const res = await fetch(url, { method: 'HEAD' });
-      const type = res.headers.get('content-type') ?? '';
-      return res.ok && !type.includes('text/html');
+      if (res.status === 404) return false;
+      if (!res.ok) return true;
+      return !(res.headers.get('content-type') ?? '').includes('text/html');
     } catch {
-      return false;
+      return true;
     }
   }
 

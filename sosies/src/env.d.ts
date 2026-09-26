@@ -32,3 +32,8 @@ declare module 'n8ao' {
     setQualityMode(mode: N8AOQualityMode): void;
   }
 }
+
+interface Window {
+  /** Set by main.ts as soon as the game code runs; the boot guard in index.html checks it. */
+  sosiesBooted?: boolean;
+}

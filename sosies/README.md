@@ -11,33 +11,63 @@ content and is never shipped.
 
 ## 1. One-time setup (Windows)
 
-1. **Node.js 24 LTS**: download the Windows installer from <https://nodejs.org> and run it (defaults are fine).
-2. **Git**: <https://git-scm.com/download/win> (defaults are fine).
-3. Open **PowerShell** and get the code:
+1. Install **Node.js 24 LTS** from <https://nodejs.org> (Windows installer, default options).
+2. Install **Git** from <https://git-scm.com/download/win> (default options).
+3. Get the code. Open **Command Prompt** (Start menu → type `cmd`) and run these lines one at a time:
 
-   ```powershell
+   ```bat
+   cd %USERPROFILE%
    git clone https://github.com/ziv189/App.git
    cd App
    git checkout claude/laughing-albattani-ns6xsm
-   cd sosies
-   npm install
    ```
 
-4. Download the tech-test assets (about 55 MB download, 30 MB after optimizing; takes a minute):
-
-   ```powershell
-   npm run assets:test
-   ```
+   The game is now in `C:\Users\<you>\App\sosies`. Already cloned it before? Skip this step: run `git pull`
+   inside your `App` folder instead. (No Git? Download
+   [this ZIP](https://github.com/ziv189/App/archive/refs/heads/claude/laughing-albattani-ns6xsm.zip) and unzip it
+   somewhere outside OneDrive, e.g. `C:\Games`.)
 
 ## 2. Run it
 
-```powershell
+**Double-click `START-SOSIES.bat`** in the `sosies` folder. It:
+
+1. checks Node.js is installed and new enough,
+2. installs or updates the game's tools (`npm install`),
+3. downloads the tech-test scene the first time (about 55 MB),
+4. starts the game server and **opens the game in your browser**.
+
+Keep its black window open while you play; close it to stop the game. If anything fails, the window stays open
+with the error: copy all its text and send it to me. (If Windows asks whether to run it, choose *More info → Run
+anyway*; it's a plain text script you can read in Notepad.)
+
+To get my latest changes later: in Command Prompt, `cd %USERPROFILE%\App` then `git pull`, then double-click
+`START-SOSIES.bat` again.
+
+<details>
+<summary>Manual alternative (Command Prompt)</summary>
+
+```bat
+cd %USERPROFILE%\App\sosies
+npm install
+npm run assets:test
 npm run dev
 ```
 
-Open <http://localhost:5173> in Chrome, Edge or Firefox. Stop the server with `Ctrl + C` in PowerShell.
+</details>
 
-If you already have the folder, update it with `git pull` and then run `npm install` again.
+### If it doesn't load
+
+| What you see | What it means / what to do |
+| --- | --- |
+| The START-SOSIES window closes instantly or shows red `npm error` lines | Copy the whole window's text and send it to me. |
+| PowerShell: *"running scripts is disabled on this system"* | Use `START-SOSIES.bat` or Command Prompt instead of PowerShell. |
+| Browser: *"This site can't be reached"* | The game server isn't running. Start `START-SOSIES.bat` and keep its window open. |
+| *"This page was opened straight from the folder"* | You opened `index.html` directly. Use `START-SOSIES.bat`; it opens the right address. |
+| Stuck on the SOSIES loading screen | The line under the bar names the step it's on; after 45 s a hint appears. Send me a screenshot of it plus the Console tab (`F12` → *Console*). |
+| *"Missing file"* screen | The test scene isn't downloaded. `START-SOSIES.bat` does it automatically, or run `npm run assets:test`. |
+| *"SOSIES needs WebGL 2"* | Turn on the browser's hardware acceleration and update your graphics driver. |
+| Any other error screen | Click **Copy these details** and paste them to me. |
+| Errors mentioning `EPERM` or `OneDrive` | Move the project out of OneDrive (e.g. to `C:\Games`) and try again. |
 
 ## 3. Controls
 
@@ -61,7 +91,8 @@ Browser notes:
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Starts the game at <http://localhost:5173>. Code changes reload automatically. |
+| `START-SOSIES.bat` | Double-click: installs, downloads test assets if needed, starts the game and opens the browser. |
+| `npm run dev` | Starts the game and opens it at <http://localhost:5173>. Code changes reload automatically. |
 | `npm run assets:test` | Downloads and optimizes the tech-test assets (add `-- --force` to redo). |
 | `npm run optimize -- in.glb out.glb` | Optimizes any glTF/GLB for the web and prints its budget report. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
 | `npm test` | Runs the unit tests. |
@@ -82,6 +113,7 @@ Browser notes:
 
 ```
 sosies/
+  START-SOSIES.bat      one-click start on Windows
   index.html            page shell: canvas + menus
   src/
     main.ts             entry: checks WebGL 2, loads the engine
@@ -93,7 +125,7 @@ sosies/
     assets/             glTF/HDR loading, level loading conventions
     levels/             level definitions (techTest.ts)
     ui/                 menus and debug overlay
-  tools/                asset scripts (download + optimize)
+  tools/                asset scripts (download + optimize; shared code in tools/lib)
   tests/                unit tests
   docs/                 asset pipeline guide
   public/assets/        game assets (tech-test files are downloaded here, not committed)
@@ -102,13 +134,11 @@ sosies/
 The game runs physics at a fixed 60 steps per second and interpolates the camera between steps, so movement
 feels the same on 60, 144 or 240 Hz monitors.
 
-## 6. Troubleshooting
+## 6. Performance tips
 
-- **"Missing file" screen**: run `npm run assets:test`, then reload the page.
 - **Low FPS on a laptop**: the browser may be using the integrated GPU. In Windows *Settings → System → Display →
   Graphics*, set your browser to *High performance*, and check the browser's hardware acceleration setting is on.
   Lower *Graphics quality* in the pause menu to compare.
-- **Blank or black screen**: open the browser console (`F12` → *Console*) and send me anything shown in red.
 - **`npm run assets:test` fails behind a company proxy**: set `NODE_USE_ENV_PROXY=1` along with your usual
   `HTTPS_PROXY`, then run it again.
 

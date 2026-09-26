@@ -10,6 +10,7 @@ import { DEFAULT_LOOK, PostFX } from '../render/PostFX';
 import { pixelRatioFor, QUALITY_PRESETS, type QualityLevel } from '../render/quality';
 import { DebugPanel } from '../ui/DebugPanel';
 import { Overlay, type ScreenName } from '../ui/Overlay';
+import { errorReport } from './diagnostics';
 import { FixedStepLoop } from './FixedStepLoop';
 import { SettingsStore } from './Settings';
 
@@ -56,7 +57,9 @@ export class Game {
     this.overlay.onStart = () => this.play();
     this.overlay.onResume = () => this.play();
     this.input.onPointerLockFailed = () =>
-      this.overlay.setResumeHint('The browser needs a moment before it gives the mouse back. Click Resume again.');
+      this.overlay.showLockHint(
+        'The browser did not hand over the mouse. Wait a second and click again. (A controller works without it.)',
+      );
     this.settings.onChange(() => this.applySettings());
     window.addEventListener('resize', () => this.resize());
     // Switching windows pauses even when playing with a controller (no mouse capture to lose).
@@ -217,11 +220,11 @@ export class Game {
 
   private fail(err: unknown): void {
     console.error(err);
+    const detail = err instanceof Error ? err.message : String(err);
     const message =
       err instanceof MissingAssetError
         ? err.message
-        : `${err instanceof Error ? err.message : String(err)}\n\nPlease copy this message (and anything red in ` +
-          `the browser console, F12) when reporting the problem.`;
+        : errorReport(`${detail}\n\nAlso send anything red from the browser console (F12).`);
     this.overlay.showError(message);
     this.state = 'error';
     this.input.captureKeys = false;

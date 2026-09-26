@@ -18,7 +18,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { optimizeGltf, report } from './optimize-gltf.mjs';
+import { optimizeGltf, report } from './lib/gltf.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = join(ROOT, '.cache', 'tech-test');
@@ -116,7 +116,7 @@ async function fetchSky() {
 }
 
 async function main() {
-  console.log('SOSIES — fetching TECH TEST assets (not game content)\n');
+  console.log('SOSIES - fetching TECH TEST assets (not game content)\n');
   if (FORCE) await rm(CACHE, { recursive: true, force: true });
   await mkdir(OUT, { recursive: true });
 
@@ -136,11 +136,11 @@ async function main() {
     console.log(await report(doc, glbPath));
   }
   await writeFile(join(OUT, 'CREDITS.md'), CREDITS);
-  console.log(`\n✔ Tech test assets ready in ${OUT}\n  Next: npm run dev`);
+  console.log(`\nDONE: tech test assets are ready in ${OUT}\n  Next: npm run dev`);
 }
 
 main().catch((err) => {
-  console.error(`\n✖ ${err.message}`);
+  console.error(`\nERROR: ${err.message}`);
   if (process.env.HTTPS_PROXY && !process.env.NODE_USE_ENV_PROXY) {
     console.error('  You seem to be behind a proxy. Retry with NODE_USE_ENV_PROXY=1 set.');
   }
