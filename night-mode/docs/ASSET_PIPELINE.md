@@ -37,8 +37,18 @@ BLENDER=/path/to/blender node tools/build-rooms.mjs --all             # everythi
 node tools/build-rooms.mjs exterior --optimize-only                   # re-compress only
 ```
 
-The trees outside are *cards*: `tools/blender/make_tree_cards.py` renders the Poly Haven fir models (millions
-of triangles each) into images once; the exterior plants crossed quads with those images.
+The trees outside start as *cards*: `tools/blender/make_tree_cards.py` renders the Poly Haven fir models
+(millions of triangles each) into images once; the exterior plants crossed quads with those images, and they
+cast the trees' shadows into the lightmaps. In the game, `src/world/Trees.ts` hides the cards and plants a
+real low-poly fir (instanced, snow on the branches, a collider at eye-level branch width) where each card
+stands, so the woods look solid from every side and need no cut-out texture.
+
+The exterior is 480 m across, so its geometry is stored with 16-bit positions (7 mm steps) instead of the
+default 14 (3 cm), which is coarser than the paths' 1.5 cm lift over the snow and made them flicker.
+
+Pictures inside the .glb files are decoded from the file's bytes (`EmbeddedImages` in `src/assets/Assets.ts`),
+not fetched from `blob:` URLs as three.js does by default: a page whose security policy only lets it fetch its
+own files (the hosted claude.ai build) refuses those, and every model came out untextured.
 
 ## Names the game reads
 

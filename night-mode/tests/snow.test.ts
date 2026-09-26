@@ -33,7 +33,9 @@ describe('shader patches', () => {
     expect(s.fragmentShader).toContain('lightMapMix');
     expect(s.fragmentShader).toContain('snowAmount');
     expect(s.fragmentShader.match(/uniform float snowAmount/g)?.length).toBe(1);
-    expect(s.vertexShader).toContain('vSnowPos = ( modelMatrix * vec4( transformed, 1.0 ) ).xyz;');
+    expect(s.vertexShader).toContain('vSnowPos = ( modelMatrix * snowWorld ).xyz;');
+    // instanced meshes (the firs) put each instance's own transform into the world position
+    expect(s.vertexShader).toContain('snowWorld = instanceMatrix * snowWorld;');
     expect(s.uniforms.snowAmount).toBe(snowUniforms.snowAmount);
     expect(mat.customProgramCacheKey()).toBe('nm-lightmap-blend+nm-snow');
   });

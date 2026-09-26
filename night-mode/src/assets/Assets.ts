@@ -1,7 +1,7 @@
-import type { DataTexture, WebGLRenderer } from 'three';
+import { Texture, type DataTexture, type Loader, type WebGLRenderer } from 'three';
 import { DRACO_GLTF_CONFIG, DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
-import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader, type GLTF, type GLTFLoaderPlugin, type GLTFParser } from 'three/addons/loaders/GLTFLoader.js';
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
@@ -126,6 +126,36 @@ export class ProgressTracker {
 }
 
 /**
+ * Decodes the pictures stored inside a .glb straight from its bytes. three.js would fetch() them from a
+ * blob: URL instead, and a page whose security policy only lets it fetch its own files (like the hosted
+ * build) refuses that: every model then comes out untextured, grey rooms and blank tree cards. Browsers
+ * without ImageBitmap support keep three.js's own way (an <img>, which such pages still allow).
+ */
+class EmbeddedImages implements GLTFLoaderPlugin {
+  readonly name = 'NM_embedded_images';
+
+  constructor(parser: GLTFParser) {
+    const cache = (parser as GLTFParser & { sourceCache: Record<number, Promise<Texture>> }).sourceCache;
+    const original = parser.loadImageSource.bind(parser);
+    parser.loadImageSource = (sourceIndex: number, loader: Loader) => {
+      const def = parser.json.images[sourceIndex];
+      if (def.bufferView === undefined || !('isImageBitmapLoader' in loader)) return original(sourceIndex, loader);
+      if (cache[sourceIndex] !== undefined) return cache[sourceIndex].then((texture) => texture.clone());
+      const promise = parser.getDependency('bufferView', def.bufferView).then(async (bytes: ArrayBuffer) => {
+        const blob = new Blob([bytes], { type: def.mimeType });
+        const bitmap = await createImageBitmap(blob, { premultiplyAlpha: 'none', colorSpaceConversion: 'none' });
+        const texture = new Texture(bitmap);
+        texture.needsUpdate = true;
+        texture.userData.mimeType = def.mimeType;
+        return texture;
+      });
+      cache[sourceIndex] = promise;
+      return promise;
+    };
+  }
+}
+
+/**
  * Shared loaders. The Draco, KTX2 (Basis) and meshopt decoders ship inside three.js and are bundled by
  * Vite, so the game works offline and inside a desktop wrapper.
  */
@@ -142,7 +172,8 @@ export class Assets {
     this.gltf = new GLTFLoader()
       .setDRACOLoader(this.draco)
       .setKTX2Loader(this.ktx2)
-      .setMeshoptDecoder(MeshoptDecoder);
+      .setMeshoptDecoder(MeshoptDecoder)
+      .register((parser) => new EmbeddedImages(parser));
     this.hdr = new HDRLoader();
     this.exr = new EXRLoader();
   }

@@ -55,7 +55,7 @@ export async function createIO() {
  * @param {string} input
  * @param {string} output
  * @param {{maxTexture?: number, maxNormal?: number, textures?: 'webp'|'keep', quality?: number,
- *          join?: boolean, meshopt?: boolean, verbose?: boolean,
+ *          join?: boolean, meshopt?: boolean, positionBits?: number, verbose?: boolean,
  *          edit?: (doc: import('@gltf-transform/core').Document) => void | Promise<void>}} [options]
  *   `edit` runs on the document before the optimization passes (e.g. to remove or re-assign parts).
  */
@@ -82,6 +82,8 @@ export async function optimizeGltf(input, output, options = {}) {
     quality: 88,
     join: false,
     meshopt: true,
+    // vertex positions are stored on a grid of 2^bits steps across each mesh's largest side
+    positionBits: 14,
     ...options,
   };
   const io = await createIO();
@@ -142,7 +144,7 @@ export async function optimizeGltf(input, output, options = {}) {
     );
   }
 
-  if (opts.meshopt) transforms.push(meshopt({ encoder: MeshoptEncoder, level: 'medium' }));
+  if (opts.meshopt) transforms.push(meshopt({ encoder: MeshoptEncoder, level: 'medium', quantizePosition: opts.positionBits }));
 
   await doc.transform(...transforms);
   await io.write(output, doc);

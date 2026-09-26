@@ -13,7 +13,15 @@ export function applySnowCover(mat: MeshStandardMaterial): void {
     shader.uniforms.snowAmount = snowUniforms.snowAmount;
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', '#include <common>\nvarying vec3 vSnowPos;')
-      .replace('#include <project_vertex>', '#include <project_vertex>\n\tvSnowPos = ( modelMatrix * vec4( transformed, 1.0 ) ).xyz;');
+      .replace(
+        '#include <project_vertex>',
+        /* glsl */ `#include <project_vertex>
+	vec4 snowWorld = vec4( transformed, 1.0 );
+	#ifdef USE_INSTANCING
+		snowWorld = instanceMatrix * snowWorld;
+	#endif
+	vSnowPos = ( modelMatrix * snowWorld ).xyz;`,
+      );
     shader.fragmentShader = shader.fragmentShader
       .replace(
         '#include <common>',

@@ -68,6 +68,9 @@ async function main() {
     const output = join(ROOT, 'public', 'assets', 'rooms', `${room}.glb`);
     const doc = await optimizeGltf(input, output, {
       maxTexture: 2048, maxNormal: 1024, quality: 86, keepLeaves: true, textureCaps: TEXTURE_CAPS[room],
+      // the garden is 480 m across: at 14 bits its grid is 3 cm, coarser than the paths' 1.5 cm lift
+      // over the snow (they flickered), so it gets 16 bits (7 mm)
+      positionBits: room === 'exterior' ? 16 : 14,
       // the collision mesh only needs its shape
       edit: (d) => {
         for (const node of d.getRoot().listNodes()) {

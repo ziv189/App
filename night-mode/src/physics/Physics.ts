@@ -65,6 +65,19 @@ export class Physics {
     return collider;
   }
 
+  /** Upright cylinders standing on (x, y, z): tree trunks and the branches around them at head height. */
+  addCylinders(list: readonly { x: number; y: number; z: number; radius: number; height: number }[]): RAPIER.Collider[] {
+    const colliders = list.map((c) =>
+      this.world.createCollider(
+        RAPIER.ColliderDesc.cylinder(c.height / 2, c.radius)
+          .setTranslation(c.x, c.y + c.height / 2, c.z)
+          .setCollisionGroups(collisionGroups(LAYER.WORLD, LAYER.ALL)),
+      ),
+    );
+    this.world.step();
+    return colliders;
+  }
+
   /**
    * An invisible ramp over a staircase. Its top surface runs `lift` above the line from `from` to `to`
    * (the bottom and top of the flight's walking line, through the step edges), so the player walks up

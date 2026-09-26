@@ -13,9 +13,10 @@ import {
   type Texture,
 } from 'three';
 import { assetUrl, type Assets } from '../assets/Assets';
-import type { Physics, RAPIER } from '../physics/Physics';
+import { RAPIER, type Physics } from '../physics/Physics';
 import { applyLightmaps, type LightmapUniforms } from '../render/Lightmap';
 import { applySnowCover } from '../render/Snow';
+import { plantTrees } from './Trees';
 
 /** Outside, snow settles on everything facing up except these (the snow itself, ice, glass, the porch floors). */
 const NO_SNOW = /^(NM_Snow|NM_Ice|NM_WindowGlow|NM_TreeCards|NM_Keypad|NM_Lamp|DeckWoodBase)/;
@@ -213,6 +214,16 @@ export class Cell {
       const min = new Vector3(...f.min);
       const max = new Vector3(...f.max);
       cell.extraColliders.push(physics.addBox(min.clone().add(max).multiplyScalar(0.5), max.clone().sub(min).multiplyScalar(0.5)));
+    }
+    if (def.exterior) {
+      // real 3D firs in place of the picture-card forest (see Trees.ts), solid to walk into
+      const collider = cell.collider;
+      const trees = plantTrees(root, (x, z) => {
+        if (!collider) return null;
+        const toi = collider.castRay(new RAPIER.Ray({ x, y: 120, z }, { x: 0, y: -1, z: 0 }), 300, true);
+        return toi >= 0 ? 120 - toi : null;
+      });
+      cell.extraColliders.push(...physics.addCylinders(trees));
     }
     for (const c of cell.extraColliders) c.setEnabled(false);
     cell.bounds.setFromObject(gltf.scene);
