@@ -4,8 +4,8 @@ First-person psychological horror for desktop browsers (Chrome, Edge, Firefox), 
 TypeScript + Three.js and no game engine. Later it can be wrapped as a desktop app for Steam.
 
 **Current state: Milestone 0 (foundation).** This is a walkable tech test: the engine, controls, physics,
-lighting pipeline and asset pipeline running in *Sponza*, a standard 3D test scene. Sponza is not SOSIES
-content and is never shipped.
+lighting pipeline and asset pipeline running in a furnished living room at dusk. The room is a free,
+credited model used only for testing; it is not SOSIES content and gets replaced by the real house.
 
 ---
 
@@ -33,8 +33,7 @@ content and is never shipped.
 
 1. checks Node.js is installed and new enough,
 2. installs or updates the game's tools (`npm install`),
-3. downloads the tech-test scene the first time (about 55 MB),
-4. starts the game server and **opens the game in your browser**.
+3. starts the game server and **opens the game in your browser**.
 
 Keep its black window open while you play; close it to stop the game. If anything fails, the window stays open
 with the error: copy all its text and send it to me. (If Windows asks whether to run it, choose *More info → Run
@@ -49,7 +48,6 @@ To get my latest changes later: in Command Prompt, `cd %USERPROFILE%\App` then `
 ```bat
 cd %USERPROFILE%\App\sosies
 npm install
-npm run assets:test
 npm run dev
 ```
 
@@ -64,7 +62,7 @@ npm run dev
 | Browser: *"This site can't be reached"* | The game server isn't running. Start `START-SOSIES.bat` and keep its window open. |
 | *"This page was opened straight from the folder"* | You opened `index.html` directly. Use `START-SOSIES.bat`; it opens the right address. |
 | Stuck on the SOSIES loading screen | The line under the bar names the step it's on; after 45 s a hint appears. Send me a screenshot of it plus the Console tab (`F12` → *Console*). |
-| *"Missing file"* screen | The test scene isn't downloaded. `START-SOSIES.bat` does it automatically, or run `npm run assets:test`. |
+| *"Missing file"* screen | Your copy is incomplete or out of date. Run `git pull` in the `App` folder (the test room is part of the repository). |
 | *"SOSIES needs WebGL 2"* | Turn on the browser's hardware acceleration and update your graphics driver. |
 | Any other error screen | Click **Copy these details** and paste them to me. |
 | Errors mentioning `EPERM` or `OneDrive` | Move the project out of OneDrive (e.g. to `C:\Games`) and try again. |
@@ -93,7 +91,7 @@ Browser notes:
 | --- | --- |
 | `START-SOSIES.bat` | Double-click: installs, downloads test assets if needed, starts the game and opens the browser. |
 | `npm run dev` | Starts the game and opens it at <http://localhost:5173>. Code changes reload automatically. |
-| `npm run assets:test` | Downloads and optimizes the tech-test assets (add `-- --force` to redo). |
+| `npm run assets:test-room` | Rebuilds the test room from its original download. Not needed normally: the result is already in the repository. |
 | `npm run optimize -- in.glb out.glb` | Optimizes any glTF/GLB for the web and prints its budget report. See [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md). |
 | `npm test` | Runs the unit tests. |
 | `npm run typecheck` | Checks the TypeScript for errors. |
@@ -139,11 +137,14 @@ feels the same on 60, 144 or 240 Hz monitors.
 - **Low FPS on a laptop**: the browser may be using the integrated GPU. In Windows *Settings → System → Display →
   Graphics*, set your browser to *High performance*, and check the browser's hardware acceleration setting is on.
   Lower *Graphics quality* in the pause menu to compare.
-- **`npm run assets:test` fails behind a company proxy**: set `NODE_USE_ENV_PROXY=1` along with your usual
+- **`npm run assets:test-room` fails behind a company proxy**: set `NODE_USE_ENV_PROXY=1` along with your usual
   `HTTPS_PROXY`, then run it again.
 
 ## 7. Credits (tech test only)
 
-- Sponza © Crytek, modified by Morgan McGuire, PBR textures by Alexandre Pestana, glTF by the Khronos Group
-  (CRYENGINE Limited License Agreement; local testing only, not redistributed).
-- *Kloppenheim 01 (Pure Sky)* HDRI by Greg Zaal and Jarod Guest, [Poly Haven](https://polyhaven.com) (CC0).
+- Test room: "Living Room" (originally "The White Room Cycles") by Jay-Artist,
+  [Blend Swap](https://www.blendswap.com/blends/view/41683), licensed
+  [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). OBJ conversion by Benedikt Bitterli, Nicholas Hull
+  (NVIDIA) and Morgan McGuire, [McGuire Computer Graphics Archive](https://casual-effects.com/data). Modified for
+  real-time use (converted to glTF, render-only light panels removed, back-wall opening closed, compressed).
+- Sky: *Kloppenheim 01 (Pure Sky)* HDRI by Greg Zaal and Jarod Guest, [Poly Haven](https://polyhaven.com) (CC0).

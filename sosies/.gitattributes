@@ -1,2 +1,5 @@
 # Windows batch files must keep Windows (CRLF) line endings, including in ZIP downloads.
 *.bat -text
+# Test-room assets are binary.
+*.glb binary
+*.hdr binary

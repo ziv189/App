@@ -56,10 +56,7 @@ export class Game {
 
     this.overlay.onStart = () => this.play();
     this.overlay.onResume = () => this.play();
-    this.input.onPointerLockFailed = () =>
-      this.overlay.showLockHint(
-        'The browser did not hand over the mouse. Wait a second and click again. (A controller works without it.)',
-      );
+    this.input.onPointerLockFailed = () => this.onPointerLockFailed();
     this.settings.onChange(() => this.applySettings());
     window.addEventListener('resize', () => this.resize());
     // Switching windows pauses even when playing with a controller (no mouse capture to lose).
@@ -109,8 +106,9 @@ export class Game {
 
       this.debug = new DebugPanel(this.renderer, this.post, this.player, this.scene, level, () => this.respawn());
       this.overlay.setWatermark(def.watermark);
+      this.overlay.setStartCredits(def.credits);
       this.overlay.setStartSubtitle(
-        `${def.title}. A standard 3D test scene (not SOSIES content) for checking movement, collision, ` +
+        `${def.title}. A furnished test room (not SOSIES content) for checking movement, collision, ` +
           `lighting and performance on your PC.`,
       );
       this.setState('ready');
@@ -159,8 +157,24 @@ export class Game {
 
   private play(): void {
     if (this.state !== 'ready' && this.state !== 'paused') return;
+    if (this.input.dragLook) {
+      this.setState('playing');
+      return;
+    }
     // Mouse players: capture the mouse (onPointerLockChange then switches to playing).
     this.input.requestPointerLock();
+  }
+
+  private onPointerLockFailed(): void {
+    if (this.state === 'ready') {
+      // This page can't capture the mouse at all (some embedded views): play with drag-to-look instead.
+      this.input.dragLook = true;
+      this.overlay.setHudHint('Hold the left mouse button and drag to look around · Esc pauses');
+      this.setState('playing');
+    } else if (this.state === 'paused') {
+      // Usually the browser's short cool-down after Esc.
+      this.overlay.showLockHint('The browser did not hand over the mouse. Wait a second and click Resume again.');
+    }
   }
 
   private pause(): void {

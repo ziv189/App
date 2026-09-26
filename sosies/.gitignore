@@ -1,7 +1,12 @@
 node_modules/
 dist/
+dist-artifact/
 .cache/
-# Downloaded tech-test assets (not game content; licensed for local evaluation only)
-public/assets/tech-test/
+# Tech-test assets: only the files built by tools/build-test-room.mjs are committed.
+# (Older downloads such as Sponza, whose license doesn't allow redistribution, stay ignored.)
+public/assets/tech-test/*
+!public/assets/tech-test/living-room.glb
+!public/assets/tech-test/sky-dusk-2k.hdr
+!public/assets/tech-test/CREDITS.md
 *.log
 .DS_Store

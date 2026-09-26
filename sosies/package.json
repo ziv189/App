@@ -9,10 +9,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:artifact": "npm run build && node tools/make-artifact.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "assets:test": "node tools/fetch-test-assets.mjs",
+    "assets:test-room": "node tools/build-test-room.mjs",
     "optimize": "node tools/optimize-gltf.mjs"
   },
   "dependencies": {

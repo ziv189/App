@@ -23,21 +23,12 @@ if errorlevel 1 (
 )
 
 echo.
-echo [1/3] Installing or updating the game's tools. The first time takes a minute or two...
+echo [1/2] Installing or updating the game's tools. The first time takes a minute or two...
 call npm install --no-audit --no-fund
 if errorlevel 1 goto fail
 
 echo.
-if not exist "public\assets\tech-test\sponza.glb" (
-  echo [2/3] Downloading the tech-test scene - about 55 MB, first time only...
-  call npm run assets:test
-  if errorlevel 1 goto fail
-) else (
-  echo [2/3] Tech-test scene already downloaded.
-)
-
-echo.
-echo [3/3] Starting the game. Your browser opens it automatically - the address is shown below.
+echo [2/2] Starting the game. Your browser opens it automatically - the address is shown below.
 echo       Keep this window open while you play. Close it to stop the game.
 echo.
 call npm run dev

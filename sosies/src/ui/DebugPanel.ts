@@ -1,7 +1,7 @@
 import GUI from 'lil-gui';
 import { ToneMappingMode } from 'postprocessing';
 import Stats from 'stats-gl';
-import { DirectionalLight, type FogExp2, type Scene, type WebGLRenderer } from 'three';
+import { DirectionalLight, PointLight, SpotLight, type FogExp2, type Scene, type WebGLRenderer } from 'three';
 import type { LoadedLevel } from '../assets/Level';
 import type { PlayerController } from '../player/PlayerController';
 import { DEFAULT_LOOK, type LookSettings, type PostFX } from '../render/PostFX';
@@ -119,7 +119,10 @@ export class DebugPanel {
     lighting.add(scene, 'environmentIntensity', 0, 3, 0.01).name('sky light');
     lighting.add(scene, 'backgroundIntensity', 0, 3, 0.01).name('sky brightness');
     scene.traverse((obj) => {
-      if (obj instanceof DirectionalLight) lighting.add(obj, 'intensity', 0, 10, 0.05).name(obj.name || 'light');
+      if (obj instanceof DirectionalLight) lighting.add(obj, 'intensity', 0, 10, 0.05).name(obj.name || 'sun');
+      else if (obj instanceof SpotLight || obj instanceof PointLight) {
+        lighting.add(obj, 'intensity', 0, 60, 0.1).name(obj.name || 'lamp');
+      }
     });
     const fog = {
       get density() {

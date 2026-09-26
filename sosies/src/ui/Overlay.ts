@@ -66,6 +66,15 @@ export class Overlay {
     $('watermark').textContent = text;
   }
 
+  /** Small line of help at the bottom of the screen while playing. */
+  setHudHint(text: string): void {
+    $('hud-hint').textContent = text;
+  }
+
+  setStartCredits(text: string): void {
+    $('start-credits').textContent = text;
+  }
+
   /** Shown on the start and pause screens when the browser refuses to capture the mouse. */
   showLockHint(text: string): void {
     $('start-hint').textContent = text;

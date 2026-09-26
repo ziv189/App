@@ -29,6 +29,8 @@ export interface LevelDef {
   title: string;
   /** Small in-game label (used to mark TECH TEST content). Empty for real game content. */
   watermark: string;
+  /** Attribution shown on the start screen (required by the licenses of borrowed assets). */
+  credits: string;
   /** Path inside /public, plus approximate size for the progress bar until the real size is known. */
   gltf: { path: string; approxBytes: number };
   sky?: Omit<SkyDef, 'url'> & { path: string; approxBytes: number };
@@ -69,10 +71,11 @@ export async function loadLevel(
 ): Promise<LoadedLevel> {
   const gltfUrl = assetUrl(def.gltf.path);
   const skyUrl = def.sky ? assetUrl(def.sky.path) : null;
-  for (const url of [gltfUrl, skyUrl]) {
+  // Only needed with the dev server, which answers a missing file with its HTML page.
+  for (const url of import.meta.env.DEV ? [gltfUrl, skyUrl] : []) {
     if (url && !(await Assets.exists(url))) {
       throw new MissingAssetError(
-        `Missing file: ${url}\n\nThis location's files haven't been downloaded yet. In a terminal, inside the ` +
+        `Missing file: ${url}\n\nThis location's files aren't on this computer. In a terminal, inside the ` +
           `sosies folder, run:\n\n    ${def.fetchHint}\n\nthen reload this page.`,
       );
     }

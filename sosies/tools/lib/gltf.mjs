@@ -55,7 +55,9 @@ export async function createIO() {
  * @param {string} input
  * @param {string} output
  * @param {{maxTexture?: number, maxNormal?: number, textures?: 'webp'|'keep', quality?: number,
- *          join?: boolean, meshopt?: boolean, verbose?: boolean}} [options]
+ *          join?: boolean, meshopt?: boolean, verbose?: boolean,
+ *          edit?: (doc: import('@gltf-transform/core').Document) => void | Promise<void>}} [options]
+ *   `edit` runs on the document before the optimization passes (e.g. to remove or re-assign parts).
  */
 export async function optimizeGltf(input, output, options = {}) {
   const opts = {
@@ -71,6 +73,7 @@ export async function optimizeGltf(input, output, options = {}) {
   const doc = await io.read(input);
   const logger = new QuietLogger(Boolean(opts.verbose));
   doc.setLogger(logger);
+  if (opts.edit) await opts.edit(doc);
 
   const transforms = [dedup(), instance({ min: 5 })];
   if (opts.join) transforms.push(join());

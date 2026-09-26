@@ -40,6 +40,11 @@ export class Input {
   captureKeys = false;
   /** Called when the browser refuses to capture the mouse (e.g. clicking again too quickly after Esc). */
   onPointerLockFailed: (() => void) | null = null;
+  /**
+   * Fallback for pages that can't capture the mouse: look around by holding the left button and
+   * dragging. Only used while the mouse isn't captured.
+   */
+  dragLook = false;
 
   private readonly held = new Set<string>();
   private readonly pressed = new Set<string>();
@@ -198,7 +203,8 @@ export class Input {
   };
 
   private onMouseMove = (e: MouseEvent) => {
-    if (!this.pointerLocked || performance.now() < this.ignoreMouseUntil) return;
+    const dragging = this.dragLook && !this.pointerLocked && (e.buttons & 1) === 1 && e.target === this.canvas;
+    if (!(this.pointerLocked || dragging) || performance.now() < this.ignoreMouseUntil) return;
     this.mouseDX += e.movementX;
     this.mouseDY += e.movementY;
     this.device = 'keyboardMouse';

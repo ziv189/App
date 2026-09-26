@@ -15,7 +15,7 @@ Blender export/bake scripts arrive with the first real SOSIES location.
 
 | Name in the .glb | Meaning |
 | --- | --- |
-| `COL_<anything>` | Invisible collision mesh. Use a few simple boxes/planes that hug the floors, walls, stairs and big furniture. Much smoother to walk along than the detailed visual mesh (in the tech test you can feel Daniel catch on Sponza's curtain folds because it has no `COL_` meshes). |
+| `COL_<anything>` | Invisible collision mesh. Use a few simple boxes/planes that hug the floors, walls, stairs and big furniture. Much smoother to walk along than the detailed visual mesh. (The tech-test room has no `COL_` meshes, so Daniel collides with every visible surface, down to the radiator fins.) |
 | `SPAWN_Player` | An Empty marking where Daniel starts. He faces along the Empty's **+Y** arrow in Blender. |
 | Blender custom property `collider = true` | Same as the `COL_` prefix (export with *Include → Custom Properties*). |
 
@@ -41,11 +41,11 @@ resizes textures (max 2048 px by default), converts them to WebP (normal maps at
 geometry with meshopt. Then it prints a **budget report**:
 
 ```
-  file:        sponza.glb  24.5 MB
-  triangles:   262,267
-  meshes:      1  (≈ 25 draw calls before culling)
-  materials:   25
-  textures:    63  (largest 1024x1024, est. GPU memory 336.0 MB)
+  file:        living-room.glb  5.7 MB
+  triangles:   580,631
+  meshes:      37  (~37 draw calls before culling)
+  materials:   37
+  textures:    16  (largest 1280x1920, est. GPU memory 72.2 MB)
 ```
 
 Options: `--max-texture 1024`, `--max-normal 1024`, `--quality 80`, `--join` (static scenery only: merges meshes
@@ -53,6 +53,7 @@ that share a material, so they can no longer be moved or hidden individually), `
 (just print the report for a file), `--verbose`.
 
 **GPU memory matters more than file size.** WebP makes files small, but each texture is unpacked to full size in
-graphics memory: Sponza's 63 textures take about 336 MB. For characters and rooms we'll switch textures to
+graphics memory: the test room's 16 small textures already take about 72 MB, and a real SOSIES room with
+characters will have many more, larger ones. For characters and rooms we'll switch textures to
 **KTX2** (GPU-compressed, typically 4–8× less graphics memory). The game can already load KTX2, Draco and meshopt
 files; the optimizer gains a KTX2 mode in the first real-asset milestone.

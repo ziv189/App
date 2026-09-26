@@ -11,7 +11,23 @@ function showFatal(message: string): void {
   document.getElementById('error-text')!.textContent = errorReport(message);
 }
 
+/** The physics engine and geometry decoder are WebAssembly; some locked-down pages forbid it. */
+function webAssemblyAllowed(): boolean {
+  try {
+    return new WebAssembly.Module(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0])) instanceof WebAssembly.Module;
+  } catch {
+    return false;
+  }
+}
+
 async function boot(): Promise<void> {
+  if (!webAssemblyAllowed()) {
+    showFatal(
+      'This page is not allowed to run WebAssembly, which the game needs for physics.\n\n' +
+        'Run the game from your own computer instead (double-click START-SOSIES.bat), or tell me where you opened it.',
+    );
+    return;
+  }
   if (!WebGL.isWebGL2Available()) {
     showFatal(
       'SOSIES needs WebGL 2, which this browser could not start.\n\n' +

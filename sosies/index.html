@@ -14,6 +14,7 @@
       <div id="hud" hidden>
         <div id="reticle"></div>
         <div id="watermark"></div>
+        <div id="hud-hint"></div>
       </div>
 
       <section id="screen-loading" class="screen">
@@ -28,7 +29,9 @@
         <p class="subtitle" id="start-subtitle"></p>
         <button class="primary" id="btn-start" type="button">Click to begin</button>
         <p class="hint">Mouse &amp; keyboard: click to capture the mouse · Controller: press <kbd>A</kbd></p>
+        <p class="hint warn touch-only">SOSIES is played with a keyboard and mouse, or a controller, on a computer.</p>
         <p class="hint warn" id="start-hint"></p>
+        <p class="credits" id="start-credits"></p>
       </section>
 
       <section id="screen-pause" class="screen" hidden>
@@ -118,9 +121,12 @@
         });
         setTimeout(function () {
           if (window.sosiesBooted) return;
+          var local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
           show(
             'The game code did not start within 30 seconds.\n\n' +
-              '1. Check that the START-SOSIES window (or the terminal running "npm run dev") is still open and shows no errors.\n' +
+              (local
+                ? '1. Check that the START-SOSIES window (or the terminal running "npm run dev") is still open and shows no errors.\n'
+                : '1. Check your internet connection.\n') +
               '2. Reload this page (F5).\n' +
               '3. Still stuck? Press F12, open the Console tab and send me a screenshot.'
           );

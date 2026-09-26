@@ -318,3 +318,39 @@ kbd {
   pointer-events: none;
   z-index: 10000;
 }
+
+.credits {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-faint);
+}
+
+#hud-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+.touch-only {
+  display: none;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .touch-only {
+    display: block;
+  }
+}
+
+.controls {
+  overflow-x: auto;
+}

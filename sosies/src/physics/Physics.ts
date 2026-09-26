@@ -39,6 +39,8 @@ export class Physics {
       collisionGroups(LAYER.WORLD, LAYER.ALL),
     );
     this.world.createCollider(desc);
+    // Ray casts only see colliders after a step; the level is static, so stepping moves nothing.
+    this.world.step();
     return indices.length / 3;
   }
 
