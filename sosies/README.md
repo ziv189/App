@@ -9,6 +9,12 @@ credited model used only for testing; it is not SOSIES content and gets replaced
 
 ---
 
+## 0. Quickest: play it in your browser
+
+Open **<https://claude.ai/artifact/N4PXKLcm2YN845Wrj6KMik>** (private to your claude.ai account) and click
+**Click to begin**. Nothing to install. To run it from your own PC instead (needed for development), follow
+the steps below.
+
 ## 1. One-time setup (Windows)
 
 1. Install **Node.js 24 LTS** from <https://nodejs.org> (Windows installer, default options).
@@ -97,6 +103,7 @@ Browser notes:
 | `npm run typecheck` | Checks the TypeScript for errors. |
 | `npm run build` | Builds the release version into `dist/`. |
 | `npm run preview` | Serves the `dist/` build at <http://localhost:4173>. |
+| `npm run build:artifact` | Packages the game as a claude.ai page in `dist-artifact/` (binary assets as base64 text). |
 
 ## 5. How it's built
 

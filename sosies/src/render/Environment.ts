@@ -5,7 +5,6 @@ import {
   type Texture,
   type WebGLRenderer,
 } from 'three';
-import type { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
 
 export interface SkyDef {
   /** Equirectangular .hdr image (e.g. from Poly Haven). */
@@ -28,11 +27,11 @@ export interface SkyDef {
 export async function applySky(
   renderer: WebGLRenderer,
   scene: Scene,
-  loader: HDRLoader,
+  loadHdr: (url: string, onProgress?: (event: ProgressEvent) => void) => Promise<Texture>,
   sky: SkyDef,
   onProgress?: (event: ProgressEvent) => void,
 ): Promise<Texture> {
-  const hdr = await loader.loadAsync(sky.url, onProgress);
+  const hdr = await loadHdr(sky.url, onProgress);
   hdr.mapping = EquirectangularReflectionMapping;
 
   const pmrem = new PMREMGenerator(renderer);

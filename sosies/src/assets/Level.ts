@@ -87,7 +87,7 @@ export async function loadLevel(
   const [gltf] = await Promise.all([
     assets.loadGltf(gltfUrl, gltfProgress).finally(() => progress.finish('gltf')),
     def.sky && skyUrl
-      ? applySky(renderer, scene, assets.hdr, { ...def.sky, url: skyUrl }, skyProgress).finally(() =>
+      ? applySky(renderer, scene, (url, p) => assets.loadHdr(url, p), { ...def.sky, url: skyUrl }, skyProgress).finally(() =>
           progress.finish('sky'),
         )
       : Promise.resolve(null),
