@@ -362,6 +362,24 @@ def add_box(name, lo, hi, mat=None, uv_tile=1.0, faces='all'):
     return o
 
 
+def screen_uvs(obj):
+    """UVs for a flat screen, from its geometry: u runs to the right and v upwards as seen by someone
+    facing the screen (the game draws its feeds onto them)."""
+    me = obj.data
+    mw = obj.matrix_world
+    n = (mw.to_3x3() @ me.polygons[0].normal).normalized()
+    up = Vector((0, 0, 1))
+    right = (-n).cross(up).normalized()
+    pts = [mw @ v.co for v in me.vertices]
+    us = [p.dot(right) for p in pts]
+    vs = [p.dot(up) for p in pts]
+    u0, u1, v0, v1 = min(us), max(us), min(vs), max(vs)
+    uv = me.uv_layers[0] if me.uv_layers else me.uv_layers.new(name='UVMap')
+    for loop in me.loops:
+        p = pts[loop.vertex_index]
+        uv.data[loop.index].uv = ((p.dot(right) - u0) / (u1 - u0), (p.dot(up) - v0) / (v1 - v0))
+
+
 def add_quad(name, corners, mat=None, uv_tile=1.0):
     me = bpy.data.meshes.new(name)
     me.from_pydata([tuple(c) for c in corners], [], [(0, 1, 2, 3)])

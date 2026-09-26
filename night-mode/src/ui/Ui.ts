@@ -50,7 +50,8 @@ export interface UiInput {
   select: boolean;
   back: boolean;
   close: boolean;
-  digit: string | null;
+  /** Digit keys pressed since the last frame, in order. */
+  digits: string;
   erase: boolean;
   mouseDY: number;
   mouseDX: number;
@@ -569,8 +570,8 @@ export class Ui {
       return;
     }
     if (this.modal === 'keypad') {
-      if (input.digit) this.keypadPress(input.digit);
-      else if (input.erase) this.keypadPress('⌫');
+      for (const d of input.digits) this.keypadPress(d);
+      if (input.erase) this.keypadPress('⌫');
       else if (input.close || input.back) this.closeKeypad(null);
       this.keypadAccum.x += input.mouseDX;
       this.keypadAccum.y += input.mouseDY;
@@ -587,7 +588,7 @@ export class Ui {
         moved = true;
       }
       if (moved) this.renderKeypad();
-      if (input.select && !input.digit) {
+      if (input.select && !input.digits) {
         const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '⌫', '0', '✓'];
         this.keypadPress(keys[this.keypadFocus]!);
       }

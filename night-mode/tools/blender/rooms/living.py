@@ -105,6 +105,7 @@ def build():
     screen = bpy.data.objects.get('TvScreen')
     if screen:
         screen.name = 'DYN_tv_screen'
+        L.screen_uvs(screen)  # the scene's quad has none
         L.dynamic(screen)
     L.proxy('tv', (-1.75, -2.88, 1.85), (0.35, 1.25, 0.85))
     L.marker('tv', (-1.8, -2.88, 1.85), -90)

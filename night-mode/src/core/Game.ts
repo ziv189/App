@@ -168,6 +168,7 @@ export class Game implements StoryHost {
         ui: this.ui,
         physics: this.physics,
         interactPressed: () => this.lastInput?.interactPressed ?? false,
+        clock: () => this.story.clock,
       });
       this.story = new Story(this);
       this.post.setLook({ ...DEFAULT_LOOK, vignetteDarkness: 0.62, grain: 0.14, bloomThreshold: 0.75, aoRadius: 0.6, aoIntensity: 1.6 });
@@ -300,6 +301,9 @@ export class Game implements StoryHost {
         await ch.setup(ctx);
         this.enterCellEffects();
       }
+      // the time of night follows the chapters, also when they run on from one another
+      this.story.clock = ch.time;
+      this.phone.time = ch.time.replace(/ [AP]M$/, '');
       if (id !== 'prologue') {
         if (continuing) await this.ui.fade(1, 1.2);
         this.ui.setBlack(true);

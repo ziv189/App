@@ -1,4 +1,5 @@
 import {
+  CanvasTexture,
   Color,
   DirectionalLight,
   HalfFloatType,
@@ -9,13 +10,14 @@ import {
   Scene,
   ShaderMaterial,
   SpotLight,
+  SRGBColorSpace,
   WebGLRenderTarget,
   type Object3D,
   type WebGLRenderer,
 } from 'three';
 import type { Character } from '../characters/Character';
 
-export type Feed = 'off' | 'static' | 'lake' | 'ivy' | 'dana';
+export type Feed = 'off' | 'static' | 'lake' | 'ivy' | 'dana' | 'wren';
 
 const SCREEN_SHADER = {
   uniforms: {
@@ -42,7 +44,8 @@ const SCREEN_SHADER = {
     void main() {
       vec2 c = vUv - 0.5;
       vec2 uv = 0.5 + c * (1.0 + dot(c, c) * curve);
-      vec3 col = texture2D(map, uv).rgb;
+      // screens come from glTF, whose UVs run top to bottom; feeds are drawn bottom to top
+      vec3 col = texture2D(map, vec2(uv.x, 1.0 - uv.y)).rgb;
       float n = hash(floor(uv * vec2(320.0, 240.0)) + fract(time * 23.0) * 91.0);
       col = mix(col, vec3(n * 0.8), staticMix);
       col += (n - 0.5) * noise;
@@ -53,6 +56,15 @@ const SCREEN_SHADER = {
       gl_FragColor = vec4(max(col, 0.0) * brightness * on + vec3(0.004) * (1.0 - on), 1.0);
     }`,
 };
+
+/** A feed drawn with the 2D canvas API (the kitchen panel's interface). */
+interface CanvasFeed {
+  canvas: HTMLCanvasElement;
+  texture: CanvasTexture;
+  draw: (g: CanvasRenderingContext2D, width: number, height: number) => void;
+  interval: number;
+  wait: number;
+}
 
 interface FeedScene {
   scene: Scene;
@@ -70,6 +82,7 @@ interface FeedScene {
 export class Screens {
   private readonly screens = new Map<string, { mesh: Mesh; material: ShaderMaterial; feed: Feed }>();
   private readonly feeds = new Map<Feed, FeedScene>();
+  private readonly canvasFeeds = new Map<Feed, CanvasFeed>();
   private time = 0;
   private accum = 0;
   private readonly blank = new WebGLRenderTarget(4, 4);
@@ -77,7 +90,7 @@ export class Screens {
   constructor(private readonly renderer: WebGLRenderer) {}
 
   /** Replaces a screen mesh's material with a CRT-style screen showing a feed. */
-  register(name: string, mesh: Mesh, opts: { curve?: number; brightness?: number } = {}): void {
+  register(name: string, mesh: Mesh, opts: { curve?: number; brightness?: number; scan?: number; noise?: number } = {}): void {
     const material = new ShaderMaterial({
       uniforms: structuredCloneUniforms(),
       vertexShader: SCREEN_SHADER.vertexShader,
@@ -85,6 +98,8 @@ export class Screens {
     });
     material.uniforms.curve!.value = opts.curve ?? 0.08;
     material.uniforms.brightness!.value = opts.brightness ?? 2.4;
+    material.uniforms.scan!.value = opts.scan ?? 0.35;
+    material.uniforms.noise!.value = opts.noise ?? 0.06;
     material.uniforms.map!.value = this.blank.texture;
     mesh.material = material;
     mesh.visible = true;
@@ -106,8 +121,18 @@ export class Screens {
     const u = s.material.uniforms;
     u.on!.value = feed === 'off' ? 0 : 1;
     u.staticMix!.value = feed === 'static' ? 1 : 0;
-    const f = this.feeds.get(feed);
-    u.map!.value = f ? f.target.texture : this.blank.texture;
+    u.map!.value = this.texture(feed) ?? this.blank.texture;
+  }
+
+  /** A feed drawn on a canvas, redrawn every `interval` seconds while a screen showing it is in view. */
+  addCanvasFeed(feed: Feed, draw: CanvasFeed['draw'], size = [512, 384], interval = 0.5): void {
+    const canvas = document.createElement('canvas');
+    canvas.width = size[0]!;
+    canvas.height = size[1]!;
+    const texture = new CanvasTexture(canvas);
+    texture.colorSpace = SRGBColorSpace;
+    this.canvasFeeds.set(feed, { canvas, texture, draw, interval, wait: 0 });
+    for (const [name, s] of this.screens) if (s.feed === feed) this.set(name, feed);
   }
 
   addFeed(feed: Feed, scene: Scene, camera: PerspectiveCamera, hooks: { before?: () => void; after?: () => void } = {}, size = [512, 384]): void {
@@ -118,13 +143,14 @@ export class Screens {
 
   /** The texture a feed renders into (e.g. for the jump-scare overlay). */
   texture(feed: Feed) {
-    return this.feeds.get(feed)?.target.texture ?? null;
+    return this.feeds.get(feed)?.target.texture ?? this.canvasFeeds.get(feed)?.texture ?? null;
   }
 
   update(dt: number, visibleRoot: Object3D | null, extraFeeds: Feed[] = []): void {
     this.time += dt;
     this.accum += dt;
     for (const s of this.screens.values()) s.material.uniforms.time!.value = this.time;
+    for (const c of this.canvasFeeds.values()) c.wait -= dt;
     if (this.accum < 1 / 24) return;
     this.accum = 0;
     const needed = new Set<Feed>(extraFeeds);
@@ -139,6 +165,18 @@ export class Screens {
   }
 
   renderFeed(feed: Feed): void {
+    const cf = this.canvasFeeds.get(feed);
+    if (cf) {
+      if (cf.wait > 0) return;
+      cf.wait = cf.interval;
+      const g = cf.canvas.getContext('2d');
+      if (!g) return;
+      g.save();
+      cf.draw(g, cf.canvas.width, cf.canvas.height);
+      g.restore();
+      cf.texture.needsUpdate = true;
+      return;
+    }
     const f = this.feeds.get(feed);
     if (!f) return;
     const r = this.renderer;

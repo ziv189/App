@@ -219,7 +219,8 @@ def build():
     L.light('bulb', 'POINT', (0.2, -0.3, CEIL - 0.33), 55, '#ffc98a', radius=0.03, states=('on', 'moon'))
     L.light('monitor_glow', 'AREA', (0.4, Y0 + 0.55, 1.15), 6, '#8fb4ff', states=('on', 'moon'), direction=(0, 1, -0.1))
     bpy.data.lights['monitor_glow'].size = 0.5
-    L.light('stair_light', 'POINT', (3.3, 2.5, CEIL + 2.1), 25, '#ffd0a0', radius=0.05, states=('on',))
+    # a weak bulb over the top of the stairs, so coming down from the kitchen isn't a black screen
+    L.light('stair_light', 'POINT', (3.3, 2.5, CEIL + 2.1), 14, '#ffd0a0', radius=0.05, states=('on', 'moon'))
     L.light('window_moon', 'AREA', (-1.8, Y0 + 0.05, CEIL - 0.4), 6, '#9fb4e6', states=('on', 'moon'), direction=(0, 1, -0.6))
     bpy.data.lights['window_moon'].size = 0.7
     L.set_world(color=(0.002, 0.0025, 0.004))

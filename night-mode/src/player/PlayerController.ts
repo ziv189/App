@@ -103,6 +103,8 @@ export class PlayerController {
     this.velocity.set(0, 0, 0);
     this.yaw = yaw;
     this.pitch = pitch;
+    // a scripted look that was under way is over: let whoever waits for it carry on
+    this.lookTarget?.resolve();
     this.lookTarget = null;
     this.syncCollider();
   }

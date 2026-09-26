@@ -141,6 +141,8 @@ export const CELLS: CellDef[] = [
     sky: null,
     nightLights: [],
     probe: [0, 1.4, 0],
+    // one bare bulb: bright enough to find the breaker and the coal door without the flashlight
+    exposure: { on: 2.0, moon: 2.4 },
   },
 ];
 

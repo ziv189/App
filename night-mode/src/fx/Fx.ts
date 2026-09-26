@@ -70,6 +70,8 @@ interface Deps {
   ui: Ui;
   physics: Physics;
   interactPressed: () => boolean;
+  /** The story's time of night, e.g. "10:00 PM". */
+  clock: () => string;
 }
 
 /**
@@ -130,7 +132,14 @@ export class Fx {
     for (const [cellId, cell] of w.cells) {
       for (const [name, obj] of cell.dynamic) {
         if (name.endsWith('_screen') && obj instanceof Mesh && !this.screens.has(name.replace(/_screen$/, ''))) {
-          this.screens.register(name.replace(/_screen$/, ''), obj, { curve: name.startsWith('tv') || name.startsWith('monitor') ? 0.12 : 0.02 });
+          if (name === 'tablet_screen') {
+            // Wren's wall panel in the kitchen: a flat touch screen with her home screen on it
+            this.screens.register('tablet', obj, { curve: 0, scan: 0.04, noise: 0.012, brightness: 1.5 });
+            this.screens.addCanvasFeed('wren', (g, w, h) => this.drawWrenPanel(g, w, h));
+            this.screens.set('tablet', 'wren');
+          } else {
+            this.screens.register(name.replace(/_screen$/, ''), obj, { curve: name.startsWith('tv') || name.startsWith('monitor') ? 0.12 : 0.02 });
+          }
         }
         if (name.startsWith('cam_') && !this.cams.some((c) => c.obj === obj)) {
           // aim it along its marker (M_cam_x): the lens looks along the camera's local +Z
@@ -288,7 +297,7 @@ export class Fx {
     this.screens.set(name, feed);
     if (name === 'monitor' || name === 'laptop' || name === 'tv') {
       void this.d.audio.play(feed === 'off' ? 'led_off' : 'static', {
-        at: this.anchor(this.cellOfScreen(name), name === 'tv' ? 'tv' : name),
+        at: this.anchor(this.cellOfScreen(name), `${name}_screen`),
         volume: feed === 'off' ? 0.3 : 0.15,
       }).then((h) => {
         if (feed !== 'off') window.setTimeout(() => h.stop(0.3), 350);
@@ -351,6 +360,116 @@ export class Fx {
     return new Promise((resolve) => {
       this.seeking = { left: seconds, seen: 0, tick: 6, ticks: 0, resolve, onTick };
     });
+  }
+
+  /** Wren's home screen: warm and helpful by day; in Night Mode, a moon and a child's handwriting. */
+  private drawWrenPanel(g: CanvasRenderingContext2D, w: number, h: number): void {
+    const world = this.d.world;
+    const powered = world.brightnessTarget > 0.2;
+    const night = world.nightModeLights || world.nightTarget > 0.5;
+    const [time, ampm] = (this.d.clock() || '8:05 PM').split(' ');
+    const sans = 'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+    g.fillStyle = '#000';
+    g.fillRect(0, 0, w, h);
+    if (!powered) return;
+    const bg = g.createLinearGradient(0, 0, w, h);
+    if (night) {
+      bg.addColorStop(0, '#02040a');
+      bg.addColorStop(1, '#0a1328');
+    } else {
+      bg.addColorStop(0, '#15263d');
+      bg.addColorStop(1, '#2c3f5c');
+    }
+    g.fillStyle = bg;
+    g.fillRect(0, 0, w, h);
+    const glow = g.createRadialGradient(w * 0.78, h * 0.3, 10, w * 0.78, h * 0.3, w * 0.5);
+    glow.addColorStop(0, night ? 'rgba(90,120,220,0.22)' : 'rgba(255,190,120,0.22)');
+    glow.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = glow;
+    g.fillRect(0, 0, w, h);
+    const ink = night ? '#9db6ff' : '#fff4e6';
+    const dim = night ? 'rgba(157,182,255,0.55)' : 'rgba(255,244,230,0.62)';
+
+    // header: a little bird and the name
+    g.fillStyle = ink;
+    g.beginPath();
+    g.ellipse(46, 44, 15, 11, -0.2, 0, Math.PI * 2);
+    g.moveTo(58, 37);
+    g.lineTo(76, 30);
+    g.lineTo(60, 44);
+    g.fill();
+    g.beginPath();
+    g.arc(38, 36, 7, 0, Math.PI * 2);
+    g.fill();
+    g.font = `600 30px ${sans}`;
+    g.textBaseline = 'middle';
+    g.fillText('Wren', 88, 42);
+    if (night) {
+      // a crescent moon where the house name was
+      g.fillStyle = ink;
+      g.beginPath();
+      g.arc(w - 48, 42, 20, 0, Math.PI * 2);
+      g.fill();
+      g.fillStyle = '#03060e';
+      g.beginPath();
+      g.arc(w - 40, 35, 17, 0, Math.PI * 2);
+      g.fill();
+    } else {
+      g.font = `400 18px ${sans}`;
+      g.fillStyle = dim;
+      g.textAlign = 'right';
+      g.fillText('Hale House', w - 28, 42);
+      g.textAlign = 'left';
+    }
+
+    // the time
+    g.fillStyle = ink;
+    g.font = `200 118px ${sans}`;
+    g.textBaseline = 'alphabetic';
+    g.fillText(time ?? '', 28, 188);
+    const tw = g.measureText(time ?? '').width;
+    g.font = `400 30px ${sans}`;
+    g.fillText(ampm ?? '', 40 + tw, 186);
+
+    if (!night) {
+      g.font = `400 21px ${sans}`;
+      g.fillStyle = dim;
+      g.fillText('Snow · 4 °F outside · 68 °F inside', 30, 228);
+      const chips = ['Lights on', 'Heating on', 'Doors unlocked'];
+      let x = 30;
+      g.font = `500 18px ${sans}`;
+      for (const c of chips) {
+        const cw = g.measureText(c).width + 28;
+        g.fillStyle = 'rgba(255,244,230,0.12)';
+        g.beginPath();
+        g.roundRect(x, 252, cw, 38, 19);
+        g.fill();
+        g.fillStyle = ink;
+        g.fillText(c, x + 14, 277);
+        x += cw + 12;
+      }
+      g.font = `400 24px ${sans}`;
+      g.fillStyle = ink;
+      g.fillText('Good evening, Alex. Anything you need?', 30, 342);
+      return;
+    }
+
+    // Night Mode
+    g.fillStyle = ink;
+    g.font = `600 20px ${sans}`;
+    g.fillText('N I G H T   M O D E', 30, 228);
+    g.font = `400 18px ${sans}`;
+    g.fillStyle = dim;
+    const status = ['All doors locked', this.camerasOn ? 'Cameras on' : 'Cameras ready', this.coldOn ? 'Heating off' : 'Heating on'];
+    g.fillText(status.join('  ·  '), 30, 262);
+    // her handwriting, in crayon
+    g.save();
+    g.translate(34, 330);
+    g.rotate(-0.035);
+    g.font = `400 30px "Segoe Print", "Comic Sans MS", "Chalkboard SE", cursive`;
+    g.fillStyle = '#ff6b5e';
+    g.fillText('nobody goes outside at night', 0, 0);
+    g.restore();
   }
 
   private cameraSees(cam: SecurityCamera): boolean {

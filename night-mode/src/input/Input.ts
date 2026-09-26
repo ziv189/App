@@ -60,6 +60,7 @@ export class Input {
   private mouseDY = 0;
   private mouseClicked = false;
   private mouseRightClicked = false;
+  private readonly typed: string[] = [];
   private ignoreMouseUntil = 0;
   private padPrev: boolean[] = [];
   private padIndex: number | null = null;
@@ -126,18 +127,13 @@ export class Input {
     let gamepadConfirmPressed = false;
     let flashlightPressed = hit('KeyF');
     let phonePressed = hit('Tab');
-    let digit: string | null = null;
-    for (const code of this.pressed) {
-      const m = DIGIT.exec(code);
-      if (m) digit = m[1]!;
-    }
     const ui: UiInput = {
       up: hit('ArrowUp') || hit('KeyW'),
       down: hit('ArrowDown') || hit('KeyS'),
       select: hit('KeyE') || hit('Enter') || hit('Space') || this.mouseClicked,
       back: hit('Backspace') || hit('KeyQ') || this.mouseRightClicked,
       close: hit('Escape') || hit('Tab'),
-      digit,
+      digits: this.typed.join(''),
       erase: hit('Backspace'),
       mouseDX: this.mouseDX,
       mouseDY: this.mouseDY,
@@ -197,6 +193,7 @@ export class Input {
       device: this.device,
     };
     this.pressed.clear();
+    this.typed.length = 0;
     this.mouseDX = 0;
     this.mouseDY = 0;
     this.mouseClicked = false;
@@ -229,6 +226,9 @@ export class Input {
     const typing = e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement;
     if (this.captureKeys && !typing && GAME_KEYS.has(e.code)) e.preventDefault();
     if (e.repeat) return;
+    // digits are kept in order: a slow frame can span several key presses on the door keypad
+    const digit = DIGIT.exec(e.code);
+    if (digit) this.typed.push(digit[1]!);
     if (!this.held.has(e.code)) this.pressed.add(e.code);
     this.held.add(e.code);
     this.device = 'keyboardMouse';
