@@ -1,4 +1,5 @@
 import type { Settings } from '../core/Settings';
+import type { UiInput } from '../ui/Ui';
 import { applyResponseCurve, clampLength, radialDeadzone, type Vec2 } from './math';
 
 export type InputDevice = 'keyboardMouse' | 'gamepad';
@@ -16,6 +17,10 @@ export interface InputFrame {
   debugPressed: boolean;
   /** A or Start on a controller; starts or resumes the game from menus without the mouse. */
   gamepadConfirmPressed: boolean;
+  flashlightPressed: boolean;
+  phonePressed: boolean;
+  /** Navigation for the phone, notes and keypad. */
+  ui: UiInput;
   device: InputDevice;
 }
 
@@ -26,14 +31,17 @@ const PAD_YAW_SPEED = 2.6; // ~150 deg/s
 const PAD_PITCH_SPEED = 1.8; // ~100 deg/s
 
 /** Button indices of the W3C "standard" gamepad layout (Xbox names; PlayStation equivalents in brackets). */
-const PAD = { A: 0, B: 1, START: 9, L3: 10 } as const; // A [Cross], B [Circle], Start [Options], L3 [L3]
+const PAD = { A: 0, B: 1, X: 2, Y: 3, START: 9, L3: 10, UP: 12, DOWN: 13 } as const; // A [Cross], B [Circle], X [Square], Y [Triangle]
 
 /** Keys whose browser default (scrolling, quick-find, etc.) we block while the game has focus. */
 const GAME_KEYS = new Set([
-  'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyC', 'KeyE',
+  'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyC', 'KeyE', 'KeyF', 'KeyQ', 'Tab', 'Enter', 'Backspace',
   'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
   'Space', 'ShiftLeft', 'ShiftRight', 'Backquote',
+  'Digit0', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9',
 ]);
+
+const DIGIT = /^(?:Digit|Numpad)(\d)$/;
 
 export class Input {
   /** Set by the game while playing, so movement keys don't scroll or trigger browser shortcuts. */
@@ -51,10 +59,12 @@ export class Input {
   private mouseDX = 0;
   private mouseDY = 0;
   private mouseClicked = false;
+  private mouseRightClicked = false;
   private ignoreMouseUntil = 0;
   private padPrev: boolean[] = [];
   private padIndex: number | null = null;
   private sprintLatched = false;
+  private padNavHeld = false;
   private device: InputDevice = 'keyboardMouse';
 
   constructor(private readonly canvas: HTMLCanvasElement) {
@@ -63,6 +73,7 @@ export class Input {
     window.addEventListener('blur', this.onBlur);
     document.addEventListener('mousemove', this.onMouseMove);
     canvas.addEventListener('mousedown', this.onMouseDown);
+    canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     document.addEventListener('pointerlockchange', this.onPointerLockChange);
     window.addEventListener('gamepaddisconnected', (e) => {
       if (e.gamepad.index === this.padIndex) this.padIndex = null;
@@ -113,6 +124,24 @@ export class Input {
     let interactPressed = hit('KeyE') || this.mouseClicked;
     let pausePressed = hit('Escape');
     let gamepadConfirmPressed = false;
+    let flashlightPressed = hit('KeyF');
+    let phonePressed = hit('Tab');
+    let digit: string | null = null;
+    for (const code of this.pressed) {
+      const m = DIGIT.exec(code);
+      if (m) digit = m[1]!;
+    }
+    const ui: UiInput = {
+      up: hit('ArrowUp') || hit('KeyW'),
+      down: hit('ArrowDown') || hit('KeyS'),
+      select: hit('KeyE') || hit('Enter') || hit('Space') || this.mouseClicked,
+      back: hit('Backspace') || hit('KeyQ') || this.mouseRightClicked,
+      close: hit('Escape') || hit('Tab'),
+      digit,
+      erase: hit('Backspace'),
+      mouseDX: this.mouseDX,
+      mouseDY: this.mouseDY,
+    };
 
     const pad = this.readGamepad();
     if (pad) {
@@ -138,6 +167,14 @@ export class Input {
       interactPressed ||= edge(PAD.A);
       pausePressed ||= edge(PAD.START);
       gamepadConfirmPressed = edge(PAD.A) || edge(PAD.START);
+      flashlightPressed ||= edge(PAD.X);
+      phonePressed ||= edge(PAD.Y);
+      ui.up ||= edge(PAD.UP) || (leftStick.y > 0.7 && !this.padNavHeld);
+      ui.down ||= edge(PAD.DOWN) || (leftStick.y < -0.7 && !this.padNavHeld);
+      this.padNavHeld = Math.abs(leftStick.y) > 0.5;
+      ui.select ||= edge(PAD.A);
+      ui.back ||= edge(PAD.B);
+      ui.close ||= edge(PAD.Y) || edge(PAD.START);
       this.padPrev = pad.buttons.map((b) => b.pressed);
     } else {
       this.sprintLatched = false;
@@ -154,12 +191,16 @@ export class Input {
       // Physical key left of "1" on every layout (event.code ignores the keyboard language).
       debugPressed: hit('Backquote'),
       gamepadConfirmPressed,
+      flashlightPressed,
+      phonePressed,
+      ui,
       device: this.device,
     };
     this.pressed.clear();
     this.mouseDX = 0;
     this.mouseDY = 0;
     this.mouseClicked = false;
+    this.mouseRightClicked = false;
     return frame;
   }
 
@@ -211,7 +252,9 @@ export class Input {
   };
 
   private onMouseDown = (e: MouseEvent) => {
-    if (this.pointerLocked && e.button === 0) this.mouseClicked = true;
+    if (!this.pointerLocked) return;
+    if (e.button === 0) this.mouseClicked = true;
+    if (e.button === 2) this.mouseRightClicked = true;
   };
 
   private onPointerLockChange = () => {

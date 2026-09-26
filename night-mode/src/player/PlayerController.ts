@@ -53,8 +53,15 @@ export class PlayerController {
   yaw = 0;
   pitch = 0;
   tuning: PlayerTuning = { ...DEFAULT_TUNING };
-  /** Fired on each footstep with the current speed (m/s). Audio hooks in here later. */
+  /** Fired on each footstep with the current speed (m/s). */
   onFootstep: ((speed: number) => void) | null = null;
+  /** Cutscenes and menus: no walking (moveLocked) and/or no looking around (lookLocked). */
+  moveLocked = false;
+  lookLocked = false;
+  private lookTarget: { yaw: number; pitch: number; speed: number; resolve: () => void } | null = null;
+  private shakeAmount = 0;
+  private shakeTime = 0;
+  private breathPhase = 0;
 
   private readonly collider: RAPIER.Collider;
   private readonly kcc: RAPIER.KinematicCharacterController;
@@ -88,14 +95,48 @@ export class PlayerController {
     );
   }
 
-  /** Places Daniel with his feet at `feet`, facing `yaw` (radians; 0 looks down -Z). */
-  teleport(feet: Vector3, yaw: number): void {
+  /** Places the player with their feet at `feet`, facing `yaw` (radians; 0 looks down -Z). */
+  teleport(feet: Vector3, yaw: number, pitch = 0): void {
     this.feet.copy(feet);
     this.prevFeet.copy(feet);
+    this.renderFeet.copy(feet);
     this.velocity.set(0, 0, 0);
     this.yaw = yaw;
-    this.pitch = 0;
+    this.pitch = pitch;
+    this.lookTarget = null;
     this.syncCollider();
+  }
+
+  /** Turns the head to look at a world point over about `seconds`. Resolves when there. */
+  lookAt(point: Vector3, seconds = 0.8): Promise<void> {
+    const eye = this.camera.position;
+    const dx = point.x - eye.x;
+    const dy = point.y - eye.y;
+    const dz = point.z - eye.z;
+    let yaw = Math.atan2(-dx, -dz);
+    // turn the short way round
+    while (yaw - this.yaw > Math.PI) yaw -= Math.PI * 2;
+    while (yaw - this.yaw < -Math.PI) yaw += Math.PI * 2;
+    const pitch = Math.atan2(dy, Math.hypot(dx, dz));
+    this.lookTarget?.resolve();
+    return new Promise((resolve) => {
+      this.lookTarget = { yaw, pitch: MathUtils.clamp(pitch, -MAX_PITCH, MAX_PITCH), speed: 4 / Math.max(0.1, seconds), resolve };
+    });
+  }
+
+  /** Screen shake: `amount` in radians of wobble, decaying over `seconds`. */
+  shake(amount: number, seconds: number): void {
+    this.shakeAmount = Math.max(this.shakeAmount, amount);
+    this.shakeTime = Math.max(this.shakeTime, seconds);
+  }
+
+  get eyeHeight(): number {
+    return this.isCrouched ? CROUCH_EYE : STAND_EYE;
+  }
+
+  /** Forces a crouch state (e.g. when a hiding scene ends). */
+  setCrouch(on: boolean): void {
+    this.wantsCrouch = on;
   }
 
   toggleCrouch(): void {
@@ -121,6 +162,7 @@ export class PlayerController {
     this.updateCrouch();
 
     const t = this.tuning;
+    if (this.moveLocked) input = { ...input, move: { x: 0, y: 0 }, sprint: false };
     const running = input.sprint && input.move.y > 0.3 && !this.isCrouched;
     const speed = this.isCrouched ? t.crouchSpeed : running ? t.runSpeed : t.walkSpeed;
 
@@ -166,8 +208,18 @@ export class PlayerController {
 
   /** Per rendered frame: apply look input and place the camera. */
   update(dt: number, alpha: number, look: Vec2, headBobEnabled: boolean): void {
-    this.yaw -= look.x;
-    this.pitch = MathUtils.clamp(this.pitch + look.y, -MAX_PITCH, MAX_PITCH);
+    if (this.lookTarget) {
+      const k = 1 - Math.exp(-this.lookTarget.speed * dt);
+      this.yaw += (this.lookTarget.yaw - this.yaw) * k;
+      this.pitch += (this.lookTarget.pitch - this.pitch) * k;
+      if (Math.abs(this.lookTarget.yaw - this.yaw) < 0.01 && Math.abs(this.lookTarget.pitch - this.pitch) < 0.01) {
+        this.lookTarget.resolve();
+        this.lookTarget = null;
+      }
+    } else if (!this.lookLocked) {
+      this.yaw -= look.x;
+      this.pitch = MathUtils.clamp(this.pitch + look.y, -MAX_PITCH, MAX_PITCH);
+    }
 
     this.crouchBlend = MathUtils.damp(this.crouchBlend, this.isCrouched ? 1 : 0, 10, dt);
     const eye = MathUtils.lerp(STAND_EYE, CROUCH_EYE, MathUtils.smoothstep(this.crouchBlend, 0, 1));
@@ -189,7 +241,20 @@ export class PlayerController {
     const bobY = Math.sin(this.bobPhase * 2) * 0.028 * amount;
     const bobX = Math.sin(this.bobPhase) * 0.018 * amount;
 
-    this.euler.set(this.pitch, this.yaw, 0);
+    // idle breathing sway and shake
+    this.breathPhase += dt * 1.6;
+    let pitchOff = Math.sin(this.breathPhase) * 0.0035 * (1 - Math.min(1, speed / 0.5));
+    let yawOff = 0;
+    let roll = 0;
+    if (this.shakeTime > 0) {
+      this.shakeTime -= dt;
+      const a = this.shakeAmount * Math.min(1, Math.max(0, this.shakeTime));
+      pitchOff += (Math.random() - 0.5) * a;
+      yawOff += (Math.random() - 0.5) * a;
+      roll += (Math.random() - 0.5) * a * 0.6;
+      if (this.shakeTime <= 0) this.shakeAmount = 0;
+    }
+    this.euler.set(this.pitch + pitchOff, this.yaw + yawOff, roll);
     this.camera.quaternion.setFromEuler(this.euler);
     this.camera.position.set(
       this.renderFeet.x + Math.cos(this.yaw) * bobX,

@@ -33,15 +33,32 @@ export class Physics {
 
   /** Adds the given meshes as one static collision surface. Returns the triangle count. */
   addStaticMeshes(meshes: readonly Mesh[]): number {
+    return this.addCollider(meshes)?.triangles ?? 0;
+  }
+
+  /** Adds the given meshes as one static collision surface (a room's walls, floors and furniture). */
+  addCollider(meshes: readonly Mesh[]): { collider: RAPIER.Collider; triangles: number } | null {
     const { vertices, indices } = mergeWorldTriangles(meshes);
-    if (indices.length === 0) return 0;
+    if (indices.length === 0) return null;
     const desc = RAPIER.ColliderDesc.trimesh(vertices, indices).setCollisionGroups(
       collisionGroups(LAYER.WORLD, LAYER.ALL),
     );
-    this.world.createCollider(desc);
+    const collider = this.world.createCollider(desc);
     // Ray casts only see colliders after a step; the level is static, so stepping moves nothing.
     this.world.step();
-    return indices.length / 3;
+    return { collider, triangles: indices.length / 3 };
+  }
+
+  /** A box collider (e.g. a door that is shut, or an invisible wall at the edge of the garden). */
+  addBox(center: Vector3, halfExtents: Vector3, rotationY = 0): RAPIER.Collider {
+    const q = { x: 0, y: Math.sin(rotationY / 2), z: 0, w: Math.cos(rotationY / 2) };
+    const desc = RAPIER.ColliderDesc.cuboid(halfExtents.x, halfExtents.y, halfExtents.z)
+      .setTranslation(center.x, center.y, center.z)
+      .setRotation(q)
+      .setCollisionGroups(collisionGroups(LAYER.WORLD, LAYER.ALL));
+    const collider = this.world.createCollider(desc);
+    this.world.step();
+    return collider;
   }
 
   /** Straight-down ray against level geometry only: the height of the first surface below `from`, or null. */

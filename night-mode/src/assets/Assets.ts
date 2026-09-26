@@ -20,8 +20,42 @@ export const assetUrl = (path: string) => {
   return PACKED && /\.(glb|hdr|exr)$/i.test(path) ? url + PACKED_SUFFIX : url;
 };
 
-/** Downloads a base64-packed asset (reporting progress in decoded bytes) and returns its bytes. */
+/**
+ * Downloads a base64-packed asset (reporting progress in decoded bytes) and returns its bytes. Big files
+ * are split: the main file then only says "PARTS:n" and the parts are name.b64.<i>.txt.
+ */
 async function fetchPacked(url: string, onProgress?: (e: ProgressEvent) => void): Promise<ArrayBuffer> {
+  const head = await fetchPackedText(url, onProgress);
+  if (!head.startsWith('PARTS:')) return decodeBase64(head);
+  const count = Number(head.slice(6));
+  const loaded = new Array<number>(count).fill(0);
+  const parts = await Promise.all(
+    Array.from({ length: count }, (_, i) =>
+      fetchPackedText(url.replace(/\.b64\.txt$/, `.b64.${i}.txt`), (e) => {
+        loaded[i] = e.loaded;
+        const sum = loaded.reduce((a, b) => a + b, 0);
+        onProgress?.(new ProgressEvent('progress', { lengthComputable: true, loaded: sum, total: count * 9e6 }));
+      }),
+    ),
+  );
+  const chunks = parts.map((p) => new Uint8Array(decodeBase64(p)));
+  const out = new Uint8Array(chunks.reduce((n, c) => n + c.length, 0));
+  let offset = 0;
+  for (const c of chunks) {
+    out.set(c, offset);
+    offset += c.length;
+  }
+  return out.buffer;
+}
+
+function decodeBase64(text: string): ArrayBuffer {
+  const binary = atob(text);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes.buffer;
+}
+
+async function fetchPackedText(url: string, onProgress?: (e: ProgressEvent) => void): Promise<string> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   const total = Number(res.headers.get('content-length')) || 0;
@@ -42,10 +76,7 @@ async function fetchPacked(url: string, onProgress?: (e: ProgressEvent) => void)
     text.set(chunk, offset);
     offset += chunk.length;
   }
-  const binary = atob(new TextDecoder().decode(text).trim());
-  const bytes = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  return bytes.buffer;
+  return new TextDecoder().decode(text).trim();
 }
 
 /**

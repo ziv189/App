@@ -216,8 +216,10 @@ def join_static(objects):
     return joined
 
 
-def make_lightmap_uvs(objects, size, margin_px):
-    """Adds a 2nd UV map and packs every object's islands into one shared atlas."""
+def make_lightmap_uvs(objects, size, margin_px, density=None):
+    """Adds a 2nd UV map and packs every object's islands into one shared atlas.
+    density: {material name: factor} gives surfaces of those materials fewer (factor < 1) lightmap
+    pixels per metre, e.g. a lake or far-away ground that would otherwise take most of the atlas."""
     for o in objects:
         mesh = o.data
         if len(mesh.uv_layers) == 0:
@@ -230,14 +232,45 @@ def make_lightmap_uvs(objects, size, margin_px):
     t0 = time.time()
     bpy.ops.object.mode_set(mode="EDIT")
     bpy.ops.mesh.select_all(action="SELECT")
+    # scenes converted from renderers split every face's vertices; welded, connected faces unwrap as one
+    # island instead of hundreds (the sharp edges keep their shading)
+    bpy.ops.mesh.remove_doubles(threshold=0.0005, use_sharp_edge_from_normals=True)
+    bpy.ops.mesh.select_all(action="SELECT")
     bpy.ops.uv.smart_project(
         angle_limit=math.radians(66), island_margin=0.0, area_weight=0.0, correct_aspect=True, scale_to_bounds=False
     )
+    if density:
+        scale_islands_by_material(objects, density)
+    # UV operators only touch selected UVs; with sync on, the mesh selection (everything) counts. Without it
+    # the packer silently does nothing in background mode and smart_project's own layout is kept.
+    bpy.context.scene.tool_settings.use_uv_select_sync = True
+    bpy.ops.mesh.select_all(action="SELECT")
     bpy.ops.uv.pack_islands(rotate=True, margin_method="FRACTION", margin=margin_px / size, shape_method="CONCAVE")
     bpy.ops.object.mode_set(mode="OBJECT")
     fill_unit_square(objects, margin_px / size)
     faces = sum(len(o.data.polygons) for o in objects)
     log(f"lightmap UVs: {len(objects)} objects, {faces} faces packed in {time.time() - t0:.1f} s")
+
+
+def scale_islands_by_material(objects, density):
+    """Scales the lightmap UVs of faces by their material's density factor (in edit mode, before packing).
+    Faces of one material form whole islands (the scenes use one material per object), so islands keep
+    their shape; the packer then gives them proportionally less room."""
+    import bmesh
+
+    scaled = 0
+    for o in objects:
+        bm = bmesh.from_edit_mesh(o.data)
+        layer = bm.loops.layers.uv.get(LIGHTMAP_UV)
+        factors = [density.get(base_name(s.material.name), 1.0) if s.material else 1.0 for s in o.material_slots]
+        for f in bm.faces:
+            k = factors[f.material_index] if f.material_index < len(factors) else 1.0
+            if k != 1.0:
+                for loop in f.loops:
+                    loop[layer].uv *= k
+                scaled += 1
+        bmesh.update_edit_mesh(o.data)
+    log(f"lightmap density: scaled {scaled} faces ({density})")
 
 
 def fill_unit_square(objects, margin):
@@ -301,6 +334,15 @@ def bake(objects, size, margin_px):
             node.name = BAKE_NODE
             node.image = image
             nodes.active = node
+    # Normal maps are left out of the bake: the lightmap holds smooth light, and fine bumps baked in at
+    # lightmap resolution read as speckle (the game applies the normal maps on top at full resolution).
+    muted = []
+    for mat in bpy.data.materials:
+        if mat.use_nodes and mat.node_tree:
+            for n in mat.node_tree.nodes:
+                if n.type in ("NORMAL_MAP", "BUMP") and not n.mute:
+                    n.mute = True
+                    muted.append(n)
     select_only(objects)
     scene = bpy.context.scene
     scene.render.bake.margin = margin_px
@@ -310,6 +352,8 @@ def bake(objects, size, margin_px):
         type="DIFFUSE", pass_filter={"DIRECT", "INDIRECT"}, margin=margin_px, use_clear=True, target="IMAGE_TEXTURES"
     )
     log(f"baked {size}x{size} in {time.time() - t0:.1f} s")
+    for n in muted:
+        n.mute = False
     for o in objects:  # the target node isn't needed in the exported materials
         for slot in o.material_slots:
             if slot.material and BAKE_NODE in slot.material.node_tree.nodes:

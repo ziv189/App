@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <title>SOSIES</title>
+    <title>NIGHT MODE</title>
   </head>
   <body>
     <div id="app">
@@ -13,30 +13,72 @@
 
       <div id="hud" hidden>
         <div id="reticle"></div>
-        <div id="watermark"></div>
+        <div id="prompt" hidden><kbd id="prompt-key">E</kbd><span id="prompt-text"></span></div>
+        <div id="objective" hidden><div class="objective-label">Objective</div><div id="objective-text"></div></div>
+        <div id="subtitles"></div>
+        <div id="toast" hidden></div>
         <div id="hud-hint"></div>
+        <div id="hint-keys" hidden></div>
+      </div>
+
+      <div id="frost"></div>
+      <div id="glitch"></div>
+      <div id="fader"><div id="card"><div id="card-kicker"></div><div id="card-title"></div><div id="card-sub"></div></div></div>
+
+      <div id="phone" hidden>
+        <div class="phone-body">
+          <div class="phone-status"><span id="phone-time">8:02</span><span class="phone-icons"><span id="phone-signal">▂▄▆</span> <span id="phone-battery">82%</span></span></div>
+          <div class="phone-header"><button type="button" id="phone-back" hidden>‹</button><div id="phone-title">Messages</div></div>
+          <div class="phone-content" id="phone-content"></div>
+          <div class="phone-footer"><button type="button" id="phone-light">Flashlight</button><button type="button" id="phone-close">Close <kbd>Tab</kbd></button></div>
+        </div>
+      </div>
+
+      <div id="reader" hidden>
+        <div class="paper" id="reader-paper"><div id="reader-body"></div></div>
+        <div class="reader-hint">Press <kbd>E</kbd> or click to put it down</div>
+      </div>
+
+      <div id="keypad" hidden>
+        <div class="keypad-body">
+          <div class="keypad-brand">WREN HOME</div>
+          <div class="keypad-display" id="keypad-display">____</div>
+          <div class="keypad-grid" id="keypad-grid"></div>
+          <div class="keypad-hint">Type the code · <kbd>Esc</kbd> to step back</div>
+        </div>
       </div>
 
       <section id="screen-loading" class="screen">
-        <h1 class="title">SOSIES</h1>
+        <h1 class="title">NIGHT MODE</h1>
         <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
         <p class="status" id="loading-status">Starting…</p>
         <p class="hint" id="loading-hint"></p>
       </section>
 
-      <section id="screen-start" class="screen" hidden>
-        <h1 class="title">SOSIES</h1>
-        <p class="subtitle" id="start-subtitle"></p>
-        <button class="primary" id="btn-start" type="button">Click to begin</button>
-        <p class="hint">Mouse &amp; keyboard: click to capture the mouse · Controller: press <kbd>A</kbd></p>
-        <p class="hint warn touch-only">SOSIES is played with a keyboard and mouse, or a controller, on a computer.</p>
-        <p class="hint warn" id="start-hint"></p>
-        <p class="credits" id="start-credits"></p>
+      <section id="screen-title" class="screen screen-title" hidden>
+        <div class="title-block">
+          <h1 class="title big">NIGHT MODE</h1>
+          <p class="tagline">One night. One house. Someone who doesn't want you to leave.</p>
+        </div>
+        <nav class="menu" id="title-menu">
+          <button class="menu-item" id="btn-new" type="button">New game</button>
+          <button class="menu-item" id="btn-continue" type="button" hidden>Continue</button>
+          <button class="menu-item" id="btn-chapters" type="button" hidden>Chapters</button>
+          <button class="menu-item" id="btn-settings" type="button">Settings</button>
+          <button class="menu-item" id="btn-credits" type="button">Credits</button>
+        </nav>
+        <div class="chapters" id="chapter-list" hidden></div>
+        <p class="footnote">Headphones recommended · Mouse &amp; keyboard or controller · <span id="endings-found"></span></p>
+        <p class="hint warn touch-only">NIGHT MODE is played with a keyboard and mouse, or a controller, on a computer.</p>
+        <p class="hint warn" id="title-hint"></p>
       </section>
 
       <section id="screen-pause" class="screen" hidden>
         <h2 class="heading">Paused</h2>
-        <button class="primary" id="btn-resume" type="button">Resume</button>
+        <div class="menu-row">
+          <button class="primary" id="btn-resume" type="button">Resume</button>
+          <button class="secondary" id="btn-quit" type="button">Quit to title</button>
+        </div>
         <p class="hint warn" id="resume-hint"></p>
         <div class="columns">
           <form class="panel" id="settings-form" autocomplete="off">
@@ -49,6 +91,12 @@
                 <option value="ultra">Ultra</option>
               </select>
             </label>
+            <label>Brightness <output name="brightnessOut"></output>
+              <input type="range" name="brightness" min="0.6" max="1.8" step="0.05" />
+            </label>
+            <label>Volume <output name="volumeOut"></output>
+              <input type="range" name="volume" min="0" max="1" step="0.05" />
+            </label>
             <label>Mouse sensitivity <output name="mouseSensitivityOut"></output>
               <input type="range" name="mouseSensitivity" min="0.1" max="4" step="0.05" />
             </label>
@@ -58,6 +106,7 @@
             <label>Field of view <output name="fovOut"></output>
               <input type="range" name="fov" min="70" max="110" step="1" />
             </label>
+            <label class="check"><input type="checkbox" name="subtitles" /> Subtitles</label>
             <label class="check"><input type="checkbox" name="invertY" /> Invert look up/down</label>
             <label class="check"><input type="checkbox" name="headBob" /> Head bob</label>
           </form>
@@ -65,15 +114,32 @@
             <h3>Controls</h3>
             <table>
               <tr><th></th><th>Keyboard &amp; mouse</th><th>Controller</th></tr>
-              <tr><td>Move</td><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows</td><td>Left stick</td></tr>
+              <tr><td>Move</td><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td>Left stick</td></tr>
               <tr><td>Look</td><td>Mouse</td><td>Right stick</td></tr>
+              <tr><td>Interact</td><td><kbd>E</kbd> or left click</td><td><kbd>A</kbd></td></tr>
+              <tr><td>Phone</td><td><kbd>Tab</kbd></td><td><kbd>Y</kbd></td></tr>
+              <tr><td>Flashlight</td><td><kbd>F</kbd></td><td><kbd>X</kbd></td></tr>
               <tr><td>Run</td><td>Hold <kbd>Shift</kbd></td><td>Click <kbd>L3</kbd></td></tr>
-              <tr><td>Crouch</td><td><kbd>C</kbd> (toggle)</td><td><kbd>B</kbd> (toggle)</td></tr>
+              <tr><td>Crouch / hide</td><td><kbd>C</kbd></td><td><kbd>B</kbd></td></tr>
               <tr><td>Pause</td><td><kbd>Esc</kbd></td><td><kbd>Start</kbd></td></tr>
-              <tr><td>Debug panel</td><td><kbd>`</kbd> (key left of 1)</td><td>—</td></tr>
             </table>
           </div>
         </div>
+      </section>
+
+      <section id="screen-ending" class="screen screen-ending" hidden>
+        <div class="ending-kicker" id="ending-kicker">Ending 1 of 3</div>
+        <h2 class="ending-title" id="ending-title"></h2>
+        <div class="ending-text" id="ending-text"></div>
+        <div class="menu-row">
+          <button class="primary" id="btn-ending-credits" type="button">Credits</button>
+          <button class="secondary" id="btn-ending-title" type="button">Back to title</button>
+        </div>
+      </section>
+
+      <section id="screen-credits" class="screen screen-credits" hidden>
+        <div class="credits-roll" id="credits-roll"></div>
+        <button class="secondary credits-close" id="btn-credits-close" type="button">Close</button>
       </section>
 
       <section id="screen-error" class="screen" hidden>
@@ -84,7 +150,7 @@
     </div>
     <script>
       // Boot guard: a plain script that runs before the game code, so the page explains itself even when
-      // the game code can't load at all. (The file: check must change when we package the desktop app.)
+      // the game code can't load at all.
       (function () {
         function show(message) {
           document.getElementById('screen-loading').hidden = true;
@@ -103,8 +169,8 @@
         if (location.protocol === 'file:') {
           show(
             'This page was opened straight from the folder, which browsers block for games like this.\n\n' +
-              'Close this tab and double-click START-SOSIES.bat in the sosies folder instead. It starts the ' +
-              'game server and opens the game in your browser.'
+              'Close this tab and double-click START-NIGHT-MODE.bat in the night-mode folder instead. It starts ' +
+              'the game server and opens the game in your browser.'
           );
           return;
         }
@@ -125,7 +191,7 @@
           show(
             'The game code did not start within 30 seconds.\n\n' +
               (local
-                ? '1. Check that the START-SOSIES window (or the terminal running "npm run dev") is still open and shows no errors.\n'
+                ? '1. Check that the START-NIGHT-MODE window (or the terminal running "npm run dev") is still open and shows no errors.\n'
                 : '1. Check your internet connection.\n') +
               '2. Reload this page (F5).\n' +
               '3. Still stuck? Press F12, open the Console tab and send me a screenshot.'

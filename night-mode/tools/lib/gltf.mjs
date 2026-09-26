@@ -59,6 +59,21 @@ export async function createIO() {
  *          edit?: (doc: import('@gltf-transform/core').Document) => void | Promise<void>}} [options]
  *   `edit` runs on the document before the optimization passes (e.g. to remove or re-assign parts).
  */
+/**
+ * Per-texture size limits: [[/name pattern/, max px], ...], first match wins. Resized losslessly (PNG) so
+ * the WebP pass that follows is the only lossy step.
+ */
+async function capTextures(doc, caps) {
+  for (const tex of doc.getRoot().listTextures()) {
+    const name = tex.getName() || tex.getURI();
+    const cap = caps.find(([re]) => re.test(name));
+    const size = tex.getSize();
+    if (!cap || !size || Math.max(...size) <= cap[1]) continue;
+    const out = await sharp(Buffer.from(tex.getImage())).resize(cap[1], cap[1], { fit: 'inside' }).png().toBuffer();
+    tex.setImage(new Uint8Array(out)).setMimeType('image/png');
+  }
+}
+
 export async function optimizeGltf(input, output, options = {}) {
   const opts = {
     maxTexture: 2048,
@@ -74,6 +89,7 @@ export async function optimizeGltf(input, output, options = {}) {
   const logger = new QuietLogger(Boolean(opts.verbose));
   doc.setLogger(logger);
   if (opts.edit) await opts.edit(doc);
+  if (opts.textureCaps) await capTextures(doc, opts.textureCaps);
 
   // Lightmapped models carry a second UV set that no texture references; by default prune() would
   // delete it (and renumber UV sets), so keep every vertex attribute when one is present.
@@ -84,7 +100,13 @@ export async function optimizeGltf(input, output, options = {}) {
 
   const transforms = [dedup(), instance({ min: 5 })];
   if (opts.join) transforms.push(join());
-  transforms.push(weld(), resample(), prune({ keepAttributes: hasLightmapUvs }), sparse());
+  // keepLeaves/keepExtras: game rooms use empty nodes (markers) and extras (interaction ids).
+  transforms.push(
+    weld(),
+    resample(),
+    prune({ keepAttributes: hasLightmapUvs, keepLeaves: Boolean(opts.keepLeaves), keepExtras: Boolean(opts.keepLeaves) }),
+    sparse(),
+  );
 
   if (opts.textures === 'webp') {
     // Colour-ish maps: lossy WebP is fine.
@@ -105,7 +127,7 @@ export async function optimizeGltf(input, output, options = {}) {
         encoder: sharp,
         targetFormat: 'webp',
         slots: /^normalTexture$/,
-        formats: /^jpeg$/,
+        formats: /jpeg$/,
         quality: 95,
         resize: [opts.maxNormal, opts.maxNormal],
       }),
@@ -113,7 +135,7 @@ export async function optimizeGltf(input, output, options = {}) {
         encoder: sharp,
         targetFormat: 'webp',
         slots: /^normalTexture$/,
-        formats: /^png$/,
+        formats: /png$/,
         nearLossless: true,
         resize: [opts.maxNormal, opts.maxNormal],
       }),

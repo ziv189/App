@@ -19,13 +19,20 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist-packed');
 const OUT = join(ROOT, 'dist-artifact');
-const TITLE = 'SOSIES Tech Test';
+const TITLE = 'NIGHT MODE';
 
 const CONTENT_TYPES = {
   '.js': 'text/javascript',
   '.wasm': 'application/wasm',
   '.txt': 'text/plain',
+  '.json': 'application/json',
+  '.ogg': 'audio/ogg',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.webp': 'image/webp',
 };
+/** Base64 text longer than this is split into parts (the host serves files up to 16 MB). */
+const PART = 12 * 1024 * 1024;
 const PACK = /\.(glb|hdr|exr)$/i;
 const TEXT_LIMIT = 16 * 1024 * 1024;
 
@@ -85,9 +92,24 @@ async function main() {
     if (published.endsWith('.css') || published.endsWith('.md')) continue;
     const target = () => join(OUT, published);
     if (PACK.test(published)) {
-      published += '.b64.txt';
-      await mkdir(dirname(target()), { recursive: true });
-      await writeFile(target(), (await readFile(file)).toString('base64'));
+      const text = (await readFile(file)).toString('base64');
+      await mkdir(dirname(join(OUT, published)), { recursive: true });
+      if (text.length > PART) {
+        // name.glb.b64.txt says how many parts; name.glb.b64.<i>.txt hold them (each a multiple of 4
+        // characters, so they decode independently). See fetchPacked in src/assets/Assets.ts.
+        const count = Math.ceil(text.length / PART);
+        for (let i = 0; i < count; i++) {
+          const part = `${published}.b64.${i}.txt`;
+          await writeFile(join(OUT, part), text.slice(i * PART, (i + 1) * PART));
+          total += PART;
+          manifest[part] = { from: part, contentType: 'text/plain' };
+        }
+        published += '.b64.txt';
+        await writeFile(target(), `PARTS:${count}`);
+      } else {
+        published += '.b64.txt';
+        await writeFile(target(), text);
+      }
     } else {
       await mkdir(dirname(target()), { recursive: true });
       await cp(file, target());

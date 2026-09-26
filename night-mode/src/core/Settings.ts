@@ -10,6 +10,11 @@ export interface Settings {
   /** Horizontal field of view in degrees, measured on a 16:9 screen (wider screens see more). */
   fov: number;
   headBob: boolean;
+  /** Screen brightness multiplier (exposure). */
+  brightness: number;
+  /** Master volume 0..1. */
+  volume: number;
+  subtitles: boolean;
 }
 
 export const DEFAULT_SETTINGS: Readonly<Settings> = {
@@ -19,9 +24,12 @@ export const DEFAULT_SETTINGS: Readonly<Settings> = {
   invertY: false,
   fov: 90,
   headBob: true,
+  brightness: 1,
+  volume: 0.9,
+  subtitles: true,
 };
 
-const STORAGE_KEY = 'sosies.settings.v1';
+const STORAGE_KEY = 'nightmode.settings.v1';
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
@@ -44,6 +52,9 @@ export function sanitizeSettings(raw: unknown): Settings {
     invertY: bool(r.invertY, d.invertY),
     fov: num(r.fov, d.fov, 70, 110),
     headBob: bool(r.headBob, d.headBob),
+    brightness: num(r.brightness, d.brightness, 0.6, 1.8),
+    volume: num(r.volume, d.volume, 0, 1),
+    subtitles: bool(r.subtitles, d.subtitles),
   };
 }
 

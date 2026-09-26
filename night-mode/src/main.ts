@@ -24,13 +24,13 @@ async function boot(): Promise<void> {
   if (!webAssemblyAllowed()) {
     showFatal(
       'This page is not allowed to run WebAssembly, which the game needs for physics.\n\n' +
-        'Run the game from your own computer instead (double-click START-SOSIES.bat), or tell me where you opened it.',
+        'Run the game from your own computer instead (double-click START-NIGHT-MODE.bat), or tell me where you opened it.',
     );
     return;
   }
   if (!WebGL.isWebGL2Available()) {
     showFatal(
-      'SOSIES needs WebGL 2, which this browser could not start.\n\n' +
+      'NIGHT MODE needs WebGL 2, which this browser could not start.\n\n' +
         '1. Use an up-to-date Chrome, Edge or Firefox.\n' +
         '2. In the browser settings, turn on "Use graphics acceleration when available".\n' +
         '3. Update your graphics card driver, then restart the browser.',
@@ -39,11 +39,12 @@ async function boot(): Promise<void> {
   }
   document.getElementById('loading-status')!.textContent = 'Loading engine';
   // The engine (three.js, physics, post-processing) is a separate download so this screen shows at once.
-  const [{ Game }, { techTest }] = await Promise.all([import('./core/Game'), import('./levels/techTest')]);
+  const { Game } = await import('./core/Game');
   const game = new Game(document.getElementById('view') as HTMLCanvasElement);
-  // Handy from the browser console while developing (e.g. `sosies.player.position`).
-  if (import.meta.env.DEV) (window as unknown as { sosies: typeof game }).sosies = game;
-  await game.start(techTest);
+  if (import.meta.env.DEV || new URLSearchParams(location.search).has('debug')) {
+    (window as unknown as { nm: ReturnType<typeof game.debugApi> }).nm = game.debugApi();
+  }
+  await game.boot();
 }
 
 boot().catch((err: unknown) => {
