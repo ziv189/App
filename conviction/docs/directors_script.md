@@ -1781,9 +1781,9 @@ The story then continues exactly as written.
 
 **INTERLUDE VARIANT — INT. THE ROOM**
 
-If a suspect the player refused to pin has died, the next interlude gains an exchange:
+If the player refused in Chapter 1 or 2, Interlude 2 (scene 24) gains an exchange. It's the first interlude after either death is revealed. Match the pronouns to who died: him, her, or them for both.
 
-**VOICE (INTERCOM):** You didn't name _(him/her)_. And _(he/she)_ died anyway.
+**VOICE (INTERCOM):** You didn't name _(him/her/them)_. And _(he/she/they)_ died anyway.
 
 **WARD:** The Judge knew what I was thinking.
 
