@@ -1,0 +1,14 @@
+# Godot import cache and exported builds
+game/.godot/
+/build/
+
+# Regenerable local caches (tool downloads, generated assets)
+/.cache/
+
+# Blender backup and autosave files
+*.blend1
+*.blend@
+
+# Python
+__pycache__/
+*.pyc
