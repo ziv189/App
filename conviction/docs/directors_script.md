@@ -51,7 +51,7 @@ Ward's long, heavy metal flashlight is the player's investigation tool and the n
 
 
 - **Investigation:** explore, examine objects, interview witnesses. Ward's voice-over comments on what the player examines.
-- **The board:** arrange evidence under each suspect, then PIN one. Whoever is pinned dies that night.
+- **The board:** arrange evidence under each suspect. Once a suspect's Motive, Opportunity and Means are all filled, the player can PIN them. Whoever is pinned dies that night. Every board holds two or three credible suspects, but the evidence completes only one case. Each night the player can pin that suspect, refuse to pin (see Alternate beat), or complete a case against Ward himself (see Secret ending).
 - **Nightmares:** LIGHT (hold) forces the monster to shield itself and stagger back. STRIKE attacks. DODGE evades. A bar labeled PROTECT HER drains whenever the monster reaches the door.
 
 ## Prologue
@@ -90,7 +90,7 @@ He leans forward. In the background of the shot, soft and out of focus, the silh
 
 The lamp flickers. The hum drops half a tone.
 
-_Director's note: A low shot under the table catches Ward's shoes for one second. They have no laces. Detainees have their laces, belts and ties taken at booking; players will read it as a man who stopped caring. Behind Ward is a steel door with no handle on this side. Never comment on either._
+_Director's note: A low shot under the table catches Ward's shoes for one second. They have no laces. Detainees have their laces, belts and ties taken at booking; players will read it as a man who stopped caring. Behind Ward is a steel door with no handle on this side. Whenever Ward moves in this room, something metal clinks faintly below the frame. Never comment on any of it._
 
 CUT TO BLACK.
 
@@ -153,7 +153,7 @@ He hangs up. The faint, heavy thunk of a pin plays under the dial tone.
 **GAMEPLAY:** First free exploration. The apartment is small; every object has a line.
 
 
-- **The envelope on the desk.** Typed label: "STATE CRIME LABORATORY, COLD CASE UNIT. Det. Elias Ward." The postmark is readable: January 13. Interacting brings up a single prompt: _Not tonight._ It's morning. The prompt says it anyway.
+- **The envelope on the desk.** Typed label: "STATE CRIME LABORATORY, COLD CASE UNIT. Det. Elias Ward." The postmark is readable: January 12. Interacting brings up a single prompt: _Not tonight._ It's morning. The prompt says it anyway.
 - **The fridge.** A pencil sketch taped at eye level: Ward asleep on the building's front stairs, a newspaper over his chest. Signed "L.M." **WARD (V.O.):** Lily Marsh drew that the summer she was fifteen. Said I snored like a radiator.
 - **The bathroom.** A sink, a towel. Above the sink, four screw holes and a pale rectangle where a mirror used to hang. Ward splashes water on his face. The camera holds on the blank wall one beat too long.
 - **The flashlight** in his coat pocket. Long, black, heavy. A small dent near the lens. **WARD (V.O.):** Twenty years on the job. Dropped it on the stairs, probably.
@@ -236,10 +236,14 @@ _Director's note: Ames says "long, heavy, metal" while the player's flashlight i
 
 **RUTH:** _(writing)_ Eleven.
 
+**AMES:** And look at his wrist. _(lifts Hale's left hand an inch: a pale band of skin where a watch sat for years)_ He wore one every day. It's gone.
+
+**RUTH:** _(writing)_ No watch.
+
 **GAMEPLAY:** Crime scene investigation. Examinable objects:
 
 
-- **The body.** The reaching arm, the broken nails, the scratches. **WARD (V.O.):** He was trying to get out. They always try to get out.
+- **The body.** The reaching arm, the broken nails, the scratches, the pale band where the watch was. **WARD (V.O.):** He was trying to get out. They always try to get out.
 - **The door.** No forced entry. The chain is off, the bolt drawn back from the inside. **WARD (V.O.):** He let his killer in.
 - **The radiator.** Dial at maximum. The metal is too hot to touch. **WARD (V.O.):** Somebody wanted it hot in here.
 - **The windowsill.** Three potted plants, black and limp, leaves curled. The window is latched.
@@ -370,13 +374,17 @@ The squad room is empty. One desk lamp. Rain on the windows. The cork board, lit
 
 Hale's photo sits in the center. Two suspect cards hang beside it: TOM MARSH, and GUS PELL, Hale's landlord, who was owed four months' rent and was heard shouting at Hale last week.
 
-**GAMEPLAY:** The Board. The player drags evidence under each suspect: the letters, the scraped knuckles, the missing alibi, the landlord's rent ledger, his key to Hale's room. Each card shows Motive, Opportunity, and Means as they fill in.
+**GAMEPLAY:** The Board. The player drags evidence under each suspect: the letters, the scraped knuckles, the missing alibi, the landlord's rent ledger, his key to Hale's room. Each card shows Motive, Opportunity, and Means as they fill in. Pell's card already carries a patrolman's note: he spent the night at a card game on Dock Street, nine until two, with eight witnesses. His Opportunity column won't take anything. If the player tries, Ward's voice-over answers.
+
+**WARD (V.O.):** Eight men at a card table say otherwise.
+
+_Director's note: Pell's alibi covers eleven o'clock, the time Ames gave for Hale's death. The same lie that clears Ward clears Pell and leaves Tom Marsh with nowhere to stand. Never point it out; a player who works out the real time of death will see it._
 
 **WARD (V.O.):** Motive: six years of it. Opportunity: no alibi. Means: two good hands.
 
-The prompt appears: PIN SUSPECT.
+When Tom's card is complete, the prompt appears: PIN SUSPECT.
 
-**GAMEPLAY:** The player pins a suspect. (This script follows the pin on Tom Marsh. If the player pins Gus Pell, Pell dies instead and Chapter 2 plays with his crime scene.)
+**GAMEPLAY:** The player pins Tom Marsh, the only complete case. (If the player walks away instead, see Alternate beat: refusing to pin.)
 
 The pin goes in with a thunk far too loud for the room. The red string snaps taut. Somewhere in the building, the radiator knocks three times.
 
@@ -434,7 +442,7 @@ It turns its blank face toward the door. Toward Lily.
 - It fights like something cornered, not something hunting. It hurls whatever is near: a lamp, a chair, a stack of books, a coffee cup. It never strikes first unless the player blocks its path.
 - If it gets past the player and reaches the door, it doesn't touch Lily. Its long fingers scrabble at the door handle beside her hip. Lily presses herself flat against the door and squeezes her eyes shut. The PROTECT HER bar drains fast, and the screen pulses red at the edges. The player has to STRIKE it to drag it back into the room.
 
-**SOUND:** Its roar is low and grinding, like a voice through mud. Under the distortion, rhythm without words: two syllables, again and again.
+**SOUND:** Its roar is low and grinding, like a voice through mud. Under the distortion, rhythm without words: one word, again and again.
 
 Phase two: at half health, the room lengthens. The door slides farther away down the stretching floor, and the monster drops to all fours and crawls toward it, fast, dragging itself by its fingertips. Its nails leave scratches in the floorboards. The player chases it down the lengthening room, striking, pulling it back, again and again.
 
@@ -464,7 +472,7 @@ CUT TO BLACK.
 
 The lamp. The hum. The black glass and the silhouette behind it.
 
-Ward rubs his face. In the glass, far back in the dark, the silhouette's head dips at the same moment.
+Ward leans down to his hands and rubs his face. Below the frame, a chain clinks. In the glass, far back in the dark, the silhouette's head dips at the same moment.
 
 **VOICE (INTERCOM):** Tell us about the dream.
 
@@ -486,7 +494,7 @@ A pause on the intercom. Very faintly, the scratch of a pen on paper.
 
 **VOICE (INTERCOM):** The plants were alive.
 
-**WARD:** It's a dream.
+**WARD:** It's a dream. _(beat)_ I walk a scene all day, I dream it all night. Twenty years of that.
 
 **VOICE (INTERCOM):** What did you do?
 
@@ -675,9 +683,9 @@ The cork board now hangs on Ward's living room wall, beside the window. Hale's a
 
 Ward works the board out loud, pacing, a glass in his hand. He's always talked through his cases.
 
-**WARD:** Nadine Hale. Motive: her brother. Threat: on tape. Alibi: the dryers. _(beat)_ Kostic. Motive: money. But a bookie doesn't kill the man who owes him. Dead men don't pay.
+**WARD:** Nadine Hale. Motive: her brother, and the threat's on tape. Opportunity: her alibi is a row of dryers. Means: she's a nurse. She'd know where to hit. _(beat)_ Kostic. Motive: money. But a bookie doesn't kill the man who owes him. Dead men don't pay.
 
-**GAMEPLAY:** The Board. PIN SUSPECT. (This script follows the pin on Nadine Hale.)
+**GAMEPLAY:** The Board. Kostic's Motive column won't take anything, and Ward has just said why. PIN SUSPECT on Nadine Hale, the only complete case.
 
 Thunk. The string snaps taut. The radiator knocks three times.
 
@@ -709,7 +717,7 @@ A sound behind the player: heavy, uneven footsteps, and the clink of a bottle ro
 
 THE MONSTER is different tonight. Broad, heavy, shoulders like a doorframe, lurching as if drunk. The wet gray wrappings hang off it like an old coat. Its blank face is dented deeper on one side.
 
-Its roar is lower and wetter than last night's. Under the distortion, the two-syllable rhythm again, faster, broken by something like sobbing.
+Its roar is lower and wetter than last night's. Under the distortion, the same one-word rhythm, faster, broken by something like sobbing.
 
 **GAMEPLAY:** The fight.
 
@@ -788,7 +796,7 @@ Ruth's eyes move to Ward's long coat. Just for a second.
 
 **WARD:** Half this city wears a long coat.
 
-**MRS. OCAMPO:** _(nodding at Ruth)_ And the lady detective. She came back up last night, after you left. Talked to Nadine a long time.
+**MRS. OCAMPO:** _(nodding at Ruth)_ And the lady detective. She came back last night, late. After midnight. Talked to Nadine a long time.
 
 Ward turns to Ruth.
 
@@ -797,6 +805,8 @@ Ward turns to Ruth.
 **WARD:** You didn't tell me you came back.
 
 **RUTH:** You didn't ask, sir.
+
+_Director's note: Ruth heard Ward pin Nadine over her wire and came back to warn her. Nadine didn't believe her. Ruth plays it as guilt, and the player should read it as guilt._
 
 **GAMEPLAY:** Crime scene investigation.
 
@@ -922,9 +932,11 @@ A payphone under a streetlight, rain hammering its metal hood. Ward feeds it a c
 
 Ward stands directly under the smoke detector, facing the board. He speaks clearly, a little louder than he needs to.
 
-**WARD:** Dennis Pryce. Motive: the order. Letters. A long coat. No alibi.
+**WARD:** Dennis Pryce. Motive: the order, and the letters. Opportunity: no alibi, and a tall man in a long coat on Nadine's stairs. Means: a long coat has deep pockets.
 
-**GAMEPLAY:** PIN SUSPECT. (This script follows the pin on Dennis Pryce.)
+_Director's note: Ward's own flashlight lives in his coat pocket. Never point it out._
+
+**GAMEPLAY:** PIN SUSPECT. Pryce is the only suspect on this board.
 
 Thunk. The string snaps taut. The radiator knocks three times.
 
@@ -1081,7 +1093,7 @@ The squad room goes silent. A phone rings somewhere and nobody answers it.
 
 She holds up a small cassette recorder and presses play. On the tape: a room tone, a radiator ticking, then the rattle of a door chain sliding out of its track. A door opening. A door closing. Silence.
 
-**RUTH:** January fourteenth, two-forty-seven a.m. Your door. January fifteenth, two-fifty-eight. January sixteenth, three-oh-two. _(beat)_ Every night someone died, your door opened before three.
+**RUTH:** January fifteenth, two-fifty-eight a.m. Your door. January sixteenth, three-oh-two. _(beat)_ Every night someone died, your door opened before three.
 
 **WARD:** I never left.
 
@@ -1177,7 +1189,9 @@ She leaves. The glass door swings shut behind her.
 
 OFFICER BELL, 20s, the uniform who guarded Pryce's door, stands by the tarp, pale.
 
-**BELL:** I never left the door, sir. I swear to God. I heard him moving around in there all night. Drawers. Footsteps. Then screaming. Then nothing.
+**BELL:** I never left the door, sir. I swear to God. I heard him moving around in there all night. Drawers. Footsteps. _(beat)_ Around two I knocked, just to check on him. Three times, soft. Didn't want to wake the floor. _(beat)_ Then screaming. Then nothing.
+
+_Director's note: Bell doesn't know the rhythm means anything. Pryce had watched the news all day: the killer is a cop, and at two in the morning a cop was knocking on his door._
 
 **WARD:** Did you go in?
 
@@ -1195,7 +1209,7 @@ OFFICER BELL, 20s, the uniform who guarded Pryce's door, stands by the tarp, pal
 
 MR. FENN, the landlord, appears in the doorway, his keys jingling.
 
-**FENN:** Terrible. Terrible thing. _(beat)_ You know, a fella came by three nights back. Late. Flashed a badge. Said he was from the city, checking the boiler. I let him down in the basement.
+**FENN:** Terrible. Terrible thing. _(beat)_ You know, a fella came by the night before last. Late. Flashed a badge. Said he was from the city, checking the boiler. I let him down in the basement.
 
 **WARD:** What did he look like?
 
@@ -1216,6 +1230,8 @@ Ward at the board. He moves Pryce's photo up into the row of victims: Hale, Mars
 **GAMEPLAY:** The PIN SUSPECT prompt appears, grayed out. If the player tries to use it, Ward's voice-over answers.
 
 **WARD (V.O.):** Not until I know who's listening.
+
+_Director's note: The grayed-out prompt applies to suspects. A complete case against Ward's own ID can still be pinned here (see Secret ending)._
 
 **GAMEPLAY:** Interacting with the envelope: _Not tonight._
 
@@ -1359,9 +1375,13 @@ He pins up a new suspect card: RUTH ADLER. Beside it, two more: MR. FENN, the la
 - "Outside my building, 3 a.m."
 - "Asked about the lab letter before I knew it existed."
 
-**WARD:** _(out loud, pacing)_ Access: she's been in my apartment. Opportunity: she was at Nadine's the night she died. Motive… _(beat)_ I'll find the motive.
+**WARD:** _(out loud, pacing)_ Means: she carries a badge, and she's been in my apartment. Opportunity: she was at Nadine's the night she died. Motive… _(beat)_ I'll find the motive.
 
-**GAMEPLAY:** PIN SUSPECT. (This script follows the pin on Ruth Adler. Fenn and Bell are weak, and the game's evidence makes Ruth overwhelming.)
+He takes a blank index card, writes a single question mark on it, and pins it under MOTIVE. The board accepts it. Fenn's and Bell's cards each hold a line or two, but neither has a motive, and Ward doesn't write them one.
+
+_Director's note: This is the only evidence card in the game that Ward writes himself. It's the moment his certainty stops needing a case._
+
+**GAMEPLAY:** PIN SUSPECT on Ruth Adler, the only complete case.
 
 The pin goes in. It's the loudest thunk in the game.
 
@@ -1466,7 +1486,7 @@ The lamp. The hum. The silhouette.
 
 **VOICE (INTERCOM):** Who killed Victor Hale?
 
-Ward raises his arm and points at the silhouette. The camera stays on his face; his arm is out of frame. In the glass behind him, the silhouette's arm rises too, pointing back.
+Ward raises his hands as far as they'll go and points at the silhouette with both of them. Below the frame, a chain snaps taut with a small metal clank. The camera stays on his face; his hands are out of frame. In the glass behind him, the silhouette's hands rise too, pointing back.
 
 **WARD:** He did.
 
@@ -1510,13 +1530,13 @@ Ruth leans toward the microphone. For the first time, her voice comes through cl
 
 **WARD:** No. _(beat)_ No. I was on my floor.
 
-**DR. REYES:** _(leaning to the microphone, gently)_ Elias, my name is Dr. Reyes. You've been in this room since four o'clock this morning. You're safe. Nobody here is going to hurt you.
+**DR. REYES:** _(leaning to the microphone, gently)_ Elias, my name is Dr. Reyes. You've been in this room since four o'clock this morning. You're safe. Nobody here is going to hurt you. _(beat)_ We let you tell it your way, so you could hear it.
 
 Ward looks down at the cuffs.
 
 **WARD:** Four this morning. _(beat)_ At Ruth's place.
 
-**RUTH:** At my place.
+**RUTH:** At my place. _(beat)_ The detail was waiting across the hall. You knocked three times, soft, and I opened the door. _(beat)_ Like all of them.
 
 Behind Ward, the steel door with no handle buzzes and unlocks.
 
@@ -1547,7 +1567,7 @@ The player opens it. The letter fills the screen, typed on state letterhead:
 
 > STATE CRIME LABORATORY — COLD CASE UNIT RE: MARSH, LILY R. (2005) Re-examination of retained biological evidence using current methods. RESULT: VICTOR HALE is EXCLUDED as the source of the male DNA profile. The profile was searched against the state offender database. MATCH: DOYLE, WALTER JAMES. Profile entered 12/09/2010 following an arrest for assault.
 
-In the corner, the postmark: JAN 13.
+In the corner, the postmark: JAN 12.
 
 **RUTH:** I asked for that retest. I wanted to prove you right. _(beat)_ It came the day before Hale died. You never opened it. _(beat)_ But part of you knew.
 
@@ -1601,11 +1621,11 @@ Darkness. Then the case board, lit by a single low light, exactly as it hung on 
 
 One by one, every red string the player tied comes loose with a soft twang. Each one drifts across the board and re-ties itself to a single photo pinned at the center: Ward's booking photo. No tie. Red eyes. He's looking straight into the camera.
 
-_Director's note: Tie the strings to what the player actually pinned in their own playthrough. If they pinned Gus Pell instead of Tom Marsh, Pell's string is the one that moves._
+_Director's note: Tie the strings to the player's own playthrough: every pin they placed, plus any pin Ward placed himself when they refused._
 
 Then the board fades, and the replays begin.
 
-No filter. No red glow. No music. Grainy, handheld, dim, the texture of real footage. Each replay opens on a front door, seen from the hallway side. Lily is never in any of them.
+No filter. No red glow. No music. Grainy, handheld, dim, the texture of real footage. Each replay opens on a front door, seen from the hallway side. Lily is never in any of them. Each replay is staged from the player's own recorded movement in that nightmare, mapped out of the stretched dream room into the real one.
 
 **NADINE.** A narrow stairwell above a laundromat. The dryers thumping below. Three soft knocks. The door opens on its chain: Nadine in a bathrobe, squinting.
 
@@ -1633,7 +1653,7 @@ Cut to black. A clock: 3:12.
 
 The beam. Hale throws a lamp; it shatters against the wall. He runs for the door. Ward is already between him and it.
 
-Cut to black. The clock: **3:40.** The second hand ticks, but never moves forward.
+Cut to black. In the dark, a window latch turns. Cold air moves the curtain, and the three green plants on the sill shiver. The clock: **3:40.** The second hand ticks, but never moves forward.
 
 Hold on the clock.
 
@@ -1645,7 +1665,7 @@ _Director's note on violence: Never show a blow land. Cut on the moment before, 
 
 ### 42. THE ONLY CASE YOU CAN SOLVE
 
-**Trigger:** On any night, from Chapter 1 onward, the player takes Ward's police ID out of the inventory and pins its photo to the board. Nothing in the game suggests this is possible. The board simply accepts it.
+**Trigger:** On any night, from Chapter 1 onward, the player takes Ward's police ID out of the inventory and puts its photo on the board as a suspect. Like any other case, it can only be pinned once its Motive, Opportunity and Means are filled, from what the mornings and the old case file leave behind: "IT'S HIM" underlined three times in Ward's notes (motive), the chain hanging loose and Walt hearing the door at three (opportunity), a flashlight that is long, heavy, metal and newly dented (means). This works in Chapter 5 too, where every other pin is refused. Nothing in the game suggests any of this is possible. The board simply accepts it.
 
 **INT. THE CARLYLE, APARTMENT 4F — NIGHT**
 
@@ -1709,7 +1729,7 @@ Everyone who would have died after the night Ward pinned himself is alive, and t
 - Tom Marsh at St. Brigid's, laying fresh flowers on Lily's stone, sober, in the sun.
 - Nadine Hale in scrubs, locking her door on her way to a shift. The dryers hum below.
 - Dennis Pryce on a bus with a suitcase on his knees, watching the city go by.
-- Ruth, still a detective, walking down the holding-cell corridor with two coffees. She stops at Ward's cell.
+- Ruth, her badge back on her belt, walking down the holding-cell corridor with two coffees. She stops at Ward's cell.
 
 In the Carlyle's hallway, two uniforms lead WALT out past 4C in handcuffs. At the stairwell, he looks back at 4C one last time.
 
@@ -1725,7 +1745,7 @@ _Director's note: This ending must feel small and quiet. No triumph. The man who
 
 ## Alternate beat: refusing to pin
 
-**Trigger:** At any board scene except Chapter 5's (where Ward refuses on his own), the player walks away from the board without pinning anyone, or sits in the armchair, or simply waits sixty seconds.
+**Trigger:** At any board scene except Chapter 5's (where Ward refuses on his own), the player walks away from the board without pinning anyone, or sits in the armchair, or simply waits sixty seconds. In Chapter 1 the board is at the precinct, so the first beat below plays there and Ward goes home as in scene 9. Chapters 3 and 6 work differently; see the chapter notes at the end of this section.
 
 **INT. THE CARLYLE, APARTMENT 4F — NIGHT**
 
@@ -1741,13 +1761,13 @@ CUT TO BLACK.
 
 The usual morning: Ward on the floor, the chain loose, something small wrong.
 
-But the board has changed overnight. There's a new pin in it, and a red string the player never tied, running to the card of the chapter's strongest suspect (whoever had the most evidence filled in under Motive, Opportunity and Means).
+But the board has changed overnight. There's a new pin in it, and a red string the player never tied, running to the chapter's one complete case: the suspect the player would have pinned. If the player left that card unfinished, it's finished now; the missing evidence is pinned under it, labeled in Ward's handwriting.
 
 The phone rings. Under the ring, faint, the thunk plays anyway.
 
 **INT. PRECINCT, BRENNAN'S OFFICE — DAY**
 
-**BRENNAN:** _(the suspect's name)_ is dead. _(beat)_ You never put him on your board, Elias. You never told me you liked him for it. Nobody knew.
+**BRENNAN:** _(the suspect's name)_ is dead. _(beat)_ You never put _(him/her)_ on your board, Elias. You never told me you liked _(him/her)_ for it. Nobody knew.
 
 **WARD:** I knew.
 
@@ -1757,13 +1777,13 @@ Ward doesn't answer.
 
 **WARD (V.O.):** He wasn't reading the board. He was reading me.
 
-The story then continues exactly as written, with the dead suspect taking the place of whoever the player would have pinned.
+The story then continues exactly as written.
 
 **INTERLUDE VARIANT — INT. THE ROOM**
 
-If the player refused at least once, the next interlude gains an exchange:
+If a suspect the player refused to pin has died, the next interlude gains an exchange:
 
-**VOICE (INTERCOM):** You didn't name him. And he died anyway.
+**VOICE (INTERCOM):** You didn't name _(him/her)_. And _(he/she)_ died anyway.
 
 **WARD:** The Judge knew what I was thinking.
 
@@ -1772,3 +1792,8 @@ If the player refused at least once, the next interlude gains an exchange:
 **WARD:** _(a long pause)_ I've been asking myself that.
 
 _Director's note: This should feel like the player losing control of Ward, not like the game punishing them for trying. It's the biggest clue in the game, given only to players curious enough to test the rules: the killer doesn't need the board, because the killer is the one who already knew._
+
+**Chapter notes**
+
+- **Chapter 3.** Nobody dies that night either way, because of the uniform on Pryce's door. The morning shows Ward's own pin on Pryce's card, and the phone call is Brennan's "Pryce is alive" from scene 25. The Interlude variant doesn't play.
+- **Chapter 6.** There is no morning after. Ward's voice-over plays, and scene 36 continues as written: he still goes to Brennan and names Ruth, because he already knew.

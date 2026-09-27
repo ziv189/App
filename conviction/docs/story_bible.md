@@ -100,7 +100,7 @@ Ruth comes in and sets two things on the table. The first is a framed photo that
 
 The second is the envelope. For the first time, the prompt says Open. Inside are new DNA results from Lily's case.
 
-Victor Hale is excluded. The DNA matches Walter Doyle, arrested last month on an unrelated assault charge. The postmark is the day before Hale died.
+Victor Hale is excluded. The DNA matches Walter Doyle, arrested last month on an unrelated assault charge. It arrived the day before Hale died.
 
 Then comes the memory Ward buried for six years. It's late, he's drunk, and someone knocks on his door. He doesn't get up: "Not tonight, kid."
 
@@ -141,18 +141,22 @@ The last replay is the opening nightmare, in Hale's apartment at 3:40 a.m. You k
 - Walt asks "Out late again?", and something in the apartment is always wrong in the morning.
 - Ward only blacks out when he's alone and free to leave. In the holding cell, he sleeps fine.
 - The man in the basement flashed a badge.
+- The uniform on Pryce's door knocked three times, soft, at two in the morning. Pryce ran from a cop's knock, not from the killer.
 - The only nightmare with no fight follows the only death Ward didn't commit.
 - Ruth's nightmare is the first one set somewhere you haven't investigated.
 - There isn't a single mirror anywhere in the game. The first one you see is the glass in the opening scene.
 - The silhouette only ever moves when Ward does.
 - Ward's old case file on Lily has one line about Walt: "Building super. Interviewed. No further action."
+- Gus Pell's alibi covers 11 p.m., the time of death the open window faked. The lie that clears Ward also clears Pell.
+- Hale's wrist has a pale band where his watch was. The watch turns up bagged in Ward's closet.
+- In the interrogation room, something metal clinks under the frame whenever Ward moves.
 
 ## Rules the game runs on
 
 
-- Whoever you pin dies that night. Keep it to two or three credible suspects per chapter, or the branching becomes too big to build.
+- Whoever you pin dies that night. Keep it to two or three credible suspects per chapter, or the branching becomes too big to build. A suspect can only be pinned once their Motive, Opportunity and Means are all filled, and each board's evidence completes only one case, so every chapter's story holds whichever way the player plays.
 - If the player refuses to pin anyone, Ward pins someone himself, off-screen: "I didn't need the board. I already knew." That person dies, and players who experiment get a huge clue: the killer isn't reading the board, he's reading Ward.
-- Secret ending: Ward's police ID sits in your inventory all game, and the board accepts any photo. Pin Ward, and that night he doesn't come home; he walks into the precinct at 3 a.m., confesses, and opens the envelope himself. Everyone who would have died lives, and it's the only case in the game you can actually solve.
+- Secret ending: Ward's police ID sits in your inventory all game, and the board accepts any photo. Build a complete case against Ward from what the mornings leave behind and pin him, and that night he doesn't come home; he walks into the precinct at 3 a.m., confesses, and opens the envelope himself. Everyone who would have died lives, and it's the only case in the game you can actually solve.
 
 ## Why it lands
 
