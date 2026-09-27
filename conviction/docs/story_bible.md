@@ -15,6 +15,7 @@ _Everyone says Detective Elias Ward has never been wrong about a suspect. He bel
 - Tom Marsh: Lily's father.
 - Walt Doyle: the super in Ward's building, the closest thing Ward has to a friend.
 - Dr. Reyes: a psychiatrist who appears in one scene.
+
 ## The frame
 
 The game opens in an interrogation room. Ward sits at a desk with a lamp at his back, facing a one-way glass. Behind it, in the dark, sits a silhouette: the serial killer the papers call the Night Judge, finally in custody.
@@ -38,6 +39,7 @@ From here, every chapter runs the same loop:
 2. You pin your prime suspect to the case board with red string.
 3. Ward goes home and blacks out, which his doctor calls exhaustion.
 4. By morning, the suspect you pinned is dead.
+
 The night after you work a scene, you dream about it. Each nightmare is set inside the scene you just investigated, and Lily is always there. Your objective is to protect her from a faceless monster.
 
 It reads as trauma: he couldn't save her, so every night he tries again. She always stands in front of the apartment's front door, whispering something you can't make out. The monster keeps lunging toward her while you block it.
@@ -125,6 +127,7 @@ The last replay is the opening nightmare, in Hale's apartment at 3:40 a.m. You k
 6. Pryce had a cop at his door, so Ward's fugue-self flashed his badge to the landlord and cased the basement for another way in. Before he could come back, Ruth arrested him, the arrest leaked, and Pryce panicked and fell. It was the only death Ward didn't commit, and Ruth's arrest caused it.
 7. Suspended, Ruth worked out the rule: whoever Ward is certain about dies. She made herself look guilty so he'd pin her, and had her protection detail wait in the apartment across the hall instead of at her door. When Ward knocked at 3 a.m., she opened the door, like every victim before her.
 8. In custody, Ward's mind cast him as the detective. Dr. Reyes had Ruth let him tell it his way, about "the killer," in the third person. The confession was never the case; the box in his closet was, and the interrogation was to bring him back.
+
 ## Clues, all visible on the first playthrough
 
 
@@ -143,12 +146,14 @@ The last replay is the opening nightmare, in Hale's apartment at 3:40 a.m. You k
 - There isn't a single mirror anywhere in the game. The first one you see is the glass in the opening scene.
 - The silhouette only ever moves when Ward does.
 - Ward's old case file on Lily has one line about Walt: "Building super. Interviewed. No further action."
+
 ## Rules the game runs on
 
 
 - Whoever you pin dies that night. Keep it to two or three credible suspects per chapter, or the branching becomes too big to build.
 - If the player refuses to pin anyone, Ward pins someone himself, off-screen: "I didn't need the board. I already knew." That person dies, and players who experiment get a huge clue: the killer isn't reading the board, he's reading Ward.
 - Secret ending: Ward's police ID sits in your inventory all game, and the board accepts any photo. Pin Ward, and that night he doesn't come home; he walks into the precinct at 3 a.m., confesses, and opens the envelope himself. Everyone who would have died lives, and it's the only case in the game you can actually solve.
+
 ## Why it lands
 
 The double bluff does the heavy lifting. Suspicious players are "proved" right by Ruth's arrest and "proved" wrong by Pryce's death, so by Act 3 even the skeptics have stopped looking at Ward. Smart players who guess "delayed method" are wrong too, because there was no method.

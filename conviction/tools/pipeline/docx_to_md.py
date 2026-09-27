@@ -101,6 +101,9 @@ def convert(path):
         text = inline_md(p).strip()
         if not text:
             continue
+        if in_list and num_id is None:
+            # A block right after a list needs a blank line, or Markdown folds it into the last item.
+            lines.append('')
         if style.startswith('Heading'):
             lines.append('#' * int(style[len('Heading'):]) + ' ' + plain(p).strip())
         elif num_id is not None:

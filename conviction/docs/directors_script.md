@@ -23,6 +23,7 @@ The game has three worlds, and each one is lit, framed and scored differently. T
 - Never show Ward's reflection, anywhere. There are no mirrors in the game. Windows at night reflect the room, never Ward. In his bathroom, four screw holes and a pale rectangle of paint mark where a mirror used to hang.
 - Warm light appears exactly once: when the lights come up on the other side of the glass in the finale. It should feel like the first real light in the game.
 - Ward wakes every morning on the floor, one arm stretched toward the front door. It's the same pose as every body the player finds.
+
 ### Sound motifs
 
 
@@ -32,6 +33,7 @@ The game has three worlds, and each one is lit, framed and scored differently. T
 - **The clock.** Each nightmare has a clock whose second hand ticks but never moves forward.
 - **The monster's roar.** A human voice begging, pitched down two octaves and distorted. Pitched back up, it says "please."
 - **Lily's whisper.** Her final line from the finale, played in reverse. Players who reverse it early will hear a name.
+
 ### Horror rules
 
 
@@ -40,6 +42,7 @@ The game has three worlds, and each one is lit, framed and scored differently. T
 3. Nothing in the daytime ever attacks Ward. The horror is what the player does, not what's done to them.
 4. Wrongness beats jump scares. Every morning, one small thing in the apartment is wrong. The game never points at it.
 5. Subliminal frames. During every boss fight, each successful hit cuts in a single frame of a real, terrified human face caught in a flashlight beam. Most players won't consciously see it.
+
 ### The flashlight
 
 Ward's long, heavy metal flashlight is the player's investigation tool and the nightmare weapon. Examined in the inventory, it gains a new dent near the lens after every murder night. Ward always has an explanation.
@@ -50,6 +53,7 @@ Ward's long, heavy metal flashlight is the player's investigation tool and the n
 - **Investigation:** explore, examine objects, interview witnesses. Ward's voice-over comments on what the player examines.
 - **The board:** arrange evidence under each suspect, then PIN one. Whoever is pinned dies that night.
 - **Nightmares:** LIGHT (hold) forces the monster to shield itself and stagger back. STRIKE attacks. DODGE evades. A bar labeled PROTECT HER drains whenever the monster reaches the door.
+
 ## Prologue
 
 ### 1. INT. THE ROOM — NIGHT
@@ -153,6 +157,7 @@ He hangs up. The faint, heavy thunk of a pin plays under the dial tone.
 - **The fridge.** A pencil sketch taped at eye level: Ward asleep on the building's front stairs, a newspaper over his chest. Signed "L.M." **WARD (V.O.):** Lily Marsh drew that the summer she was fifteen. Said I snored like a radiator.
 - **The bathroom.** A sink, a towel. Above the sink, four screw holes and a pale rectangle where a mirror used to hang. Ward splashes water on his face. The camera holds on the blank wall one beat too long.
 - **The flashlight** in his coat pocket. Long, black, heavy. A small dent near the lens. **WARD (V.O.):** Twenty years on the job. Dropped it on the stairs, probably.
+
 Three soft knocks at the door. The same rhythm as the nightmare.
 
 Ward opens it. The chain is already off.
@@ -239,6 +244,7 @@ _Director's note: Ames says "long, heavy, metal" while the player's flashlight i
 - **The radiator.** Dial at maximum. The metal is too hot to touch. **WARD (V.O.):** Somebody wanted it hot in here.
 - **The windowsill.** Three potted plants, black and limp, leaves curled. The window is latched.
 - **The desk.** A stack of letters in block capitals: I KNOW WHAT YOU DID TO MY GIRL. Each is signed T.M. Under them, a copy of a harassment complaint Hale filed against Tom Marsh.
+
 Ruth crouches by the plants.
 
 **RUTH:** Who lets their plants freeze in a sauna?
@@ -297,6 +303,7 @@ Out in the squad room, Ruth has pulled a dusty evidence box onto Ward's desk: MA
 - **Lily's school photo.** Fifteen, freckles, a green cardigan.
 - **Ward's handwritten notes.** "HALE, VICTOR — prior record — lives 2 blocks away — no alibi — IT'S HIM." The last two words are underlined three times.
 - **A single line near the bottom of a page.** "DOYLE, WALTER — building super. Interviewed. No further action." **WARD (V.O.):** Walt couldn't hurt a fly. I already had my man.
+
 Ruth watches him read.
 
 **RUTH:** Sir, did anything come for you from the state lab?
@@ -426,6 +433,7 @@ It turns its blank face toward the door. Toward Lily.
 - When the flashlight beam hits it (LIGHT, hold), it throws both long hands over its blank face and staggers backward, exactly the way a person shields their eyes from a flashlight.
 - It fights like something cornered, not something hunting. It hurls whatever is near: a lamp, a chair, a stack of books, a coffee cup. It never strikes first unless the player blocks its path.
 - If it gets past the player and reaches the door, it doesn't touch Lily. Its long fingers scrabble at the door handle beside her hip. Lily presses herself flat against the door and squeezes her eyes shut. The PROTECT HER bar drains fast, and the screen pulses red at the edges. The player has to STRIKE it to drag it back into the room.
+
 **SOUND:** Its roar is low and grinding, like a voice through mud. Under the distortion, rhythm without words: two syllables, again and again.
 
 Phase two: at half health, the room lengthens. The door slides farther away down the stretching floor, and the monster drops to all fours and crawls toward it, fast, dragging itself by its fingertips. Its nails leave scratches in the floorboards. The player chases it down the lengthening room, striking, pulling it back, again and again.
@@ -512,6 +520,7 @@ The chain hangs loose. He looked at it fastened last night. The player did too.
 - **His shoes by the door.** Soaked through, soles caked with mud, laces still tied tight. **WARD (V.O.):** Must've tracked it in from the cemetery.
 - **The flashlight.** A second dent beside the first. **WARD (V.O.):** Dropped it again.
 - **The envelope.** _Not tonight._
+
 Three soft knocks. Walt, with two coffees.
 
 **WALT:** Out late again, detective? Heard your door around three.
@@ -571,6 +580,7 @@ The living room: a whole wall covered in framed photos of Lily. School pictures,
 - **The empty nail.** The pale rectangle is about eight by ten inches. **WARD (V.O.):** One photo. Out of a hundred.
 - **Tom's answering machine.** One new message, left yesterday afternoon. NADINE HALE's voice, shaking with fury: "It's Nadine Hale. My brother is dead and I know it was you. You waited six years. If the police won't do anything, I will." _Click._
 - **A half-empty bottle on the kitchen table**, and a single glass.
+
 Ruth stands at the door, looking at the bolt.
 
 **RUTH:** He opened it at three in the morning. _(beat)_ Who do you open the door for at three in the morning?
@@ -707,6 +717,7 @@ Its roar is lower and wetter than last night's. Under the distortion, the two-sy
 - It's slow but strong. It doesn't dodge the flashlight beam; it turns its broad back to the light and keeps pushing toward the door.
 - It pulls frames off the walls and throws them. They shatter around the player, and each broken frame leaves a blank space on the wall.
 - New this fight: when it reaches the door, it drops to its knees and forces its fingers through the mail slot, as if trying to reach the street. Lily presses back against the door, eyes shut, and the PROTECT HER bar drains twice as fast as last night.
+
 Midway through, the horror beat: every photo of Lily on both walls slowly turns on its nail, one after another, with a soft chorus of scraping, until every framed face looks toward the front door. Not at the monster, and not at the player. At the door.
 
 _Director's note: Cut in the single-frame flashes on each hit, as in Night 1: Tom Marsh, eyes screwed shut against a flashlight beam, one hand raised._
@@ -736,6 +747,7 @@ Ward on the floor, arm toward the door. The chain hangs loose.
 - **The kitchen trash.** On top, a brown paper evidence bag, torn open and empty. **WARD (V.O.):** Evidence bag. I bring the job home.
 - **The flashlight.** A third dent. The lens is scratched now. **WARD (V.O.):** Needs replacing.
 - **The envelope.** _Not tonight._
+
 He steps out into the hallway. WALT kneels at the old radiator outside 4C with a wrench and a rag, reading glasses on the end of his nose.
 
 **WALT:** Morning. _(taps the radiator three times with the wrench, listens)_ Air in the line.
@@ -793,6 +805,7 @@ Ward turns to Ruth.
 - **The empty badge clip.** **WARD (V.O.):** Hale's watch. Marsh's photo. Now her badge. He's building a collection.
 - **A shoebox of letters in her closet**, all from DENNIS PRYCE, all before last spring. The last one, in heavy pen: YOU'LL SEE ME AGAIN. Tucked beside them: a restraining order, dated April.
 - **The window.** Fogged from the laundromat steam. Someone drew a small face in the fog with one finger, days ago, now half faded.
+
 **RUTH:** Dennis Pryce. Her ex. She took out an order on him last spring.
 
 **WARD:** Does he own a long coat?
@@ -950,6 +963,7 @@ THE MONSTER tonight is narrow and quick, all angles, its wrappings like a wet ro
 - It throws whatever it passes: a laundry basket, a pot, a hairdryer on its cord.
 - It tries to slip around the maze to the door. When it reaches the door, it doesn't touch Lily. It reaches past her shoulder, and its long fingers work frantically at the deadbolt. The PROTECT HER bar drains fast.
 - Each time the player drags it back, a sheet tears loose and falls, and the maze gets smaller and the room gets more exposed.
+
 _Director's note: Single-frame flashes on each hit: Nadine Hale in a bathrobe, one arm raised against a flashlight beam, mouth open._
 
 The final strike. It crumples against the door, one hand still hooked on the deadbolt.
@@ -1024,6 +1038,7 @@ Ward on the floor, arm toward the door. The chain hangs loose.
 - **His coat.** Soaked through, heavier than it should be. An orange-brown smear of rust across one cuff. **WARD (V.O.):** The fire escape at the Meridian. Everything in that building is rusted.
 - **The flashlight.** No new dent. The first morning without one. Ward doesn't comment.
 - **The envelope.** _Not tonight._
+
 The phone rings. No thunk under it this time.
 
 **BRENNAN (ON PHONE):** Pryce is alive. The uniform sat on his door all night. Nobody came.
@@ -1177,6 +1192,7 @@ OFFICER BELL, 20s, the uniform who guarded Pryce's door, stands by the tarp, pal
 - **The window.** Wide open. On the first iron landing outside, one of Pryce's shoes, frozen to the grate. **WARD (V.O.):** The Judge came in through the window. Pryce ran. The ice did the rest.
 - **The TV.** The detained-detective story, on a loop. Ward turns it off.
 - **The door.** Bolted from the inside when Bell found it. **WARD (V.O.):** Nobody came through that door. So he came through the window.
+
 MR. FENN, the landlord, appears in the doorway, his keys jingling.
 
 **FENN:** Terrible. Terrible thing. _(beat)_ You know, a fella came by three nights back. Late. Flashed a badge. Said he was from the city, checking the boiler. I let him down in the basement.
@@ -1312,6 +1328,7 @@ Ward wakes in his bed. Pale winter sun, the first sun in the game, lies in a str
 - **The flashlight.** No new dent.
 - **The kitchen trash.** Nothing in it but coffee grounds.
 - **The envelope.** _Not tonight._
+
 _Director's note: This is the only morning in the game where nothing is wrong. Players have learned to hunt for the wrong detail. Let them search and find nothing. It should be more unsettling than any of the others._
 
 Three soft knocks. Walt, with two coffees.
@@ -1341,6 +1358,7 @@ He pins up a new suspect card: RUTH ADLER. Beside it, two more: MR. FENN, the la
 - "Photographed the board."
 - "Outside my building, 3 a.m."
 - "Asked about the lab letter before I knew it existed."
+
 **WARD:** _(out loud, pacing)_ Access: she's been in my apartment. Opportunity: she was at Nadine's the night she died. Motive… _(beat)_ I'll find the motive.
 
 **GAMEPLAY:** PIN SUSPECT. (This script follows the pin on Ruth Adler. Fenn and Bell are weak, and the game's evidence makes Ruth overwhelming.)
@@ -1411,6 +1429,7 @@ It doesn't run for the door. It holds its ground between the player and the rest
 - The monster fights back directly, for the first time. It blocks the flashlight beam with a raised forearm instead of cowering. It strikes the player, hard and fast, and the player's health drops for real.
 - It never retreats toward the door. It stays between the player and Lily, as if it's the one guarding something.
 - There is no retry. When the player's health reaches zero, the screen cracks like glass, and the fight continues.
+
 Halfway through, behind Lily, the deadbolt turns on its own. From the outside.
 
 The door bursts open.
@@ -1513,6 +1532,7 @@ She takes out more. Brown paper evidence bags, one at a time. Each lands on the 
 - HALE, V. — WRISTWATCH
 - MARSH, T. — PHOTOGRAPH
 - HALE, N. — HOSPITAL ID
+
 Ward reads the labels.
 
 **WARD:** _(barely)_ That's my handwriting.
@@ -1690,6 +1710,7 @@ Everyone who would have died after the night Ward pinned himself is alive, and t
 - Nadine Hale in scrubs, locking her door on her way to a shift. The dryers hum below.
 - Dennis Pryce on a bus with a suitcase on his knees, watching the city go by.
 - Ruth, still a detective, walking down the holding-cell corridor with two coffees. She stops at Ward's cell.
+
 In the Carlyle's hallway, two uniforms lead WALT out past 4C in handcuffs. At the stairwell, he looks back at 4C one last time.
 
 **INT. HOLDING CELL — MORNING**
