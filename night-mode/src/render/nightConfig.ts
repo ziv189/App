@@ -113,7 +113,7 @@ export const NIGHT = {
     flickerSpeed: 6,
     /** Warm pools the lit windows throw on the snow. */
     windowPool: '#ffb466',
-    windowPoolIntensity: 0.85,
+    windowPoolIntensity: 0.7,
   },
 
   /** Low mist drifting over the snow and the lake. */

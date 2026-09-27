@@ -14,7 +14,6 @@ import {
   Matrix4,
   Mesh,
   MeshStandardMaterial,
-  PlaneGeometry,
   Points,
   ShaderMaterial,
   UniformsLib,
@@ -30,6 +29,7 @@ import { moonlit } from '../render/Moonlit';
 import { NIGHT } from '../render/nightConfig';
 import { nightTime } from '../render/NightSky';
 import type { Cell } from '../world/Cell';
+import { HouseWindows } from './HouseWindows';
 
 /**
  * Lamps outside (game space; from tools/blender/rooms/exterior.py): the street lamp's glass, then the
@@ -45,15 +45,8 @@ const LANTERNS: [number, number, number][] = [
   [-14.24, 1.9, -3.05],
 ];
 const LAMP_COUNT = 1 + LANTERNS.length;
-/** Middle of the house (game space): windows face away from it. */
-const HOUSE_CENTRE = new Vector3(-4.5, 0, -3.5);
 /** The road runs along x at this z; the telegraph poles stand on its far side. */
 const POLE_Z = 35.5;
-/**
- * One upstairs window at the front (game space: centre and size of its pane) that keeps a child's
- * night light burning when the rest of the house goes dark.
- */
-const NIGHT_LIGHT_WINDOW = { centre: new Vector3(1.72, 4.62, 0.835), width: 0.6, height: 0.88 };
 
 const NOISE_GLSL = /* glsl */ `
 float nHash12( vec2 p ) {
@@ -94,15 +87,9 @@ function flicker(t: number, seed: number, depth: number): number {
   return Math.max(0, k);
 }
 
-interface Pane {
-  min: Vector3;
-  max: Vector3;
-  normal: Vector3;
-}
-
 /**
  * The night outside, around the baked garden: glowing lamps (halos, the street lamp's cone of light,
- * a flicker), warm pools under the lit windows, falling snow that lights up near the lamps, low mist
+ * a flicker), the house's windows (HouseWindows), falling snow that lights up near the lamps, low mist
  * drifting over the snow and the ice, and telegraph poles against the sky. Everything is built from
  * the loaded exterior and tuned by NIGHT (render/nightConfig.ts).
  */
@@ -114,12 +101,12 @@ export class NightOutdoors {
   private readonly lampLights = Array.from({ length: LAMP_COUNT }, () => new Color());
   private readonly haloMaterial: ShaderMaterial;
   private readonly coneMaterial: ShaderMaterial;
-  private readonly poolMaterial: ShaderMaterial;
   private readonly mistMaterial: ShaderMaterial;
   private readonly snowMaterial: ShaderMaterial;
   private readonly snow: Points;
   private readonly streetGlass: StdMat[] = [];
-  private readonly nightLightMaterial: ShaderMaterial;
+  /** The house's windows: rooms behind the glass, light on the snow (see HouseWindows). */
+  readonly windows: HouseWindows;
   private readonly lampColor = new Color();
 
   constructor(
@@ -132,10 +119,9 @@ export class NightOutdoors {
 
     this.haloMaterial = this.buildHalos(lampColor);
     this.coneMaterial = this.buildCone(lampColor);
-    this.poolMaterial = this.buildPools();
+    this.windows = new HouseWindows(exterior, this.group);
     this.mistMaterial = this.buildMist();
     this.buildPoles();
-    this.nightLightMaterial = this.buildNightLight();
     [this.snow, this.snowMaterial] = this.buildSnow();
     // falls around the camera while the garden is shown
     this.group.add(this.snow);
@@ -171,7 +157,7 @@ export class NightOutdoors {
     this.haloMaterial.uniforms.haloIntensity!.value = p.haloIntensity;
     this.coneMaterial.uniforms.lampColor!.value.copy(lamp);
     this.coneMaterial.uniforms.opacity!.value = p.coneOpacity;
-    this.poolMaterial.uniforms.poolColor!.value.set(p.windowPool);
+    this.windows.apply();
     this.mistMaterial.uniforms.mistColor!.value.set(NIGHT.mist.color);
     this.mistMaterial.uniforms.opacity!.value = NIGHT.mist.opacity;
     this.mistMaterial.uniforms.speed!.value = NIGHT.mist.speed;
@@ -192,9 +178,7 @@ export class NightOutdoors {
     for (let i = 0; i < LAMP_COUNT; i++) this.lampLights[i]!.copy(lamp).multiplyScalar(this.lampLevels[i]!);
     this.coneMaterial.uniforms.level!.value = this.lampLevels[0];
     for (const g of this.streetGlass) g.emissiveIntensity = 4 * this.lampLevels[0]!;
-    this.poolMaterial.uniforms.level!.value = cell.glowLevel(/WindowGlow/) * p.windowPoolIntensity;
-    // when the house is dark, one window upstairs still glows faintly
-    this.nightLightMaterial.uniforms.level!.value = cell.night * (1 - cell.glowLevel(/WindowGlow/)) * (0.9 + 0.1 * Math.sin(t * 0.7));
+    this.windows.update();
     this.snowMaterial.uniforms.viewHeight!.value = this.renderer.getDrawingBufferSize(this.viewSize).y;
   }
 
@@ -331,173 +315,6 @@ export class NightOutdoors {
     cone.position.copy(STREET_LAMP);
     cone.renderOrder = 11;
     this.group.add(cone);
-    return material;
-  }
-
-  // ------------------------------------------------------------------------ window light pools
-
-  /** The window glass split into panes (connected pieces), each with its size and outward normal. */
-  private windowPanes(): Pane[] {
-    const panes: Pane[] = [];
-    this.exterior.root.updateMatrixWorld(true);
-    this.exterior.root.traverse((o) => {
-      const mesh = o as Mesh;
-      if (!mesh.isMesh || !([mesh.material].flat() as Material[]).some((m) => /WindowGlow/.test(m.name))) return;
-      const pos = mesh.geometry.getAttribute('position');
-      const nrm = mesh.geometry.getAttribute('normal');
-      const index = mesh.geometry.index;
-      const parent = Array.from({ length: pos.count }, (_, i) => i);
-      const find = (a: number): number => {
-        while (parent[a] !== a) {
-          parent[a] = parent[parent[a]!]!;
-          a = parent[a]!;
-        }
-        return a;
-      };
-      const n = index ? index.count : pos.count;
-      const at = (i: number) => (index ? index.getX(i) : i);
-      for (let t = 0; t < n; t += 3) {
-        const a = find(at(t));
-        parent[find(at(t + 1))] = a;
-        parent[find(at(t + 2))] = a;
-      }
-      const byRoot = new Map<number, Pane>();
-      const v = new Vector3();
-      const w = new Vector3();
-      const normalMatrix = new Matrix4().extractRotation(mesh.matrixWorld);
-      for (let i = 0; i < pos.count; i++) {
-        v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld);
-        if (nrm) w.fromBufferAttribute(nrm, i).applyMatrix4(normalMatrix);
-        const r = find(i);
-        const p = byRoot.get(r);
-        if (p) {
-          p.min.min(v);
-          p.max.max(v);
-          p.normal.add(w);
-        } else byRoot.set(r, { min: v.clone(), max: v.clone(), normal: w.clone() });
-      }
-      panes.push(...byRoot.values());
-    });
-    return panes;
-  }
-
-  private buildPools(): ShaderMaterial {
-    // windows: sashes of one window share its wall and its place along it
-    const windows = new Map<string, Pane>();
-    for (const p of this.windowPanes()) {
-      const size = p.max.clone().sub(p.min);
-      const thinX = size.x < size.z;
-      if (Math.min(size.x, size.z) > 0.08) continue; // bay window corners and other slanted panes
-      if (p.min.y > 1.4 || size.y < 0.18) continue; // upstairs, or slivers
-      const mid = p.min.clone().add(p.max).multiplyScalar(0.5);
-      const key = thinX ? `x${Math.round(mid.x * 5)}:${Math.round(mid.z * 2)}` : `z${Math.round(mid.z * 5)}:${Math.round(mid.x * 2)}`;
-      const w = windows.get(key);
-      if (w) {
-        w.min.min(p.min);
-        w.max.max(p.max);
-        w.normal.add(p.normal);
-      } else windows.set(key, { min: p.min.clone(), max: p.max.clone(), normal: p.normal.clone() });
-    }
-    const pos: number[] = [];
-    const uv: number[] = [];
-    const index: number[] = [];
-    for (const w of windows.values()) {
-      const size = w.max.clone().sub(w.min);
-      const thinX = size.x < size.z;
-      const width = thinX ? size.z : size.x;
-      if (width < 0.3) continue;
-      const mid = w.min.clone().add(w.max).multiplyScalar(0.5);
-      // outward: the pane's normal, or away from the middle of the house
-      const out = thinX ? new Vector3(Math.sign(w.normal.x) || 1, 0, 0) : new Vector3(0, 0, Math.sign(w.normal.z) || 1);
-      const away = thinX ? mid.x - HOUSE_CENTRE.x : mid.z - HOUSE_CENTRE.z;
-      if ((thinX ? out.x : out.z) * away < 0) out.negate();
-      const side = new Vector3(-out.z, 0, out.x);
-      // the floor in front (the median of three samples, so a porch railing doesn't lift it)
-      const samples = [0.7, 1.3, 2.0]
-        .map((d) => this.exterior.groundAt(mid.x + out.x * d, mid.z + out.z * d, w.min.y + 0.2))
-        .filter((h): h is number => h !== null)
-        .sort((a, b) => a - b);
-      const floor = samples[Math.floor(samples.length / 2)];
-      if (floor === undefined || floor > w.min.y - 0.1) continue;
-      const y = floor + 0.03;
-      const reach = 2.0 + (w.min.y - floor) * 1.2;
-      const base = pos.length / 3;
-      const corners: [number, number, number, number][] = [
-        [0.12, -0.6 * width, -1, 0],
-        [0.12, 0.6 * width, 1, 0],
-        [reach, 1.4 * width + 0.3, 1, 1],
-        [reach, -1.4 * width - 0.3, -1, 1],
-      ];
-      for (const [d, s, u, v] of corners) {
-        pos.push(mid.x + out.x * d + side.x * s, y, mid.z + out.z * d + side.z * s);
-        uv.push(u, v);
-      }
-      index.push(base, base + 1, base + 2, base, base + 2, base + 3);
-    }
-    const geo = new BufferGeometry();
-    geo.setAttribute('position', new BufferAttribute(new Float32Array(pos), 3));
-    geo.setAttribute('uv', new BufferAttribute(new Float32Array(uv), 2));
-    geo.setIndex(index);
-    const material = new ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      blending: AdditiveBlending,
-      polygonOffset: true,
-      polygonOffsetFactor: -2,
-      polygonOffsetUnits: -2,
-      uniforms: { poolColor: { value: new Color() }, level: { value: 0 } },
-      vertexShader: /* glsl */ `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-        }`,
-      fragmentShader: /* glsl */ `
-        uniform vec3 poolColor;
-        uniform float level;
-        varying vec2 vUv;
-        void main() {
-          float across = 1.0 - smoothstep( 0.45, 1.0, abs( vUv.x ) );
-          float along = smoothstep( 0.0, 0.1, vUv.y ) * pow( 1.0 - vUv.y, 1.7 );
-          gl_FragColor = vec4( poolColor * level * across * along, 1.0 );
-        }`,
-    });
-    const pools = new Mesh(geo, material);
-    pools.name = 'window_pools';
-    pools.renderOrder = 5;
-    this.group.add(pools);
-    return material;
-  }
-
-  /** A faint warm glow over one upstairs pane (a night light inside), for when the house is dark. */
-  private buildNightLight(): ShaderMaterial {
-    const w = NIGHT_LIGHT_WINDOW;
-    const material = new ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      blending: AdditiveBlending,
-      uniforms: { level: { value: 0 }, color: { value: new Color('#ffb35c') } },
-      vertexShader: /* glsl */ `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-        }`,
-      fragmentShader: /* glsl */ `
-        uniform float level;
-        uniform vec3 color;
-        varying vec2 vUv;
-        void main() {
-          // brighter low down, where the lamp stands
-          vec2 c = vUv - vec2( 0.45, 0.25 );
-          float glow = 0.35 + 0.65 * exp( - dot( c, c ) * 7.0 );
-          gl_FragColor = vec4( color * glow * level * 0.9, 1.0 );
-        }`,
-    });
-    const pane = new Mesh(new PlaneGeometry(w.width, w.height), material);
-    pane.name = 'night_light_window';
-    pane.position.copy(w.centre);
-    this.group.add(pane);
     return material;
   }
 

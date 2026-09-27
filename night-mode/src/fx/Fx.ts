@@ -104,6 +104,8 @@ export class Fx {
   private sweeping = false;
   private seeking: { left: number; seen: number; tick: number; ticks: number; resolve: (caught: boolean) => void; onTick: (k: number) => Promise<void> } | null = null;
   private clockOn = false;
+  private clockDoorTarget = 0;
+  private clockDoorAngle = 0;
   private clockTick: SoundHandle | null = null;
   private pendulum: Bone | Object3D | null = null;
   private clockTime = 0;
@@ -167,10 +169,9 @@ export class Fx {
         }
       }
       if (cellId === 'living' && !this.pendulum) {
+        // the clock's empty sits at the pendulum's pivot (the rod itself lost its pivot in compression)
         const clock = cell.dynamic.get('clock');
-        clock?.traverse((o) => {
-          if (!this.pendulum && /pendulum/i.test(o.name)) this.pendulum = o;
-        });
+        if (clock?.getObjectByName('clock_pendulum')) this.pendulum = clock;
       }
     }
     if (chars.ivy && !this.ivyScreen) {
@@ -385,10 +386,9 @@ export class Fx {
     }
   }
 
+  /** The grandfather clock's case door swings open (or shut) on its hinge, slowly. */
   clockDoor(open: boolean): void {
-    const door = this.d.world.cells.get('living')?.dynamic.get('clock_door');
-    if (door) turnLocal(door, UP, open ? 1.6 * Number(door.userData.open_sign ?? -1) : 0);
-    this.d.world.cells.get('living')?.setDoorOpen('clock', open ? 1 : 0);
+    this.clockDoorTarget = open ? 1 : 0;
   }
 
   cameras(on: boolean): void {
@@ -683,18 +683,23 @@ export class Fx {
     if (!ext) return;
     for (const t of this.wakeTimers) window.clearTimeout(t);
     this.wakeTimers = [];
+    const windows = this.outdoors?.windows;
     if (!on) {
       ext.setGlow(/window.?glow/i, 1);
+      windows?.setAllGroups(1);
       return;
     }
     ext.setGlow(/window.?glow/i, 0);
+    windows?.setAllGroups(0);
     this.d.world.nightTarget = 0;
     this.d.world.brightnessTarget = 1;
     const speaker = this.anchor('exterior', 'house_speaker');
+    // the house lights up group by group, every room of it (even the empty ones)
     for (let i = 1; i <= 4; i++) {
       this.wakeTimers.push(
         window.setTimeout(() => {
           ext.setGlow(new RegExp(`window.?glow.?${i}$`, 'i'), 2.8);
+          windows?.setGroup(i - 1, 2.8);
           void this.d.audio.play('switch', { at: speaker, volume: 0.9, refDistance: 8, rate: 0.8 + i * 0.07 });
         }, 250 + i * 420),
       );
@@ -821,6 +826,13 @@ export class Fx {
     if (this.clockOn && this.pendulum) {
       this.clockTime += dt;
       this.pendulum.rotation.z = Math.sin(this.clockTime * Math.PI) * 0.14;
+    }
+    // the clock's case door
+    const clockDoor = this.d.world.cells.get('living')?.dynamic.get('clock_door');
+    if (clockDoor && Math.abs(this.clockDoorAngle - this.clockDoorTarget) > 1e-4) {
+      this.clockDoorAngle = MathUtils.damp(this.clockDoorAngle, this.clockDoorTarget, 2.4, dt);
+      if (Math.abs(this.clockDoorAngle - this.clockDoorTarget) < 0.002) this.clockDoorAngle = this.clockDoorTarget;
+      turnLocal(clockDoor, UP, 1.6 * Number(clockDoor.userData.open_sign ?? 1) * this.clockDoorAngle);
     }
     // rocking chair
     const chair = this.d.world.cells.get('living')?.dynamic.get('rocking_chair');

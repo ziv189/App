@@ -3,13 +3,14 @@ import {
   Color,
   Group,
   MathUtils,
+  Object3D,
+  Quaternion,
   Vector3,
   type DataTexture,
   type Material,
   type Mesh,
   type MeshPhysicalMaterial,
   type MeshStandardMaterial,
-  type Object3D,
   type Texture,
 } from 'three';
 import { assetUrl, type Assets } from '../assets/Assets';
@@ -84,6 +85,50 @@ interface EmissiveEntry {
   boost: number;
 }
 
+const UP = new Vector3(0, 1, 0);
+const TURN = new Quaternion();
+
+/**
+ * Where something that turns should turn about (world space), or null for things that don't turn.
+ * The models' pivots were set in Blender (a door's at its hinge, the lever's at its foot), but the
+ * mesh compression moves every mesh's origin to the middle of its bounds, so they are found again here.
+ */
+function pivotPoint(name: string, obj: Object3D): Vector3 | null {
+  const box = new Box3().setFromObject(obj);
+  if (box.isEmpty()) return null;
+  const centre = box.getCenter(new Vector3());
+  const size = box.getSize(new Vector3());
+  if (obj.userData.door) {
+    // the hinge is at one end of the leaf's width (its local x): 'left' at the low end, 'right' mirrored
+    const across = new Vector3(1, 0, 0).applyQuaternion(obj.getWorldQuaternion(new Quaternion()));
+    const half = (Math.abs(across.x) * size.x + Math.abs(across.z) * size.z) / 2;
+    return centre.addScaledVector(across, obj.userData.hinge === 'right' ? half : -half);
+  }
+  // the grandfather clock's case door is hinged on its left edge (tools/blender/rooms/living.py)
+  if (name === 'clock_door') return new Vector3(box.min.x + 0.005, centre.y, centre.z);
+  // the rocking chair rocks on the floor, the breaker lever turns on its foot
+  if (name === 'rocking_chair' || name === 'breaker_lever') return new Vector3(centre.x, box.min.y, centre.z);
+  return null;
+}
+
+/**
+ * Puts an object under a new parent at `pivot` (world space), turned like the object, and returns it:
+ * turning the pivot about its own axes turns the object about that point.
+ */
+function repivot(obj: Object3D, pivot: Vector3): Object3D {
+  const parent = obj.parent!;
+  parent.updateWorldMatrix(true, false);
+  const p = new Object3D();
+  p.name = `${obj.name}_pivot`;
+  p.userData = { ...obj.userData };
+  parent.add(p);
+  p.position.copy(parent.worldToLocal(pivot.clone()));
+  p.quaternion.copy(obj.quaternion);
+  p.updateMatrixWorld(true);
+  p.attach(obj);
+  return p;
+}
+
 /** Glass from the rendering scenes becomes cheap transparent glass (no refraction pass). */
 function convertGlass(mat: MeshPhysicalMaterial): void {
   mat.transmission = 0;
@@ -104,7 +149,8 @@ export class Cell {
   readonly markers = new Map<string, Object3D>();
   readonly proxies: Mesh[] = [];
   readonly dynamic = new Map<string, Object3D>();
-  readonly doors = new Map<string, { leaf: Object3D; sign: number; closedY: number }>();
+  /** Door leaves: `leaf` turns about the hinge (see repivot), `base` is its closed orientation. */
+  readonly doors = new Map<string, { leaf: Object3D; sign: number; base: Quaternion }>();
   readonly lightmap: LightmapUniforms = {
     lightMap2: { value: null },
     lightMapMix: { value: 0 },
@@ -176,28 +222,18 @@ export class Cell {
       if (name.startsWith('DYN_')) {
         cell.dynamic.set(name.slice(4), obj);
         if (obj.userData.hidden) obj.visible = false;
-        if (obj.userData.door) {
-          cell.doors.set(String(obj.userData.door), {
-            leaf: obj,
-            sign: Number(obj.userData.open_sign ?? -1),
-            closedY: obj.rotation.y,
-          });
-        }
       }
       if (!mesh.isMesh) return;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       const mats = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]) as MeshStandardMaterial[];
+      // glass lets the moon through (the real-time moonbeams indoors) and draws after the room
+      if (mats.some((m) => /glass/i.test(m.name) || m.userData.sosies_glass)) mesh.castShadow = false;
+      if (mats.some((m) => m.userData.sosies_glass)) mesh.renderOrder = 2;
       for (const mat of mats) {
         if (seenMaterials.has(mat)) continue;
         seenMaterials.add(mat);
-        // glass lets the moon through (the real-time moonbeams indoors)
-        if (/glass/i.test(mat.name)) mesh.castShadow = false;
-        if (mat.userData.sosies_glass) {
-          convertGlass(mat as MeshPhysicalMaterial);
-          mesh.renderOrder = 2;
-          mesh.castShadow = false;
-        }
+        if (mat.userData.sosies_glass) convertGlass(mat as MeshPhysicalMaterial);
         if (mat.userData.nm_emit_states) {
           cell.emissive.push({
             material: mat,
@@ -219,6 +255,19 @@ export class Cell {
     });
     if (on) cell.textures.push(on);
     if (moon) cell.textures.push(moon);
+
+    // things that turn get their pivot back (see repivot): doors on their hinges, the rest on their joints
+    for (const [name, obj] of [...cell.dynamic]) {
+      const hinge = pivotPoint(name, obj);
+      if (!hinge) continue;
+      const pivot = repivot(obj, hinge);
+      cell.dynamic.set(name, pivot);
+      if (obj.userData.door) {
+        // the doors are fitted on the face of solid walls, so they open into the room (open_sign from the
+        // Blender build is the way into the wall)
+        cell.doors.set(String(obj.userData.door), { leaf: pivot, sign: -Number(obj.userData.open_sign ?? -1), base: pivot.quaternion.clone() });
+      }
+    }
 
     if (colMesh) {
       const added = physics.addCollider([colMesh]);
@@ -265,11 +314,11 @@ export class Cell {
     for (const c of this.extraColliders) c.setEnabled(active);
   }
 
-  /** How open a door leaf is (0..1 of ~80 degrees). */
+  /** How open a door leaf is (0..1 of ~80 degrees), turning about the upright through its hinge. */
   setDoorOpen(doorId: string, amount: number): void {
     const d = this.doors.get(doorId);
     if (!d) return;
-    d.leaf.rotation.y = d.closedY + d.sign * MathUtils.degToRad(80) * amount;
+    d.leaf.quaternion.copy(d.base).premultiply(TURN.setFromAxisAngle(UP, d.sign * MathUtils.degToRad(80) * amount));
   }
 
   /**

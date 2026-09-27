@@ -34,9 +34,15 @@ What made the night read as "the day with the brightness turned down":
 - Outdoors the baked low south-east moon stays; everything added at runtime (pines, poles) is lit from the same
   direction (`src/render/Moonlit.ts`).
 - Warm practicals: halos on the street lamp and the six lanterns, the street lamp's cone of light, noise-driven
-  flicker (a gentle waver, and an old lamp's occasional dip), the lamp glass glowing in step. Lit windows throw warm
-  pools on the snow that follow the windows' glow (the story's "house wakes up" makes them blaze).
-  (`src/fx/NightOutdoors.ts`)
+  flicker (a gentle waver, and an old lamp's occasional dip), the lamp glass glowing in step. (`src/fx/NightOutdoors.ts`)
+- The house's windows from outside (`src/fx/HouseWindows.ts`): each window looks into a room behind the glass
+  (interior mapping: walls, ceiling, floor, furniture, a picture, a doorway to a darker hall, a ceiling light or a
+  standard lamp), with curtains or a blind lit through, and the night sky and the moon reflected at glancing
+  angles. Windows close together on a storey share one room (a bay looks into one room). Rooms differ in colour,
+  lamp warmth and brightness; some are empty and dark, the garage too, and a few have a television flickering blue.
+  The lit ground-floor windows lay soft, window-shaped patches of light on the snow a step out from the wall (the
+  wall below the sill shades the ground next to it), crossed by the sash bars' shadows. The story's "house wakes
+  up" lights the rooms in four steps (ground floor first), every room blazing warm.
 - Shadow budget: the moon indoors and the phone's flashlight. Everything else is baked, emissive or unshadowed.
 - Tone mapping: ACES filmic (deeper blacks than AgX), exposure per state in `NIGHT.exposure`.
 
@@ -59,7 +65,8 @@ What made the night read as "the day with the brightness turned down":
 
 **Environment and motion**
 - Telegraph poles and sagging wires along the road: silhouettes against the moonlit sky.
-- One upstairs window keeps a child's night light burning when the rest of the house goes dark.
+- One upstairs room keeps a child's night light burning, a small warm lamp low down, whatever the rest of the
+  house does.
 - Motion everywhere: pines swaying (each with its own phase), clouds drifting over the moon, stars twinkling,
   lamps flickering, mist drifting, snow falling, dust turning in the moonbeams.
 
@@ -80,11 +87,12 @@ What made the night read as "the day with the brightness turned down":
 2. `NIGHT.fog.density` and `NIGHT.fog.color`: how much the distance melts away, and into what.
 3. `NIGHT.moonBeam.intensity` and `shaftOpacity`: how strong the moonlight pools and shafts are indoors.
 4. `NIGHT.grade.blackLevel` and `contrast`: readability of the darks against mood.
-5. `NIGHT.practicals.windowPoolIntensity` and `haloIntensity`: how warmly the house and lamps glow.
+5. `NIGHT.practicals.windowPoolIntensity` and `haloIntensity`: how much light the windows lay on the snow, and how
+   warmly the lamps glow.
 
 ## Performance
 
 All of it is a handful of draw calls: the sky is one dome drawn only where nothing else is; lamps, halos, pools,
 mist, snow and poles are one mesh each (the poles instanced); fog and the snow glints are a few instructions in
-the existing shaders. The one real cost is the moon's shadow map indoors (the room's depth once per frame, 2048²,
+the existing shaders. The rooms behind the windows are no geometry at all: the window glass's shader traces them. The one real cost is the moon's shadow map indoors (the room's depth once per frame, 2048²,
 1024² on Low). The **Low** preset also leaves out the mist, the light shafts and dust, and half the snowfall.

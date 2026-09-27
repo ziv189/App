@@ -20,7 +20,7 @@ import { CREDITS_HTML } from '../story/credits';
 import { PhoneSystem } from '../story/Phone';
 import { Cancelled, Story, type StoryHost } from '../story/Story';
 import { Ui } from '../ui/Ui';
-import type { CellId } from '../world/Cell';
+import type { Cell, CellId } from '../world/Cell';
 import { LOAD_ORDER } from '../world/cells';
 import { Interaction } from '../world/Interaction';
 import { World } from '../world/World';
@@ -53,6 +53,23 @@ const LOCK_MESSAGES: Record<string, string> = {
   back: 'Locked.',
   stuck: "It won't open. Something is holding it from the other side.",
 };
+
+const easeOutCubic = (k: number) => 1 - (1 - k) ** 3;
+const easeInOutCubic = (k: number) => (k < 0.5 ? 4 * k * k * k : 1 - (-2 * k + 2) ** 3 / 2);
+
+/** Swings a door from one opening (0..1) to another over `seconds`, resolving when it gets there. */
+function swingDoor(cell: Cell, doorId: string, from: number, to: number, seconds: number, ease: (k: number) => number): Promise<void> {
+  const t0 = performance.now();
+  return new Promise((resolve) => {
+    const step = () => {
+      const k = Math.min(1, (performance.now() - t0) / (seconds * 1000));
+      cell.setDoorOpen(doorId, from + (to - from) * ease(k));
+      if (k < 1) requestAnimationFrame(step);
+      else resolve();
+    };
+    step();
+  });
+}
 
 /**
  * NIGHT MODE: owns the renderer, the rooms, the player, audio and UI, runs the chapters, and routes
@@ -495,20 +512,36 @@ export class Game implements StoryHost {
     }
     this.transitioning = true;
     void this.audio.play('door_open', { at, volume: 0.8 });
-    const t0 = performance.now();
-    const openAnim = () => {
-      const k = Math.min(1, (performance.now() - t0) / 700);
-      cell.setDoorOpen(doorId, k * 0.35);
-      if (k < 1) requestAnimationFrame(openAnim);
-    };
-    openAnim();
+    // the door swings open on its hinges (towards the player, as far as there is room for it), and the
+    // view fades once it is well under way
+    void swingDoor(cell, doorId, 0, this.doorRoom(cell, doorId), 0.9, easeOutCubic);
+    await new Promise((r) => setTimeout(r, 280));
     await this.ui.fade(1, 0.55);
     cell.setDoorOpen(doorId, 0);
     const target = await this.world.load(dest.cell);
     await this.place(dest.cell, `door_${dest.door}`);
-    void this.audio.play('door_close', { at: target.doors.get(dest.door)?.leaf ?? target.root, volume: 0.7 });
+    // on the other side it is still open behind you, and swings shut as the view comes back
+    const ajar = Math.min(0.45, this.doorRoom(target, dest.door));
+    target.setDoorOpen(dest.door, ajar);
+    const behind = target.doors.get(dest.door)?.leaf ?? target.root;
+    void swingDoor(target, dest.door, ajar, 0, 0.8, easeInOutCubic).then(() => this.audio.play('door_close', { at: behind, volume: 0.7 }));
     await this.ui.fade(0, 0.6);
     this.transitioning = false;
+  }
+
+  /**
+   * How far a door (0..1) can swing into the room without passing through the player: its leaf sweeps a
+   * quarter circle as wide as the door in front of the wall.
+   */
+  private doorRoom(cell: Cell, doorId: string): number {
+    const door = cell.doors.get(doorId);
+    const front = cell.markers.get(`door_${doorId}`);
+    if (!door || !front) return 0.6;
+    const hinge = door.leaf.getWorldPosition(new Vector3());
+    const out = front.getWorldPosition(new Vector3()).sub(hinge).setY(0).normalize();
+    const d = this.player.position.clone().sub(hinge).setY(0).dot(out);
+    const angle = Math.asin(MathUtils.clamp((d - 0.35) / 0.86, 0, 1));
+    return MathUtils.clamp(angle / MathUtils.degToRad(80), 0.2, 0.85);
   }
 
   private footstep(speed: number): void {
