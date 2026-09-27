@@ -9,6 +9,7 @@ committed, so you only need this page to change or rebuild the rooms, voices or 
 | --- | --- | --- | --- |
 | Six rooms of the house | Benedikt Bitterli's *Rendering Resources* (Mitsuba scenes by Wig42, Jay-Artist, SlykDrako, Mareck, MrChimp2313) | CC BY 3.0 / CC0 | `assets-src/downloads/bitterli/` |
 | Props, textures, trees, skies | Poly Haven | CC0 | `node tools/fetch-polyhaven.mjs` (list in `assets-src/polyhaven.json`) |
+| Paintings and prints on the walls | Wikimedia Commons (each file's licence is checked: public domain or CC0 only) | Public domain | `node tools/fetch-art.mjs` (list in `assets-src/art.json`) |
 | Ivy, Dana, Jordan | Microsoft Rocketbox Avatar Library | MIT | `tools/blender/build_character.py` |
 | Voices | Kokoro-82M (text-to-speech) | Apache 2.0 | `python3 tools/tts/make_voices.py --model <dir>` (lines in `assets-src/voice/lines.json`) |
 | Sound effects | Freesound, CC0 only | CC0 | `python3 tools/audio/fetch_sfx.py` (pinned ids in `assets-src/sfx/sfx.json`) |
@@ -37,6 +38,29 @@ BLENDER=/path/to/blender node tools/build-rooms.mjs --all             # everythi
 node tools/build-rooms.mjs exterior --optimize-only                   # re-compress only
 ```
 
+The source scenes were made for one camera each, so the side of a room behind that camera was left bare
+(and, in the living room and the kitchen, partly open or modelled inside out, which bakes black). The room
+scripts dress those parts with Poly Haven furniture and the helpers in `nm_lib.py`:
+
+- `picture()` hangs a painting from `assets-src/art.json` in a moulded frame (gilt, walnut, oak, black or
+  white; prints get a card mount), sized to the image or cropped to fill a given size.
+- `rug()` lays a rug of a Poly Haven fabric with a bound border; `ornament()` sets a small prop on a surface
+  with its own triangle budget (some scans are 200,000 triangles) and out of the collision mesh.
+- `face_into_room()` turns inside-out wall faces round; `clear_glass()` makes Poly Haven glass see-through
+  (glTF drops Cycles' transmission, so it arrived as an opaque pane: the grandfather clock's hid its dial).
+- `remove_faces()` deletes the surface a new one replaces (the living room's south wall had a hole). Left
+  behind it, the compression's rounding of positions (steps of about 0.7 mm in a room) puts both in one
+  plane, and the old one's outline shows through.
+- `bake_only()` keeps something in the bake (its shadows, its bounced light) but out of the game;
+  `game_only()` is the reverse. The bathroom blind uses both: its 80 real slats shade the bake, and the game
+  gets one panel with the slats drawn in a texture, since slats a pixel or two tall alias into moiré.
+- `emissive(..., textured=True)` makes a glow follow the colour texture (the blind by moonlight). The game
+  takes every glow's colour and strength from the material's `nm_emit_*` extras: the exported glow is the
+  room's first state's, which is black for something that only glows at night (Ivy's ceiling stars).
+
+Small props' textures are capped at 512 px and Poly Haven normal/roughness maps at 512 px
+(`tools/build-rooms.mjs`), so dressing a room adds a few megabytes rather than a dozen.
+
 The trees outside start as *cards*: `tools/blender/make_tree_cards.py` renders the Poly Haven fir models
 (millions of triangles each) into images once; the exterior plants crossed quads with those images, and they
 cast the trees' shadows into the lightmaps. In the game, `src/world/Trees.ts` hides the cards and plants a
@@ -56,7 +80,7 @@ own files (the hosted claude.ai build) refuses those, and every model came out u
 | --- | --- |
 | `M_<name>` | Marker (an empty): spawn points, door arrival points, sound anchors. Faces its +Y in Blender. |
 | `I_<id>` | Invisible interaction box; the story attaches prompts and actions to `<id>`. |
-| `DYN_<name>` | Something that moves, hides or glows at runtime: door leaves, screens (`DYN_<x>_screen`), the clock's pendulum, the breaker lever... Not lightmapped. `hidden` = starts invisible. |
+| `DYN_<name>` | Something that moves, hides or glows at runtime: door leaves, screens (`DYN_<x>_screen`), the clock's pendulum and hands (`DYN_clock_minute`, `DYN_clock_hour`, turning about `M_clock_dial`), the breaker lever... Not lightmapped. `hidden` = starts invisible. |
 | `COL_static` | Collision mesh (invisible). |
 | material `NM_WindowGlow_1..4` | The exterior's lit windows, in four groups that can light up one after another. |
 | scene extras `nm` | Room metadata: lighting states, lightmap files, exposure per state. |

@@ -104,6 +104,36 @@ def wren_panel():
     L.marker('tablet_front', (x, SOUTH + 1.05, FLOOR), 180)
 
 
+def decor():
+    """The door half of the kitchen was bare: pictures either side of Wren's panel, a painted dresser in the
+    corner, the old wall telephone, a bench by the back door, and food on the island and the table."""
+    # a strip of the south wall between the doors is modelled inside out (it baked black)
+    L.face_into_room((-1.75, SOUTH - 0.05, FLOOR - 0.1), (0.75, SOUTH + 0.05, CEIL + 0.1), (0, 1, 0))
+    L.picture('art_apples', 'cezanne_apples', (-0.43, SOUTH, FLOOR + 1.58), 0, 0.62, frame='walnut')
+    L.picture('art_christmas', 'larsson_christmas', (0.9, SOUTH, FLOOR + 1.58), 0, 0.76, frame='oak')
+    # a painted dresser in the south-east corner, the tea set on its counter
+    dresser = L.ph_model('painted_wooden_cabinet_02', (2.9, SOUTH + 0.328, FLOOR), yaw_deg=180, name='kitchen_dresser')
+    counter = L.surface_z(2.9, SOUTH + 0.45, FLOOR + 1.25, FLOOR + 0.9)
+    L.ornament('tea_set_01', (2.9, SOUTH + 0.42, counter), yaw_deg=180, scale=0.85, name='tea_set', budget=12000)
+    L.ornament('jug_01', (2.55, SOUTH + 0.2, L.world_bbox(dresser)[1].z), yaw_deg=160, name='jug_top')
+    # the east wall: the Milkmaid over the sideboard, the wall telephone, a bench by the back door
+    L.picture('art_milkmaid', 'vermeer_milkmaid', (EAST, -3.3, FLOOR + 1.65), 90, 0.5, frame='walnut')
+    phone = L.ornament('vintage_telephone_wall_clock', (EAST - 0.002, -2.0, FLOOR + 1.42), yaw_deg=-90, name='wall_telephone', budget=8000)
+    L.clear_glass(phone)
+    bench = L.ph_model('painted_wooden_bench', (EAST - 0.26, 0.1, FLOOR), yaw_deg=-90, name='back_door_bench')
+    seat = L.surface_z(EAST - 0.3, 0.3, FLOOR + 0.7, FLOOR + 0.45)
+    L.ornament('wicker_basket_02', (EAST - 0.3, 0.3, seat), yaw_deg=-70, name='bench_basket')
+    # a runner between the doors and the island
+    L.rug('kitchen_runner', (0.25, -3.35, FLOOR), (2.4, 0.95), 0, 'poly_wool_herringbone', tint=(0.85, 0.72, 0.6), tile=0.5,
+          border_color=(0.3, 0.12, 0.08))
+    # fruit: bananas on the island, apples in a bowl on the table
+    L.ornament('bananas', (0.3, -0.62, L.surface_z(0.3, -0.62, 1.6, 0.99)), yaw_deg=35, scale=0.7, name='bananas', budget=6000)
+    tz = L.surface_z(0.42, 1.42, 2.0, 0.78)
+    L.ornament('wooden_bowl_01', (0.42, 1.42, tz), yaw_deg=0, name='fruit_bowl')
+    for i, (dx, dy, yaw) in enumerate(((-0.04, -0.03, 10), (0.05, -0.01, 80), (0.0, 0.05, 150))):
+        L.ornament('food_apple_01', (0.42 + dx, 1.42 + dy, tz + 0.012), yaw_deg=yaw, scale=0.85, name=f'apple_{i}', budget=1500)
+
+
 def build():
     bpy.ops.wm.open_mainfile(filepath=SCENE)
     wood, trim, brass = L.door_materials()
@@ -117,6 +147,7 @@ def build():
     fridge()
     sideboard()
     wren_panel()
+    decor()
 
     # Dana's list on the table
     paper = L.simple_material('NM_Paper', (0.8, 0.78, 0.72), rough=0.9)

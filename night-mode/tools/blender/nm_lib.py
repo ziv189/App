@@ -120,6 +120,20 @@ def nobake(obj, cast_shadow=True):
     return obj
 
 
+def bake_only(obj):
+    """Casts its shadows and bounces its light in the bake, but isn't in the game."""
+    obj['nm_bake_only'] = 1
+    return obj
+
+
+def game_only(obj):
+    """In the game, but invisible to the bake: it neither shades the room's lightmaps nor gets one."""
+    obj['nm_nobake'] = 1
+    for flag in ('visible_diffuse', 'visible_glossy', 'visible_transmission', 'visible_volume_scatter', 'visible_shadow'):
+        setattr(obj, flag, False)
+    return obj
+
+
 def dynamic(obj, name=None):
     """Moves or hides at runtime: kept as its own node, never joined or lightmapped."""
     if name:
@@ -706,12 +720,15 @@ def light(name, kind, location, power, color='#ffffff', radius=0.05, states=('on
     return o
 
 
-def emissive(material_name, states=('on',), color='#ffd7a0', strength=6.0):
-    """Marks a material as glowing in the given states (lampshades, bulbs, screens)."""
+def emissive(material_name, states=('on',), color='#ffd7a0', strength=6.0, textured=False):
+    """Marks a material as glowing in the given states (lampshades, bulbs, screens). Textured, the glow
+    follows its colour texture in the game (a blind's slats)."""
     for m in [m for m in bpy.data.materials if base_name(m.name) == material_name]:
         m['nm_emit_states'] = ','.join(states)
         m['nm_emit_color'] = color
         m['nm_emit_strength'] = strength
+        if textured:
+            m['nm_emit_textured'] = 1
 
 
 def set_world(color=(0.01, 0.012, 0.02), strength=1.0, hdri=None, hdri_strength=1.0, rotation_deg=0.0, tint=(1, 1, 1)):
@@ -748,3 +765,190 @@ def set_world(color=(0.01, 0.012, 0.02), strength=1.0, hdri=None, hdri_strength=
 
 def hdri_path(asset_id, res='2k'):
     return os.path.join(POLYHAVEN, 'hdris', f'{asset_id}_{res}.hdr')
+
+
+# ------------------------------------------------------------------------------------ decor
+
+ART = os.path.join(DOWNLOADS, 'art')
+
+#            colour                 rough  metal  moulding width, depth
+FRAMES = {
+    'gilt': ((0.6, 0.43, 0.17), 0.32, 1.0, 0.075, 0.05),
+    'walnut': ((0.09, 0.05, 0.028), 0.4, 0.0, 0.055, 0.04),
+    'oak': ((0.4, 0.27, 0.14), 0.5, 0.0, 0.035, 0.03),
+    'black': ((0.012, 0.012, 0.014), 0.35, 0.0, 0.022, 0.028),
+    'white': ((0.78, 0.77, 0.74), 0.45, 0.0, 0.028, 0.028),
+}
+
+
+def ornament(asset_id, location, yaw_deg=0.0, scale=1.0, name=None, budget=6000):
+    """A small Poly Haven prop set on furniture: kept light (some are scanned at 200,000 triangles) and out
+    of the collision mesh (the furniture it stands on collides)."""
+    obj = ph_model(asset_id, location, yaw_deg=yaw_deg, scale=scale, name=name)
+    if tris(obj) > budget:
+        decimate(obj, budget)
+    obj['nm_keep_detail'] = 1  # decimated here, to its own budget
+    return nocollide(obj)
+
+
+def picture(name, art_id, center, yaw_deg, width, frame='walnut', mount=0.0, height=None, glazed=False):
+    """A framed painting or print on a wall (static: it is lightmapped with the room). center: the middle
+    of the picture on the wall surface; yaw_deg: the way it faces (0 = +Y); width: of the image itself (a
+    mount and the frame add to it). The height follows the image unless given, when the image is cropped
+    to fill it. mount: a card border (prints and photos, behind glass: glazed)."""
+    img = bpy.data.images.load(os.path.join(ART, f'{art_id}.jpg'), check_existing=True)
+    img.name = f'art_{art_id}'  # the texture keeps this name: tools/build-rooms.mjs caps textures by name
+    iw, ih = img.size
+    h = height or width * ih / iw
+    u0, u1, v0, v1 = 0.0, 1.0, 0.0, 1.0
+    if height:
+        want, have = h / width, ih / iw
+        if want > have:  # taller than the image: trim its sides
+            k = have / want
+            u0, u1 = 0.5 - k / 2, 0.5 + k / 2
+        else:
+            k = want / have
+            v0, v1 = 0.5 - k / 2, 0.5 + k / 2
+    color, rough, metal, fw, depth = FRAMES[frame]
+    frame_mat = simple_material(f'NM_Frame_{frame}', color, rough=rough, metal=metal)
+    art = bpy.data.materials.get(f'NM_Art_{art_id}')
+    if art is None:
+        # image_material loads the file by its path, and so finds the image loaded above
+        art = image_material(f'NM_Art_{art_id}', img.filepath, rough=0.2 if glazed else 0.55)
+    # built facing +Y about the origin (the wall surface), then turned and moved into place.
+    # Seen from the front (from +Y) the picture's right is -X.
+    iw2, ih2 = width / 2 + mount, h / 2 + mount  # inside of the frame
+    ow, oh = iw2 + fw, ih2 + fw  # outside of the frame
+    parts = [
+        add_box(f'{name}_top', (-ow, 0, ih2), (ow, depth, oh), frame_mat),
+        add_box(f'{name}_bottom', (-ow, 0, -oh), (ow, depth, -ih2), frame_mat),
+        add_box(f'{name}_left', (iw2, 0, -ih2), (ow, depth, ih2), frame_mat),
+        add_box(f'{name}_right', (-ow, 0, -ih2), (-iw2, depth, ih2), frame_mat),
+    ]
+    if frame in ('gilt', 'walnut'):
+        # a raised bead along the inside edge of the moulding
+        lip, rise = 0.012, 0.008
+        parts += [
+            add_box(f'{name}_lip_t', (-iw2 - lip, 0, ih2), (iw2 + lip, depth + rise, ih2 + lip), frame_mat),
+            add_box(f'{name}_lip_b', (-iw2 - lip, 0, -ih2 - lip), (iw2 + lip, depth + rise, -ih2), frame_mat),
+            add_box(f'{name}_lip_l', (iw2, 0, -ih2), (iw2 + lip, depth + rise, ih2), frame_mat),
+            add_box(f'{name}_lip_r', (-iw2 - lip, 0, -ih2), (-iw2, depth + rise, ih2), frame_mat),
+        ]
+    face = depth - 0.01
+    if mount:
+        card = simple_material('NM_Mount', (0.8, 0.78, 0.73), rough=0.8)
+        parts.append(add_quad(f'{name}_mount', [(iw2, face - 0.001, -ih2), (-iw2, face - 0.001, -ih2),
+                                                (-iw2, face - 0.001, ih2), (iw2, face - 0.001, ih2)], card))
+    x, z = width / 2, h / 2
+    canvas = add_quad(f'{name}_canvas', [(x, face, -z), (-x, face, -z), (-x, face, z), (x, face, z)], art)
+    uv = canvas.data.uv_layers[0]
+    for li, (u, v) in enumerate(((u0, v0), (u1, v0), (u1, v1), (u0, v1))):
+        uv.data[li].uv = (u, v)
+    parts.append(canvas)
+    obj = join(parts, name)
+    obj.data.transform(Matrix.Translation(Vector(center)) @ yaw_matrix(yaw_deg))
+    obj.data.update()
+    return nocollide(obj)
+
+
+def rug(name, center, size, yaw_deg, tex_id, tint=None, tile=0.6, border=0.07, border_color=(0.22, 0.05, 0.04)):
+    """A rug on the floor (static): a woven field with a plain bound border, 8 mm thick."""
+    field = ph_texture_material(f'NM_Rug_{name}', tex_id, res='1k', tint=tint, rough=0.95, normal_strength=0.6)
+    edge = simple_material(f'NM_RugBorder_{name}', border_color, rough=0.95)
+    sx, sy = size[0] / 2, size[1] / 2
+    t = 0.008
+    parts = [
+        # just its top: side faces would lie on the border's, and welded they'd make duplicate faces
+        add_box(f'{name}_field', (-sx + border, -sy + border, 0), (sx - border, sy - border, t), field, tile, faces={'+z'}),
+        add_box(f'{name}_b0', (-sx, -sy, 0), (sx, -sy + border, t), edge),
+        add_box(f'{name}_b1', (-sx, sy - border, 0), (sx, sy, t), edge),
+        add_box(f'{name}_b2', (-sx, -sy + border, 0), (-sx + border, sy - border, t), edge),
+        add_box(f'{name}_b3', (sx - border, -sy + border, 0), (sx, sy - border, t), edge),
+    ]
+    obj = join(parts, name)
+    obj.data.transform(Matrix.Translation(Vector(center)) @ yaw_matrix(yaw_deg))
+    obj.data.update()
+    return nocollide(obj)
+
+
+def face_into_room(lo, hi, into, material='Walls'):
+    """Turns the faces (of one material) inside a world box that face away from the room (into: towards
+    the room, e.g. (0, 1, 0)) round to face it. A few walls of the source scenes are modelled inside out:
+    seen from the room they are back faces, and they bake black."""
+    lo, hi, into = Vector(lo), Vector(hi), Vector(into).normalized()
+    turned = 0
+    for o in mesh_objects():
+        if o.get('nm_dynamic') or o.name.startswith(('I_', 'COL_', 'DYN_')):
+            continue
+        blo, bhi = world_bbox(o)
+        if any(bhi[i] < lo[i] or blo[i] > hi[i] for i in range(3)):
+            continue
+        mw = o.matrix_world
+        rot = mw.to_3x3()
+        bm = bmesh.new()
+        bm.from_mesh(o.data)
+        slots = [m.name if m else '' for m in o.data.materials]
+        faces = [f for f in bm.faces
+                 if (material is None or (f.material_index < len(slots) and base_name(slots[f.material_index]) == material))
+                 and all(lo[i] <= (mw @ f.calc_center_median())[i] <= hi[i] for i in range(3))
+                 and (rot @ f.normal).normalized().dot(into) < -0.9]
+        if faces:
+            bmesh.ops.reverse_faces(bm, faces=faces)
+            bm.to_mesh(o.data)
+            o.data.update()
+            turned += len(faces)
+        bm.free()
+    log(f'turned {turned} inside-out faces towards the room')
+    return turned
+
+
+def remove_faces(lo, hi, material=None, facing=None):
+    """Deletes the faces (of one material, or any) whose centres lie in a world box, and, given facing, only
+    those that face that way. For a surface that a new one replaces: left behind it, the old one ends up in
+    the same plane once the game's mesh compression rounds the positions, and shows through it."""
+    lo, hi = Vector(lo), Vector(hi)
+    facing = Vector(facing).normalized() if facing else None
+    removed = 0
+    for o in mesh_objects():
+        if o.get('nm_dynamic') or o.name.startswith(('I_', 'COL_', 'DYN_')):
+            continue
+        blo, bhi = world_bbox(o)
+        if any(bhi[i] < lo[i] or blo[i] > hi[i] for i in range(3)):
+            continue
+        mw = o.matrix_world
+        rot = mw.to_3x3()
+        bm = bmesh.new()
+        bm.from_mesh(o.data)
+        slots = [m.name if m else '' for m in o.data.materials]
+        faces = [f for f in bm.faces
+                 if (material is None or (f.material_index < len(slots) and base_name(slots[f.material_index]) == material))
+                 and all(lo[i] <= (mw @ f.calc_center_median())[i] <= hi[i] for i in range(3))
+                 and (facing is None or (rot @ f.normal).normalized().dot(facing) > 0.9)]
+        if faces:
+            bmesh.ops.delete(bm, geom=faces, context='FACES')
+            bm.to_mesh(o.data)
+            o.data.update()
+            removed += len(faces)
+        bm.free()
+    log(f'removed {removed} faces')
+    return removed
+
+
+def clear_glass(objs, alpha=0.1):
+    """Poly Haven's glass is see-through only through Cycles' transmission, which glTF leaves out: it
+    arrives in the game as an opaque pane (the grandfather clock's hid its face). Makes it a faint,
+    glossy blended glass instead."""
+    for o in objs if isinstance(objs, (list, tuple)) else [objs]:
+        for slot in o.material_slots:
+            m = slot.material
+            if not m or not m.name.lower().endswith('_glass'):
+                continue
+            b = _principled(m)
+            for link in list(m.node_tree.links):
+                if link.to_node == b and link.to_socket.name in ('Base Color', 'Alpha', 'Roughness', 'Transmission Weight'):
+                    m.node_tree.links.remove(link)
+            b.inputs['Base Color'].default_value = (0.85, 0.87, 0.9, 1.0)
+            b.inputs['Alpha'].default_value = alpha
+            b.inputs['Roughness'].default_value = 0.04
+            b.inputs['Transmission Weight'].default_value = 0.0
+            m.surface_render_method = 'BLENDED'

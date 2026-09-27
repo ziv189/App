@@ -298,6 +298,8 @@ export class Game implements StoryHost {
   private startFrom(id: ChapterId, fresh: boolean): void {
     void this.audio.resume();
     this.input.requestPointerLock();
+    // the grandfather clock is unwound until the chapter (or the player, in chapter 1) winds it
+    this.fx.resetClock();
     this.ui.show('none');
     this.state = 'playing';
     this.loop.reset();

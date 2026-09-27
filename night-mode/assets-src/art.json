@@ -1,0 +1,22 @@
+{
+ "_about": "Public-domain paintings and prints hung in the house (Wikimedia Commons). Fetched by tools/fetch-art.mjs into assets-src/downloads/art/<id>.jpg; the room build scripts hang them with picture() in tools/blender/nm_lib.py.",
+ "art": [
+  {"id": "bruegel_hunters", "file": "File:Pieter Bruegel the Elder - Hunters in the Snow (Winter) - Google Art Project.jpg", "title": "Hunters in the Snow", "artist": "Pieter Bruegel the Elder", "year": "1565"},
+  {"id": "monet_magpie", "file": "File:Claude Monet - The Magpie - Google Art Project.jpg", "title": "The Magpie", "artist": "Claude Monet", "year": "1869"},
+  {"id": "avercamp_skaters", "file": "File:Hendrick Avercamp - Ijs landschap (ca.1610).jpg", "title": "Winter Landscape with Skaters", "artist": "Hendrick Avercamp", "year": "c. 1610"},
+  {"id": "vermeer_milkmaid", "file": "File:Johannes Vermeer - Het melkmeisje - Google Art Project.jpg", "title": "The Milkmaid", "artist": "Johannes Vermeer", "year": "c. 1658"},
+  {"id": "cezanne_apples", "file": "File:Paul Cézanne - Still Life with Apples - Google Art Project.jpg", "title": "Still Life with Apples", "artist": "Paul Cézanne", "year": "1894"},
+  {"id": "larsson_christmas", "file": "File:Julaftonen av Carl Larsson 1904.jpg", "title": "Christmas Eve", "artist": "Carl Larsson", "year": "1904"},
+  {"id": "larsson_nook", "file": "File:Carl Larsson-Lathörnet.jpg", "title": "The Lazy Nook", "artist": "Carl Larsson", "year": "1899"},
+  {"id": "redoute_foliacea", "file": "File:Redoute - Rosa centifolia foliacea.jpg", "title": "Rosa centifolia foliacea", "artist": "Pierre-Joseph Redouté", "year": "1824"},
+  {"id": "redoute_burgundiaca", "file": "File:Rosa centifolia Burgundiaca.jpg", "title": "Rosa centifolia Burgundiaca", "artist": "Pierre-Joseph Redouté", "year": "1824"},
+  {"id": "redoute_regalis", "file": "File:Redoute - Rosa gallica regalis.jpg", "title": "Rosa gallica regalis", "artist": "Pierre-Joseph Redouté", "year": "1824"},
+  {"id": "vangogh_almond", "file": "File:Vincent van Gogh - Almond blossom - Google Art Project.jpg", "title": "Almond Blossom", "artist": "Vincent van Gogh", "year": "1890"},
+  {"id": "monet_parasol", "file": "File:Claude Monet - Woman with a Parasol - Madame Monet and Her Son - Google Art Project.jpg", "title": "Woman with a Parasol", "artist": "Claude Monet", "year": "1875"},
+  {"id": "hokusai_wave", "file": "File:Tsunami by hokusai 19th century.jpg", "title": "The Great Wave off Kanagawa", "artist": "Katsushika Hokusai", "year": "c. 1831"},
+  {"id": "sargent_carnation", "file": "File:John Singer Sargent - Carnation, Lily, Lily, Rose - Google Art Project.jpg", "title": "Carnation, Lily, Lily, Rose", "artist": "John Singer Sargent", "year": "1886"},
+  {"id": "potter_peter", "file": "File:An-Original-Illustration-Of-Peter-Rabbit-From-1902-Author-Beatrix-Potter.jpg", "title": "The Tale of Peter Rabbit", "artist": "Beatrix Potter", "year": "1902"},
+  {"id": "potter_tiggy", "file": "File:Beatrix Potter, Mrs Tiggy-Winkle, Peter Rabbit.jpg", "title": "Mrs. Tiggy-Winkle and Peter Rabbit", "artist": "Beatrix Potter", "year": "1905"},
+  {"id": "willcox_rhymes", "file": "File:'Rhymes of Real Children' by Jessie Willcox Smith, 1903.jpg", "title": "Rhymes of Real Children", "artist": "Jessie Willcox Smith", "year": "1903"}
+ ]
+}

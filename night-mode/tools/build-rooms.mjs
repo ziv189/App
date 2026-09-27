@@ -18,15 +18,19 @@ import { optimizeGltf, report } from './lib/gltf.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ALL = ['hall', 'living', 'kitchen', 'bedroom', 'bathroom', 'ivy', 'basement', 'exterior'];
 /** Texture size limits per room (name pattern, max px): GPU memory adds up across eight rooms. */
-const INTERIOR_CAPS = [[/(floor|Floor|wall|Wall|WoodPanel|Parquet|Tiles)/, 2048], [/./, 1024]];
+/** Small props set on furniture: seen from a metre or more, never full screen. */
+const SMALL_PROPS = /(candlestick|chess_set|book_encyclopedia|ceramic_vase|antique_ceramic|picture_frame|oil_lamp|tea_set|jug_01|wooden_bowl|wicker_basket|telephone_wall|planter_pot|bananas|food_apple|Ukulele|rubber_duck|elephant|alarm_clock|mantel_clock)/;
+/** Poly Haven props' normal and roughness/metal maps: half their colour map is plenty indoors. */
+const PROP_MAPS = /_(nor_gl|arm)_[124]k/;
+const INTERIOR_CAPS = [[/(floor|Floor|wall|Wall|WoodPanel|Parquet|Tiles)/, 2048], [SMALL_PROPS, 512], [PROP_MAPS, 512], [/./, 1024]];
 const TEXTURE_CAPS = {
   exterior: [[/tree_atlas/, 2048], [/(snow_0[23]|pier|wood_floor)/, 1024], [/./, 512]],
   hall: INTERIOR_CAPS,
   living: INTERIOR_CAPS,
   kitchen: INTERIOR_CAPS,
   bedroom: INTERIOR_CAPS,
-  bathroom: [[/./, 1024]],
-  ivy: [[/./, 1024]],
+  bathroom: [[SMALL_PROPS, 512], [PROP_MAPS, 512], [/./, 1024]],
+  ivy: [[SMALL_PROPS, 512], [PROP_MAPS, 512], [/./, 1024]],
   basement: [[/./, 1024]],
 };
 
@@ -56,7 +60,13 @@ async function main() {
         '--room', room, '--samples', value('--samples', '64')];
       if (value('--size')) pyArgs.push('--size', value('--size'));
       if (flag('--no-bake')) pyArgs.push('--no-bake');
-      const r = spawnSync(blender(), pyArgs, { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', maxBuffer: 1 << 28 });
+      let r = spawnSync(blender(), pyArgs, { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', maxBuffer: 1 << 28 });
+      // Blender 4.5's Cycles now and then crashes (SIGSEGV) while it loads a scene to bake, and the
+      // same scene bakes fine the next time: try again before giving up
+      for (let attempt = 2; r.signal === 'SIGSEGV' && attempt <= 3; attempt++) {
+        console.log(`Blender crashed (${r.signal}); trying again (${attempt} of 3)`);
+        r = spawnSync(blender(), pyArgs, { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', maxBuffer: 1 << 28 });
+      }
       for (const line of (r.stdout ?? '').split('\n')) if (/^\[(room|bake)\]|Error|Traceback/.test(line)) console.log(line);
       if (r.status !== 0) {
         const tail = (r.stdout ?? '').trim().split('\n').slice(-25).join('\n');

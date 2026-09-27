@@ -76,13 +76,34 @@ interface CellMeta {
   exposure?: Record<string, number>;
 }
 
-interface EmissiveEntry {
+export interface EmissiveEntry {
   material: MeshStandardMaterial;
   color: Color;
   intensity: number;
   states: Set<string>;
   /** Extra multiplier set by the story (windows blazing, a screen going dark). */
   boost: number;
+}
+
+/**
+ * A glowing material's glow (L.emissive in the room scripts), or null. Its colour and strength are the ones
+ * the room script set: the exported glow is the room's first state's, which is black for something that
+ * only glows in the moonlight. A textured glow follows the colour texture (a blind's slats).
+ */
+export function glowOf(mat: MeshStandardMaterial): EmissiveEntry | null {
+  const ud = mat.userData;
+  if (!ud.nm_emit_states) return null;
+  if (ud.nm_emit_textured && mat.map && !mat.emissiveMap) {
+    mat.emissiveMap = mat.map;
+    mat.needsUpdate = true;
+  }
+  return {
+    material: mat,
+    color: ud.nm_emit_color ? new Color(String(ud.nm_emit_color)) : mat.emissive.clone(),
+    intensity: ud.nm_emit_strength !== undefined ? Number(ud.nm_emit_strength) : mat.emissiveIntensity,
+    states: new Set(String(ud.nm_emit_states).split(',')),
+    boost: 1,
+  };
 }
 
 const UP = new Vector3(0, 1, 0);
@@ -93,7 +114,9 @@ const TURN = new Quaternion();
  * The models' pivots were set in Blender (a door's at its hinge, the lever's at its foot), but the
  * mesh compression moves every mesh's origin to the middle of its bounds, so they are found again here.
  */
-function pivotPoint(name: string, obj: Object3D): Vector3 | null {
+function pivotPoint(name: string, obj: Object3D, markers: Map<string, Object3D>): Vector3 | null {
+  // the grandfather clock's hands turn about the middle of its dial (marker M_clock_dial)
+  if (name === 'clock_minute' || name === 'clock_hour') return markers.get('clock_dial')?.getWorldPosition(new Vector3()) ?? null;
   const box = new Box3().setFromObject(obj);
   if (box.isEmpty()) return null;
   const centre = box.getCenter(new Vector3());
@@ -234,15 +257,8 @@ export class Cell {
         if (seenMaterials.has(mat)) continue;
         seenMaterials.add(mat);
         if (mat.userData.sosies_glass) convertGlass(mat as MeshPhysicalMaterial);
-        if (mat.userData.nm_emit_states) {
-          cell.emissive.push({
-            material: mat,
-            color: mat.emissive.clone(),
-            intensity: mat.emissiveIntensity,
-            states: new Set(String(mat.userData.nm_emit_states).split(',')),
-            boost: 1,
-          });
-        }
+        const glow = glowOf(mat);
+        if (glow) cell.emissive.push(glow);
         if (def.exterior && !NO_SNOW.test(mat.name) && !mat.transparent && 'roughness' in mat) applySnowCover(mat);
         // the snow and the ice themselves: drifts, glints, glassy patches on paths and ice
         if (def.exterior && /^NM_(Snow|Ice)/.test(mat.name) && 'roughness' in mat) {
@@ -258,7 +274,7 @@ export class Cell {
 
     // things that turn get their pivot back (see repivot): doors on their hinges, the rest on their joints
     for (const [name, obj] of [...cell.dynamic]) {
-      const hinge = pivotPoint(name, obj);
+      const hinge = pivotPoint(name, obj, cell.markers);
       if (!hinge) continue;
       const pivot = repivot(obj, hinge);
       cell.dynamic.set(name, pivot);

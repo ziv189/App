@@ -75,6 +75,94 @@ def drawing_quad(name, variant, centre, width, normal_axis, tilt_deg=0.0):
     return q
 
 
+def bunting(y0, y1, z, x=X0 + 0.02, flags=11, sag=0.12):
+    """Paper bunting along the west wall over the bed: little triangles on a sagging string."""
+    colours = ((0.82, 0.3, 0.42), (0.95, 0.78, 0.3), (0.35, 0.6, 0.85), (0.5, 0.78, 0.45), (0.95, 0.55, 0.28))
+    mats = [L.simple_material(f'NM_Bunting_{i}', c, rough=0.85) for i, c in enumerate(colours)]
+    parts = []
+    for i in range(flags):
+        t0, t1 = (i + 0.08) / flags, (i + 0.92) / flags
+        a = Vector((x, y0 + (y1 - y0) * t0, z - sag * 4 * t0 * (1 - t0)))
+        b = Vector((x, y0 + (y1 - y0) * t1, z - sag * 4 * t1 * (1 - t1)))
+        tip = (a + b) / 2 - Vector((0, 0, 0.15))
+        me = bpy.data.meshes.new(f'flag_{i}')
+        me.from_pydata([tuple(a), tuple(b), tuple(tip)], [], [(0, 2, 1)])  # facing +X, into the room
+        me.validate()
+        me.update()
+        me.materials.append(mats[i % len(mats)])
+        parts.append(L.link(bpy.data.objects.new(f'flag_{i}', me)))
+    # the string: one thin ribbon along the sag
+    string = L.simple_material('NM_BuntingString', (0.85, 0.82, 0.75), rough=0.9)
+    verts, faces, n = [], [], 32
+    for i in range(n + 1):
+        t = i / n
+        y, zc = y0 + (y1 - y0) * t, z - sag * 4 * t * (1 - t)
+        verts += [(x + 0.001, y, zc - 0.002), (x + 0.001, y, zc + 0.002)]
+        if i:
+            faces.append((2 * i - 2, 2 * i, 2 * i + 1, 2 * i - 1))  # facing +X
+    me = bpy.data.meshes.new('bunting_string')
+    me.from_pydata(verts, [], faces)
+    me.validate()
+    me.update()
+    me.materials.append(string)
+    parts.append(L.link(bpy.data.objects.new('bunting_string', me)))
+    return L.nocollide(L.join(parts, 'bunting'))
+
+
+def glow_stars(count=16, seed=7):
+    """Glow-in-the-dark stars stuck on the ceiling: pale plastic by day, a soft green glow when the lights
+    are out."""
+    import random
+    rnd = random.Random(seed)
+    mat = L.simple_material('NM_GlowStars', (0.86, 0.93, 0.74), rough=0.6, emission=(0.62, 1.0, 0.56), emission_strength=1.2)
+    L.emissive('NM_GlowStars', states=('moon',), color='#b8ffae', strength=1.2)
+    parts = []
+    for i in range(count):
+        r = rnd.uniform(0.035, 0.065)
+        cx, cy = rnd.uniform(X0 + 0.25, X1 - 0.25), rnd.uniform(Y0 + 0.25, Y1 - 0.25)
+        spin = rnd.uniform(0, math.tau)
+        # a fan of triangles round the middle
+        pts = [(cx, cy, H - 0.002)]
+        for k in range(10):
+            rr = r if k % 2 == 0 else r * 0.42
+            ang = spin + k * math.pi / 5
+            pts.append((cx + rr * math.cos(ang), cy + rr * math.sin(ang), H - 0.002))
+        me = bpy.data.meshes.new(f'star_{i}')
+        me.from_pydata(pts, [], [(0, 1 + (k + 1) % 10, 1 + k) for k in range(10)])  # facing down
+        me.validate()
+        me.update()
+        me.materials.append(mat)
+        parts.append(L.link(bpy.data.objects.new(f'star_{i}', me)))
+    return L.nocollide(L.join(parts, 'glow_stars'))
+
+
+def decor(bed_lo):
+    """A small desk south of the bed, prints, bunting, glow stars on the ceiling, a ukulele, a shelf of
+    toys and a soft rug: the room she left."""
+    # the desk against the west wall past the foot of the bed; she sat facing the wall
+    dy = bed_lo.y - 0.42
+    L.ph_model('SchoolDesk_01', (X0 + 0.29, dy, FLOOR), yaw_deg=90, name='ivy_desk')
+    top = L.surface_z(X0 + 0.29, dy, 1.4, FLOOR + 0.8)
+    L.ph_model('SchoolChair_01', (X0 + 0.78, dy + 0.05, FLOOR), yaw_deg=-80, name='ivy_chair')
+    L.ornament('book_encyclopedia_set_01', (X0 + 0.12, dy - 0.3, top), yaw_deg=90, scale=0.55, name='ivy_books', budget=5000)
+    L.ornament('alarm_clock_01', (X0 + 0.2, dy + 0.22, top), yaw_deg=100, name='ivy_alarm_clock', budget=4000)
+    # prints: Peter Rabbit and Mrs. Tiggy-Winkle over the desk, children reading by the door, lanterns
+    L.picture('art_peter', 'potter_peter', (X0, dy - 0.2, FLOOR + 1.35), -90, 0.2, frame='white', mount=0.035, glazed=True)
+    L.picture('art_tiggy', 'potter_tiggy', (X0, dy + 0.22, FLOOR + 1.38), -90, 0.25, frame='white', mount=0.035, glazed=True)
+    L.picture('art_rhymes', 'willcox_rhymes', (-0.85, Y1, FLOOR + 1.45), 180, 0.36, frame='oak')
+    L.picture('art_lanterns', 'sargent_carnation', (X1, -1.08, FLOOR + 1.42), 90, 0.45, frame='walnut')
+    bunting(-0.75, 0.95, 2.02)
+    glow_stars()
+    # the ukulele hangs on the east wall; a narrow shelf of books and toys behind the head of the bed
+    uke = L.ornament('Ukulele_01', (X1 - 0.03, 1.2, FLOOR + 1.0), yaw_deg=-90, name='ukulele', budget=6000)
+    L.nocollide(uke)
+    L.ph_model('painted_wooden_shelves', (X0 + 0.34, Y1 - 0.01, FLOOR), yaw_deg=0, name='ivy_shelves')
+    for z, (asset, scale, yaw) in ((FLOOR + 1.2, ('book_encyclopedia_set_01', 0.45, 0)), (FLOOR + 0.8, ('carved_wooden_elephant', 1.0, 20))):
+        sz = L.surface_z(X0 + 0.34, Y1 - 0.18, z, FLOOR + 0.4)
+        L.ornament(asset, (X0 + (0.2 if asset.startswith('book') else 0.34), Y1 - 0.2, sz), yaw_deg=yaw, scale=scale, name=f'shelf_{asset}', budget=5000)
+    L.rug('ivy_rug', (0.35, -0.15, FLOOR), (1.5, 1.1), 0, 'curly_teddy_checkered', tile=0.5, border_color=(0.7, 0.55, 0.62))
+
+
 def build():
     bpy.ops.wm.read_factory_settings(use_empty=True)
     floor = L.ph_texture_material('NM_IvyFloor', 'old_wooden_floor_02', res='1k', tint=(0.85, 0.75, 0.65))
@@ -127,6 +215,8 @@ def build():
     quilt = L.add_box('quilt', (lo.x + 0.02, lo.y + 0.06, mz), (hi.x - 0.02, hi.y - 0.55, mz + 0.06), wool('NM_Quilt', (0.55, 0.32, 0.45)), 0.5)
     L.add_box('pillow', (lo.x + 0.12, hi.y - 0.5, mz), (hi.x - 0.12, hi.y - 0.12, mz + 0.12), wool('NM_Pillow', (0.82, 0.8, 0.78)), 0.5)
 
+    decor(lo)
+
     # nightstand with the star night light
     ns = L.add_box('nightstand', (X0 + 1.05, 0.75, FLOOR), (X0 + 1.5, 1.15, FLOOR + 0.5), wood, 0.6)
     star_mat = L.simple_material('NM_StarLight', (0.9, 0.8, 0.5), rough=0.5, emission=(1.0, 0.8, 0.45), emission_strength=5.0)
@@ -171,7 +261,9 @@ def build():
     # ---- bake lights: a ceiling lamp; the night light (both states); moonlight through the window
     lamp = L.ph_model('modern_ceiling_lamp_01', (0, 0.2, H), name='ceiling_lamp')
     lo, hi = L.world_bbox(lamp)
-    lamp.location.z -= hi.z - H
+    # its cord is made for a tall ceiling: here the globe would hang at head height, so the top of the
+    # cord goes up through the ceiling and the globe's bottom stays above 2 m
+    lamp.location.z -= hi.z - H - max(0.0, (H - 0.55) - (lo.z - (hi.z - H)))
     L.nocollide(lamp)
     L.light('ceiling', 'POINT', (0, 0.2, H - 0.3), 55, '#ffe0c0', radius=0.15, states=('on',))
     L.light('night_light', 'POINT', (X0 + 1.27, 0.9, FLOOR + 0.62), 3.5, '#ffc46a', radius=0.05, states=('on', 'moon'))

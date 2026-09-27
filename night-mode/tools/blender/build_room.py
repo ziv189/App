@@ -48,7 +48,7 @@ def is_marker(o):
 def classify():
     static, keep = [], []
     for o in L.mesh_objects():
-        if o.name.startswith(('I_', 'COL_', 'EMITTER_')):
+        if o.name.startswith(('I_', 'COL_', 'EMITTER_')) or o.get('nm_bake_only'):
             continue
         if o.get('nm_dynamic') or o.get('nm_nobake') or o.get('sosies_nobake'):
             keep.append(o)
@@ -250,6 +250,8 @@ def main():
         apply_state(states[0], cfg)  # exported emissive strengths match the first state
     # lights are baked; the game creates real-time lights from M_light_ markers where it needs them
     L.delete([o for o in bpy.context.scene.objects if o.type == 'LIGHT'])
+    # what was only there to shade the bake (L.bake_only) doesn't go into the game
+    L.delete([o for o in L.mesh_objects() if o.get('nm_bake_only')])
     export_glb(os.path.join(WORK, f'{args.room}-baked.glb'), meta, cfg.get('texture_caps', ()))
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(WORK, f'{args.room}-final.blend'), compress=True)
     L.log(f'{args.room} done in {time.time() - t0:.0f} s')

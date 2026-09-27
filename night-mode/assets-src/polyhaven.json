@@ -177,6 +177,102 @@
   },
   {
    "id": "vintage_video_camera"
+  },
+  {
+   "id": "GreenChair_01"
+  },
+  {
+   "id": "ArmChair_01"
+  },
+  {
+   "id": "side_table_01"
+  },
+  {
+   "id": "side_table_tall_01"
+  },
+  {
+   "id": "Ottoman_01"
+  },
+  {
+   "id": "GothicCommode_01"
+  },
+  {
+   "id": "vintage_cabinet_01"
+  },
+  {
+   "id": "painted_wooden_cabinet_02"
+  },
+  {
+   "id": "painted_wooden_bench"
+  },
+  {
+   "id": "painted_wooden_shelves"
+  },
+  {
+   "id": "SchoolDesk_01"
+  },
+  {
+   "id": "SchoolChair_01"
+  },
+  {
+   "id": "painted_wooden_nightstand"
+  },
+  {
+   "id": "vintage_wooden_drawer_01"
+  },
+  {
+   "id": "standing_chalkboard_01"
+  },
+  {
+   "id": "Ukulele_01"
+  },
+  {
+   "id": "chess_set"
+  },
+  {
+   "id": "book_encyclopedia_set_01"
+  },
+  {
+   "id": "ceramic_vase_01"
+  },
+  {
+   "id": "antique_ceramic_vase_01"
+  },
+  {
+   "id": "brass_candleholders"
+  },
+  {
+   "id": "mantel_clock_01"
+  },
+  {
+   "id": "tea_set_01"
+  },
+  {
+   "id": "jug_01"
+  },
+  {
+   "id": "wooden_bowl_01"
+  },
+  {
+   "id": "wicker_basket_02"
+  },
+  {
+   "id": "vintage_telephone_wall_clock"
+  },
+  {
+   "id": "standing_picture_frame_02"
+  },
+  {
+   "id": "planter_pot_clay"
+  },
+  {
+   "id": "bananas"
+  },
+  {
+   "id": "food_apple_01"
+  },
+  {
+   "id": "wooden_candlestick"
   }
  ],
  "textures": [
@@ -215,6 +311,22 @@
   {
    "id": "wood_floor_worn",
    "res": "2k"
+  },
+  {
+   "id": "floral_jacquard",
+   "res": "1k"
+  },
+  {
+   "id": "curly_teddy_checkered",
+   "res": "1k"
+  },
+  {
+   "id": "quatrefoil_jacquard_fabric",
+   "res": "1k"
+  },
+  {
+   "id": "poly_wool_herringbone",
+   "res": "1k"
   }
  ],
  "hdris": [

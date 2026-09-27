@@ -202,7 +202,13 @@ export class World {
         c.root.visible = c === ext;
       }
       const hidden: Material[] = [];
+      const unseen: Object3D[] = [];
       ext.root.traverse((o) => {
+        // things that move (the falling snow) would freeze in the picture
+        if (o.userData.noCapture && o.visible) {
+          o.visible = false;
+          unseen.push(o);
+        }
         if (!(o as Mesh).isMesh) return;
         const list = (o as Mesh).material;
         for (const m of Array.isArray(list) ? list : [list]) {
@@ -238,6 +244,7 @@ export class World {
         }
       } finally {
         for (const m of hidden) m.visible = true;
+        for (const o of unseen) o.visible = true;
         for (const [root, visible] of roots) root.visible = visible;
         this.accentLights.forEach((l, i) => (l.visible = accents[i]!));
         this.scene.background = saved.background;

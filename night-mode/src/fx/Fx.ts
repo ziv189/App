@@ -36,8 +36,10 @@ import type { CellId } from '../world/Cell';
 import type { World } from '../world/World';
 import { applyGroundNight } from '../render/SnowGround';
 import { applyWindNight } from '../world/Trees';
+import { ClockHands } from './ClockHands';
 import { MoonBeams } from './MoonBeams';
 import { NightOutdoors } from './NightOutdoors';
+import { WindowSnow } from './WindowSnow';
 import { faceStudio, Screens, type Feed } from './Screens';
 
 const UP = new Vector3(0, 1, 0);
@@ -107,7 +109,10 @@ export class Fx {
   private clockDoorTarget = 0;
   private clockDoorAngle = 0;
   private clockTick: SoundHandle | null = null;
+  private tickStarting = false;
   private pendulum: Bone | Object3D | null = null;
+  /** The grandfather clock's hands (see ClockHands). */
+  private hands: ClockHands | null = null;
   private clockTime = 0;
   private rocking = false;
   private rockTime = 0;
@@ -119,6 +124,8 @@ export class Fx {
   private outdoors: NightOutdoors | null = null;
   /** The moon through the windows indoors, while the house lights are off. */
   readonly moonBeams: MoonBeams;
+  /** Snow falling past the windows indoors (the view out of them is a still picture). */
+  private readonly windowSnow: WindowSnow;
   private scareQuad: Mesh | null = null;
   private readonly tmp = new Vector3();
   private readonly tmp2 = new Vector3();
@@ -139,6 +146,7 @@ export class Fx {
     this.flashlight.shadow.camera.near = 0.1;
     d.scene.add(this.flashlight, this.flashlight.target);
     this.moonBeams = new MoonBeams(d.scene);
+    this.windowSnow = new WindowSnow(d.scene);
   }
 
   // ----------------------------------------------------------------------------------- setup
@@ -173,7 +181,18 @@ export class Fx {
         const clock = cell.dynamic.get('clock');
         if (clock?.getObjectByName('clock_pendulum')) this.pendulum = clock;
       }
+      if (cellId === 'living' && !this.hands) {
+        const minute = cell.dynamic.get('clock_minute');
+        const hour = cell.dynamic.get('clock_hour');
+        const dial = cell.markers.get('clock_dial');
+        if (minute && hour && dial) {
+          const facing = new Vector3(0, 0, -1).applyQuaternion(dial.getWorldQuaternion(new Quaternion()));
+          this.hands = new ClockHands(minute, hour, facing);
+        }
+      }
     }
+    // a saved game can set the clock going before the living room is here to tick in
+    if (this.clockOn) this.startTick();
     if (chars.ivy && !this.ivyScreen) {
       this.ivyScreen = new Character(chars.ivy);
       this.ivyScreen.play('idle');
@@ -374,16 +393,34 @@ export class Fx {
 
   clockRunning(on: boolean): void {
     this.clockOn = on;
-    if (on && !this.clockTick) {
-      void this.d.audio.play('clock_tick', { at: this.anchor('living', 'clock'), loop: true, volume: 0.7, refDistance: 1.6 }).then((h) => {
-        if (this.clockOn) this.clockTick = h;
-        else h.stop(0.1);
-      });
-    }
-    if (!on) {
+    if (on) this.startTick();
+    else {
       this.clockTick?.stop(0.2);
       this.clockTick = null;
+      this.hands?.stop();
     }
+  }
+
+  /** The tick comes from the clock, so it waits for the living room (attach starts it when that arrives). */
+  private startTick(): void {
+    if (this.clockTick || this.tickStarting || !this.d.world.cells.has('living')) return;
+    this.tickStarting = true;
+    void this.d.audio.play('clock_tick', { at: this.anchor('living', 'clock'), loop: true, volume: 0.7, refDistance: 1.6 }).then(
+      (h) => {
+        this.tickStarting = false;
+        if (this.clockOn) this.clockTick = h;
+        else h.stop(0.1);
+      },
+      () => {
+        this.tickStarting = false;
+      },
+    );
+  }
+
+  /** A new game: the clock stands where it stopped that night, unwound. */
+  resetClock(): void {
+    this.clockRunning(false);
+    this.hands?.reset();
   }
 
   /** The grandfather clock's case door swings open (or shut) on its hinge, slowly. */
@@ -799,6 +836,7 @@ export class Fx {
     this.nightDetail = full;
     this.outdoors?.setDetail(full);
     this.moonBeams.setDetail(full);
+    this.windowSnow.setDetail(full);
   }
 
   /** Re-reads the night config (lamps, snow, mist, moon beams) after it changed. */
@@ -822,7 +860,8 @@ export class Fx {
     const aim = this.tmp2.copy(cam.position).addScaledVector(fwd, 6);
     this.flashlight.target.position.lerp(aim, 1 - Math.exp(-18 * dt));
 
-    // clock pendulum
+    // the clock's hands, and its pendulum
+    this.hands?.update(this.clockOn, this.d.clock(), performance.now(), dt);
     if (this.clockOn && this.pendulum) {
       this.clockTime += dt;
       this.pendulum.rotation.z = Math.sin(this.clockTime * Math.PI) * 0.14;
@@ -882,6 +921,7 @@ export class Fx {
     // the night outside: lamps, window light, mist, snow; and the moon through the windows inside
     this.outdoors?.update(cur?.def.id === 'exterior');
     this.moonBeams.update(cur ?? null);
+    this.windowSnow.update(cur ?? null, this.d.renderer);
     this.ivyMirror?.update(dt);
     this.ivyLake?.update(0);
     this.jordan?.update(dt);

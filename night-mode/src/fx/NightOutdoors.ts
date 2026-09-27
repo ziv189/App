@@ -539,6 +539,9 @@ export class NightOutdoors {
     const points = new Points(geo, material);
     points.name = 'snowfall';
     points.frustumCulled = false;
+    // not in the still pictures of the garden taken for the windows indoors (World.captureOutdoorViews):
+    // there the flakes froze in mid-air; indoors, WindowSnow falls past the glass instead
+    points.userData.noCapture = true;
     points.renderOrder = 30;
     return [points, material];
   }
