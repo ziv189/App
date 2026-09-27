@@ -25,7 +25,7 @@ export class WindowSnow {
   private readonly count: number;
   private readonly viewSize = new Vector2();
 
-  constructor(scene: Scene, count = 2600) {
+  constructor(scene: Scene, count = 10000) {
     this.count = count;
     const seed = new Float32Array(count * 4);
     for (let i = 0; i < seed.length; i++) seed[i] = Math.random();
@@ -38,9 +38,11 @@ export class WindowSnow {
       depthWrite: false,
       uniforms: {
         time: nightTime,
-        size: { value: 1.3 },
+        // a little smaller than the garden's own flakes (NIGHT.snowfall.size), and denser: seen through a
+        // window, the garden's thin snowfall would be a handful of flakes
+        size: { value: 2.6 },
         viewHeight: { value: 1080 },
-        box: { value: new Vector3(12, 8, 12) },
+        box: { value: new Vector3(20, 10, 20) },
         roomMin: { value: new Vector3() },
         roomMax: { value: new Vector3() },
         roomLit: { value: 0 },
@@ -77,8 +79,8 @@ export class WindowSnow {
           float dist = max( - mvPosition.z, 0.2 );
           gl_PointSize = size * ( 0.55 + 0.9 * seed.w * seed.w ) * ( viewHeight / 1080.0 ) * 10.0 / dist;
           // moonlit, and warm close to the lit rooms of the house
-          vColor = ambient + warm * roomLit * 0.55 * exp( - away * 1.3 );
-          vAlpha = smoothstep( 0.02, 0.3, away ) * ( 1.0 - smoothstep( 5.0, 6.0, dist ) );
+          vColor = ambient + warm * roomLit * 1.4 * exp( - away * 0.5 );
+          vAlpha = smoothstep( 0.02, 0.3, away ) * smoothstep( 0.25, 1.0, dist ) * ( 1.0 - smoothstep( 8.5, 10.0, dist ) );
         }`,
       fragmentShader: /* glsl */ `
         varying vec3 vColor;

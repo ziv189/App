@@ -57,8 +57,9 @@ What made the night read as "the day with the brightness turned down":
 - Drifting low mist over the garden and the lake; falling snow that lights up as it drifts through lamp light;
   shafts of lit air through the windows indoors, with dust drifting in them.
 - Indoors, the view out of the windows is a picture of the garden taken once; snow falls past the glass in
-  front of it (`src/fx/WindowSnow.ts`: only outside the room, warm near the lit house), and the falling snow
-  is left out of that picture so no flakes hang frozen in it.
+  front of it (`src/fx/WindowSnow.ts`: only outside the room, denser than the garden's own snowfall so that a
+  window shows more than a handful of flakes, and lit warm by the house's lights for a few metres out), and
+  the falling snow is left out of that picture so no flakes hang frozen in it.
 
 **Materials**
 - Snow: large wind-blown drifts of lighter and darker snow over the tiled texture, varied roughness, and crystals
