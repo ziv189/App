@@ -1,0 +1,10 @@
+; Minimal project for tools/setup/smoke_test.sh. It only proves the toolchain renders; it isn't game code.
+config_version=5
+
+[application]
+
+config/name="CONVICTION toolchain smoke test"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"

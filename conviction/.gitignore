@@ -1,5 +1,5 @@
 # Godot import cache and exported builds
-game/.godot/
+.godot/
 /build/
 
 # Regenerable local caches (tool downloads, generated assets)
