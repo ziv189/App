@@ -1,0 +1,22 @@
+{
+  "scene": "32",
+  "heading": "32. NIGHTMARE — THE BASEMENT",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_32-bell-16387a",
+      "order": 1,
+      "speaker": "BELL",
+      "qualifier": "RADIO",
+      "context": null,
+      "script_text": "Six-D, all quiet.",
+      "text": "Six-D, all quiet.",
+      "directions": [],
+      "subtitle_speaker": "RADIO",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_32/scene_32-bell-16387a.ogg",
+      "lipsync_file": "res://data/lipsync/scene_32/scene_32-bell-16387a.json",
+      "subtitle_timing": null
+    }
+  ]
+}

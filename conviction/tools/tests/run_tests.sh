@@ -10,6 +10,11 @@ run() {  # name command...
 }
 
 run "lint: script structure" python3 "$ROOT/tools/lint/script_structure.py"
+run "lint: dialogue data up to date" python3 "$ROOT/tools/pipeline/script_to_data.py" --check
+run "lint: dialogue coverage" python3 "$ROOT/tools/lint/dialogue_coverage.py"
+for test in "$ROOT"/tools/tests/test_*.py; do
+  run "python: $(basename "$test" .py)" python3 "$test"
+done
 for test in "$ROOT"/tools/tests/test_*.gd; do
   run "godot: $(basename "$test" .gd)" "$GODOT" --headless --path "$ROOT/game" --script "$test"
 done

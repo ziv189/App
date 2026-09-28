@@ -1,0 +1,39 @@
+{
+  "scene": "22A",
+  "heading": "22A. EXT. CORNER OF HOLLIS AND NINTH — NIGHT",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_22a-ward-ac9bd3",
+      "order": 1,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Put a uniform on Dennis Pryce's door tonight. Quietly. Nobody knows but you.",
+      "text": "Put a uniform on Dennis Pryce's door tonight. Quietly. Nobody knows but you.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_22a/scene_22a-ward-ac9bd3.ogg",
+      "lipsync_file": "res://data/lipsync/scene_22a/scene_22a-ward-ac9bd3.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_22a-brennan-43733a",
+      "order": 2,
+      "speaker": "BRENNAN",
+      "qualifier": "ON PHONE",
+      "context": null,
+      "script_text": "(beat) Done.",
+      "text": "Done.",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "BRENNAN",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_22a/scene_22a-brennan-43733a.ogg",
+      "lipsync_file": "res://data/lipsync/scene_22a/scene_22a-brennan-43733a.json",
+      "subtitle_timing": null
+    }
+  ]
+}

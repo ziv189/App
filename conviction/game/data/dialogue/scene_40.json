@@ -1,0 +1,42 @@
+{
+  "scene": "40",
+  "heading": "40. INT. THE CARLYLE, APARTMENT 4F — SIX YEARS EARLIER — NIGHT",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_40-ward-f7e9c8",
+      "order": 1,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "(slurred, not unkind) Not tonight, kid.",
+      "text": "Not tonight, kid.",
+      "directions": [
+        "slurred, not unkind"
+      ],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_40/scene_40-ward-f7e9c8.ogg",
+      "lipsync_file": "res://data/lipsync/scene_40/scene_40-ward-f7e9c8.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_40-lily-7ef477",
+      "order": 2,
+      "speaker": "LILY",
+      "qualifier": "O.S.",
+      "context": null,
+      "script_text": "Please, Mr. Ward. (beat) It's Walt. (beat) I'm scared of him.",
+      "text": "Please, Mr. Ward. It's Walt. I'm scared of him.",
+      "directions": [
+        "beat",
+        "beat"
+      ],
+      "subtitle_speaker": "LILY",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_40/scene_40-lily-7ef477.ogg",
+      "lipsync_file": "res://data/lipsync/scene_40/scene_40-lily-7ef477.json",
+      "subtitle_timing": null
+    }
+  ]
+}

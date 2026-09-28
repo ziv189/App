@@ -1,0 +1,118 @@
+{
+  "scene": "29",
+  "heading": "29. INT. PRECINCT, BRENNAN'S OFFICE — MORNING",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_29-brennan-adc0b5",
+      "order": 1,
+      "speaker": "BRENNAN",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Dennis Pryce went down an iced-over fire escape at two in the morning with a uniform sitting outside his door. Neighbors heard screaming. His place was torn apart. (to Ruth) And the man you say is the Night Judge was asleep in my holding cell.",
+      "text": "Dennis Pryce went down an iced-over fire escape at two in the morning with a uniform sitting outside his door. Neighbors heard screaming. His place was torn apart. And the man you say is the Night Judge was asleep in my holding cell.",
+      "directions": [
+        "to Ruth"
+      ],
+      "subtitle_speaker": "BRENNAN",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-brennan-adc0b5.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-brennan-adc0b5.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-ruth-ddfce9",
+      "order": 2,
+      "speaker": "RUTH",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Sir, the tapes—",
+      "text": "Sir, the tapes—",
+      "directions": [],
+      "subtitle_speaker": "RUTH",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-ruth-ddfce9.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-ruth-ddfce9.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-brennan-701aff",
+      "order": 3,
+      "speaker": "BRENNAN",
+      "qualifier": null,
+      "context": null,
+      "script_text": "An illegal wire in a detective's home. Recordings of a door. That's your case? (beat) That's not a case, Adler. That's a grudge.",
+      "text": "An illegal wire in a detective's home. Recordings of a door. That's your case? That's not a case, Adler. That's a grudge.",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "BRENNAN",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-brennan-701aff.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-brennan-701aff.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-ruth-fff5d6",
+      "order": 4,
+      "speaker": "RUTH",
+      "qualifier": null,
+      "context": null,
+      "script_text": "It's not a grudge.",
+      "text": "It's not a grudge.",
+      "directions": [],
+      "subtitle_speaker": "RUTH",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-ruth-fff5d6.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-ruth-fff5d6.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-brennan-c3f0c9",
+      "order": 5,
+      "speaker": "BRENNAN",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Badge and gun. You're suspended.",
+      "text": "Badge and gun. You're suspended.",
+      "directions": [],
+      "subtitle_speaker": "BRENNAN",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-brennan-c3f0c9.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-brennan-c3f0c9.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-ruth-cb212c",
+      "order": 6,
+      "speaker": "RUTH",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Open the letter, Elias.",
+      "text": "Open the letter, Elias.",
+      "directions": [],
+      "subtitle_speaker": "RUTH",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-ruth-cb212c.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-ruth-cb212c.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_29-brennan-7f3ff3",
+      "order": 7,
+      "speaker": "BRENNAN",
+      "qualifier": null,
+      "context": null,
+      "script_text": "(rubbing his eyes) Go find me the son of a bitch who did this. Before the papers find out I locked up the wrong man.",
+      "text": "Go find me the son of a bitch who did this. Before the papers find out I locked up the wrong man.",
+      "directions": [
+        "rubbing his eyes"
+      ],
+      "subtitle_speaker": "BRENNAN",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_29/scene_29-brennan-7f3ff3.ogg",
+      "lipsync_file": "res://data/lipsync/scene_29/scene_29-brennan-7f3ff3.json",
+      "subtitle_timing": null
+    }
+  ]
+}

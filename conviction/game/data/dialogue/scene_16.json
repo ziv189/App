@@ -1,0 +1,24 @@
+{
+  "scene": "16",
+  "heading": "16. INT. THE CARLYLE, APARTMENT 4F — NIGHT",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_16-ward-cac8d8",
+      "order": 1,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Nadine Hale. Motive: her brother, and the threat's on tape. Opportunity: her alibi is a row of dryers. Means: she's a nurse. She'd know where to hit. (beat) Kostic. Motive: money. But a bookie doesn't kill the man who owes him. Dead men don't pay.",
+      "text": "Nadine Hale. Motive: her brother, and the threat's on tape. Opportunity: her alibi is a row of dryers. Means: she's a nurse. She'd know where to hit. Kostic. Motive: money. But a bookie doesn't kill the man who owes him. Dead men don't pay.",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_16/scene_16-ward-cac8d8.ogg",
+      "lipsync_file": "res://data/lipsync/scene_16/scene_16-ward-cac8d8.json",
+      "subtitle_timing": null
+    }
+  ]
+}

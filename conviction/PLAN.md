@@ -161,9 +161,10 @@ Every scene also has to meet the brief §3.4 targets: 16.6 ms frames, no hitch o
   - subtitles and licenses
 
   The clue lint reads a machine-readable twin of `CLUE_REGISTRY.md`. The audio lint turns on only after every cue sheet row is reviewed by hand (D-012).
-- [ ] **Narrative pipeline:** `script_to_data` turns the script's Markdown into per-scene dialogue data, and `dialogue_coverage` checks it. Two things get explicit handling:
-  - lines embedded in prose: Nadine's answering-machine message, Lily's whisper fragments and the TV captions
-  - the refusal beat's pronoun variants
+- [x] **Narrative pipeline.** `tools/pipeline/script_to_data.py` writes 347 spoken lines into 47 scene files in `game/data/dialogue/`: 341 labelled lines and 6 lines spoken inside prose (the answering machine, the radio, Lily's whisper fragments, the monster's half-pitched "please"). Each line records its speaker, qualifier and exact script text, the spoken text with stage directions split out, and the context for voice-overs on examined objects. Refusal-beat lines expand into per-branch variants.
+  - Line IDs come from each line's content, so they survive edits elsewhere, and regeneration keeps hand-filled voice files, lip-sync files and subtitle timings.
+  - `tools/lint/dialogue_coverage.py` fails on any missing, altered, reordered, misattributed or extra line. It runs in the pre-commit hook.
+  - Evidence: `tools/tests/test_dialogue_coverage.py` catches all five kinds of damage on a copy of the data, and `tools/tests/test_script_to_data.py` proves IDs stay stable and production fields survive.
 - [ ] **The playthrough harness** (brief §13.3), as a skeleton with headless state assertions.
 - [ ] **The GI decision** (R4), made by testing.
 - [ ] **A perf kit for your Mac:** a profiling scene you open in Godot 4.7.2 for macOS, plus a script that records your exact chip and GPU cores and writes its report into `reports/perf/`. The budget table is recalibrated from its first report.

@@ -1,0 +1,148 @@
+{
+  "scene": "18",
+  "heading": "18. INT. THE CARLYLE, APARTMENT 4F / FOURTH-FLOOR HALLWAY — MORNING",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_18-ward-3a233b",
+      "order": 1,
+      "speaker": "WARD",
+      "qualifier": "V.O.",
+      "context": "examine: His right hand",
+      "script_text": "Caught it on something.",
+      "text": "Caught it on something.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ward-3a233b.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ward-3a233b.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-ward-8b4900",
+      "order": 2,
+      "speaker": "WARD",
+      "qualifier": "V.O.",
+      "context": "examine: The kitchen trash",
+      "script_text": "Evidence bag. I bring the job home.",
+      "text": "Evidence bag. I bring the job home.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ward-8b4900.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ward-8b4900.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-ward-21b25a",
+      "order": 3,
+      "speaker": "WARD",
+      "qualifier": "V.O.",
+      "context": "examine: The flashlight",
+      "script_text": "Needs replacing.",
+      "text": "Needs replacing.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ward-21b25a.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ward-21b25a.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-walt-756de5",
+      "order": 4,
+      "speaker": "WALT",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Morning. (taps the radiator three times with the wrench, listens) Air in the line.",
+      "text": "Morning. Air in the line.",
+      "directions": [
+        "taps the radiator three times with the wrench, listens"
+      ],
+      "subtitle_speaker": "WALT",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-walt-756de5.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-walt-756de5.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-ward-937306",
+      "order": 5,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Somebody moving in?",
+      "text": "Somebody moving in?",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ward-937306.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ward-937306.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-walt-40d954",
+      "order": 6,
+      "speaker": "WALT",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Next month. Six years it sat empty. Nobody wanted it. (beat, still working) You think about her?",
+      "text": "Next month. Six years it sat empty. Nobody wanted it. You think about her?",
+      "directions": [
+        "beat, still working"
+      ],
+      "subtitle_speaker": "WALT",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-walt-40d954.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-walt-40d954.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-ward-6acfd7",
+      "order": 7,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Every night.",
+      "text": "Every night.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ward-6acfd7.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ward-6acfd7.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-walt-c73cc8",
+      "order": 8,
+      "speaker": "WALT",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Yeah. (goes back to the radiator) Me too.",
+      "text": "Yeah. Me too.",
+      "directions": [
+        "goes back to the radiator"
+      ],
+      "subtitle_speaker": "WALT",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-walt-c73cc8.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-walt-c73cc8.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_18-ruth-63e6f8",
+      "order": 9,
+      "speaker": "RUTH",
+      "qualifier": "ON PHONE",
+      "context": null,
+      "script_text": "Nadine Hale.",
+      "text": "Nadine Hale.",
+      "directions": [],
+      "subtitle_speaker": "RUTH",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_18/scene_18-ruth-63e6f8.ogg",
+      "lipsync_file": "res://data/lipsync/scene_18/scene_18-ruth-63e6f8.json",
+      "subtitle_timing": null
+    }
+  ]
+}

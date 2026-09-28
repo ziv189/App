@@ -1,0 +1,84 @@
+{
+  "scene": "28",
+  "heading": "28. INT. HOLDING CELL — DAWN",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_28-guard-e66d5d",
+      "order": 1,
+      "speaker": "GUARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Ward. Up.",
+      "text": "Ward. Up.",
+      "directions": [],
+      "subtitle_speaker": "GUARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_28/scene_28-guard-e66d5d.ogg",
+      "lipsync_file": "res://data/lipsync/scene_28/scene_28-guard-e66d5d.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_28-guard-41ec63",
+      "order": 2,
+      "speaker": "GUARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Your guy Pryce is dead.",
+      "text": "Your guy Pryce is dead.",
+      "directions": [],
+      "subtitle_speaker": "GUARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_28/scene_28-guard-41ec63.ogg",
+      "lipsync_file": "res://data/lipsync/scene_28/scene_28-guard-41ec63.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_28-ward-e27d37",
+      "order": 3,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "(beat) What?",
+      "text": "What?",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_28/scene_28-ward-e27d37.ogg",
+      "lipsync_file": "res://data/lipsync/scene_28/scene_28-ward-e27d37.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_28-guard-f49683",
+      "order": 4,
+      "speaker": "GUARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Went out his window around two. Fire escape. Captain wants you upstairs.",
+      "text": "Went out his window around two. Fire escape. Captain wants you upstairs.",
+      "directions": [],
+      "subtitle_speaker": "GUARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_28/scene_28-guard-f49683.ogg",
+      "lipsync_file": "res://data/lipsync/scene_28/scene_28-guard-f49683.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_28-ward-22a17d",
+      "order": 5,
+      "speaker": "WARD",
+      "qualifier": "V.O.",
+      "context": null,
+      "script_text": "I was in a cage. I was asleep in a cage with a guard outside. And he still got to him.",
+      "text": "I was in a cage. I was asleep in a cage with a guard outside. And he still got to him.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_28/scene_28-ward-22a17d.ogg",
+      "lipsync_file": "res://data/lipsync/scene_28/scene_28-ward-22a17d.json",
+      "subtitle_timing": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "scene": "10",
+  "heading": "10. NIGHTMARE — HALE'S ROOM",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_10-lily-7123e0",
+      "order": 1,
+      "speaker": "LILY",
+      "qualifier": "WHISPER",
+      "context": null,
+      "script_text": "...Mr. Ward...",
+      "text": "...Mr. Ward...",
+      "directions": [],
+      "subtitle_speaker": "LILY",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_10/scene_10-lily-7123e0.ogg",
+      "lipsync_file": "res://data/lipsync/scene_10/scene_10-lily-7123e0.json",
+      "subtitle_timing": null
+    }
+  ]
+}

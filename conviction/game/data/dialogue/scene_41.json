@@ -1,0 +1,70 @@
+{
+  "scene": "41",
+  "heading": "41. THE CASE BOARD / THE REPLAYS",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_41-nadine-dc6740",
+      "order": 1,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Detective? It's three in the morning.",
+      "text": "Detective? It's three in the morning.",
+      "directions": [],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_41/scene_41-nadine-dc6740.ogg",
+      "lipsync_file": "res://data/lipsync/scene_41/scene_41-nadine-dc6740.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_41-ward-f96711",
+      "order": 2,
+      "speaker": "WARD",
+      "qualifier": "O.S.",
+      "context": null,
+      "script_text": "I know. It's about Tom Marsh. Can I come in?",
+      "text": "I know. It's about Tom Marsh. Can I come in?",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_41/scene_41-ward-f96711.ogg",
+      "lipsync_file": "res://data/lipsync/scene_41/scene_41-ward-f96711.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_41-tom-ad5c52",
+      "order": 3,
+      "speaker": "TOM",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Elias? What are you—",
+      "text": "Elias? What are you—",
+      "directions": [],
+      "subtitle_speaker": "TOM",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_41/scene_41-tom-ad5c52.ogg",
+      "lipsync_file": "res://data/lipsync/scene_41/scene_41-tom-ad5c52.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_41-hale-c42a38",
+      "order": 4,
+      "speaker": "HALE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "(flat, quiet) Detective Ward. (beat) I wondered when.",
+      "text": "Detective Ward. I wondered when.",
+      "directions": [
+        "flat, quiet",
+        "beat"
+      ],
+      "subtitle_speaker": "HALE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_41/scene_41-hale-c42a38.ogg",
+      "lipsync_file": "res://data/lipsync/scene_41/scene_41-hale-c42a38.json",
+      "subtitle_timing": null
+    }
+  ]
+}

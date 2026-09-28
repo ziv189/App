@@ -1,0 +1,22 @@
+{
+  "scene": "22B",
+  "heading": "22B. INT. THE CARLYLE, APARTMENT 4F — NIGHT — LATER",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_22b-ward-40b634",
+      "order": 1,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Dennis Pryce. Motive: the order, and the letters. Opportunity: no alibi, and a tall man in a long coat on Nadine's stairs. Means: a long coat has deep pockets.",
+      "text": "Dennis Pryce. Motive: the order, and the letters. Opportunity: no alibi, and a tall man in a long coat on Nadine's stairs. Means: a long coat has deep pockets.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_22b/scene_22b-ward-40b634.ogg",
+      "lipsync_file": "res://data/lipsync/scene_22b/scene_22b-ward-40b634.json",
+      "subtitle_timing": null
+    }
+  ]
+}

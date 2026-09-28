@@ -1,0 +1,131 @@
+{
+  "scene": "15",
+  "heading": "15. INT. NADINE HALE'S APARTMENT, ABOVE THE LAUNDROMAT — EVENING",
+  "source": "docs/directors_script.md",
+  "lines": [
+    {
+      "id": "scene_15-nadine-c352d1",
+      "order": 1,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "You've got some nerve.",
+      "text": "You've got some nerve.",
+      "directions": [],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-nadine-c352d1.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-nadine-c352d1.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-ward-fadaf3",
+      "order": 2,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Tom Marsh is dead.",
+      "text": "Tom Marsh is dead.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-ward-fadaf3.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-ward-fadaf3.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-nadine-a1247c",
+      "order": 3,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "I heard. (beat) I'm not sorry.",
+      "text": "I heard. I'm not sorry.",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-nadine-a1247c.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-nadine-a1247c.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-ward-35f13f",
+      "order": 4,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "You left a message on his machine.",
+      "text": "You left a message on his machine.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-ward-35f13f.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-ward-35f13f.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-nadine-dad222",
+      "order": 5,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "I left a lot of messages. I say a lot of things. Six years my brother had \"child killer\" painted on his door, because you needed him to be guilty.",
+      "text": "I left a lot of messages. I say a lot of things. Six years my brother had \"child killer\" painted on his door, because you needed him to be guilty.",
+      "directions": [],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-nadine-dad222.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-nadine-dad222.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-ward-a49e59",
+      "order": 6,
+      "speaker": "WARD",
+      "qualifier": null,
+      "context": null,
+      "script_text": "Your brother was guilty.",
+      "text": "Your brother was guilty.",
+      "directions": [],
+      "subtitle_speaker": "WARD",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-ward-a49e59.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-ward-a49e59.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-nadine-33eca8",
+      "order": 7,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "My brother was a sad, strange man who lived two blocks from the wrong building. (beat) Where was I last night? Here. Alone. Listening to the dryers. Arrest me for that.",
+      "text": "My brother was a sad, strange man who lived two blocks from the wrong building. Where was I last night? Here. Alone. Listening to the dryers. Arrest me for that.",
+      "directions": [
+        "beat"
+      ],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-nadine-33eca8.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-nadine-33eca8.json",
+      "subtitle_timing": null
+    },
+    {
+      "id": "scene_15-nadine-75970b",
+      "order": 8,
+      "speaker": "NADINE",
+      "qualifier": null,
+      "context": null,
+      "script_text": "You killed my brother, detective. Maybe not with your hands.",
+      "text": "You killed my brother, detective. Maybe not with your hands.",
+      "directions": [],
+      "subtitle_speaker": "NADINE",
+      "variants": [],
+      "voice_file": "res://audio/dialogue/scene_15/scene_15-nadine-75970b.ogg",
+      "lipsync_file": "res://data/lipsync/scene_15/scene_15-nadine-75970b.json",
+      "subtitle_timing": null
+    }
+  ]
+}
