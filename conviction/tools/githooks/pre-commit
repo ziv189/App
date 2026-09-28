@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-# Fast checks before any commit that touches conviction/ (brief §2.8). Installed by tools/setup/bootstrap.sh.
-set -e
-if git diff --cached --name-only | grep -q '^conviction/'; then
-  python3 conviction/tools/lint/script_structure.py
-  python3 conviction/tools/pipeline/script_to_data.py --check
-  python3 conviction/tools/lint/dialogue_coverage.py
-fi

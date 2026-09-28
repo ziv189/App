@@ -1,9 +1,0 @@
-* text=auto eol=lf
-*.docx binary
-*.png binary
-*.jpg binary
-*.exr binary
-*.glb binary
-*.blend binary
-*.wav binary
-*.ogg binary
