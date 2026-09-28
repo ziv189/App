@@ -1,6 +1,6 @@
 # CONVICTION: PLAN.md
 
-**Status:** v0.2, 2026-09-27. Waiting for the owner's approval (`HUMAN_TASKS.md`, H2). Phase 0 is done apart from that approval and the repo decision (H1).
+**Status:** v0.3, 2026-09-28. **Approved by the owner on 2026-09-28**, including deviations D1 and D2. Phase 1 is in progress. The move to the project's own repository waits on the owner creating it (`HUMAN_TASKS.md`, H1).
 
 **Changes since v0.1:**
 - The story bible arrived.
@@ -18,7 +18,7 @@ References like "brief §5.5" point to `docs/BUILD_BRIEF.md`. Scene numbers poin
 - **Detail grows as we go.** Phases 0–3 are broken into tasks now. Each later phase gets its full task list, written in plan mode, when it starts (brief §2.1). That way it can use what the vertical slice teaches us.
 - **Estimates are in sessions.** A session is one Claude Code working session that ends with `PROGRESS.md` updated, usually a few hours of work. The ranges are honest guesses. Confidence drops sharply after Phase 3, so everything gets re-estimated after the slice using measured data.
 - **Evidence, or it isn't done.** Every exit criterion is met with evidence in `reports/` (brief §2.4) and the Definition of Done (brief §12.2).
-- **Assumptions:** Godot 4, third-person, PC first, as the brief specifies.
+- **Assumptions:** Godot 4 and third-person, as the brief specifies. The first platform is **macOS on Apple Silicon**, because the owner's only machine is a MacBook Pro M3 (D-015). Windows and Linux builds are exported too, but are only tested when a tester has that hardware.
 
 ## 2. Build environment
 
@@ -42,9 +42,9 @@ This is how the work runs:
   - `--headless` for lints, data checks and playthrough state assertions. This is fast.
   - Xvfb with llvmpipe for image captures. This is slower, but fine for stills.
   - Movie Maker mode (`--write-movie`) for frame-by-frame captures of sequences, so slow rendering never changes timing.
-- **These run on your PC:**
-  - performance against the RTX 3060 budget
-  - gamepad feel
+- **These run on your MacBook Pro M3:** Godot runs there on Metal, its default macOS driver in 4.7.2.
+  - performance against the budget, which is recalibrated for your Mac (D-015)
+  - gamepad feel, if you have a controller (H7)
   - the headphone and speaker mix check
   - playtests
 
@@ -68,22 +68,22 @@ This is how the work runs:
 
 | # | Risk | Likelihood / impact | Mitigation |
 |---|---|---|---|
-| R1 | **Character faces at the brief's close-up bar** (brief §6.1). Of the whole bar, faces built from scripted MPFB bodies with custom shaping are what I'm least sure I can reach alone. | High / High | Ward's head is the first deliverable of Phase 2. It gets rendered in all three lighting setups for your verdict before anything depends on it. If it falls short, you choose a fallback; I never switch silently. The fallbacks are: a character artist for the principals (H4), licensed scanned base heads usable in Godot, or reframing the look toward shadow and silhouette. |
+| R1 | **Character faces at the brief's close-up bar** (brief §6.1). Of the whole bar, faces built from scripted MPFB bodies with custom shaping are what I'm least sure I can reach alone. | High / High | Ward's head is the first deliverable of Phase 2. It gets rendered in all three lighting setups for your verdict before anything depends on it. If it falls short, you choose a fallback; I never switch silently. There's no budget for a character artist (H4), so the fallbacks are free or CC-BY scanned heads usable in Godot, or reframing the look toward shadow and silhouette. |
 | R2 | Performance for 338 spoken lines across 17 characters: mocap retargeting, lip sync and expression curves | High / High | Build the whole pipeline in Phases 1–3 and prove it on Ward and Walt in the slice before scaling up. |
-| R3 | Software rendering slows down the capture-and-critique loop | Medium / Medium | Iterate at low resolution and make final captures at 1080p. Use Movie Maker mode for sequences. Capture only the shots that changed. |
+| R3 | Software rendering slows down the capture-and-critique loop | Medium / Medium | Iterate at low resolution and make final captures at 1080p. Use Movie Maker mode for sequences. Capture only the shots that changed. Optionally, run capture-heavy sessions in Claude Code on your Mac, where Godot renders on the M3's GPU in real time. |
 | R4 | Baking lightmaps (LightmapGI) on software Vulkan may be too slow to be practical | Medium / Medium | Choose the GI approach in Phase 1 by testing VoxelGI or SDFGI against lightmaps baked on your PC. |
 | R5 | Film-quality sound sources. CC0 Foley and ambience libraries are thin, and Freesound needs an account and has mixed licenses. | Medium / High | Synthesize what can be synthesized (the hum, the clock, tones). License-check everything. A paid library may be needed; that's your call. |
 | R6 | Voices, music and final performances depend on people | Certain / Medium | Use text-to-speech placeholders for timing only (brief §8.7). Write casting briefs and recording scripts early, so recording can run in parallel. |
 | R7 | Scope: the brief sets a studio-scale bar | High / High | The slice is the go/no-go checkpoint. Re-estimate after Phase 3. |
 | R8 | Godot APIs change between minor versions | Medium / Low | Check the 4.7.2 docs or source before using an API (brief §3.1). The source is already on disk. |
 | R9 | ~~Story gaps and script contradictions~~ | Resolved | SC-01 to SC-16 (`docs/STORY_CHANGES.md`), with every path mapped in `BRANCHING.md`. |
-| R10 | Every session that needs the engine spends 23 minutes building Godot | Certain / Medium | For now, build in the background at session start. Once H1 is decided, cache the compressed editor build in the project repo with Git LFS, so sessions restore it in seconds. Workstations just download the official binary. |
+| R10 | Every session that needs the engine spends 23 minutes building Godot | Certain / Medium | For now, build in the background at session start. Once the project has its own repo (H1), cache the compressed editor build there with Git LFS, so sessions restore it in seconds. Your Mac just uses the official download. |
 
 ## 5. Phases
 
 | Phase | Scope | Estimate (sessions) | Exit |
 |---|---|---|---|
-| 0 | Setup and plan | 1 (done, except H1 and H2) | You approve this plan |
+| 0 | Setup and plan | 1 (done) | Approved 2026-09-28 |
 | 1 | Tools and pipeline | 6–10 | A test scene passes the whole pipeline and every lint |
 | 2 | Character test, design sheets, slice style frames | 12–25 | Your sign-off on each one |
 | 3 | Vertical slice: the Prologue (scenes 1–3) | 20–35 | Captured playthrough, all lints, clean critic review, your sign-off |
@@ -108,10 +108,10 @@ Phase 10 dropped from 10–20 sessions: SC-01 removed the alternate-victim branc
 - [x] **Install and smoke-test the toolchain, and record the versions.** Evidence: `reports/phase0/environment.md`, `reports/phase0/smoke_render.png`, and `DECISIONS.md` (D-002 to D-005).
 - [x] **Add the pre-commit hook** with the one lint that can exist before Phase 1 (`tools/lint/script_structure.py`).
 - [x] **Draft per-scene budgets** (table below).
-- [ ] **H1:** decide where the repo lives.
-- [ ] **H2:** your approval of this plan.
+- [x] **H1:** decide where the repo lives: its own private repo. Moving it waits on you creating the empty repo (GitHub doesn't let this integration create one).
+- [x] **H2:** your approval of this plan (2026-09-28).
 
-**Draft performance budgets** (targets for 1080p High on an RTX 3060, to be calibrated on your PC in Phase 1):
+**Draft performance budgets** (the brief's targets for 1080p High on an RTX 3060-class GPU; Phase 1 recalibrates them on your MacBook Pro M3, D-015):
 
 | Scene type | Examples | Draw calls | Visible triangles | Texture memory | Shadow-casting lights in view |
 |---|---|---|---|---|---|
@@ -125,7 +125,7 @@ Every scene also has to meet the brief §3.4 targets: 16.6 ms frames, no hitch o
 
 ### Phase 1: Tools and pipeline
 
-- [ ] **Godot caching (R10):** store the compressed editor build once H1 is settled, and teach the bootstrap to restore it.
+- [ ] **Godot caching (R10):** once the project has its own repo, store the compressed editor build there with Git LFS and teach the bootstrap to restore it. Also add a SessionStart hook there that runs the bootstrap.
 - [ ] **Project foundation:**
   - a Godot project on the Forward+ renderer, using physical light units
   - render layers, with one reserved for Ward
@@ -165,12 +165,12 @@ Every scene also has to meet the brief §3.4 targets: 16.6 ms frames, no hitch o
   - the refusal beat's pronoun variants
 - [ ] **The playthrough harness** (brief §13.3), as a skeleton with headless state assertions.
 - [ ] **The GI decision** (R4), made by testing.
-- [ ] **A perf kit for your PC:** a profiling build, plus a script that writes its report into `reports/perf/`.
+- [ ] **A perf kit for your Mac:** a profiling scene you open in Godot 4.7.2 for macOS, plus a script that records your exact chip and GPU cores and writes its report into `reports/perf/`. The budget table is recalibrated from its first report.
 
 **Acceptance:**
 - The brief's exit criterion: a test scene goes through the whole pipeline, captures cleanly and passes every lint.
 - Every lint catches its broken fixture.
-- A perf report from your PC for the test scene.
+- A perf report from your Mac for the test scene.
 
 **Risks:** the cost of planar reflections, capture speed, and API details in Godot's post-processing (CompositorEffect).
 
@@ -219,7 +219,7 @@ The order is set by risk:
 - [ ] Every character in their final slice variant, with facial performance on every line (placeholder TTS and lip sync).
 - [ ] Every sound cue in scenes 1–3 from the cue sheet, plus the ambience beds and Foley.
 - [ ] The first-launch flow: content note, photosensitivity prompt, title screen, subtitles and basic settings. It's an addition, so testers can play the slice as it stands.
-- [ ] An automated playthrough of the slice, captures, a critic review, and a perf report from your PC.
+- [ ] An automated playthrough of the slice, captures, a critic review, and a perf report from your Mac.
 
 **Acceptance:**
 - The brief's exit criteria: a full captured playthrough, every lint passing, a clean critic review, and your sign-off.
@@ -304,19 +304,24 @@ The exit criteria are the brief's (§12.1), and every scene meets the Definition
 
 **Phase 11: Polish.** Includes three full playthroughs: the main path, the refusal beat and the secret ending.
 
-**Phase 12: Release build.** A Windows export (plus Linux and macOS if they export cleanly), a licenses screen generated from `ASSET_LICENSES.md`, and a README.
+**Phase 12: Release build.** A macOS export for Apple Silicon (D-015), plus Windows and Linux exports, a licenses screen generated from `ASSET_LICENSES.md`, and a README.
 
 ## 6. Open questions
 
-These are all tracked in `HUMAN_TASKS.md`:
+Tracked in `HUMAN_TASKS.md`:
 
-- **H1. Where the project lives.** I recommend a new private repo, `ziv189/conviction`, and will create it only after you say yes. The alternative is to keep it in `ziv189/App`.
-- **H2. Approve this plan.**
-- **H3. Deviations D1 and D2** (section 3).
-- **H4. A budget for a character artist**, if the character test falls short.
-- **H5. Your PC:** OS, GPU, and whether you have a gamepad and headphones.
+- **H1. Create the empty repo.** GitHub doesn't let this integration create repositories, so it's a one-minute job for you (steps in `HUMAN_TASKS.md`). I then move the project in with its history.
+- **H7. Do you have a game controller and headphones?** Needed by Phase 3 for gamepad feel and the mix check.
 
-**Resolved since v0.1:**
+**Answered on 2026-09-28:**
+- **H1:** the project gets its own private repo.
+- **H2:** this plan is approved.
+- **H3:** deviations D1 and D2 are approved.
+- **H4:** there's no budget for a character artist.
+- **H5:** the test machine is a MacBook Pro M3.
+- **H6:** no story vetoes.
+
+**Resolved earlier:**
 - **Story bible (Q1):** received and converted.
-- **GitHub access (Q3):** release downloads stay blocked, so Godot is built from source instead.
+- **GitHub access (Q3):** release downloads stay blocked, so Godot is built from source.
 - **Branching gaps and script fixes (Q4, Q7):** you gave me discretion; see `docs/STORY_CHANGES.md`.

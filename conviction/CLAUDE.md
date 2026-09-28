@@ -2,7 +2,7 @@
 
 CONVICTION is a 3D, third-person, cinematic noir psychological-horror game built in Godot. The master brief is `docs/BUILD_BRIEF.md`. This file holds only what every session needs; the brief has the detail.
 
-The project lives in `conviction/` inside the `ziv189/App` repository, on branch `claude/compassionate-dijkstra-n6wtkf`, until the owner decides otherwise (HUMAN_TASKS.md, H1). Run git commands from the repository root.
+The project lives in `conviction/` inside the `ziv189/App` repository, on branch `claude/compassionate-dijkstra-n6wtkf`, until the owner creates `ziv189/conviction` (HUMAN_TASKS.md, H1); then it moves there with its history. Run git commands from the repository root.
 
 ## Start of every session
 
@@ -35,7 +35,7 @@ The project lives in `conviction/` inside the `ziv189/App` repository, on branch
 
 ## Environment (Claude Code cloud sessions)
 
-- **No GPU.** Captures render with Mesa llvmpipe (software Vulkan) under Xvfb, which is slow. Lints and playthrough assertions run with `--headless`. Performance is measured on the owner's PC.
+- **No GPU.** Captures render with Mesa llvmpipe (software Vulkan) under Xvfb, which is slow. Lints and playthrough assertions run with `--headless`. Performance is measured on the owner's MacBook Pro M3, which is also the first platform (DECISIONS.md, D-015).
 - **GitHub.** Public repositories can be cloned, but GitHub release files can't be downloaded. That's why Godot is built from source.
 - **Fresh machine.** Every session starts on a fresh machine, so anything not committed and pushed is lost.
 
