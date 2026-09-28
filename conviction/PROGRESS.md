@@ -2,6 +2,46 @@
 
 Newest session first. Each entry: what was done (with evidence), what's next, open problems.
 
+## Session 2: 2026-09-28, Phase 1 started
+
+**Done**
+
+- The owner approved `PLAN.md` and deviations D1 and D2. Their answers are recorded: macOS on the MacBook Pro M3 is the first platform and the performance reference, and there's no character artist budget. See `DECISIONS.md` D-014 to D-017 and `HUMAN_TASKS.md`.
+- Tried to create `ziv189/conviction`. GitHub refused this integration (`403 Resource not accessible by integration`), so creating the empty repo is now human task H1, with exact steps.
+- **Project foundation:** `tools/pipeline/configure_project.gd` generates `game/project.godot` and `game/default_bus_layout.tres`:
+  - Forward+, physical light units, Jolt physics
+  - the `ward` render layer
+  - 16 input actions, each with keyboard or mouse and gamepad bindings
+  - 13 audio buses with Dialogue ducking and room reverb sends
+
+  A rerun is byte-identical, and the editor imports it without rewriting anything. Evidence: `tools/tests/test_project_config.gd` passes, and fails on a deliberately broken copy.
+- **Narrative pipeline:** `tools/pipeline/script_to_data.py` writes 347 spoken lines into 47 scene files in `game/data/dialogue/`, and `tools/lint/dialogue_coverage.py` guards them. Evidence: `tools/tests/test_dialogue_coverage.py` catches five kinds of damage, and `tools/tests/test_script_to_data.py` proves IDs stay stable and hand-filled fields survive.
+- `tools/tests/run_tests.sh` runs everything. All 6 checks pass.
+
+**Next**
+
+- When the owner has created the repo (H1):
+  1. Move the history with `git subtree split --prefix=conviction`.
+  2. Attach the repo and push.
+  3. Update the commit hashes cited in D-006.
+  4. Remove `conviction/` from the App branch.
+  5. Cache the Godot build there with Git LFS (R10) and add the SessionStart hook.
+- Continue Phase 1:
+  - the look stack and LUT builder
+  - the camera system (lens kit, rack focus, dolly zoom, letterbox, camera zones)
+  - cutscenes as data, and the blackout
+  - the capture tool
+  - the remaining lints: reviewing the audio cue sheet, the clue data twin, resources, warm light, reflections, Room hands, subtitles, licenses
+  - door occlusion and the playthrough harness
+  - the GI decision
+  - the Blender pipeline
+  - the perf kit for the Mac
+
+**Open problems**
+
+- Until the repo exists, every fresh session spends 23 minutes building Godot.
+- The bootstrap's clean-clone Godot path hasn't run end to end yet: this session reused an existing checkout. It gets exercised in the next fresh session.
+
 ## Session 1: 2026-09-27, Phase 0
 
 **Done**
