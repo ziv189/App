@@ -126,12 +126,13 @@ Every scene also has to meet the brief §3.4 targets: 16.6 ms frames, no hitch o
 ### Phase 1: Tools and pipeline
 
 - [ ] **Godot caching (R10):** once the project has its own repo, store the compressed editor build there with Git LFS and teach the bootstrap to restore it. Also add a SessionStart hook there that runs the bootstrap.
-- [ ] **Project foundation:**
-  - a Godot project on the Forward+ renderer, using physical light units
-  - render layers, with one reserved for Ward
-  - an input map for keyboard and mouse, and for gamepad
-  - autoloads
-  - the audio bus layout, with room reverbs and door occlusion (brief §8.2)
+- [x] **Project foundation**, generated as code by `tools/pipeline/configure_project.gd`. A rerun is byte-identical, and the editor opens and imports it without rewriting anything.
+  - Forward+, physical light units, Jolt physics, and stretch settings for 16:9 through 21:9
+  - render layers `world` and `ward` (Ward only; every reflection except the Room's glass culls it), and physics layers
+  - 16 input actions, each with keyboard or mouse and gamepad bindings, using physical keys
+  - 13 audio buses (brief §8.2): Dialogue ducks Music and Ambience, there's a limiter on Master, and seven fully wet room reverb sends
+  - Evidence: `tools/tests/test_project_config.gd` passes, and fails as it should on a copy with a missing gamepad binding and a renamed bus.
+- [ ] **Door occlusion** (brief §8.2): sounds behind a closed door get low-passed and quieter. It's a system, with its own test scene.
 - [ ] **Blender pipeline:**
   - a script framework in `tools/blender/`
   - glTF export conventions: scale, axes, naming, LODs and collision

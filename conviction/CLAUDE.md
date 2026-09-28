@@ -64,3 +64,5 @@ The project lives in `conviction/` inside the `ziv189/App` repository, on branch
 - `tools/pipeline/docx_to_md.py` converts and verifies the source documents.
 - `tools/pipeline/gen_trackers.py` regenerates `SCENE_TRACKER.md` and `AUDIO_CUE_SHEET.md` from the script.
 - `tools/lint/script_structure.py` checks the script's structure. It runs in the pre-commit hook in `tools/githooks/`.
+- `tools/pipeline/configure_project.sh` regenerates `game/project.godot` and `game/default_bus_layout.tres` from `configure_project.gd`. Never hand-edit those two files.
+- `tools/tests/run_tests.sh` runs every lint and every `tools/tests/test_*.gd` headlessly. Run it before each commit that touches the game.
