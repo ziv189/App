@@ -8,6 +8,6 @@
     // Am, F, G, C: one root per half bar, with an octave pulse on the offbeat. The roots climb toward the C at the end of the loop.
     bass: 'A2 - - - A2 - A3 - F2 - - - F2 - F3 - G2 - - - G2 - G3 - C3 - - - E3 - G2 -',
     // Density builds through the loop: a lone kick at first, then hats, then a fuller kick and hat pattern over the C chord.
-    perc: 'k . . . . . x . k . . . x . x . k . x . k . x . k . x x . k x x .'
+    perc: 'k . . . . . x . k . . . x . x . k . x . k . x . k . x . k x x .'
   };
 })();

@@ -74,10 +74,8 @@
   // The clock as seen from behind: iron back-plate with a gold toothed rim, then the cream face in front.
   function hand(ctx, cx, cy, a, len, w) {
     ctx.lineWidth = w;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + Math.sin(a) * len, cy - Math.cos(a) * len);
-    ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.sin(a) * len, cy - Math.cos(a) * len); ctx.stroke();
   }
 
   function clockFace(ctx, cx, cy, R) {
@@ -88,13 +86,10 @@
 
     ctx.fillStyle = '#9c7430';
     ctx.beginPath();
-    for (let i = 0; i < 36; i++) {
-      const a = (i / 36) * TAU;
-      const d = (TAU / 36) * 0.3;
-      ctx.moveTo(cx + Math.cos(a - d) * (R + 10), cy + Math.sin(a - d) * (R + 10));
-      ctx.lineTo(cx + Math.cos(a - d) * (R + 17), cy + Math.sin(a - d) * (R + 17));
-      ctx.lineTo(cx + Math.cos(a + d) * (R + 17), cy + Math.sin(a + d) * (R + 17));
-      ctx.lineTo(cx + Math.cos(a + d) * (R + 10), cy + Math.sin(a + d) * (R + 10));
+    for (let i = 0; i < 36; i++) {  // 36 teeth on the rim
+      const a = (i / 36) * TAU, d = (TAU / 36) * 0.3;
+      const p = (r, s) => [cx + Math.cos(a + s * d) * r, cy + Math.sin(a + s * d) * r];
+      [p(R + 10, -1), p(R + 17, -1), p(R + 17, 1), p(R + 10, 1)].forEach(([px, py], j) => ctx[j ? 'lineTo' : 'moveTo'](px, py));
       ctx.closePath();
     }
     ctx.fill();
@@ -116,14 +111,11 @@
     ctx.strokeStyle = '#2a1f22';
     ctx.lineCap = 'butt';
     for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * TAU;
-      const big = i % 3 === 0;
-      const r1 = R * (big ? 0.78 : 0.84);
-      const r2 = R * 0.92;
+      const a = (i / 12) * TAU, big = i % 3 === 0;
       ctx.lineWidth = big ? R * 0.045 : R * 0.02;
       ctx.beginPath();
-      ctx.moveTo(cx + Math.sin(a) * r1, cy - Math.cos(a) * r1);
-      ctx.lineTo(cx + Math.sin(a) * r2, cy - Math.cos(a) * r2);
+      ctx.moveTo(cx + Math.sin(a) * R * (big ? 0.78 : 0.84), cy - Math.cos(a) * R * (big ? 0.78 : 0.84));
+      ctx.lineTo(cx + Math.sin(a) * R * 0.92, cy - Math.cos(a) * R * 0.92);
       ctx.stroke();
     }
 
@@ -151,7 +143,7 @@
     }
   }
 
-  // Rooftop silhouettes of the Tower, with some pointed roofs.
+  // Rooftop silhouettes of the Tower, some with pointed roofs.
   function spireRow(ctx, camX, f, base, col, seed, W, H, P) {
     ctx.fillStyle = col;
     columns(camX, f, P, W, (k, sx) => {
@@ -162,10 +154,8 @@
       if (rnd(k, seed + 3) > 0.45) {
         const apex = 36 + rnd(k, seed + 4) * 50;
         ctx.beginPath();
-        ctx.moveTo(x0 - 4, top);
-        ctx.lineTo(x0 + w / 2, top - apex);
-        ctx.lineTo(x0 + w + 4, top);
-        ctx.closePath();
+        [[x0 - 4, top], [x0 + w / 2, top - apex], [x0 + w + 4, top]].forEach(([px, py], j) =>
+          ctx[j ? 'lineTo' : 'moveTo'](px, py));
         ctx.fill();
       }
     });
@@ -288,21 +278,12 @@
     for (let i = 0; i < 4; i++) {
       const sx = x + 2 + i * 8;
       ctx.beginPath();
-      ctx.moveTo(sx, y + S);
-      ctx.lineTo(sx + 4, y + 7);
-      ctx.lineTo(sx + 8, y + S);
-      ctx.closePath();
-      ctx.fillStyle = '#c99a3c';
-      ctx.fill();
-      ctx.strokeStyle = '#1c1420';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.fillStyle = '#fbe6a0';
+      ctx.moveTo(sx, y + S); ctx.lineTo(sx + 4, y + 7); ctx.lineTo(sx + 8, y + S); ctx.closePath();
+      ctx.fillStyle = '#c99a3c'; ctx.fill();
+      ctx.strokeStyle = '#1c1420'; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = '#fbe6a0';  // lit face
       ctx.beginPath();
-      ctx.moveTo(sx + 1, y + S - 1);
-      ctx.lineTo(sx + 4, y + 9);
-      ctx.lineTo(sx + 4.5, y + S - 1);
-      ctx.closePath();
+      ctx.moveTo(sx + 1, y + S - 1); ctx.lineTo(sx + 4, y + 9); ctx.lineTo(sx + 4.5, y + S - 1); ctx.closePath();
       ctx.fill();
     }
   }
@@ -322,20 +303,12 @@
     ctx.fillStyle = '#ffe9b0';
     ctx.beginPath();
     ctx.ellipse(x + 16, y + 13, 7, 8, 0, 0, TAU);
-    ctx.fill();
-    ctx.strokeStyle = '#1c1420';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
+    ctx.fill(); ctx.strokeStyle = '#1c1420'; ctx.lineWidth = 1.5; ctx.stroke();
     ctx.fillStyle = '#fbf3df';
-    ctx.beginPath();
-    ctx.arc(x + 16, y + 13, 4.6, 0, TAU);
-    ctx.fill();
-    ctx.strokeStyle = '#14100f';
-    ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(x + 16, y + 13, 4.6, 0, TAU); ctx.fill();
+    ctx.strokeStyle = '#14100f'; ctx.lineCap = 'round';
     hand(ctx, x + 16, y + 13, HOUR_A, 2.4, 1.1);
     hand(ctx, x + 16, y + 13, MIN_A, 3.6, 0.8);
-
     ctx.fillStyle = '#d9a84a';
     ctx.fillRect(x + 12, y + 3, 8, 3);
   }
@@ -357,14 +330,9 @@
     const cx = x + 16;
     const cy = y + 14;
     ctx.fillStyle = '#fbf3df';
-    ctx.beginPath();
-    ctx.arc(cx, cy, 8.5, 0, TAU);
-    ctx.fill();
-    ctx.strokeStyle = '#c9963c';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    ctx.strokeStyle = '#14100f';
-    ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(cx, cy, 8.5, 0, TAU); ctx.fill();
+    ctx.strokeStyle = '#c9963c'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.strokeStyle = '#14100f'; ctx.lineCap = 'round';
     hand(ctx, cx, cy, HOUR_A, 5, 1.6);
     hand(ctx, cx, cy, MIN_A, 7, 1.1);
 
@@ -383,18 +351,13 @@
     const rot = t * 2.2 + x * 0.1;
     const pt = (r, a) => [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
 
-    ctx.beginPath();
+    const outline = [];
     for (let i = 0; i < N; i++) {
       const a = rot + i * step;
-      const corners = [
-        pt(ri, a - step * 0.3), pt(ro, a - step * 0.16),
-        pt(ro, a + step * 0.16), pt(ri, a + step * 0.3),
-      ];
-      for (let j = 0; j < corners.length; j++) {
-        if (i === 0 && j === 0) ctx.moveTo(corners[j][0], corners[j][1]);
-        else ctx.lineTo(corners[j][0], corners[j][1]);
-      }
+      outline.push(pt(ri, a - step * 0.3), pt(ro, a - step * 0.16), pt(ro, a + step * 0.16), pt(ri, a + step * 0.3));
     }
+    ctx.beginPath();
+    outline.forEach(([px, py], j) => ctx[j ? 'lineTo' : 'moveTo'](px, py));
     ctx.closePath();
     const body = ctx.createRadialGradient(cx - 3, cy - 3, 1, cx, cy, ro);
     body.addColorStop(0, '#fff2b8');
@@ -421,17 +384,10 @@
       const ga = t * 0.9 + k * Math.PI + x * 0.05;
       const px = cx + Math.cos(ga) * 6.2;
       const py = cy + Math.sin(ga) * 6.2;
-      const tw = 0.5 + 0.5 * Math.sin(t * 6 + k * 2.4 + x);
-      ctx.globalAlpha = 0.35 + 0.55 * tw;
+      ctx.globalAlpha = 0.35 + 0.55 * (0.5 + 0.5 * Math.sin(t * 6 + k * 2.4 + x));
+      const star = [[0, -3.2], [0.9, -0.9], [3.2, 0], [0.9, 0.9], [0, 3.2], [-0.9, 0.9], [-3.2, 0], [-0.9, -0.9]];
       ctx.beginPath();
-      ctx.moveTo(px, py - 3.2);
-      ctx.lineTo(px + 0.9, py - 0.9);
-      ctx.lineTo(px + 3.2, py);
-      ctx.lineTo(px + 0.9, py + 0.9);
-      ctx.lineTo(px, py + 3.2);
-      ctx.lineTo(px - 0.9, py + 0.9);
-      ctx.lineTo(px - 3.2, py);
-      ctx.lineTo(px - 0.9, py - 0.9);
+      star.forEach(([dx, dy], j) => ctx[j ? 'lineTo' : 'moveTo'](px + dx, py + dy));
       ctx.closePath();
       ctx.fill();
     }
@@ -534,22 +490,12 @@
       const x = (((rnd(i, 3) * w - cx0 * 0.45 + Math.sin(tt * 0.6 + i) * 10) % w) + w) % w;
       const y = (((rnd(i, 5) * h - tt * (6 + rnd(i, 4) * 10)) % h) + h) % h;
       ctx.globalAlpha = Math.min(0.4, 0.15 + 0.25 * rnd(i, 6) * (0.6 + 0.4 * Math.sin(tt * 2 + i)));
-      ctx.beginPath();
-      ctx.arc(x, y, 0.9 + rnd(i, 7) * 1.3, 0, TAU);
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 0.9 + rnd(i, 7) * 1.3, 0, TAU); ctx.fill();
     }
     ctx.restore();
   }
 
-  window.ENV_THEMES.clockface = {
-    background(ctx, camX, camY, t, W, H) {
-      try { background(ctx, camX, camY, t, W, H); } catch (e) { /* never throw into the game loop */ }
-    },
-    tile(ctx, ch, x, y, t, nb) {
-      try { tile(ctx, ch, x, y, t, nb); } catch (e) { /* never throw into the game loop */ }
-    },
-    foreground(ctx, camX, camY, t, W, H) {
-      try { foreground(ctx, camX, camY, t, W, H); } catch (e) { /* never throw into the game loop */ }
-    },
-  };
+  // Methods never throw into the game loop.
+  const safe = (fn) => (...args) => { try { fn(...args); } catch (e) { /* draw nothing */ } };
+  window.ENV_THEMES.clockface = { background: safe(background), tile: safe(tile), foreground: safe(foreground) };
 })();
