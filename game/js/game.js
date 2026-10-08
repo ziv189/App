@@ -177,8 +177,9 @@
         else if (k === 'B') { if (gateCol < 0) gateCol = c; if (pr.bossDead) grid[r][c] = '.'; }
         else if (k === 'S') { world.start = { x: cx, y: bottom }; grid[r][c] = '.'; }
         else if (k === 'R') { world.bossSpawn = { x: cx, y: bottom }; grid[r][c] = '.'; }
-        else if (k === 'r' || k === 'f') { world.enemies.push(makeEnemy(k, cx, bottom)); grid[r][c] = '.'; }
-        else if (k === 's') { world.enemies.push(makeEnemy(k, cx, r * TS + TS / 2 + 14)); grid[r][c] = '.'; }
+        else if (k === 'r') { world.enemies.push(makeEnemy('rouage', cx, bottom)); grid[r][c] = '.'; }
+        else if (k === 'f') { world.enemies.push(makeEnemy('fige', cx, bottom)); grid[r][c] = '.'; }
+        else if (k === 's') { world.enemies.push(makeEnemy('sablier', cx, r * TS + TS / 2 + 14)); grid[r][c] = '.'; }
         else if (k >= '1' && k <= '9') { world.npcs.push(makeNpc(k, cx, bottom)); grid[r][c] = '.'; }
       }
     }

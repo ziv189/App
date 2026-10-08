@@ -27,6 +27,14 @@
     ending_bad:  { bpm: 60, lead: seq('E4 - - - D#4 - - - D4 - - - - C4 - - -'), bass: seq('E2 - - - - - - - D2 - - - - - - -'), perc: seq('. . . . . . . . . . . . . . . .'), wave: 'sine' },
   };
 
+  // A track may come from TRACKS or from an override file (window.AUDIO_TRACKS); patterns may be strings or arrays.
+  function normalizeTrack(name) {
+    const src = (window.AUDIO_TRACKS && window.AUDIO_TRACKS[name]) || TRACKS[name];
+    if (!src) return null;
+    const arr = (v) => (Array.isArray(v) ? v : String(v || '-').trim().split(/\s+/));
+    return { bpm: src.bpm || 90, wave: src.wave || 'triangle', lead: arr(src.lead), bass: arr(src.bass), perc: arr(src.perc) };
+  }
+
   function ensure() {
     if (ctx) return ctx;
     const AC = window.AudioContext || window.webkitAudioContext;
@@ -118,7 +126,7 @@
       if (!unlocked) { wanted = name; return; }
       if (!ensure()) return;
       if (name === trackName) return;
-      const def = TRACKS[name];
+      const def = normalizeTrack(name);
       // fade out the old track
       if (track) {
         const old = track;

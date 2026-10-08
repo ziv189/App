@@ -71,7 +71,14 @@
   // 23:47 frozen: hour hand just before 12 (near 11.8h), minute hand at 47 min.
   const HOUR_A = (11.78 / 12) * Math.PI * 2, MIN_A = (47 / 60) * Math.PI * 2;
 
+  function themeOverride(theme) {
+    const O = window.ENV_THEMES && window.ENV_THEMES[theme];
+    return O || null;
+  }
+
   function drawBackground(ctx, theme, camX, camY, t, W, H) {
+    const O = themeOverride(theme);
+    if (O && typeof O.background === 'function') { O.background(ctx, camX, camY, t, W, H); return; }
     const th = get(theme);
     drawSky(ctx, th, W, H);
     const cx = camX || 0;
@@ -142,6 +149,8 @@
   }
 
   function drawTile(ctx, theme, chr, x, y, t, nb) {
+    const O = themeOverride(theme);
+    if (O && typeof O.tile === 'function') { O.tile(ctx, chr, x, y, t, nb); return; }
     const th = get(theme);
     const n = nb || {};
     const S = 32;
@@ -210,6 +219,8 @@
   }
 
   function drawForeground(ctx, theme, camX, camY, t, W, H) {
+    const O = themeOverride(theme);
+    if (O && typeof O.foreground === 'function') { O.foreground(ctx, camX, camY, t, W, H); return; }
     const th = get(theme);
     ctx.save();
     if (th.rain) {
