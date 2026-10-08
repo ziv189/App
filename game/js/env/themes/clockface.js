@@ -71,18 +71,16 @@
     });
   }
 
-  // The clock as seen from behind: iron back-plate with a gold toothed rim, then the cream face in front.
   function hand(ctx, cx, cy, a, len, w) {
     ctx.lineWidth = w;
     ctx.beginPath(); ctx.moveTo(cx, cy);
     ctx.lineTo(cx + Math.sin(a) * len, cy - Math.cos(a) * len); ctx.stroke();
   }
 
+  // The clock as seen from behind: iron back-plate with a gold toothed rim, then the cream face in front.
   function clockFace(ctx, cx, cy, R) {
     ctx.fillStyle = '#3a2a40';
-    ctx.beginPath();
-    ctx.arc(cx, cy, R + 10, 0, TAU);
-    ctx.fill();
+    ctx.beginPath(); ctx.arc(cx, cy, R + 10, 0, TAU); ctx.fill();
 
     ctx.fillStyle = '#9c7430';
     ctx.beginPath();
@@ -99,14 +97,9 @@
     face.addColorStop(0.75, '#f1e4c6');
     face.addColorStop(1, '#d9c39a');
     ctx.fillStyle = face;
-    ctx.beginPath();
-    ctx.arc(cx, cy, R, 0, TAU);
-    ctx.fill();
-    ctx.strokeStyle = '#c9963c';
-    ctx.lineWidth = R * 0.035;
-    ctx.beginPath();
-    ctx.arc(cx, cy, R * 0.98, 0, TAU);
-    ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.fill();
+    ctx.strokeStyle = '#c9963c'; ctx.lineWidth = R * 0.035;
+    ctx.beginPath(); ctx.arc(cx, cy, R * 0.98, 0, TAU); ctx.stroke();
 
     ctx.strokeStyle = '#2a1f22';
     ctx.lineCap = 'butt';
@@ -125,9 +118,7 @@
     hand(ctx, cx, cy, MIN_A, R * 0.78, R * 0.055);
 
     ctx.fillStyle = '#d9a84a';
-    ctx.beginPath();
-    ctx.arc(cx, cy, R * 0.07, 0, TAU);
-    ctx.fill();
+    ctx.beginPath(); ctx.arc(cx, cy, R * 0.07, 0, TAU); ctx.fill();
     ctx.lineWidth = 1.5;
     ctx.stroke();
   }
