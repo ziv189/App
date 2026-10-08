@@ -1,0 +1,20 @@
+# Juliette Varin
+- **Name / age:** Juliette Varin, six, forever. Calls her brother "Leo-Grand"; Leo calls her "Juli".
+- **Role:** Leo's little sister, a ghost held in the Tower's memory. She fell into the gear cage the night the clocks stopped.
+- **Logline:** A six-year-old ghost waits for her brother to stop blaming himself, and lets go only when he can.
+- **Look:** Translucent and lit from within, no legs, floating. Cream dress a size too big with gold embroidery; brown curls drifting like hair underwater; a brass pocket-watch pendant on a plum ribbon; a soft gold glow behind her.
+- **Palette:** cream #f4ead0, gold #e8b84a, hair #5a3b26, brass #c9a24a, ribbon #8a4f66, skin #fbe7c8.
+- **Personality:** lively, brave, a little bossy, loyal. Fears being forgotten. Wants Leo to put his guilt down, and to be able to rest.
+- **Voice:**
+  - "Leo-Grand... you won't let go, will you?"
+  - "Look at you! You got so tall while I was waiting, Leo."
+  - "You can let go of my hand now, Leo-big-brother."
+- **Leo:** older brother. He let go of her hand on the staircase and has blamed himself for ten years. She forgives him and wants him free.
+- **Elias:** father. He stopped the Tower to win her one minute, and she is the reason he still holds the balance wheel.
+- **Others:** no direct scenes with them yet. She appears to Leo, and to Elias at the wheel.
+- **Arc:**
+  - Ch1: a voice behind Leo in the train carriage asks him not to let go. He promises.
+  - Ch2: felt, not seen. Leo's hand closes on the watch, and he remembers her hand slipping out of his on the stairs.
+  - Ch3: Gaspard says Elias stopped the Tower "to save your sister." Leo: "This time I'm not letting go."
+  - Ch4: appears translucent among the gear cages (planned in DESIGN.md; ch4.js is not written yet): "You let go of my hand."
+  - Ch5: beside the balance wheel: "I know. I was there. I saw your face." Restart: she fades in peace. Freeze: she stays six forever.
