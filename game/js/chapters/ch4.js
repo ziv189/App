@@ -1,0 +1,127 @@
+/* Chapter 4 - Inside the Tower. Contract: game/DESIGN.md, section 8. Player-facing text is English. */
+(function () {
+  const W = 170;
+  const fit = (rows) => rows.map((r) => { if (r.length > W) throw new Error('row too long: ' + r.length); return r + '.'.repeat(W - r.length); });
+  CHAPTERS.register({
+    id: 'ch4',
+    title: 'Inside the Tower',
+    kicker: 'Chapter IV · Deep in the mechanism',
+    theme: 'tower',
+    music: 'ch4',
+    next: 'ch5',
+    map: fit([
+      '##########################################################################################################################################################################',
+      '#.....................................................................................................................#..................................................#',
+      '#.............................###...................................................................###...............#.....................###..........................#',
+      '#.............................#.#...................................................................#.#...............#.....................#.#..........................#',
+      '#.............................#.#................................o..................................#.#...............#.....................#.#..........................#',
+      '#........................................................s............................................................#..................................................#',
+      '#..............................................................=====..................................................#..................................................#',
+      '#...............................................................##....................................................#..................................................#',
+      '#........................................................o......##..................o.......................o.........#..................................................#',
+      '#...........................................s...................##..===...............................................#..................................................#',
+      '#....................s...............................=========..##................=====...................====........#..................................................#',
+      '#...............................................................##............o...............o.......o...............#...............o.............o....................#',
+      '#........o.................o.....................o..............##....................................................B......h...........................................#',
+      '#......======...........=======................=====............##..........=====...........====.....====.............B....=====....=====.........#####..................#',
+      '#...............................................................##.....................r...........r.......r..........B...........................#####..................#',
+      '#..S............................................................##......C..h.....f..........^...2........f....C...^...B.....................R.....#####.......o.......X..#',
+      '########....#############.....############################################################################################################################################',
+      '########....#############.....############################################################################################################################################',
+    ]),
+    scenes: [
+      {
+        col: 1,
+        id: 'ch4_arrival',
+        lines: [
+          { who: 'narrator', text: "Inside the Saint-Aube Tower, the great gears have stopped mid-turn, their teeth locked against each other." },
+          { who: 'narrator', text: "The air smells of hot brass and old oil. Ten years of stillness have not dulled the smell." },
+          { who: 'narrator', text: "Leo tightens the wrench at his belt. Somewhere far above, the balance wheel hangs perfectly still." },
+          { who: 'narrator', text: "Every iron cage around him hums with a silence so deep it is almost a sound." },
+        ],
+      },
+      {
+        col: 60,
+        id: 'ch4_ressort',
+        lines: [
+          { who: 'narrator', text: "Inside a cage of rusted gears lies a brass feather spring, bright as the day it was forged." },
+          { who: 'leo', expr: 'surprised', text: "Dad, you were building something in here. Of course you were." },
+          { act: 'unlock', value: 'ressort' },
+          { act: 'sfx', value: 'unlock' },
+          { who: 'leo', text: "A spring. Press jump again while you are in the air, and it kicks you up one more time." },
+          { who: 'narrator', text: "Some ledges above can only be reached with the Spring. Remember it when the climb gets steep." },
+        ],
+      },
+      {
+        col: 117,
+        id: 'ch4_regent_intro',
+        lines: [
+          { who: 'narrator', text: "Beyond the iron bars, the arena is lit by a pale light that never flickers. Someone is waiting." },
+          { act: 'shake' },
+          { who: 'regent', text: "There you are, boy." },
+          { who: 'leo', expr: 'angry', text: "Who are you? Where is my father?" },
+          { who: 'regent', text: "Your father is exactly where he has always been. Holding a minute that refuses to end." },
+          { who: 'regent', text: "I have kept this city still for ten years. I will keep it still for a thousand more." },
+          { who: 'leo', expr: 'worried', text: "Ten years. You stopped the trains, the bakers, the whole city. Open the gate, or I will open it myself." },
+        ],
+      },
+      {
+        col: 118,
+        id: 'boss_phase2',
+        lines: [
+          { who: 'narrator', text: "A crack runs across the porcelain mask. Beneath it, something human is breathing far too fast." },
+          { who: 'regent', expr: 'sad', text: "Do you know what a fever sounds like? A clock running too fast, with no one to slow it down." },
+          { who: 'regent', expr: 'sad', text: "Constance was humming when it took her. Her last laugh was still in the room, and I could not let it go." },
+          { who: 'leo', expr: 'worried', text: "Your wife... I'm sorry. But you can't keep a laugh by stopping the world around it." },
+        ],
+      },
+      {
+        col: 118,
+        id: 'boss_phase3',
+        lines: [
+          { who: 'narrator', text: "The coat splits down the back. Loose gears spin around him, shrieking against the stone." },
+          { who: 'regent', expr: 'angry', text: "Time is a betrayal, boy. It takes everything you hold, and then it laughs while it does." },
+          { who: 'leo', expr: 'worried', text: "Stop! You're tearing yourself apart!" },
+          { who: 'regent', expr: 'angry', text: "Then tell me how to hold on to nothing, boy. Tell me how to stop the hours from slipping through." },
+        ],
+      },
+      {
+        col: 118,
+        id: 'boss_defeated',
+        lines: [
+          { who: 'narrator', text: "The Regent's knees give way. His cane clatters across the stone, and the broken mask slides from his face." },
+          { who: 'regent', expr: 'sad', text: "I wanted to keep her last laugh. Only that one. I wanted to hold it forever, like a coin in a closed fist." },
+          { who: 'regent', expr: 'sad', text: "So I stopped the hour around it. The trains, the bread, the children, all of it, frozen for one laugh." },
+          { who: 'leo', expr: 'angry', text: "You froze an entire city for one laugh?" },
+          { who: 'regent', text: "You think I don't know what it is to let go of a hand? You are no different from me, boy." },
+          { who: 'leo', expr: 'worried', text: "I'm not like you." },
+          { who: 'regent', text: "Your father is at the top of the Tower, beside the balance wheel. He has held that minute for ten years." },
+          { who: 'regent', expr: 'sad', text: "Go to him. Perhaps he can tell you what I never could: how to let a minute end." },
+          { who: 'narrator', text: "With a long, tired groan, the iron bars slide up into the ceiling. The way forward is open." },
+        ],
+      },
+    ],
+    npcs: {
+      '2': {
+        who: 'juliette',
+        lines: [
+          { who: 'juliette', expr: 'happy', text: "Leo-big-brother! You came! I knew you would find the way, I knew it!" },
+          { who: 'leo', expr: 'surprised', text: "Juliette? You're really here... You look just like the photo on that train ticket." },
+          { who: 'juliette', expr: 'happy', text: "I'm always here. My little clock still ticks, see? Tick, tock, tick, tock!" },
+          { who: 'leo', expr: 'worried', text: "I've been looking for you for ten years. I should have come sooner." },
+          { who: 'juliette', expr: 'sad', text: "You let go of my hand. On the stairs, when I slipped. I felt your fingers open." },
+          { who: 'leo', expr: 'worried', text: "I know. I replay it every night, Juliette. Every single night." },
+          { who: 'leo', text: "Are you angry at me?" },
+          { who: 'juliette', expr: 'happy', text: "No, silly. I was never angry. I only wanted you to come find me." },
+          { who: 'leo', text: "Then I'm here. I'll get you out of this Tower, Juliette. I promise." },
+          { act: 'flag', value: 'met_juliette' },
+        ],
+        again: [
+          { who: 'juliette', expr: 'happy', text: "Be brave, Leo-big-brother. The higher you climb, the quieter it gets, but you are not alone." },
+          { who: 'juliette', text: "Papa is waiting at the top, beside the balance wheel. He never stopped waiting for you." },
+          { who: 'juliette', text: "Go on! I'll be right here, tick-tocking. I always am." },
+        ],
+      },
+    },
+  });
+})();
