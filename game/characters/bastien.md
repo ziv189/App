@@ -1,0 +1,25 @@
+# Bastien
+
+- **Name / age / role:** Bastien, 46, station master of Vermeil and keeper of the Platform Four timetable.
+- **Logline:** Ten years after the clock stopped, the most anxious man in Vermeil still holds the 23:47 Tower train at the platform, because procedure says it leaves only when the hour starts again.
+- **Look:** Tall and thin. Tight navy railway uniform with brass buttons and red piping. Peaked cap with a small brass badge. Thin moustache. Clipboard in hand, pocket watch on a brass chain.
+- **Palette:** navy #1f2d4a, deep navy #152039, red #b8362e, brass #d9b35a, skin #f0c9a5, dark brown #3a2a22, clipboard wood #8a5a34.
+- **Idle fidgets:** glances at the pocket watch, taps the clipboard with his hand.
+- **Personality:** precise, polite, anxious. Every problem has a procedure; every delay goes in the ledger.
+- **Fears:** being late, losing a passenger, deciding without a rule to cite.
+- **Wants:** the 23:47 train leaving on time with every form stamped. Underneath, someone to tell him what to do.
+- **Voice:**
+  - "Stop! Stop right there. Platform Four is closed under Procedure Nine, paragraph two."
+  - "Please do not touch the rails, sir. The rails are not on the timetable."
+  - "The train departs as soon as the hour starts again. Not one second before. That is procedure."
+- **Leo:** a passenger who breaks procedure. Bastien blocks him, then quietly lets him board.
+- **Elias:** signed the Tower timetable. Bastien has filed forty-one complaints and never got an answer.
+- **Gaspard:** the only one who speaks his language. They bond over procedure.
+- **Mireille:** calls him "Mister Timetable". He reports her and resents his own rule.
+- **Tomas:** tries to explain procedure to a boy who only says "Again!"
+- **The Regent:** the dark mirror. Both want nothing late; one wants time stopped, the other wants it on schedule.
+- **Arc, ch1 (Vermeil Station):** blocks Platform Four under Procedure Nine. The Tower train waits, fuelled, for an hour that never starts.
+- **Arc, ch2 (The Frozen Market):** shows Leo the ledger of ten years of delays. The station clock still reads 23:47, and he has never once questioned it.
+- **Arc, ch3 (The Foundries):** learns that Gaspard has fed the train's boiler every night. He recorded the delay; Gaspard kept the train ready. He is ashamed.
+- **Arc, ch4 (Inside the Tower):** does not enter the Tower. He keeps the ledger open at Platform Four: "Expected return: unknown. Recorded anyway."
+- **Arc, ch5 (The Dial):** if Leo restarts the clock, the 23:48 train is at the platform and he says, for once, "Good enough." If Leo freezes it, he waits on the platform, clipboard raised, for a timetable that never updates.
