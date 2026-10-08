@@ -1,8 +1,8 @@
 /* Reachability check for a chapter map: can Leo reach the exit, the pickups, the NPCs and the scene triggers?
-   Simulates the game's jump, dash and double-jump physics (constants match game.js, converted to tiles).
+   Simulates the game's jump, dash, double-jump and acceleration rules (constants match game.js, in tiles).
    Usage: node game/tools/reachability.js game/js/chapters/ch2.js [abilities]
      abilities: comma list of dash,ressort (default follows the story: ch1 none, ch2-3 dash, ch4-5 dash+ressort)
-   Prints a summary and exits 1 when the exit, a scene or an NPC cannot be reached. */
+   Exits 1 when the exit, a scene trigger, an NPC or the boss arena cannot be reached. */
 const fs = require('fs');
 const vm = require('vm');
 
@@ -18,11 +18,13 @@ const abilities = new Set(process.argv[3] !== undefined
   ? process.argv[3].split(',').filter(Boolean)
   : (STORY_ABILITIES[chapter.id] || []));
 
-// Physics in tiles (game.js constants / 32 px per tile)
+// Physics in tiles (game.js constants divided by 32 px per tile)
 const DT = 1 / 120;
-const G = 1700 / 32, VMAX = 880 / 32, RUN = 175 / 32, JUMP = 600 / 32, DOUBLE = 520 / 32;
+const G = 1700 / 32, VMAX = 880 / 32;
+const RUN = 175 / 32, ACC = 1500 / 32, AIR_ACC = 1100 / 32, DEC = 1800 / 32;
+const JUMP = 600 / 32, DOUBLE = 520 / 32;
 const DASH_V = 470 / 32, DASH_T = 0.17;
-const HW = 11 / 32, HT = 46 / 32;   // body half width, body height
+const HW = 11 / 32, HT = 46 / 32;   // body half width and height
 
 const map = chapter.map;
 const rows = map.length, cols = map[0].length;
@@ -30,32 +32,40 @@ const at = (c, r) => (r < 0 || r >= rows || c < 0 || c >= cols) ? '.' : map[r][c
 const solidCell = (c, r) => {
   if (c < 0 || c >= cols) return true;          // level walls
   if (r < 0 || r >= rows) return false;         // sky and pits
-  const k = at(c, r);
-  return k === '#';                             // B (boss gate) is treated as open
+  return at(c, r) === '#';                      // B (boss gate) is treated as open
 };
 const platCell = (c, r) => at(c, r) === '=';
 const supportCell = (c, r) => solidCell(c, r) || platCell(c, r);
 
 function bodyCols(x) { return [Math.floor(x - HW + 1e-6), Math.floor(x + HW - 1e-6)]; }
+const approach = (v, target, step) => (Math.abs(target - v) <= step ? target : v + Math.sign(target - v) * step);
 
-/* Simulate one action from a grounded start. Returns the list of grounded frames (x, y). */
+/* One action from a grounded start. Returns every grounded frame (x, y) along the way.
+   action: { dir (-1|0|1), jump (bool), doubleFrame (frame or -1), dashFrame (frame or -1), dashDir (-1|1) } */
 function simulate(start, action) {
   let x = start.x, y = start.y, vx = 0, vy = 0, dashT = 0, grounded = true, doubleUsed = false;
   const dir = action.dir || 0;
   const frames = [];
-  if (action.jump) { vy = -JUMP; grounded = false; }
-  if (action.dash) { dashT = DASH_T; vx = action.dashDir * DASH_V; vy = 0; }
   const maxFrames = Math.round(2.6 / DT);
   for (let f = 0; f < maxFrames; f++) {
+    // events, in the order the game applies them: dash, then jump (a jump cancels a dash on the same frame)
+    if (f === action.dashFrame && abilities.has('dash')) {
+      vx = action.dashDir * DASH_V;
+      if (!(f === 0 && action.jump)) { vy = 0; dashT = DASH_T; }
+    }
+    if (f === 0 && action.jump && grounded) { vy = -JUMP; grounded = false; dashT = 0; }
     if (f === action.doubleFrame && !grounded && !doubleUsed && abilities.has('ressort')) {
       vy = -DOUBLE; doubleUsed = true;
     }
+    // horizontal and vertical velocity for this frame
     if (dashT > 0) { dashT -= DT; vy = 0; }
     else {
-      vx = dir * RUN;
+      const target = dir * RUN;
+      const rate = dir !== 0 ? (grounded ? ACC : AIR_ACC) : DEC;
+      vx = approach(vx, target, rate * DT);
       vy = Math.min(VMAX, vy + G * DT);
     }
-    // horizontal move
+    // horizontal move with wall clamp
     let nx = x + vx * DT;
     const rowsBody = [];
     for (let r = Math.floor(y - HT + 0.05); r <= Math.floor(y - 0.05); r++) rowsBody.push(r);
@@ -83,9 +93,9 @@ function simulate(start, action) {
         }
       }
       if (!grounded && vy === 0 && dashT <= 0) {
-        // resting on a support at the current boundary
+        // standing exactly on a boundary with support underfoot
         const r = Math.round(ny);
-        if (Math.abs(ny - r) < 1e-6 && cl !== undefined) {
+        if (Math.abs(ny - r) < 1e-6) {
           for (let c = cl; c <= cr; c++) if (supportCell(c, r)) { grounded = true; break; }
         }
       }
@@ -105,9 +115,9 @@ function simulate(start, action) {
   return frames;
 }
 
-/* Find the spawn and collectible cells, then BFS over grounded standing states. */
+/* Find the spawn and the collectible cells, then search over grounded standing positions. */
 let S = null;
-const targets = { exit: [], checkpoints: [], gears: [], oil: [], npcs: [], boss: [], gate: [] };
+const targets = { exit: [], checkpoints: [], gears: [], oil: [], npcs: [], boss: [] };
 for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
   const k = at(c, r);
   if (k === 'S') S = { c, r };
@@ -117,12 +127,11 @@ for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
   if (k === 'h') targets.oil.push({ c, r });
   if (k >= '1' && k <= '9') targets.npcs.push({ c, r, k });
   if (k === 'R') targets.boss.push({ c, r });
-  if (k === 'B') targets.gate.push({ c, r });
 }
 if (!S) { console.log('ERROR: no S start'); process.exit(1); }
 
-const visited = new Set();                         // standing cells: "c,r" where r is the cell row the feet rest in (feet at r+1)
-const frameHits = [];                              // grounded positions (de-duplicated), for overlap checks
+const visited = new Set();                         // standing cells "c,r" (feet rest on row r+1)
+const frameHits = [];                              // grounded positions, de-duplicated, for overlap checks
 const seenPos = new Set();
 const queue = [];
 function addFrames(frames) {
@@ -135,30 +144,27 @@ function addFrames(frames) {
   }
 }
 const startState = { x: S.c + 0.5, y: S.r };
-addFrames([{ x: startState.x, y: startState.y }]);
-queue.push(startState);
-visited.add(S.c + ',' + (S.r - 1));
+addFrames([startState]);
 
-if (process.env.DEBUG_FROM) {
-  const [dx0, dy0] = process.env.DEBUG_FROM.split(',').map(Number);
-  for (const a of [{ dir: 1, jump: true }, { dir: 1 }, { dir: 0, jump: true }]) {
-    const fr = simulate({ x: dx0, y: dy0 }, a);
-    const mx = fr.reduce((m, f) => (f.x > m ? f.x : m), -1);
-    console.log('debug action', JSON.stringify(a), 'frames', fr.length, 'maxX', mx.toFixed(2), 'last', fr.length ? JSON.stringify(fr[fr.length - 1]) : 'none');
-  }
-}
 const doubleFrames = abilities.has('ressort') ? [-1, 12, 24, 36, 48, 60, 72] : [-1];
+const dashFrames = abilities.has('dash') ? [0, 8, 16, 24] : [];
 while (queue.length) {
   const st = queue.shift();
-  const actions = [{ dir: -1 }, { dir: 1 }];
+  const actions = [];
+  for (const dir of [-1, 1]) actions.push({ dir, dashFrame: -1, doubleFrame: -1 });    // walk / fall off a ledge
   for (const dir of [-1, 0, 1]) {
-    for (const df of doubleFrames) actions.push({ dir, jump: true, doubleFrame: df });
-    if (abilities.has('dash')) for (const dd of [-1, 1]) actions.push({ dir, jump: true, dash: true, dashDir: dd, doubleFrame: -1 });
+    for (const df of doubleFrames) actions.push({ dir, jump: true, doubleFrame: df, dashFrame: -1 });
+    for (const dd of [-1, 1]) {
+      for (const df of dashFrames) {
+        actions.push({ dir, jump: true, doubleFrame: -1, dashFrame: df, dashDir: dd });   // dash, with or without a jump
+        actions.push({ dir, jump: false, doubleFrame: -1, dashFrame: df, dashDir: dd });
+      }
+    }
   }
   for (const a of actions) addFrames(simulate(st, a));
 }
 
-/* Check each target against the frames the player actually stands in. */
+/* Check each target against the grounded positions the player actually reaches. */
 const near = (fx, fy, c, r, dx, dy) => Math.abs(fx - (c + 0.5)) < dx && Math.abs(fy - (r + 1)) < dy;
 const reached = (t, dx = 0.9, dy = 1.4) => frameHits.some((f) => near(f.x, f.y, t.c, t.r, dx, dy));
 const exitOk = targets.exit.length === 0 ? null : targets.exit.some((t) => reached(t, 1.0, 1.6));
@@ -182,7 +188,7 @@ const result = {
   unreachedCheckpoints: unreachedCheckpoints.map((t) => `${t.c},${t.r}`),
   unreachedNpcs: unreachedNpcs.map((t) => t.k),
   unreachedScenes: unreachedScenes.map((s) => `${s.id}@${s.col}`),
-  bossReachable: targets.boss.length ? targets.boss.some((t) => reached(t, 6, 2)) : null,
+  bossArenaReachable: targets.boss.length ? targets.boss.some((t) => reached(t, 6, 2)) : null,
   gearsTotal: targets.gears.length,
   gearsReachable: targets.gears.length - unreachedGears.length,
 };
@@ -192,6 +198,6 @@ const problems = [];
 if (exitOk === false) problems.push('exit unreachable');
 if (unreachedNpcs.length) problems.push('NPC unreachable: ' + unreachedNpcs.map((t) => t.k).join(','));
 if (unreachedScenes.length) problems.push('scene trigger unreachable: ' + unreachedScenes.map((s) => s.id).join(','));
-if (targets.boss.length && result.bossReachable === false) problems.push('boss arena unreachable');
+if (targets.boss.length && result.bossArenaReachable === false) problems.push('boss arena unreachable');
 if (problems.length) { console.log('PROBLEMS: ' + problems.join(' | ')); process.exit(1); }
 console.log('OK : all exits, NPCs and scene triggers are reachable with abilities [' + [...abilities].join(',') + ']');
