@@ -1475,10 +1475,17 @@
         unlocks: [...story.unlocks], flags: [...story.flags],
         dialog: dlg && dlg.cur ? dlg.cur.text : null, choice: !!(dlg && dlg.choice),
         boss: world && world.boss ? { hp: world.boss.hp, phase: world.boss.phase, state: world.boss.state, active: world.boss.active } : null,
-        enemies: world ? world.enemies.length : 0, transition: !!transition,
+        enemies: world ? world.enemies.length : 0, transition: !!transition, gateClosed, endKey,
       };
     },
     advance() { if (mode === 'dialog') { hitSet.add('Enter'); } },
+    // Test hook: deal n hits to the active boss through the normal bossHit path.
+    hitBoss(n) {
+      const b = world && world.boss;
+      if (!b || !b.active || b.dead) return false;
+      for (let i = 0; i < n && !b.dead; i++) { b.inv = 0; bossHit(b); }
+      return true;
+    },
   };
 
   music('title');
