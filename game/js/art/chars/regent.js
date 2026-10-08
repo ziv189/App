@@ -94,15 +94,15 @@
     const B = c.B, P = c.P;
     ART.limb(ctx, B[0], B[1], P[0], P[1], 2.8, C.gold, { lw: 1.2 });
     ART.ell(ctx, B[0], B[1] - 1, 2.2, 1.5, C.ink, { lw: 1 });
-    const kx = P[0], ky = P[1] - 3.5;
+    const kx = P[0], ky = P[1] - 3.5, gr = 4 + 20 * glow;
     if (glow > 0) {
       ctx.save();
-      const g = ctx.createRadialGradient(kx, ky, 1, kx, ky, 4 + 20 * glow);
+      const g = ctx.createRadialGradient(kx, ky, 1, kx, ky, gr);
       g.addColorStop(0, 'rgba(255,236,170,0.95)');
       g.addColorStop(1, 'rgba(255,210,122,0)');
       ctx.fillStyle = g;
       ctx.beginPath();
-      ctx.arc(kx, ky, 4 + 20 * glow, 0, Math.PI * 2);
+      ctx.arc(kx, ky, gr, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     }
@@ -114,8 +114,7 @@
   // Phase 3: four gears orbit the torso. front=false draws the ones behind him, front=true the ones in front.
   function orbit(ctx, tm, front) {
     for (let i = 0; i < 4; i++) {
-      const a = tm * 1.4 + i * Math.PI / 2;
-      const depth = Math.sin(a);
+      const a = tm * 1.4 + i * Math.PI / 2, depth = Math.sin(a);
       if ((depth > 0) !== front) continue;
       ART.gear(ctx, 2 + Math.cos(a) * 40, -72 + depth * 26, 6.5, 8, tm * 2 + i, C.gold, { lw: 1.2 });
     }
@@ -124,16 +123,14 @@
   // Joint targets, cane and body offsets for each boss state (upper-body space, feet at 0,0).
   function pose(st, t, tm) {
     const s = {
-      alpha: 1, dy: 0, fall: 0, lean: 0, br: Math.sin(tm * 2.2) * 0.9, gl: 0, o: 0,
-      headDx: 0, headDy: 0,
+      alpha: 1, dy: 0, fall: 0, lean: 0, br: Math.sin(tm * 2.2) * 0.9, gl: 0, o: 0, headDx: 0, headDy: 0,
       nearH: [13.2, -58], nearBend: -2, farH: [-17, -58], farBend: 2,
       cane: { B: [14, 0], P: [13, -70], hand: 'near' },
       nearFoot: [8, 0], farFoot: [-6, 0],
     };
-    if (st === 'intro') {
-      const a = clamp(t, 0, 1);
-      s.alpha = a;
-      s.dy = (1 - a) * -14;
+    if (st === 'intro') {                       // rises out of the clock, then bows
+      s.alpha = clamp(t, 0, 1);
+      s.dy = (1 - s.alpha) * -14;
       s.lean = 0.22 * Math.sin(clamp((t - 1.2) / 0.9, 0, 1) * Math.PI);
     } else if (st === 'walk') {
       const ph = tm * 7, sw = Math.sin(ph), cs = Math.cos(ph);
@@ -144,7 +141,7 @@
       s.cane = { B: [14 + sw * 4, 0], P: [13 + sw * 3, -70], hand: 'near' };
       s.nearFoot = [8 + sw * 9, -Math.max(0, cs) * 4];
       s.farFoot = [-6 - sw * 9, -Math.max(0, -cs) * 4];
-    } else if (st === 'telegraph') {
+    } else if (st === 'telegraph') {            // cane raised, glow builds, head trembles
       const g = clamp(t, 0, 1);
       s.lean = -0.04;
       s.gl = g;
@@ -154,37 +151,31 @@
       s.cane = { B: [15.5, -100], P: [17, -138], hand: 'near' };
       s.farH = [-17, -62];
       s.farBend = 4;
-    } else if (st === 'slam') {
+    } else if (st === 'slam') {                 // cane comes down onto the ground
       const k0 = clamp(t / 0.22, 0, 1), k = k0 * k0;
       s.lean = lerp(-0.04, 0.16, k);
       s.nearBend = -3 - k;
       s.nearH = [lerp(16.2, 18, k), lerp(-118, -56, k)];
-      s.cane = {
-        B: [lerp(15.5, 24, k), lerp(-100, 0, k)],
-        P: [lerp(17, 15.9, k), lerp(-138, -75.6, k)],
-        hand: 'near',
-      };
+      s.cane = { B: [lerp(15.5, 24, k), lerp(-100, 0, k)], P: [lerp(17, 15.9, k), lerp(-138, -75.6, k)], hand: 'near' };
       s.farH = [-17 + 2 * k, -62 + 4 * k];
       s.farBend = 4 - 2 * k;
-    } else if (st === 'beam') {
+    } else if (st === 'beam') {                 // palm open toward the beam, cane held behind in the far hand
       s.lean = 0.05;
       s.nearH = [20, -79];
       s.nearBend = 1;
       s.farH = [-19.3, -60];
-      s.farBend = 2;
       s.cane = { B: [-21, 0], P: [-19, -72], hand: 'far' };
-    } else if (st === 'charge') {
+    } else if (st === 'charge') {               // lean-in dash, cane levelled like a lance
       const sw = Math.sin(tm * 14), cs = Math.cos(tm * 14);
       s.lean = 0.32;
       s.br = 0;
       s.nearH = [24, -72];
       s.nearBend = 3;
       s.farH = [-20 + sw * 2, -60];
-      s.farBend = 2;
       s.cane = { B: [-12, -66], P: [36, -74], hand: 'near' };
       s.nearFoot = [18 + sw * 6, -Math.max(0, cs) * 5];
       s.farFoot = [-12 - sw * 6, -Math.max(0, -cs) * 5];
-    } else if (st === 'summon') {
+    } else if (st === 'summon') {               // arms open wide, coat parts, gears rise
       const o = easeOut(clamp(t / 0.7, 0, 1));
       s.o = o;
       s.lean = -0.05 * o;
@@ -193,13 +184,13 @@
       s.farH = [lerp(-17, -30, o), lerp(-58, -98, o)];
       s.farBend = 4 * o;
       s.cane = null;
-    } else if (st === 'hurt') {
+    } else if (st === 'hurt') {                 // recoil, decaying
       const k = 1 - clamp(t / 0.45, 0, 1);
       s.lean = -0.22 * k;
       s.headDx = -1.6 * k;
       s.headDy = 0.9 * k;
       s.gl = k;
-    } else if (st === 'dead') {
+    } else if (st === 'dead') {                 // topples forward and fades
       s.fall = 1.5 * easeOut(clamp(t / 0.9, 0, 1));
       s.alpha = 1 - clamp((t - 1.5) / 1.2, 0, 1);
       s.br = 0;
@@ -221,6 +212,14 @@
     c.quadraticCurveTo(8, -97, 4, -99);
   }
 
+  // Filled polygon from a list of points (used for coat shards and summon flaps).
+  function poly(ctx, pts, color, lw) {
+    shape(ctx, color, (c) => {
+      c.moveTo(pts[0][0], pts[0][1]);
+      for (let i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]);
+    }, lw);
+  }
+
   function slit(ctx, pts) {
     polyline(ctx, pts, OUT, 4.4);
     polyline(ctx, pts, C.lining, 2.2);
@@ -231,39 +230,27 @@
     shape(ctx, C.coat, (c) => coatPath(c, tail), 2);
     polyline(ctx, [[-7, -74], [-9, -58], [-9 - tail * 0.4, -40]], ART.shade(C.coat, 0.16), 1.2);
     polyline(ctx, [[-12, -88], [-15, -80], [-13, -72]], '#4a4a60', 1.6); // light from the upper left
-    shape(ctx, C.lining, (c) => {
-      c.moveTo(4, -98); c.lineTo(9, -92); c.lineTo(10, -70); c.lineTo(13, -42); c.lineTo(8, -42); c.lineTo(6, -70);
-    }, 1.4);
-    const buttons = [[7.5, -84], [8.2, -73], [9, -61], [10, -49]];
-    for (let i = 0; i < buttons.length; i++) {
-      ART.gear(ctx, buttons[i][0], buttons[i][1], 2.2, 6, i * 0.4, C.gold, { lw: 1 });
-    }
+    poly(ctx, [[4, -98], [9, -92], [10, -70], [13, -42], [8, -42], [6, -70]], C.lining, 1.4);
+    [[7.5, -84], [8.2, -73], [9, -61], [10, -49]].forEach((b, i) => {
+      ART.gear(ctx, b[0], b[1], 2.2, 6, i * 0.4, C.gold, { lw: 1 });
+    });
     if (ph >= 2) slit(ctx, [[-15, -62], [-11, -58], [-14, -53], [-10, -48], [-13, -45]]);
     if (ph >= 3) {
       slit(ctx, [[1, -56], [4, -51], [2, -46], [6, -42]]);
       const w = Math.sin(tm * 3) * 1.5;
-      const tatters = [
-        [[-17, -40], [-22 + w, -28], [-16, -26], [-13, -36]],
-        [[-3, -34], [-4 - w, -23], [1, -27], [2, -33]],
-        [[11, -35], [16 + w, -25], [13, -23], [9, -33]],
-      ];
-      tatters.forEach((pts) => shape(ctx, C.coat, (c) => {
-        c.moveTo(pts[0][0], pts[0][1]);
-        for (let i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]);
-      }, 1.6));
+      poly(ctx, [[-17, -40], [-22 + w, -28], [-16, -26], [-13, -36]], C.coat, 1.6);
+      poly(ctx, [[-3, -34], [-4 - w, -23], [1, -27], [2, -33]], C.coat, 1.6);
+      poly(ctx, [[11, -35], [16 + w, -25], [13, -23], [9, -33]], C.coat, 1.6);
     }
   }
 
   // Summon: the front panels part, a purple cavity opens and gears rise out of it.
   function chestOpen(ctx, o, tm) {
     if (o <= 0.02) return;
-    shape(ctx, C.coat, (c) => {
-      c.moveTo(10, -92); c.lineTo(10 + 12 * o, -86); c.lineTo(12 + 15 * o, -50); c.lineTo(10, -40);
-    }, 1.6);
+    poly(ctx, [[10, -92], [10 + 12 * o, -86], [12 + 15 * o, -50], [10, -40]], C.coat, 1.6);
     ART.ell(ctx, 8, -80, 1.5 + 4 * o, 2 + 8 * o, C.liningLo, { lw: 1.4 });
     for (let i = 0; i < 3; i++) {
-      const gx = 8 + o * (7 + i * 5), gy = -86 + i * 8 - o * 4;
-      ART.gear(ctx, gx, gy, 5.4 - i * 0.6, 7, tm * (2 + i), C.gold, { lw: 1.2 });
+      ART.gear(ctx, 8 + o * (7 + i * 5), -86 + i * 8 - o * 4, 5.4 - i * 0.6, 7, tm * (2 + i), C.gold, { lw: 1.2 });
     }
   }
 
@@ -299,8 +286,7 @@
     }
     ctx.restore();
 
-    // Head outline over the mask edge.
-    ctx.beginPath();
+    ctx.beginPath();                                                  // head outline over the mask edge
     ctx.ellipse(HEAD[0], HEAD[1], 9.5, 11.5, 0, 0, Math.PI * 2);
     ctx.strokeStyle = OUT;
     ctx.lineWidth = 1.6;
@@ -310,7 +296,7 @@
     ART.eye(ctx, -1.5, -110.5, 2.1, 0.8, 0.1, blinkAt(tm), { lw: 1 });
     polyline(ctx, [[-6, -114.5], [0, -115.6]], '#8a8590', 1.1);
 
-    if (st === 'hurt' && t < 0.3) {
+    if (st === 'hurt' && t < 0.3) {                                   // sparks off the mask
       ctx.save();
       ctx.globalAlpha *= clamp(1 - t / 0.3, 0, 1);
       for (let i = 0; i < 5; i++) {
@@ -329,19 +315,19 @@
     const pulse = 0.85 + 0.15 * Math.sin(tm * 30);
     ctx.save();
     const base = ctx.globalAlpha;
-    // Three layers: outer glow, body, white core; each fades toward the end of the beam.
-    const layer = (a, b, col0, col1, y, h, alpha) => {
+    // Three layers (outer glow, body, white core), each fading toward the end of the beam.
+    const layer = (col0, col1, y, h, alpha) => {
       const g = ctx.createLinearGradient(x0, 0, x1, 0);
       g.addColorStop(0, col0);
       g.addColorStop(1, col1);
       ctx.fillStyle = g;
       ctx.globalAlpha = base * alpha;
-      ctx.fillRect(a, y, b - a, h);
+      ctx.fillRect(x0, y, x1 - x0, h);
     };
-    layer(x0, x1, 'rgba(255,190,90,0.55)', 'rgba(255,190,90,0)', y0 - 6, (y1 - y0) + 12, pulse);
-    layer(x0, x1, 'rgba(255,211,122,0.95)', 'rgba(255,211,122,0.12)', y0, y1 - y0, 1);
-    layer(x0, x1, 'rgba(255,250,225,1)', 'rgba(255,250,225,0)', yc - 2.5, 5, 1);
-    for (let i = 0; i < 24; i++) {
+    layer('rgba(255,190,90,0.55)', 'rgba(255,190,90,0)', y0 - 6, (y1 - y0) + 12, pulse);
+    layer('rgba(255,211,122,0.95)', 'rgba(255,211,122,0.12)', y0, y1 - y0, 1);
+    layer('rgba(255,250,225,1)', 'rgba(255,250,225,0)', yc - 2.5, 5, 1);
+    for (let i = 0; i < 24; i++) {                                    // sand streaming along the beam
       const x = x0 + 8 + ((tm * (120 + (i % 5) * 30) + i * 61) % (x1 - x0 - 16));
       const y = y0 + 4 + ((i * 37) % (y1 - y0 - 8));
       ctx.globalAlpha = base * 0.9 * (1 - (x - x0) / (x1 - x0));
@@ -350,7 +336,7 @@
       ctx.arc(x, y, 1.2 + (i % 3) * 0.4, 0, Math.PI * 2);
       ctx.fill();
     }
-    g = ctx.createRadialGradient(x0, yc, 1, x0, yc, 16);
+    const g = ctx.createRadialGradient(x0, yc, 1, x0, yc, 16);        // glow at the palm
     g.addColorStop(0, 'rgba(255,240,190,0.95)');
     g.addColorStop(1, 'rgba(255,240,190,0)');
     ctx.globalAlpha = base;
@@ -369,8 +355,7 @@
     ctx.lineCap = 'round';
     ctx.lineWidth = 2;
     for (let i = 0; i < 6; i++) {
-      const y = -100 + i * 11 + Math.sin(tm * 9 + i) * 2;
-      const xEnd = -26 - (i % 3) * 12;
+      const y = -100 + i * 11 + Math.sin(tm * 9 + i) * 2, xEnd = -26 - (i % 3) * 12;
       ctx.beginPath();
       ctx.moveTo(xEnd - 30 - (i % 2) * 18, y);
       ctx.lineTo(xEnd, y);
@@ -399,11 +384,9 @@
     ctx.stroke();
     ctx.strokeStyle = C.crack;
     ctx.lineWidth = 1.4;
-    const dirs = [-1, 1];
-    for (let d = 0; d < dirs.length; d++) {
+    for (let d = -1; d <= 1; d += 2) {
       for (let i = 0; i < 3; i++) {
-        const x0 = 24 + dirs[d] * (5 + i * 6);
-        const x1 = x0 + dirs[d] * Math.min(18, u * 60);
+        const x0 = 24 + d * (5 + i * 6), x1 = x0 + d * Math.min(18, u * 60);
         ctx.beginPath();
         ctx.moveTo(x0, 1.5);
         ctx.lineTo(x1, 1 + i * 0.6);
@@ -444,7 +427,7 @@
     if (ph >= 3) orbit(ctx, tm, false);
     drawCoat(ctx, st, ph, tm);
     if (st === 'summon') chestOpen(ctx, s.o, tm);
-    ART.rr(ctx, -6.5, -104, 13, 8, 3, C.coat, { lw: 1.8 });
+    ART.rr(ctx, -6.5, -104, 13, 8, 3, C.coat, { lw: 1.8 });            // high collar
     ART.rr(ctx, -4, -98.5, 9, 2.4, 1, C.lining, { stroke: false });
     drawHead(ctx, st, ph, t, tm, s);
     arm(ctx, SH_NEAR, s.nearH, s.nearBend, C.coat);
@@ -460,8 +443,7 @@
   /* ---------- portrait: head and shoulders, 200x200 box centred on (0,0) ---------- */
   function portrait(ctx, expr, t) {
     const ex = EXPRS.indexOf(expr) >= 0 ? expr : 'neutral';
-    const tt = num(t);
-    const bl = ex === 'happy' ? Math.max(0.35, blinkAt(tt)) : blinkAt(tt);
+    const bl = ex === 'happy' ? Math.max(0.35, blinkAt(num(t))) : blinkAt(num(t));
 
     const glow = ctx.createRadialGradient(0, -20, 8, 0, -20, 120);
     glow.addColorStop(0, 'rgba(120,70,165,0.42)');
@@ -469,7 +451,7 @@
     ctx.fillStyle = glow;
     ctx.fillRect(-100, -100, 200, 200);
 
-    shape(ctx, C.coat, (c) => {
+    shape(ctx, C.coat, (c) => {                                       // coat and shoulders
       c.moveTo(-98, 100); c.lineTo(-98, 78);
       c.quadraticCurveTo(-96, 56, -66, 48);
       c.lineTo(-30, 40); c.lineTo(30, 40);
@@ -481,15 +463,15 @@
     ART.gear(ctx, 0, 70, 3.4, 6, 0.2, C.gold, { lw: 1.2 });
     ART.gear(ctx, 0, 88, 3.4, 6, 0.5, C.gold, { lw: 1.2 });
 
-    ART.ell(ctx, -4, -34, 50, 56, C.hairLo, { lw: 2 });              // silver mass behind the head
-    ART.rr(ctx, -15, 20, 30, 26, 6, C.skin, { lw: 1.6 });            // neck
-    ART.rr(ctx, -28, 30, 56, 18, 8, C.coat, { lw: 2 });              // high collar
+    ART.ell(ctx, -4, -34, 50, 56, C.hairLo, { lw: 2 });               // silver mass behind the head
+    ART.rr(ctx, -15, 20, 30, 26, 6, C.skin, { lw: 1.6 });             // neck
+    ART.rr(ctx, -28, 30, 56, 18, 8, C.coat, { lw: 2 });               // high collar
     ART.rr(ctx, -20, 34, 40, 4, 2, C.lining, { stroke: false });
-    ART.ell(ctx, -43, -16, 6.5, 9, C.skin, { lw: 1.8 });             // ears
+    ART.ell(ctx, -43, -16, 6.5, 9, C.skin, { lw: 1.8 });              // ears
     ART.ell(ctx, 43, -16, 6.5, 9, C.skin, { lw: 1.8 });
-    ART.ell(ctx, 0, -18, 44, 52, C.skin, { lw: 2 });                 // head
+    ART.ell(ctx, 0, -18, 44, 52, C.skin, { lw: 2 });                  // head
 
-    // Porcelain mask on the viewer's right half of the face, with the clock at 23:47.
+    // Porcelain mask on the viewer's right half of the face, clock hands at 23:47.
     ctx.save();
     ctx.beginPath();
     ctx.ellipse(0, -18, 44, 52, 0, 0, Math.PI * 2);
@@ -506,14 +488,13 @@
     ctx.strokeStyle = C.goldLo;
     ctx.lineWidth = 1.2;
     ctx.stroke();
-    for (let i = 0; i < 12; i++) {
-      const a = i * Math.PI / 6;
-      const r0 = i % 3 === 0 ? 15 : 18.5, r1 = 21;
+    for (let i = 0; i < 12; i++) {                                    // tick marks
+      const a = i * Math.PI / 6, r0 = i % 3 === 0 ? 15 : 18.5, r1 = 21;
       polyline(ctx, [[26 + Math.sin(a) * r0, -20 - Math.cos(a) * r0],
         [26 + Math.sin(a) * r1, -20 - Math.cos(a) * r1]], C.gold, i % 3 === 0 ? 2 : 1);
     }
-    polyline(ctx, [[26, -20], [24.4, -31.9]], C.ink, 2.6);   // hour hand
-    polyline(ctx, [[26, -20], [7.4, -24]], C.ink, 1.8);      // minute hand
+    polyline(ctx, [[26, -20], [24.4, -31.9]], C.ink, 2.6);            // hour hand
+    polyline(ctx, [[26, -20], [7.4, -24]], C.ink, 1.8);               // minute hand
     ART.ell(ctx, 26, -20, 2.4, 2.4, C.gold, { lw: 1 });
     polyline(ctx, [[14, -62], [20, -52], [17, -45], [24, -36]], C.crack, 1.4);
     polyline(ctx, [[4, -6], [10, 2], [6, 10]], C.crack, 1.2);
@@ -525,15 +506,14 @@
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    shape(ctx, C.hair, (c) => {                                      // swept fringe, visible half
+    shape(ctx, C.hair, (c) => {                                       // swept fringe, visible half
       c.moveTo(-46, -16); c.quadraticCurveTo(-50, -66, -4, -74);
       c.quadraticCurveTo(-18, -60, -26, -52); c.quadraticCurveTo(-36, -42, -42, -20);
     }, 2);
 
-    polyline(ctx, [[-2, -14], [-6, 4], [0, 7]], '#b98b72', 1.6);
-    const eyeR = ex === 'surprised' ? 10 : 8.5;
-    ART.eye(ctx, -18, -22, eyeR, 0.2, 0, bl, { lw: 1.8 });
-    if (ex === 'angry') {
+    polyline(ctx, [[-2, -14], [-6, 4], [0, 7]], '#b98b72', 1.6);     // nose
+    ART.eye(ctx, -18, -22, ex === 'surprised' ? 10 : 8.5, 0.2, 0, bl, { lw: 1.8 });
+    if (ex === 'angry') {                                             // lowered lid
       shape(ctx, C.skin, (c) => {
         c.moveTo(-28, -37); c.lineTo(-6, -31); c.lineTo(-6, -23); c.lineTo(-28, -28);
       }, 1.4);
@@ -549,16 +529,16 @@
     };
     polyline(ctx, brows[ex], '#6e6672', 3.2);
 
-    const mouths = {
-      neutral: [[-26, 22], [-10, 24], [6, 20]],
-      happy: [[-26, 18], [-10, 28], [6, 14]],
-      sad: [[-26, 28], [-10, 16], [6, 26]],
-      angry: [[-24, 21], [-9, 21], [6, 21]],
-      worried: [[-26, 24], [-18, 17], [-10, 23], [-2, 28], [6, 20]],
-    };
     if (ex === 'surprised') {
       ART.ell(ctx, -10, 25, 5.5, 7.5, '#3a1b2a', { lw: 1.4 });
     } else {
+      const mouths = {
+        neutral: [[-26, 22], [-10, 24], [6, 20]],
+        happy: [[-26, 18], [-10, 28], [6, 14]],
+        sad: [[-26, 28], [-10, 16], [6, 26]],
+        angry: [[-24, 21], [-9, 21], [6, 21]],
+        worried: [[-26, 24], [-18, 17], [-10, 23], [-2, 28], [6, 20]],
+      };
       polyline(ctx, mouths[ex], '#3a1b2a', 2.6);
     }
   }
