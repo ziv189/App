@@ -19,7 +19,7 @@
   const HIP = [2, -62];
   const HEAD = [3, -109];
   const SH_NEAR = [8, -91];
-  const SH_FAR = [-6, -89];
+  const SH_FAR = [-9, -89];
   // Cracks on the mask (figure space). Phase 1 shows 2, phase 2 shows 5, phase 3 shows all 8.
   const CRACKS = [
     [[16.5, -117], [13, -115.5], [13.5, -112.5], [9.5, -110.5]],
@@ -126,7 +126,7 @@
     const s = {
       alpha: 1, dy: 0, fall: 0, lean: 0, br: Math.sin(tm * 2.2) * 0.9, gl: 0, o: 0,
       headDx: 0, headDy: 0,
-      nearH: [13.2, -58], nearBend: -2, farH: [-6, -58], farBend: 2,
+      nearH: [13.2, -58], nearBend: -2, farH: [-17, -58], farBend: 2,
       cane: { B: [14, 0], P: [13, -70], hand: 'near' },
       nearFoot: [8, 0], farFoot: [-6, 0],
     };
@@ -140,7 +140,7 @@
       s.br = -Math.abs(sw) * 1.2;
       s.lean = 0.03;
       s.nearH = [13 + sw * 3, -58];
-      s.farH = [-6 - sw * 3, -58];
+      s.farH = [-17 - sw * 3, -58];
       s.cane = { B: [14 + sw * 4, 0], P: [13 + sw * 3, -70], hand: 'near' };
       s.nearFoot = [8 + sw * 9, -Math.max(0, cs) * 4];
       s.farFoot = [-6 - sw * 9, -Math.max(0, -cs) * 4];
@@ -152,7 +152,7 @@
       s.nearBend = -3;
       s.nearH = [16.2, -118];
       s.cane = { B: [15.5, -100], P: [17, -138], hand: 'near' };
-      s.farH = [-4, -62];
+      s.farH = [-17, -62];
       s.farBend = 4;
     } else if (st === 'slam') {
       const k0 = clamp(t / 0.22, 0, 1), k = k0 * k0;
@@ -164,22 +164,22 @@
         P: [lerp(17, 15.9, k), lerp(-138, -75.6, k)],
         hand: 'near',
       };
-      s.farH = [-4 + 6 * k, -62 + 4 * k];
+      s.farH = [-17 + 2 * k, -62 + 4 * k];
       s.farBend = 4 - 2 * k;
     } else if (st === 'beam') {
       s.lean = 0.05;
       s.nearH = [20, -79];
       s.nearBend = 1;
-      s.farH = [-4.5, -60];
+      s.farH = [-19.3, -60];
       s.farBend = 2;
-      s.cane = { B: [-7, 0], P: [-4, -72], hand: 'far' };
+      s.cane = { B: [-21, 0], P: [-19, -72], hand: 'far' };
     } else if (st === 'charge') {
       const sw = Math.sin(tm * 14), cs = Math.cos(tm * 14);
       s.lean = 0.32;
       s.br = 0;
       s.nearH = [24, -72];
       s.nearBend = 3;
-      s.farH = [-14 + sw * 2, -60];
+      s.farH = [-20 + sw * 2, -60];
       s.farBend = 2;
       s.cane = { B: [-12, -66], P: [36, -74], hand: 'near' };
       s.nearFoot = [18 + sw * 6, -Math.max(0, cs) * 5];
@@ -190,7 +190,7 @@
       s.lean = -0.05 * o;
       s.nearH = [lerp(13.2, 34, o), lerp(-58, -98, o)];
       s.nearBend = -4 * o;
-      s.farH = [lerp(-6, -28, o), lerp(-58, -98, o)];
+      s.farH = [lerp(-17, -30, o), lerp(-58, -98, o)];
       s.farBend = 4 * o;
       s.cane = null;
     } else if (st === 'hurt') {
