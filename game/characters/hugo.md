@@ -1,5 +1,4 @@
 # Old Hugo (`hugo`)
-
 - **Name:** Old Hugo. **Age:** about 70 (the bible only says "old").
 - **Role:** Toymaker and automaton-mender in Vermeil. Knew Elias from the clock workshops, when they were young.
 - **Logline:** A grumpy toymaker who still respects Élias and refuses to believe the stopped city is a lost cause.
@@ -8,9 +7,7 @@
 **Palette:** smock #3c5e8b · beard #b8b2a8 · cap #4a3b2a · brass #c9963f · skin #e2b08c · pencil #e8b84d.
 **Movement:** slow, heavy, stubborn. Short steps, little arm swing, a head that stays put. Lifts the loupe to one eye every few seconds.
 
-**Personality:** blunt, dry, black humour, hates fuss and hurry. Judges people by their hands.
-**Fears:** that the toys he made will outlive the people who loved them; that Élias really is lost.
-**Wants:** to be left alone with his work, and to be proved wrong about the stopped hour.
+**Personality:** blunt, dry, black humour, hates fuss and hurry, judges people by their hands. **Fears:** his toys outliving the people who loved them; Élias being truly lost. **Wants:** to be left alone with his work, and proved wrong about the stopped hour.
 
 **Voice:**
 - "Put that down. It's older than your manners and it bites."

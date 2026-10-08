@@ -242,15 +242,15 @@
     if (ph >= 3) {
       slit(ctx, [[1, -56], [4, -51], [2, -46], [6, -42]]);
       const w = Math.sin(tm * 3) * 1.5;
-      shape(ctx, C.coat, (c) => {
-        c.moveTo(-17, -40); c.lineTo(-22 + w, -28); c.lineTo(-16, -26); c.lineTo(-13, -36);
-      }, 1.6);
-      shape(ctx, C.coat, (c) => {
-        c.moveTo(-3, -34); c.lineTo(-4 - w, -23); c.lineTo(1, -27); c.lineTo(2, -33);
-      }, 1.6);
-      shape(ctx, C.coat, (c) => {
-        c.moveTo(11, -35); c.lineTo(16 + w, -25); c.lineTo(13, -23); c.lineTo(9, -33);
-      }, 1.6);
+      const tatters = [
+        [[-17, -40], [-22 + w, -28], [-16, -26], [-13, -36]],
+        [[-3, -34], [-4 - w, -23], [1, -27], [2, -33]],
+        [[11, -35], [16 + w, -25], [13, -23], [9, -33]],
+      ];
+      tatters.forEach((pts) => shape(ctx, C.coat, (c) => {
+        c.moveTo(pts[0][0], pts[0][1]);
+        for (let i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]);
+      }, 1.6));
     }
   }
 
@@ -288,10 +288,7 @@
     ctx.strokeStyle = C.gold;
     ctx.lineWidth = 1.3;
     ctx.stroke();
-    ART.ell(ctx, mx, my - 9.5, 0.7, 0.7, C.gold, { stroke: false });
-    ART.ell(ctx, mx + 6, my, 0.7, 0.7, C.gold, { stroke: false });
-    ART.ell(ctx, mx, my + 9.5, 0.7, 0.7, C.gold, { stroke: false });
-    ART.ell(ctx, mx - 5.5, my, 0.7, 0.7, C.gold, { stroke: false });
+    [[0, -9.5], [6, 0], [0, 9.5], [-5.5, 0]].forEach((d) => ART.ell(ctx, mx + d[0], my + d[1], 0.7, 0.7, C.gold, { stroke: false }));
     polyline(ctx, [[mx, my], [mx - 0.6, my - 4.5]], C.ink, 1.2);   // hour hand: 23:47
     polyline(ctx, [[mx, my], [mx - 5.9, my - 1.3]], C.ink, 0.9);   // minute hand
     ART.ell(ctx, mx, my, 0.9, 0.9, C.gold, { lw: 0.6 });
@@ -332,23 +329,18 @@
     const pulse = 0.85 + 0.15 * Math.sin(tm * 30);
     ctx.save();
     const base = ctx.globalAlpha;
-    let g = ctx.createLinearGradient(x0, 0, x1, 0);
-    g.addColorStop(0, 'rgba(255,190,90,0.55)');
-    g.addColorStop(1, 'rgba(255,190,90,0)');
-    ctx.fillStyle = g;
-    ctx.globalAlpha = base * pulse;
-    ctx.fillRect(x0, y0 - 6, x1 - x0, (y1 - y0) + 12);
-    g = ctx.createLinearGradient(x0, 0, x1, 0);
-    g.addColorStop(0, 'rgba(255,211,122,0.95)');
-    g.addColorStop(1, 'rgba(255,211,122,0.12)');
-    ctx.fillStyle = g;
-    ctx.globalAlpha = base;
-    ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
-    g = ctx.createLinearGradient(x0, 0, x1, 0);
-    g.addColorStop(0, 'rgba(255,250,225,1)');
-    g.addColorStop(1, 'rgba(255,250,225,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(x0, yc - 2.5, x1 - x0, 5);
+    // Three layers: outer glow, body, white core; each fades toward the end of the beam.
+    const layer = (a, b, col0, col1, y, h, alpha) => {
+      const g = ctx.createLinearGradient(x0, 0, x1, 0);
+      g.addColorStop(0, col0);
+      g.addColorStop(1, col1);
+      ctx.fillStyle = g;
+      ctx.globalAlpha = base * alpha;
+      ctx.fillRect(a, y, b - a, h);
+    };
+    layer(x0, x1, 'rgba(255,190,90,0.55)', 'rgba(255,190,90,0)', y0 - 6, (y1 - y0) + 12, pulse);
+    layer(x0, x1, 'rgba(255,211,122,0.95)', 'rgba(255,211,122,0.12)', y0, y1 - y0, 1);
+    layer(x0, x1, 'rgba(255,250,225,1)', 'rgba(255,250,225,0)', yc - 2.5, 5, 1);
     for (let i = 0; i < 24; i++) {
       const x = x0 + 8 + ((tm * (120 + (i % 5) * 30) + i * 61) % (x1 - x0 - 16));
       const y = y0 + 4 + ((i * 37) % (y1 - y0 - 8));
