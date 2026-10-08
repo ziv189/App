@@ -49,41 +49,82 @@
     ctx.beginPath(); ctx.arc(cx, cy, Math.max(1, r * 0.09), 0, TAU); ctx.fill();
   }
 
-  // Huge sky clock for the far layer: warm halo, iron rim, brass ring, lit face.
+  // Huge sky clock for the far layer: warm halo, iron rim, brass ring, lit face. It is stopped:
+  // a hairline crack runs in from the rim, frost sits just inside the ring, a brass plate reads 23:47.
   function skyClock(ctx, cx, cy, r) {
     const halo = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.9);
     halo.addColorStop(0, 'rgba(255,205,135,0.22)');
     halo.addColorStop(1, 'rgba(255,205,135,0)');
     ctx.fillStyle = halo;
     ctx.beginPath(); ctx.arc(cx, cy, r * 1.9, 0, TAU); ctx.fill();
-    clockFace(ctx, cx, cy, r, '#fff4d8', '#d8c79c', '#262244');
+    clockFace(ctx, cx, cy, r, '#e8dcc0', '#d8c79c', '#262244');
     ctx.strokeStyle = '#b7863f'; ctx.lineWidth = r * 0.025;
     ctx.beginPath(); ctx.arc(cx, cy, r * 0.97, 0, TAU); ctx.stroke();
+    // frost: a dotted white arc just inside the brass ring
+    const fr = Math.max(0.6, r * 0.008);
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.beginPath();
+    for (let k = 0; k < 48; k++) {
+      const a = k / 48 * TAU, fx = cx + Math.sin(a) * r * 0.935, fy = cy - Math.cos(a) * r * 0.935;
+      ctx.moveTo(fx + fr, fy); ctx.arc(fx, fy, fr, 0, TAU);
+    }
+    ctx.fill();
+    // hairline crack from the rim toward the pivot, in two segments
+    ctx.strokeStyle = 'rgba(35,29,58,0.6)'; ctx.lineWidth = Math.max(0.8, r * 0.012);
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.sin(2.3) * r * 0.9, cy - Math.cos(2.3) * r * 0.9);
+    ctx.lineTo(cx + Math.sin(2.45) * r * 0.55, cy - Math.cos(2.45) * r * 0.55);
+    ctx.lineTo(cx + Math.sin(2.2) * r * 0.22, cy - Math.cos(2.2) * r * 0.22);
+    ctx.stroke();
+    // brass plate under the dial, engraved 23:47 in the game's serif face
+    const pw = r * 0.7, ph = r * 0.17, px = cx - pw / 2, py = cy + r * 1.16;
+    ctx.fillStyle = '#b7863f'; ctx.fillRect(px, py, pw, ph);
+    ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(px + 0.5, py + 0.5, pw - 1, ph - 1);
+    ctx.font = 'bold ' + Math.max(8, Math.round(r * 0.09)) + 'px Georgia, "Times New Roman", serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'rgba(255,236,170,0.5)'; ctx.fillText('23:47', cx, py + ph / 2 + 1);
+    ctx.fillStyle = '#2a1f0c'; ctx.fillText('23:47', cx, py + ph / 2);
   }
 
   /* ---------- background layers ---------- */
   // Iron train-shed arches: cold glass tint, ribs, legs, a tie beam and a king post.
-  function archRow(ctx, cx, f, H) {
+  // Two passes around the sky clocks: 'glass' before the dials, 'ribs' after them. The ribs stay off
+  // the dial faces and cross them faintly, so the hands keep their edge. dials = [x, y, r] per clock.
+  function archRow(ctx, cx, f, H, pass, W, dials) {
     const P = 230, spring = H * 0.44, top = H * 0.16, floor = H * 0.84;
     const off = -((cx * f) % P);
-    for (let i = -1; i < 7; i++) {
-      const x0 = off + i * P, x1 = x0 + P, xm = x0 + P / 2;
-      const arch = () => {
-        ctx.beginPath();
-        ctx.moveTo(x0, floor); ctx.lineTo(x0, spring);
-        ctx.quadraticCurveTo(x0, top, xm, top);
-        ctx.quadraticCurveTo(x1, top, x1, spring);
-        ctx.lineTo(x1, floor);
-      };
-      arch(); ctx.closePath();
-      ctx.fillStyle = 'rgba(78,68,140,0.28)'; ctx.fill();
-      arch();
-      ctx.strokeStyle = '#1b1838'; ctx.lineWidth = 6; ctx.lineCap = 'butt'; ctx.stroke();
+    const archPath = (x0, x1, xm) => {
       ctx.beginPath();
-      ctx.moveTo(x0, spring + 46); ctx.lineTo(x1, spring + 46);
-      ctx.moveTo(xm, top); ctx.lineTo(xm, spring + 46);
-      ctx.lineWidth = 2.5; ctx.stroke();
+      ctx.moveTo(x0, floor); ctx.lineTo(x0, spring);
+      ctx.quadraticCurveTo(x0, top, xm, top);
+      ctx.quadraticCurveTo(x1, top, x1, spring);
+      ctx.lineTo(x1, floor);
+    };
+    if (pass === 'glass') {
+      ctx.fillStyle = 'rgba(78,68,140,0.28)';
+      for (let i = -1; i < 7; i++) {
+        const x0 = off + i * P, x1 = x0 + P, xm = x0 + P / 2;
+        archPath(x0, x1, xm); ctx.closePath(); ctx.fill();
+      }
+      return;
     }
+    const ribs = (ink) => {
+      ctx.strokeStyle = ink; ctx.lineCap = 'butt';
+      for (let i = -1; i < 7; i++) {
+        const x0 = off + i * P, x1 = x0 + P, xm = x0 + P / 2;
+        archPath(x0, x1, xm); ctx.lineWidth = 6; ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x0, spring + 46); ctx.lineTo(x1, spring + 46);
+        ctx.moveTo(xm, top); ctx.lineTo(xm, spring + 46);
+        ctx.lineWidth = 2.5; ctx.stroke();
+      }
+    };
+    const dialDisc = () => {
+      ctx.beginPath();
+      for (const [dx, dy, dr] of dials) { ctx.moveTo(dx + dr * 1.2, dy); ctx.arc(dx, dy, dr * 1.2, 0, TAU); }
+    };
+    ctx.save(); dialDisc(); ctx.rect(0, 0, W, H); ctx.clip('evenodd'); ribs('#1b1838'); ctx.restore();   // off the dials
+    ctx.save(); dialDisc(); ctx.clip(); ribs('rgba(27,24,56,0.3)'); ctx.restore();                       // faint across them
   }
 
   // Gabled station roofs with chimneys; some windows lit warm.
@@ -109,8 +150,9 @@
   }
 
   // Warm lamp posts: iron pole, lamp head, glow, a pool of light and a reflection on the wet ground.
+  // The ground is the walkway top, so the posts stand at floor depth.
   function lampRow(ctx, cx, f, H) {
-    const P = 240, ground = H * 0.84, topY = H * 0.36;
+    const P = 240, ground = H * 0.88, topY = H * 0.36;
     const off = -((cx * f) % P);
     for (let i = -1; i < 6; i++) {
       const x = off + i * P + 60, hx = x + 19, hy = topY + 12;
@@ -132,7 +174,7 @@
       ctx.fillStyle = 'rgba(255,190,100,0.12)';
       ctx.beginPath(); ctx.ellipse(hx, ground - 2, 70, 8, 0, 0, TAU); ctx.fill();
       const refl = ctx.createLinearGradient(0, ground, 0, H);
-      refl.addColorStop(0, 'rgba(255,190,100,0.18)');
+      refl.addColorStop(0, 'rgba(255,190,100,0.1)');
       refl.addColorStop(1, 'rgba(255,190,100,0)');
       ctx.fillStyle = refl;
       ctx.fillRect(hx - 4, ground, 8, H - ground);
@@ -163,10 +205,12 @@
       ctx.beginPath(); ctx.ellipse(clx, cly, 150 - (i % 2) * 40, 22 + (i % 3) * 5, 0, 0, TAU); ctx.fill();
     }
     // far layer: the sky clocks, always 23:47, one every 1100 px of parallax
-    const P = 1100;
-    for (let x = wrap(W * 0.5 - cx * 0.2, P) - P; x < W + 240; x += P) skyClock(ctx, x, 150, 118);
-    // mid layer: iron arches (0.35x), then roof silhouettes (0.45x)
-    archRow(ctx, cx, 0.35, H);
+    const P = 1100, dials = [];
+    for (let x = wrap(W * 0.5 - cx * 0.2, P) - P; x < W + 240; x += P) dials.push([x, 150, 118]);
+    // mid layer: iron arches (0.35x), glass tint under the dials and ribs over them; then roof silhouettes (0.45x)
+    archRow(ctx, cx, 0.35, H, 'glass', W, dials);
+    for (const [x, y, r] of dials) skyClock(ctx, x, y, r);
+    archRow(ctx, cx, 0.35, H, 'ribs', W, dials);
     roofRow(ctx, cx, 0.45, H);
     // wet platform edge under a violet haze
     const haze = ctx.createLinearGradient(0, H * 0.6, 0, H * 0.84);
@@ -208,9 +252,10 @@
 
   // Iron plank with brass studs, iron brackets and a little rust.
   function tilePlank(ctx, x, y) {
-    ctx.fillStyle = '#262b3b'; ctx.fillRect(x, y + 13, S, 3);       // underside shadow
-    ctx.fillStyle = '#4b5368'; ctx.fillRect(x, y + 5, S, 8);        // iron plank
+    ctx.fillStyle = '#1a1d2c'; ctx.fillRect(x, y + 13, S, 3);       // underside shadow
+    ctx.fillStyle = '#5e6882'; ctx.fillRect(x, y + 5, S, 8);        // iron plank
     ctx.fillStyle = '#8a93ab'; ctx.fillRect(x, y + 4, S, 2);        // lit top edge
+    ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 3.5, S - 1, 9);   // 1px outline
     ctx.fillStyle = '#2a2f3e'; ctx.fillRect(x + 11, y + 6, 1, 7);   // plank seam
     ctx.fillStyle = 'rgba(160,90,50,0.3)'; ctx.fillRect(x + 20, y + 9, 6, 2);   // rust
     ctx.fillStyle = '#23283a';                                      // brackets

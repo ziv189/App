@@ -5,7 +5,7 @@
   window.ENV_THEMES = window.ENV_THEMES || {};
 
   const SZ = 32;                                          // tile size (px)
-  const SKY = [[0, '#f29a58'], [0.4, '#d2705a'], [0.75, '#8c4262'], [1, '#4e2a4e']];
+  const SKY = [[0, '#e07a4c'], [0.4, '#d2705a'], [0.75, '#8c4262'], [1, '#4e2a4e']];
   const FAR = '#5a2846';                                  // far rooftops and tower (parallax 0.2)
   const MID = '#3a1834';                                  // near rooftops (parallax 0.4)
   const CREAM = '#f3e5c6', RED = '#b5373d';               // awning stripes
@@ -192,6 +192,19 @@
     ctx.fillRect(0, 0, W, 3);
   }
 
+  // Rounded backing plate, filled with the current style (used under HUD text).
+  function plate(ctx, x, y, w, h, r, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+    ctx.fill();
+  }
+
   /* ---------- tiles ---------- */
 
   // '#': cobblestones on a 8px grid (aligned so neighbouring tiles join), sandy highlights.
@@ -230,19 +243,20 @@
   // '=': a wooden board with seams and nails; a crate under it where nothing solid is below.
   function tPlank(ctx, x, y, n) {
     const top = y + 4, bh = 10;
-    ctx.fillStyle = '#6e4628'; ctx.fillRect(x, top, SZ, bh);
-    ctx.fillStyle = '#8f5e36'; ctx.fillRect(x, top, SZ, 2);
+    ctx.fillStyle = '#8a5a32'; ctx.fillRect(x, top, SZ, bh);
+    ctx.fillStyle = '#b07a44'; ctx.fillRect(x, top, SZ, 2);
     ctx.fillStyle = 'rgba(255,226,170,0.35)'; ctx.fillRect(x, top, SZ, 1);
+    ctx.fillStyle = 'rgba(20,8,20,0.6)'; ctx.fillRect(x, top - 1, SZ, 1);   // dark top edge
     ctx.fillStyle = 'rgba(30,14,6,0.55)';
     ctx.fillRect(x + 10, top, 1, bh); ctx.fillRect(x + 21, top, 1, bh);
     ctx.fillStyle = 'rgba(40,20,8,0.25)';
     ctx.fillRect(x + 2, top + 5, 6, 1); ctx.fillRect(x + 13, top + 4, 7, 1); ctx.fillRect(x + 24, top + 6, 5, 1);
     ctx.fillStyle = '#c9a050';
     ctx.fillRect(x + 5, top + 3, 2, 2); ctx.fillRect(x + 26, top + 3, 2, 2);
-    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(x, top + bh - 1, SZ, 1);
+    ctx.fillStyle = 'rgba(20,8,20,0.6)'; ctx.fillRect(x, top + bh - 1, SZ, 1);  // dark bottom edge
     if (!n.d && hash2(x, y) > 0.4) {
       const cy0 = top + bh;
-      ctx.fillStyle = '#6a4628'; ctx.fillRect(x + 3, cy0, SZ - 6, y + SZ - cy0);
+      ctx.fillStyle = '#8a5a32'; ctx.fillRect(x + 3, cy0, SZ - 6, y + SZ - cy0);
       ctx.fillStyle = 'rgba(20,10,4,0.5)';
       for (let i = cy0 + 4; i < y + SZ; i += 5) ctx.fillRect(x + 3, i, SZ - 6, 1);
       ctx.fillStyle = '#b08a4a';
@@ -368,10 +382,13 @@
       ctx.restore();
     },
 
-    // Drifting dust motes: low alpha only (0.12 to 0.32).
+    // Drifting dust motes: low alpha only (0.12 to 0.32). Dark plates sit under the HUD text.
     foreground(ctx, camX, camY, t, W, H) {
       const w = num(W, 960), h = num(H, 540), cx = num(camX), cy = num(camY), tt = num(t);
       ctx.save();
+      plate(ctx, 14, 12, 172, 36, 8, 'rgba(40,14,32,0.55)');            // hearts
+      plate(ctx, w - 150, 12, 136, 36, 8, 'rgba(40,14,32,0.55)');       // gear and counter
+      plate(ctx, 24, h - 50, 176, 44, 4, 'rgba(30,14,26,0.5)');         // control hints
       for (let i = 0; i < 36; i++) {
         const r1 = hash2(i * 1.13, 2.7), r2 = hash2(i * 0.71, 5.3), r3 = hash2(i * 2.9, 1.1);
         const sway = Math.sin(tt * 0.6 + i * 1.7) * (6 + r3 * 8);

@@ -81,7 +81,7 @@
     ctx.fillRect(0, 0, W, H);
     // dull furnace glow low on the horizon
     const hz = ctx.createRadialGradient(W * 0.5, H * 0.82, 10, W * 0.5, H * 0.82, W * 0.65);
-    hz.addColorStop(0, 'rgba(255,120,50,' + f3(0.22 + 0.04 * Math.sin(tt * 0.8)) + ')');
+    hz.addColorStop(0, 'rgba(255,120,50,' + f3(0.12 + 0.04 * Math.sin(tt * 0.8)) + ')');
     hz.addColorStop(1, 'rgba(255,120,50,0)');
     ctx.fillStyle = hz;
     ctx.fillRect(0, 0, W, H);
@@ -196,10 +196,10 @@
     const oy = mouth - oh;
     const flick = 0.85 + 0.15 * Math.sin(tt * 3.1 + k * 1.7);
     const sp = ctx.createRadialGradient(ox + ow / 2, mouth, 4, ox + ow / 2, mouth, 110);
-    sp.addColorStop(0, 'rgba(255,130,40,' + f3(0.32 * flick) + ')');
+    sp.addColorStop(0, 'rgba(255,130,40,' + f3(0.2 * flick) + ')');
     sp.addColorStop(1, 'rgba(255,130,40,0)');
     ctx.fillStyle = sp;
-    ctx.fillRect(ox - 110, oy - 110, ow + 220, oh + 170);
+    ctx.fillRect(ox - 110, mouth - 110, ow + 220, 220);
     ctx.beginPath();
     ctx.moveTo(ox, mouth);
     ctx.lineTo(ox, oy + ow / 2);
@@ -207,7 +207,7 @@
     ctx.lineTo(ox + ow, mouth);
     ctx.closePath();
     const fire = ctx.createLinearGradient(0, oy, 0, mouth);
-    fire.addColorStop(0, '#ffd27a');
+    fire.addColorStop(0, '#f2a45a');
     fire.addColorStop(0.5, '#ff8a2a');
     fire.addColorStop(1, '#b8360f');
     ctx.fillStyle = fire;
@@ -222,12 +222,12 @@
     const gy = H * 0.74;
     const g = ctx.createLinearGradient(0, gy, 0, H);
     g.addColorStop(0, 'rgba(255,110,40,0)');
-    g.addColorStop(0.5, 'rgba(255,110,40,0.26)');
-    g.addColorStop(1, 'rgba(255,90,30,0.5)');
+    g.addColorStop(0.5, 'rgba(255,110,40,0.14)');
+    g.addColorStop(1, 'rgba(255,90,30,0.32)');
     ctx.fillStyle = g;
     ctx.fillRect(0, gy, W, H - gy);
     for (let i = 0; i < 3; i++) {
-      ctx.fillStyle = 'rgba(255,190,100,' + f3(0.2 + 0.1 * Math.sin(tt * 1.6 + i * 2)) + ')';
+      ctx.fillStyle = 'rgba(255,190,100,' + f3(0.1 + 0.05 * Math.sin(tt * 1.6 + i * 2)) + ')';
       ctx.fillRect(0, H * (0.8 + i * 0.065), W, 2 + i);
     }
     ctx.fillStyle = 'rgba(14,5,4,0.85)';
@@ -241,6 +241,12 @@
     const base = h * 0.82;
     ctx.save();
     drawSky(ctx, w, h, tt);
+    // cool dark band behind the play height, so the gameplay reads against it
+    const band = ctx.createLinearGradient(0, h * 0.5, 0, h * 0.8);
+    band.addColorStop(0, 'rgba(12,6,10,0)');
+    band.addColorStop(1, 'rgba(12,6,10,0.45)');
+    ctx.fillStyle = band;
+    ctx.fillRect(0, h * 0.5, w, h * 0.5);
     row(cx, 0.3, 360, w, (k, x) => steamBank(ctx, x, 360, h * (0.16 + hash(k + 11) * 0.2), k));
     row(cx, 0.2, 230, w, (k, x) => chimney(ctx, x, 230, base, k));
     row(cx, 0.35, 160, w, (k, x) => sparks(ctx, x, 160, h, k, tt));
@@ -254,8 +260,8 @@
 
   // Glowing orange seam; the pulse phase is shared per row so neighbours line up.
   function seam(ctx, x1, y1, x2, y2, tt, phase) {
-    const pulse = 0.6 + 0.3 * Math.sin(tt * 2 + phase);
-    ctx.strokeStyle = 'rgba(255,100,30,0.28)';
+    const pulse = 0.4 + 0.2 * Math.sin(tt * 2 + phase);
+    ctx.strokeStyle = 'rgba(255,100,30,0.14)';
     ctx.lineWidth = 5;
     ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
     ctx.strokeStyle = 'rgba(255,170,80,' + f3(pulse) + ')';
@@ -274,8 +280,8 @@
       ctx.fillStyle = 'rgba(150,70,30,0.22)';
       ctx.beginPath(); ctx.ellipse(x + 20, y + 12, 7, 4, 0.3, 0, TAU); ctx.fill();
     }
-    if (s < 4) seam(ctx, x, y + 16, x + S, y + 16, tt, y / S);
-    else if (s < 6) seam(ctx, x + 16, y, x + 16, y + S, tt, (x + y) / S);
+    if (s < 2) seam(ctx, x, y + 16, x + S, y + 16, tt, y / S);
+    else if (s === 5) seam(ctx, x + 16, y, x + 16, y + S, tt, (x + y) / S);
     ctx.strokeStyle = '#120c0d';
     ctx.lineWidth = 1;
     ctx.strokeRect(x + 0.5, y + 0.5, S - 1, S - 1);
@@ -292,8 +298,8 @@
     }
     // exposed sides: rusted lip on top, shade on the others
     if (!n.u) {
-      ctx.fillStyle = '#6a3520'; ctx.fillRect(x, y, S, 4);
-      ctx.fillStyle = 'rgba(255,150,90,0.3)'; ctx.fillRect(x, y, S, 1);
+      ctx.fillStyle = '#9a909a'; ctx.fillRect(x, y, S, 4);
+      ctx.fillStyle = 'rgba(235,225,235,0.35)'; ctx.fillRect(x, y, S, 1);
     }
     if (!n.d) { ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(x, y + S - 3, S, 3); }
     if (!n.l) { ctx.fillStyle = 'rgba(0,0,0,0.22)'; ctx.fillRect(x, y, 2, S); }
@@ -306,12 +312,12 @@
     ctx.fillRect(x, y + 14, S, 14);
     const gl = ctx.createLinearGradient(0, y + 16, 0, y + S);
     gl.addColorStop(0, 'rgba(255,120,40,0)');
-    gl.addColorStop(1, 'rgba(255,120,40,' + f3(0.35 + 0.1 * Math.sin(tt * 2.4)) + ')');
+    gl.addColorStop(1, 'rgba(255,120,40,' + f3(0.15 + 0.05 * Math.sin(tt * 2.4)) + ')');
     ctx.fillStyle = gl;
     ctx.fillRect(x, y + 16, S, S - 16);
     ctx.fillStyle = '#7a4128';
     for (let i = 0; i < S; i += 4) ctx.fillRect(x + i, y + 9, 2, 10);
-    ctx.fillStyle = '#a2562f';
+    ctx.fillStyle = '#c77a45';
     ctx.fillRect(x, y + 6, S, 4);
     ctx.fillStyle = 'rgba(255,200,140,0.25)';
     ctx.fillRect(x, y + 6, S, 1);
@@ -330,7 +336,7 @@
       ctx.beginPath();
       ctx.moveTo(sx, y + S); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 8, y + S);
       ctx.closePath();
-      ctx.fillStyle = '#7d3c22';
+      ctx.fillStyle = '#1a0a06';
       ctx.fill();
       ctx.strokeStyle = '#120706';
       ctx.lineWidth = 1;
@@ -338,7 +344,7 @@
       ctx.beginPath();
       ctx.moveTo(sx + 2.4, y + 15); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 5.6, y + 15);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(255,150,60,' + f3(0.45 + 0.35 * Math.sin(tt * 5 + i)) + ')';
+      ctx.fillStyle = 'rgba(255,150,60,' + f3(0.6 + 0.4 * Math.sin(tt * 5 + i)) + ')';
       ctx.fill();
     }
   }

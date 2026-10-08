@@ -11,7 +11,7 @@
     gold: '#d9b35a', goldHi: '#f6e1a0', goldLo: '#7d5e24',
     porcelain: '#efe9dc', crack: '#4a4048', ink: '#2a2230',
     skin: '#e6c3a5', hair: '#c9c4cc', hairLo: '#8f8a99', glove: '#f4f1ea',
-    trouser: '#15151d', boot: '#0e0e12',
+    trouser: '#26263a', boot: '#0e0e12',
     sand: '#ffd27a', sandHi: '#fff3c4', sandLo: '#b5761f',
   };
   const STATES = ['intro', 'idle', 'walk', 'telegraph', 'slam', 'beam', 'charge', 'summon', 'hurt', 'dead'];
@@ -22,14 +22,14 @@
   const SH_FAR = [-9, -89];
   // Cracks on the mask (figure space). Phase 1 shows 2, phase 2 shows 5, phase 3 shows all 8.
   const CRACKS = [
-    [[16.5, -117], [13, -115.5], [13.5, -112.5], [9.5, -110.5]],
-    [[7, -121.5], [9, -119], [5, -117.5]],
-    [[17, -106], [13.5, -104.5], [12, -101.5], [8.5, -100.5]],
-    [[2.8, -112], [5, -109], [3.5, -106]],
-    [[15, -112], [17.5, -109]],
-    [[11.5, -115], [7.5, -113.5], [4.5, -115.5]],
-    [[13.5, -101], [10.5, -98]],
-    [[8, -108], [6.5, -104], [9.5, -102]],
+    [[10.5, -116], [7.5, -114], [8, -111.5], [4.5, -109]],
+    [[5, -118.5], [6, -116.5], [4, -114.8]],
+    [[9, -105], [6.5, -103], [7, -100.5]],
+    [[4, -112], [3.5, -109], [5, -106]],
+    [[11, -111.5], [9.5, -109.5]],
+    [[4.5, -117.5], [6, -115.5], [4.2, -113.5]],
+    [[8.5, -104], [6.5, -102], [7.5, -100]],
+    [[6.2, -119], [5.8, -117]],
   ];
 
   function num(v) { const n = Number(v); return isFinite(n) ? n : 0; }
@@ -229,7 +229,8 @@
     const tail = st === 'charge' ? 9 : 0;
     shape(ctx, C.coat, (c) => coatPath(c, tail), 2);
     polyline(ctx, [[-7, -74], [-9, -58], [-9 - tail * 0.4, -40]], ART.shade(C.coat, 0.16), 1.2);
-    polyline(ctx, [[-12, -88], [-15, -80], [-13, -72]], '#4a4a60', 1.6); // light from the upper left
+    polyline(ctx, [[-13, -91], [-17, -84], [-15, -76], [-13, -70], [-16, -60], [-19, -50], [-19 - tail, -40]], '#5b5b74', 1.4); // light from the upper left, back edge and tail
+    polyline(ctx, [[16, -38], [14, -52], [12, -62], [10, -70], [12, -78], [13, -86], [11, -92], [8, -97], [4, -99]], '#5b5b74', 1.4); // front edge, under the lining
     poly(ctx, [[4, -98], [9, -92], [10, -70], [13, -42], [8, -42], [6, -70]], C.lining, 1.4);
     [[7.5, -84], [8.2, -73], [9, -61], [10, -49]].forEach((b, i) => {
       ART.gear(ctx, b[0], b[1], 2.2, 6, i * 0.4, C.gold, { lw: 1 });
@@ -282,7 +283,7 @@
     const n = ph >= 3 ? 8 : ph === 2 ? 5 : 2;
     for (let i = 0; i < n; i++) {
       polyline(ctx, CRACKS[i], C.crack, 0.9);
-      if (ph >= 2) polyline(ctx, CRACKS[i], 'rgba(255,210,122,0.8)', 0.4);
+      if (ph >= 2) polyline(ctx, CRACKS[i], 'rgba(255,210,122,0.6)', 1.4);
     }
     ctx.restore();
 
@@ -414,7 +415,7 @@
     ctx.save();
     if (s.fall) ctx.rotate(s.fall);
     ctx.translate(0, s.dy);
-    leg(ctx, [-2, -62], s.farFoot, ART.shade(C.trouser, 0.06));
+    leg(ctx, [-2, -62], s.farFoot, ART.shade(C.trouser, -0.12));
     leg(ctx, [4, -62], s.nearFoot, C.trouser);
 
     // Upper body pivots at the hip: lean, then breathing offset.

@@ -62,12 +62,14 @@
         col: 124, id: 'ch5_choice', lines: [
           { who: 'narrator', text: 'Elias\'s clock eye ticks once, very loudly, in the silence. Then the old clockmaker speaks.' },
           { who: 'elias', expr: 'sad', text: 'Everything I stole from the city is still waiting, Leo. Every stopped minute, every frozen hand.' },
-          { who: 'gaspard', expr: 'worried', text: 'Master Leo, forgive an old machine. I have stood still for ten years. I would very much like to rest.' },
-          { who: 'elias', expr: 'neutral', text: 'Restart the Tower, and Juliette can finally go in peace. I can let go of the wheel. Gaspard can rest.' },
-          { who: 'mireille', text: 'And Tomas gets to finish his laugh. He\'ll be furious he lost his place in the joke.' },
+          { who: 'narrator', text: 'Brass joints creak up the last ladder. Gaspard has left his post to follow Leo all the way to the summit.' },
+          { who: 'gaspard', expr: 'worried', text: 'Monsieur Leo, forgive an old machine. I have stood still for ten years. I would very much like to rest.' },
+          { who: 'elias', expr: 'neutral', text: 'Restart the clock, and Juliette can finally go in peace. I can let go of the wheel. Gaspard can rest.' },
+          { who: 'mireille', text: 'And Tomas gets to finish his laugh. He will grumble that the punchline took ten years to land.' },
           { who: 'elias', expr: 'sad', text: 'Keep the hour frozen, and Juliette stays six years old forever, in a dress she will never grow into.' },
           { who: 'leo', expr: 'worried', text: 'And the city? And you, Dad?' },
-          { who: 'elias', expr: 'sad', text: 'The city stays frozen forever. You take my place, Leo: keeper of a silent clock, holding the wheel alone.' },
+          { who: 'elias', expr: 'neutral', text: 'Restart it, and the city\'s clocks wake again. And I finally stop holding the wheel, and can just be your father.' },
+          { who: 'elias', expr: 'sad', text: 'If the hour stays frozen, the city stays frozen forever. You take my place, Leo, holding the wheel alone.' },
           { who: 'narrator', text: 'Behind them, the frozen clouds do not move. Leo tightens his fingers around his wrench, and he chooses.' },
           { act: 'choice', options: [ { text: 'Restart the clock', flag: 'restart', end: 'good' }, { text: 'Keep the hour frozen', flag: 'freeze', end: 'bad' } ] }
         ]

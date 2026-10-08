@@ -1174,19 +1174,33 @@
     ctx.restore();
   }
 
-  function drawHeart(x, y, s, color) {
+  function drawHeart(x, y, s, color, stroke = '#1c1420') {
     ctx.beginPath();
     ctx.moveTo(x, y + s * 0.8);
     ctx.bezierCurveTo(x - s * 1.2, y + s * 0.1, x - s * 0.6, y - s * 0.9, x, y - s * 0.3);
     ctx.bezierCurveTo(x + s * 0.6, y - s * 0.9, x + s * 1.2, y + s * 0.1, x, y + s * 0.8);
     ctx.closePath();
     ctx.fillStyle = color; ctx.fill();
-    ctx.strokeStyle = '#1c1420'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.strokeStyle = stroke; ctx.lineWidth = 2; ctx.stroke();
   }
 
   function drawHUD() {
     ctx.save();
-    for (let i = 0; i < MAX_HP; i++) drawHeart(34 + i * 30, 30, 11, i < player.hp ? '#e0664c' : '#3a2c3a');
+    for (let i = 0; i < MAX_HP; i++) {
+      if (i < player.hp) drawHeart(34 + i * 30, 30, 11, '#e0664c');
+      else drawHeart(34 + i * 30, 30, 11, 'rgba(20,16,26,0.5)', 'rgba(243,234,216,0.45)');
+    }
+    // the Regent's health, with ticks at the phase 2 and phase 3 thresholds
+    const b = world && world.boss;
+    if (b && b.active && !b.dead && mode !== 'dialog') {
+      const bx = W / 2 - 150;
+      ctx.font = '13px Georgia, serif'; ctx.textAlign = 'center'; ctx.fillStyle = '#f3ead8';
+      ctx.fillText(NAMES.regent, W / 2, 16);
+      ctx.fillStyle = 'rgba(20,16,26,0.85)'; ctx.fillRect(bx, 20, 300, 10);
+      ctx.fillStyle = '#e0664c'; ctx.fillRect(bx, 20, 300 * Math.max(0, b.hp) / 18, 10);
+      ctx.fillStyle = 'rgba(243,234,216,0.7)';
+      ctx.fillRect(bx + 199, 17, 2, 16); ctx.fillRect(bx + 99, 17, 2, 16);
+    }
     const pr = progressOf(story.chapterId);
     if (window.ART && ART.gear) ART.gear(ctx, W - 96, 30, 11, 9, time * 2, '#d9b35a');
     ctx.font = 'bold 18px Georgia, serif';
@@ -1194,18 +1208,27 @@
     ctx.textAlign = 'right';
     ctx.fillText(pr.gears + ' / ' + (world ? world.gearsTotal : 0), W - 30, 36);
     if (story.unlocks.has('pendule')) {
-      ctx.fillStyle = 'rgba(20,16,26,0.85)'; ctx.fillRect(34, 52, 130, 8);
-      ctx.fillStyle = '#7fd0e8'; ctx.fillRect(34, 52, 130 * slowGauge, 8);
-      ctx.strokeStyle = '#1c1420'; ctx.lineWidth = 1; ctx.strokeRect(34, 52, 130, 8);
-      ctx.font = '13px Georgia, serif'; ctx.textAlign = 'left';
+      ctx.fillStyle = 'rgba(243,234,216,0.18)'; ctx.fillRect(34, 52, 130, 10);
+      ctx.fillStyle = '#7fd0e8'; ctx.fillRect(34, 52, 130 * slowGauge, 10);
+      ctx.strokeStyle = 'rgba(243,234,216,0.4)'; ctx.lineWidth = 1; ctx.strokeRect(34, 52, 130, 10);
+      ctx.font = '14px Georgia, serif'; ctx.textAlign = 'left';
       ctx.fillStyle = '#cbe9f2';
-      ctx.fillText('Pendulum  (C / L)', 34, 74);
+      ctx.fillText('Pendulum · hold C / L', 34, 74);
     }
     const chips = [];
-    if (mode !== 'dialog' && story.unlocks.has('dash')) chips.push('Glide  Shift / K');
-    if (mode !== 'dialog' && story.unlocks.has('ressort')) chips.push('Spring  jump in midair');
-    ctx.font = '13px Georgia, serif'; ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(243,234,216,0.6)';
-    chips.forEach((t, i) => ctx.fillText(t, 34, H - 16 - (chips.length - 1 - i) * 18));
+    if (mode !== 'dialog' && story.unlocks.has('dash')) chips.push('Glide · Shift / K');
+    if (mode !== 'dialog' && story.unlocks.has('ressort')) chips.push('Spring · jump in midair');
+    ctx.font = '14px Georgia, serif'; ctx.textAlign = 'left';
+    chips.forEach((t, i) => {
+      const y = H - 16 - (chips.length - 1 - i) * 28;
+      const tw = ctx.measureText(t).width + 20;
+      ctx.beginPath();
+      ctx.roundRect ? ctx.roundRect(34, y - 15, tw, 22, 8) : ctx.rect(34, y - 15, tw, 22);
+      ctx.fillStyle = 'rgba(14,10,20,0.85)'; ctx.strokeStyle = '#c99a3b'; ctx.lineWidth = 1;
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#f3ead8';
+      ctx.fillText(t, 44, y);
+    });
     ctx.restore();
   }
   function drawToasts() {
@@ -1337,6 +1360,14 @@
     if (window.ENV) ENV.drawBackground(ctx, 'station', time * 8, 0, time, W, H);
     ctx.fillStyle = 'rgba(8,6,12,0.55)';
     ctx.fillRect(0, 0, W, H);
+    // soft scrim behind the title lettering; squashed vertically so the falloff ends above the subtitle band
+    ctx.save();
+    ctx.translate(W / 2, 200); ctx.scale(1, 0.45);
+    const scrim = ctx.createRadialGradient(0, 0, 40, 0, 0, 290);
+    scrim.addColorStop(0, 'rgba(8,6,12,0.7)'); scrim.addColorStop(1, 'rgba(8,6,12,0)');
+    ctx.fillStyle = scrim;
+    ctx.fillRect(-W / 2, -200 / 0.45, W, 330 / 0.45);
+    ctx.restore();
     ctx.fillStyle = 'rgba(8,6,12,0.7)';
     ctx.fillRect(0, 486, W, 54);
     drawActorAt('leo', 250, 492, { state: 'idle', t: time, time, vx: 0, vy: 0, facing: 1, phase: 1 });

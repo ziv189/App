@@ -37,8 +37,9 @@
         { act: 'unlock', value: 'pendule' },
         { act: 'sfx', value: 'pendule' },
         { who: 'narrator', text: 'Six hourglasses hover over the gap, paper wings frozen mid-beat, sand pouring in slow spirals.' },
-        { who: 'leo', expr: 'worried', text: 'Right. Running through those is a bad idea. I\'d end up as a pile of brass sand.' },
-        { who: 'narrator', text: 'Hold C or L to slow time around you. The gauge on the watch empties while you hold it, so spend it wisely.' },
+        { who: 'leo', expr: 'worried', text: 'Right. Running through those is a bad idea. I\'d end up as a pile of hot sand.' },
+        { who: 'narrator', text: 'Hold C or L to use the Pendulum and slow time around you.' },
+        { who: 'narrator', text: 'The Pendulum bar in the top-left corner empties while you hold them, so spend it wisely.' },
       ] },
       { id: 'ch3_end', col: 140, lines: [
         { who: 'narrator', text: 'At the far end of the foundry, an iron lift waits in its cage. Its cable hums, and the sound climbs into the dark.' },
@@ -51,10 +52,10 @@
     npcs: {
       '1': { who: 'gaspard', lines: [
         { who: 'narrator', text: 'Down in the boiler pit, the automaton sleeps upright. A glass eye flickers blue, then holds steady.' },
-        { who: 'gaspard', expr: 'neutral', text: 'Forgive me. I seem to have dozed off. Ten years is a long nap, even for a machine of my dignity.' },
+        { who: 'gaspard', expr: 'neutral', text: 'Forgive me. I seem to have dozed off at my post. Ten years is a long nap, even for a machine of my dignity.' },
         { who: 'leo', expr: 'surprised', text: 'You talk. And you\'re standing up. I thought you were a very tall coat rack.' },
         { who: 'gaspard', expr: 'neutral', text: 'A common mistake. I am Gaspard. Mr. Varin built me to look after his household, and the post is still mine.' },
-        { who: 'gaspard', expr: 'surprised', text: 'And that watch in your hand. You hold Mr. Elias\'s watch?' },
+        { who: 'gaspard', expr: 'surprised', text: 'And that watch in your hand. You hold Mr. Varin\'s watch?' },
         { who: 'leo', expr: 'worried', text: 'It\'s my dad\'s watch. Do you know where he is?' },
         { who: 'gaspard', expr: 'neutral', text: 'I know where he went. He climbed the Tower the night the clocks stopped, with that watch and a plan.' },
         { who: 'gaspard', expr: 'sad', text: 'He stopped the Tower to win one minute, young man. One minute, to save your sister.' },
@@ -67,7 +68,7 @@
       ], again: [
         { who: 'gaspard', expr: 'neutral', text: 'Back again, young man. My joints have not improved, though they creak with great dignity.' },
         { who: 'gaspard', expr: 'neutral', text: 'The hourglasses above the gap do not respect bravery. Hold C or L for the Pendulum, and wait for your moment.' },
-        { who: 'gaspard', expr: 'neutral', text: 'Go on, then. I shall stay here and creak politely until you return.' },
+        { who: 'gaspard', expr: 'neutral', text: 'Go on, then. I shall remain here, upright and patient, until you return.' },
       ] },
     },
   });

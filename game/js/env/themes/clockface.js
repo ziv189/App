@@ -79,23 +79,23 @@
 
   // The clock as seen from behind: iron back-plate with a gold toothed rim, then the cream face in front.
   function clockFace(ctx, cx, cy, R) {
-    ctx.fillStyle = '#3a2a40';
+    ctx.fillStyle = '#2c2046';
     ctx.beginPath(); ctx.arc(cx, cy, R + 10, 0, TAU); ctx.fill();
 
     ctx.fillStyle = '#9c7430';
     ctx.beginPath();
-    for (let i = 0; i < 36; i++) {  // 36 teeth on the rim
-      const a = (i / 36) * TAU, d = (TAU / 36) * 0.3;
+    for (let i = 0; i < 24; i++) {  // 24 teeth on the rim
+      const a = (i / 24) * TAU, d = (TAU / 24) * 0.3;
       const p = (r, s) => [cx + Math.cos(a + s * d) * r, cy + Math.sin(a + s * d) * r];
-      [p(R + 10, -1), p(R + 17, -1), p(R + 17, 1), p(R + 10, 1)].forEach(([px, py], j) => ctx[j ? 'lineTo' : 'moveTo'](px, py));
+      [p(R + 10, -1), p(R + 14, -1), p(R + 14, 1), p(R + 10, 1)].forEach(([px, py], j) => ctx[j ? 'lineTo' : 'moveTo'](px, py));
       ctx.closePath();
     }
     ctx.fill();
 
     const face = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.1, cx, cy, R);
-    face.addColorStop(0, '#fffaf0');
-    face.addColorStop(0.75, '#f1e4c6');
-    face.addColorStop(1, '#d9c39a');
+    face.addColorStop(0, '#e9dcc2');
+    face.addColorStop(0.75, '#dccaa8');
+    face.addColorStop(1, '#c7b08f');
     ctx.fillStyle = face;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.fill();
     ctx.strokeStyle = '#c9963c'; ctx.lineWidth = R * 0.035;
@@ -112,10 +112,10 @@
       ctx.stroke();
     }
 
-    ctx.strokeStyle = '#14100f';
+    ctx.strokeStyle = '#4a3553';
     ctx.lineCap = 'round';
-    hand(ctx, cx, cy, HOUR_A, R * 0.5, R * 0.09);
-    hand(ctx, cx, cy, MIN_A, R * 0.78, R * 0.055);
+    hand(ctx, cx, cy, HOUR_A, R * 0.5, R * 0.06);
+    hand(ctx, cx, cy, MIN_A, R * 0.78, R * 0.035);
 
     ctx.fillStyle = '#d9a84a';
     ctx.beginPath(); ctx.arc(cx, cy, R * 0.07, 0, TAU); ctx.fill();
@@ -127,11 +127,14 @@
     const R = 160;
     const cy = 180 - camY * 0.1;
     const base = Math.round((camX * 0.25) / CLOCK_PERIOD);
+    ctx.save();
+    ctx.globalAlpha = 0.75;
     for (let k = base - 1; k <= base + 1; k++) {
       const cx = W * 0.5 + k * CLOCK_PERIOD - camX * 0.25;
       if (cx + R + 20 < 0 || cx - R - 20 > W) continue;
       clockFace(ctx, cx, cy, R);
     }
+    ctx.restore();
   }
 
   // Rooftop silhouettes of the Tower, some with pointed roofs.
@@ -185,7 +188,7 @@
     cloudLayer(ctx, cx0, cy0, { f: 0.5, P: 420, y0: 320, y1: 420, sc: 0.8, body: '#e0968c', lit: '#ffe0a6', a: 0.42 }, w, 71);
 
     // summit edge with a thin gold rim light
-    const gy = h * 0.86;
+    const gy = h * 0.884;
     const ground = ctx.createLinearGradient(0, gy, 0, h);
     ground.addColorStop(0, '#3e2858');
     ground.addColorStop(1, '#1b1130');
@@ -210,18 +213,20 @@
     const a = rnd(x, y);
     const b = rnd(y, x + 7);
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(128,112,140,0.42)';
+    ctx.strokeStyle = 'rgba(128,112,140,0.22)';
     ctx.beginPath();
     ctx.moveTo(x, y + a * S);
     ctx.bezierCurveTo(x + 9, y + b * S, x + 20, y + (1 - a) * S, x + S, y + b * S * 0.6 + 4);
     ctx.stroke();
-    ctx.strokeStyle = 'rgba(196,150,70,0.38)';
-    ctx.beginPath();
-    ctx.moveTo(x + b * S, y);
-    ctx.quadraticCurveTo(x + (1 - b) * 12, y + 14, x + a * 12 + 12, y + S);
-    ctx.stroke();
+    if (a > 0.5) {  // gold vein on about half the cells
+      ctx.strokeStyle = 'rgba(196,150,70,0.2)';
+      ctx.beginPath();
+      ctx.moveTo(x + b * S, y);
+      ctx.quadraticCurveTo(x + (1 - b) * 12, y + 14, x + a * 12 + 12, y + S);
+      ctx.stroke();
+    }
 
-    ctx.strokeStyle = 'rgba(120,104,118,0.22)';
+    ctx.strokeStyle = 'rgba(120,104,118,0.12)';
     ctx.strokeRect(x + 0.5, y + 0.5, S - 1, S - 1);
 
     if (!n.u) {
@@ -241,7 +246,7 @@
     ctx.fillRect(x + 5, y + 18, 3, 8);
     ctx.fillRect(x + S - 8, y + 18, 3, 8);
 
-    ctx.fillStyle = '#e4dccb';
+    ctx.fillStyle = '#ecd9b0';
     ctx.fillRect(x, y + 8, S, 9);
 
     const g = ctx.createLinearGradient(0, y + 4, 0, y + 8);

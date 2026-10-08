@@ -156,6 +156,11 @@
     const CP = 520, cOff = -mod(mid, CP);
     for (let i = -1; i < 3; i++) chain(ctx, cOff + i * CP + 380, H * 0.62, tt, i);
 
+    // top band: keeps ropes and chains from running behind the HUD
+    const B = ctx.createLinearGradient(0, 0, 0, H * 0.2);
+    B.addColorStop(0, 'rgba(8,13,21,0.7)'); B.addColorStop(1, 'rgba(8,13,21,0)');
+    ctx.fillStyle = B; ctx.fillRect(0, 0, W, H * 0.2);
+
     // floor haze
     ctx.fillStyle = 'rgba(0,0,0,0.25)';
     ctx.fillRect(0, H * 0.82, W, H * 0.18);
@@ -194,24 +199,24 @@
     ctx.fillStyle = BRASS_HI; ctx.fillRect(x - 1, y - 1.2, 1.2, 1.2);
   }
 
-  // '=': weathered wooden beam (solid on top) with brass studs
+  // '=': weathered wooden beam, plank surface on the tile's top edge (where the player lands), brass studs
   function beam(ctx, x, y, n) {
-    ctx.fillStyle = WOOD; ctx.fillRect(x, y + 5, S, 12);
-    ctx.fillStyle = WOOD_HI; ctx.fillRect(x, y + 5, S, 2);
-    ctx.fillStyle = WOOD_LO; ctx.fillRect(x, y + 15, S, 2);
+    ctx.fillStyle = WOOD; ctx.fillRect(x, y, S, 14);
+    ctx.fillStyle = WOOD_HI; ctx.fillRect(x, y, S, 2);
+    ctx.fillStyle = WOOD_LO; ctx.fillRect(x, y + 12, S, 2);
     ctx.strokeStyle = 'rgba(38,26,16,0.5)'; ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(x, y + 9.5); ctx.quadraticCurveTo(x + 16, y + 8, x + S, y + 10.5);
-    ctx.moveTo(x, y + 12.5); ctx.lineTo(x + 10, y + 12.5);
-    ctx.moveTo(x + 14, y + 12.5); ctx.lineTo(x + S, y + 12.5);
+    ctx.moveTo(x, y + 4.5); ctx.quadraticCurveTo(x + 16, y + 3, x + S, y + 5.5);
+    ctx.moveTo(x, y + 7.5); ctx.lineTo(x + 10, y + 7.5);
+    ctx.moveTo(x + 14, y + 7.5); ctx.lineTo(x + S, y + 7.5);
     ctx.stroke();
     const p = hash(Math.round(x / S), Math.round(y / S));
     ctx.fillStyle = 'rgba(120,145,170,0.2)';  // cold frost on the weathered wood
-    ctx.beginPath(); ctx.ellipse(x + p * S, y + 11, 5 + p * 3, 3, 0, 0, Math.PI * 2); ctx.fill();
-    stud(ctx, x + 8, y + 11);
-    stud(ctx, x + 24, y + 11);
-    if (!n.l) { ctx.fillStyle = WOOD_LO; ctx.fillRect(x, y + 5, 2, 12); }
-    if (!n.r) { ctx.fillStyle = WOOD_LO; ctx.fillRect(x + S - 2, y + 5, 2, 12); }
+    ctx.beginPath(); ctx.ellipse(x + p * S, y + 6, 5 + p * 3, 3, 0, 0, Math.PI * 2); ctx.fill();
+    stud(ctx, x + 8, y + 6);
+    stud(ctx, x + 24, y + 6);
+    if (!n.l) { ctx.fillStyle = WOOD_LO; ctx.fillRect(x, y, 2, 14); }
+    if (!n.r) { ctx.fillStyle = WOOD_LO; ctx.fillRect(x + S - 2, y, 2, 14); }
   }
 
   // '^': brass spikes
@@ -289,8 +294,8 @@
     for (let i = 2; i < S; i += 8) ctx.fillRect(x + i, y, 3, S);
     ctx.fillStyle = BRASS;
     for (let i = 3; i < S; i += 8) ctx.fillRect(x + i, y + 4, 1.5, 1.5);
-    ctx.fillStyle = 'rgba(255,110,80,' + (0.3 + 0.2 * Math.sin(t * 5)).toFixed(3) + ')';
-    ctx.fillRect(x, y, 2, S); ctx.fillRect(x + S - 2, y, 2, S);
+    ctx.fillStyle = 'rgba(255,110,80,' + (0.5 + 0.3 * Math.sin(t * 5)).toFixed(3) + ')';
+    ctx.fillRect(x, y, 4, S); ctx.fillRect(x + S - 4, y, 4, S);
   }
 
   function tile(ctx, ch, x, y, t, nb) {

@@ -58,8 +58,8 @@
         lines: [
           { who: 'narrator', text: "Beyond the iron bars, the arena is lit by a pale light that never flickers. Someone is waiting." },
           { act: 'shake' },
-          { who: 'regent', text: "There you are, boy." },
-          { who: 'leo', expr: 'angry', text: "Who are you? Where is my father?" },
+          { who: 'regent', text: "There you are, boy. I have heard your footsteps on every stair, and I wondered how long it would take you to reach me." },
+          { who: 'leo', expr: 'angry', text: "You're the Regent, aren't you? Where is my father?" },
           { who: 'regent', text: "Your father is exactly where he has always been. Holding a minute that refuses to end." },
           { who: 'regent', text: "I have kept this city still for ten years. I will keep it still for a thousand more." },
           { who: 'leo', expr: 'worried', text: "Ten years. You stopped the trains, the bakers, the whole city. Open the gate, or I will open it myself." },
@@ -82,7 +82,7 @@
           { who: 'narrator', text: "The coat splits down the back. Loose gears spin around him, shrieking against the stone." },
           { who: 'regent', expr: 'angry', text: "Time is a betrayal, boy. It takes everything you hold, and then it laughs while it does." },
           { who: 'leo', expr: 'worried', text: "Stop! You're tearing yourself apart!" },
-          { who: 'regent', expr: 'angry', text: "Then tell me how to hold on to nothing, boy. Tell me how to stop the hours from slipping through." },
+          { who: 'regent', expr: 'angry', text: "Then tell me how to hold on to what is left, boy. Tell me how to stop the hours from slipping through." },
         ],
       },
       {
@@ -91,7 +91,7 @@
         lines: [
           { who: 'narrator', text: "The Regent's knees give way. His cane clatters across the stone, and the broken mask slides from his face." },
           { who: 'regent', expr: 'sad', text: "I wanted to keep her last laugh. Only that one. I wanted to hold it forever, like a coin in a closed fist." },
-          { who: 'regent', expr: 'sad', text: "So I stopped the hour around it. The trains, the bread, the children, all of it, frozen for one laugh." },
+          { who: 'regent', expr: 'sad', text: "So I held the hour still, just as your father holds his. The trains, the bread, the children, all frozen for one laugh." },
           { who: 'leo', expr: 'angry', text: "You froze an entire city for one laugh?" },
           { who: 'regent', text: "You think I don't know what it is to let go of a hand? You are no different from me, boy." },
           { who: 'leo', expr: 'worried', text: "I'm not like you." },
@@ -105,7 +105,7 @@
       '2': {
         who: 'juliette',
         lines: [
-          { who: 'juliette', expr: 'happy', text: "Leo-big-brother! You came! I knew you would find the way, I knew it!" },
+          { who: 'juliette', expr: 'happy', text: "Leo-Grand! You came! I knew you would find the way, I knew it!" },
           { who: 'leo', expr: 'surprised', text: "Juliette? You're really here... You look just like the photo on that train ticket." },
           { who: 'juliette', expr: 'happy', text: "I'm always here. My little clock still ticks, see? Tick, tock, tick, tock!" },
           { who: 'leo', expr: 'worried', text: "I've been looking for you for ten years. I should have come sooner." },
@@ -113,12 +113,12 @@
           { who: 'leo', expr: 'worried', text: "I know. I replay it every night, Juliette. Every single night." },
           { who: 'leo', text: "Are you angry at me?" },
           { who: 'juliette', expr: 'happy', text: "No, silly. I was never angry. I only wanted you to come find me." },
-          { who: 'leo', text: "Then I'm here. I'll get you out of this Tower, Juliette. I promise." },
+          { who: 'leo', text: "Then I'm here. This time I won't let go, Juliette. I'll get you out of this Tower." },
           { act: 'flag', value: 'met_juliette' },
         ],
         again: [
-          { who: 'juliette', expr: 'happy', text: "Be brave, Leo-big-brother. The higher you climb, the quieter it gets, but you are not alone." },
-          { who: 'juliette', text: "Papa is waiting at the top, beside the balance wheel. He never stopped waiting for you." },
+          { who: 'juliette', expr: 'happy', text: "Be brave, Leo-Grand. The higher you climb, the quieter it gets, but you are not alone." },
+          { who: 'juliette', text: "Dad is waiting at the top, beside the balance wheel. He never stopped waiting for you." },
           { who: 'juliette', text: "Go on! I'll be right here, tick-tocking. I always am." },
         ],
       },

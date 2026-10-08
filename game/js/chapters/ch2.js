@@ -45,9 +45,10 @@
         { who: 'mireille', text: 'Don\'t stare at the hole. Stare at the ledge. Your feet go wherever your eyes go.' },
         { who: 'leo', expr: 'worried', text: 'Let me guess. You just jump over it?' },
         { who: 'mireille', expr: 'happy', text: 'Jumping is for amateurs. Watch me glide.' },
-        { who: 'narrator', text: 'She runs, taps the air with one boot, and slides across the gap as if the street had never broken.' },
+        { who: 'narrator', text: 'She runs, taps the air with one boot, slides to the edge.' },
+        { who: 'narrator', text: 'Then she leaps and lands on the far side, as if the street had never broken.' },
         { act: 'unlock', value: 'dash' },
-        { who: 'mireille', text: 'Shift or K to dash, then jump. Don\'t stop halfway. Halfway is where people fall.' },
+        { who: 'mireille', text: 'Shift or K to glide, then jump. Don\'t stop halfway. Halfway is where people fall.' },
         { who: 'leo', expr: 'worried', text: 'Halfway. Wonderful. Thanks for the pep talk.' },
         { act: 'flag', value: 'dash_learned' }
       ] },
@@ -66,17 +67,18 @@
       '1': { who: 'tomas', lines: [
         { who: 'narrator', text: 'A boy in a striped jumper, mouth wide open. He is caught in a laugh that has lasted ten years.' },
         { who: 'tomas', expr: 'happy', text: 'Bread...' },
-        { who: 'narrator', text: 'The bread roll is round and golden. Not one crumb has fallen in ten years.' },
+        { who: 'narrator', text: 'The bread roll is round and golden, with the crimp of Mrs. Pivert\'s oven. Not one crumb has fallen in ten years.' },
+        { who: 'narrator', text: 'His eyes slide past you, looking for someone else.' },
         { who: 'tomas', expr: 'happy', text: 'Big sister!' }
       ], again: [
         { who: 'tomas', expr: 'happy', text: 'Again!' },
-        { who: 'narrator', text: 'Nobody can repeat the joke. The laugh stays frozen on his face, waiting for the punchline.' }
+        { who: 'narrator', text: 'Nobody can finish the joke for him. The laugh stays frozen on his face, waiting for the punchline.' }
       ] },
       '2': { who: 'hugo', lines: [
         { who: 'hugo', text: 'Oi. Don\'t loiter under my awning like a lost pigeon. Buying something, or just breathing?' },
         { who: 'leo', expr: 'surprised', text: 'You\'re moving. Everybody else in this market is stuck in the middle of a bite.' },
         { who: 'hugo', expr: 'angry', text: 'Don\'t gawk. Yes, I move. No, I won\'t explain it on an empty stomach.' },
-        { who: 'leo', expr: 'worried', text: 'Fine. Do you know Elias Varin? The clockmaker.' },
+        { who: 'leo', expr: 'worried', text: 'Fine. Do you know Elias Varin? The clockmaker. He\'s my father.' },
         { who: 'hugo', text: 'Know him? I made toys for his girl. Wooden horses, a tin bird that sang. Good work, all of it.' },
         { who: 'hugo', text: 'Elias always had that watch in his hand. Pulling it out, winding it, glaring at it like it owed him money.' },
         { who: 'leo', expr: 'worried', text: 'I have his watch. It started ticking again at the station, the night I got here.' },
@@ -96,7 +98,7 @@
         { act: 'flag', value: 'mireille_ally' }
       ], again: [
         { who: 'mireille', expr: 'happy', text: 'Back for more? I don\'t come cheap, sunshine.' },
-        { who: 'leo', expr: 'angry', text: 'You still owe me a gear. Stop bragging about it.' },
+        { who: 'leo', expr: 'angry', text: 'You still owe me a gear. Pay that off before you start charging.' },
         { who: 'mireille', text: 'Keep up, clockboy. Gears can wait. Tomas can\'t.' }
       ] }
     }
