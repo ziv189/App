@@ -1292,7 +1292,7 @@
     ctx.fillRect(0, 486, W, 54);
     drawActorAt('leo', 250, 492, { state: 'idle', t: time, time, vx: 0, vy: 0, facing: 1, phase: 1 });
     drawActorAt('gaspard', 640, 492, { state: 'idle', t: time, time, vx: 0, vy: 0, facing: -1, phase: 1 });
-    drawActorAt('juliette', 470, 300 + Math.sin(time * 1.5) * 8, { state: 'idle', t: time, time, vx: 0, vy: 0, facing: 1, phase: 1 });
+    drawActorAt('juliette', 800, 420 + Math.sin(time * 1.5) * 8,{ state: 'idle', t: time, time, vx: 0, vy: 0, facing: 1, phase: 1 });
     ctx.save();
     ctx.textAlign = 'center';
     ctx.font = 'italic 24px Georgia, serif';

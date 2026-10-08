@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Frozen Hour</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #07050a; overflow: hidden; }
+    body { display: flex; align-items: center; justify-content: center; }
+    #game {
+      width: min(100vw, calc(100vh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      height: auto;
+      display: block;
+      background: #000;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game" width="960" height="540" tabindex="0"></canvas>
+
+  <!-- Art: shared helpers first, then every drawn character and creature -->
+  <script src="js/art/base.js"></script>
+  <script src="js/art/humanoid.js"></script>
+  <script src="js/art/enemies.js"></script>
+
+  <!-- Environment and audio -->
+  <script src="js/env/env.js"></script>
+  <script src="js/audio/audio.js"></script>
+
+  <!-- Chapters (maps, scenes, dialogue) and endings -->
+  <script src="js/chapters/index.js"></script>
+  <script src="js/chapters/ch1.js"></script>
+  <script src="js/chapters/ch2.js"></script>
+  <script src="js/chapters/ch3.js"></script>
+  <script src="js/chapters/ch4.js"></script>
+  <script src="js/chapters/ch5.js"></script>
+  <script src="js/story/endings.js"></script>
+
+  <!-- Engine (last) -->
+  <script src="js/game.js"></script>
+</body>
+</html>
