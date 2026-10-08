@@ -60,7 +60,7 @@
 
   /* ---------- entrées clavier ---------- */
   const KEYS = {
-    left: ['ArrowLeft', 'KeyQ'],
+    left: ['ArrowLeft', 'KeyQ', 'KeyA'],
     right: ['ArrowRight', 'KeyD'],
     up: ['ArrowUp', 'KeyZ', 'KeyW'],
     down: ['ArrowDown', 'KeyS'],
@@ -133,25 +133,35 @@
       }));
     } catch (e) { /* stockage indisponible : on joue sans sauvegarde */ }
   }
-  function loadGame() {
+  // Lit et valide la sauvegarde sans rien modifier ; renvoie null si elle est inutilisable.
+  function readSave() {
     try {
       const d = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null');
-      if (!d) return false;
-      story.chapterId = d.chapterId || 'ch1';
-      story.unlocks = new Set(d.unlocks || []);
-      story.flags = new Set(d.flags || []);
-      story.progress = {};
+      if (!d || typeof d !== 'object') return null;
+      const chapterId = d.chapterId || 'ch1';
+      if (!CHAPTERS.get(chapterId)) return null;
+      const progress = {};
       for (const [id, p] of Object.entries(d.progress || {})) {
-        story.progress[id] = {
+        if (!p || typeof p !== 'object') return null;
+        progress[id] = {
           taken: new Set(p.taken || []), scenesDone: new Set(p.scenesDone || []), npcTalked: new Set(p.npcTalked || []),
           bossDead: !!p.bossDead, checkpoint: p.checkpoint || null, gears: p.gears || 0,
         };
       }
-      return true;
-    } catch (e) { return false; }
+      return { chapterId, unlocks: new Set(d.unlocks || []), flags: new Set(d.flags || []), progress };
+    } catch (e) { return null; }
+  }
+  function loadGame() {
+    const s = readSave();
+    if (!s) return false;
+    story.chapterId = s.chapterId;
+    story.unlocks = s.unlocks;
+    story.flags = s.flags;
+    story.progress = s.progress;
+    return true;
   }
   function hasSave() {
-    try { return !!localStorage.getItem(SAVE_KEY); } catch (e) { return false; }
+    return !!readSave();
   }
   function eraseSave() {
     try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* rien à effacer */ }
@@ -277,7 +287,7 @@
   function newPlayer(pt) {
     return {
       x: pt.x, y: pt.y, w: 22, h: 46, vx: 0, vy: 0, facing: 1, onGround: false, wasGround: true,
-      coyote: 0, jumpBuf: 0, jumpsLeft: 0, cutJump: false, hp: MAX_HP, inv: 0,
+      coyote: 0, jumpBuf: 0, atkBuf: 0, jumpsLeft: 0, cutJump: false, hp: MAX_HP, inv: 0,
       dashT: 0, dashCd: 0, atkT: 0, atkCd: 0, atkDone: new Set(), hurtT: 0, landT: 0, dropT: 0,
       dead: false, deadT: 0, st: 0,
     };
@@ -303,7 +313,8 @@
     p.jumpBuf = hit('jump') && !locked ? 0.12 : Math.max(0, p.jumpBuf - dt);
 
     // descendre à travers une plateforme : bas + saut
-    if (hit('jump') && on('down') && p.onGround) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
+    const fr = Math.floor(p.y / TS), pc = Math.floor(p.x / TS);
+    if (hit('jump') && on('down') && p.onGround && plat(pc, fr) && !solid(pc, fr)) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
 
     if (hit('dash') && story.unlocks.has('dash') && p.dashCd <= 0 && p.dashT <= 0 && p.atkT <= 0 && !locked) {
       p.dashT = DASH_T; p.dashCd = DASH_CD; p.vx = p.facing * DASH_V; p.vy = 0;
@@ -311,7 +322,9 @@
       puff(p.x, p.y - 4, 7, '#e9dcc0');
       sfx('dash');
     }
-    if (hit('attack') && p.atkCd <= 0 && p.atkT <= 0 && p.dashT <= 0 && !locked) {
+    p.atkBuf = hit('attack') ? 0.12 : Math.max(0, p.atkBuf - dt);
+    if (p.atkBuf > 0 && p.atkCd <= 0 && p.atkT <= 0 && p.dashT <= 0 && !locked) {
+      p.atkBuf = 0;
       p.atkT = ATK_T; p.atkCd = ATK_T + ATK_CD; p.atkDone = new Set();
       sfx('attack');
     }
@@ -395,7 +408,7 @@
             toast('Checkpoint');
             saveGame();
           }
-        } else if (k === 'X' && !transition) {
+        } else if (k === 'X' && !transition && !gateClosed) {
           exitChapter();
           return;
         }
@@ -450,7 +463,7 @@
       if (e.hp <= 0) { e.dead = true; e.deadT = 0; e.vx *= 0.5; sfx('hurt'); }
     }
     const b = world.boss;
-    if (b && b.active && !b.dead && b.inv <= 0 && !p.atkDone.has(b) && overlap(hb, bossBox(b))) {
+    if (b && b.active && b.state !== 'intro' && !b.dead && b.inv <= 0 && !p.atkDone.has(b) && overlap(hb, bossBox(b))) {
       p.atkDone.add(b);
       bossHit(b);
     }
@@ -533,8 +546,9 @@
         if (e.deadT > 0.9) e.gone = true;
         continue;
       }
+      // hurt: keep the knockback slide, AI does not overwrite vx during the stun
       if (e.hurtT > 0 && e.gravity) e.vx *= 0.9;
-      if (e.kind === 'rouage') aiRouage(e);
+      else if (e.kind === 'rouage') aiRouage(e);
       else if (e.kind === 'fige') aiFige(e);
       else aiSablier(e);
       if (e.gravity) {
@@ -636,8 +650,10 @@
     moveBody(b, sdt, false);
   }
   function spawnSummons(b) {
+    // keep summoned figes inside the arena: between the gate and the far wall
+    const lo = (gateCol + 1) * TS + 13, hi = (cols - 1) * TS - 13;
     for (const sx of [-110, 110]) {
-      world.enemies.push(makeEnemy('fige', b.x + sx, b.y));
+      world.enemies.push(makeEnemy('fige', clamp(b.x + sx, lo, hi), b.y));
     }
     sfx('pendule');
   }
@@ -659,6 +675,9 @@
   }
   function killBoss(b) {
     b.dead = true; b.st = 0; b.defeatHandled = false; b.vx = 0;
+    // commit the kill now, so a death during the defeat delay does not revive the boss
+    progressOf(story.chapterId).bossDead = true;
+    saveGame();
     sfx('boss_die');
     shakeA = Math.max(shakeA, 12);
     flashT = 0.5;
@@ -731,16 +750,18 @@
     while (dlg && dlg.i < dlg.lines.length) {
       const L = dlg.lines[dlg.i++];
       if (L.act === 'choice') {
+        const options = (L.options || []).slice(0, 3);   // the dialogue box has room for three choices
+        if (!options.length) continue;
         dlg.cur = null;
-        dlg.choice = { options: L.options || [], sel: 0 };
+        dlg.choice = { options, sel: 0 };
         return;
       }
       if (L.act === 'end') { closeDialogRaw(); startEnding(L.value); return; }
       if (L.act) { doAct(L); continue; }
       const narr = L.who === 'narrator' || !hasArt(L.who);
-      dlg.cur = L;
+      dlg.cur = Object.assign({}, L, { text: String(L.text || '') });
       dlg.chars = 0;
-      dlg.wrapped = wrapText(L.text || '', narr ? 820 : 660, narr ? ITALIC : FONT);
+      dlg.wrapped = wrapText(dlg.cur.text, narr ? 820 : 660, narr ? ITALIC : FONT);
       return;
     }
     closeDialog();
@@ -780,6 +801,7 @@
       if (hit('down')) dlg.choice.sel = (dlg.choice.sel + 1) % n;
       if (hit('ok')) {
         const o = dlg.choice.options[dlg.choice.sel];
+        if (!o) { dlg.choice = null; dialogStep(); return; }
         if (o.flag) story.flags.add(o.flag);
         sfx('choice');
         dlg.choice = null;
@@ -829,6 +851,7 @@
     eraseSave();
     newStory();
     themeOverride = null;
+    endKey = null;
     credits = null;
     mode = 'title';
     titleSel = 0;
@@ -845,17 +868,18 @@
     if (tr.stage === 0 && tr.t >= 0.4) { tr.stage = 1; tr.t = 0; tr.fn(); }
     else if (tr.stage === 1 && tr.t >= 0.4) transition = null;
   }
-  function enterChapter(id) {
+  function enterChapter(id, debug) {
     story.chapterId = id;
     buildWorld(id);
     player = newPlayer(progressOf(id).checkpoint || world.start);
     snapCamera();
-    particles = []; slowGauge = 1; hitstop = 0;
+    particles = []; slowGauge = 1; slowing = false; hitstop = 0;
     card = { t: 0, kicker: ch.kicker || '', title: ch.title || '' };
     themeOverride = null;
+    endKey = null;
     mode = 'card';
     music(ch.music);
-    saveGame();
+    if (!debug) saveGame();   // debug starts (LHF.start) do not overwrite the real save
   }
   function respawn() {
     const id = story.chapterId;
@@ -863,9 +887,12 @@
     player = newPlayer(progressOf(id).checkpoint || world.start);
     player.inv = 1.2;
     snapCamera();
-    particles = []; slowGauge = 1; hitstop = 0;
+    particles = []; slowGauge = 1; slowing = false; hitstop = 0;
     mode = 'play';
     music(ch.music);
+    // the Regent fell but its defeat scene never played (the player died during the delay): play it now
+    const pr = progressOf(id);
+    if (pr.bossDead && !pr.scenesDone.has('boss_defeated')) playScene('boss_defeated', () => { music(ch.music); saveGame(); });
   }
   function exitChapter() {
     const next = ch.next;
@@ -961,7 +988,7 @@
     shakeA *= Math.exp(-dt * 9);
     if (shakeA < 0.05) shakeA = 0;
     flashT = Math.max(0, flashT - dt);
-    updateToasts(dt);
+    if (mode !== 'pause') updateToasts(dt);
     updateParticles(dt);
     if (transition) { updateTransition(dt); return; }
     switch (mode) {
@@ -988,13 +1015,21 @@
   }
 
   function updatePlay(dt) {
-    if (hit('pause')) { mode = 'pause'; pauseSel = 0; return; }
+    if (hit('pause')) { mode = 'pause'; pauseSel = 0; slowing = false; return; }
     if (player.dead) {
+      slowing = false;
+      player.vy = Math.min(MAX_FALL, player.vy + GRAV * dt);   // the body keeps falling during the death fade
+      moveBody(player, dt, false);
       player.deadT += dt;
       if (player.deadT > 1.1 && !transition) startTransition(respawn);
       return;
     }
-    if (hitstop > 0) { hitstop -= dt; return; }
+    if (hitstop > 0) {
+      hitstop -= dt;
+      if (hit('jump')) player.jumpBuf = 0.12;   // presses during hitstop are buffered, not lost
+      if (hit('attack')) player.atkBuf = 0.12;
+      return;
+    }
     slowing = story.unlocks.has('pendule') && on('slow') && slowGauge > 0.02;
     if (slowing) slowGauge = Math.max(0, slowGauge - 0.4 * dt);
     else slowGauge = Math.min(1, slowGauge + 0.15 * dt);
@@ -1038,7 +1073,7 @@
     if (hit('ok')) {
       const id = items[titleSel].id;
       if (id === 'new') { newStory(); enterChapter('ch1'); }
-      else if (id === 'continue') { loadGame(); enterChapter(story.chapterId); }
+      else if (id === 'continue') { if (loadGame()) enterChapter(story.chapterId); }
       else { controlsBack = 'title'; mode = 'controls'; }
     }
   }
@@ -1052,6 +1087,13 @@
       case 'controls': drawControls(); break;
       case 'credits': drawCredits(); break;
       case 'endcard': drawEndCard(); break;
+      case 'dialog':
+        // ending narration: the ENDINGS backdrop only, no live level or HUD behind it
+        if (endKey) {
+          if (window.ENV) ENV.drawBackground(ctx, endData(endKey).theme || 'clockface', time * 6, 0, time, W, H);
+          break;
+        }
+        drawGame(); break;
       default: drawGame(); break;
     }
     ctx.restore();
@@ -1160,8 +1202,8 @@
       ctx.fillText('Pendulum  (C / L)', 34, 74);
     }
     const chips = [];
-    if (story.unlocks.has('dash')) chips.push('Glide  Shift / K');
-    if (story.unlocks.has('ressort')) chips.push('Spring  jump in midair');
+    if (mode !== 'dialog' && story.unlocks.has('dash')) chips.push('Glide  Shift / K');
+    if (mode !== 'dialog' && story.unlocks.has('ressort')) chips.push('Spring  jump in midair');
     ctx.font = '13px Georgia, serif'; ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(243,234,216,0.6)';
     chips.forEach((t, i) => ctx.fillText(t, 34, H - 16 - (chips.length - 1 - i) * 18));
     ctx.restore();
@@ -1278,10 +1320,16 @@
     ctx.save();
     ctx.textAlign = 'center';
     items.forEach((it, i) => {
-      const on = i === sel;
+      const on = i === sel, y = y0 + i * gap;
       ctx.font = (on ? 'bold ' : '') + '26px Georgia, serif';
       ctx.fillStyle = on ? '#f0d68a' : '#cbbfa6';
-      ctx.fillText((on ? '▸ ' : '') + it.label, W / 2, y0 + i * gap);
+      ctx.fillText(it.label, W / 2, y);
+      if (on) {
+        // the arrow hangs to the left of the label, so the label itself never shifts
+        ctx.textAlign = 'right';
+        ctx.fillText('▸', W / 2 - ctx.measureText(it.label).width / 2 - 14, y);
+        ctx.textAlign = 'center';
+      }
     });
     ctx.restore();
   }
@@ -1411,7 +1459,12 @@
 
   // Accès de test (console / navigateur sans-tête) : LHF.start('ch2'), LHF.state(), etc.
   window.LHF = {
-    start(id) { newStory(); if (id !== 'ch1') story.unlocks = new Set(['dash', 'pendule', 'ressort']); enterChapter(id || 'ch1'); },
+    // Dev only: drops any running dialogue or transition and does not overwrite the saved game.
+    start(id) {
+      dlg = null; transition = null;
+      newStory(); if (id !== 'ch1') story.unlocks = new Set(['dash', 'pendule', 'ressort']);
+      enterChapter(id || 'ch1', true);
+    },
     skipCard() { if (mode === 'card') mode = 'play'; },
     teleport(x, y) { if (player) { player.x = x; player.y = y; player.vx = 0; player.vy = 0; } },
     state() {
