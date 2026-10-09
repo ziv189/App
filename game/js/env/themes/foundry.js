@@ -196,7 +196,7 @@
     const oy = mouth - oh;
     const flick = 0.85 + 0.15 * Math.sin(tt * 3.1 + k * 1.7);
     const sp = ctx.createRadialGradient(ox + ow / 2, mouth, 4, ox + ow / 2, mouth, 110);
-    sp.addColorStop(0, 'rgba(255,130,40,' + f3(0.2 * flick) + ')');
+    sp.addColorStop(0, 'rgba(255,130,40,' + f3(0.12 * flick) + ')');
     sp.addColorStop(1, 'rgba(255,130,40,0)');
     ctx.fillStyle = sp;
     ctx.fillRect(ox - 110, mouth - 110, ow + 220, 220);
@@ -207,9 +207,9 @@
     ctx.lineTo(ox + ow, mouth);
     ctx.closePath();
     const fire = ctx.createLinearGradient(0, oy, 0, mouth);
-    fire.addColorStop(0, '#f2a45a');
-    fire.addColorStop(0.5, '#ff8a2a');
-    fire.addColorStop(1, '#b8360f');
+    fire.addColorStop(0, '#d9874a');
+    fire.addColorStop(0.5, '#b84a1c');
+    fire.addColorStop(1, '#6e2410');
     ctx.fillStyle = fire;
     ctx.fill();
     ctx.strokeStyle = '#120706';
@@ -228,7 +228,7 @@
     ctx.fillRect(0, gy, W, H - gy);
     for (let i = 0; i < 3; i++) {
       ctx.fillStyle = 'rgba(255,190,100,' + f3(0.1 + 0.05 * Math.sin(tt * 1.6 + i * 2)) + ')';
-      ctx.fillRect(0, H * (0.8 + i * 0.065), W, 2 + i);
+      ctx.fillRect(0, H * (0.9 + i * 0.065), W, 2 + i);
     }
     ctx.fillStyle = 'rgba(14,5,4,0.85)';
     ctx.fillRect(0, H * 0.93, W, H * 0.07);
@@ -244,7 +244,7 @@
     // cool dark band behind the play height, so the gameplay reads against it
     const band = ctx.createLinearGradient(0, h * 0.5, 0, h * 0.8);
     band.addColorStop(0, 'rgba(12,6,10,0)');
-    band.addColorStop(1, 'rgba(12,6,10,0.45)');
+    band.addColorStop(1, 'rgba(12,6,10,0.25)');
     ctx.fillStyle = band;
     ctx.fillRect(0, h * 0.5, w, h * 0.5);
     row(cx, 0.3, 360, w, (k, x) => steamBank(ctx, x, 360, h * (0.16 + hash(k + 11) * 0.2), k));
@@ -272,8 +272,8 @@
   function plate(ctx, x, y, n, seed, tt) {
     const s = mod(seed, 8);
     const g = ctx.createLinearGradient(x, y, x, y + S);
-    g.addColorStop(0, '#42332f');
-    g.addColorStop(1, '#241a1b');
+    g.addColorStop(0, '#4a4650');
+    g.addColorStop(1, '#2a282f');
     ctx.fillStyle = g;
     ctx.fillRect(x, y, S, S);
     if (s % 3 === 0) {
@@ -336,7 +336,7 @@
       ctx.beginPath();
       ctx.moveTo(sx, y + S); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 8, y + S);
       ctx.closePath();
-      ctx.fillStyle = '#1a0a06';
+      ctx.fillStyle = '#2a1612';
       ctx.fill();
       ctx.strokeStyle = '#120706';
       ctx.lineWidth = 1;
@@ -344,7 +344,7 @@
       ctx.beginPath();
       ctx.moveTo(sx + 2.4, y + 15); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 5.6, y + 15);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(255,150,60,' + f3(0.6 + 0.4 * Math.sin(tt * 5 + i)) + ')';
+      ctx.fillStyle = 'rgba(255,150,60,' + f3(0.75 + 0.25 * Math.sin(tt * 5 + i)) + ')';
       ctx.fill();
     }
   }

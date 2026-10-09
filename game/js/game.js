@@ -1246,12 +1246,12 @@
     ctx.fillStyle = '#f3ead8';
     ctx.fillText(gearTxt, W - 30, 36);
     if (story.unlocks.has('pendule')) {
-      ctx.fillStyle = 'rgba(243,234,216,0.18)'; ctx.fillRect(34, 52, 130, 10);
-      ctx.fillStyle = '#7fd0e8'; ctx.fillRect(34, 52, 130 * slowGauge, 10);
-      ctx.strokeStyle = 'rgba(243,234,216,0.4)'; ctx.lineWidth = 1; ctx.strokeRect(34, 52, 130, 10);
+      ctx.fillStyle = 'rgba(243,234,216,0.18)'; ctx.fillRect(26, 52, 130, 10);
+      ctx.fillStyle = '#7fd0e8'; ctx.fillRect(26, 52, 130 * slowGauge, 10);
+      ctx.strokeStyle = 'rgba(243,234,216,0.4)'; ctx.lineWidth = 1; ctx.strokeRect(26, 52, 130, 10);
       ctx.font = '14px Georgia, serif'; ctx.textAlign = 'left';
       ctx.fillStyle = '#cbe9f2';
-      ctx.fillText('Pendulum · hold C / L', 34, 74);
+      ctx.fillText('Pendulum · hold C / L', 26, 74);
     }
     const chips = [];
     if (mode !== 'dialog' && story.unlocks.has('dash')) chips.push('Glide · Shift / K');
@@ -1259,13 +1259,13 @@
     ctx.font = '14px Georgia, serif'; ctx.textAlign = 'left';
     chips.forEach((t, i) => {
       const y = H - 16 - (chips.length - 1 - i) * 28;
-      const tw = ctx.measureText(t).width + 20;
+      const tw = ctx.measureText(t).width + 28;
       ctx.beginPath();
-      ctx.roundRect ? ctx.roundRect(34, y - 15, tw, 22, 8) : ctx.rect(34, y - 15, tw, 22);
-      ctx.fillStyle = 'rgba(14,10,20,0.85)'; ctx.strokeStyle = '#c99a3b'; ctx.lineWidth = 1;
+      ctx.roundRect ? ctx.roundRect(26, y - 15, tw, 22, 8) : ctx.rect(26, y - 15, tw, 22);
+      ctx.fillStyle = 'rgba(14,10,20,0.9)'; ctx.strokeStyle = '#c99a3b'; ctx.lineWidth = 1;
       ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#f3ead8';
-      ctx.fillText(t, 44, y);
+      ctx.fillText(t, 40, y);
     });
     ctx.restore();
   }
@@ -1406,6 +1406,11 @@
     ctx.fillStyle = scrim;
     ctx.fillRect(-W / 2, -200 / 0.45, W, 330 / 0.45);
     ctx.restore();
+    // dims the station clock dial behind the logo, so its hands and bright rim stay quiet under the lettering
+    const dial = ctx.createRadialGradient(W / 2, 150, 0, W / 2, 150, 180);
+    dial.addColorStop(0, 'rgba(8,6,12,0.6)'); dial.addColorStop(0.75, 'rgba(8,6,12,0.5)'); dial.addColorStop(1, 'rgba(8,6,12,0)');
+    ctx.fillStyle = dial;
+    ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = 'rgba(8,6,12,0.7)';
     ctx.fillRect(0, 486, W, 54);
     drawActorAt('leo', 250, 492, { state: 'idle', t: time, time, vx: 0, vy: 0, facing: 1, phase: 1 });
@@ -1422,6 +1427,12 @@
     ctx.fillText('FROZEN', W / 2, 180);
     ctx.fillText('HOUR', W / 2, 262);
     ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+    // soft dark band under the subtitle, so the brass clock plate behind "where a whole city" does not cut through the italic
+    const band = ctx.createLinearGradient(0, 274, 0, 322);
+    band.addColorStop(0, 'rgba(8,6,16,0)'); band.addColorStop(0.2, 'rgba(8,6,16,0.6)');
+    band.addColorStop(0.8, 'rgba(8,6,16,0.6)'); band.addColorStop(1, 'rgba(8,6,16,0)');
+    ctx.fillStyle = band;
+    ctx.fillRect(0, 274, W, 48);
     ctx.font = 'italic 22px Georgia, serif';
     ctx.fillStyle = '#e4d7bd';
     ctx.fillText('A story from Vermeil, where a whole city waits for a minute that never ends', W / 2, 306);

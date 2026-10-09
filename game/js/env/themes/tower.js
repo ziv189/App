@@ -89,12 +89,17 @@
 
   function rope(ctx, x, H, t, i) {
     const sway = Math.sin(t * 0.6 + i * 1.3) * 2;
+    // fades in from the top edge so the rope does not run behind the HUD
+    const fade = ctx.createLinearGradient(0, 0, 0, H * 0.3);
+    fade.addColorStop(0, 'rgba(47,53,63,0)'); fade.addColorStop(1, '#2f353f');
+    const fadeHi = ctx.createLinearGradient(0, 0, 0, H * 0.3);
+    fadeHi.addColorStop(0, 'rgba(92,101,114,0)'); fadeHi.addColorStop(1, '#5c6572');
     ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(x, 0);
     ctx.quadraticCurveTo(x + 46 + sway, H * 0.5, x + 14 + sway, H * 0.86);
-    ctx.strokeStyle = '#2f353f'; ctx.lineWidth = 6; ctx.stroke();
-    ctx.strokeStyle = '#5c6572'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.stroke();
+    ctx.strokeStyle = fade; ctx.lineWidth = 6; ctx.stroke();
+    ctx.strokeStyle = fadeHi; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.stroke();
     ctx.setLineDash([]);
   }
 
@@ -287,22 +292,35 @@
     ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(x + 11, y + 16, 2, 5);
   }
 
-  // 'B': iron grate of the arena, red-hot edges
+  // soft ember glow on the air side of an edge: an ellipse 8 px out from the edge and 16 px along it
+  function emberEdge(ctx, ex, y, dir) {
+    ctx.save();
+    ctx.translate(ex, y + S / 2); ctx.scale(0.5, 1);
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 16);
+    g.addColorStop(0, 'rgba(255,110,80,0.2)'); g.addColorStop(1, 'rgba(255,110,80,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(dir < 0 ? -16 : 0, -16, 16, 32);
+    ctx.restore();
+  }
+
+  // 'B': iron grate of the arena, red-hot edges with an ember glow outside them
   function grate(ctx, x, y, t) {
     ctx.fillStyle = 'rgba(30,38,50,0.92)'; ctx.fillRect(x, y, S, S);
     ctx.fillStyle = '#6d7989';
     for (let i = 2; i < S; i += 8) ctx.fillRect(x + i, y, 3, S);
     ctx.fillStyle = BRASS;
     for (let i = 3; i < S; i += 8) ctx.fillRect(x + i, y + 4, 1.5, 1.5);
-    ctx.fillStyle = 'rgba(255,110,80,' + (0.5 + 0.3 * Math.sin(t * 5)).toFixed(3) + ')';
-    ctx.fillRect(x, y, 4, S); ctx.fillRect(x + S - 4, y, 4, S);
+    ctx.fillStyle = 'rgba(255,110,80,' + (0.75 + 0.15 * Math.sin(t * 5)).toFixed(3) + ')';
+    ctx.fillRect(x, y, 6, S); ctx.fillRect(x + S - 6, y, 6, S);
+    emberEdge(ctx, x, y, -1);
+    emberEdge(ctx, x + S, y, 1);
   }
 
   function tile(ctx, ch, x, y, t, nb) {
     const n = nb || {};
     const X = num(x), Y = num(y), tt = num(t);
     ctx.save();
-    ctx.beginPath(); ctx.rect(X, Y, S, S); ctx.clip();
+    if (ch !== 'B') { ctx.beginPath(); ctx.rect(X, Y, S, S); ctx.clip(); }  // the gate's glow spills past its cell
     if (ch === '#') stone(ctx, X, Y, n);
     else if (ch === '=') beam(ctx, X, Y, n);
     else if (ch === '^') spikes(ctx, X, Y);

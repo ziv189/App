@@ -84,8 +84,8 @@
 
     ctx.fillStyle = '#9c7430';
     ctx.beginPath();
-    for (let i = 0; i < 24; i++) {  // 24 teeth on the rim
-      const a = (i / 24) * TAU, d = (TAU / 24) * 0.3;
+    for (let i = 0; i < 12; i++) {  // 12 teeth on the rim
+      const a = (i / 12) * TAU, d = (TAU / 12) * 0.3;
       const p = (r, s) => [cx + Math.cos(a + s * d) * r, cy + Math.sin(a + s * d) * r];
       [p(R + 10, -1), p(R + 14, -1), p(R + 14, 1), p(R + 10, 1)].forEach(([px, py], j) => ctx[j ? 'lineTo' : 'moveTo'](px, py));
       ctx.closePath();
@@ -124,11 +124,11 @@
   }
 
   function giantClock(ctx, camX, camY, W) {
-    const R = 160;
-    const cy = 180 - camY * 0.1;
+    const R = 120;
+    const cy = 140 - camY * 0.1;
     const base = Math.round((camX * 0.25) / CLOCK_PERIOD);
     ctx.save();
-    ctx.globalAlpha = 0.75;
+    ctx.globalAlpha = 0.5;
     for (let k = base - 1; k <= base + 1; k++) {
       const cx = W * 0.5 + k * CLOCK_PERIOD - camX * 0.25;
       if (cx + R + 20 < 0 || cx - R - 20 > W) continue;
@@ -187,15 +187,13 @@
     spireRow(ctx, cx0, 0.45, h * 0.82, '#241839', 51, w, h, 230);
     cloudLayer(ctx, cx0, cy0, { f: 0.5, P: 420, y0: 320, y1: 420, sc: 0.8, body: '#e0968c', lit: '#ffe0a6', a: 0.42 }, w, 71);
 
-    // summit edge with a thin gold rim light
+    // dark ground below the summit edge (the gold rim light is drawn in foreground, above the tiles)
     const gy = h * 0.884;
     const ground = ctx.createLinearGradient(0, gy, 0, h);
     ground.addColorStop(0, '#3e2858');
     ground.addColorStop(1, '#1b1130');
     ctx.fillStyle = ground;
     ctx.fillRect(0, gy, w, h - gy);
-    ctx.fillStyle = 'rgba(255,206,120,0.45)';
-    ctx.fillRect(0, gy, w, 2);
 
     ctx.restore();
   }
@@ -213,7 +211,7 @@
     const a = rnd(x, y);
     const b = rnd(y, x + 7);
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(128,112,140,0.22)';
+    ctx.strokeStyle = 'rgba(150,126,120,0.3)';
     ctx.beginPath();
     ctx.moveTo(x, y + a * S);
     ctx.bezierCurveTo(x + 9, y + b * S, x + 20, y + (1 - a) * S, x + S, y + b * S * 0.6 + 4);
@@ -226,12 +224,14 @@
       ctx.stroke();
     }
 
-    ctx.strokeStyle = 'rgba(120,104,118,0.12)';
+    ctx.strokeStyle = 'rgba(96,80,100,0.35)';
     ctx.strokeRect(x + 0.5, y + 0.5, S - 1, S - 1);
 
     if (!n.u) {
       ctx.fillStyle = '#fffdf7';
       ctx.fillRect(x, y, S, 3);
+      ctx.fillStyle = 'rgba(110,84,90,0.3)';
+      ctx.fillRect(x, y + 3, S, 1);
       ctx.fillStyle = 'rgba(230,186,96,0.7)';
       ctx.fillRect(x, y + 4, S, 1);
     }
@@ -460,6 +460,10 @@
     const w = num(W, 960);
     const h = num(H, 540);
     ctx.save();
+
+    // summit edge: thin gold rim light where the floor tiles meet the sky
+    ctx.fillStyle = 'rgba(255,206,120,0.45)';
+    ctx.fillRect(0, h * 0.884, w, 2);
 
     // light shafts slanting down from the upper right
     columns(cx0, 0.3, 420, w, (k, sx) => {

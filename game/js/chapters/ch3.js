@@ -3,7 +3,7 @@
   const W = 150;
   const fit = (rows) => rows.map((r) => { if (r.length > W) throw new Error('row too long: ' + r.length); return r + '.'.repeat(W - r.length); });
   CHAPTERS.register({
-    id: 'ch3', title: 'The Foundries', kicker: 'Chapter III · The boiler room', theme: 'foundry', music: 'ch3', next: 'ch4',
+    id: 'ch3', title: 'The Foundries', kicker: 'Chapter III · The foundry floor', theme: 'foundry', music: 'ch3', next: 'ch4',
     map: fit([
       '......................................................................................................................................................',
       '......................................................................................................................................................',
@@ -39,7 +39,7 @@
         { who: 'narrator', text: 'Six hourglasses hover over the gap, paper wings frozen mid-beat, sand pouring in slow spirals.' },
         { who: 'leo', expr: 'worried', text: 'Right. Running through those is a bad idea. I\'d end up as a pile of hot sand.' },
         { who: 'narrator', text: 'Hold C or L to use the Pendulum and slow time around you.' },
-        { who: 'narrator', text: 'The Pendulum bar in the top-left corner empties while you hold them, so spend it wisely.' },
+        { who: 'narrator', text: 'The Pendulum bar, top-left, empties while you hold C or L, then slowly refills when you let go. Spend it wisely.' },
       ] },
       { id: 'ch3_end', col: 140, lines: [
         { who: 'narrator', text: 'At the far end of the foundry, an iron lift waits in its cage. Its cable hums, and the sound climbs into the dark.' },
@@ -54,7 +54,7 @@
         { who: 'narrator', text: 'Down in the boiler pit, the automaton sleeps upright. A glass eye flickers blue, then holds steady.' },
         { who: 'gaspard', expr: 'neutral', text: 'Forgive me. I seem to have dozed off at my post. Ten years is a long nap, even for a machine of my dignity.' },
         { who: 'leo', expr: 'surprised', text: 'You talk. And you\'re standing up. I thought you were a very tall coat rack.' },
-        { who: 'gaspard', expr: 'neutral', text: 'A common mistake. I am Gaspard. Mr. Varin built me to look after his household, and the post is still mine.' },
+        { who: 'gaspard', expr: 'neutral', text: 'A common mistake. I am Gaspard. Mr. Elias Varin built me to look after his household, and the post is still mine.' },
         { who: 'gaspard', expr: 'surprised', text: 'And that watch in your hand. You hold Mr. Varin\'s watch?' },
         { who: 'leo', expr: 'worried', text: 'It\'s my dad\'s watch. Do you know where he is?' },
         { who: 'gaspard', expr: 'neutral', text: 'I know where he went. He climbed the Tower the night the clocks stopped, with that watch and a plan.' },
@@ -62,7 +62,7 @@
         { who: 'leo', expr: 'sad', text: 'Juliette...' },
         { who: 'gaspard', expr: 'sad', text: 'The minute never ended. The trains, the ovens and the lamps stopped with it, and the city never moved on.' },
         { who: 'gaspard', expr: 'sad', text: 'I kept the fires burning for ten years, waiting for him to come back down the stairs.' },
-        { who: 'gaspard', expr: 'sad', text: 'Forgive me. My voice creaks like my knees. You are the first visitor in ten years, and I am deeply moved.' },
+        { who: 'gaspard', expr: 'sad', text: 'Pardon my creaking. My voice is as stiff as my knees. You are the first visitor in ten years, and I am deeply moved.' },
         { act: 'flag', value: 'gaspard_awake' },
         { act: 'sfx', value: 'unlock' },
       ], again: [

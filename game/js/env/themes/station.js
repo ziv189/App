@@ -89,7 +89,7 @@
   /* ---------- background layers ---------- */
   // Iron train-shed arches: cold glass tint, ribs, legs, a tie beam and a king post.
   // Two passes around the sky clocks: 'glass' before the dials, 'ribs' after them. The ribs stay off
-  // the dial faces and cross them faintly, so the hands keep their edge. dials = [x, y, r] per clock.
+  // the dial faces, so the faces and hands read clean. dials = [x, y, r] per clock.
   function archRow(ctx, cx, f, H, pass, W, dials) {
     const P = 230, spring = H * 0.44, top = H * 0.16, floor = H * 0.84;
     const off = -((cx * f) % P);
@@ -124,7 +124,6 @@
       for (const [dx, dy, dr] of dials) { ctx.moveTo(dx + dr * 1.2, dy); ctx.arc(dx, dy, dr * 1.2, 0, TAU); }
     };
     ctx.save(); dialDisc(); ctx.rect(0, 0, W, H); ctx.clip('evenodd'); ribs('#1b1838'); ctx.restore();   // off the dials
-    ctx.save(); dialDisc(); ctx.clip(); ribs('rgba(27,24,56,0.3)'); ctx.restore();                       // faint across them
   }
 
   // Gabled station roofs with chimneys; some windows lit warm.
@@ -142,27 +141,33 @@
       ctx.lineTo(x0 + P, eave); ctx.lineTo(x0 + P, H);
       ctx.closePath(); ctx.fill();
       ctx.fillRect(x0 + P * 0.72, ridge - 6, 12, 30);              // chimney
-      if (rnd(k, 7) > 0.35) {                                       // a lit window
-        ctx.fillStyle = 'rgba(255,196,110,0.5)';
+      if (rnd(k, 7) > 0.35) {                                       // a lit window, framed in roof colour
+        ctx.fillStyle = 'rgba(255,196,110,0.4)';
         ctx.fillRect(x0 + P * 0.28, eave + 16, 12, 16);
+        ctx.fillStyle = '#15122e';
+        ctx.fillRect(x0 + P * 0.28 + 5.5, eave + 16, 1, 16);        // mullion
+        ctx.fillRect(x0 + P * 0.28, eave + 32, 12, 1);              // sill
       }
     }
   }
 
   // Warm lamp posts: iron pole, lamp head, glow, a pool of light and a reflection on the wet ground.
-  // The ground is the walkway top, so the posts stand at floor depth.
-  function lampRow(ctx, cx, f, H) {
+  // The ground is the walkway top, so the posts stand at floor depth. Iron over a sky dial is dimmed.
+  function lampRow(ctx, cx, f, H, dials) {
     const P = 240, ground = H * 0.88, topY = H * 0.36;
     const off = -((cx * f) % P);
     for (let i = -1; i < 6; i++) {
       const x = off + i * P + 60, hx = x + 19, hy = topY + 12;
+      const over = (dials || []).some(([dx, , dr]) => Math.abs(x - dx) < dr * 1.2);
       ctx.fillStyle = '#0c0a1e';
+      ctx.globalAlpha = over ? 0.4 : 1;
       ctx.fillRect(x - 2, topY, 4, ground - topY);                  // pole
-      ctx.fillRect(x - 7, ground - 6, 14, 6);                        // plinth
       ctx.fillRect(x, topY, 18, 3);                                  // arm
       ctx.beginPath();
       ctx.moveTo(x + 12, topY + 3); ctx.lineTo(x + 26, topY + 3);
       ctx.lineTo(x + 22, hy); ctx.lineTo(x + 16, hy); ctx.closePath(); ctx.fill();   // lamp head
+      ctx.globalAlpha = 1;
+      ctx.fillRect(x - 7, ground - 6, 14, 6);                        // plinth
       const glow = ctx.createRadialGradient(hx, hy + 2, 2, hx, hy + 2, 90);
       glow.addColorStop(0, 'rgba(255,190,100,0.45)');
       glow.addColorStop(0.4, 'rgba(255,170,80,0.12)');
@@ -220,7 +225,7 @@
     ctx.fillStyle = '#0b0a1f'; ctx.fillRect(0, H * 0.84, W, H * 0.16);
     ctx.fillStyle = '#3a3470'; ctx.fillRect(0, H * 0.84, W, 2);
     // warm lamp posts (0.5x), nearest to the world
-    lampRow(ctx, cx, 0.5, H);
+    lampRow(ctx, cx, 0.5, H, dials);
     ctx.restore();
   }
 
@@ -250,21 +255,22 @@
     if (!n.d) { ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.fillRect(x, y + S - 2, S, 2); }
   }
 
-  // Iron plank with brass studs, iron brackets and a little rust.
+  // Iron plank with brass studs, iron brackets and a little rust. The lit top sits on the cell top (y),
+  // which is the walkable surface.
   function tilePlank(ctx, x, y) {
-    ctx.fillStyle = '#1a1d2c'; ctx.fillRect(x, y + 13, S, 3);       // underside shadow
-    ctx.fillStyle = '#5e6882'; ctx.fillRect(x, y + 5, S, 8);        // iron plank
-    ctx.fillStyle = '#8a93ab'; ctx.fillRect(x, y + 4, S, 2);        // lit top edge
-    ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 3.5, S - 1, 9);   // 1px outline
-    ctx.fillStyle = '#2a2f3e'; ctx.fillRect(x + 11, y + 6, 1, 7);   // plank seam
-    ctx.fillStyle = 'rgba(160,90,50,0.3)'; ctx.fillRect(x + 20, y + 9, 6, 2);   // rust
-    ctx.fillStyle = '#23283a';                                      // brackets
+    ctx.fillStyle = '#1a1d2c'; ctx.fillRect(x, y + 9, S, 3);        // underside shadow
+    ctx.fillStyle = '#5e6882'; ctx.fillRect(x, y + 1, S, 8);        // iron plank
+    ctx.fillStyle = '#8a93ab'; ctx.fillRect(x, y, S, 2);            // lit top edge
+    ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, S - 1, 9);   // 1px outline
+    ctx.fillStyle = '#2a2f3e'; ctx.fillRect(x + 11, y + 2, 1, 7);   // plank seam
+    ctx.fillStyle = 'rgba(160,90,50,0.3)'; ctx.fillRect(x + 20, y + 5, 6, 2);   // rust
+    ctx.fillStyle = '#2c3346';                                      // brackets
     ctx.beginPath(); ctx.moveTo(x + 4, y + 16); ctx.lineTo(x + 11, y + 16); ctx.lineTo(x + 4, y + 23); ctx.closePath(); ctx.fill();
     ctx.beginPath(); ctx.moveTo(x + S - 4, y + 16); ctx.lineTo(x + S - 11, y + 16); ctx.lineTo(x + S - 4, y + 23); ctx.closePath(); ctx.fill();
-    for (const sx of [5, 18, 28]) {                                 // brass studs
+    for (const sx of [8, 24]) {                                     // brass studs, 16 px apart across the run
       ctx.fillStyle = '#c9953a'; ctx.strokeStyle = OUT; ctx.lineWidth = 0.8;
-      ctx.beginPath(); ctx.arc(x + sx, y + 8.5, 2, 0, TAU); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = '#ffe49a'; ctx.fillRect(x + sx - 0.8, y + 7.2, 1, 1);
+      ctx.beginPath(); ctx.arc(x + sx, y + 4.5, 2, 0, TAU); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#ffe49a'; ctx.fillRect(x + sx - 0.8, y + 3.2, 1, 1);
     }
   }
 

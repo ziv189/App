@@ -61,8 +61,9 @@
           { who: 'regent', text: "There you are, boy. I have heard your footsteps on every stair, and I wondered how long it would take you to reach me." },
           { who: 'leo', expr: 'angry', text: "You're the Regent, aren't you? Where is my father?" },
           { who: 'regent', text: "Your father is exactly where he has always been. Holding a minute that refuses to end." },
+          { who: 'leo', expr: 'angry', text: "Holding a minute? You're talking about the whole city." },
           { who: 'regent', text: "I have kept this city still for ten years. I will keep it still for a thousand more." },
-          { who: 'leo', expr: 'worried', text: "Ten years. You stopped the trains, the bakers, the whole city. Open the gate, or I will open it myself." },
+          { who: 'leo', expr: 'worried', text: "Ten years. You stopped the trains, the bakeries, the whole city. Open the gate, or I will open it myself." },
         ],
       },
       {
@@ -71,8 +72,9 @@
         lines: [
           { who: 'narrator', text: "A crack runs across the porcelain mask. Beneath it, something human is breathing far too fast." },
           { who: 'regent', expr: 'sad', text: "Do you know what a fever sounds like? A clock running too fast, with no one to slow it down." },
-          { who: 'regent', expr: 'sad', text: "Constance was humming when it took her. Her last laugh was still in the room, and I could not let it go." },
-          { who: 'leo', expr: 'worried', text: "Your wife... I'm sorry. But you can't keep a laugh by stopping the world around it." },
+          { who: 'leo', expr: 'worried', text: "No. And I don't want to know." },
+          { who: 'regent', expr: 'sad', text: "My wife Constance was humming when the fever took her. Her last laugh was still in the room, and I could not let it go." },
+          { who: 'leo', expr: 'worried', text: "Constance... I'm sorry. But you can't keep a laugh by stopping the world around it." },
         ],
       },
       {
@@ -107,7 +109,7 @@
         lines: [
           { who: 'juliette', expr: 'happy', text: "Leo-Grand! You came! I knew you would find the way, I knew it!" },
           { who: 'leo', expr: 'surprised', text: "Juliette? You're really here... You look just like the photo on that train ticket." },
-          { who: 'juliette', expr: 'happy', text: "I'm always here. My little clock still ticks, see? Tick, tock, tick, tock!" },
+          { who: 'juliette', expr: 'happy', text: "Of course I do, silly. I'm always here. My little clock still ticks, see? Tick, tock, tick, tock!" },
           { who: 'leo', expr: 'worried', text: "I've been looking for you for ten years. I should have come sooner." },
           { who: 'juliette', expr: 'sad', text: "You let go of my hand. On the stairs, when I slipped. I felt your fingers open." },
           { who: 'leo', expr: 'worried', text: "I know. I replay it every night, Juliette. Every single night." },

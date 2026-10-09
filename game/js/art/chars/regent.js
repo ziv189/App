@@ -276,14 +276,21 @@
     ctx.strokeStyle = C.gold;
     ctx.lineWidth = 1.3;
     ctx.stroke();
-    [[0, -9.5], [6, 0], [0, 9.5], [-5.5, 0]].forEach((d) => ART.ell(ctx, mx + d[0], my + d[1], 0.7, 0.7, C.gold, { stroke: false }));
-    polyline(ctx, [[mx, my], [mx - 0.6, my - 4.5]], C.ink, 1.2);   // hour hand: 23:47
-    polyline(ctx, [[mx, my], [mx - 5.9, my - 1.3]], C.ink, 0.9);   // minute hand
+    [[0, -9.5], [6, 0], [0, 9.5], [-5.5, 0]].forEach((d) => ART.ell(ctx, mx + d[0], my + d[1], 1.1, 1.1, C.ink, { stroke: false }));
+    polyline(ctx, [[mx, my], [mx - 0.6, my - 4.5]], C.ink, 1.6);   // hour hand: 23:47
+    polyline(ctx, [[mx, my], [mx - 5.9, my - 1.3]], C.ink, 1.2);   // minute hand
     ART.ell(ctx, mx, my, 0.9, 0.9, C.gold, { lw: 0.6 });
     const n = ph >= 3 ? 8 : ph === 2 ? 5 : 2;
     for (let i = 0; i < n; i++) {
-      polyline(ctx, CRACKS[i], C.crack, 0.9);
-      if (ph >= 2) polyline(ctx, CRACKS[i], 'rgba(255,210,122,0.6)', 1.4);
+      if (ph >= 2) {
+        polyline(ctx, CRACKS[i], C.ink, 1.3);
+        ctx.save();
+        ctx.translate(-0.5, -0.5);                                    // gold highlight on the lit (upper-left) edge
+        polyline(ctx, CRACKS[i], 'rgba(255,210,122,0.6)', 0.5);
+        ctx.restore();
+      } else {
+        polyline(ctx, CRACKS[i], C.crack, 0.9);
+      }
     }
     ctx.restore();
 

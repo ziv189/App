@@ -56,7 +56,7 @@
         { who: 'narrator', text: 'The stone bridge runs straight toward the Saint-Aube Tower. Its great dial glows above the frozen roofs.' },
         { who: 'narrator', text: 'Its hands point at 23:47. They have pointed there for ten years.' },
         { who: 'mireille', text: 'The Regent\'s guards hold the bridge and every stair up to the Tower. Clockwork men with polite manners and no pulse.' },
-        { who: 'mireille', expr: 'worried', text: 'Tomas is my reason. He is my little brother, eight years old, frozen with a bread roll in his mouth.' },
+        { who: 'mireille', expr: 'worried', text: 'Tomas is my reason. He is my little brother, eight years old, frozen mid-laugh with a bread roll in his fist.' },
         { who: 'narrator', text: 'Leo\'s hand closes around the watch in his pocket. Juliette\'s small hand slipped out of his on a staircase.' },
         { who: 'leo', expr: 'worried', text: 'Fine. The Tower. I\'m not promising anything, but I\'ll try.' },
         { who: 'mireille', expr: 'happy', text: 'Look at you, sounding like a hero. Don\'t get used to it.' },
@@ -79,10 +79,11 @@
         { who: 'leo', expr: 'surprised', text: 'You\'re moving. Everybody else in this market is stuck in the middle of a bite.' },
         { who: 'hugo', expr: 'angry', text: 'Don\'t gawk. Yes, I move. No, I won\'t explain it on an empty stomach.' },
         { who: 'leo', expr: 'worried', text: 'Fine. Do you know Elias Varin? The clockmaker. He\'s my father.' },
-        { who: 'hugo', text: 'Know him? I made toys for his girl. Wooden horses, a tin bird that sang. Good work, all of it.' },
+        { who: 'hugo', text: 'Know him? I made toys for your little sister, Juliette. Wooden horses, a tin bird that sang. Good work, all of it.' },
+        { who: 'leo', expr: 'worried', text: 'Juliette...' },
         { who: 'hugo', text: 'Elias always had that watch in his hand. Pulling it out, winding it, glaring at it like it owed him money.' },
         { who: 'leo', expr: 'worried', text: 'I have his watch. It started ticking again at the station, the night I got here.' },
-        { who: 'hugo', text: 'Ask Gaspard, the automaton Elias built to mind his girl. He sleeps in the foundry, past the bridge.' },
+        { who: 'hugo', text: 'Ask Gaspard, the automaton Elias built to mind your sister. He sleeps in the foundry, past the bridge.' },
         { act: 'flag', value: 'met_hugo' }
       ], again: [
         { who: 'hugo', expr: 'angry', text: 'Still here? I thought the clockwork crabs would have eaten you by now.' },

@@ -7,8 +7,8 @@
   const SZ = 32;                                          // tile size (px)
   const SKY = [[0, '#e07a4c'], [0.4, '#d2705a'], [0.75, '#8c4262'], [1, '#4e2a4e']];
   const FAR = '#5a2846';                                  // far rooftops and tower (parallax 0.2)
-  const MID = '#3a1834';                                  // near rooftops (parallax 0.4)
-  const CREAM = '#f3e5c6', RED = '#b5373d';               // awning stripes
+  const MID = '#401e34';                                  // near rooftops (parallax 0.4)
+  const CREAM = '#f6e0c6', RED = '#7d2332';               // awning stripes
   const STONE = ['#8b6f5e', '#9c7e68', '#7a6150', '#a48a70'];
   // 23:47, frozen: hour hand just before 12, minute hand at 47 (same maths as env.js).
   const HOUR_A = (11.78 / 12) * Math.PI * 2;
@@ -187,6 +187,8 @@
       ctx.moveTo(x, 26); ctx.lineTo(x + SW, 26);
       ctx.arc(x + SW / 2, 26, SW / 2, 0, Math.PI, false);
       ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + SW / 2, 26, SW / 2, 0, Math.PI, false);   // darker scallop edge
+      ctx.strokeStyle = '#3a1420'; ctx.lineWidth = 1.5; ctx.stroke();
     }
     ctx.fillStyle = '#4a2030';                                       // top rail
     ctx.fillRect(0, 0, W, 3);
@@ -244,8 +246,8 @@
   function tPlank(ctx, x, y, n) {
     const top = y + 4, bh = 10;
     ctx.fillStyle = '#8a5a32'; ctx.fillRect(x, top, SZ, bh);
-    ctx.fillStyle = '#b07a44'; ctx.fillRect(x, top, SZ, 2);
-    ctx.fillStyle = 'rgba(255,226,170,0.35)'; ctx.fillRect(x, top, SZ, 1);
+    ctx.fillStyle = '#c48b52'; ctx.fillRect(x, top, SZ, 2);
+    ctx.fillStyle = '#f4dca8'; ctx.fillRect(x, top, SZ, 1);          // cream top rim, as on the stone
     ctx.fillStyle = 'rgba(20,8,20,0.6)'; ctx.fillRect(x, top - 1, SZ, 1);   // dark top edge
     ctx.fillStyle = 'rgba(30,14,6,0.55)';
     ctx.fillRect(x + 10, top, 1, bh); ctx.fillRect(x + 21, top, 1, bh);
@@ -253,12 +255,15 @@
     ctx.fillRect(x + 2, top + 5, 6, 1); ctx.fillRect(x + 13, top + 4, 7, 1); ctx.fillRect(x + 24, top + 6, 5, 1);
     ctx.fillStyle = '#c9a050';
     ctx.fillRect(x + 5, top + 3, 2, 2); ctx.fillRect(x + 26, top + 3, 2, 2);
-    ctx.fillStyle = 'rgba(20,8,20,0.6)'; ctx.fillRect(x, top + bh - 1, SZ, 1);  // dark bottom edge
+    ctx.fillStyle = 'rgba(20,8,20,0.6)'; ctx.fillRect(x, top + bh - 2, SZ, 2);  // dark 2px underside
     if (!n.d && hash2(x, y) > 0.4) {
       const cy0 = top + bh;
       ctx.fillStyle = '#8a5a32'; ctx.fillRect(x + 3, cy0, SZ - 6, y + SZ - cy0);
       ctx.fillStyle = 'rgba(20,10,4,0.5)';
       for (let i = cy0 + 4; i < y + SZ; i += 5) ctx.fillRect(x + 3, i, SZ - 6, 1);
+      ctx.fillStyle = 'rgba(20,8,20,0.6)';                           // dark 2px crate outline
+      ctx.fillRect(x + 3, cy0, 2, y + SZ - cy0); ctx.fillRect(x + SZ - 5, cy0, 2, y + SZ - cy0);
+      ctx.fillRect(x + 3, y + SZ - 2, SZ - 6, 2);
       ctx.fillStyle = '#b08a4a';
       ctx.fillRect(x + 4, cy0 + 1, 3, 3); ctx.fillRect(x + SZ - 7, cy0 + 1, 3, 3);
     }
@@ -386,8 +391,8 @@
     foreground(ctx, camX, camY, t, W, H) {
       const w = num(W, 960), h = num(H, 540), cx = num(camX), cy = num(camY), tt = num(t);
       ctx.save();
-      plate(ctx, 14, 12, 172, 36, 8, 'rgba(40,14,32,0.55)');            // hearts
-      plate(ctx, w - 150, 12, 136, 36, 8, 'rgba(40,14,32,0.55)');       // gear and counter
+      plate(ctx, 14, 12, 172, 36, 8, 'rgba(40,14,32,0.72)');            // hearts
+      plate(ctx, w - 150, 12, 136, 36, 8, 'rgba(40,14,32,0.72)');       // gear and counter
       plate(ctx, 24, h - 50, 176, 44, 4, 'rgba(30,14,26,0.5)');         // control hints
       for (let i = 0; i < 36; i++) {
         const r1 = hash2(i * 1.13, 2.7), r2 = hash2(i * 0.71, 5.3), r3 = hash2(i * 2.9, 1.1);

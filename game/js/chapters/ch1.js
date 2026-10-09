@@ -42,7 +42,7 @@
         { act: 'flag', value: 'ch1_photo' }
       ] },
       { id: 'ch1_voice', col: 128, lines: [
-        { who: 'narrator', text: "Beside the open carriage door, a cold draft smells of oil and wet wool. Then a voice, very soft, behind him." },
+        { who: 'narrator', text: "Beside the open carriage door, a cold draught smells of oil and wet wool. Then a voice, very soft, behind him." },
         { act: 'shake' },
         { who: 'juliette', expr: 'neutral', text: "Leo-Grand... you won't let go, will you?" },
         { who: 'leo', expr: 'worried', text: "Juliette? I can't see you. Stop messing with me." },
@@ -62,12 +62,13 @@
         { act: 'flag', value: 'met_pivert' },
         { who: 'pivert', expr: 'neutral', text: "So go see Bastien about the Saint-Aube train, dear. Mind the procedure. He does love a procedure." }
       ], again: [
+        { who: 'narrator', text: "Her smile freezes again, and the loaf goes back up in both hands." },
         { who: 'pivert', expr: 'happy', text: "Would you like a loaf, dear? Oh, I've gone round again. A decade of loops does that to a baker." },
-        { who: 'pivert', expr: 'neutral', text: "Don't rush off, dear. Nobody leaves my shop half-baked." },
+        { who: 'pivert', expr: 'neutral', text: "Don't rush off, dear. You're far too thin to leave my shop half-baked." },
         { who: 'leo', expr: 'neutral', text: "Half-baked. Yeah, that tracks for this station." }
       ] },
       '2': { who: 'bastien', lines: [
-        { who: 'bastien', expr: 'worried', text: "Stop! Stop right there. Platform Four is closed under Procedure Nine, paragraph two." },
+        { who: 'bastien', expr: 'worried', text: "Stop! Stop right there. Platform Four is closed to passengers under Procedure Nine, paragraph two." },
         { who: 'leo', expr: 'neutral', text: "Procedure. Right. Is there a procedure for the clocks stopping?" },
         { who: 'bastien', expr: 'angry', text: "That is not funny! The Tower train leaves at 23:47. It has not left. Ten years of delay, sir!" },
         { who: 'leo', expr: 'neutral', text: "So where's the train now?" },

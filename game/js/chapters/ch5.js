@@ -40,7 +40,7 @@
           { who: 'mireille', text: 'Fine is what people say right before they fall off things.' },
           { act: 'flag', value: 'ch5_gauntlet' },
           { who: 'mireille', expr: 'worried', text: 'Tomas would be first up here, yelling "Encore!" at every ledge. Instead he is stuck in the market.' },
-          { who: 'leo', expr: 'worried', text: 'Then we keep climbing. Tomas is waiting for us, and so is Juliette.' }
+          { who: 'leo', expr: 'worried', text: 'Then we keep climbing. Start this clock, and Tomas moves again.' }
         ]
       },
       {
@@ -51,7 +51,7 @@
           { who: 'juliette', expr: 'happy', text: 'Look at you! You got so tall while I was waiting, Leo.' },
           { who: 'leo', expr: 'worried', text: 'I let go of your hand, Juliette. On the stairs. I let go.' },
           { who: 'juliette', expr: 'neutral', text: 'I know. I was there. I saw your face.' },
-          { who: 'juliette', expr: 'happy', text: 'You can let go of my hand now, Leo-big-brother.' },
+          { who: 'juliette', expr: 'happy', text: 'You can let go of my hand now, Leo-Grand.' },
           { act: 'shake' },
           { who: 'elias', expr: 'sad', text: 'She is not asking you to forget, Leo. Only to stop holding on so tight.' },
           { who: 'leo', expr: 'worried', text: 'I don\'t know how to let go.' },
@@ -64,12 +64,12 @@
           { who: 'elias', expr: 'sad', text: 'Everything I stole from the city is still waiting, Leo. Every stopped minute, every frozen hand.' },
           { who: 'narrator', text: 'Brass joints creak up the last ladder. Gaspard has left his post to follow Leo all the way to the summit.' },
           { who: 'gaspard', expr: 'worried', text: 'Monsieur Leo, forgive an old machine. I have stood still for ten years. I would very much like to rest.' },
-          { who: 'elias', expr: 'neutral', text: 'Restart the clock, and Juliette can finally go in peace. I can let go of the wheel. Gaspard can rest.' },
+          { who: 'elias', expr: 'neutral', text: 'Restart the clock, and Juliette can finally go in peace. Gaspard can rest.' },
           { who: 'mireille', text: 'And Tomas gets to finish his laugh. He will grumble that the punchline took ten years to land.' },
-          { who: 'elias', expr: 'sad', text: 'Keep the hour frozen, and Juliette stays six years old forever, in a dress she will never grow into.' },
+          { who: 'elias', expr: 'sad', text: 'Keep the hour frozen, and nobody has to say goodbye. Juliette stays six forever, in a dress she will never grow into.' },
           { who: 'leo', expr: 'worried', text: 'And the city? And you, Dad?' },
           { who: 'elias', expr: 'neutral', text: 'Restart it, and the city\'s clocks wake again. And I finally stop holding the wheel, and can just be your father.' },
-          { who: 'elias', expr: 'sad', text: 'If the hour stays frozen, the city stays frozen forever. You take my place, Leo, holding the wheel alone.' },
+          { who: 'elias', expr: 'sad', text: 'You take my place, Leo, holding the wheel alone.' },
           { who: 'narrator', text: 'Behind them, the frozen clouds do not move. Leo tightens his fingers around his wrench, and he chooses.' },
           { act: 'choice', options: [ { text: 'Restart the clock', flag: 'restart', end: 'good' }, { text: 'Keep the hour frozen', flag: 'freeze', end: 'bad' } ] }
         ]
@@ -83,7 +83,7 @@
           { who: 'elias', expr: 'neutral', text: 'Leo. Come closer, slowly. My left side is brass, and brass hates sudden movements.' },
           { who: 'leo', expr: 'worried', text: 'Dad? What happened to you?' },
           { who: 'elias', expr: 'sad', text: 'The night the Tower stopped, I was only a clockmaker who wanted one more minute. Just one.' },
-          { who: 'elias', expr: 'sad', text: 'Juliette slipped into the gear cage. The wheels were turning, and my hands were too slow.' },
+          { who: 'elias', expr: 'sad', text: 'Juliette slipped from the stairs into the gear cage. The wheels were turning, and my hands were too slow to reach her.' },
           { who: 'elias', expr: 'sad', text: 'So I stopped the hour to buy one minute, only one, to pull her out. That is all I wanted.' },
           { who: 'leo', expr: 'angry', text: 'One minute? And you froze the whole city for ten years?' },
           { who: 'elias', expr: 'neutral', text: 'The minute never ended. I hold the balance wheel so that it cannot.' },
