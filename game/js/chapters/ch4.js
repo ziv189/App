@@ -47,7 +47,6 @@
           { who: 'narrator', text: "Inside a cage of rusted gears lies a brass feather spring, bright as the day it was forged." },
           { who: 'leo', expr: 'surprised', text: "Dad, you were building something in here. Of course you were." },
           { act: 'unlock', value: 'ressort' },
-          { act: 'sfx', value: 'unlock' },
           { who: 'leo', text: "A spring. Press jump again while you are in the air, and it kicks you up one more time." },
           { who: 'narrator', text: "Some ledges above can only be reached with the Spring. Remember it when the climb gets steep." },
         ],

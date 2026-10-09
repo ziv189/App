@@ -685,7 +685,9 @@
       const x = [b.x + sx, b.x - sx].map((v) => clamp(v, lo, hi)).find((v) => !placed.includes(v) && figeFits(v, b.y));
       if (x === undefined) continue;
       placed.push(x);
-      world.enemies.push(makeEnemy('fige', x, b.y));
+      const e = makeEnemy('fige', x, b.y);
+      e.fromBoss = true;   // cleared with the Regent when its defeat dialogue ends
+      world.enemies.push(e);
     }
     sfx('pendule');
   }
@@ -729,7 +731,7 @@
   function defeatBoss() {
     progressOf(story.chapterId).bossDead = true;
     // the corpse stays on screen while the defeat dialogue plays; it is removed when the dialogue ends
-    playScene('boss_defeated', () => { world.boss = null; openGate(); music(ch.music); saveGame(); });
+    playScene('boss_defeated', () => { world.boss = null; world.enemies = world.enemies.filter((e) => !e.fromBoss); openGate(); music(ch.music); saveGame(); });
   }
   // The Regent fell but its defeat scene never played (quit or reload during the delay or the dialogue,
   // or a death during the delay): play it now. Returns true when a dialogue was started.
@@ -783,6 +785,8 @@
   function startDialog(lines, onEnd) {
     dlg = { lines: lines || [], i: 0, cur: null, wrapped: [], chars: 0, choice: null, onEnd: onEnd || null };
     slowing = false;   // no slow time during a dialogue: it would keep the tint and the slow pose on
+    // dialogue frames do not tick the player's timers, so a swing, dash or hurt cut short here must end now
+    if (player) { player.atkT = 0; player.dashT = 0; player.hurtT = 0; }
     mode = 'dialog';
     dialogStep();
   }
@@ -793,7 +797,7 @@
         const options = (L.options || []).slice(0, 3);   // the dialogue box has room for three choices
         if (!options.length) continue;
         dlg.cur = null;
-        dlg.choice = { options, sel: 0 };
+        dlg.choice = { options, sel: 0, t: 0 };
         return;
       }
       if (L.act === 'end') { closeDialogRaw(); startEnding(L.value); return; }
@@ -837,9 +841,11 @@
     if (!dlg) { mode = 'play'; return; }
     if (dlg.choice) {
       const n = dlg.choice.options.length;
+      dlg.choice.t += dt;
       if (hit('up')) dlg.choice.sel = (dlg.choice.sel + n - 1) % n;
       if (hit('down')) dlg.choice.sel = (dlg.choice.sel + 1) % n;
-      if (hit('ok')) {
+      // the presses that revealed the options must not also pick one: confirm only once they have been readable a moment
+      if (hit('ok') && dlg.choice.t >= 0.5) {
         const o = dlg.choice.options[dlg.choice.sel];
         if (!o) { dlg.choice = null; dialogStep(); return; }
         if (o.flag) story.flags.add(o.flag);
@@ -1022,12 +1028,12 @@
 
   /* ---------- mise à jour ---------- */
   function update(dt) {
-    time += dt;
+    // the clock and the sparks stand still behind the pause menu; shake and flash still fade out
+    if (mode !== 'pause') { time += dt; updateParticles(dt); }
     shakeA *= Math.exp(-dt * 9);
     if (shakeA < 0.05) shakeA = 0;
     flashT = Math.max(0, flashT - dt);
     if (mode !== 'pause') updateToasts(dt);
-    updateParticles(dt);
     if (transition) { updateTransition(dt); return; }
     switch (mode) {
       case 'title': updateTitle(); break;
@@ -1078,7 +1084,10 @@
     updatePlayer(dt);
     if (player.dead || transition) { updateCamera(dt); return; }
     updateEnemies(dt, sdt);
+    if (player.dead || mode !== 'play') { updateCamera(dt); return; }
     updateCombat();
+    // a phase line opened by this frame's hit: the boss does not strike on the frame its dialogue opens
+    if (mode !== 'play') { updateCamera(dt); return; }
     updateBoss(dt, sdt);
     checkGate();
     if (player.dead || mode !== 'play') { updateCamera(dt); return; }
@@ -1564,10 +1573,10 @@
       if (!CHAPTERS.get(target)) throw new Error('Chapitre introuvable : ' + target);
       dlg = null; transition = null;
       debugSession = true;
-      newStory(); if (id !== 'ch1') story.unlocks = new Set(['dash', 'pendule', 'ressort']);
+      newStory(); if (target !== 'ch1') story.unlocks = new Set(['dash', 'pendule', 'ressort']);
       enterChapter(target, true);
     },
-    skipCard() { if (mode === 'card') mode = 'play'; },
+    skipCard() { if (mode === 'card' && !replayDefeatIfNeeded()) mode = 'play'; },
     teleport(x, y) { if (player) { player.x = x; player.y = y; player.vx = 0; player.vy = 0; } },
     state() {
       return {
