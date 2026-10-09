@@ -103,6 +103,7 @@
   let slowGauge = 1, slowing = false;
   let transition = null, card = null, dlg = null, endKey = null, endCard = null, credits = null;
   let themeOverride = null;
+  let debugSession = false;   // set by LHF.start: progress is then kept in memory only, never saved
   const story = { chapterId: 'ch1', unlocks: new Set(), flags: new Set(), progress: {} };
 
   function newStory() {
@@ -120,6 +121,7 @@
 
   /* ---------- sauvegarde (localStorage, facultatif) ---------- */
   function saveGame() {
+    if (debugSession) return;   // a debug start must not overwrite the real save
     try {
       const progress = {};
       for (const [id, p] of Object.entries(story.progress)) {
@@ -194,7 +196,11 @@
       }
     }
     if (!world.start) world.start = { x: 3 * TS + 16, y: (rows - 2) * TS };
-    if (world.bossSpawn && !pr.bossDead) world.boss = makeBoss(world.bossSpawn);
+    if (world.bossSpawn && !pr.bossDead) {
+      world.boss = makeBoss(world.bossSpawn);
+      // a fresh Regent starts in phase 1, so its phase lines play again on this attempt
+      pr.scenesDone.delete('boss_phase2'); pr.scenesDone.delete('boss_phase3');
+    }
   }
 
   function makeEnemy(kind, x, y) {
@@ -287,7 +293,7 @@
   function newPlayer(pt) {
     return {
       x: pt.x, y: pt.y, w: 22, h: 46, vx: 0, vy: 0, facing: 1, onGround: false, wasGround: true,
-      coyote: 0, jumpBuf: 0, atkBuf: 0, jumpsLeft: 0, cutJump: false, hp: MAX_HP, inv: 0,
+      coyote: 0, jumpBuf: 0, atkBuf: 0, dashBuf: 0, jumpsLeft: 0, cutJump: false, hp: MAX_HP, inv: 0,
       dashT: 0, dashCd: 0, atkT: 0, atkCd: 0, atkDone: new Set(), hurtT: 0, landT: 0, dropT: 0,
       dead: false, deadT: 0, st: 0,
     };
@@ -313,16 +319,26 @@
     p.jumpBuf = hit('jump') && !locked ? 0.12 : Math.max(0, p.jumpBuf - dt);
 
     // descendre à travers une plateforme : bas + saut
-    const fr = Math.floor(p.y / TS), pc = Math.floor(p.x / TS);
-    if (hit('jump') && on('down') && p.onGround && plat(pc, fr) && !solid(pc, fr)) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
+    // every column the body stands on counts, the same columns moveBody uses to land
+    const fr = Math.floor(p.y / TS);
+    let onPlat = false, onSolid = false;
+    for (let c = Math.floor((p.x - 10) / TS); c <= Math.floor((p.x + 10) / TS); c++) {
+      if (plat(c, fr)) onPlat = true;
+      if (solid(c, fr)) onSolid = true;
+    }
+    if (hit('jump') && on('down') && p.onGround && onPlat && !onSolid) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
 
-    if (hit('dash') && story.unlocks.has('dash') && p.dashCd <= 0 && p.dashT <= 0 && p.atkT <= 0 && !locked) {
+    // dash and attack presses are buffered until their lock or cooldown ends; the +dt keeps the
+    // buffer alive for the frame the cooldown reaches zero (both count down by the same dt)
+    p.dashBuf = hit('dash') ? Math.max(0.12, p.dashCd + dt) : Math.max(0, p.dashBuf - dt);
+    if (p.dashBuf > 0 && story.unlocks.has('dash') && p.dashCd <= 0 && p.dashT <= 0 && p.atkT <= 0 && !locked) {
+      p.dashBuf = 0;
       p.dashT = DASH_T; p.dashCd = DASH_CD; p.vx = p.facing * DASH_V; p.vy = 0;
       p.inv = Math.max(p.inv, DASH_T);
       puff(p.x, p.y - 4, 7, '#e9dcc0');
       sfx('dash');
     }
-    p.atkBuf = hit('attack') ? 0.12 : Math.max(0, p.atkBuf - dt);
+    p.atkBuf = hit('attack') ? Math.max(0.12, p.atkCd + dt) : Math.max(0, p.atkBuf - dt);
     if (p.atkBuf > 0 && p.atkCd <= 0 && p.atkT <= 0 && p.dashT <= 0 && !locked) {
       p.atkBuf = 0;
       p.atkT = ATK_T; p.atkCd = ATK_T + ATK_CD; p.atkDone = new Set();
@@ -489,7 +505,7 @@
     e.vx = dir * (chase ? 105 : 50);
     if (!chase) {
       const ahead = Math.floor((e.x + dir * 16) / TS), foot = Math.floor((e.y - 1) / TS);
-      if (!solid(ahead, foot) && !plat(ahead, foot) && !solid(ahead, foot + 1)) e.dir = -e.dir;
+      if (!solid(ahead, foot) && !plat(ahead, foot) && !solid(ahead, foot + 1) && !plat(ahead, foot + 1)) e.dir = -e.dir;
     }
   }
   function aiFige(e) {
@@ -649,11 +665,23 @@
     if (b.state !== 'intro' && overlap(bossBox(b), playerBox())) hurtPlayer(1, b.x);
     moveBody(b, sdt, false);
   }
+  // a fige is 26 wide and 48 tall, feet at y: it must not overlap a wall or the closed gate
+  function figeFits(x, y) {
+    const c0 = Math.floor((x - 13) / TS), c1 = Math.ceil((x + 13) / TS) - 1;
+    const r0 = Math.floor((y - 48) / TS), r1 = Math.ceil(y / TS) - 1;
+    for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) if (solid(c, r)) return false;
+    return true;
+  }
   function spawnSummons(b) {
     // keep summoned figes inside the arena: between the gate and the far wall
     const lo = (gateCol + 1) * TS + 13, hi = (cols - 1) * TS - 13;
+    const placed = [];
     for (const sx of [-110, 110]) {
-      world.enemies.push(makeEnemy('fige', clamp(b.x + sx, lo, hi), b.y));
+      // own side first, then the opposite side; a fige with no clear spot is dropped
+      const x = [b.x + sx, b.x - sx].map((v) => clamp(v, lo, hi)).find((v) => !placed.includes(v) && figeFits(v, b.y));
+      if (x === undefined) continue;
+      placed.push(x);
+      world.enemies.push(makeEnemy('fige', x, b.y));
     }
     sfx('pendule');
   }
@@ -699,6 +727,13 @@
     progressOf(story.chapterId).bossDead = true;
     playScene('boss_defeated', () => { openGate(); music(ch.music); saveGame(); });
   }
+  // The Regent fell but its defeat scene never played (quit or reload during the delay or the dialogue,
+  // or a death during the delay): play it now. Returns true when a dialogue was started.
+  function replayDefeatIfNeeded() {
+    const pr = progressOf(story.chapterId);
+    if (!pr.bossDead || pr.scenesDone.has('boss_defeated')) return false;
+    return playScene('boss_defeated', () => { openGate(); music(ch.music); saveGame(); });
+  }
   function openGate() {
     gateClosed = false;
     for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (grid[r][c] === 'B') grid[r][c] = '.';
@@ -743,6 +778,7 @@
 
   function startDialog(lines, onEnd) {
     dlg = { lines: lines || [], i: 0, cur: null, wrapped: [], chars: 0, choice: null, onEnd: onEnd || null };
+    slowing = false;   // no slow time during a dialogue: it would keep the tint and the slow pose on
     mode = 'dialog';
     dialogStep();
   }
@@ -890,9 +926,7 @@
     particles = []; slowGauge = 1; slowing = false; hitstop = 0;
     mode = 'play';
     music(ch.music);
-    // the Regent fell but its defeat scene never played (the player died during the delay): play it now
-    const pr = progressOf(id);
-    if (pr.bossDead && !pr.scenesDone.has('boss_defeated')) playScene('boss_defeated', () => { music(ch.music); saveGame(); });
+    replayDefeatIfNeeded();
   }
   function exitChapter() {
     const next = ch.next;
@@ -997,7 +1031,8 @@
       case 'card':
         card.t += dt;
         if (hit('ok')) card.t = 99;
-        if (card.t > 3.0) mode = 'play';
+        // a catch-up defeat scene starts here, after the card, so the card does not cut it short
+        if (card.t > 3.0 && !replayDefeatIfNeeded()) mode = 'play';
         break;
       case 'play': updatePlay(dt); break;
       case 'pause': updatePause(); break;
@@ -1027,7 +1062,8 @@
     if (hitstop > 0) {
       hitstop -= dt;
       if (hit('jump')) player.jumpBuf = 0.12;   // presses during hitstop are buffered, not lost
-      if (hit('attack')) player.atkBuf = 0.12;
+      if (hit('attack')) player.atkBuf = Math.max(0.12, player.atkCd + dt);
+      if (hit('dash')) player.dashBuf = Math.max(0.12, player.dashCd + dt);
       return;
     }
     slowing = story.unlocks.has('pendule') && on('slow') && slowGauge > 0.02;
@@ -1072,8 +1108,8 @@
     if (hit('down')) titleSel = (titleSel + 1) % items.length;
     if (hit('ok')) {
       const id = items[titleSel].id;
-      if (id === 'new') { newStory(); enterChapter('ch1'); }
-      else if (id === 'continue') { if (loadGame()) enterChapter(story.chapterId); }
+      if (id === 'new') { debugSession = false; newStory(); enterChapter('ch1'); }
+      else if (id === 'continue') { debugSession = false; if (loadGame()) enterChapter(story.chapterId); }
       else { controlsBack = 'title'; mode = 'controls'; }
     }
   }
@@ -1155,7 +1191,7 @@
   }
 
   function drawPrompt() {
-    if (mode !== 'play') return;
+    if (mode !== 'play' || player.dead) return;
     const n = nearNpc();
     if (!n) return;
     const y = n.y - 84 + Math.sin(time * 4) * 2;
@@ -1202,11 +1238,13 @@
       ctx.fillRect(bx + 199, 17, 2, 16); ctx.fillRect(bx + 99, 17, 2, 16);
     }
     const pr = progressOf(story.chapterId);
-    if (window.ART && ART.gear) ART.gear(ctx, W - 96, 30, 11, 9, time * 2, '#d9b35a');
     ctx.font = 'bold 18px Georgia, serif';
-    ctx.fillStyle = '#f3ead8';
     ctx.textAlign = 'right';
-    ctx.fillText(pr.gears + ' / ' + (world ? world.gearsTotal : 0), W - 30, 36);
+    const gearTxt = pr.gears + ' / ' + (world ? world.gearsTotal : 0);
+    // the icon sits just left of the measured counter, so a long count never covers it
+    if (window.ART && ART.gear) ART.gear(ctx, W - 30 - ctx.measureText(gearTxt).width - 22, 30, 11, 9, time * 2, '#d9b35a');
+    ctx.fillStyle = '#f3ead8';
+    ctx.fillText(gearTxt, W - 30, 36);
     if (story.unlocks.has('pendule')) {
       ctx.fillStyle = 'rgba(243,234,216,0.18)'; ctx.fillRect(34, 52, 130, 10);
       ctx.fillStyle = '#7fd0e8'; ctx.fillRect(34, 52, 130 * slowGauge, 10);
@@ -1490,11 +1528,14 @@
 
   // Accès de test (console / navigateur sans-tête) : LHF.start('ch2'), LHF.state(), etc.
   window.LHF = {
-    // Dev only: drops any running dialogue or transition and does not overwrite the saved game.
+    // Dev only: drops any running dialogue or transition. Saving is off until the title menu starts or continues a game.
     start(id) {
+      const target = id || 'ch1';
+      if (!CHAPTERS.get(target)) throw new Error('Chapitre introuvable : ' + target);
       dlg = null; transition = null;
+      debugSession = true;
       newStory(); if (id !== 'ch1') story.unlocks = new Set(['dash', 'pendule', 'ressort']);
-      enterChapter(id || 'ch1', true);
+      enterChapter(target, true);
     },
     skipCard() { if (mode === 'card') mode = 'play'; },
     teleport(x, y) { if (player) { player.x = x; player.y = y; player.vx = 0; player.vy = 0; } },
