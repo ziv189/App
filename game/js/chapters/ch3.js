@@ -28,6 +28,7 @@
       { id: 'ch3_arrival', col: 1, lines: [
         { who: 'narrator', text: 'The Foundries. The furnaces have not gone out in ten years, and their heat still rolls over the iron floor.' },
         { who: 'narrator', text: 'Sparks hang in mid-air like embers caught in amber. Steam rises from the vents and freezes above the catwalks.' },
+        { who: 'narrator', text: 'A flying hourglass flits between the girders, sand pouring from its waist. It dives at anyone who lingers.' },
         { who: 'leo', expr: 'worried', text: 'Great. Ten years, and nobody thought to turn off a furnace. Even the fire is on pause.' },
         { who: 'leo', text: 'Keep moving. Don\'t look at the sparks. They look like they\'re waiting for you to blink.' },
       ] },
@@ -36,7 +37,7 @@
         { who: 'leo', expr: 'surprised', text: 'Dad\'s watch... it\'s doing something. Either the world is slowing down, or I\'m speeding up.' },
         { act: 'unlock', value: 'pendule' },
         { act: 'sfx', value: 'pendule' },
-        { who: 'narrator', text: 'Six hourglasses hover over the gap, paper wings frozen mid-beat, sand pouring in slow spirals.' },
+        { who: 'narrator', text: 'More hourglasses hover over the gap, paper wings frozen mid-beat, sand pouring in slow spirals.' },
         { who: 'leo', expr: 'worried', text: 'Right. Running through those is a bad idea. I\'d end up as a pile of hot sand.' },
         { who: 'narrator', text: 'Hold C or L to use the Pendulum and slow time around you.' },
         { who: 'narrator', text: 'The Pendulum bar, top-left, empties while you hold C or L, then slowly refills when you let go. Spend it wisely.' },
@@ -44,6 +45,7 @@
       { id: 'ch3_end', col: 140, lines: [
         { who: 'narrator', text: 'At the far end of the foundry, an iron lift waits in its cage. Its cable hums, and the sound climbs into the dark.' },
         { who: 'narrator', text: 'Through the grate, the Saint-Aube Tower rises above the rooftops, its great hands still pointing at 23:47.' },
+        { who: 'leo', expr: 'sad', text: 'I let go of her hand on the staircase. I promised her I never would.' },
         { who: 'leo', text: 'One minute. That\'s all Dad wanted, and the whole city paid for it. Why does it still feel like my fault?' },
         { who: 'leo', expr: 'worried', text: 'Hold on, Juliette. This time I\'m not letting go.' },
         { act: 'flag', value: 'ch3_end' },
@@ -67,8 +69,8 @@
         { act: 'sfx', value: 'unlock' },
       ], again: [
         { who: 'gaspard', expr: 'neutral', text: 'Back again, young man. My joints have not improved, though they creak with great dignity.' },
-        { who: 'gaspard', expr: 'neutral', text: 'The hourglasses above the gap do not respect bravery. Hold C or L for the Pendulum, and wait for your moment.' },
-        { who: 'gaspard', expr: 'neutral', text: 'Go on, then. I shall remain here, upright and patient, until you return.' },
+        { who: 'gaspard', expr: 'neutral', text: 'The hourglasses ahead do not respect bravery. Once you have the Pendulum, hold C or L and wait for your moment.' },
+        { who: 'gaspard', expr: 'neutral', text: 'Proceed, then. I shall remain here, upright and patient, until you return.' },
       ] },
     },
   });

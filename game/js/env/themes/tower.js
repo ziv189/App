@@ -125,7 +125,7 @@
     ctx.save();
     // cold stone, lit from above
     const g = ctx.createLinearGradient(0, 0, 0, H);
-    g.addColorStop(0, '#080d15'); g.addColorStop(0.5, '#152030'); g.addColorStop(1, '#0a1018');
+    g.addColorStop(0, '#080d15'); g.addColorStop(0.5, '#1d2c40'); g.addColorStop(1, '#0a1018');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     // dim blue light falling from above
     const L = ctx.createRadialGradient(W * 0.5, -H * 0.1, 10, W * 0.5, -H * 0.1, W * 0.8);
@@ -224,6 +224,15 @@
     if (!n.r) { ctx.fillStyle = WOOD_LO; ctx.fillRect(x + S - 2, y, 2, 14); }
   }
 
+  // 'L': the same beam, reached only with the spring (midair jump); brass end caps and a faint brass glint on top
+  function springLedge(ctx, x, y, n) {
+    beam(ctx, x, y, n);
+    ctx.fillStyle = BRASS_HI;
+    if (!n.l) ctx.fillRect(x, y, 2, 14);
+    if (!n.r) ctx.fillRect(x + S - 2, y, 2, 14);
+    ctx.fillStyle = 'rgba(240,212,138,0.35)'; ctx.fillRect(x, y, S, 2);
+  }
+
   // '^': brass spikes
   function spikes(ctx, x, y) {
     for (let i = 0; i < 4; i++) {
@@ -292,26 +301,26 @@
     ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(x + 11, y + 16, 2, 5);
   }
 
-  // soft ember glow on the air side of an edge: an ellipse 8 px out from the edge and 16 px along it
+  // soft ember glow on the air side of an edge: an ellipse 12 px out from the edge and 24 px along it
   function emberEdge(ctx, ex, y, dir) {
     ctx.save();
     ctx.translate(ex, y + S / 2); ctx.scale(0.5, 1);
-    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 16);
-    g.addColorStop(0, 'rgba(255,110,80,0.2)'); g.addColorStop(1, 'rgba(255,110,80,0)');
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 24);
+    g.addColorStop(0, 'rgba(255,110,80,0.4)'); g.addColorStop(1, 'rgba(255,110,80,0)');
     ctx.fillStyle = g;
-    ctx.fillRect(dir < 0 ? -16 : 0, -16, 16, 32);
+    ctx.fillRect(dir < 0 ? -24 : 0, -24, 24, 48);
     ctx.restore();
   }
 
   // 'B': iron grate of the arena, red-hot edges with an ember glow outside them
   function grate(ctx, x, y, t) {
-    ctx.fillStyle = 'rgba(30,38,50,0.92)'; ctx.fillRect(x, y, S, S);
+    ctx.fillStyle = 'rgba(44,54,68,0.92)'; ctx.fillRect(x, y, S, S);
     ctx.fillStyle = '#6d7989';
-    for (let i = 2; i < S; i += 8) ctx.fillRect(x + i, y, 3, S);
+    for (let i = 8; i < S; i += 8) ctx.fillRect(x + i, y, 3, S);
     ctx.fillStyle = BRASS;
-    for (let i = 3; i < S; i += 8) ctx.fillRect(x + i, y + 4, 1.5, 1.5);
+    for (let i = 9; i < S; i += 8) ctx.fillRect(x + i, y + 4, 1.5, 1.5);
     ctx.fillStyle = 'rgba(255,110,80,' + (0.75 + 0.15 * Math.sin(t * 5)).toFixed(3) + ')';
-    ctx.fillRect(x, y, 6, S); ctx.fillRect(x + S - 6, y, 6, S);
+    ctx.fillRect(x, y, 4, S); ctx.fillRect(x + S - 4, y, 4, S);
     emberEdge(ctx, x, y, -1);
     emberEdge(ctx, x + S, y, 1);
   }
@@ -323,6 +332,7 @@
     if (ch !== 'B') { ctx.beginPath(); ctx.rect(X, Y, S, S); ctx.clip(); }  // the gate's glow spills past its cell
     if (ch === '#') stone(ctx, X, Y, n);
     else if (ch === '=') beam(ctx, X, Y, n);
+    else if (ch === 'L') springLedge(ctx, X, Y, n);
     else if (ch === '^') spikes(ctx, X, Y);
     else if (ch === 'C') lantern(ctx, X, Y, tt);
     else if (ch === 'X') door(ctx, X, Y, tt);

@@ -40,7 +40,7 @@
           { who: 'mireille', text: 'Fine is what people say right before they fall off things.' },
           { act: 'flag', value: 'ch5_gauntlet' },
           { who: 'mireille', expr: 'worried', text: 'Tomas would be first up here, yelling "Encore!" at every ledge. Instead he is stuck in the market.' },
-          { who: 'leo', expr: 'worried', text: 'Then we keep climbing. Start this clock, and Tomas moves again.' }
+          { who: 'leo', expr: 'worried', text: 'Then we keep climbing. Restart this clock, and Tomas moves again.' }
         ]
       },
       {
@@ -65,11 +65,11 @@
           { who: 'narrator', text: 'Brass joints creak up the last ladder. Gaspard has left his post to follow Leo all the way to the summit.' },
           { who: 'gaspard', expr: 'worried', text: 'Monsieur Leo, forgive an old machine. I have stood still for ten years. I would very much like to rest.' },
           { who: 'elias', expr: 'neutral', text: 'Restart the clock, and Juliette can finally go in peace. Gaspard can rest.' },
-          { who: 'mireille', text: 'And Tomas gets to finish his laugh. He will grumble that the punchline took ten years to land.' },
+          { who: 'mireille', text: 'And Tomas gets to finish his joke. He will grumble that the punchline took ten years to land.' },
           { who: 'elias', expr: 'sad', text: 'Keep the hour frozen, and nobody has to say goodbye. Juliette stays six forever, in a dress she will never grow into.' },
+          { who: 'elias', expr: 'sad', text: 'Keep it frozen, and you take my place, holding the wheel alone.' },
           { who: 'leo', expr: 'worried', text: 'And the city? And you, Dad?' },
           { who: 'elias', expr: 'neutral', text: 'Restart it, and the city\'s clocks wake again. And I finally stop holding the wheel, and can just be your father.' },
-          { who: 'elias', expr: 'sad', text: 'You take my place, Leo, holding the wheel alone.' },
           { who: 'narrator', text: 'Behind them, the frozen clouds do not move. Leo tightens his fingers around his wrench, and he chooses.' },
           { act: 'choice', options: [ { text: 'Restart the clock', flag: 'restart', end: 'good' }, { text: 'Keep the hour frozen', flag: 'freeze', end: 'bad' } ] }
         ]

@@ -58,6 +58,7 @@
         { who: 'mireille', text: 'The Regent\'s guards hold the bridge and every stair up to the Tower. Clockwork men with polite manners and no pulse.' },
         { who: 'mireille', expr: 'worried', text: 'Tomas is my reason. He is my little brother, eight years old, frozen mid-laugh with a bread roll in his fist.' },
         { who: 'narrator', text: 'Leo\'s hand closes around the watch in his pocket. Juliette\'s small hand slipped out of his on a staircase.' },
+        { who: 'mireille', expr: 'worried', text: 'So. Will you fix the Tower for him, or not?' },
         { who: 'leo', expr: 'worried', text: 'Fine. The Tower. I\'m not promising anything, but I\'ll try.' },
         { who: 'mireille', expr: 'happy', text: 'Look at you, sounding like a hero. Don\'t get used to it.' },
         { act: 'flag', value: 'ch2_end' }
@@ -93,13 +94,13 @@
         { who: 'mireille', text: 'You again. Still got all your fingers? Good, you\'ll need them for what I\'m about to ask.' },
         { who: 'leo', expr: 'angry', text: 'You stole my gear. You don\'t get to ask me for anything.' },
         { who: 'mireille', expr: 'happy', text: 'Borrowed. The Tower froze this whole city, and my little brother is stuck in the middle of a laugh.' },
-        { who: 'mireille', text: 'Fix the Tower, start its clock, and Tomas moves again. I get my brother back. You get your gear.' },
+        { who: 'mireille', text: 'Fix the Tower, start its clock, and Tomas can move again. I get my brother back. You get your gear.' },
         { who: 'leo', expr: 'worried', text: 'Fix the Tower... I don\'t even know how it stopped.' },
         { who: 'mireille', expr: 'happy', text: 'Then find out. You\'re the clockmaker\'s son. Stop talking like it\'s a wish and act like it\'s a deal.' },
         { act: 'flag', value: 'mireille_ally' }
       ], again: [
         { who: 'mireille', expr: 'happy', text: 'Back for more? I don\'t come cheap, sunshine.' },
-        { who: 'leo', expr: 'angry', text: 'You still owe me a gear. Pay that off before you start charging.' },
+        { who: 'leo', expr: 'angry', text: 'You still owe me a gear. Settle that before you charge me for help.' },
         { who: 'mireille', text: 'Keep up, clockboy. Gears can wait. Tomas can\'t.' }
       ] }
     }

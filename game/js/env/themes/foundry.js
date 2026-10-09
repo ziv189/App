@@ -92,14 +92,14 @@
     const cxm = x + P * 0.5 + (hash(k) - 0.5) * 90;
     const s = 0.8 + hash(k + 2) * 0.6;
     const puffs = [[0, 0, 30], [28, -12, 38], [60, -2, 28], [-26, 6, 24], [34, 12, 24]];
-    ctx.fillStyle = 'rgba(226,208,200,0.14)';
+    ctx.fillStyle = 'rgba(200,205,215,0.08)';
     for (let i = 0; i < puffs.length; i++) {
       const p = puffs[i];
       ctx.beginPath();
       ctx.arc(cxm + p[0] * s, y + p[1] * s, p[2] * s, 0, TAU);
       ctx.fill();
     }
-    ctx.fillStyle = 'rgba(246,234,228,0.10)';
+    ctx.fillStyle = 'rgba(225,230,240,0.05)';
     for (let i = 0; i < puffs.length; i++) {
       const p = puffs[i];
       ctx.beginPath();
@@ -244,7 +244,7 @@
     // cool dark band behind the play height, so the gameplay reads against it
     const band = ctx.createLinearGradient(0, h * 0.5, 0, h * 0.8);
     band.addColorStop(0, 'rgba(12,6,10,0)');
-    band.addColorStop(1, 'rgba(12,6,10,0.25)');
+    band.addColorStop(1, 'rgba(12,6,10,0.08)');
     ctx.fillStyle = band;
     ctx.fillRect(0, h * 0.5, w, h * 0.5);
     row(cx, 0.3, 360, w, (k, x) => steamBank(ctx, x, 360, h * (0.16 + hash(k + 11) * 0.2), k));
@@ -336,11 +336,18 @@
       ctx.beginPath();
       ctx.moveTo(sx, y + S); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 8, y + S);
       ctx.closePath();
-      ctx.fillStyle = '#2a1612';
+      ctx.fillStyle = '#4d2d22';
       ctx.fill();
       ctx.strokeStyle = '#120706';
       ctx.lineWidth = 1;
       ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(sx, y + S); ctx.lineTo(sx + 4, y + 6);
+      ctx.strokeStyle = 'rgba(220,150,110,0.35)';
+      ctx.stroke();
+      ctx.beginPath(); ctx.arc(sx + 4, y + 6, 6, 0, TAU);
+      ctx.fillStyle = 'rgba(255,140,50,0.22)';
+      ctx.fill();
       ctx.beginPath();
       ctx.moveTo(sx + 2.4, y + 15); ctx.lineTo(sx + 4, y + 6); ctx.lineTo(sx + 5.6, y + 15);
       ctx.closePath();

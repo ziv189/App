@@ -1239,12 +1239,14 @@
     const b = world && world.boss;
     if (b && b.active && !b.dead && mode !== 'dialog') {
       const bx = W / 2 - 150;
-      ctx.font = '13px Georgia, serif'; ctx.textAlign = 'center'; ctx.fillStyle = '#f3ead8';
-      ctx.fillText(NAMES.regent, W / 2, 16);
-      ctx.fillStyle = 'rgba(20,16,26,0.85)'; ctx.fillRect(bx, 20, 300, 10);
-      ctx.fillStyle = '#e0664c'; ctx.fillRect(bx, 20, 300 * Math.max(0, b.hp) / 18, 10);
+      ctx.font = 'bold 16px Georgia, serif'; ctx.textAlign = 'center'; ctx.fillStyle = '#f3ead8';
+      ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 4;
+      ctx.fillText(NAMES.regent, W / 2, 14);
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = 'rgba(20,16,26,0.85)'; ctx.fillRect(bx, 22, 300, 10);
+      ctx.fillStyle = '#e0664c'; ctx.fillRect(bx, 22, 300 * Math.max(0, b.hp) / 18, 10);
       ctx.fillStyle = 'rgba(243,234,216,0.7)';
-      ctx.fillRect(bx + 199, 17, 2, 16); ctx.fillRect(bx + 99, 17, 2, 16);
+      ctx.fillRect(bx + 199, 19, 2, 16); ctx.fillRect(bx + 99, 19, 2, 16);
     }
     const pr = progressOf(story.chapterId);
     ctx.font = 'bold 18px Georgia, serif';
@@ -1306,6 +1308,14 @@
     ctx.fillRect(0, 0, W, H);
     ctx.globalAlpha = a;
     ctx.textAlign = 'center';
+    // soft scrim behind the kicker and title, so the brass plaque and dial do not show through the lettering
+    ctx.save();
+    ctx.translate(W / 2, H / 2 - 20); ctx.scale(1, 0.5);
+    const scrim = ctx.createRadialGradient(0, 0, 0, 0, 0, 340);
+    scrim.addColorStop(0, 'rgba(8,6,12,0.9)'); scrim.addColorStop(0.6, 'rgba(8,6,12,0.6)'); scrim.addColorStop(1, 'rgba(8,6,12,0)');
+    ctx.fillStyle = scrim;
+    ctx.fillRect(-W / 2, -2 * H, W, 4 * H);
+    ctx.restore();
     if (window.ART && ART.gear) ART.gear(ctx, W / 2, H / 2 - 92, 26, 12, time, '#c99a3b');
     ctx.fillStyle = '#c99a3b';
     ctx.font = '600 18px Georgia, serif';
@@ -1467,7 +1477,7 @@
     if (window.ENV) ENV.drawBackground(ctx, 'station', time * 4, 0, time, W, H);
     ctx.fillStyle = 'rgba(8,6,12,0.6)';
     ctx.fillRect(0, 0, W, H);
-    panel(150, 80, 660, 380, 16);
+    panel(150, 80, 660, 404, 16);
     ctx.save();
     ctx.textAlign = 'center';
     ctx.font = 'bold 34px Georgia, serif';
@@ -1487,7 +1497,7 @@
     ctx.textAlign = 'center';
     ctx.font = '16px Georgia, serif';
     ctx.fillStyle = 'rgba(243,234,216,0.7)';
-    ctx.fillText('Enter or Esc to go back', W / 2, 452);
+    ctx.fillText('Enter or Esc to go back', W / 2, 468);
     ctx.restore();
   }
   function drawEndCard() {

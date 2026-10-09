@@ -50,7 +50,8 @@
   }
 
   // Huge sky clock for the far layer: warm halo, iron rim, brass ring, lit face. It is stopped:
-  // a hairline crack runs in from the rim, frost sits just inside the ring, a brass plate reads 23:47.
+  // frost sits just inside the brass ring and a dark crack runs in from it. The 23:47 plate is drawn
+  // by skyClockPlate, after the arch ribs, so no leg crosses it.
   function skyClock(ctx, cx, cy, r) {
     const halo = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.9);
     halo.addColorStop(0, 'rgba(255,205,135,0.22)');
@@ -62,31 +63,41 @@
     ctx.beginPath(); ctx.arc(cx, cy, r * 0.97, 0, TAU); ctx.stroke();
     // frost: a dotted white arc just inside the brass ring
     const fr = Math.max(0.6, r * 0.008);
-    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
     ctx.beginPath();
     for (let k = 0; k < 48; k++) {
       const a = k / 48 * TAU, fx = cx + Math.sin(a) * r * 0.935, fy = cy - Math.cos(a) * r * 0.935;
       ctx.moveTo(fx + fr, fy); ctx.arc(fx, fy, fr, 0, TAU);
     }
     ctx.fill();
-    // hairline crack from the rim toward the pivot, in two segments
-    ctx.strokeStyle = 'rgba(35,29,58,0.6)'; ctx.lineWidth = Math.max(0.8, r * 0.012);
+    // crack from the brass ring toward the pivot, with one short branch; starts clear of the hour ticks
+    const at = (a, k) => [cx + Math.sin(a) * r * k, cy - Math.cos(a) * r * k];
+    ctx.strokeStyle = 'rgba(35,29,58,0.85)'; ctx.lineWidth = Math.max(1, r * 0.017);
     ctx.beginPath();
-    ctx.moveTo(cx + Math.sin(2.3) * r * 0.9, cy - Math.cos(2.3) * r * 0.9);
-    ctx.lineTo(cx + Math.sin(2.45) * r * 0.55, cy - Math.cos(2.45) * r * 0.55);
-    ctx.lineTo(cx + Math.sin(2.2) * r * 0.22, cy - Math.cos(2.2) * r * 0.22);
+    ctx.moveTo(...at(3.9, 0.97)); ctx.lineTo(...at(4.04, 0.6)); ctx.lineTo(...at(3.94, 0.26));
+    ctx.moveTo(...at(4.04, 0.6)); ctx.lineTo(...at(4.2, 0.42));
     ctx.stroke();
-    // brass plate under the dial, engraved 23:47 in the game's serif face
-    const pw = r * 0.7, ph = r * 0.17, px = cx - pw / 2, py = cy + r * 1.16;
+  }
+
+  // Brass plate under a sky clock, engraved 23:47 in the game's serif face. Drawn after the arch ribs
+  // so no leg crosses it.
+  function skyClockPlate(ctx, cx, cy, r) {
+    const pw = r * 0.8, ph = r * 0.17, px = cx - pw / 2, py = cy + r * 1.16;
     ctx.fillStyle = '#b7863f'; ctx.fillRect(px, py, pw, ph);
     ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(px + 0.5, py + 0.5, pw - 1, ph - 1);
-    ctx.font = 'bold ' + Math.max(8, Math.round(r * 0.09)) + 'px Georgia, "Times New Roman", serif';
+    ctx.font = 'bold ' + Math.max(8, Math.round(r * 0.12)) + 'px Georgia, "Times New Roman", serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillStyle = 'rgba(255,236,170,0.5)'; ctx.fillText('23:47', cx, py + ph / 2 + 1);
     ctx.fillStyle = '#2a1f0c'; ctx.fillText('23:47', cx, py + ph / 2);
   }
 
   /* ---------- background layers ---------- */
+  // Path of the dial rims (1.2r discs). Used as an evenodd hole in a clip so ironwork stays off the faces.
+  function dialDisc(ctx, dials) {
+    ctx.beginPath();
+    for (const [dx, dy, dr] of dials) { ctx.moveTo(dx + dr * 1.2, dy); ctx.arc(dx, dy, dr * 1.2, 0, TAU); }
+  }
+
   // Iron train-shed arches: cold glass tint, ribs, legs, a tie beam and a king post.
   // Two passes around the sky clocks: 'glass' before the dials, 'ribs' after them. The ribs stay off
   // the dial faces, so the faces and hands read clean. dials = [x, y, r] per clock.
@@ -119,11 +130,7 @@
         ctx.lineWidth = 2.5; ctx.stroke();
       }
     };
-    const dialDisc = () => {
-      ctx.beginPath();
-      for (const [dx, dy, dr] of dials) { ctx.moveTo(dx + dr * 1.2, dy); ctx.arc(dx, dy, dr * 1.2, 0, TAU); }
-    };
-    ctx.save(); dialDisc(); ctx.rect(0, 0, W, H); ctx.clip('evenodd'); ribs('#1b1838'); ctx.restore();   // off the dials
+    ctx.save(); dialDisc(ctx, dials); ctx.rect(0, 0, W, H); ctx.clip('evenodd'); ribs('#1b1838'); ctx.restore();   // off the dials
   }
 
   // Gabled station roofs with chimneys; some windows lit warm.
@@ -151,31 +158,36 @@
     }
   }
 
-  // Warm lamp posts: iron pole, lamp head, glow, a pool of light and a reflection on the wet ground.
-  // The ground is the walkway top, so the posts stand at floor depth. Iron over a sky dial is dimmed.
-  function lampRow(ctx, cx, f, H, dials) {
-    const P = 240, ground = H * 0.88, topY = H * 0.36;
+  // Warm lamp posts: iron pole, lamp head, bulb, glow, a pool of light and a reflection on the wet ground.
+  // The ground is the walkway top, so the posts stand at floor depth. The iron and bulb are clipped to the
+  // dial rims, so a post passes behind a sky dial; the glow is dimmed where it reaches a dial.
+  function lampRow(ctx, cx, f, H, W, dials) {
+    const P = 240, ground = H * 0.88, topY = H * 0.36, ds = dials || [];
     const off = -((cx * f) % P);
     for (let i = -1; i < 6; i++) {
       const x = off + i * P + 60, hx = x + 19, hy = topY + 12;
-      const over = (dials || []).some(([dx, , dr]) => Math.abs(x - dx) < dr * 1.2);
+      const near = ds.some(([dx, , dr]) => Math.abs(hx - dx) < dr * 1.2 + 90);
+      ctx.save();
+      dialDisc(ctx, ds); ctx.rect(0, 0, W, H); ctx.clip('evenodd');
       ctx.fillStyle = '#0c0a1e';
-      ctx.globalAlpha = over ? 0.4 : 1;
       ctx.fillRect(x - 2, topY, 4, ground - topY);                  // pole
       ctx.fillRect(x, topY, 18, 3);                                  // arm
       ctx.beginPath();
       ctx.moveTo(x + 12, topY + 3); ctx.lineTo(x + 26, topY + 3);
       ctx.lineTo(x + 22, hy); ctx.lineTo(x + 16, hy); ctx.closePath(); ctx.fill();   // lamp head
-      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#ffd792';
+      ctx.beginPath(); ctx.arc(hx, hy, 3, 0, TAU); ctx.fill();      // bulb
+      ctx.restore();
+      ctx.fillStyle = '#0c0a1e';
       ctx.fillRect(x - 7, ground - 6, 14, 6);                        // plinth
       const glow = ctx.createRadialGradient(hx, hy + 2, 2, hx, hy + 2, 90);
       glow.addColorStop(0, 'rgba(255,190,100,0.45)');
       glow.addColorStop(0.4, 'rgba(255,170,80,0.12)');
       glow.addColorStop(1, 'rgba(255,170,80,0)');
+      ctx.globalAlpha = near ? 0.5 : 1;
       ctx.fillStyle = glow;
       ctx.fillRect(hx - 90, hy - 88, 180, 180);
-      ctx.fillStyle = '#ffd792';
-      ctx.beginPath(); ctx.arc(hx, hy, 3, 0, TAU); ctx.fill();
+      ctx.globalAlpha = 1;
       ctx.fillStyle = 'rgba(255,190,100,0.12)';
       ctx.beginPath(); ctx.ellipse(hx, ground - 2, 70, 8, 0, 0, TAU); ctx.fill();
       const refl = ctx.createLinearGradient(0, ground, 0, H);
@@ -216,6 +228,7 @@
     archRow(ctx, cx, 0.35, H, 'glass', W, dials);
     for (const [x, y, r] of dials) skyClock(ctx, x, y, r);
     archRow(ctx, cx, 0.35, H, 'ribs', W, dials);
+    for (const [x, y, r] of dials) skyClockPlate(ctx, x, y, r);     // plate over the ribs: no leg crosses it
     roofRow(ctx, cx, 0.45, H);
     // wet platform edge under a violet haze
     const haze = ctx.createLinearGradient(0, H * 0.6, 0, H * 0.84);
@@ -225,7 +238,7 @@
     ctx.fillStyle = '#0b0a1f'; ctx.fillRect(0, H * 0.84, W, H * 0.16);
     ctx.fillStyle = '#3a3470'; ctx.fillRect(0, H * 0.84, W, 2);
     // warm lamp posts (0.5x), nearest to the world
-    lampRow(ctx, cx, 0.5, H, dials);
+    lampRow(ctx, cx, 0.5, H, W, dials);
     ctx.restore();
   }
 
@@ -264,9 +277,9 @@
     ctx.strokeStyle = OUT; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, S - 1, 9);   // 1px outline
     ctx.fillStyle = '#2a2f3e'; ctx.fillRect(x + 11, y + 2, 1, 7);   // plank seam
     ctx.fillStyle = 'rgba(160,90,50,0.3)'; ctx.fillRect(x + 20, y + 5, 6, 2);   // rust
-    ctx.fillStyle = '#2c3346';                                      // brackets
-    ctx.beginPath(); ctx.moveTo(x + 4, y + 16); ctx.lineTo(x + 11, y + 16); ctx.lineTo(x + 4, y + 23); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(x + S - 4, y + 16); ctx.lineTo(x + S - 11, y + 16); ctx.lineTo(x + S - 4, y + 23); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#3a4260';                                      // brackets, attached to the plank underside
+    ctx.beginPath(); ctx.moveTo(x + 4, y + 12); ctx.lineTo(x + 11, y + 12); ctx.lineTo(x + 4, y + 19); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x + S - 4, y + 12); ctx.lineTo(x + S - 11, y + 12); ctx.lineTo(x + S - 4, y + 19); ctx.closePath(); ctx.fill();
     for (const sx of [8, 24]) {                                     // brass studs, 16 px apart across the run
       ctx.fillStyle = '#c9953a'; ctx.strokeStyle = OUT; ctx.lineWidth = 0.8;
       ctx.beginPath(); ctx.arc(x + sx, y + 4.5, 2, 0, TAU); ctx.fill(); ctx.stroke();

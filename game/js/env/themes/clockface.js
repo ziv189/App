@@ -93,9 +93,9 @@
     ctx.fill();
 
     const face = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.1, cx, cy, R);
-    face.addColorStop(0, '#e9dcc2');
-    face.addColorStop(0.75, '#dccaa8');
-    face.addColorStop(1, '#c7b08f');
+    face.addColorStop(0, '#f3e3bd');
+    face.addColorStop(0.75, '#e6cf9f');
+    face.addColorStop(1, '#d2b47c');
     ctx.fillStyle = face;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.fill();
     ctx.strokeStyle = '#c9963c'; ctx.lineWidth = R * 0.035;
@@ -104,6 +104,7 @@
     ctx.strokeStyle = '#2a1f22';
     ctx.lineCap = 'butt';
     for (let i = 0; i < 12; i++) {
+      if (i % 3) continue;
       const a = (i / 12) * TAU, big = i % 3 === 0;
       ctx.lineWidth = big ? R * 0.045 : R * 0.02;
       ctx.beginPath();
@@ -124,11 +125,11 @@
   }
 
   function giantClock(ctx, camX, camY, W) {
-    const R = 120;
-    const cy = 140 - camY * 0.1;
+    const R = 100;
+    const cy = 118 - camY * 0.1;
     const base = Math.round((camX * 0.25) / CLOCK_PERIOD);
     ctx.save();
-    ctx.globalAlpha = 0.5;
+    ctx.globalAlpha = 0.4;
     for (let k = base - 1; k <= base + 1; k++) {
       const cx = W * 0.5 + k * CLOCK_PERIOD - camX * 0.25;
       if (cx + R + 20 < 0 || cx - R - 20 > W) continue;
@@ -145,6 +146,9 @@
       const w = P * (0.35 + rnd(k, seed + 1) * 0.25);
       const top = base - (20 + rnd(k, seed + 2) * 70);
       ctx.fillRect(x0, top, w, H - top);
+      ctx.fillStyle = 'rgba(255,200,150,0.2)';  // 1px rim light along the block top
+      ctx.fillRect(x0, top, w, 1);
+      ctx.fillStyle = col;
       if (rnd(k, seed + 3) > 0.45) {
         const apex = 36 + rnd(k, seed + 4) * 50;
         ctx.beginPath();
@@ -183,8 +187,8 @@
     cloudLayer(ctx, cx0, cy0, { f: 0.2, P: 560, y0: 50, y1: 190, sc: 1.2, body: '#7d5b9e', lit: '#eebb8c', a: 0.5 }, w, 11);
     giantClock(ctx, cx0, cy0, w);
     cloudLayer(ctx, cx0, cy0, { f: 0.3, P: 480, y0: 190, y1: 300, sc: 1.0, body: '#b07aa2', lit: '#f7cb92', a: 0.45 }, w, 31);
-    spireRow(ctx, cx0, 0.3, h * 0.74, '#3b2862', 21, w, h, 190);
-    spireRow(ctx, cx0, 0.45, h * 0.82, '#241839', 51, w, h, 230);
+    spireRow(ctx, cx0, 0.3, h * 0.74, '#4a3278', 21, w, h, 190);
+    spireRow(ctx, cx0, 0.45, h * 0.82, '#33224f', 51, w, h, 230);
     cloudLayer(ctx, cx0, cy0, { f: 0.5, P: 420, y0: 320, y1: 420, sc: 0.8, body: '#e0968c', lit: '#ffe0a6', a: 0.42 }, w, 71);
 
     // dark ground below the summit edge (the gold rim light is drawn in foreground, above the tiles)
@@ -210,21 +214,24 @@
 
     const a = rnd(x, y);
     const b = rnd(y, x + 7);
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(150,126,120,0.3)';
     ctx.beginPath();
     ctx.moveTo(x, y + a * S);
     ctx.bezierCurveTo(x + 9, y + b * S, x + 20, y + (1 - a) * S, x + S, y + b * S * 0.6 + 4);
+    ctx.lineWidth = 3;  // soft tonal band under the hairline vein
+    ctx.strokeStyle = 'rgba(150,126,120,0.08)';
+    ctx.stroke();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(150,126,120,0.2)';
     ctx.stroke();
     if (a > 0.5) {  // gold vein on about half the cells
-      ctx.strokeStyle = 'rgba(196,150,70,0.2)';
+      ctx.strokeStyle = 'rgba(196,150,70,0.12)';
       ctx.beginPath();
       ctx.moveTo(x + b * S, y);
       ctx.quadraticCurveTo(x + (1 - b) * 12, y + 14, x + a * 12 + 12, y + S);
       ctx.stroke();
     }
 
-    ctx.strokeStyle = 'rgba(96,80,100,0.35)';
+    ctx.strokeStyle = 'rgba(96,80,100,0.22)';
     ctx.strokeRect(x + 0.5, y + 0.5, S - 1, S - 1);
 
     if (!n.u) {

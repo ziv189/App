@@ -308,8 +308,8 @@
     ctx.moveTo(L, y + SZ); ctx.lineTo(L, y + 10);
     ctx.arc(cx, y + 10, 11, Math.PI, 0, false);
     ctx.lineTo(R, y + SZ); ctx.closePath();
-    ctx.fillStyle = '#3f3c4a'; ctx.fill();
-    ctx.strokeStyle = '#1c1420'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.fillStyle = '#6e5a6a'; ctx.fill();
+    ctx.strokeStyle = '#e0a45a'; ctx.lineWidth = 2; ctx.stroke();
     ctx.fillStyle = '#2a2833'; ctx.fillRect(L + 3, y + 19, R - L - 6, SZ - 19);
     ctx.fillStyle = '#1c1820'; ctx.fillRect(cx - 0.5, y + 19, 1, SZ - 19);
     ctx.beginPath(); ctx.arc(cx, y + 12, 6, 0, Math.PI * 2);
@@ -393,7 +393,6 @@
       ctx.save();
       plate(ctx, 14, 12, 172, 36, 8, 'rgba(40,14,32,0.72)');            // hearts
       plate(ctx, w - 150, 12, 136, 36, 8, 'rgba(40,14,32,0.72)');       // gear and counter
-      plate(ctx, 24, h - 50, 176, 44, 4, 'rgba(30,14,26,0.5)');         // control hints
       for (let i = 0; i < 36; i++) {
         const r1 = hash2(i * 1.13, 2.7), r2 = hash2(i * 0.71, 5.3), r3 = hash2(i * 2.9, 1.1);
         const sway = Math.sin(tt * 0.6 + i * 1.7) * (6 + r3 * 8);

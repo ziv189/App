@@ -36,7 +36,7 @@
       ] },
       { id: 'ch1_photo', col: 66, lines: [
         { who: 'narrator', text: "On a bench, a traveller sits frozen mid-yawn, a folded train ticket pinched between two stiff fingers." },
-        { who: 'narrator', text: "Leo eases it free. Clipped to its corner is a faded photo of a little girl with a tiny clock on a ribbon." },
+        { who: 'narrator', text: "Leo eases it free. Clipped to its corner: a faded photo of a little girl grinning, a tiny clock on a ribbon." },
         { who: 'leo', expr: 'sad', text: "Juliette... She used to make that exact face right before she broke something." },
         { who: 'leo', expr: 'neutral', text: "Ticket for Saint-Aube Tower. Departure 23:47. Valid for one passenger. No return." },
         { act: 'flag', value: 'ch1_photo' }
@@ -64,7 +64,7 @@
       ], again: [
         { who: 'narrator', text: "Her smile freezes again, and the loaf goes back up in both hands." },
         { who: 'pivert', expr: 'happy', text: "Would you like a loaf, dear? Oh, I've gone round again. A decade of loops does that to a baker." },
-        { who: 'pivert', expr: 'neutral', text: "Don't rush off, dear. You're far too thin to leave my shop half-baked." },
+        { who: 'pivert', expr: 'neutral', text: "Don't rush off, dear. Nobody leaves my shop half-baked, least of all a boy as thin as you." },
         { who: 'leo', expr: 'neutral', text: "Half-baked. Yeah, that tracks for this station." }
       ] },
       '2': { who: 'bastien', lines: [
@@ -73,12 +73,12 @@
         { who: 'bastien', expr: 'angry', text: "That is not funny! The Tower train leaves at 23:47. It has not left. Ten years of delay, sir!" },
         { who: 'leo', expr: 'neutral', text: "So where's the train now?" },
         { who: 'bastien', expr: 'neutral', text: "Platform Four, last carriage. Fuelled, polished, ready. It will leave as soon as the hour starts again." },
-        { who: 'leo', expr: 'worried', text: "The hour's frozen, Bastien. My watch ticks, but that's just a watch. Nothing is starting again." },
+        { who: 'leo', expr: 'worried', text: "The hour's frozen, Bastien. My watch ticks, but that's just a watch. Nothing is moving." },
         { who: 'bastien', expr: 'worried', text: "I have filed forty-one complaints. Nobody answers. The Tower never answers. It is most irregular." },
         { who: 'bastien', expr: 'neutral', text: "Please do not touch the rails, sir. The rails are not on the timetable." }
       ], again: [
-        { who: 'bastien', expr: 'worried', text: "That ticket is folded, sir. Procedure Nine says no passenger boards with a folded ticket." },
-        { who: 'bastien', expr: 'neutral', text: "The train departs as soon as the hour starts again. Not one second before. That is procedure." }
+        { who: 'bastien', expr: 'worried', text: "The Tower train is fuelled and waiting, sir. Stand clear of the rails and wait for the hour." },
+        { who: 'bastien', expr: 'neutral', text: "Patience, sir. The train leaves the moment the hour moves again. Not one second before. That is procedure." }
       ] }
     }
   });
