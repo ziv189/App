@@ -326,11 +326,11 @@
       if (plat(c, fr)) onPlat = true;
       if (solid(c, fr)) onSolid = true;
     }
-    if (hit('jump') && on('down') && p.onGround && onPlat && !onSolid) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
+    if (p.jumpBuf > 0 && on('down') && p.onGround && onPlat && !onSolid) { p.dropT = 0.25; p.jumpBuf = 0; p.coyote = 0; }
 
     // dash and attack presses are buffered until their lock or cooldown ends; the +dt keeps the
     // buffer alive for the frame the cooldown reaches zero (both count down by the same dt)
-    p.dashBuf = hit('dash') ? Math.max(0.12, p.dashCd + dt) : Math.max(0, p.dashBuf - dt);
+    p.dashBuf = hit('dash') ? Math.max(0.12, p.dashCd + dt, p.atkT + dt) : Math.max(0, p.dashBuf - dt);
     if (p.dashBuf > 0 && story.unlocks.has('dash') && p.dashCd <= 0 && p.dashT <= 0 && p.atkT <= 0 && !locked) {
       p.dashBuf = 0;
       p.dashT = DASH_T; p.dashCd = DASH_CD; p.vx = p.facing * DASH_V; p.vy = 0;
@@ -338,7 +338,7 @@
       puff(p.x, p.y - 4, 7, '#e9dcc0');
       sfx('dash');
     }
-    p.atkBuf = hit('attack') ? Math.max(0.12, p.atkCd + dt) : Math.max(0, p.atkBuf - dt);
+    p.atkBuf = hit('attack') ? Math.max(0.12, p.atkCd + dt, p.dashT + dt) : Math.max(0, p.atkBuf - dt);
     if (p.atkBuf > 0 && p.atkCd <= 0 && p.atkT <= 0 && p.dashT <= 0 && !locked) {
       p.atkBuf = 0;
       p.atkT = ATK_T; p.atkCd = ATK_T + ATK_CD; p.atkDone = new Set();
@@ -377,9 +377,10 @@
     p.wasGround = p.onGround;
     if (p.onGround && !wasG) { p.landT = LAND_T; puff(p.x, p.y, 4, '#cfc3a8'); sfx('land'); }
 
-    if (p.y > rows * TS + 80) { killPlayer(); return; }
+    if (p.y > rows * TS) { killPlayer(); return; }
     const box = playerBox();
-    if (p.inv <= 0 && touchesTile(box, ['^'])) hurtPlayer(1, p.x - p.facing * 10);
+    if (p.inv <= 0 && touchesTile(box, ['^'])) hurtPlayer(1, p.x + p.facing * 10);
+    if (p.dead) return;   // a spike kill: no heart or exit for a dead player
     pickups(box);
   }
 
@@ -535,8 +536,11 @@
       return;
     }
     if (e.state === 'return') {
-      const hx = e.homeX - e.x, hy = e.homeY - e.y, d = Math.hypot(hx, hy);
-      if (d < 6) { setE(e, 'walk'); e.x = e.homeX; e.y = e.homeY; e.vx = 0; e.vy = 0; }
+      // steer to the same bob point the walk branch uses, so the arrival does not jump
+      const bx = e.homeX + Math.sin(time * 1.3 + e.homeX * 0.05) * 26;
+      const by = e.homeY + Math.sin(time * 2.2 + e.homeX * 0.1) * 8;
+      const hx = bx - e.x, hy = by - e.y, d = Math.hypot(hx, hy);
+      if (d < 6) { setE(e, 'walk'); e.vx = 0; e.vy = 0; }
       else { e.vx = hx / d * 100; e.vy = hy / d * 100; }
       return;
     }
@@ -636,7 +640,7 @@
         if (b.st > b.dur) setBoss(b, b.next, ATTACK_DUR[b.next] || 0.9);
         break;
       case 'slam':
-        if (!b.hitDone && b.st > 0.25 && b.st < 0.42 && Math.abs(dx) < 130 && player.onGround) {
+        if (!b.hitDone && b.st > 0.25 && b.st < 0.42 && Math.abs(dx) < 130 && Math.abs(player.y - b.y) < 24 && player.onGround) {
           b.hitDone = true; shakeA = Math.max(shakeA, 10); hurtPlayer(1, b.x);
         }
         if (b.st > b.dur) setBoss(b, 'idle', 0.5);
@@ -723,9 +727,9 @@
     }
   }
   function defeatBoss() {
-    world.boss = null;
     progressOf(story.chapterId).bossDead = true;
-    playScene('boss_defeated', () => { openGate(); music(ch.music); saveGame(); });
+    // the corpse stays on screen while the defeat dialogue plays; it is removed when the dialogue ends
+    playScene('boss_defeated', () => { world.boss = null; openGate(); music(ch.music); saveGame(); });
   }
   // The Regent fell but its defeat scene never played (quit or reload during the delay or the dialogue,
   // or a death during the delay): play it now. Returns true when a dialogue was started.
@@ -755,7 +759,7 @@
       if (!s.id || s.id.indexOf('boss_') === 0 || pr.scenesDone.has(s.id)) continue;
       if (player.x >= s.col * TS) {
         pr.scenesDone.add(s.id);
-        startDialog(s.lines || [], null);
+        startDialog(s.lines || [], saveGame);   // saved when the scene ends, so a reload mid-scene replays it
         return;
       }
     }
@@ -827,7 +831,7 @@
     story.unlocks.add(name);
     sfx('unlock');
     toast('New ability: ' + (ABILITY_TEXT[name] || name));
-    saveGame();
+    if (!dlg) saveGame();   // inside a dialogue, the dialogue's end saves it
   }
   function updateDialog(dt) {
     if (!dlg) { mode = 'play'; return; }
@@ -884,13 +888,13 @@
     });
   }
   function finishGame() {
-    eraseSave();
+    if (!debugSession) eraseSave();   // a debug run must not erase the real save
     newStory();
     themeOverride = null;
     endKey = null;
     credits = null;
     mode = 'title';
-    titleSel = 0;
+    titleSel = titleDefaultSel();
     music('title');
   }
 
@@ -1062,8 +1066,8 @@
     if (hitstop > 0) {
       hitstop -= dt;
       if (hit('jump')) player.jumpBuf = 0.12;   // presses during hitstop are buffered, not lost
-      if (hit('attack')) player.atkBuf = Math.max(0.12, player.atkCd + dt);
-      if (hit('dash')) player.dashBuf = Math.max(0.12, player.dashCd + dt);
+      if (hit('attack')) player.atkBuf = Math.max(0.12, player.atkCd + dt, player.dashT + dt);
+      if (hit('dash')) player.dashBuf = Math.max(0.12, player.dashCd + dt, player.atkT + dt);
       return;
     }
     slowing = story.unlocks.has('pendule') && on('slow') && slowGauge > 0.02;
@@ -1091,7 +1095,7 @@
     if (hit('ok')) {
       if (pauseSel === 0) mode = 'play';
       else if (pauseSel === 1) { controlsBack = 'pause'; mode = 'controls'; }
-      else { mode = 'title'; titleSel = 0; music('title'); }
+      else { mode = 'title'; titleSel = titleDefaultSel(); music('title'); }
     }
   }
 
@@ -1100,6 +1104,11 @@
     if (hasSave()) items.push({ id: 'continue', label: 'Continue' });
     items.push({ id: 'controls', label: 'Controls' });
     return items;
+  }
+  // with a save present the title opens on Continue, so one Enter press cannot start a new game over it
+  function titleDefaultSel() {
+    const i = titleItems().findIndex((it) => it.id === 'continue');
+    return i >= 0 ? i : 0;
   }
   function updateTitle() {
     const items = titleItems();
@@ -1564,6 +1573,7 @@
     advance() { if (mode === 'dialog') { hitSet.add('Enter'); } },
     // Test hook: deal n hits to the active boss through the normal bossHit path.
     hitBoss(n) {
+      if (!debugSession) return false;   // a normal session would save the kill to the real save
       const b = world && world.boss;
       if (!b || !b.active || b.dead) return false;
       for (let i = 0; i < n && !b.dead; i++) { b.inv = 0; bossHit(b); }
@@ -1571,6 +1581,7 @@
     },
   };
 
+  titleSel = titleDefaultSel();
   music('title');
   requestAnimationFrame(frame);
 })();
