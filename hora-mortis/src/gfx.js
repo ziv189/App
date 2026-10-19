@@ -160,6 +160,12 @@ const THEMES = {
   tower: { name: 'tower', wall: '#161a26', wall2: '#1e2332', stone: ['#11141d', '#1b2030', '#283043', '#3a445a', '#536078'], rim: '#9fb3d6', rimHi: '#e6eefc', deep: '#07080d', glass: ['#3a5aa0', '#c4d4f0', '#8a2030'], light: '#bcd2ff', fog: '#28324c', amb: '#121a30', sky: true },
   choir: { name: 'choir', wall: '#24131a', wall2: '#2f1820', stone: ['#1c0f14', '#2b161d', '#3d1f28', '#552c35', '#6e3c42'], rim: '#d6a24c', rimHi: '#ffe2a0', deep: '#0c0507', glass: ['#c0202a', '#e8b040', '#7a1030', '#d05a20'], light: '#ff9a4a', fog: '#45202a', amb: '#2a0c14' },
   altar: { name: 'altar', wall: '#1d1612', wall2: '#2a2018', stone: ['#191310', '#271e18', '#3a2c22', '#54402e', '#73583c'], rim: '#e8b850', rimHi: '#fff0b8', deep: '#0b0806', glass: ['#d4a030', '#b01828', '#f0d080', '#5a1a40'], light: '#ffd27a', fog: '#4a3020', amb: '#2c1a0c' },
+  belfry: { name: 'belfry', bg: 'tower', wall: '#1a1a24', wall2: '#22222e', stone: ['#13121a', '#1e1c28', '#2c2a3a', '#403c52', '#58526c'], rim: '#c8a870', rimHi: '#f4e0b0', deep: '#07070c', glass: ['#3a5aa0', '#c4d4f0', '#8a2030'], light: '#ffc87a', fog: '#2a2a40', amb: '#14142a', sky: true },
+  scriptorium: { name: 'scriptorium', bg: 'nave', farMul: '#b89a78', wall: '#221a14', wall2: '#2c221a', stone: ['#1a140f', '#281f17', '#3a2d21', '#52402e', '#6e573e'], rim: '#d8b070', rimHi: '#fbe6b4', deep: '#0b0806', glass: ['#c0902a', '#8a2a1a', '#e8c070', '#3a5a7a'], light: '#ffcf80', fog: '#4a3a2a', amb: '#2a1c10' },
+  vaults: { name: 'vaults', bg: 'altar', farMul: '#7a6a5a', wall: '#17120f', wall2: '#1f1814', stone: ['#120e0b', '#1d1612', '#2c221a', '#423226', '#5c4632'], rim: '#c8963a', rimHi: '#f2d48f', deep: '#060404', glass: ['#d4a030', '#7a1020', '#e0c060'], light: '#ffb05a', fog: '#3a2618', amb: '#1e1208', bones: true },
+  sorrows: { name: 'sorrows', bg: 'altar', farMul: '#b08a8a', wall: '#22121a', wall2: '#2c1820', stone: ['#1a0e14', '#28161e', '#3c202c', '#54303c', '#704450'], rim: '#e8b0a0', rimHi: '#fff0e8', deep: '#0a0507', glass: ['#c0202a', '#f0d0c0', '#7a1030', '#e8b850'], light: '#ffb8a0', fog: '#4a2030', amb: '#2a0c16' },
+  cloister: { name: 'cloister', bg: 'nave', farMul: '#d8b888', wall: '#2a2218', wall2: '#342a1e', stone: ['#1e1912', '#2c241a', '#3e3224', '#584834', '#76624a'], rim: '#f0d090', rimHi: '#fff4d0', deep: '#0c0a07', glass: ['#e8c070', '#c09040', '#8a5a2a'], light: '#ffe0a0', fog: '#5a4a30', amb: '#2c2210' },
+  hour: { name: 'hour', bg: 'tower', wall: '#16141e', wall2: '#1e1c28', stone: ['#100f16', '#1a1822', '#282534', '#3a364a', '#544e66'], rim: '#e8c070', rimHi: '#fff0c0', deep: '#060509', glass: ['#e8c070', '#c4d4f0', '#8a2030'], light: '#ffe2a0', fog: '#2a2638', amb: '#121020', sky: true },
 };
 
 // ---------- level art: tiles ----------
@@ -171,7 +177,7 @@ function buildTileLayer(lvl, th) {
   const solid = (x, y) => lvl.solidAt(x, y);
   // distance (in px) from each solid tile pixel to the nearest open tile, up to 48
   for (let ty = 0; ty < lvl.h; ty++) for (let tx = 0; tx < lvl.w; tx++) {
-    const t = lvl.tile(tx, ty);
+    const t = lvl.base(tx, ty);
     if (t !== 1) continue;
     const open = [];
     for (let oy = -3; oy <= 3; oy++) for (let ox = -3; ox <= 3; ox++) {
@@ -477,15 +483,74 @@ function shaded(name, mul) { // darkened copy, so set dressing sits behind the a
   return c;
 }
 
+// procedural set dressing for the verses the paintings did not cover
+function addDecorAsset(name, c) { IMG[name] = c; ASSET_META[name] = { w: c.width, h: c.height, flames: [] }; }
+function buildProceduralDecor() {
+  { // bookshelf
+    const c = mkCanvas(30, 46), x = c.getContext('2d');
+    x.fillStyle = '#1a0f09'; x.fillRect(0, 0, 30, 46);
+    x.fillStyle = '#3a2414'; x.fillRect(1, 1, 28, 44);
+    const cols = ['#5a1a14', '#1e3a4a', '#4a3a14', '#2a1a2a', '#6a4a1a', '#3a1010', '#20302a'];
+    for (let r = 0; r < 4; r++) {
+      const y0 = 3 + r * 11;
+      x.fillStyle = '#120a06'; x.fillRect(2, y0, 26, 9);
+      let bx = 3;
+      while (bx < 27) {
+        const bw = 2 + ((hash2(bx, r, 3) * 3) | 0), bh = 6 + ((hash2(bx, r, 4) * 3) | 0);
+        if (bx + bw > 27) break;
+        x.fillStyle = cols[(hash2(bx, r, 5) * cols.length) | 0]; x.fillRect(bx, y0 + 9 - bh, bw, bh);
+        x.fillStyle = 'rgba(232,200,120,0.5)'; x.fillRect(bx, y0 + 9 - bh + 2, bw, 1);
+        bx += bw + (hash2(bx, r, 6) < 0.2 ? 2 : 0);
+      }
+      x.fillStyle = '#5a3a1e'; x.fillRect(1, y0 + 9, 28, 2);
+    }
+    x.fillStyle = '#6a4626'; x.fillRect(0, 0, 30, 2);
+    addDecorAsset('bookshelf', c);
+  }
+  { // lectern with an open book
+    const c = mkCanvas(20, 30), x = c.getContext('2d');
+    x.fillStyle = '#2a1a10'; x.fillRect(8, 10, 4, 18); x.fillRect(4, 27, 12, 3);
+    x.fillStyle = '#4a2e18'; ppoly(x, [1, 9, 19, 5, 19, 9, 1, 13]);
+    x.fillStyle = '#e8dcc0'; ppoly(x, [3, 8, 10, 6, 10, 9, 3, 11]); x.fillStyle = '#d4c4a0'; ppoly(x, [10, 6, 17, 4, 17, 7, 10, 9]);
+    x.fillStyle = '#8a1a14'; x.fillRect(9, 9, 1, 6);
+    addDecorAsset('lectern', c);
+  }
+  { // reliquary jars
+    const c = mkCanvas(34, 22), x = c.getContext('2d');
+    for (const [jx, jh, col] of [[1, 18, '#7a2a1a'], [11, 21, '#4a5a3a'], [22, 16, '#6a4a2a']]) {
+      x.fillStyle = '#1a120c'; x.fillRect(jx, 22 - jh, 10, jh);
+      x.fillStyle = col; x.fillRect(jx + 1, 22 - jh + 3, 8, jh - 4);
+      x.fillStyle = 'rgba(255,230,180,0.35)'; x.fillRect(jx + 2, 22 - jh + 4, 1, jh - 7);
+      x.fillStyle = '#c9973a'; x.fillRect(jx, 22 - jh, 10, 2);
+      x.fillStyle = '#d8c8a0'; x.fillRect(jx + 3, 22 - jh + 7, 4, 3);
+    }
+    addDecorAsset('jars', c);
+  }
+  { // a great gear for the clock
+    const R = 34, c = mkCanvas(R * 2 + 2, R * 2 + 2), x = c.getContext('2d');
+    for (let i = 0; i < 16; i++) {
+      const a = (i / 16) * TAU, cx = R + 1 + Math.cos(a) * (R - 4), cy = R + 1 + Math.sin(a) * (R - 4);
+      x.fillStyle = '#3a2c1a'; pcirc(x, cx, cy, 4);
+    }
+    x.fillStyle = '#3a2c1a'; pcirc(x, R + 1, R + 1, R - 5);
+    x.fillStyle = '#54401f'; pring(x, R + 1, R + 1, R - 6, 2);
+    x.fillStyle = '#1a140c'; pcirc(x, R + 1, R + 1, R - 13);
+    x.fillStyle = '#3a2c1a';
+    for (let i = 0; i < 6; i++) { const a = (i / 6) * TAU; pline(x, R + 1, R + 1, R + 1 + Math.cos(a) * (R - 12), R + 1 + Math.sin(a) * (R - 12), 3); }
+    x.fillStyle = '#6a5228'; pcirc(x, R + 1, R + 1, 5);
+    addDecorAsset('gear', c);
+  }
+}
+
 // far parallax layer: the verse's painting, mirrored so it tiles seamlessly
 function buildFar(th) {
-  const im = IMG['bg_' + th.name];
+  const im = IMG['bg_' + (th.bg || th.name)];
   const w = im.width, h = im.height;
   const c = mkCanvas(w * 2, h), x = c.getContext('2d');
   x.drawImage(im, 0, 0);
   x.save(); x.translate(w * 2, 0); x.scale(-1, 1); x.drawImage(im, 0, 0); x.restore();
   x.globalCompositeOperation = 'multiply';
-  x.fillStyle = th.sky ? '#dcd8e8' : '#9a8ea2';
+  x.fillStyle = th.farMul || (th.sky ? '#dcd8e8' : '#9a8ea2');
   x.fillRect(0, 0, w * 2, h);
   x.globalCompositeOperation = 'source-over';
   const gr = x.createLinearGradient(0, 0, 0, h);
@@ -525,6 +590,12 @@ const DECOR = {
   tower: { floor: ['candles'], hang: ['cage', 'censer'] },
   choir: { floor: ['organ', 'statue_angel', 'candles', 'organ'], hang: ['banner', 'censer'] },
   altar: { floor: ['statue_angel', 'candles', 'statue_virgin', 'skullpile'], hang: ['censer', 'banner'] },
+  belfry: { floor: ['candles'], hang: ['cage'] },
+  scriptorium: { floor: ['bookshelf', 'lectern', 'bookshelf', 'candles', 'bookshelf'], hang: ['censer', 'banner'] },
+  vaults: { floor: ['jars', 'skullpile', 'jars', 'statue_penitent', 'candles'], hang: ['cage', 'censer'] },
+  sorrows: { floor: ['statue_angel', 'candles'], hang: ['banner'] },
+  cloister: { floor: ['statue_angel', 'statue_virgin', 'candles', 'statue_penitent'], hang: ['censer'] },
+  hour: { floor: ['candles'], hang: [] },
 };
 function placeDecor(lvl, th) {
   const set = DECOR[th.name], out = [];
@@ -564,6 +635,7 @@ function placeDecor(lvl, th) {
     if (nh >= maxHang) break;
     if (out.some((d) => d.hang && Math.abs(d.x - s.x) < 170)) continue;
     if (lvl.chandeliers.some((c) => Math.abs(c.x - s.x) < 56) || lvl.bells.some((b) => Math.abs(b.x - s.x) < 56)) continue;
+    if (!set.hang.length) break;
     const name = set.hang[j % set.hang.length];
     out.push({ name, x: s.x, y: s.y, hang: true, drop: name === 'banner' ? 0 : 6 + ((hash2(s.x, 3, 9) * 22) | 0) }); j++; nh++;
   }
@@ -601,157 +673,6 @@ function buildGrain(n = 4) {
     arr.push(c);
   }
   return arr;
-}
-
-// ============================================================
-//  Characters (procedural pixel rigs)
-// ============================================================
-const PC = { // player colours, after the design sheet: iron capirote, crown of thorns, crimson robes
-  helm: '#27252e', helmHi: '#625e6e', helmLo: '#121016', band: '#c9973a', bandHi: '#f6dc9a', gold: '#d9a441', eye: '#ffb347', eyeHi: '#fff1c0',
-  robe: '#7c1322', robeHi: '#a8222f', robeLo: '#430810', trim: '#2c0408', arm: '#1d1a22', leg: '#141218', boot: '#2a2630',
-  cape: '#b01c30', capeLo: '#6e0f1c', blade: '#eef1f6', bladeLo: '#8f97a8', guard: '#d9a441', hilt: '#3b2418',
-};
-function legPose(ph, amp) { return [Math.sin(ph) * amp, Math.max(0, Math.cos(ph)) * 1.3 * amp + 0.1]; }
-
-function drawPlayerBody(g, pl, X, Y, tint, camx, camy) {
-  const f = pl.face;
-  const P = Pen.set(g, X, Y, f, tint);
-  if (pl.rollT > 0 && !pl.dead) { drawRollBall(g, pl, X, Y, tint); return; }
-  const spd = Math.abs(pl.vx);
-  const run = pl.onGround && spd > 20;
-  const crouch = Math.round((pl.landT > 0 ? pl.landT / 0.12 * 3 : 0) + (pl.crouch ? 4 : 0));
-  const bob = run ? Math.round(Math.abs(Math.sin(pl.runPh)) * -1.5) : pl.onGround ? Math.round(Math.sin(pl.t * 2.2) * 0.6) : 0;
-  const lean = run ? 2 : !pl.onGround ? (pl.vy < 0 ? 1 : 0) : 0;
-  const hipY = -11 + crouch + bob, shY = -19 + crouch + bob;
-  // legs
-  let L1, L2;
-  if (pl.wall) { L1 = [0.9, 1.6]; L2 = [0.4, 1.4]; }
-  else if (!pl.onGround) { L1 = pl.vy < 0 ? [0.9, 1.7] : [0.35, 0.5]; L2 = pl.vy < 0 ? [-0.4, 0.9] : [-0.25, 0.7]; }
-  else if (run) { L1 = legPose(pl.runPh, 0.95); L2 = legPose(pl.runPh + Math.PI, 0.95); }
-  else if (crouch > 1) { L1 = [0.7, 1.6]; L2 = [-0.2, 1.1]; }
-  else { L1 = [0.15, 0.1]; L2 = [-0.12, 0.1]; }
-  const legLen1 = 5, legLen2 = 6;
-  const drawLeg = (hx, L, col, bootc) => {
-    const a = L[0], kx = hx + Math.sin(a) * legLen1, ky = hipY + Math.cos(a) * legLen1;
-    const s = a - L[1], fx = kx + Math.sin(s) * legLen2, fy = ky + Math.cos(s) * legLen2;
-    P.c(col).line(hx, hipY, kx, ky, 2).line(kx, ky, fx, Math.min(fy, 0), 2);
-    P.c(bootc).line(fx, Math.min(fy, 0), fx + 2, Math.min(fy, 0), 1);
-  };
-  // back arm
-  const atk = pl.atkT > 0;
-  drawLeg(-1, L2, PC.leg, PC.leg);
-  // robe
-  const flare = clamp(spd / 160, 0, 1) * 3 + (!pl.onGround && pl.vy > 60 ? 2 : 0);
-  const hemY = -5 + Math.round(crouch * 0.6), flut = Math.round(Math.sin(pl.t * 14) * (flare > 1 ? 1 : 0));
-  P.c(PC.robe).poly([-4 + lean, shY, 4 + lean, shY, 5, hemY - 1, 3, hemY + 1, 0, hemY, -3, hemY + 1 + flut, -6 - flare, hemY - 1 - flare * 0.6 + flut]);
-  P.c(PC.robeLo).poly([-4 + lean, shY, -1 + lean, shY, -2, hemY, -3, hemY + 1 + flut, -6 - flare, hemY - 1 - flare * 0.6 + flut]);
-  P.c(PC.robeHi).rect(2 + lean, shY + 1, 1, 6);
-  P.c(PC.trim).line(-6 - flare, hemY - 1 - flare * 0.6 + flut, -3, hemY + 1 + flut).line(-3, hemY + 1 + flut, 0, hemY).line(0, hemY, 3, hemY + 1).line(3, hemY + 1, 5, hemY - 1);
-  P.c(PC.band).rect(-3 + Math.round(lean / 2), hipY - 1, 7, 1);
-  P.c(PC.gold).rect(1 + lean, shY + 2, 1, 4).rect(lean, shY + 3, 3, 1);
-  P.c(PC.gold).px(2, hipY + 1).px(2, hipY + 3).px(1, hipY + 5);
-  drawLeg(1, L1, '#1a161e', PC.boot);
-  // helm: tall iron capirote under a crown of thorns
-  const hx = lean, hb = shY - 1;
-  const tilt = clamp(-pl.vx / 120, -1.5, 1.5) + (run ? -0.5 : 0);
-  P.c(PC.helm).poly([-3 + hx, hb, 4 + hx, hb, 4 + hx, hb - 5, 1.5 + hx + tilt, hb - 19, 0.5 + hx + tilt, hb - 19, -3 + hx, hb - 5]);
-  P.c(PC.helmLo).poly([-3 + hx, hb, 0 + hx, hb, 0.5 + hx + tilt * 0.6, hb - 12, 0.5 + hx + tilt, hb - 19, -3 + hx, hb - 5]);
-  P.c(PC.helmHi).line(2 + hx, hb - 7, 1 + hx + Math.round(tilt * 0.7), hb - 15);
-  P.c(PC.band).rect(-4 + hx, hb - 6, 9, 1);
-  P.c(PC.bandHi).px(-3 + hx, hb - 7).px(-1 + hx, hb - 8).px(1 + hx, hb - 7).px(3 + hx, hb - 8).px(5 + hx, hb - 7);
-  P.c('#0b0709').rect(1 + hx, hb - 3, 4, 2);
-  P.c(PC.eye).rect(2 + hx, hb - 3, 3, 1);
-  P.c(PC.eyeHi).rect(4 + hx, hb - 3, 1, 1);
-  // front arm + sword
-  let sa, hxp, hyp;
-  if (atk) {
-    const k = clamp(1 - pl.atkT / pl.atkDur, 0, 1);
-    const sweep = easeOut(clamp(k / 0.45, 0, 1));
-    const aimL = f > 0 ? pl.atkAng : Math.PI - pl.atkAng;
-    sa = aimL - pl.atkSide * (1.9 - sweep * 3.3);
-    hxp = 2 + Math.cos(aimL) * 5; hyp = shY + 3 + Math.sin(aimL) * 5;
-  } else if (pl.wall) { sa = 2.4; hxp = 4; hyp = shY + 1; }
-  else if (run) { sa = Math.PI - 0.55 + Math.sin(pl.runPh) * 0.08; hxp = -1 + Math.sin(pl.runPh + 1) * 2; hyp = hipY - 1; }
-  else if (!pl.onGround) { sa = pl.vy < 0 ? Math.PI + 0.7 : Math.PI - 0.3; hxp = -2; hyp = shY + 3; }
-  else { sa = 1.05 + Math.sin(pl.t * 2.2) * 0.04; hxp = 4; hyp = hipY; }
-  const dx = Math.cos(sa), dy = Math.sin(sa);
-  P.c(PC.arm).line(1 + lean, shY + 2, hxp, hyp, 2);
-  const bx0 = hxp + dx * 2, by0 = hyp + dy * 2, bx1 = hxp + dx * 19, by1 = hyp + dy * 19;
-  P.c(PC.bladeLo).line(bx0 + 0.5, by0 + 0.5, bx1 + 0.5, by1 + 0.5, 1);
-  P.c(PC.blade).line(bx0, by0, bx1, by1, 1);
-  P.c(PC.guard).line(hxp + dx * 2 - dy * 2, hyp + dy * 2 + dx * 2, hxp + dx * 2 + dy * 2, hyp + dy * 2 - dx * 2, 1);
-  P.c(PC.hilt).line(hxp - dx * 2, hyp - dy * 2, hxp, hyp, 1);
-  // record eye + blade tip (screen) for trails
-  pl._eyeX = X + (f > 0 ? 3 + hx : -3 - hx); pl._eyeY = Y + hb - 3;
-}
-function drawRollBall(g, pl, X, Y, tint) {
-  const P = Pen.set(g, X, Y, pl.face, tint);
-  const a = pl.rollRot;
-  P.c(PC.robe).circ(0, -7, 6);
-  P.c(PC.robeLo).circ(-1, -6, 4);
-  P.c(PC.trim);
-  for (let i = 0; i < 5; i++) { const aa = a + i * 0.35; P.px(Math.cos(aa) * 6, -7 + Math.sin(aa) * 6); }
-  const hx = Math.cos(a - 1.2), hy = Math.sin(a - 1.2);
-  P.c(PC.helm).line(hx * 4, -7 + hy * 4, hx * 10, -7 + hy * 10, 2);
-  P.c(PC.helmHi).px(hx * 10, -7 + hy * 10);
-  P.c(PC.eye).px(hx * 3 + 1, -7 + hy * 3);
-}
-function drawCape(g, pl, camx, camy, tint) {
-  const t = pl.tail;
-  for (let i = 0; i < t.length - 1; i++) {
-    const a = t[i], b = t[i + 1];
-    const th = i < 2 ? 3 : i < 4 ? 2 : 1;
-    g.fillStyle = tint || (i < 3 ? PC.cape : PC.capeLo);
-    pline(g, a.x - camx, a.y - camy, b.x - camx, b.y - camy, th);
-  }
-  g.fillStyle = tint || PC.capeLo;
-  for (let i = 1; i < t.length - 1; i += 2) pline(g, t[i].x - camx, t[i].y - camy + 1, t[i + 1].x - camx, t[i + 1].y - camy + 1, 1);
-}
-
-// ---------- enemies: sprites from the generated lineup (drawn facing left) ----------
-// (ax, ay): the feet, or the wall mount for the gargoyle. (ex, ey): where its blood-bolts leave.
-const EGEO = (() => {
-  const out = {};
-  for (const [type, name] of [['grunt', 'e_grunt'], ['acolyte', 'e_acolyte'], ['priest', 'e_priest'], ['shield', 'e_shield'], ['gargoyle', 'e_gargoyle']]) {
-    const M = ASSET_META[name];
-    let ax = Math.round(M.foot[0]), ay = M.foot[1] + 1;
-    let em = M.glow && M.glow.length ? M.glow[0] : [M.top[0], 12];
-    if (type === 'gargoyle') { ax = M.w - 8; ay = 28; }
-    if (type === 'priest') em = [M.top[0] + 1, 12];
-    out[type] = { name, ax, ay, ex: em[0], ey: em[1] };
-  }
-  return out;
-})();
-function drawEnemyBody(g, e, X, Y, tint) {
-  const G = EGEO[e.type];
-  const flash = e.flash > 0 && ((e.flash * 30) | 0) % 2 === 0;
-  const src = tint ? tinted(G.name, tint) : flash ? tinted(G.name, '#fff6e0') : IMG[G.name];
-  if (!src) return;
-  let ox = 0, oy = 0, sx = 1, sy = 1;
-  if (e.type !== 'gargoyle') {
-    if (Math.abs(e.vx) > 10 && e.onGround) oy = -Math.round(Math.abs(Math.sin(e.walkPh)) * 1.6);
-    else if (Math.sin(e.t * 2.1) > 0.7) oy = -1;
-    if (e.state === 'windup') { const k = clamp(e.st / e.windDur, 0, 1); ox = -Math.round(k * 2); sx = 1 + 0.06 * k; sy = 1 - 0.08 * k; }
-    else if (e.state === 'strike' || e.state === 'bash') { ox = 2; sx = 1.12; sy = 0.94; }
-    if (e.stunT > 0) ox = Math.round(Math.sin(e.t * 18));
-  }
-  g.save();
-  g.translate(Math.round(X + ox * e.face), Math.round(Y + oy));
-  g.scale(e.face > 0 ? -sx : sx, sy);
-  if (!tint) { // faint rim light so dark robes and stone read against dark walls
-    const rim = tinted(G.name, '#8a6470');
-    g.globalAlpha = 0.5;
-    g.drawImage(rim, -G.ax - 1, -G.ay); g.drawImage(rim, -G.ax + 1, -G.ay); g.drawImage(rim, -G.ax, -G.ay - 1);
-    g.globalAlpha = 1;
-  }
-  g.drawImage(src, -G.ax, -G.ay);
-  g.restore();
-  if (e.reactT > 0 && e.alive && !tint) {
-    const k = 1 - e.reactT / e.reactDur;
-    g.fillStyle = PAL.bloodHi;
-    const yy = Y - G.ay - 8 - Math.round(k * 3);
-    g.fillRect(X - 1, yy, 2, 5); g.fillRect(X - 1, yy + 6, 2, 2);
-  }
 }
 
 // ---------- props ----------
