@@ -15,7 +15,7 @@ const DEATH_LINES = [
   'No. Try again, penitent.',
 ];
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
-const COARSE = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches && !matchMedia('(pointer: fine)').matches;
+const INTRO_CARD = ['window2', 'window1', 'window3', 'window4', 'window5']; // stained glass shown before each verse
 try { G.best = JSON.parse(localStorage.getItem('horaMortisBest') || '{}') || {}; } catch (e) { G.best = {}; }
 function saveBest() { try { localStorage.setItem('horaMortisBest', JSON.stringify(G.best)); } catch (e) { /* storage unavailable */ } }
 const fmtTime = (s) => { const m = Math.floor(s / 60), r = s - m * 60; return `${m}:${r < 10 ? '0' : ''}${r.toFixed(2)}`; };
@@ -109,7 +109,8 @@ function onAnyKey(code) {
       else if (code === 'KeyT') { G.state = 'title'; }
       break;
     case 'end':
-      if (G.endT > 1.2) { G.state = 'title'; G.totals = { time: 0, deaths: 0, kills: 0 }; }
+      if (G.endT < 6.2) G.endT = 6.2; // first click finishes the camera tilt
+      else if (G.endT > 7.2) { G.state = 'title'; G.totals = { time: 0, deaths: 0, kills: 0 }; }
       break;
   }
 }
@@ -117,7 +118,7 @@ function onAnyKey(code) {
 // ---------- fixed-step tick ----------
 function tick() {
   switch (G.state) {
-    case 'title': G.titleT += STEP; updateTail(TITLE_P, STEP); TITLE_P.t += STEP; break;
+    case 'title': G.titleT += STEP; break;
     case 'intro': G.introT += STEP; if (G.introT > 2.6) { G.state = 'play'; Input.latched = 0; } break;
     case 'play': case 'dead': case 'exit': {
       const s = Input.sample();
@@ -148,80 +149,20 @@ function tick() {
 }
 
 // ---------- title ----------
-let ROSE = null;
-const TITLE_P = makePlayer(338, 236);
-TITLE_P.face = -1;
-function buildRose(r) {
-  const c = mkCanvas(r * 2 + 6, r * 2 + 6), cg = c.getContext('2d');
-  const cx = r + 3, cy = r + 3;
-  const pal = ['#b0202c', '#2c4f9c', '#e0a83e', '#6a2a8a', '#c0402a', '#1f6a7a', '#8a1a30'];
-  const rings = [0.18, 0.36, 0.58, 0.8, 1.0], secs = [1, 6, 12, 18, 24];
-  for (let y = -r - 2; y <= r + 2; y++) for (let x = -r - 2; x <= r + 2; x++) {
-    const d = Math.sqrt(x * x + y * y) / r;
-    if (d > 1.03) continue;
-    let col;
-    if (d > 0.97) col = '#3a3036';
-    else {
-      let ri = 0; while (ri < rings.length - 1 && d > rings[ri]) ri++;
-      const inner = ri ? rings[ri - 1] : 0, rr = (d - inner) / (rings[ri] - inner);
-      const a = (Math.atan2(y, x) + Math.PI) / TAU, sec = secs[ri], si = Math.floor(a * sec + (ri % 2) * 0.5);
-      const lead = (rr < 0.07 || rr > 0.93) && ri > 0 || Math.abs(((a * sec + (ri % 2) * 0.5) % 1) - 0.5) > 0.47 && ri > 0;
-      if (lead) col = '#120c10';
-      else {
-        const base = ri === 0 ? '#f2d48f' : pal[Math.floor(hash2(ri, si, 7) * pal.length)];
-        const [rr0, gg0, bb0] = hex(base), k = 0.75 + hash2(x, y, 3) * 0.35 + (1 - d) * 0.25;
-        col = `rgb(${clamp(rr0 * k, 0, 255) | 0},${clamp(gg0 * k, 0, 255) | 0},${clamp(bb0 * k, 0, 255) | 0})`;
-      }
-    }
-    cg.fillStyle = col; cg.fillRect(cx + x, cy + y, 1, 1);
-  }
-  return c;
-}
 const ash = Array.from({ length: 70 }, () => ({ x: Math.random() * W, y: Math.random() * H, v: 6 + Math.random() * 16, s: Math.random() < 0.25 ? 2 : 1, ph: Math.random() * 6, ember: Math.random() < 0.3 }));
 function renderTitle(dtR) {
-  if (!ROSE) ROSE = buildRose(66);
-  const grd = g.createLinearGradient(0, 0, 0, H);
-  grd.addColorStop(0, '#08060b'); grd.addColorStop(0.65, '#1a0b12'); grd.addColorStop(1, '#060407');
-  g.fillStyle = grd; g.fillRect(0, 0, W, H);
-  // nave arcades
-  for (let i = 0; i < 6; i++) {
-    const x = 200 + i * 52 - 26, sh = 0.35 + 0.1 * (i % 2);
-    g.fillStyle = `rgba(30,18,26,${sh})`;
-    g.fillRect(x, 40, 16, 200);
-    g.fillStyle = 'rgba(70,50,60,0.25)'; g.fillRect(x + 5, 40, 2, 200);
+  g.fillStyle = '#05030a'; g.fillRect(0, 0, W, H);
+  const ti = IMG.title, M = ASSET_META.title, tx = W - ti.width;
+  g.drawImage(ti, tx, 0);
+  const gr = g.createLinearGradient(tx, 0, tx + 64, 0);
+  gr.addColorStop(0, '#05030a'); gr.addColorStop(1, 'rgba(5,3,10,0)');
+  g.fillStyle = gr; g.fillRect(tx, 0, 64, H);
+  drawGlow(g, tx + 225, 46, 84, '#ff7040', 0.14 + Math.sin(RT * 0.8) * 0.05, true);
+  for (let i = 0; i < M.flames.length; i++) {
+    const [fx, fy] = M.flames[i];
+    if (fy < 150) continue;
+    drawGlow(g, tx + fx, fy, 6, '#ffb347', 0.28 + Math.sin(RT * 9 + i * 1.7) * 0.12);
   }
-  const rx = 338, ry = 96;
-  drawGlow(g, rx, ry, 150, '#ff8a40', 0.28 + Math.sin(RT * 0.7) * 0.04, true);
-  drawGlow(g, rx, ry, 90, '#ffd27a', 0.22, true);
-  g.drawImage(ROSE, rx - ROSE.width / 2, ry - ROSE.height / 2);
-  g.globalCompositeOperation = 'lighter';
-  for (let i = 0; i < 4; i++) {
-    const a = 0.25 + Math.sin(RT * 0.5 + i) * 0.06;
-    const gr = g.createLinearGradient(0, ry, 0, 250);
-    gr.addColorStop(0, `rgba(255,190,110,${a * 0.5})`); gr.addColorStop(1, 'rgba(255,170,90,0)');
-    g.fillStyle = gr;
-    g.beginPath();
-    const w0 = 14 + i * 4, off = (i - 1.5) * 30;
-    g.moveTo(rx + off * 0.5 - w0, ry + 20); g.lineTo(rx + off * 0.5 + w0, ry + 20); g.lineTo(rx + off * 1.4 + w0 * 2, 250); g.lineTo(rx + off * 1.4 - w0 * 2, 250);
-    g.closePath(); g.fill();
-  }
-  g.globalCompositeOperation = 'source-over';
-  // floor
-  g.fillStyle = '#0d080b'; g.fillRect(0, 236, W, H - 236);
-  g.fillStyle = '#b98f5a'; g.fillRect(150, 236, 330, 1);
-  g.fillStyle = '#4a3428'; g.fillRect(150, 237, 330, 1);
-  for (let i = 0; i < 9; i++) {
-    const x = 196 + i * 33 + (i % 2) * 6;
-    for (let k = 0; k < 3; k++) drawCandle(g, x + k * 3, 236, 4 + ((i * 3 + k * 5) % 7), RT, i * 5 + k);
-  }
-  // the penitent
-  TITLE_P.onGround = true; TITLE_P.vx = 0; TITLE_P.vy = 0;
-  drawCape(g, TITLE_P, 0, 0, null);
-  drawPlayerBody(g, TITLE_P, 338, 236, null);
-  g.globalCompositeOperation = 'lighter';
-  for (let i = 0; i < 9; i++) drawGlow(g, 196 + i * 33 + (i % 2) * 6 + 3, 228, 26, '#ff9a40', 0.45 + Math.sin(RT * 8 + i) * 0.05);
-  drawGlow(g, TITLE_P._eyeX || 336, TITLE_P._eyeY || 214, 6, '#ffcf6b', 0.9);
-  g.globalCompositeOperation = 'source-over';
   for (const a of ash) {
     a.y += a.v * dtR; a.x += Math.sin(RT + a.ph) * 6 * dtR;
     if (a.y > H) { a.y = -4; a.x = Math.random() * W; }
@@ -230,28 +171,25 @@ function renderTitle(dtR) {
     g.fillRect(Math.round(a.x), Math.round(a.y), a.s, a.s);
   }
   g.globalAlpha = 1;
+  g.drawImage(IMG.logo, 26, 4);
   g.drawImage(VIGNETTE, 0, 0);
-  // menu hit boxes (low-res coords)
   G.hover = -1;
   if (Input.mouseSeen) {
-    for (let i = 0; i < VERSES.length; i++) { const bx = 40 + i * 26; if (Input.mx > bx - 10 && Input.mx < bx + 12 && Input.my > 208 && Input.my < 226) G.hover = i; }
+    for (let i = 0; i < VERSES.length; i++) { const bx = 40 + i * 26; if (Input.mx > bx - 10 && Input.mx < bx + 12 && Input.my > 214 && Input.my < 234) G.hover = i; }
   }
 }
 function titleText() {
   const a = clamp(G.titleT / 1.2, 0, 1);
-  txt('Hora', 40, 62, 46, F_TITLE, '#ead7b0', 'left', a, 'rgba(160,20,30,0.9)');
-  txt('Mortis', 60, 106, 46, F_TITLE, '#ead7b0', 'left', a, 'rgba(160,20,30,0.9)');
-  txt('nunc et in hora mortis nostrae', 44, 140, 10, F_FELL, '#b8956a', 'left', a * 0.9);
+  txt('nunc et in hora mortis nostrae', 40, 178, 10, F_FELL, '#b8956a', 'left', a * 0.9);
   const pulse = 0.65 + Math.sin(RT * 3) * 0.35;
-  txt(G.hover >= 0 ? `begin at verse ${ROMAN[G.hover]}` : 'click to begin', 42, 186, 13, F_FELLSC, '#f2d48f', 'left', a * pulse, 'rgba(255,140,60,0.6)');
+  txt(G.hover >= 0 ? `begin at verse ${ROMAN[G.hover]}` : 'click to begin', 40, 201, 13, F_FELLSC, '#f2d48f', 'left', a * pulse, 'rgba(255,140,60,0.6)');
   for (let i = 0; i < VERSES.length; i++) {
     const best = G.best['v' + i];
-    txt(ROMAN[i], 40 + i * 26, 217, 11, F_FELLSC, G.hover === i ? '#fff1c0' : best ? '#d9a441' : '#7d6a58', 'center', a);
+    txt(ROMAN[i], 40 + i * 26, 224, 11, F_FELLSC, G.hover === i ? '#fff1c0' : best ? '#d9a441' : '#7d6a58', 'center', a);
   }
-  txt('verses', 40 + VERSES.length * 26 + 2, 217, 8, F_FELL, '#6d5a4a', 'left', a);
-  txt('A D move   W leap   S roll   CLICK strike   SHIFT / RIGHT-CLICK chronos   E last rites   R retry   M mute', W / 2, 258, 5.5, F_PIX, '#8a7660', 'center', a * 0.9);
-  if (!Sound.ready) txt('sound begins on your first click', 44, 160, 7, F_FELL, '#6d5a4a', 'left', a * 0.8);
-  if (COARSE) txt('best played with a keyboard and mouse', 44, 170, 7, F_FELL, '#9a6a5a', 'left', a * 0.9);
+  txt('verses', 40 + VERSES.length * 26 + 2, 224, 8, F_FELL, '#6d5a4a', 'left', a);
+  if (!Sound.ready) txt('sound begins on your first click', 40, 242, 6.5, F_FELL, '#6d5a4a', 'left', a * 0.8);
+  txt('A D move   W leap   S roll   CLICK strike   SHIFT / RIGHT-CLICK chronos   E last rites   R retry   M mute', W / 2, 260, 5.5, F_PIX, '#8a7660', 'center', a * 0.9);
 }
 
 // ---------- overlays ----------
@@ -318,15 +256,30 @@ function draw(dtR) {
     return;
   }
   if (st === 'end') {
-    renderTitle(dtR);
-    g.fillStyle = 'rgba(4,2,5,0.7)'; g.fillRect(0, 0, W, H);
+    // the camera rises from the kneeling penitent to the shattered window at dawn
+    const im = IMG.ending;
+    const k = easeInOut(clamp(G.endT / 7, 0, 1));
+    const y = Math.round(-(1 - k) * (im.height - H));
+    g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+    g.drawImage(im, 0, y);
+    drawGlow(g, 305, 129 + y, 110, '#ffd890', 0.16 + Math.sin(RT * 0.7) * 0.05, true);
+    g.fillStyle = '#ffe8c0';
+    for (const m of motes) { g.globalAlpha = m.a * 0.8; g.fillRect(Math.round(m.x), Math.round(m.y), m.s, m.s); }
+    g.globalAlpha = 1;
+    g.drawImage(VIGNETTE, 0, 0);
+    const a = clamp((G.endT - 6.2) / 1.5, 0, 1);
+    if (a > 0) {
+      const gr = g.createLinearGradient(0, 0, 0, 120);
+      gr.addColorStop(0, `rgba(10,6,4,${0.6 * a})`); gr.addColorStop(1, 'rgba(10,6,4,0)');
+      g.fillStyle = gr; g.fillRect(0, 0, W, 120);
+      g.fillStyle = `rgba(6,3,5,${0.6 * a})`; g.fillRect(0, H - 34, W, 34);
+    }
     drawHUD(null); drawCursor('menu');
     present(0);
-    const a = clamp(G.endT / 1.5, 0, 1);
-    txt('Amen.', W / 2, 78, 44, F_TITLE, '#ead7b0', 'center', a, 'rgba(160,20,30,0.9)');
-    txt('nunc et in hora mortis nostrae', W / 2, 116, 12, F_FELL, '#b8956a', 'center', a);
-    txt(`five verses sung   ${fmtTime(G.totals.time)}   ${G.totals.kills} slain   ${G.totals.deaths} deaths`, W / 2, 150, 8, F_FELLSC, '#d9a441', 'center', a);
-    txt('click to return to the beginning', W / 2, 200, 9, F_FELLSC, '#f2d48f', 'center', a * (0.6 + Math.sin(RT * 3) * 0.4));
+    txt('Amen.', W / 2, 44, 40, F_TITLE, '#ead7b0', 'center', a, 'rgba(160,20,30,0.9)');
+    txt('nunc et in hora mortis nostrae', W / 2, 78, 11, F_FELL, '#f1e2c4', 'center', a);
+    txt(`five verses sung   ${fmtTime(G.totals.time)}   ${G.totals.kills} slain   ${G.totals.deaths} deaths`, W / 2, 96, 8, F_FELLSC, '#f2d48f', 'center', a);
+    txt('click to return to the beginning', W / 2, H - 16, 9, F_FELLSC, '#f2d48f', 'center', a * (0.6 + Math.sin(RT * 3) * 0.4));
     return;
   }
   if (st === 'rewind') {
@@ -342,13 +295,32 @@ function draw(dtR) {
   if (mode === 'replay') filmFilter(0.9);
   if (st === 'exit') { g.globalAlpha = clamp(G.exitT / 0.9, 0, 1); g.fillStyle = '#fff3d8'; g.fillRect(0, 0, W, H); g.globalAlpha = 1; }
   if (st === 'play' || st === 'dead') captureFrame();
+  if (st === 'intro') {
+    const k = G.introT, a = clamp((2.35 - k) / 0.55, 0, 1);
+    g.globalAlpha = a; g.fillStyle = '#040206'; g.fillRect(0, 0, W, H);
+    const im = IMG[INTRO_CARD[G.li]];
+    const x = Math.round(112 - im.width / 2), y = Math.round((H - im.height) / 2);
+    drawGlow(g, x + im.width / 2, y + im.height * 0.45, 120, '#ff9a50', 0.22, true);
+    g.drawImage(im, x, y);
+    g.globalAlpha = 1;
+  }
+  const statsA = st === 'stats' ? clamp(G.statsT / 0.4, 0, 1) : 0;
+  if (st === 'stats') { g.fillStyle = `rgba(6,3,5,${0.72 * statsA})`; g.fillRect(0, 0, W, H); }
+  if (st === 'paused') { g.fillStyle = 'rgba(4,2,5,0.7)'; g.fillRect(0, 0, W, H); }
   drawHUD(w, st === 'play' || st === 'paused' ? 'play' : 'none');
+  if (st === 'stats') {
+    hg.globalAlpha = statsA;
+    drawPanel(W / 2 - 140, 46, 280, 180);
+    hg.drawImage(IMG.ui_seal, Math.round(W / 2 - IMG.ui_seal.width / 2), 214);
+    hg.globalAlpha = 1;
+  }
+  if (st === 'paused') drawPanel(W / 2 - 148, 66, 296, 98);
   if (st === 'play' || st === 'paused' || st === 'intro') drawCursor('play');
   const ca = (st === 'play' || st === 'dead') ? Math.max(w.slowK * 0.9, w.flash, w.p.dead ? 0.7 : 0) : st === 'replay' ? 0.3 : 0;
   present(ca, st === 'play' || st === 'replay' ? w.zoom : 0);
   // ---- text layers ----
   const cx = w._cx, cy = w._cy;
-  if (st === 'play' || st === 'intro' || st === 'dead') {
+  if (st === 'play' || st === 'dead' || (st === 'intro' && G.introT > 2.2)) {
     for (const h of w.lvl.hints) {
       const sx = h.x - cx, sy = h.y - cy;
       if (sx < -260 || sx > W + 20 || sy < -10 || sy > H + 10) continue;
@@ -363,7 +335,7 @@ function draw(dtR) {
     const v = VERSES[G.li];
     txt(`${ROMAN[G.li]} · ${v.name}`, W - 10, 24, 8, F_FELLSC, '#b8956a', 'right', 0.75);
     txt(fmtTime(w.steps / 60), W - 10, 34, 6.5, F_PIX, '#8a7660', 'right', 0.7);
-    if (w.fervour >= 100 && !w.rite) txt('E  the last rites', 86, 21, 6, F_PIX, '#ff7a6a', 'left', 0.6 + Math.sin(RT * 6) * 0.4);
+    if (w.fervour >= 100 && !w.rite) txt('E  the last rites', 86, 32, 6, F_PIX, '#ff7a6a', 'left', 0.6 + Math.sin(RT * 6) * 0.4);
     if (w.rite && w.rite.phase === 'mark') {
       txt(w.rite.marks.length ? `${w.rite.marks.length} condemned · release E` : 'sweep the cursor across the condemned', W / 2, H - 14, 8, F_FELLSC, '#ff9a8a', 'center', 0.9);
     }
@@ -371,11 +343,9 @@ function draw(dtR) {
   }
   if (st === 'intro') {
     const k = G.introT, a = clamp(Math.min(k / 0.4, (2.6 - k) / 0.5), 0, 1);
-    ctx.fillStyle = `rgba(3,2,4,${clamp((2.3 - k) / 0.6, 0, 0.82)})`;
-    ctx.fillRect(0, 0, view.cw, view.ch);
-    txt(`Verse ${ROMAN[G.li]}`, W / 2, 98, 16, F_TITLE, '#c9a46a', 'center', a);
-    txt(VERSES[G.li].name, W / 2, 128, 22, F_FELLSC, '#ead7b0', 'center', a, 'rgba(150,20,30,0.8)');
-    txt(VERSES[G.li].latin, W / 2, 152, 9, F_FELL, '#9a7d5a', 'center', a * 0.9);
+    txt(`Verse ${ROMAN[G.li]}`, 330, 100, 16, F_TITLE, '#c9a46a', 'center', a);
+    txt(VERSES[G.li].name, 330, 130, 20, F_FELLSC, '#ead7b0', 'center', a, 'rgba(150,20,30,0.8)');
+    txt(VERSES[G.li].latin, 330, 154, 9, F_FELL, '#9a7d5a', 'center', a * 0.9);
   }
   if (st === 'dead') {
     const a = clamp(G.deadT / 0.25, 0, 1);
@@ -388,8 +358,7 @@ function draw(dtR) {
     if (st === 'replay') txt('click to continue   hold shift to hasten', W - 12, H - 12, 6, F_PIX, '#e8d6b0', 'right', 0.7);
   }
   if (st === 'stats') {
-    const a = clamp(G.statsT / 0.4, 0, 1), s = G.stats;
-    ctx.fillStyle = `rgba(6,3,5,${0.72 * a})`; ctx.fillRect(0, 0, view.cw, view.ch);
+    const a = statsA, s = G.stats;
     txt('So it was written.', W / 2, 74, 22, F_FELL, '#ead7b0', 'center', a, 'rgba(160,20,30,0.8)');
     txt(VERSES[G.li].name, W / 2, 100, 10, F_FELLSC, '#b8956a', 'center', a);
     const rows = [['time', fmtTime(s.time) + (s.record ? '   new best' : '')], ['slain', `${s.kills} of ${s.total}`], ['blood returned', String(s.deflects)], ['last rites', String(s.rites)], ['deaths', String(s.deaths)]];
@@ -397,10 +366,9 @@ function draw(dtR) {
       txt(k2, W / 2 - 8, 128 + i * 14, 8, F_FELLSC, '#9a7d5a', 'right', a);
       txt(v2, W / 2 + 8, 128 + i * 14, 8, F_PIX, i === 0 && s.record ? '#ffd27a' : '#ead7b0', 'left', a);
     });
-    txt(G.li + 1 < VERSES.length ? 'click for the next verse' : 'click to end the hour', W / 2, 212, 9, F_FELLSC, '#f2d48f', 'center', a * (0.6 + Math.sin(RT * 3) * 0.4));
+    txt(G.li + 1 < VERSES.length ? 'click for the next verse' : 'click to end the hour', W / 2, 250, 9, F_FELLSC, '#f2d48f', 'center', a * (0.6 + Math.sin(RT * 3) * 0.4));
   }
   if (st === 'paused') {
-    ctx.fillStyle = 'rgba(4,2,5,0.7)'; ctx.fillRect(0, 0, view.cw, view.ch);
     txt('Paused', W / 2, 100, 28, F_TITLE, '#ead7b0', 'center', 1, 'rgba(160,20,30,0.8)');
     txt('ESC  resume      R  restart verse      T  title      M  mute', W / 2, 140, 7, F_PIX, '#d9a441', 'center', 0.9);
   }
@@ -416,5 +384,7 @@ function boot(data) {
   window.claude?.hot?.snapshot?.(() => ({ li: G.li, state: G.state === 'title' ? 'title' : 'play' }));
   requestAnimationFrame((t) => { last = t; requestAnimationFrame(frame); });
 }
-window.__HM = { G, get world() { return world; }, startVerse, simStep, Input, LEVELS, levelArt };
-window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
+const assetsReady = loadAssets();
+window.__HM = { G, get world() { return world; }, startVerse, simStep, Input, LEVELS, levelArt, ready: assetsReady };
+const start = (data) => assetsReady.then(() => boot(data));
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});

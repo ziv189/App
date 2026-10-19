@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const dir = __dirname;
-const order = ['core.js', 'gfx.js', 'levels.js', 'sim.js', 'render.js', 'main.js'];
+const order = ['assets.js', 'core.js', 'gfx.js', 'levels.js', 'sim.js', 'render.js', 'main.js'];
 const bundle = order.map((f) => `// ---- ${f} ----\n` + fs.readFileSync(path.join(dir, 'src', f), 'utf8')).join('\n');
 const shell = fs.readFileSync(path.join(dir, 'src', 'shell.html'), 'utf8');
 const page = shell.replace('/*__BUNDLE__*/', () => bundle.replace(/<\/script/gi, '<\\/script'));

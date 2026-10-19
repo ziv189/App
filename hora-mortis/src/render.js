@@ -29,6 +29,26 @@ function resize() {
   view.ox = Math.round((view.cw - W * s) / 2); view.oy = Math.round((view.ch - H * s) / 2);
 }
 function blit(src, cx, cy) { g.drawImage(src, cx, cy, W, H, 0, 0, W, H); }
+function drawFar(art, lvl, th, cx, cy) {
+  const far = art.far, sky = th.sky;
+  const px = sky ? 0.12 : 0.3, py = sky ? 0.1 : 0.3;
+  const cyMax = Math.max(0, lvl.h * T - H);
+  const top = Math.round(-(cy * py) - (far.height - H - cyMax * py));
+  const fw = far.width;
+  for (let x = -Math.round((cx * px) % fw); x < W; x += fw) g.drawImage(far, x, top);
+}
+function drawDecor(art, cx, cy) {
+  for (const d of art.decor) {
+    const M = ASSET_META[d.name], drop = d.drop || 0;
+    const x = Math.round(d.x - M.w / 2 - cx);
+    const y = d.hang ? Math.round(d.y + drop - cy) : Math.round(d.y - M.h + 2 - cy);
+    d._vis = !(x > W || x + M.w < 0 || y > H || y + M.h < -drop);
+    if (!d._vis) continue;
+    if (d.hang && drop) drawChain(g, d.x - cx, d.y - cy, d.x - cx, d.y + drop - cy);
+    g.drawImage(shaded(d.name, '#b4a8b2'), x, y);
+    d._sx = x; d._sy = y;
+  }
+}
 
 // ---------- text on the hi-res display canvas ----------
 function txt(str, x, y, size, font, col, align = 'center', a = 1, glow = null, base = 'middle') {
@@ -58,16 +78,16 @@ function renderWorld(w, mode) {
   const ink = rite && rite.phase !== 'mark';
   g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
   g.fillStyle = th.deep; g.fillRect(0, 0, W, H);
-  if (art.sky) {
-    const sw = art.sky.width, sx = Math.floor((cx * 0.12) % sw), sy = Math.floor(clamp(cy * 0.1, 0, art.sky.height - H));
-    g.drawImage(art.sky, -sx, -sy); g.drawImage(art.sky, sw - sx, -sy);
-  }
-  blit(art.back, cx, cy);
-  g.globalCompositeOperation = 'lighter';
-  g.globalAlpha = 0.8 + Math.sin(RT * 0.6) * 0.14 + Math.sin(RT * 1.9) * 0.05;
-  blit(art.rays, cx, cy);
-  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
-  if (lvl.exit) drawDoor(g, lvl.exit.x - cx, lvl.exit.y - cy, easeOut(w.doorOpen), RT);
+  drawFar(art, lvl, th, cx, cy);
+  if (art.back) {
+    blit(art.back, cx, cy);
+    g.globalCompositeOperation = 'lighter';
+    g.globalAlpha = 0.8 + Math.sin(RT * 0.6) * 0.14 + Math.sin(RT * 1.9) * 0.05;
+    blit(art.rays, cx, cy);
+    g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+  } else blit(art.ao, cx, cy);
+  drawDecor(art, cx, cy);
+  if (lvl.exit) drawDoor(g, lvl.exit.x - cx, lvl.exit.y - cy, easeOut(w.doorOpen));
   for (const c of lvl.candles) {
     const x = c.x - cx, y = c.y - cy;
     if (x < -30 || x > W + 30 || y < -30 || y > H + 30) continue;
@@ -77,25 +97,19 @@ function renderWorld(w, mode) {
   blit(art.decal, cx, cy);
   // bells
   for (const b of w.bells) {
-    const ax = b.x - cx, ay = b.ay - cy;
-    const bx = ax + Math.sin(b.swing) * (b.y - b.ay), by = b.y - cy;
+    const ax = b.x - cx, ay = b.ay - cy, bx = b.x - cx, by = b.y - cy;
     g.fillStyle = '#2a2016'; g.fillRect(ax - 14, ay, 28, 4);
     drawChain(g, ax, ay + 4, bx, by);
-    const P = Pen.set(g, bx, by, 1);
-    const sw = Math.round(Math.sin(b.swing) * 3);
-    P.c('#4a3010').poly([-4 + sw, 0, 4 + sw, 0, 9, 16, 12, 24, -12, 24, -9, 16]);
-    P.c('#8a5e22').poly([-3 + sw, 1, 2 + sw, 1, 5, 16, 7, 22, -9, 22, -7, 15]);
-    P.c('#c8923a').rect(-5, 6, 2, 12).rect(-11, 21, 22, 2);
-    P.c('#e8c070').rect(-4, 7, 1, 8);
-    P.c('#2a1a08').rect(-1, 22, 3, 4);
-    if (b.rung > 0) drawGlow(g, bx, by + 14, 30 + b.rung * 30, '#ffd27a', b.rung * 0.8);
+    const im = IMG.bell;
+    g.save(); g.translate(Math.round(bx), Math.round(by)); g.rotate(b.swing); g.drawImage(im, -Math.round(im.width / 2), 0); g.restore();
+    if (b.rung > 0) drawGlow(g, bx, by + 24, 30 + b.rung * 30, '#ffd27a', b.rung * 0.8);
   }
   // chandeliers
   for (const c of w.chans) {
     const x = Math.round(c.x - cx), y = Math.round(c.y - cy);
-    if (c.state === 'hang') drawChain(g, c.ax - cx, c.ay - cy, x, y - 8);
+    if (c.state === 'hang') drawChain(g, c.ax - cx, c.ay - cy, x, y - CH_RING);
     else drawChain(g, c.ax - cx, c.ay - cy, c.ax - cx, c.ay - cy + 10);
-    drawChandelier(g, c, x, y, RT);
+    drawChandelier(g, c, x, y);
   }
   // corpses
   for (const gb of w.gibs) {
@@ -123,7 +137,11 @@ function renderWorld(w, mode) {
     drawEnemyBody(g, e, X, Y, null);
     if (e.stunT > 0) {
       g.fillStyle = PAL.goldHi;
-      for (let i = 0; i < 3; i++) { const a = RT * 6 + i * 2.1; g.fillRect(Math.round(X + Math.cos(a) * 7), Math.round(Y - e.h - 5 + Math.sin(a) * 2), 1, 1); }
+      for (let i = 0; i < 3; i++) { const a = RT * 6 + i * 2.1; g.fillRect(Math.round(X + Math.cos(a) * 7), Math.round(Y - EGEO[e.type].ay - 2 + Math.sin(a) * 2), 1, 1); }
+    }
+    if ((e.type === 'grunt' && e.state === 'strike') || (e.type === 'shield' && e.state === 'bash')) {
+      const k = clamp(e.st / (e.type === 'grunt' ? 0.12 : 0.17), 0, 1);
+      pcrescent(g, X + e.face * 9, Y - 13, 17, 7 * (1 - k) + 1, e.face > 0 ? 0.2 : Math.PI - 0.2, 1.15, ['#ffffff', '#ff6a5a', '#8a0e19']);
     }
   }
   // ---- colour grading (world only; the player & blood-bolts stay vivid) ----
@@ -240,7 +258,19 @@ function renderWorld(w, mode) {
       drawGlow(g, x, y - 10, 34, th.light, 0.5 + fl);
       drawGlow(g, x, y - 9, 10, '#ffe0a0', 0.5 + fl);
     }
-    for (const c of w.chans) drawGlow(g, c.x - cx, c.y - cy - 6, 52, '#ff9a40', c.state === 'down' ? 0.3 : 0.6);
+    const cm = ASSET_META.chandelier;
+    for (const c of w.chans) {
+      drawGlow(g, c.x - cx, c.y - cy - 10, 54, '#ff9a40', c.state === 'down' ? 0.3 : 0.55);
+      if (c._sx !== undefined) for (let i = 0; i < cm.flames.length; i++) drawGlow(g, c._sx + cm.flames[i][0], c._sy + cm.flames[i][1], 7, '#ffd27a', 0.45 + Math.sin(RT * 11 + i * 2) * 0.12);
+    }
+    for (const d of art.decor) {
+      const M = ASSET_META[d.name];
+      if (!d._vis || !M.flames || !M.flames.length || d.name.startsWith('statue')) continue;
+      for (let i = 0; i < M.flames.length; i++) drawGlow(g, d._sx + M.flames[i][0], d._sy + M.flames[i][1], 9, th.light, 0.4 + Math.sin(RT * 9 + i * 1.7 + d.x) * 0.1);
+      drawGlow(g, d._sx + M.w / 2, d._sy + M.h * 0.3, 30, th.light, 0.3);
+    }
+    if (lvl.exit && w.doorOpen < 1) drawGlow(g, lvl.exit.x - cx, lvl.exit.y - cy - 30, 14, '#ff2a2a', (1 - w.doorOpen) * (0.35 + Math.sin(RT * 3) * 0.15));
+    for (const e of w.enemies) if (e.alive && e.type === 'acolyte' && e.state !== 'aim') { const [hx, hy] = handPos(e); drawGlow(g, hx - cx, hy - cy, 6, '#ff3030', 0.35); }
     for (const b of w.bolts) drawGlow(g, b.x - cx, b.y - cy, b.owner === 'player' ? 12 : 10, b.owner === 'player' ? '#ffc14a' : '#ff2a2a', 0.85);
     for (const e of w.enemies) if (e.alive && e.state === 'aim') { const [hx, hy] = handPos(e); drawGlow(g, hx - cx, hy - cy, 8 + (e.st / e.aimDur) * 8, '#ff3030', 0.7); }
     if (!p.dead && p._eyeX !== undefined) drawGlow(g, p._eyeX + 1, p._eyeY, 6, '#ffcf6b', 0.8);
@@ -331,57 +361,36 @@ function present(ca, zoom = 0) {
 }
 
 // ---------- HUD (pixel art, low-res) ----------
-function hourglass(x, y, sand, flowing, locked) {
-  const G0 = locked ? '#5a1a1a' : '#a8752a', G1 = locked ? '#8a2a2a' : '#e8b85a';
-  hg.fillStyle = '#120c0a'; hg.fillRect(x - 1, y - 1, 13, 21);
-  hg.fillStyle = G0; hg.fillRect(x, y, 11, 2); hg.fillRect(x, y + 17, 11, 2);
-  hg.fillStyle = G1; hg.fillRect(x, y, 11, 1); hg.fillRect(x, y + 17, 11, 1);
-  hg.fillStyle = '#4a3020'; hg.fillRect(x, y + 2, 1, 15); hg.fillRect(x + 10, y + 2, 1, 15);
-  // glass
-  for (let i = 0; i < 7; i++) {
-    const wdt = Math.max(1, 7 - i);
-    hg.fillStyle = 'rgba(180,200,230,0.18)';
-    hg.fillRect(x + 5 - Math.floor(wdt / 2) - (wdt % 2 ? 0 : 0), y + 2 + i, wdt, 1);
-    hg.fillRect(x + 5 - Math.floor(wdt / 2), y + 16 - i, wdt, 1);
-  }
-  const top = Math.round(sand * 6), bot = Math.round((1 - sand) * 6);
-  hg.fillStyle = '#e6d2a0';
-  for (let i = 0; i < top; i++) { const row = 7 - 1 - i + 2, wdt = Math.max(1, 7 - (row - 2)); hg.fillRect(x + 5 - Math.floor(wdt / 2), y + row, wdt, 1); }
-  for (let i = 0; i < bot; i++) { const row = 16 - i, wdt = Math.max(1, 7 - (16 - row)); hg.fillRect(x + 5 - Math.floor(wdt / 2), y + row, wdt, 1); }
-  if (flowing && sand > 0) { hg.fillStyle = '#fff4d0'; hg.fillRect(x + 5, y + 8, 1, 9 - bot); }
-}
 function drawHUD(w, mode) {
   hg.clearRect(0, 0, W, H);
   if (!w || mode !== 'play') return;
-  const x = 7, y = 7;
-  hourglass(x, y, w.chronos, w.slowOn, w.chronosLock);
+  const x = 6, y = 5;
+  if (w.slowOn) drawGlow(hg, x + 6, y + 14, 16, '#ffd27a', 0.5);
+  hg.drawImage(IMG.ui_hourglass, x, y);
+  const bx = x + 17, by = y + 3;
   for (let i = 0; i < 11; i++) {
     const f = w.chronos * 11 > i + 0.02;
-    hg.fillStyle = '#120c0a'; hg.fillRect(x + 15 + i * 5, y + 1, 5, 9);
+    hg.fillStyle = '#120c0a'; hg.fillRect(bx + i * 5, by, 5, 9);
     hg.fillStyle = f ? (w.chronosLock ? '#6a1a1a' : w.slowOn ? '#fff4d0' : '#d9b46a') : '#2a1d1d';
-    hg.fillRect(x + 16 + i * 5, y + 2, 3, 7);
+    hg.fillRect(bx + 1 + i * 5, by + 1, 3, 7);
   }
-  // fervour (thorned)
-  const fx = x + 15, fy = y + 13, fw = 55;
+  // fervour, held in a frame of thorns
+  const fr = IMG.ui_frame, fx = x + 13, fy = y + 12;
+  const ix = fx + 9, iy = fy + 10, iw = fr.width - 18, ih = 6;
   const full = w.fervour >= 100;
-  hg.fillStyle = '#120a0c'; hg.fillRect(fx, fy, fw + 2, 6);
+  hg.fillStyle = '#120a0c'; hg.fillRect(ix, iy, iw, ih);
   hg.fillStyle = full ? (((RT * 6) | 0) % 2 ? '#ff4a3a' : '#d42a2a') : '#8a0e19';
-  hg.fillRect(fx + 1, fy + 1, Math.round((fw * w.fervour) / 100), 4);
-  hg.fillStyle = '#3a2418';
-  for (let i = 2; i < fw; i += 6) { hg.fillRect(fx + i, fy - 1, 1, 1); hg.fillRect(fx + i + 3, fy + 6, 1, 1); }
-  if (w.riteDeny > 0) { hg.fillStyle = `rgba(255,60,60,${w.riteDeny})`; hg.fillRect(fx - 1, fy - 1, fw + 4, 8); }
-  // the condemned (skulls)
-  const total = w.enemies.length;
-  for (let i = 0; i < total; i++) {
-    const e = w.enemies[i];
-    const sx = W - 12 - i * 8, sy = 9;
-    if (e.alive) {
-      hg.fillStyle = '#d4c4a0'; hg.fillRect(sx, sy, 5, 4); hg.fillRect(sx + 1, sy + 4, 3, 2);
-      hg.fillStyle = '#1a0e0e'; hg.fillRect(sx + 1, sy + 2, 1, 1); hg.fillRect(sx + 3, sy + 2, 1, 1);
-    } else {
-      hg.fillStyle = '#5a0a14'; hg.fillRect(sx, sy + 1, 5, 1); hg.fillRect(sx + 2, sy - 1, 1, 6);
-    }
+  hg.fillRect(ix, iy, Math.round((iw * w.fervour) / 100), ih);
+  if (full) drawGlow(hg, ix + iw / 2, iy + 3, 26, '#ff3a2a', 0.35 + Math.sin(RT * 6) * 0.15);
+  hg.drawImage(fr, fx, fy);
+  if (w.riteDeny > 0) { hg.fillStyle = `rgba(255,60,60,${w.riteDeny * 0.6})`; hg.fillRect(ix - 2, iy - 2, iw + 4, ih + 4); }
+  // the condemned
+  const sk = IMG.ui_skull;
+  for (let i = 0; i < w.enemies.length; i++) {
+    hg.globalAlpha = w.enemies[i].alive ? 1 : 0.22;
+    hg.drawImage(sk, W - 14 - i * 9, 6);
   }
+  hg.globalAlpha = 1;
   // door arrow
   const ex = w.lvl.exit;
   if (ex && w.doorOpen > 0.3 && !w.p.dead) {
@@ -400,15 +409,16 @@ function drawHUD(w, mode) {
 function drawCursor(mode) {
   const mx = Math.round(Input.mx), my = Math.round(Input.my);
   if (mx < 0 || my < 0 || mx > W || my > H) return;
-  const r = world && world.rite && world.rite.phase === 'mark';
-  if (r) {
-    hg.fillStyle = '#ff3a3a'; pring(hg, mx, my, 6 + Math.round(Math.sin(RT * 12)), 1);
-    hg.fillStyle = '#ffe0d0'; hg.fillRect(mx, my - 4, 1, 9); hg.fillRect(mx - 2, my - 2, 5, 1);
-    return;
-  }
-  hg.fillStyle = '#0a0608';
-  hg.fillRect(mx - 1, my - 6, 3, 13); hg.fillRect(mx - 6, my - 1, 13, 3);
-  hg.fillStyle = mode === 'play' ? '#f2d48f' : '#e8dcc0';
-  hg.fillRect(mx, my - 5, 1, 3); hg.fillRect(mx, my + 3, 1, 3); hg.fillRect(mx - 5, my, 3, 1); hg.fillRect(mx + 3, my, 3, 1);
-  hg.fillStyle = '#ff4a3a'; hg.fillRect(mx, my, 1, 1);
+  const rite = mode === 'play' && world && world.rite && world.rite.phase === 'mark';
+  if (rite) { hg.fillStyle = '#ff3a3a'; pring(hg, mx, my, 7 + Math.round(Math.sin(RT * 12)), 1); }
+  const im = rite ? tinted('ui_reticle', '#ff4a3a') : IMG.ui_reticle;
+  hg.drawImage(im, mx - (im.width >> 1), my - (im.height >> 1));
+}
+// gold-cornered frame for the stats and pause screens
+function drawPanel(x, y, w, h) {
+  const c = IMG.ui_corner;
+  hg.fillStyle = 'rgba(201,151,58,0.5)';
+  hg.fillRect(x + c.width, y + 1, w - c.width * 2, 1); hg.fillRect(x + c.width, y + h - 2, w - c.width * 2, 1);
+  const put = (px, py, sx, sy) => { hg.save(); hg.translate(px, py); hg.scale(sx, sy); hg.drawImage(c, 0, 0); hg.restore(); };
+  put(x, y, 1, 1); put(x + w, y, -1, 1); put(x, y + h, 1, -1); put(x + w, y + h, -1, -1);
 }

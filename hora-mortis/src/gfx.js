@@ -439,41 +439,135 @@ function buildRayLayer(lvl, windows, th) {
   return cv;
 }
 
-// sky (towers): parallax moon + spires
-function buildSky(th) {
-  const w = 960, h = 400;
+// ---------- generated art (src/assets.js) ----------
+const IMG = {};
+function loadAssets() {
+  const src = typeof ASSET_SRC === 'object' ? ASSET_SRC : {};
+  return Promise.all(Object.keys(src).map((k) => new Promise((res) => {
+    const im = new Image();
+    im.onload = () => { IMG[k] = im; res(); };
+    im.onerror = () => res();
+    im.src = src[k];
+  })));
+}
+const _tintCache = new Map();
+function tinted(name, col) { // flat silhouette in one colour
+  const key = name + col;
+  let c = _tintCache.get(key);
+  if (c) return c;
+  const im = IMG[name];
+  c = mkCanvas(im.width, im.height);
+  const x = c.getContext('2d');
+  x.drawImage(im, 0, 0);
+  x.globalCompositeOperation = 'source-in'; x.fillStyle = col; x.fillRect(0, 0, c.width, c.height);
+  _tintCache.set(key, c);
+  return c;
+}
+function shaded(name, mul) { // darkened copy, so set dressing sits behind the action
+  const key = name + '*' + mul;
+  let c = _tintCache.get(key);
+  if (c) return c;
+  const im = IMG[name];
+  c = mkCanvas(im.width, im.height);
+  const x = c.getContext('2d');
+  x.drawImage(im, 0, 0);
+  x.globalCompositeOperation = 'multiply'; x.fillStyle = mul; x.fillRect(0, 0, c.width, c.height);
+  x.globalCompositeOperation = 'destination-in'; x.drawImage(im, 0, 0);
+  _tintCache.set(key, c);
+  return c;
+}
+
+// far parallax layer: the verse's painting, mirrored so it tiles seamlessly
+function buildFar(th) {
+  const im = IMG['bg_' + th.name];
+  const w = im.width, h = im.height;
+  const c = mkCanvas(w * 2, h), x = c.getContext('2d');
+  x.drawImage(im, 0, 0);
+  x.save(); x.translate(w * 2, 0); x.scale(-1, 1); x.drawImage(im, 0, 0); x.restore();
+  x.globalCompositeOperation = 'multiply';
+  x.fillStyle = th.sky ? '#dcd8e8' : '#9a8ea2';
+  x.fillRect(0, 0, w * 2, h);
+  x.globalCompositeOperation = 'source-over';
+  const gr = x.createLinearGradient(0, 0, 0, h);
+  gr.addColorStop(0, 'rgba(6,4,8,0.5)'); gr.addColorStop(0.45, 'rgba(6,4,8,0.08)'); gr.addColorStop(1, 'rgba(6,4,8,0.35)');
+  x.fillStyle = gr; x.fillRect(0, 0, w * 2, h);
+  return c;
+}
+// soft shadow cast by the rock onto the far layer
+function buildAO(lvl) {
+  const w = lvl.w * T, h = lvl.h * T;
   const cv = mkCanvas(w, h), g = cv.getContext('2d');
-  const grd = g.createLinearGradient(0, 0, 0, h);
-  grd.addColorStop(0, '#0a0d1e'); grd.addColorStop(0.5, '#1f2a4e'); grd.addColorStop(0.8, '#4a2a44'); grd.addColorStop(1, '#7a3036');
-  g.fillStyle = grd; g.fillRect(0, 0, w, h);
-  for (let i = 0; i < 260; i++) { g.fillStyle = `rgba(230,235,255,${hash2(i, 1, 1) * 0.6})`; g.fillRect((hash2(i, 2, 1) * w) | 0, (hash2(i, 3, 1) * h * 0.6) | 0, 1, 1); }
-  // moon
-  const mx = 300, my = 96;
-  const halo = g.createRadialGradient(mx, my, 20, mx, my, 160);
-  halo.addColorStop(0, 'rgba(255,230,210,0.35)'); halo.addColorStop(1, 'rgba(255,200,180,0)');
-  g.fillStyle = halo; g.fillRect(mx - 170, my - 170, 340, 340);
-  g.fillStyle = '#efe2d0'; pcirc(g, mx, my, 44);
-  g.fillStyle = '#d8c6b2'; pcirc(g, mx - 12, my - 8, 9); pcirc(g, mx + 16, my + 12, 12); pcirc(g, mx + 5, my - 22, 5);
-  g.fillStyle = '#c9b39e'; pcirc(g, mx - 20, my + 20, 6);
-  // clouds
-  for (let i = 0; i < 26; i++) {
-    const cx = hash2(i, 4, 2) * w, cy = 60 + hash2(i, 5, 2) * 200, cw = 60 + hash2(i, 6, 2) * 140;
-    g.fillStyle = `rgba(${i % 3 ? '40,46,80' : '90,60,90'},${0.25 + hash2(i, 7, 2) * 0.3})`;
-    g.fillRect(cx, cy, cw, 2 + (i % 3)); g.fillRect(cx + 10, cy - 2, cw * 0.6, 2);
+  const img = g.createImageData(w, h), d = img.data;
+  const occ = new Float32Array(lvl.w * lvl.h);
+  for (let ty = 0; ty < lvl.h; ty++) for (let tx = 0; tx < lvl.w; tx++) {
+    let s = 0;
+    for (let oy = -2; oy <= 2; oy++) for (let ox = -2; ox <= 2; ox++) s += lvl.solidAt(tx + ox, ty + oy) ? 1 : 0;
+    occ[ty * lvl.w + tx] = s / 25;
   }
-  // spires
-  for (let layer = 0; layer < 2; layer++) {
-    g.fillStyle = layer ? '#0a0b14' : '#14152a';
-    for (let x = -20; x < w; x += 40 + ((hash2(x, layer, 3) * 60) | 0)) {
-      const bh = 60 + hash2(x, layer, 4) * (layer ? 120 : 170), bw = 14 + hash2(x, layer, 5) * 26;
-      const base = h - (layer ? 0 : 30);
-      g.fillRect(x, base - bh, bw, bh);
-      ppoly(g, [x - 2, base - bh, x + bw + 2, base - bh, x + bw / 2, base - bh - bw * 1.6]);
-      g.fillRect(x + bw / 2 - 0.5, base - bh - bw * 1.6 - 8, 1, 8);
-      if (!layer && hash2(x, 9, 9) < 0.5) { g.fillStyle = 'rgba(255,170,90,0.6)'; g.fillRect(x + bw / 2 - 1, base - bh + 10, 2, 4); g.fillStyle = '#14152a'; }
+  const o = (x, y) => occ[clamp(y, 0, lvl.h - 1) * lvl.w + clamp(x, 0, lvl.w - 1)];
+  for (let Y = 0; Y < h; Y++) {
+    const fy = Y / T - 0.5, y0 = Math.floor(fy), ay = fy - y0;
+    for (let X = 0; X < w; X++) {
+      const fx = X / T - 0.5, x0 = Math.floor(fx), ax = fx - x0;
+      const v = lerp(lerp(o(x0, y0), o(x0 + 1, y0), ax), lerp(o(x0, y0 + 1), o(x0 + 1, y0 + 1), ax), ay);
+      const i = (Y * w + X) * 4;
+      d[i] = 7; d[i + 1] = 5; d[i + 2] = 9; d[i + 3] = clamp((v * 1.4 - 0.1) * 255, 0, 230) | 0;
     }
   }
+  g.putImageData(img, 0, 0);
   return cv;
+}
+
+// set dressing: statues, ossuary heaps, organs on the floors; banners, cages and censers from the vaults
+const DECOR = {
+  ossuary: { floor: ['skullpile', 'statue_virgin', 'skullpile', 'candles', 'statue_penitent'], hang: ['cage', 'banner', 'cage'] },
+  nave: { floor: ['statue_virgin', 'candles', 'statue_angel', 'statue_penitent'], hang: ['banner', 'censer'] },
+  tower: { floor: ['candles'], hang: ['cage', 'censer'] },
+  choir: { floor: ['organ', 'statue_angel', 'candles', 'organ'], hang: ['banner', 'censer'] },
+  altar: { floor: ['statue_angel', 'candles', 'statue_virgin', 'skullpile'], hang: ['censer', 'banner'] },
+};
+function placeDecor(lvl, th) {
+  const set = DECOR[th.name], out = [];
+  if (!set) return out;
+  const keep = [[lvl.spawn.x, lvl.spawn.y]];
+  if (lvl.exit) keep.push([lvl.exit.x, lvl.exit.y]);
+  for (const c of lvl.candles) keep.push([c.x, c.y]);
+  const free = (x, y) => keep.every(([kx, ky]) => Math.abs(kx - x) > 40 || Math.abs(ky - y) > 40);
+  const open = (tx, ty) => lvl.tile(tx, ty) === 0;
+  const floors = [], ceils = [];
+  for (let ty = 1; ty < lvl.h; ty++) for (let tx = 2; tx < lvl.w - 2; tx++) {
+    if (lvl.tile(tx, ty) === 1 && lvl.tile(tx - 1, ty) === 1 && lvl.tile(tx + 1, ty) === 1 && open(tx - 1, ty - 1) && open(tx, ty - 1) && open(tx + 1, ty - 1)) {
+      let head = 0;
+      while (head < 9 && open(tx - 1, ty - 1 - head) && open(tx, ty - 1 - head) && open(tx + 1, ty - 1 - head)) head++;
+      floors.push({ x: tx * T + 8, y: ty * T, head });
+    }
+    if (lvl.tile(tx, ty - 1) === 1 && open(tx, ty)) {
+      let depth = 0;
+      while (depth < 9 && open(tx, ty + depth)) depth++;
+      if (depth >= 7) ceils.push({ x: tx * T + 8, y: ty * T });
+    }
+  }
+  const order = (a, b) => hash2(a.x, a.y, 7) - hash2(b.x, b.y, 7);
+  floors.sort(order); ceils.sort(order);
+  const maxFloor = Math.max(2, Math.round((lvl.w * T) / 220)), maxHang = Math.max(1, Math.round((lvl.w * T) / 300));
+  let k = 0, nf = 0, nh = 0;
+  for (const s of floors) {
+    if (nf >= maxFloor) break;
+    if (!free(s.x, s.y) || out.some((d) => !d.hang && Math.abs(d.x - s.x) < 130 && Math.abs(d.y - s.y) < 48)) continue;
+    let name = set.floor[k % set.floor.length];
+    if (Math.ceil(ASSET_META[name].h / T) + 1 > s.head) name = s.head >= 4 ? 'candles' : null;
+    if (!name) continue;
+    out.push({ name, x: s.x, y: s.y, hang: false }); k++; nf++;
+  }
+  let j = 0;
+  for (const s of ceils) {
+    if (nh >= maxHang) break;
+    if (out.some((d) => d.hang && Math.abs(d.x - s.x) < 170)) continue;
+    if (lvl.chandeliers.some((c) => Math.abs(c.x - s.x) < 56) || lvl.bells.some((b) => Math.abs(b.x - s.x) < 56)) continue;
+    const name = set.hang[j % set.hang.length];
+    out.push({ name, x: s.x, y: s.y, hang: true, drop: name === 'banner' ? 0 : 6 + ((hash2(s.x, 3, 9) * 22) | 0) }); j++; nh++;
+  }
+  return out;
 }
 
 // ---------- screen-space overlays ----------
@@ -512,10 +606,10 @@ function buildGrain(n = 4) {
 // ============================================================
 //  Characters (procedural pixel rigs)
 // ============================================================
-const PC = { // player colours
-  helm: '#46404e', helmHi: '#8d8798', helmLo: '#25212b', band: '#c9973a', eye: '#ffcf6b', eyeHi: '#fff6d0',
-  robe: '#2b1520', robeHi: '#4a2232', robeLo: '#160a10', trim: '#8f1d2c', arm: '#1d1117', leg: '#120a0e', boot: '#2a2228',
-  cape: '#9a1f30', capeLo: '#5a0f1a', blade: '#eef1f6', bladeLo: '#8f97a8', guard: '#d9a441', hilt: '#3b2418',
+const PC = { // player colours, after the design sheet: iron capirote, crown of thorns, crimson robes
+  helm: '#27252e', helmHi: '#625e6e', helmLo: '#121016', band: '#c9973a', bandHi: '#f6dc9a', gold: '#d9a441', eye: '#ffb347', eyeHi: '#fff1c0',
+  robe: '#7c1322', robeHi: '#a8222f', robeLo: '#430810', trim: '#2c0408', arm: '#1d1a22', leg: '#141218', boot: '#2a2630',
+  cape: '#b01c30', capeLo: '#6e0f1c', blade: '#eef1f6', bladeLo: '#8f97a8', guard: '#d9a441', hilt: '#3b2418',
 };
 function legPose(ph, amp) { return [Math.sin(ph) * amp, Math.max(0, Math.cos(ph)) * 1.3 * amp + 0.1]; }
 
@@ -554,14 +648,17 @@ function drawPlayerBody(g, pl, X, Y, tint, camx, camy) {
   P.c(PC.robeHi).rect(2 + lean, shY + 1, 1, 6);
   P.c(PC.trim).line(-6 - flare, hemY - 1 - flare * 0.6 + flut, -3, hemY + 1 + flut).line(-3, hemY + 1 + flut, 0, hemY).line(0, hemY, 3, hemY + 1).line(3, hemY + 1, 5, hemY - 1);
   P.c(PC.band).rect(-3 + Math.round(lean / 2), hipY - 1, 7, 1);
-  drawLeg(1, L1, '#1a1015', PC.boot);
-  // helm (curved capirote)
+  P.c(PC.gold).rect(1 + lean, shY + 2, 1, 4).rect(lean, shY + 3, 3, 1);
+  P.c(PC.gold).px(2, hipY + 1).px(2, hipY + 3).px(1, hipY + 5);
+  drawLeg(1, L1, '#1a161e', PC.boot);
+  // helm: tall iron capirote under a crown of thorns
   const hx = lean, hb = shY - 1;
-  const tilt = clamp(-pl.vx / 90, -2, 2) + (run ? -1 : 0);
-  P.c(PC.helm).poly([-3 + hx, hb, 4 + hx, hb, 4 + hx, hb - 5, 2 + hx + tilt * 0.3, hb - 10, -1 + hx + tilt * 0.7, hb - 14, -3 + hx + tilt, hb - 15, -2 + hx + tilt * 0.5, hb - 10, -3 + hx, hb - 5]);
-  P.c(PC.helmLo).poly([-3 + hx, hb, 0 + hx, hb, 0 + hx, hb - 7, -2 + hx + tilt * 0.5, hb - 10, -3 + hx, hb - 5]);
-  P.c(PC.helmHi).line(2 + hx, hb - 6, 1 + hx + Math.round(tilt * 0.4), hb - 10);
-  P.c(PC.band).rect(-3 + hx, hb - 5, 8, 1);
+  const tilt = clamp(-pl.vx / 120, -1.5, 1.5) + (run ? -0.5 : 0);
+  P.c(PC.helm).poly([-3 + hx, hb, 4 + hx, hb, 4 + hx, hb - 5, 1.5 + hx + tilt, hb - 19, 0.5 + hx + tilt, hb - 19, -3 + hx, hb - 5]);
+  P.c(PC.helmLo).poly([-3 + hx, hb, 0 + hx, hb, 0.5 + hx + tilt * 0.6, hb - 12, 0.5 + hx + tilt, hb - 19, -3 + hx, hb - 5]);
+  P.c(PC.helmHi).line(2 + hx, hb - 7, 1 + hx + Math.round(tilt * 0.7), hb - 15);
+  P.c(PC.band).rect(-4 + hx, hb - 6, 9, 1);
+  P.c(PC.bandHi).px(-3 + hx, hb - 7).px(-1 + hx, hb - 8).px(1 + hx, hb - 7).px(3 + hx, hb - 8).px(5 + hx, hb - 7);
   P.c('#0b0709').rect(1 + hx, hb - 3, 4, 2);
   P.c(PC.eye).rect(2 + hx, hb - 3, 3, 1);
   P.c(PC.eyeHi).rect(4 + hx, hb - 3, 1, 1);
@@ -611,164 +708,60 @@ function drawCape(g, pl, camx, camy, tint) {
   for (let i = 1; i < t.length - 1; i += 2) pline(g, t[i].x - camx, t[i].y - camy + 1, t[i + 1].x - camx, t[i + 1].y - camy + 1, 1);
 }
 
-// ---------- enemies ----------
-const EC = {
-  grunt: { robe: '#bdae8e', robeLo: '#857559', robeHi: '#ddd0b2', trim: '#8a1520', hood: '#a99a7a', skin: '#1a1012' },
-  acolyte: { robe: '#1c1824', robeLo: '#0e0c13', robeHi: '#352d42', trim: '#c9973a', hood: '#efe6d2', skin: '#c9b29a' },
-  priest: { robe: '#6e1220', robeLo: '#3e0810', robeHi: '#922234', trim: '#d9a441', hood: '#c4a88a', skin: '#c4a88a' },
-  shield: { robe: '#4a4e5a', robeLo: '#2a2d36', robeHi: '#7d8494', trim: '#c9973a', hood: '#5a606e', skin: '#1a1012' },
-};
+// ---------- enemies: sprites from the generated lineup (drawn facing left) ----------
+// (ax, ay): the feet, or the wall mount for the gargoyle. (ex, ey): where its blood-bolts leave.
+const EGEO = (() => {
+  const out = {};
+  for (const [type, name] of [['grunt', 'e_grunt'], ['acolyte', 'e_acolyte'], ['priest', 'e_priest'], ['shield', 'e_shield'], ['gargoyle', 'e_gargoyle']]) {
+    const M = ASSET_META[name];
+    let ax = Math.round(M.foot[0]), ay = M.foot[1] + 1;
+    let em = M.glow && M.glow.length ? M.glow[0] : [M.top[0], 12];
+    if (type === 'gargoyle') { ax = M.w - 8; ay = 28; }
+    if (type === 'priest') em = [M.top[0] + 1, 12];
+    out[type] = { name, ax, ay, ex: em[0], ey: em[1] };
+  }
+  return out;
+})();
 function drawEnemyBody(g, e, X, Y, tint) {
-  const f = e.face, P = Pen.set(g, X, Y, f, tint);
-  const C = EC[e.type] || EC.grunt;
-  const t = e.t;
-  const moving = Math.abs(e.vx) > 10 && e.onGround;
-  const ph = e.walkPh;
-  const bob = moving ? Math.round(Math.abs(Math.sin(ph)) * -1) : 0;
+  const G = EGEO[e.type];
   const flash = e.flash > 0 && ((e.flash * 30) | 0) % 2 === 0;
-  if (flash) P.tint = tint || '#fff6e0';
-  if (e.type === 'gargoyle') { drawGargoyle(g, e, X, Y, P); return; }
-  const hunch = e.type === 'grunt' ? 2 : e.type === 'priest' ? 1 : 0;
-  const shY = -18 + bob, hipY = -9 + bob;
-  // legs
-  if (e.type !== 'acolyte') {
-    const L1 = moving ? legPose(ph, 0.8) : [0.1, 0.1], L2 = moving ? legPose(ph + Math.PI, 0.8) : [-0.15, 0.1];
-    for (const [hx, L, col] of [[-1, L2, '#120c0e'], [1, L1, '#1c1418']]) {
-      const kx = hx + Math.sin(L[0]) * 4, ky = hipY + Math.cos(L[0]) * 4;
-      const s = L[0] - L[1], fx = kx + Math.sin(s) * 5, fy = Math.min(0, ky + Math.cos(s) * 5);
-      P.c(e.type === 'shield' ? '#3a3e48' : col).line(hx, hipY, kx, ky, 2).line(kx, ky, fx, fy, 2);
-    }
+  const src = tint ? tinted(G.name, tint) : flash ? tinted(G.name, '#fff6e0') : IMG[G.name];
+  if (!src) return;
+  let ox = 0, oy = 0, sx = 1, sy = 1;
+  if (e.type !== 'gargoyle') {
+    if (Math.abs(e.vx) > 10 && e.onGround) oy = -Math.round(Math.abs(Math.sin(e.walkPh)) * 1.6);
+    else if (Math.sin(e.t * 2.1) > 0.7) oy = -1;
+    if (e.state === 'windup') { const k = clamp(e.st / e.windDur, 0, 1); ox = -Math.round(k * 2); sx = 1 + 0.06 * k; sy = 1 - 0.08 * k; }
+    else if (e.state === 'strike' || e.state === 'bash') { ox = 2; sx = 1.12; sy = 0.94; }
+    if (e.stunT > 0) ox = Math.round(Math.sin(e.t * 18));
   }
-  if (e.type === 'grunt') {
-    // falchion behind when winding
-    const wind = e.state === 'windup' ? clamp(e.st / e.windDur, 0, 1) : 0;
-    const strike = e.state === 'strike' || e.state === 'recover';
-    let sa = strike ? 0.9 : wind > 0 ? -2.2 - wind * 0.4 : 0.9 + Math.sin(t * 2) * 0.05;
-    let hx = strike ? 6 : wind > 0 ? -2 : 5, hy = strike ? -10 : wind > 0 ? -22 : -9;
-    // robe
-    P.c(C.robe).poly([-4 + hunch, shY, 4 + hunch, shY, 6, -2, 3, -1, 0, -2, -3, -1, -6, -2]);
-    P.c(C.robeLo).poly([-4 + hunch, shY, -1 + hunch, shY, -2, -2, -3, -1, -6, -2]);
-    P.c(C.robeHi).rect(3 + hunch, shY + 1, 1, 5);
-    P.c(C.trim).rect(1 + hunch, shY + 2, 1, 6).rect(0 + hunch, shY + 4, 3, 1);
-    P.c('#4a3420').rect(-4, hipY - 1, 9, 1);
-    // hood
-    const hx0 = hunch + 1, hy0 = shY - 4;
-    P.c(C.hood).poly([-4 + hx0, hy0 + 5, 4 + hx0, hy0 + 5, 4 + hx0, hy0, 1 + hx0, hy0 - 4, -2 + hx0, hy0 - 6, -4 + hx0, hy0 - 2]);
-    P.c(C.robeLo).poly([-4 + hx0, hy0 + 5, -1 + hx0, hy0 + 5, -2 + hx0, hy0 - 2, -2 + hx0, hy0 - 6, -4 + hx0, hy0 - 2]);
-    P.c(C.skin).rect(1 + hx0, hy0, 3, 4);
-    if (e.alert > 0.5) P.c('#ff3a2a').px(2 + hx0, hy0 + 1).px(3 + hx0, hy0 + 1);
-    // arm + blade
-    const dx = Math.cos(sa), dy = Math.sin(sa);
-    P.c(C.robeLo).line(2 + hunch, shY + 2, hx, hy, 2);
-    P.c('#5e6470').line(hx + dx * 1, hy + dy * 1, hx + dx * 13, hy + dy * 13, 2);
-    P.c('#c3c8d2').line(hx + dx * 2, hy + dy * 2 - 1, hx + dx * 13, hy + dy * 13 - 1, 1);
-    P.c('#3b2418').line(hx - dx * 2, hy - dy * 2, hx, hy, 1);
-  } else if (e.type === 'acolyte') {
-    const aiming = e.state === 'aim';
-    P.c(C.robe).poly([-4, shY, 4, shY, 6, 0, -6, 0]);
-    P.c(C.robeLo).poly([-4, shY, -1, shY, -2, 0, -6, 0]);
-    P.c(C.trim).rect(1, shY + 1, 1, 17).rect(-6, -1, 12, 1);
-    P.c(C.robeHi).rect(3, shY + 2, 1, 8);
-    // face + mitre
-    P.c(C.skin).rect(-1, shY - 5, 4, 5);
-    P.c('#0d0a0c').rect(1, shY - 4, 2, 1);
-    if (e.alert > 0.5) P.c('#ff3a2a').px(2, shY - 4);
-    P.c(C.hood).poly([-3, shY - 5, 4, shY - 5, 3, shY - 11, 0, shY - 15, -2, shY - 11]);
-    P.c(C.trim).rect(-3, shY - 6, 7, 1).rect(0, shY - 13, 1, 7).rect(-1, shY - 10, 3, 1);
-    // arms / censer
-    if (aiming) {
-      const a = f > 0 ? e.aimAng : Math.PI - e.aimAng;
-      const hx = 2 + Math.cos(a) * 8, hy = shY + 4 + Math.sin(a) * 8;
-      P.c(C.robe).line(1, shY + 3, hx, hy, 2);
-      P.c(PAL.bloodHi).circ(hx + Math.cos(a) * 2, hy + Math.sin(a) * 2, 1 + Math.round(clamp(e.st / e.aimDur, 0, 1) * 1.5));
-    } else {
-      const sw = Math.sin(t * 2.4) * 0.5;
-      P.c(C.robe).line(1, shY + 3, 4, shY + 8, 2);
-      P.c('#8a8070').line(4, shY + 8, 4 + Math.sin(sw) * 7, shY + 8 + Math.cos(sw) * 7, 1);
-      P.c(PAL.goldLo).circ(4 + Math.sin(sw) * 8, shY + 9 + Math.cos(sw) * 8, 2);
-      P.c(PAL.bloodHi).px(4 + Math.sin(sw) * 8, shY + 9 + Math.cos(sw) * 8);
-    }
-  } else if (e.type === 'priest') {
-    const aiming = e.state === 'aim';
-    P.c(C.robe).poly([-5 + hunch, shY, 5 + hunch, shY, 8, -1, 4, 0, 0, -1, -4, 0, -8, -1]);
-    P.c(C.robeLo).poly([-5 + hunch, shY, -1 + hunch, shY, -2, -1, -4, 0, -8, -1]);
-    P.c(C.robeHi).rect(4 + hunch, shY + 1, 1, 6);
-    P.c(C.trim).rect(-7, -2, 15, 1).rect(1 + hunch, shY, 1, 3);
-    const hx0 = hunch;
-    P.c(C.skin).circ(1 + hx0, shY - 4, 3);
-    P.c('#1a0e10').rect(2 + hx0, shY - 5, 3, 2);
-    if (e.alert > 0.5) P.c('#ff3a2a').px(3 + hx0, shY - 5);
-    P.c('#2a1a14');
-    for (let i = 0; i < 7; i++) { const a = -Math.PI + i * (Math.PI / 6); P.px(1 + hx0 + Math.cos(a) * 4, shY - 5 + Math.sin(a) * 3.2); P.px(1 + hx0 + Math.cos(a) * 5, shY - 6 + Math.sin(a) * 3.5); }
-    // crozier staff
-    const a = aiming ? (f > 0 ? e.aimAng : Math.PI - e.aimAng) : -1.35;
-    const sx = 4 + hunch, sy = shY + 4;
-    const dx = Math.cos(a), dy = Math.sin(a);
-    P.c(C.robe).line(1 + hunch, shY + 2, sx, sy, 2);
-    P.c('#4a3020').line(sx - dx * 8, sy - dy * 8, sx + dx * 14, sy + dy * 14, 1);
-    P.c(PAL.gold).line(sx + dx * 14, sy + dy * 14, sx + dx * 14 + Math.cos(a + 1.6) * 3, sy + dy * 14 + Math.sin(a + 1.6) * 3, 1);
-    if (aiming) P.c(PAL.bloodHi).circ(sx + dx * 15, sy + dy * 15, 1 + Math.round(clamp(e.st / e.aimDur, 0, 1) * 2));
-  } else if (e.type === 'shield') {
-    const bash = e.state === 'bash' ? 3 : e.state === 'windup' ? -2 : 0;
-    // armoured body
-    P.c(C.robe).poly([-5, shY, 4, shY, 5, -6, -5, -6]);
-    P.c(C.robeLo).rect(-5, shY, 3, 12);
-    P.c(C.robeHi).rect(2, shY + 1, 1, 9).rect(-4, shY, 8, 1);
-    P.c('#5c3020').poly([-6, -6, 5, -6, 6, -1, -6, -1]);
-    // helm
-    P.c(C.hood).poly([-4, shY, 4, shY, 4, shY - 7, 0, shY - 9, -4, shY - 7]);
-    P.c(C.robeHi).rect(-3, shY - 8, 6, 1);
-    P.c('#0a0708').rect(0, shY - 5, 4, 1);
-    if (e.alert > 0.5) P.c('#ff3a2a').px(2, shY - 5).px(3, shY - 5);
-    P.c(PAL.blood).rect(-1, shY - 12, 2, 4);
-    // tower shield
-    const sx = 4 + bash;
-    P.c('#2a1c14').rect(sx, -26, 8, 25);
-    P.c('#4e3424').rect(sx + 1, -25, 6, 23);
-    P.c('#7d8494').rect(sx, -26, 8, 1).rect(sx, -2, 8, 1).rect(sx + 7, -26, 1, 25);
-    P.c(PAL.gold).rect(sx + 3, -20, 2, 12).rect(sx + 1, -16, 6, 2);
-    P.c(PAL.bloodHi).px(sx + 3, -15).px(sx + 4, -15);
+  g.save();
+  g.translate(Math.round(X + ox * e.face), Math.round(Y + oy));
+  g.scale(e.face > 0 ? -sx : sx, sy);
+  if (!tint) { // faint rim light so dark robes and stone read against dark walls
+    const rim = tinted(G.name, '#8a6470');
+    g.globalAlpha = 0.5;
+    g.drawImage(rim, -G.ax - 1, -G.ay); g.drawImage(rim, -G.ax + 1, -G.ay); g.drawImage(rim, -G.ax, -G.ay - 1);
+    g.globalAlpha = 1;
   }
-  // alert mark
-  if (e.reactT > 0 && e.alive) {
+  g.drawImage(src, -G.ax, -G.ay);
+  g.restore();
+  if (e.reactT > 0 && e.alive && !tint) {
     const k = 1 - e.reactT / e.reactDur;
-    P.tint = null;
     g.fillStyle = PAL.bloodHi;
-    const yy = Y - 36 - Math.round(k * 3);
+    const yy = Y - G.ay - 8 - Math.round(k * 3);
     g.fillRect(X - 1, yy, 2, 5); g.fillRect(X - 1, yy + 6, 2, 2);
   }
 }
-function drawGargoyle(g, e, X, Y, P) {
-  const charge = e.state === 'aim' ? clamp(e.st / e.aimDur, 0, 1) : 0;
-  P.c('#3a3644').poly([-8, -2, 6, -2, 9, -8, 7, -14, 0, -16, -6, -14, -8, -8]);
-  P.c('#24212c').poly([-8, -2, -2, -2, -3, -14, -6, -14, -8, -8]);
-  P.c('#5d5868').rect(0, -15, 6, 1).rect(5, -12, 2, 6);
-  P.c('#2a2632').poly([-4, -15, -6, -22, -1, -15]).poly([2, -15, 4, -21, 5, -14]);
-  P.c('#0b080c').rect(3, -7, 6, 3);
-  P.c(charge > 0 ? (charge > 0.7 ? '#fff0c0' : PAL.bloodHi) : '#5a1018').rect(4, -6, 4, 1);
-  P.c(charge > 0 ? PAL.bloodHi : '#7a1018').px(3, -11).px(6, -11);
-  P.c('#2a2632').rect(-9, -4, 3, 6);
-}
 
 // ---------- props ----------
-function drawChandelier(g, c, X, Y, t) {
-  // X,Y = centre of ring (screen)
-  g.fillStyle = '#2a2530';
-  pline(g, X - 18, Y, X + 18, Y, 2);
-  g.fillStyle = '#5a5262'; pline(g, X - 18, Y - 1, X + 18, Y - 1, 1);
-  g.fillStyle = '#2a2530'; pline(g, X - 14, Y + 4, X + 14, Y + 4, 1);
-  for (const k of [-18, -9, 0, 9, 18]) { g.fillStyle = '#2a2530'; pline(g, X + k * 0.75, Y + 4, X + k, Y, 1); }
-  g.fillStyle = '#3a3440'; pcirc(g, X, Y + 6, 2);
-  for (let i = 0; i < 5; i++) {
-    const cx = X - 16 + i * 8, h = 4 + ((i * 7) % 3);
-    g.fillStyle = PAL.bone; g.fillRect(cx, Y - h - 1, 2, h);
-    g.fillStyle = '#9a8a6a'; g.fillRect(cx + 1, Y - h - 1, 1, h);
-    if (!c.fallen) {
-      const fl = (Math.sin(t * 13 + i * 2.1) + Math.sin(t * 7.3 + i)) * 0.5;
-      g.fillStyle = PAL.flame; g.fillRect(cx, Y - h - 4, 2, 3);
-      g.fillStyle = PAL.flameHi; g.fillRect(cx + (fl > 0.3 ? 1 : 0), Y - h - 3 - (fl > 0 ? 1 : 0), 1, 2);
-    }
-  }
+const CH_RING = 42; // chandelier sprite: rows from its top down to the ring
+function drawChandelier(g, c, X, Y) {
+  const im = IMG.chandelier;
+  if (!im) return;
+  const top = c.state === 'down' ? Y + 7 - im.height + 6 : Y - CH_RING;
+  c._sx = Math.round(X - im.width / 2); c._sy = Math.round(top);
+  g.drawImage(im, c._sx, c._sy);
 }
 function drawChain(g, x0, y0, x1, y1) {
   const n = Math.max(1, Math.floor(dist(x0, y0, x1, y1) / 3));
@@ -788,25 +781,14 @@ function drawCandle(g, x, y, h, t, seed, lit = true) {
   g.fillStyle = PAL.flame; g.fillRect(x, y - h - 4 - (fl > 0.8 ? 1 : 0), 2, 3);
   g.fillStyle = PAL.flameHi; g.fillRect(x + (fl > 0 ? 1 : 0), y - h - 3, 1, 2);
 }
-function drawDoor(g, X, Y, open, t) {
-  // X,Y = bottom centre; 32 wide x 48 tall archway
-  const w = 28, h = 46;
-  g.fillStyle = '#0b090c'; ppoly(g, [X - w / 2 - 3, Y, X + w / 2 + 3, Y, X + w / 2 + 3, Y - h + 12, X, Y - h - 4, X - w / 2 - 3, Y - h + 12]);
-  g.fillStyle = '#4b4350'; ppoly(g, [X - w / 2 - 2, Y, X + w / 2 + 2, Y, X + w / 2 + 2, Y - h + 12, X, Y - h - 3, X - w / 2 - 2, Y - h + 12]);
+function drawDoor(g, X, Y, open) {
+  // X,Y = bottom centre of the doorway
+  const c = IMG.door_closed, o = IMG.door_open;
+  if (!c) return;
+  g.drawImage(c, Math.round(X - c.width / 2), Math.round(Y - c.height + 2));
   if (open > 0) {
-    const gr = g.createLinearGradient(0, Y - h, 0, Y);
-    gr.addColorStop(0, '#ffe7a8'); gr.addColorStop(1, '#ff9a3c');
-    g.fillStyle = gr;
-    ppoly(g, [X - w / 2, Y, X + w / 2, Y, X + w / 2, Y - h + 13, X, Y - h, X - w / 2, Y - h + 13]);
-    const dw = Math.round((w / 2) * (1 - open));
-    g.fillStyle = '#3a2416';
-    g.fillRect(X - w / 2, Y - h + 13, dw, h - 13); g.fillRect(X + w / 2 - dw, Y - h + 13, dw, h - 13);
-  } else {
-    g.fillStyle = '#3a2416'; ppoly(g, [X - w / 2, Y, X + w / 2, Y, X + w / 2, Y - h + 13, X, Y - h, X - w / 2, Y - h + 13]);
-    g.fillStyle = '#271810'; g.fillRect(X - 1, Y - h + 2, 2, h - 2);
-    g.fillStyle = '#5c5662'; g.fillRect(X - w / 2, Y - 34, w, 2); g.fillRect(X - w / 2, Y - 14, w, 2);
-    const p = 0.6 + Math.sin(t * 3) * 0.4;
-    g.fillStyle = `rgba(226,40,40,${0.5 + p * 0.5})`;
-    g.fillRect(X - 1, Y - 30, 2, 12); g.fillRect(X - 5, Y - 26, 10, 2);
+    g.globalAlpha = open;
+    g.drawImage(o, Math.round(X - o.width / 2), Math.round(Y - o.height + 2));
+    g.globalAlpha = 1;
   }
 }

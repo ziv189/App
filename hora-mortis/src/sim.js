@@ -8,14 +8,19 @@ const ART = [];
 function levelArt(li) {
   if (ART[li]) return ART[li];
   const lvl = LEVELS[li], th = lvl.theme;
-  const bw = buildBackWall(lvl, th);
-  if (th.sky) cutSkyHoles(bw.canvas, lvl);
-  ART[li] = {
-    tiles: buildTileLayer(lvl, th), back: bw.canvas, windows: bw.windows,
-    rays: buildRayLayer(lvl, bw.windows, th), fog: buildFog(th.fog), sky: th.sky ? buildSky(th) : null,
-    decal: mkCanvas(lvl.w * T, lvl.h * T),
+  const art = {
+    tiles: buildTileLayer(lvl, th), fog: buildFog(th.fog), decal: mkCanvas(lvl.w * T, lvl.h * T),
+    far: buildFar(th), decor: placeDecor(lvl, th),
   };
-  return ART[li];
+  if (th.sky) {
+    // the bell tower keeps its own stonework, with arches open to the night sky
+    const bw = buildBackWall(lvl, th);
+    cutSkyHoles(bw.canvas, lvl);
+    art.back = bw.canvas;
+    art.rays = buildRayLayer(lvl, bw.windows, th);
+  } else art.ao = buildAO(lvl);
+  ART[li] = art;
+  return art;
 }
 function cutSkyHoles(cv, lvl) {
   const g = cv.getContext('2d');
@@ -189,7 +194,7 @@ function afterimage(w, col, life = 0.28) { w.afters.push({ s: snapshot(w.p), lif
 
 // ---------- gibs: render the body, slice it along the blade ----------
 function spawnGibs(w, e, ang, killerIsPlayer) {
-  const cw = 48, ch = 52, fx = 24, fy = 48;
+  const cw = 72, ch = 72, fx = 36, fy = 68;
   const c = mkCanvas(cw, ch), cg = c.getContext('2d');
   const sf = e.flash, sr = e.reactT; e.flash = 0; e.reactT = 0;
   if (e.kind === 'player') { drawPlayerBody(cg, e, fx, fy, null); }
@@ -301,7 +306,7 @@ function strikeBell(w, b, dir) {
   if (b.cd > 0) return;
   b.cd = 3.5; b.sv += 2.6 * (dir || 1); b.rung = 1;
   Sound.play('toll'); Sound.play('stun');
-  const bx = b.x, by = b.y + 14;
+  const bx = b.x, by = b.y + 24;
   ring(w, bx, by, 320, 1.1, '#e8c070', 3); ring(w, bx, by, 220, 0.8, '#fff1c0', 1);
   w.shake = Math.max(w.shake, 10); w.flash = Math.max(w.flash, 0.4); w.hitstop = Math.max(w.hitstop, 6);
   for (const e of w.enemies) if (e.alive && dist(bx, by, e.x, e.y) < 330) { e.stunT = 2.4; e.state = 'stun'; e.alerted = true; e.reactT = 0; }
@@ -375,7 +380,7 @@ function attackHits(w) {
   }
   for (const b of w.bells) {
     if (p.hitSet.includes(b)) continue;
-    if (dist(ox, oy, b.x, b.y + 12) < 34) { p.hitSet.push(b); strikeBell(w, b, Math.cos(a) >= 0 ? 1 : -1); }
+    if (dist(ox, oy, b.x, b.y + 24) < 36) { p.hitSet.push(b); strikeBell(w, b, Math.cos(a) >= 0 ? 1 : -1); }
   }
 }
 function updateTail(p, dt) {
@@ -518,7 +523,7 @@ function enemyPhysics(w, e, dt) {
   e.onGround = moveY(w.lvl, e, e.vy * dt, prevB, false) > 0;
   if (Math.abs(e.vx) > 10) e.walkPh += dt * Math.abs(e.vx) * 0.1;
 }
-function handPos(e) { return [e.x + e.face * 7, e.y - (e.type === 'gargoyle' ? 6 : 15)]; }
+function handPos(e) { const G = EGEO[e.type]; return [e.x + e.face * (G.ax - G.ex), e.y + (G.ey - G.ay)]; }
 function aimAt(e, p) { const [hx, hy] = handPos(e); return Math.atan2(p.y - 11 - hy, p.x - hx); }
 function fireBolt(w, x, y, ang, spd, owner, life = 3) {
   w.bolts.push({ x, y, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd, owner, life, bounces: 0, pierce: false, perfect: false, trail: [], nm: false, dead: false });
@@ -696,7 +701,7 @@ function updateBolts(w, dt) {
           }
         }
         for (const c of w.chans) if (c.state === 'hang' && segPointDist(c.ax, c.ay, c.x, c.y, b.x, b.y) < 5) { dropChandelier(w, c); }
-        for (const bl of w.bells) if (dist(b.x, b.y, bl.x, bl.y + 12) < 14) { strikeBell(w, bl, sign(b.vx)); b.dead = true; }
+        for (const bl of w.bells) if (dist(b.x, b.y, bl.x, bl.y + 24) < 17) { strikeBell(w, bl, sign(b.vx)); b.dead = true; }
       }
     }
   }
