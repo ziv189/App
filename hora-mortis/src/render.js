@@ -187,8 +187,9 @@ function renderWorld(w, mode) {
   }
   g.globalAlpha = 1;
   if (!p.dead) {
-    drawCape(g, p, cx, cy, ink ? '#c0102a' : null);
-    drawPlayerBody(g, p, Math.round(p.x - cx), Math.round(p.y - cy), ink ? '#0a0608' : null);
+    const blink = p.invuln > 0 && !ink && ((RT * 18) | 0) % 2 === 0 ? '#fff1c0' : null;
+    drawCape(g, p, cx, cy, ink ? '#c0102a' : blink);
+    drawPlayerBody(g, p, Math.round(p.x - cx), Math.round(p.y - cy), ink ? '#0a0608' : blink);
     // amber eye trail (Katana-style streak in slow time)
     if (p._eyeX !== undefined) {
       eyeTrail.push(p._eyeX + cx, p._eyeY + cy);
@@ -367,6 +368,13 @@ function drawHUD(w, mode) {
   const x = 6, y = 5;
   if (w.slowOn) drawGlow(hg, x + 6, y + 14, 16, '#ffd27a', 0.5);
   hg.drawImage(IMG.ui_hourglass, x, y);
+  if (w.diff.ward) { // the ward: a small gold cross while it holds
+    const wx = x + 3, wy = y + 31, held = w.p.ward > 0;
+    hg.globalAlpha = held ? 1 : 0.3;
+    hg.fillStyle = '#0b080e'; hg.fillRect(wx + 1, wy - 1, 4, 11); hg.fillRect(wx - 1, wy + 1, 8, 4);
+    hg.fillStyle = held ? '#f2d48f' : '#6a5a40'; hg.fillRect(wx + 2, wy, 2, 9); hg.fillRect(wx, wy + 2, 6, 2);
+    hg.globalAlpha = 1;
+  }
   const bx = x + 17, by = y + 3;
   for (let i = 0; i < 11; i++) {
     const f = w.chronos * 11 > i + 0.02;

@@ -85,6 +85,21 @@ function rayLen(lvl, x0, y0, a, max) {
   return max;
 }
 const boxOf = (e) => [e.x - e.w / 2, e.y - e.h, e.w, e.h];
+// What the player's blade and returned bolts can hit: sized to the sprites, a little larger than the physics box.
+const HURT = { grunt: [18, 31], acolyte: [16, 34], priest: [18, 34], shield: [24, 32], gargoyle: [20, 24] };
+function hurtBox(e) {
+  const [hw, hh] = HURT[e.type] || [e.w, e.h];
+  if (e.type === 'gargoyle') return [e.x - hw / 2 + e.face * 3, e.y - 22, hw, hh];
+  return [e.x - hw / 2, e.y - hh, hw, hh];
+}
+
+// Pilgrim: slower foes, one ward per life, and the verse remembers your progress.
+// Penitent: the original hour, where one blow ends it.
+const DIFF = {
+  pilgrim: { react: [0.5, 0.72], aim: 1.35, bolt: 0.78, wind: 1.5, chase: 0.85, ward: 1, sight: 220, call: 130, spread: [-0.26, 0, 0.26] },
+  penitent: { react: [0.3, 0.46], aim: 1, bolt: 1, wind: 1, chase: 1, ward: 0, sight: 250, call: 170, spread: [-0.3, -0.15, 0, 0.15, 0.3] },
+};
+let MODE = 'pilgrim';
 const overlap = (ax, ay, aw, ah, bx, by, bw, bh) => ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by;
 function segPointDist(ax, ay, bx, by, px, py) {
   const dx = bx - ax, dy = by - ay, l2 = dx * dx + dy * dy;
@@ -142,7 +157,7 @@ function newWorld(li, seed) {
   art.decal.getContext('2d').clearRect(0, 0, art.decal.width, art.decal.height);
   const p = makePlayer(lvl.spawn.x, lvl.spawn.y);
   const w = {
-    li, lvl, art, seed, t: 0, steps: 0, p,
+    li, lvl, art, seed, t: 0, steps: 0, p, diff: DIFF[MODE],
     enemies: lvl.ents.map((en) => makeEnemy(en, lvl)), bolts: [], parts: [], gibs: [], slashes: [], afters: [], rings: [],
     chans: lvl.chandeliers.map((c) => makeChandelier(c, lvl)), bells: lvl.bells.map((b) => makeBell(b, lvl)),
     cam: { x: 0, y: 0 }, shake: 0, hitstop: 0, ts: 1, tsS: 1, slowOn: false, slowK: 0, chronos: 1, chronosLock: false, chronosIdle: 0,
@@ -151,10 +166,26 @@ function newWorld(li, seed) {
     dg: art.decal.getContext('2d'), aimPX: lvl.spawn.x, aimPY: lvl.spawn.y, multiT: 0, multiN: 0, total: 0, dyingT: 0,
   };
   w.total = w.enemies.length;
+  p.ward = w.diff.ward;
   w.cam.x = clamp(p.x - W / 2, 0, lvl.w * T - W);
   w.cam.y = clamp(p.y - 26 - H / 2, 0, lvl.h * T - H);
   world = w;
   return w;
+}
+
+// Pilgrim checkpoints: put a fresh world into a remembered state.
+function applyCheckpoint(w, ck) {
+  if (!ck) return;
+  for (const i of ck.dead) if (w.enemies[i]) w.enemies[i].alive = false;
+  for (const c of ck.chans) { const ch = w.chans[c.i]; if (ch) { ch.state = 'down'; ch.x = c.x; ch.y = c.y; } }
+  const p = w.p;
+  p.x = ck.x; p.y = ck.y; p.face = ck.face;
+  for (const q of p.tail) { q.x = p.x - p.face * 3; q.y = p.y - 18; q.vx = q.vy = 0; }
+  w.fervour = ck.fervour;
+  w.kills = ck.kills; w.deflects = ck.deflects; w.rites = ck.rites;
+  if (w.enemies.every((e) => !e.alive)) { w.clearT = 1; w.doorOpen = 1; }
+  w.cam.x = clamp(p.x - W / 2, 0, w.lvl.w * T - W);
+  w.cam.y = clamp(p.y - 26 - H / 2, 0, w.lvl.h * T - H);
 }
 
 // ---------- particles / effects ----------
@@ -257,6 +288,19 @@ function onCleared(w) {
 function killPlayer(w, cause, ang) {
   const p = w.p;
   if (p.dead || w.rite || p.invuln > 0 || w.exited) return;
+  if (p.ward > 0) { // the ward takes the blow instead
+    p.ward--;
+    p.invuln = 1.2;
+    p.vx = Math.cos(ang) * 210; p.vy = Math.min(-160, Math.sin(ang) * 200 - 120);
+    p.onGround = false; p.rollT = 0; p.h = 22;
+    for (const b of w.bolts) if (b.owner === 'enemy' && dist(b.x, b.y, p.x, p.y - 12) < 60) b.dead = true;
+    sparks(w, p.x, p.y - 14, ang + Math.PI, 26, 300, '#ffe2a0');
+    ring(w, p.x, p.y - 12, 46, 0.5, '#fff1c0', 2);
+    w.shake = Math.max(w.shake, 9); w.hitstop = Math.max(w.hitstop, 6); w.flash = Math.max(w.flash, 0.35); w.killCam = Math.max(w.killCam, 0.5);
+    floatText(w, p.x, p.y - 38, 'the ward shatters', '#fff1c0');
+    Sound.play('deflect', true); Sound.play('block');
+    return;
+  }
   p.dead = true;
   spawnGibs(w, p, ang, true);
   bloodBurst(w, p.x, p.y - 12, ang, 60, 360);
@@ -316,7 +360,7 @@ function strikeBell(w, b, dir) {
 }
 
 // ---------- player ----------
-const PH = { run: 168, jumpV: 382, grav: 1200, wjx: 220, wjy: 355, slide: 78, fall: 470, lunge: 255, rollT: 0.34 };
+const PH = { run: 168, jumpV: 392, grav: 1200, wjx: 220, wjy: 355, slide: 78, fall: 470, lunge: 255, rollT: 0.34 };
 function canStand(lvl, p) { return !rectSolid(lvl, p.x - p.w / 2, p.y - 22, p.x + p.w / 2, p.y); }
 function onOneWay(lvl, p) {
   const ty = Math.floor((p.y + 1) / T);
@@ -328,11 +372,36 @@ function touchWall(lvl, p, dir) {
   const tx = Math.floor(x / T);
   return lvl.solidAt(tx, Math.floor((p.y - p.h + 3) / T)) && lvl.solidAt(tx, Math.floor((p.y - 4) / T));
 }
+// Soft lock: a swing snaps to a foe within reach, and to one touching you even if he is behind your back.
+function lockTarget(w, ang0) {
+  const p = w.p, ox = p.x, oy = p.y - 12;
+  for (const b of w.bolts) if (b.owner === 'enemy' && dist(b.x, b.y, ox, oy) < 50) return null; // keep an aimed deflection
+  let best = null, bestScore = 1e9;
+  for (const e of w.enemies) {
+    if (!e.alive) continue;
+    const [hx, hy, hw, hh] = hurtBox(e);
+    const d = dist(ox, oy, clamp(ox, hx, hx + hw), clamp(oy, hy, hy + hh));
+    if (d > 44) continue;
+    const tx = hx + hw / 2, ty = hy + hh / 2;
+    const ea = Math.atan2(ty - oy, tx - ox), off = Math.abs(angDiff(ang0, ea));
+    if (d > 20 && off > 1.2) continue;
+    if (!los(w.lvl, ox, oy, tx, ty)) continue;
+    const score = d + off * 16;
+    if (score < bestScore) { bestScore = score; best = ea; }
+  }
+  if (best === null) return null;
+  const ax = ox + Math.cos(ang0) * 20, ay = oy + Math.sin(ang0) * 20; // a swing at a chain or the bell keeps its aim
+  for (const c of w.chans) if (c.state === 'hang' && segPointDist(c.ax, c.ay, c.x, c.y, ax, ay) < 16) return null;
+  for (const b of w.bells) if (dist(ax, ay, b.x, b.y + 24) < 24) return null;
+  return best;
+}
 function startAttack(w, inp) {
   const p = w.p, lvl = w.lvl;
   if (p.rollT > 0) { if (canStand(lvl, p)) { p.rollT = 0; p.h = 22; } else return false; }
   const ox = p.x, oy = p.y - 12;
-  const ang = Math.atan2(inp.ay - oy, inp.ax - ox);
+  let ang = Math.atan2(inp.ay - oy, inp.ax - ox);
+  const lock = lockTarget(w, ang);
+  if (lock !== null) ang = lock;
   p.atkAng = ang; p.atkT = p.atkDur = 0.16; p.atkCD = 0.3; p.atkSide = -p.atkSide;
   p.face = Math.cos(ang) >= 0 ? 1 : -1;
   let L = PH.lunge;
@@ -356,12 +425,12 @@ function attackHits(w) {
   const p = w.p, ox = p.x, oy = p.y - 12, a = p.atkAng;
   for (const e of w.enemies) {
     if (!e.alive || p.hitSet.includes(e)) continue;
-    const [bx, by, bw, bh] = boxOf(e);
+    const [bx, by, bw, bh] = hurtBox(e);
     const cx = clamp(ox, bx, bx + bw), cy = clamp(oy, by, by + bh);
     const d = dist(ox, oy, cx, cy);
-    if (d > 31) continue;
-    const ea = Math.atan2(by + bh / 2 - oy, e.x - ox);
-    if (d > 9 && Math.abs(angDiff(a, ea)) > 1.4) continue;
+    if (d > 33) continue;
+    const ea = Math.atan2(by + bh / 2 - oy, bx + bw / 2 - ox);
+    if (d > 16 && Math.abs(angDiff(a, ea)) > 1.45) continue;
     p.hitSet.push(e);
     if (shieldBlocks(e, ox, oy)) { blockHit(w, e, a); continue; }
     killEnemy(w, e, a, 'slash');
@@ -369,8 +438,8 @@ function attackHits(w) {
   for (const b of w.bolts) {
     if (b.owner !== 'enemy' || b.dead) continue;
     const d = dist(ox, oy, b.x, b.y);
-    if (d > 40) continue;
-    if (d > 14 && Math.abs(angDiff(a, Math.atan2(b.y - oy, b.x - ox))) > 1.75) continue;
+    if (d > 46) continue;
+    if (d > 20 && Math.abs(angDiff(a, Math.atan2(b.y - oy, b.x - ox))) > 1.9) continue;
     deflect(w, b, a);
   }
   for (const c of w.chans) {
@@ -404,7 +473,7 @@ function updatePlayer(w, inp, dt) {
   const down = inp.down;
   const ix = ((down & B.R) ? 1 : 0) - ((down & B.L) ? 1 : 0);
   p.atkCD -= dt; p.rollCD -= dt; p.landT = Math.max(0, p.landT - dt); p.invuln -= dt; p.dropT -= dt;
-  if (p.onGround) { p.coyT = 0.09; p.airLunges = 0; } else p.coyT -= dt;
+  if (p.onGround) { p.coyT = 0.11; p.airLunges = 0; } else p.coyT -= dt;
 
   // attack (buffered in real time)
   if (p.atkBuf > 0 && p.atkCD <= 0) { if (startAttack(w, inp)) p.atkBuf = 0; }
@@ -499,15 +568,16 @@ function canSee(w, e, p) {
   if (ad > range || Math.abs(dy) > 150) return false;
   if (e.type === 'gargoyle' && dx * e.face < 0) return false;
   if (!e.alerted && dx * e.face < 0 && ad > 36) return false;
-  if (!e.alerted && ad > 250) return false;
+  if (!e.alerted && ad > w.diff.sight) return false;
   return los(w.lvl, ex, ey, px, py);
 }
 function alertEnemy(w, e) {
   if (e.alerted) return;
   e.alerted = true;
-  e.reactT = e.reactDur = e.type === 'gargoyle' ? 0.5 : rnd(0.3, 0.46);
+  const D = w.diff;
+  e.reactT = e.reactDur = e.type === 'gargoyle' ? 0.5 * D.aim : rnd(D.react[0], D.react[1]);
   Sound.play('alert');
-  for (const o of w.enemies) if (o !== e && o.alive && !o.alerted && o.pendAlert <= 0 && dist(o.x, o.y, e.x, e.y) < 170) o.pendAlert = 0.35;
+  for (const o of w.enemies) if (o !== e && o.alive && !o.alerted && o.pendAlert <= 0 && dist(o.x, o.y, e.x, e.y) < D.call) o.pendAlert = 0.35;
 }
 function ledgeAhead(w, e) {
   const fx = e.x + e.face * (e.w / 2 + 3);
@@ -531,10 +601,10 @@ function fireBolt(w, x, y, ang, spd, owner, life = 3) {
 function enemyFire(w, e) {
   const [hx, hy] = handPos(e);
   if (e.type === 'priest') {
-    for (const o of [-0.3, -0.15, 0, 0.15, 0.3]) fireBolt(w, hx, hy, e.aimAng + o, 255, 'enemy', 0.85);
+    for (const o of w.diff.spread) fireBolt(w, hx, hy, e.aimAng + o, 255 * w.diff.bolt, 'enemy', 0.85 / w.diff.bolt);
     Sound.play('shotgun');
   } else {
-    fireBolt(w, hx, hy, e.aimAng, e.type === 'gargoyle' ? 300 : 335, 'enemy');
+    fireBolt(w, hx, hy, e.aimAng, (e.type === 'gargoyle' ? 300 : 335) * w.diff.bolt, 'enemy');
     Sound.play('bolt');
   }
   sparks(w, hx, hy, e.aimAng, 8, 160, '#ff5a4a', 0.5);
@@ -566,14 +636,14 @@ function updateEnemies(w, dt) {
       enemyPhysics(w, e, dt);
       continue;
     }
-    const dx = p.x - e.x, dy = p.y - e.y, ad = Math.abs(dx);
+    const dx = p.x - e.x, dy = p.y - e.y, ad = Math.abs(dx), D = w.diff;
     switch (e.type) {
       case 'grunt': {
         if (e.state === 'idle' || e.state === 'chase') {
           e.state = 'chase'; e.face = sign(dx) || e.face;
-          if (ad < 30 && Math.abs(dy) < 30) { e.state = 'windup'; e.st = 0; e.windDur = 0.27; e.flash = 0.27; Sound.play('windup'); }
+          if (ad < 30 && Math.abs(dy) < 30) { e.state = 'windup'; e.st = 0; e.windDur = 0.27 * D.wind; e.flash = e.windDur; Sound.play('windup'); }
           else {
-            let tg = e.face * 122;
+            let tg = e.face * 122 * D.chase;
             if ((e.onGround && ledgeAhead(w, e) && dy < 10) || wallAhead(w, e)) tg = 0;
             e.vx = approach(e.vx, tg, 900 * dt);
           }
@@ -595,7 +665,7 @@ function updateEnemies(w, dt) {
         if (e.state === 'idle' || e.state === 'chase' || e.state === 'stun') {
           e.state = 'chase'; e.face = sign(dx) || e.face;
           let tg = 0;
-          if (sees && ad < (isP ? 210 : 330)) { e.state = 'aim'; e.st = 0; e.aimDur = isP ? 0.72 : 0.6; e.aimAng = aimAt(e, p); e.lostT = 0; }
+          if (sees && ad < (isP ? 210 : 330)) { e.state = 'aim'; e.st = 0; e.aimDur = (isP ? 0.72 : 0.6) * D.aim; e.aimAng = aimAt(e, p); e.lostT = 0; }
           else if (ad > (isP ? 110 : 150)) tg = e.face * (isP ? 75 : 62);
           if (ad < 56 && !isP) { e.face = sign(dx) || e.face; tg = -e.face * 85; }
           const f0 = e.face; e.face = sign(tg) || e.face;
@@ -612,7 +682,7 @@ function updateEnemies(w, dt) {
           if (e.state === 'aim' && e.st >= e.aimDur) { enemyFire(w, e); e.state = 'cool'; e.st = 0; }
         } else if (e.state === 'cool') {
           e.st += dt; e.vx = approach(e.vx, 0, 600 * dt);
-          if (e.st > (isP ? 1.45 : 0.95)) e.state = 'chase';
+          if (e.st > (isP ? 1.45 : 0.95) * D.aim) e.state = 'chase';
         }
         break;
       }
@@ -621,10 +691,10 @@ function updateEnemies(w, dt) {
         if (e.state === 'idle' || e.state === 'chase' || e.state === 'stun') {
           e.state = 'chase';
           if (sign(dx) !== e.face && ad > 4) { e.turnT += dt; if (e.turnT > 0.38) { e.face = -e.face; e.turnT = 0; } } else e.turnT = 0;
-          let tg = sign(dx) === e.face && ad > 28 ? e.face * 58 : 0;
+          let tg = sign(dx) === e.face && ad > 28 ? e.face * 58 * D.chase : 0;
           if (tg && ((e.onGround && ledgeAhead(w, e) && dy < 10) || wallAhead(w, e))) tg = 0;
           e.vx = approach(e.vx, tg, 500 * dt);
-          if (ad < 38 && Math.abs(dy) < 26 && sign(dx) === e.face) { e.state = 'windup'; e.st = 0; e.windDur = 0.4; e.flash = 0.4; Sound.play('windup'); }
+          if (ad < 38 && Math.abs(dy) < 26 && sign(dx) === e.face) { e.state = 'windup'; e.st = 0; e.windDur = 0.4 * D.wind; e.flash = e.windDur; Sound.play('windup'); }
         } else if (e.state === 'windup') {
           e.st += dt; e.vx = approach(e.vx, 0, 800 * dt);
           if (e.st >= e.windDur) { e.state = 'bash'; e.st = 0; e.vx = e.face * 245; Sound.play('swing'); }
@@ -639,12 +709,12 @@ function updateEnemies(w, dt) {
         break;
       }
       case 'gargoyle': {
-        if (e.state === 'idle' || e.state === 'chase' || e.state === 'stun') { e.state = 'chase'; if (sees) { e.state = 'aim'; e.st = 0; e.aimDur = 0.8; } }
+        if (e.state === 'idle' || e.state === 'chase' || e.state === 'stun') { e.state = 'chase'; if (sees) { e.state = 'aim'; e.st = 0; e.aimDur = 0.8 * D.aim; } }
         else if (e.state === 'aim') {
           e.st += dt;
           if (e.st < e.aimDur - 0.18) e.aimAng = aimAt(e, p);
           if (e.st >= e.aimDur) { enemyFire(w, e); e.state = 'cool'; e.st = 0; }
-        } else if (e.state === 'cool') { e.st += dt; if (e.st > 1.5) e.state = 'chase'; }
+        } else if (e.state === 'cool') { e.st += dt; if (e.st > 1.5 * D.aim) e.state = 'chase'; }
         break;
       }
     }
@@ -691,7 +761,7 @@ function updateBolts(w, dt) {
       } else {
         for (const e of w.enemies) {
           if (!e.alive) continue;
-          const [ex, ey, ew, eh] = boxOf(e);
+          const [ex, ey, ew, eh] = hurtBox(e);
           if (b.x > ex && b.x < ex + ew && b.y > ey && b.y < ey + eh) {
             if (e.type === 'shield' && e.stunT <= 0 && b.vx * e.face < 0) {
               b.dead = true; sparks(w, b.x, b.y, Math.atan2(-b.vy, -b.vx), 12, 200); Sound.play('block'); break;
@@ -757,7 +827,7 @@ function updateGibs(w, dt) {
     const spd = Math.hypot(g.vx, g.vy);
     if (g.bleed > 0) { g.bleed -= dt; if (R() < 0.7 && spd > 20) part(w, g.x, g.y, g.vx * 0.2 + rnd(-20, 20), g.vy * 0.2, rnd(0.4, 0.9), BLOODC[(R() * 5) | 0], 1, 1, 650, 0.99); }
     if (g.toss && spd > 230 && g.life > 0.03) {
-      for (const e of w.enemies) if (e.alive && overlap(g.x - 6, g.y - 6, 12, 12, ...boxOf(e))) { killEnemy(w, e, Math.atan2(g.vy, g.vx), 'gib'); g.toss = false; g.vx *= 0.3; break; }
+      for (const e of w.enemies) if (e.alive && overlap(g.x - 6, g.y - 6, 12, 12, ...hurtBox(e))) { killEnemy(w, e, Math.atan2(g.vy, g.vx), 'gib'); g.toss = false; g.vx *= 0.3; break; }
     }
   }
 }

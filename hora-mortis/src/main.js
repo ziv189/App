@@ -6,7 +6,11 @@ const G = {
   state: 'title', li: 0, attempt: 0, deaths: 0, seed: 1, rec: null, rIdx: 0,
   introT: 0, deadT: 0, rwT: 0, rwDur: 0.9, exitT: 0, statsT: 0, titleT: 0, endT: 0,
   stats: null, totals: { time: 0, deaths: 0, kills: 0 }, best: {}, deathLine: '', onDeath: null, onExit: null, hover: -1,
+  mode: 'pilgrim', hoverMode: false, checkpoint: null, ckDead: 0, verseTime: 0,
 };
+try { if (localStorage.getItem('horaMortisMode') === 'penitent') G.mode = 'penitent'; } catch (e) { /* storage unavailable */ }
+function saveMode() { try { localStorage.setItem('horaMortisMode', G.mode); } catch (e) { /* storage unavailable */ } }
+const bestKey = (li) => 'v' + li + (G.mode === 'penitent' ? 'p' : '');
 const DEATH_LINES = [
   'No. That is not how it was written.',
   'No. The hour has not yet come.',
@@ -34,6 +38,7 @@ function captureFrame() {
 // ---------- flow ----------
 function startVerse(li) {
   G.li = li; G.attempt = 0; G.deaths = 0;
+  G.checkpoint = null; G.ckDead = 0; G.verseTime = 0;
   levelArt(li);
   beginAttempt();
   G.state = 'intro'; G.introT = 0;
@@ -41,8 +46,10 @@ function startVerse(li) {
 function beginAttempt() {
   G.attempt++;
   G.seed = (G.li + 1) * 7919 + G.attempt * 104729;
+  MODE = G.mode;
   newWorld(G.li, G.seed);
-  G.rec = { li: G.li, seed: G.seed, d: [], p: [], x: [], y: [] };
+  applyCheckpoint(world, G.checkpoint);
+  G.rec = { li: G.li, seed: G.seed, mode: G.mode, ckpt: G.checkpoint, d: [], p: [], x: [], y: [] };
   RW.count = 0; RW.idx = 0;
   Input.latched = 0; Input.prev = Input.down;
   eyeTrail.length = 0;
@@ -50,15 +57,17 @@ function beginAttempt() {
 G.onDeath = () => {
   if (G.state !== 'play') return;
   G.state = 'dead'; G.deadT = 0; G.deaths++; G.totals.deaths++;
+  if (G.mode === 'pilgrim') G.verseTime += world.steps / 60; // a pilgrimage is timed whole; a penitent's run must be clean
   G.deathLine = DEATH_LINES[(G.deaths - 1) % DEATH_LINES.length];
 };
 G.onExit = () => {
   if (G.state !== 'play') return;
   const w = world;
   G.state = 'exit'; G.exitT = 0;
-  G.stats = { time: w.steps / 60, kills: w.kills, deflects: w.deflects, rites: w.rites, deaths: G.deaths, total: w.total };
-  G.totals.time += G.stats.time; G.totals.kills += w.kills;
-  const key = 'v' + G.li, prev = G.best[key];
+  const slain = w.enemies.filter((e) => !e.alive).length;
+  G.stats = { time: G.verseTime + w.steps / 60, kills: slain, deflects: w.deflects, rites: w.rites, deaths: G.deaths, total: w.total };
+  G.totals.time += G.stats.time; G.totals.kills += slain;
+  const key = bestKey(G.li), prev = G.best[key];
   G.stats.record = !prev || G.stats.time < prev;
   if (G.stats.record) { G.best[key] = G.stats.time; saveBest(); }
   Sound.play('toll');
@@ -66,7 +75,9 @@ G.onExit = () => {
 function startRewind(dur = 0.9) { G.state = 'rewind'; G.rwT = 0; G.rwDur = dur; Sound.play('rewind'); }
 function startReplay() {
   G.state = 'replay'; G.rIdx = 0;
+  MODE = G.rec.mode;
   newWorld(G.rec.li, G.rec.seed);
+  applyCheckpoint(world, G.rec.ckpt);
   eyeTrail.length = 0;
 }
 function endReplay() { G.state = 'stats'; G.statsT = 0; }
@@ -75,6 +86,23 @@ function nextVerse() {
   else { G.state = 'end'; G.endT = 0; Sound.play('clear'); }
 }
 function aimWorld() { return [Input.mx + world.cam.x, Input.my + world.cam.y]; }
+// Pilgrim: once the foes nearby are slain and you stand on firm ground, the verse remembers.
+function maybeCheckpoint() {
+  if (G.mode !== 'pilgrim') return;
+  const w = world, p = w.p;
+  const dead = w.enemies.reduce((n, e) => n + (e.alive ? 0 : 1), 0);
+  if (dead <= G.ckDead || p.dead || !p.onGround || p.rollT > 0 || w.rite || w.exited) return;
+  if (w.enemies.some((e) => e.alive && e.alerted && dist(e.x, e.y, p.x, p.y) < 240)) return;
+  if (w.bolts.some((b) => b.owner === 'enemy') || w.chans.some((c) => c.state === 'fall')) return;
+  if (w.enemies.some((e, i) => e.alive && dist(w.lvl.ents[i].x, w.lvl.ents[i].y, p.x, p.y) < 110)) return; // a foe would wake beside you
+  G.checkpoint = {
+    x: p.x, y: p.y, face: p.face, fervour: w.fervour, kills: w.kills, deflects: w.deflects, rites: w.rites,
+    dead: w.enemies.map((e, i) => (e.alive ? -1 : i)).filter((i) => i >= 0),
+    chans: w.chans.map((c, i) => ({ i, x: c.x, y: c.y, s: c.state })).filter((c) => c.s !== 'hang'),
+  };
+  G.ckDead = dead;
+  floatText(w, p.x, p.y - 38, 'the verse remembers', '#f2d48f');
+}
 
 function onAnyKey(code) {
   Sound.init();
@@ -84,6 +112,7 @@ function onAnyKey(code) {
     case 'title': {
       const n = parseInt(code.replace('Digit', ''), 10);
       if (n >= 1 && n <= VERSES.length) { Sound.play('ui'); startVerse(n - 1); break; }
+      if (code === 'Mouse0' && G.hoverMode) { G.mode = G.mode === 'pilgrim' ? 'penitent' : 'pilgrim'; saveMode(); Sound.play('ui'); break; }
       if (code === 'Mouse0' || code === 'Enter' || code === 'Space') { Sound.play('ui'); startVerse(G.hover >= 0 ? G.hover : 0); }
       break;
     }
@@ -91,7 +120,7 @@ function onAnyKey(code) {
       if (G.introT > 0.35 && (code === 'Mouse0' || code === 'Enter' || code === 'Space')) { G.state = 'play'; Input.latched = 0; }
       break;
     case 'play':
-      if (code === 'KeyR') startRewind(0.45);
+      if (code === 'KeyR') { if (G.mode === 'pilgrim') G.verseTime += world.steps / 60; startRewind(0.45); }
       else if (code === 'Escape' || code === 'KeyP') { G.state = 'paused'; Input.clear(); }
       break;
     case 'dead':
@@ -105,7 +134,7 @@ function onAnyKey(code) {
       break;
     case 'paused':
       if (code === 'Escape' || code === 'KeyP' || code === 'Mouse0') { G.state = 'play'; Input.latched = 0; }
-      else if (code === 'KeyR') { G.state = 'play'; startRewind(0.45); }
+      else if (code === 'KeyR') { G.checkpoint = null; G.ckDead = 0; G.verseTime = 0; G.state = 'play'; startRewind(0.45); }
       else if (code === 'KeyT') { G.state = 'title'; }
       break;
     case 'end':
@@ -126,6 +155,7 @@ function tick() {
       const live = G.state === 'play';
       if (live) { G.rec.d.push(s.down); G.rec.p.push(s.pressed); G.rec.x.push(ax); G.rec.y.push(ay); }
       simStep(world, { down: live ? s.down : 0, pressed: live ? s.pressed : 0, ax, ay });
+      if (G.state === 'play') maybeCheckpoint();
       if (G.state === 'dead') G.deadT += STEP;
       if (G.state === 'exit') { G.exitT += STEP; if (G.exitT > 1.0) startReplay(); }
       break;
@@ -177,6 +207,7 @@ function renderTitle(dtR) {
   if (Input.mouseSeen) {
     for (let i = 0; i < VERSES.length; i++) { const bx = 40 + i * 26; if (Input.mx > bx - 10 && Input.mx < bx + 12 && Input.my > 214 && Input.my < 234) G.hover = i; }
   }
+  G.hoverMode = Input.mouseSeen && Input.mx > 30 && Input.mx < 330 && Input.my > 234 && Input.my < 250;
 }
 function titleText() {
   const a = clamp(G.titleT / 1.2, 0, 1);
@@ -184,11 +215,13 @@ function titleText() {
   const pulse = 0.65 + Math.sin(RT * 3) * 0.35;
   txt(G.hover >= 0 ? `begin at verse ${ROMAN[G.hover]}` : 'click to begin', 40, 201, 13, F_FELLSC, '#f2d48f', 'left', a * pulse, 'rgba(255,140,60,0.6)');
   for (let i = 0; i < VERSES.length; i++) {
-    const best = G.best['v' + i];
+    const best = G.best[bestKey(i)];
     txt(ROMAN[i], 40 + i * 26, 224, 11, F_FELLSC, G.hover === i ? '#fff1c0' : best ? '#d9a441' : '#7d6a58', 'center', a);
   }
   txt('verses', 40 + VERSES.length * 26 + 2, 224, 8, F_FELL, '#6d5a4a', 'left', a);
-  if (!Sound.ready) txt('sound begins on your first click', 40, 242, 6.5, F_FELL, '#6d5a4a', 'left', a * 0.8);
+  const pil = G.mode === 'pilgrim';
+  txt(`${pil ? 'Pilgrim' : 'Penitent'}   ${pil ? 'gentler foes, one ward a life, the verse remembers' : 'one blow and you fall'}${G.hoverMode ? '   (click to change)' : ''}`,
+    40, 242, 7.5, F_FELLSC, G.hoverMode ? '#fff1c0' : pil ? '#c9a46a' : '#e0705a', 'left', a);
   txt('A D move   W leap   S roll   CLICK strike   SHIFT / RIGHT-CLICK chronos   E last rites   R retry   M mute', W / 2, 260, 5.5, F_PIX, '#8a7660', 'center', a * 0.9);
 }
 
@@ -334,7 +367,7 @@ function draw(dtR) {
   if (st === 'play' || st === 'paused') {
     const v = VERSES[G.li];
     txt(`${ROMAN[G.li]} · ${v.name}`, W - 10, 24, 8, F_FELLSC, '#b8956a', 'right', 0.75);
-    txt(fmtTime(w.steps / 60), W - 10, 34, 6.5, F_PIX, '#8a7660', 'right', 0.7);
+    txt(fmtTime(G.verseTime + w.steps / 60), W - 10, 34, 6.5, F_PIX, '#8a7660', 'right', 0.7);
     if (w.fervour >= 100 && !w.rite) txt('E  the last rites', 86, 32, 6, F_PIX, '#ff7a6a', 'left', 0.6 + Math.sin(RT * 6) * 0.4);
     if (w.rite && w.rite.phase === 'mark') {
       txt(w.rite.marks.length ? `${w.rite.marks.length} condemned · release E` : 'sweep the cursor across the condemned', W / 2, H - 14, 8, F_FELLSC, '#ff9a8a', 'center', 0.9);
