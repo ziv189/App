@@ -388,7 +388,7 @@ function updateNPCs(w, dt) {
     if (!n.talked && !p.dead && Math.abs(p.x - n.x) < 74 && Math.abs(p.y - n.y) < 40 && !w.enemies.some((e) => e.alive && e.alerted && dist(e.x, e.y, n.x, n.y) < 170)) {
       n.talked = true; n.state = 'talk';
       Sound.play('whisper');
-      const lines = (STORY.npc[n.id] || []);
+      const all = STORY.npc[n.id] || [], lines = w.introSeen ? all.slice(-2) : all;
       for (const [who, text] of lines) say(w, who === 'npc' ? n.id : who, text, 0.2);
       n.endAt = w.lines.reduce((m, l) => Math.max(m, l.end), w.t);
     }

@@ -245,7 +245,13 @@ BOSS.ezequiel = {
     floatText(w, b.x, b.y - 74, 'the bell remembers', '#f2d48f');
     if (!b.said.bell) { b.said.bell = true; say(w, 'boss', STORY.bossLine.ezequielBell, 0.1, 1.6); }
   },
-  onHurt(w, b) { if (b.state === 'walk') b.cd = Math.min(b.cd, 0.3); },
+  onHurt(w, b) {
+    if (b.state === 'walk') b.cd = Math.min(b.cd, 0.3);
+    if (b.state === 'stunned' || b.state === 'bellStun') { // two blows, then he shrugs the daze off
+      b.openHits = (b.openHits || 0) + 1;
+      if (b.openHits >= 2) { bossSet(b, 'shrug', 0.55); b.openHits = 0; }
+    }
+  },
   onPhase(w, b) { bossSet(b, 'roar', 1.5); b.vx = 0; b.waves.length = 0; },
   update(w, b, dt) {
     const p = w.p, D = w.diff, ph = b.phase, spd = ph === 2 ? 1.22 : 1, wind = Math.sqrt(D.wind) / spd;
@@ -287,7 +293,7 @@ BOSS.ezequiel = {
       case 'charge':
         b.vx = b.face * 330 * Math.sqrt(spd);
         if (w.steps % 3 === 0) dust(w, b.x - b.face * 12, b.y, 2, -b.face);
-        bossStrike(w, b.x - 16, b.y - 50, 32, 50, 'charge', b.face > 0 ? -0.4 : Math.PI + 0.4);
+        bossStrike(w, b.x - 16, b.y - 46, 32, 46, 'charge', b.face > 0 ? -0.4 : Math.PI + 0.4);
         if (b.hitX) {
           bossSet(b, 'stunned', 1.9); b.vx = -b.face * 120; b.vy = -160;
           Sound.play('slam'); w.shake = Math.max(w.shake, 14); w.flash = Math.max(w.flash, 0.2);
@@ -295,8 +301,16 @@ BOSS.ezequiel = {
           spawnDebris(w, b, ph === 2 ? 7 : 4, 48, w.lvl.w * T - 48);
         } else if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.5; }
         break;
-      case 'stunned': b.vx = approach(b.vx, 0, 400 * dt); if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.4; } break;
-      case 'bellStun': b.vx = approach(b.vx, 0, 400 * dt); if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.3; } break;
+      case 'stunned': b.vx = approach(b.vx, 0, 400 * dt); if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.4; b.openHits = 0; } break;
+      case 'bellStun': b.vx = approach(b.vx, 0, 400 * dt); if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.3; b.openHits = 0; } break;
+      case 'shrug':
+        b.vx = approach(b.vx, 0, 600 * dt);
+        if (b.st >= 0.15 && !b.shrugged) {
+          b.shrugged = true; Sound.play('roar'); w.shake = Math.max(w.shake, 8); ring(w, b.x, b.y - 30, 90, 0.4, '#ffb090', 2);
+          if (Math.abs(p.x - b.x) < 90 && !p.dead) { p.vx = sign(p.x - b.x) * 280; p.vy = -180; p.onGround = false; }
+        }
+        if (b.st >= b.dur) { bossSet(b, 'walk'); b.cd = 0.5; b.shrugged = false; }
+        break;
       case 'slamWind': b.vx = approach(b.vx, 0, 600 * dt); if (b.st >= b.dur) { bossSet(b, 'slam', 0.12); } break;
       case 'slam':
         if (b.st >= b.dur) {
@@ -341,7 +355,7 @@ BOSS.ezequiel = {
     if (s === 'slamWind') { A.sy = 1 + 0.08 * easeOut(k); A.sx = 1 - 0.05 * k; A.lean = -0.1; }
     if (s === 'slam' || (s === 'slamRec' && k < 0.2)) { A.sy = 0.86; A.sx = 1.12; }
     if (s === 'stunned' || s === 'bellStun') { A.rock = Math.sin(b.t * 7) * 0.12; A.sy = 0.9; A.lean = -0.1; }
-    if (s === 'roar') { A.sy = 1.06; A.ox = Math.sin(b.t * 50) > 0 ? 1 : -1; }
+    if (s === 'roar' || s === 'shrug') { A.sy = 1.06; A.ox = Math.sin(b.t * 50) > 0 ? 1 : -1; }
     if (s === 'dying') { const d = clamp(b.dying / 1.2, 0, 1); A.sy = 1 - 0.35 * easeInOut(d); A.lean = -0.3 * d; A.rock = 0; }
     const M = ASSET_META.e_grunt, ax = Math.round(M.foot[0]), ay = M.foot[1] + 1;
     const flash = b.flash > 0 && ((b.flash * 30) | 0) % 2 === 0;
@@ -359,7 +373,7 @@ BOSS.ezequiel = {
     const eyeOn = s !== 'dying' || b.dying < 1.2;
     if (eyeOn) {
       const ex = Math.round(X + b.face * 4 + (A.ox || 0)), ey = Math.round(Y - 54 + (A.oy || 0));
-      g.fillStyle = s === 'chargeWind' || s === 'roar' || s === 'cleaveWind' ? '#ffffff' : '#ff3a2a';
+      g.fillStyle = s === 'chargeWind' || s === 'roar' || s === 'shrug' || s === 'cleaveWind' ? '#ffffff' : '#ff3a2a';
       g.fillRect(ex, ey, 2, 1); g.fillRect(ex + b.face * 4, ey, 2, 1);
     }
     if (s === 'cleaveWind' && k > 0.7) { g.fillStyle = '#ffffff'; const gx = Math.round(X - b.face * 18), gy = Math.round(Y - 66); g.fillRect(gx - 4, gy, 9, 1); g.fillRect(gx, gy - 4, 1, 9); }
@@ -406,6 +420,7 @@ BOSS.lady = {
   deflectNear(w, b, ox, oy) { return b.swords.some((s) => s.state === 'aim' && dist(s.x, s.y, ox, oy) < 60); },
   onPhase(w, b) { Sound.play('sorrow'); w.flash = Math.max(w.flash, 0.25); },
   restore(w, b) { b.swords.forEach((s, i) => { s.state = i < b.hp ? 'orbit' : 'heart'; }); },
+  onHurt(w, b) { if (b.state === 'weary') { b.wearyHits = (b.wearyHits || 0) + 1; if (b.wearyHits >= 2) { bossSet(b, 'rise', 0.9); b.wearyHits = 0; } } },
   onDie(w, b) { for (const s of b.swords) { if (s.bolt) s.bolt.dead = true; s.state = 'heart'; } for (const bo of w.bolts) if (bo.kind === 'ghost') bo.dead = true; b.tears.length = 0; b.thorns.length = 0; },
   // the swords that still circle her
   orbit(w, b, dt) {
@@ -518,7 +533,7 @@ BOSS.lady = {
         if (w.steps % 2 === 0) part(w, b.x + b.side * 10, b.y - rnd(10, 60), b.side * rnd(20, 60), rnd(-10, 10), 0.4, '#c0202a', 1, 4, 0, 0.95);
         const [bx, by, bw, bh] = this.box(b);
         bossStrike(w, bx, by, bw, bh, 'embrace', b.side > 0 ? Math.PI : 0);
-        if ((b.side > 0 && b.x <= xMin + 4) || (b.side < 0 && b.x >= xMax - 4) || b.st > 2.6) { bossSet(b, 'weary', 1.6); Sound.play('stun'); }
+        if ((b.side > 0 && b.x <= xMin + 4) || (b.side < 0 && b.x >= xMax - 4) || b.st > 2.6) { bossSet(b, 'weary', 1.6); b.wearyHits = 0; Sound.play('stun'); }
         break;
       }
       case 'weary': b.y = floorY - 16 + Math.sin(b.t * 5) * 1; if (b.st >= b.dur) bossSet(b, 'rise', 0.9); break;

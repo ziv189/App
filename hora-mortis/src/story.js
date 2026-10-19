@@ -521,6 +521,14 @@ function drawCine(T2) {
     if (n.bg.startsWith('window')) {
       drawGlow(g, W / 2, H / 2 - 20, 160, '#ff9a50', 0.25, true);
       g.drawImage(im, Math.round(W / 2 - im.width / 2), Math.round(-20 - k * 10));
+    } else if (n.bg === 'title') { // the penitent in the nave, framed whole
+      const x = Math.round(W / 2 - im.width / 2 - 40 + k * 12);
+      g.drawImage(im, x, 0);
+      const gl = g.createLinearGradient(x, 0, x + 70, 0); gl.addColorStop(0, '#000'); gl.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = gl; g.fillRect(x, 0, 70, H);
+      const gr2 = g.createLinearGradient(x + im.width - 50, 0, x + im.width, 0); gr2.addColorStop(0, 'rgba(0,0,0,0)'); gr2.addColorStop(1, '#000');
+      g.fillStyle = gr2; g.fillRect(x + im.width - 50, 0, 50, H);
+      drawGlow(g, x + 236, 236, 60, '#ff9a50', 0.12 + Math.sin(RT * 0.9) * 0.04, true);
     } else if (n.bg === 'ending') {
       g.drawImage(im, 0, Math.round(-(1 - k) * (im.height - H)));
       drawGlow(g, 305, 129 - Math.round((1 - k) * (im.height - H)), 110, '#ffd890', 0.16, true);

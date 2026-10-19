@@ -120,7 +120,7 @@ function beginAttempt() {
 G.onDeath = (cause) => {
   if (G.state !== 'play') return;
   G.state = 'dead'; G.deadT = 0; G.deaths++; G.totals.deaths++;
-  if (world.boss && world.boss.awake) G.introSeen[G.li] = true;
+  if ((world.boss && world.boss.awake) || world.npcs.some((n) => n.talked)) G.introSeen[G.li] = true;
   if (G.mode === 'pilgrim') G.verseTime += world.steps / 60; // a pilgrimage is timed whole; a penitent's run must be clean
   G.deathLine = CAUSE_LINES[cause] || DEATH_LINES[(G.deaths - 1) % DEATH_LINES.length];
   if (world.boss && world.boss.type === 'confessor' && !CAUSE_LINES[cause]) G.deathLine = 'No. That is not how it happens.';
@@ -140,9 +140,12 @@ G.onExit = () => {
   saveGame();
   Sound.play('toll');
 };
+G.cardSeen = {};
 G.onRelic = (id) => {
   if (G.state !== 'play') return;
   if (G.mode === 'pilgrim') maybeCheckpoint(true);
+  if (G.cardSeen[id]) return; // read once; a retry needs no second reading
+  G.cardSeen[id] = true;
   G.state = 'talk'; Input.clear();
   Talk.start('card', id, () => { G.state = 'play'; Input.latched = 0; Input.prev = Input.down; });
 };
