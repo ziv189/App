@@ -18,7 +18,7 @@ Lighting: almost total darkness. One thin, soft-edged horizontal band of dim, wa
 
 Physics: real weight. He stands with his weight settled and completely still. The helmet sits heavy and low on his head and doesn't wobble. When he lowers his chin, his head and the helmet move down together, slowly and smoothly, as one. Faces keep their shape: no squash and stretch.
 
-Sound: diegetic sound only. No music, no score. Only these sounds, in order: the quiet room tone of an empty house; Brayden's slow, even breathing; Brayden's voice, echoing slightly down the hallway; silence; his slow breathing again. His mouth stays in the dark, so no lip sync is visible.
+Sound: diegetic sound only. No music, no score. Only these sounds, in order: the quiet room tone of an empty house; Brayden's voice, echoing slightly down the hallway; then silence and room tone. His mouth stays in the dark, so no lip sync is visible.
 
 
 ACTIVE REFERENCES
@@ -39,7 +39,7 @@ One shot, 0.0 to 6.0s: a close-up in the dark. The line, a blink, and the eyes d
 SHOT 1 (0.0 to 6.0s). CLOSE-UP IN THE DARK: THE LINE.
 Camera: in the dark hallway in front of Brayden, at his eye height, about 3 feet away. 85mm lens, about a 24-degree view. Locked-off.
 Frame: almost total darkness. The thin band of amber light crosses the frame horizontally at about y 42%, lighting Brayden's (<<<image_1>>>) eyes, centered at about x 50% / y 42%, and the face-paint stripes on his cheekbones. The dark brim of the helmet sits just above the band, at about y 30%, with a faint amber edge. Below his nose, everything is black. He looks just past the right side of the lens.
-0.0 to 1.0s: Hold. He stares past the lens, perfectly still, his eyes calm and half-lidded. Slow breathing.
+0.0 to 1.0s: Hold. He stares past the lens, perfectly still, his eyes calm and steady.
 1.0 to 3.4s: BRAYDEN: "Daddy says the real ones make a mess." Delivery: calm, flat and matter-of-fact, high and raspy, almost bored, slow and even, echoing slightly. Only his eyes are visible, and they don't change.
 3.4 to 4.6s: Silence. He holds the stare and blinks once, slowly.
 4.6 to 6.0s: He slowly lowers his chin. His eyes move down out of the band of light, and the brim of the helmet comes down over them, putting them in its shadow. Hold on the dark, with only the faint amber edge of the brim still visible.
@@ -76,13 +76,13 @@ Constraints (these never happen):
 12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
 1. Squash and stretch: none. His face and the helmet keep their shape.
-2. Anticipation: a still hold and a breath before the line, and a beat of silence before he lowers his chin.
+2. Anticipation: a still hold before the line, and a beat of silence before he lowers his chin.
 3. Staging: one clear idea: two calm eyes in the dark and one line.
 4. Straight ahead and pose to pose: a still pose, the line, the blink, then the final pose with his eyes in shadow.
 5. Follow-through: very small. The helmet settles when his chin stops.
 6. Slow in and slow out: the blink and the chin drop ease in and out.
 7. Arcs: his head moves down on a small, smooth arc.
-8. Secondary action: his slow breathing, never pulling focus.
+8. Secondary action: none. The stillness is the point.
 9. Timing: slow, even and unhurried.
 10. Exaggeration: minimal. He's completely calm while saying something unsettling.
 11. Solid drawing: consistent face and helmet volume in every frame.

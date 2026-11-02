@@ -1,8 +1,8 @@
 SCENE CONTEXT & STYLE
 
-What happens: The upstairs hallway of the beige house. VINCE, MARCO and DUANE regroup just past the top of the stairs, looking much worse for wear. Duane limps, with caltrops still stuck in his socks. Vince's hair is still blown straight back, there's salt in it, and a faint wisp of steam still rises from his trousers. Vince has had enough. He pulls a small black pistol out of his jacket and holds it up beside his face, pointed at the ceiling, like a gangster in a movie, and announces that the games are over. Marco looks at him and asks, completely flat, whether he really brought that to rob a nap. Before Vince can answer, a distant clack comes from somewhere far below, and every light in the hallway goes out at once. Pitch black. All we can see are the whites of their three pairs of eyes, blinking. Vince panics and orders everyone not to move.
+What happens: The upstairs hallway of the beige house. VINCE, MARCO and DUANE regroup just past the top of the stairs, looking much worse for wear. Duane limps, with caltrops still stuck in his socks. Vince's hair is still sticking straight back, with salt in it. Vince has had enough. He pulls a small black pistol out of his jacket and holds it up beside his face, pointed at the ceiling, like a gangster in a movie, and announces that the games are over. Marco looks at him and asks, completely flat, whether he really brought that to rob a nap. Before Vince can answer, a distant clack comes from somewhere far below, and every light in the hallway goes out at once. Pitch black. All we can see are the whites of their three pairs of eyes, blinking. Vince panics and orders everyone not to move.
 
-Continuity: all three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops still stuck in them. Vince's hair is still blown back, with salt crystals in it, his sunglasses are still hooked on his collar, and a faint wisp of steam rises from his trousers. Marco's pen gadget stays in his vest pocket.
+Continuity: all three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops still stuck in them. Vince's hair is still sticking straight back, with salt in it, and his sunglasses are still hooked on his collar. Marco's pen gadget stays in his vest pocket.
 
 Tone and pace: a dry, deadpan comedy. Vince's tough-guy moment falls flat. Marco's line is the flattest, slowest thing in the clip. The blackout is sudden, and the dark is quiet and funny: just eyes.
 
@@ -16,7 +16,7 @@ Format: 20 seconds, 16:9, four shots joined by three hard cuts. Real-time motion
 
 Lighting: at first, the round ceiling light is on, giving the hallway soft, even, warm light. When the power goes out, every light goes off at the same moment and the hallway goes almost completely black. The hallway has no window, so no daylight reaches it, and the only things still faintly visible are the whites of their eyes, catching a tiny glimmer. No flicker before or after the blackout, no flashlights, no other light sources.
 
-Physics: real weight and timing. Duane steps down carefully on each foot, and the caltrops stuck in his socks click against each other. The steam from Vince's trousers is a faint, thin wisp that drifts up and fades. What Vince holds is a solid, rigid object that stays in his right hand. When the lights go out, it happens instantly, with no fade. Faces and bodies keep their shape: no squash and stretch.
+Physics: real weight and timing. Duane steps down carefully on each foot, and the caltrops stuck in his socks click against each other. What Vince holds is a solid, rigid object that stays in his right hand. When the lights go out, it happens instantly, with no fade. Faces and bodies keep their shape: no squash and stretch.
 
 Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: the creak of the top stair; Duane's careful steps and small pained breaths, with the tiny metallic clicks of the caltrops in his socks; the rustle of Vince's leather jacket; Vince's voice with one censor beep; a pause; Marco's voice; a pause; one distant, sharp CLACK from somewhere far below; the faint hum of the ceiling light cutting out; silence; nervous breathing in the dark; Vince's voice with one censor beep; then silence. Two words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beeps are the only sounds that don't come from the scene itself.
 
@@ -51,7 +51,7 @@ The four shots at a glance:
 SHOT 1 (0.0 to 4.0s). WIDE: THE REGROUP.
 Camera: at the top of the stairs, at standing eye height, looking down the hallway, matching <<<image_4>>>. 28mm lens, about a 65-degree view. Locked-off.
 Frame: the white banister and the top of the staircase along the left edge of the frame, and the hallway running away from the camera. The ceiling light is on.
-0.0 to 1.5s: Marco (<<<image_2>>>) stands in the hallway just past the top of the stairs, on the left. Vince (<<<image_1>>>) steps up off the top stair from the left edge of the frame and joins him, his hair blown back, a faint wisp of steam rising from his trousers.
+0.0 to 1.5s: Marco (<<<image_2>>>) stands in the hallway just past the top of the stairs, on the left. Vince (<<<image_1>>>) steps up off the top stair from the left edge of the frame and joins him, his hair sticking straight back, salt still on his shoulders.
 1.5 to 3.0s: Duane (<<<image_3>>>) limps up the last stair last, wincing with every step, the caltrops in his socks clicking.
 3.0 to 4.0s: The three huddle together: Marco on the left, Vince in the middle, Duane on the right. They look at each other, battered.
 Light: soft, even, warm light from the ceiling light.
@@ -104,7 +104,7 @@ LOCKS & CONSTRAINTS
 Positive locks (true in every frame):
 - Exactly four shots joined by exactly three hard cuts, at 4.0s, 8.5s and 13.0s.
 - Only Vince, Marco and Duane are in this clip, and all three match their reference images 100% in every shot.
-- All three are in their socks. Duane has caltrops stuck in his white tube socks, Vince's hair is blown back with salt in it, and his sunglasses stay hooked on his collar.
+- All three are in their socks. Duane has caltrops stuck in his white tube socks, Vince's hair sticks straight back with salt in it, and his sunglasses stay hooked on his collar.
 - The pistol stays in Vince's right hand, held up beside his face and pointing straight up at the ceiling whenever it's visible. It is never pointed at anyone and never goes off.
 - Marco's pen gadget stays in his vest pocket.
 - The lights go out instantly at 12.6s, and from then on the frame stays almost completely black except for the whites of their eyes.
@@ -134,13 +134,13 @@ Constraints (these never happen):
 12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
 1. Squash and stretch: none. Faces and bodies keep their shape.
-2. Anticipation: small and natural. Vince's hand goes to his jacket before he pulls anything out, Marco's head turns before his line, and both freeze at the clack before the lights die.
+2. Anticipation: small and natural. Vince's hand goes to his jacket before he pulls anything out, Marco's head turns before his line, and both freeze at the clack before the lights go out.
 3. Staging: one clear action per shot: the regroup, the tough-guy pose, the question, the eyes.
 4. Straight ahead and pose to pose: continuous, natural motion, landing on held poses: Vince's gangster pose, the frozen pairs of eyes.
-5. Follow-through: subtle. Vince's jacket settles after he reaches into it, and the steam wisp drifts and fades.
+5. Follow-through: subtle. Vince's jacket settles after he reaches into it.
 6. Slow in and slow out: every move eases at human speed. Only the blackout is instant.
 7. Arcs: Vince's arm comes up on a smooth arc, and Marco's head turns on a slow arc.
-8. Secondary action: the clicking caltrops in Duane's socks and the faint steam from Vince's trousers, never pulling focus.
+8. Secondary action: the clicking caltrops in Duane's socks and the salt in Vince's hair, never pulling focus.
 9. Timing: Marco's line is the slowest; the blackout is sudden; the darkness holds long and quiet.
 10. Exaggeration: minimal. The comedy is Vince's failed tough-guy moment and three pairs of eyes in the dark.
 11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
