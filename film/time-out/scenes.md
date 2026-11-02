@@ -34,7 +34,7 @@
 ### 1.2 · `0:04` · 7s · Medium three-shot, inside the van
 - **Image:** Inside a cramped, messy white van. VINCE is turned backward in the driver's seat, proudly holding up a laminated plan with photos paper-clipped to it. MARCO slouches in the passenger seat exhaling a cloud of vape smoke, bored. DUANE fills the entire back bench, eating gummy bears from a bag. Fast-food wrappers on the dashboard, warm sunlight through a dusty windshield.
 - **Motion:** Vince raises the plan dramatically. Marco rolls his eyes, then twists around in his seat and blows a huge cloud of vape straight into Duane's face. Duane coughs and waves it away. Marco turns back around like nothing happened. Static camera.
-- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE: "Gentlemen and Duane." / DUANE: "...Hey." / *(Marco blows vape in his face)* / DUANE *(coughing)*: "What the fuck, Marco?"
+- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE *(defensive)*: "What? I'm setting the tone." / DUANE *(sincere, swallowing a gummy bear)*: "I liked it." / *(Marco blows vape in his face)* / DUANE *(coughing)*: "What the fuck, Marco?"
 - **Audio:** M1 heist jazz kicks in.
 
 ### 1.3 · `0:11` · 7s · Over-the-shoulder, Vince and Marco

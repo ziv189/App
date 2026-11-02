@@ -31,10 +31,14 @@ Gentlemen.
 Wow.
 
 **VINCE**  
-Gentlemen and Duane.
+*(defensive)*  
+What? I'm setting the tone.
+
+Duane swallows a gummy bear.
 
 **DUANE**  
-...Hey.
+*(sincere)*  
+I liked it.
 
 Marco turns around and blows a huge cloud of vape right in Duane's face. Duane coughs.
 
