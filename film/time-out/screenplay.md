@@ -2,7 +2,7 @@
 
 Written by ____________
 
-*18+ animated short. Strong language, crude humor, cartoon violence. Runs about 4 minutes.*
+*18+ animated short. Strong language, crude humor, cartoon violence. Runs about 4:30 to 5 minutes, with room for pauses.*
 
 ---
 

@@ -2,6 +2,8 @@
 
 63 shots · 11 scenes · **3:58 of picture + a few seconds of credits = about 4:00**
 
+> **Timing note:** the Seedance clips in [`seedance/`](seedance/) re-pace these shots with real pauses and grounded acting, so the finished film runs about **4:30–5:00**. Use this file for what happens in each shot; use the clip prompts for final timing.
+
 ## How to read each shot
 
 - **Image** is the prompt for the **start frame**. Generate it as an image with that shot's character and set references attached.

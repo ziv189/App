@@ -1,6 +1,6 @@
 # TIME OUT
 
-An **18+** animated comedy short, about **4:00**. Strong language throughout, nothing bleeped. It looks like a cozy family movie, and what happens in it is an adult cartoon.
+An **18+** animated comedy short, about **4:30–5:00** with pauses. Strong language throughout in the script; the Seedance video clips bleep the swears, because the video tool flags them. It looks like a cozy family movie, and what happens in it is an adult cartoon.
 
 > Three bumbling burglars hit a single dad's house during nap time, figuring his army days are long behind him. They didn't count on his four-year-old son finding Daddy's old footlocker.
 
