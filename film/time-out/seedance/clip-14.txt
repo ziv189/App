@@ -1,0 +1,173 @@
+SCENE CONTEXT & STYLE
+
+What happens: Pitch dark in the upstairs hallway of the beige house. A squeak has just come from the floor beside DUANE's foot. VINCE's eyes snap toward it, and BANG: one bright flash lights the hallway for a split second. Duane's eyes go huge and drop to the floor with a heavy thud, and from down there he screams at Vince, outraged and bawling. Downstairs, GLENN sleeps right through it on the couch, snoring, not moving a muscle. Upstairs, the light snaps back on: Duane lies on his back on the carpet, clutching his shin and bawling, while Vince and MARCO stand over him, staring. They look at each other, try to hold it in, and lose it. Marco says what happened out loud, and Vince repeats it, half proud and half amazed.
+
+Continuity: a split second after the squeak. All three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops stuck in them. Vince's hair is still blown straight back with salt crystals in it, and his sunglasses are hooked on his collar. He still holds the small black pistol in his right hand, unseen in the dark. Marco's pen gadget stays in his vest pocket. Downstairs, Glenn lies where he fell asleep: on his right side across the couch cushions, feet on the floor, ear protectors and mask on.
+
+Tone and pace: a dark, dry slapstick comedy. The flash is over in an instant. Duane's scream is big, frantic and sincere: he's more scared and outraged than hurt. The cut to Glenn is perfectly still: he hears nothing. Upstairs, the laugh builds slowly. Keep every written pause.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last.
+
+Camera language: real lenses between 28mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. Duane bawls, but moves like a real, heavy man: he rocks, he doesn't flail. Vince and Marco laugh like real people: shoulders shaking, eyes watering. Glenn doesn't move at all except for his breathing. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, five shots joined by four hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: upstairs, the windowless hallway is almost completely black; only the whites of their eyes catch a tiny glimmer, plus one orange-white flash at 1.0s. In the living room (Shot 3) it's a sunny 2 PM: the sun through the half-closed blinds lays hard-edged, warm, striped bars of light across the couch and Glenn, with soft, slightly cooler shadow between them. The lamp stays off. At 11.0s the hallway's round ceiling light snaps back on at once: soft, even, warm light to the last frame. No flicker, no flashlights, no other light sources.
+
+Physics: real weight and timing. Duane's huge body drops heavily, and the floor shakes with the thud. On the carpet he rocks from side to side on his back, knees bent up, and the caltrops in his socks clink. Glenn is completely relaxed; only his chest rises and falls with each snore. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync whenever a mouth is visible, plus only these sounds, in order: nervous breathing in the dark; one deafening BANG echoing down the hallway; a split second of silence; Duane's sharp gasp; a heavy THUD and the clink of caltrops as he hits the carpet; Duane's voice with two censor beeps; Duane's long, wobbling bawl; in the living room, Glenn's deep, steady snore, a wall clock ticking out of frame, and the bawling, faint and muffled through the ceiling; upstairs, the bawling loud again; one distant CLACK from far below; the faint hum of the ceiling light coming on; two snorts of held-in laughter; laughter; Marco's voice with one censor beep; a pause; Vince's voice; louder laughter, with Duane still bawling under it. The censor beeps are the only sounds that don't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind, smug, overconfident and theatrical, until something rattles him. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie; rattled, it goes quieter and higher. His laugh: a high, nasal, wheezing cackle. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. Voice: a low, flat baritone with heavy vocal fry, close to a mumble, slow and monotone; he barely moves his mouth when he talks. His laugh is rare: a low, breathy snort through his nose, shoulders shaking, face barely moving. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted, sensitive guy, the one everyone picks on. Voice: a deep, soft, warm bass, gentle and hesitant. When he yells in pain, it cracks into high, strained yelps; when he cries, it wobbles into a long, high wail with gasping sobs. Face, beard, body and clothes, including his fanny pack, 100% match <<<image_3>>>. He wears white tube socks and no shoes.
+
+<<<image_4>>> = GLENN KOWALSKI, a man in his early 40s who lives in this house. Ex-army, now a worn-out stay-at-home dad. In this clip he is fast asleep and never moves; his only sound is a deep, rumbling, steady snore. Face, hair, beard, body, clothes and dog tags 100% match <<<image_4>>>.
+
+<<<image_5>>> = the living room seen from the front, looking at the couch (Shot 3). Walls, couch, cushions, rug, framed army photo, side table and lamp 100% match <<<image_5>>>.
+
+<<<image_6>>> = the upstairs hallway with the ceiling light on (Shots 4 and 5). The white wooden banister and the top of the staircase, the beige carpet, the warm beige walls, the hall closet door partway down the right wall and the long blank stretch of wall opposite it 100% match <<<image_6>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The pistol: one small black cartoon pistol in Vince's right hand, seen only in Shot 4, hanging at his side and pointing straight down at the carpet. It never points at anyone, never leaves his hand, and there is never a second one.
+- The caltrops: three or four small four-pointed steel caltrops, like oversized metal jacks, stuck in Duane's white tube socks.
+- The rubber duck: one yellow rubber duck, the size of a fist, on the carpet beside Duane's feet, seen only in Shot 4. Nobody moves it.
+- The ear protectors: one pair of olive-green over-ear hearing protectors, like military range earmuffs: two rounded, hard plastic ear cups joined by one curved headband over the top of his head. They never become headphones with a cord, earbuds or a headset.
+- The sleep mask: one soft, flat, blue fabric sleep mask with a black elastic strap and two printed cartoon eyes on the front, wide open, white with black dot pupils. The printed eyes are flat print: they never blink, move or turn into real eyes.
+- The mug: Glenn's white mug, with one red crayon standing in the coffee, on the side table. Nobody moves it.
+
+Only four people exist in this clip: Vince, Marco and Duane upstairs, and Glenn downstairs, asleep.
+
+Hallway map: the top of the stairs and the white banister are at the near end, and the hallway runs away from them. Marco stood on the left, Vince in the middle, Duane on the right; Duane ends up on the carpet in front of the other two.
+
+
+SHOT STRUCTURE
+
+The five shots at a glance:
+1. 0.0 to 3.0s: darkness, three pairs of eyes. BANG, one flash, and Duane's eyes drop to the floor. Locked-off.
+2. 3.0 to 8.0s: darkness, close on Duane's eyes near the floor. His scream. Slow push-in.
+3. 8.0 to 10.5s: medium in the sunny living room. Glenn sleeps through it. Locked-off.
+4. 10.5 to 15.0s: high wide in the hallway. The light snaps back on. Very slow push-in.
+5. 15.0 to 20.0s: medium two-shot. Vince and Marco lose it. Locked-off.
+
+SHOT 1 (0.0 to 3.0s). DARKNESS: THE FLASH.
+Camera: in front of the three, at their eye height, about 6 feet away. 35mm lens, about a 54-degree view. Locked-off.
+Frame: almost total darkness. The only things visible are the whites of three pairs of eyes, faintly catching a tiny glimmer: Marco's half-lidded pair on the left at about x 32% / y 38%, Vince's pair in the middle at about x 50% / y 40%, and Duane's pair on the right, higher and bigger, at about x 68% / y 28%.
+0.0 to 0.6s: Hold. All three pairs of eyes are wide open and frozen. Nervous breathing.
+0.6 to 1.0s: Vince's eyes snap down and to the right, toward Duane's feet, where the squeak came from.
+1.0 to 1.2s: BANG. One bright orange-white flash bursts from low in the middle of the group, at about Vince's hip height, and for a split second lights the walls and ceiling of the whole hallway, with the three of them as dark shapes against the bright walls. Then it's black again.
+1.2 to 2.0s: The three pairs of eyes reappear and blink once, in shock.
+2.0 to 2.5s: Duane's eyes go huge and perfectly round. A sharp gasp.
+2.5 to 3.0s: Duane's eyes drop straight down to about x 68% / y 82% as he goes down. A heavy THUD shakes the floor.
+Light: black, one split-second flash, black again.
+Last frame: Marco's and Vince's eyes where they were, Duane's huge eyes low near the floor.
+Avoid: faces, bodies or anything in anyone's hands visible outside the flash, a second flash, sparks, any other light, glowing eyes.
+
+HARD CUT
+
+SHOT 2 (3.0 to 8.0s). DARKNESS, CLOSE: DUANE'S EYES.
+Camera: close to the floor, at the height of Duane's eyes, about 3 feet away. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: almost total darkness. Only Duane's two huge, round, wet eyes, side by side at the center of the frame at about x 50% / y 46%, catching a faint glimmer.
+3.0 to 3.6s: Hold. His huge eyes tremble and fill with tears.
+3.6 to 4.6s: DUANE: "AAAAH!" Delivery: a huge, cracking howl that starts deep and breaks high. His eyes squeeze shut.
+4.6 to 7.4s: DUANE: "You SHOT me! You [BLEEP] SHOT me, you stupid son of a [BLEEP]!" Delivery: fast, frantic and outraged, his deep, soft bass cracking into high, strained, wobbling yelps, with a sob between the phrases. His eyes pop wide open and squeeze shut again with each phrase.
+7.4 to 8.0s: His eyes squeeze into two thin, wet, glistening slits, and he starts to bawl: a long, high, wobbling wail.
+Light: none, except the faint glimmer in his eyes.
+Last frame: two thin, wet, squeezed-shut eyes in the black.
+Avoid: his face, body or mouth becoming visible, any light source, glowing eyes, any other eyes in frame.
+
+HARD CUT
+
+SHOT 3 (8.0 to 10.5s). MEDIUM: GLENN SLEEPS THROUGH IT.
+Camera: at the front of the living room, at couch-seat height, about 6 feet from Glenn's head. 35mm lens, about a 54-degree view. Locked-off.
+Frame: the couch from <<<image_5>>>. Glenn (<<<image_4>>>) lies on his right side across the seat cushions, his right cheek pressed into the left cushion and his face toward the camera, his head at about x 32% / y 52%. The ear protectors are on, and the sleep mask covers his eyes, so its printed cartoon eyes stare straight at the lens. The side table, with the lamp (off) and his mug with the red crayon, is at the left edge of the frame.
+8.0 to 9.2s: One long, deep snore in; his chest and shoulder rise slowly. Faint, muffled bawling comes through the ceiling.
+9.2 to 10.5s: One long, rumbling snore out; his chest and shoulder sink. The printed eyes keep staring blankly at the lens. He doesn't move a muscle.
+Light: warm, striped bars of sunlight across the couch, his shoulder and the side of his head, with dust drifting through them.
+Last frame: Glenn asleep on his side, the printed eyes staring at the lens.
+Avoid: Glenn twitching, waking or talking; the printed eyes blinking or moving; the ear protectors or mask changing; the lamp turning on; anyone else in the room.
+
+HARD CUT
+
+SHOT 4 (10.5 to 15.0s). HIGH WIDE: THE LIGHT COMES BACK.
+Camera: at the top of the stairs, about 7 feet up, just below the ceiling, tilted down about 30 degrees, looking down the hallway. 28mm lens, about a 65-degree view. A very slow push-in, easing in and out.
+Frame: the hallway from <<<image_6>>>, seen from above, with the white banister along the left edge. Duane (<<<image_3>>>) lies on his back across the lower half of the frame: head at the left at about x 28% / y 72%, bent knees up at about x 56% / y 62%, white socks at about x 66% / y 80%. Both of his big hands are wrapped around his right shin, covering it completely. The yellow rubber duck sits beside his socks at about x 76% / y 84%. Just beyond him, Marco (<<<image_2>>>) stands on the left, head at about x 40% / y 20%, and Vince (<<<image_1>>>) on the right, head at about x 58% / y 26%, both facing the camera, looking down at Duane. Vince's right arm hangs straight down at his side, the pistol in his hand pointing straight down at the carpet.
+10.5 to 11.0s: Black. Duane's bawling. One distant CLACK from far below.
+11.0 to 11.3s: The ceiling light snaps on at once.
+11.3 to 12.8s: Duane rocks from side to side on his back, clutching his shin, eyes squeezed shut, mouth wide open, bawling. Vince and Marco stand frozen, staring down at him.
+12.8 to 13.8s: Slowly, they lift their eyes from Duane and turn their heads to look at each other.
+13.8 to 15.0s: Beat. The corner of Marco's mouth twitches. Vince clamps his mouth shut, trying to hold it in. Then both snort at the same moment.
+Light: black, then soft, even, warm light from the ceiling light.
+Last frame: Vince and Marco face to face, about to crack up; Duane still bawling below them.
+Avoid: Vince's right arm lifting or moving, anything shown on Duane's leg, Duane rolling onto his front or getting up, flicker, anyone else.
+
+HARD CUT
+
+SHOT 5 (15.0 to 20.0s). MEDIUM TWO-SHOT: THE LAUGH.
+Camera: in front of Vince and Marco, at about Vince's eye height, about 5 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: both from the chest up, turned slightly toward each other: Marco on the left, head at about x 36% / y 28%; Vince on the right, head at about x 62% / y 36%. Vince's right arm hangs straight down, below the bottom of the frame, so his right hand never appears. Duane is out of frame, below the lens. The hallway is soft behind them.
+15.0 to 16.0s: Both crack up: Marco snorts through his nose, shoulders shaking, face barely moving; Vince cackles and presses his left hand flat on his chest.
+16.0 to 17.7s: MARCO: "Holy [BLEEP]. You shot Duane." Delivery: low, flat and mumbled, with a snort of laughter between the two sentences.
+17.7 to 18.2s: Pause. Vince wheezes, eyes watering.
+18.2 to 19.2s: VINCE: "I shot Duane!" Delivery: high, giddy and squeaky, half proud and half amazed.
+19.2 to 20.0s: Both laugh harder. Vince's head falls back. Marco shakes his head slowly, still snorting. Duane keeps bawling below, out of frame.
+Light: soft, even, warm light from the ceiling light.
+Last frame: both laughing, Vince's head back, his left hand on his chest.
+Avoid: Vince's right hand or anything in it appearing, either of them pointing, Duane in frame, anyone else.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly five shots joined by exactly four hard cuts, at 3.0s, 8.0s, 10.5s and 15.0s.
+- Only Vince, Marco, Duane and Glenn, all matching their references 100%. Glenn appears only in Shot 3.
+- In the dark (Shots 1 and 2, and Shot 4 until 11.0s), the frame stays almost black except for the whites of their eyes and the one flash at 1.0s.
+- The socks, the caltrops in Duane's socks, Vince's blown-back hair and the sunglasses on his collar stay the same. Marco's pen gadget stays in his vest pocket.
+- The pistol stays in Vince's right hand, pointing straight down at the carpet, and is seen only in Shot 4.
+- Duane's hands cover his right shin whenever he's in the light.
+- Glenn never moves, wakes or speaks; the ear protectors and mask stay on, and the printed eyes stay flat and still.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Duane's deep bass cracking into high yelps, Marco's low, flat mumble and Vince's nasal tenor never swap.
+- The written pauses are kept.
+- The living room matches <<<image_5>>>; the hallway matches <<<image_6>>> once the light is on.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. DUANE: "AAAAH! You SHOT me! You [BLEEP] SHOT me, you stupid son of a [BLEEP]!"
+  2. MARCO: "Holy [BLEEP]. You shot Duane."
+  3. VINCE: "I shot Duane!"
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people, and nobody else is seen or heard. Glenn makes no sound but his snore.
+- No ad-libs, extra lines or narration. Laughing, bawling, gasping and breathing are the only other voice sounds.
+- No second flash, no sparks, no haze, and nothing ever shown on anyone's leg.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: small. Vince's eyes snap toward the sound before the flash, Duane's eyes go huge before they drop, and the two hold the laugh in before it bursts out.
+3. Staging: one clear idea per shot: the flash, the scream, the sleeping dad, the reveal, the laugh.
+4. Straight ahead and pose to pose: natural motion landing on clear, held poses: the frozen eyes, Duane clutching his shin, the two face to face.
+5. Follow-through: subtle. Duane keeps rocking after the thud, and laughter keeps shaking their shoulders.
+6. Slow in and slow out: every move eases at human speed; only the flash, the drop and the light coming on are instant.
+7. Arcs: Duane rocks on a smooth arc, heads turn on slow arcs, and Vince's head falls back on a soft arc.
+8. Secondary action: the clinking caltrops, the dust in the sunbeams and Vince's hand on his chest, never pulling focus.
+9. Timing: a sudden flash, a fast, frantic scream, a still cutaway that holds long enough to land, then a slow build into the laugh.
+10. Exaggeration: minimal. The comedy is Duane's outrage, two idiots who can't stop laughing, and Glenn sleeping through it all.
+11. Solid drawing: consistent anatomy and volume in every frame, even in the dark; five fingers.
+12. Appeal: three lovable idiots and one oblivious dad. It's a slapstick comedy.
