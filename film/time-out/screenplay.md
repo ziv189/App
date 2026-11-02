@@ -81,18 +81,18 @@ Above the couch hangs a framed photo of a young, clean-shaven soldier in dress u
 
 Below it sits the same man, years later: **GLENN KOWALSKI** (41, bushy hair, full beard, bathrobe over an olive army t-shirt, dog tags). He holds a mug that reads **WORLD'S OKAYEST DAD.** His eyes are wide open and he's grinning. He hasn't blinked in a while. It's not happiness. It's what's left.
 
-Brayden stomps in, chewing on a crayon. He climbs onto the coffee table to get eye level with his dad and spits the crayon out.
+Brayden stomps in, chewing on a crayon. He climbs onto the coffee table to get eye level with his dad and spits the crayon out. It lands in Glenn's coffee.
 
 **BRAYDEN**
-Daddy. Nap time. NOW, bitch.
+Daddy. Nap time. NOW.
 
-Glenn's head turns. Slowly. Suspiciously.
+Glenn's head turns. Slowly. His wide eyes go misty.
 
 **GLENN**
-*(flat)*
-Language.
+*(flat, but deeply touched)*
+You want Daddy to take a nap?
 *(beat)*
-You've never once in your life asked for nap time.
+You never ask for nap time.
 
 **BRAYDEN**
 *(grinning way too wide, eyes darting sideways, the worst liar alive)*
@@ -100,10 +100,16 @@ I'm a growing boy.
 
 He wipes his nose on Glenn's bathrobe.
 
-Glenn studies him. Then he decides he doesn't have the energy to care. He pulls on a pair of olive military ear defenders and a sleep mask printed with cartoon wide-open eyes.
+Glenn doesn't see a brat. He has never once seen a brat. He sees a perfect little angel who's looking out for his old man.
 
 **GLENN**
-Daddy did three tours overseas, Brayden. You're worse. Fifteen goddamn minutes.
+*(melting)*
+...My little angel.
+
+He pulls on a pair of olive military ear defenders and a sleep mask printed with cartoon wide-open eyes.
+
+**GLENN**
+Fifteen minutes. Daddy's off duty.
 
 He falls face-first into the cushions like a felled tree. A squeaky toy dies underneath him. Instant snoring.
 
@@ -401,6 +407,15 @@ They dump everything at his feet: a laptop, a TV remote, Glenn's own medals, and
 We're giving it all back.
 
 **VINCE**
+Your kid is a fucking psycho!
+
+Glenn's eyes narrow. Deeply offended.
+
+**GLENN**
+*(flat)*
+He's an angel.
+
+**VINCE**
 We'll pay you! Just open the goddamn door!
 
 All three pat their pockets. No wallets. Slowly, they turn toward the stairs.
@@ -410,7 +425,7 @@ Brayden sits on the bottom step, hugging the swear jar. It's stuffed with cash a
 **BRAYDEN**
 Swear jar.
 
-Glenn gives his son a slow nod. Respect. He walks to the front door and pops the childproof cover with one precise, military flick. He swings the door open to bright daylight.
+Glenn looks at his son and beams with pride. See? An angel. He walks to the front door and pops the childproof cover with one precise, military flick. He swings the door open to bright daylight.
 
 **GLENN**
 Thanks for stopping by.

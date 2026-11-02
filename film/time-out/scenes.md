@@ -74,13 +74,13 @@
 
 ### 2.2 · `0:35` · 4s · Medium
 - **Image:** BRAYDEN stands on the coffee table in front of the couch, a chewed crayon in his mouth, eye level with GLENN and scowling at him from under heavy eyebrows.
-- **Motion:** Brayden spits out the crayon and stomps his foot on the table. Glenn's head turns slowly and suspiciously toward him.
-- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW, bitch."
+- **Motion:** Brayden spits the crayon into Glenn's coffee mug and stomps his foot on the table. Glenn's head turns slowly toward him.
+- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW."
 
 ### 2.3 · `0:39` · 4s · Close-up, Glenn
-- **Image:** Close-up of GLENN, wide unblinking eyes narrowing with suspicion, his grin frozen in place, coffee mug halfway to his mouth.
-- **Motion:** Glenn's eyes narrow slowly. The grin doesn't move at all.
-- **Dialogue:** GLENN *(flat)*: "Language." *(beat)* "You've never once in your life asked for nap time."
+- **Image:** Close-up of GLENN, wide unblinking eyes, his grin frozen in place, a crayon floating in the coffee mug he's holding.
+- **Motion:** Glenn's wide eyes slowly fill with proud, happy tears. The grin doesn't move at all.
+- **Dialogue:** GLENN *(flat, but deeply touched)*: "You want Daddy to take a nap?" *(beat)* "You never ask for nap time."
 
 ### 2.4 · `0:43` · 3s · Close-up, Brayden
 - **Image:** Close-up of BRAYDEN with an enormous ear-to-ear grin full of jagged teeth, his eyes darting sideways, very obviously lying.
@@ -91,7 +91,7 @@
 ### 2.5 · `0:46` · 6s · Medium, Glenn
 - **Image:** Medium shot of GLENN on the couch holding olive-green military ear defenders and a blue sleep mask printed with cartoon wide-open eyes.
 - **Motion:** Glenn sets down the mug, clamps on the ear defenders, then snaps the sleep mask over his eyes. He's totally deadpan the whole time.
-- **Dialogue:** GLENN: "Daddy did three tours overseas, Brayden. You're worse. Fifteen goddamn minutes."
+- **Dialogue:** GLENN *(melting)*: "...My little angel." *(then, clamping on the ear defenders)* "Fifteen minutes. Daddy's off duty."
 
 ### 2.6 · `0:52` · 2s · Wide
 - **Image:** GLENN in ear defenders and the cartoon-eyes sleep mask, sitting stiff and upright on the couch.
@@ -333,24 +333,24 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 - **Motion:** Glenn lifts one corner of the sleep mask to reveal one wide, unblinking eye, then checks his wristwatch.
 - **Dialogue:** GLENN *(flat)*: "Twelve minutes. I said fifteen."
 
-### 9.4 · `3:08` · 5s · Medium
+### 9.4 · `3:08` · 6s · Medium
 - **Image:** The thieves dumping armfuls of stolen goods onto the rug at GLENN's feet: a laptop, a TV remote, a handful of military medals, and a family-size bag of dinosaur-shaped chicken nuggets.
-- **Motion:** The items tumble onto the rug. Glenn slowly sits up, completely unbothered.
-- **Dialogue:** MARCO: "We're giving it all back." / VINCE: "We'll pay you! Just open the goddamn door!"
+- **Motion:** The items tumble onto the rug. Glenn slowly sits up, completely unbothered. At "psycho," his wide eyes narrow, deeply offended.
+- **Dialogue:** MARCO: "We're giving it all back." / VINCE: "Your kid is a fucking psycho!" / GLENN *(flat, offended)*: "He's an angel." / VINCE: "We'll pay you! Just open the goddamn door!"
 
-### 9.5 · `3:13` · 3s · Medium three-shot
+### 9.5 · `3:14` · 3s · Medium three-shot
 - **Image:** VINCE, MARCO and DUANE standing in a row, patting their pockets.
 - **Motion:** All three pat every pocket, find nothing, and turn slowly in unison toward the staircase.
 - **Audio:** M4 spaghetti-western whistle.
 
-### 9.6 · `3:16` · 3s · Medium, staircase
+### 9.6 · `3:17` · 3s · Medium, staircase
 - **Image:** BRAYDEN in war mode sitting on the bottom stair, hugging the swear jar, now stuffed with cash and three wallets.
 - **Motion:** Brayden pats the jar, throws his head back, and cackles.
 - **Dialogue:** BRAYDEN: "Swear jar."
 
-### 9.7 · `3:19` · 5s · Medium wide
+### 9.7 · `3:20` · 4s · Medium wide
 - **Image:** GLENN standing at the front door with his hand on the childproof doorknob. The thieves cower behind him.
-- **Motion:** Glenn gives Brayden a slow nod of respect, then pops the childproof cover with one precise, military flick and swings the door open to bright daylight.
+- **Motion:** Glenn looks back at Brayden and beams with pride, then pops the childproof cover with one precise, military flick and swings the door open to bright daylight.
 - **Dialogue:** GLENN: "Thanks for stopping by."
 
 ### 9.8 · `3:24` · 4s · Wide
