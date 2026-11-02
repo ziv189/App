@@ -1,0 +1,171 @@
+SCENE CONTEXT & STYLE
+
+What happens: A sunny Saturday afternoon, a few minutes into nap time. VINCE, MARCO and DUANE crouch-walk across the small backyard of the beige house in single file. Duane, at the back, is far too big to hide behind anything. At the back door, Marco opens the lock in about two seconds. Vince, very proud of himself, tells everyone to take their shoes off, because professionals don't leave footprints. Marco and Duane exchange a look and kick off their sneakers. Inside, the kitchen is dim, with every blind shut. The three of them tiptoe in, in their socks. On the counter, a small white audio monitor crackles, its green lights flicker, and a sing-song voice comes through its speaker: Brayden, saying hi. All three freeze like statues, and Duane grabs Marco's arm.
+
+Continuity: before this clip, the three were sitting in their van out front. Brayden is never seen in this clip; his voice only comes out of the monitor's speaker. The three wear their shoes, as in their reference images, until Shot 3, and they're in socks from then on: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks pulled up high.
+
+Tone and pace: a dry, deadpan comedy. The three try for slick heist-movie energy and can't quite pull it off. Slow and relaxed, with a real pause after every line. The "Hiiiiiii" and the freeze are the eerie-funny button at the end: quiet, still and long.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: a bright green backyard under a blue sky, then a dim kitchen in cool shadow, with pale yellow walls, a checkered floor and three small green lights as the accent.
+
+Camera language: real lenses between 28mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld. Shot 4 is a low, floor-level shot of their feet.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. Their sneaking is careful and real, not cartoon tiptoe hopping. Duane's size makes everything a bit awkward. Marco is quick and efficient. Vince is proud of every move. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand or foot does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, six shots joined by five hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: the backyard is in bright Saturday sun at about 2 PM, coming from the upper left, with crisp fence shadows striping the grass and a blue sky with puffy clouds. The kitchen is dim and quiet: every blind is shut, so only thin slivers of sunlight leak through the slats and around the small curtain on the back door, falling across the floor. The monitor's three green lights are the brightest small points in the kitchen. The light is fixed to the world, not to the characters: when they move, the stripes of light and shadow slide across them. No flicker, no color shift.
+
+Physics: real weight, gravity and timing. Duane's steps are heavier than the others'. The lock turns with a small click, and the door swings inward a few inches with a soft creak. Kicked-off shoes tumble once onto the doormat and stay there. In socks on the smooth floor they step softly and carefully and never slip. When Duane grabs Marco's arm, his big hand closes around it and the sleeve bunches. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: birds, a distant lawnmower, the soft swish of feet on grass; the tiny metallic scratching of Marco's tools in the lock, a click, a door creak; Vince's voice; the soft thumps of shoes landing on the doormat; inside, the quiet hum of the fridge and soft sock steps on the floor; the monitor's crackle of static; Brayden's voice through a small, tinny speaker; then near silence, with only the fridge humming.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug, overconfident and theatrical. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. He leans on certain words for effect. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. Voice: a low, flat baritone with heavy vocal fry, close to a mumble. He doesn't speak in this clip. His pen gadget stays tucked in his vest pocket and isn't used. Face, hair, beard, body and clothes 100% match <<<image_2>>>.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, the first to get scared. Voice: a deep, soft, warm bass, gentle and hesitant. He doesn't speak in this clip. Face, beard, body and clothes 100% match <<<image_3>>>.
+
+<<<image_4>>> = the backyard, used in Shots 1 to 3. The back of the beige house, the back door with its half-glass window and small curtain, the two concrete steps, the doormat, the patchy grass, the plastic wading pool, the sandbox, the wooden fence and the side gate 100% match <<<image_4>>>.
+
+<<<image_5>>> = the kitchen, used in Shots 4 to 6. The back door on the left wall, the cabinets and counter along the back wall, the shut blinds, the fridge on the right, the small round table and the checkered floor 100% match <<<image_5>>>.
+
+BRAYDEN is never seen. His voice comes only out of the monitor's speaker: high and raspy, here in a slow, sing-song, much-too-friendly tone, slightly tinny and crackly through the small speaker.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The audio monitor: one small white plastic monitor standing on the kitchen counter, with a speaker grille and three small green lights on the front. It has no screen. It never becomes a phone, a radio or a camera.
+- Marco's tools: two thin metal tools, each about the length of a pencil.
+- The shoes: Vince's black loafers, Marco's black high-tops and Duane's white sneakers, all as in the reference images until they come off.
+
+Only three people are on screen in this clip: Vince, Marco and Duane.
+
+
+SHOT STRUCTURE
+
+The six shots at a glance:
+1. 0.0 to 3.5s: wide in the backyard. They crouch-walk to the back door in single file. Slow pan.
+2. 3.5 to 6.0s: extreme close-up. Marco opens the lock. Locked-off.
+3. 6.0 to 11.0s: medium three-shot at the door. "Shoes off..." and the shoes come off. Slow push-in.
+4. 11.0 to 13.5s: floor level in the kitchen. Three pairs of socks tiptoe in. Slow dolly back.
+5. 13.5 to 16.0s: extreme close-up on the monitor. Static, then "Hiiiiiii." Very slow push-in.
+6. 16.0 to 20.0s: wide in the kitchen. They freeze, and Duane grabs Marco's arm. Locked-off.
+
+SHOT 1 (0.0 to 3.5s). WIDE: SINGLE FILE.
+Camera: in the middle of the yard near the side gate, at standing eye height, about 15 feet from the back door. 28mm lens, about a 65-degree view. A slow, smooth pan from left to right, following them.
+Frame: matching <<<image_4>>>. The back of the house with the back door fills the right half of the frame, and the yard, the plastic wading pool and the sandbox fill the left half.
+0.0 to 1.2s: The three crouch-walk in single file through the side gate on the left and onto the grass. Vince leads, bent low; Marco follows, low and quick; Duane comes last, hunched over but still towering above the fence line.
+1.2 to 2.8s: They cross the yard toward the back door, moving left to right. Duane steps carefully around the plastic wading pool.
+2.8 to 3.5s: They reach the two concrete steps of the back door, and Vince raises one hand to stop them. Hold.
+Light: bright sun from the upper left; the fence shadows stripe the grass and slide across them as they pass.
+Last frame: the three bunched at the foot of the back steps, Vince's hand raised.
+Avoid: running, jumping over things, anyone else in the yard, anyone at a window.
+
+HARD CUT
+
+SHOT 2 (3.5 to 6.0s). EXTREME CLOSE-UP: THE LOCK.
+Camera: close on the back door's lock and handle, at handle height, about 1.5 feet away. 85mm lens, about a 24-degree view. Locked-off.
+Frame: the round door handle and the lock in the center of the frame, on the white door.
+3.5 to 4.0s: Marco's hands come in from the left and slide his two thin metal tools into the lock.
+4.0 to 5.2s: A few small, precise wiggles. In about a second, the lock turns with a click.
+5.2 to 6.0s: His right hand turns the handle, and the door swings inward a few inches with a soft creak. Hold.
+Light: warm sun across the white door; the metal tools catch a small glint.
+Last frame: the door open a few inches, Marco's right hand on the handle.
+Avoid: forcing or breaking the door, any damage, the door swinging wide open by itself, any other hands.
+
+HARD CUT
+
+SHOT 3 (6.0 to 11.0s). MEDIUM THREE-SHOT: SHOES OFF.
+Camera: at the foot of the back steps, facing the door, about 8 feet away, at standing eye height. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
+Frame: Vince (<<<image_1>>>) stands on the top step with his back to the half-open door, facing the other two, his head at about x 50% / y 30%. Marco (<<<image_2>>>) stands on the step below at the left, and Duane (<<<image_3>>>) stands on the grass at the right, looming over both of them. The doormat is at Vince's feet.
+6.0 to 6.6s: Vince raises one index finger like a professor and looks at them over it.
+6.6 to 8.6s: VINCE: "Shoes off. Professionals don't leave footprints." Delivery: proud and quick, as if sharing a big secret. While he says it, he steps out of his loafers, one and then the other, without looking down.
+8.6 to 9.4s: Pause. Marco and Duane turn their heads and look at each other: Marco flat and unimpressed, Duane unsure.
+9.4 to 10.4s: They both let out a small sigh. Marco kicks off his black high-tops and Duane kicks off his white sneakers, and the shoes tumble onto the doormat.
+10.4 to 11.0s: Hold: three grown men standing in their socks.
+Light: bright sun; the fence shadows lie across the steps.
+Last frame: all three in socks, the shoes in a small pile on the doormat.
+Avoid: anyone going inside yet, the shoes disappearing, the wrong sock colors.
+
+HARD CUT
+
+SHOT 4 (11.0 to 13.5s). FLOOR LEVEL: THE SOCKS.
+Camera: on the kitchen floor, about 6 inches up, looking toward the back door. 35mm lens, about a 54-degree view. A slow dolly backward as they come toward it.
+Frame: matching <<<image_5>>>. The checkered floor fills the lower half of the frame, with the back door at the far left. Three pairs of socked feet tiptoe toward the camera in single file: Vince's black socks with gold toes in front, Marco's black socks behind him, Duane's big white tube socks last.
+11.0 to 13.5s: They tiptoe slowly and carefully across the floor toward the camera, heel lifted, one soft step at a time. Duane's steps are the biggest and the slowest.
+Light: dim, with thin slivers of light from the blinds lying across the floor; the feet pass through them.
+Last frame: three pairs of socks mid-step on the checkered floor.
+Avoid: shoes, slipping, running, bare feet.
+
+HARD CUT
+
+SHOT 5 (13.5 to 16.0s). EXTREME CLOSE-UP: THE MONITOR.
+Camera: on the kitchen counter, about 1 foot from the monitor. 50mm lens, about a 40-degree view. A very slow push-in.
+Frame: the small white audio monitor in the center of the frame, its three green lights glowing on the front, and a row of plastic cups soft and out of focus behind it.
+13.5 to 14.0s: Silence. The lights glow steadily.
+14.0 to 14.3s: The monitor crackles with static, and its lights flicker.
+14.3 to 15.6s: BRAYDEN, through the monitor: "Hiiiiiii." Delivery: slow, sing-song and much too friendly, tinny through the small speaker. The green lights pulse in time with his voice.
+15.6 to 16.0s: The lights settle. Silence.
+Light: the three green lights are the brightest thing in the frame, glowing softly on the counter around them.
+Last frame: the monitor with its three steady green lights.
+Avoid: a screen, a face or a picture on the monitor, the monitor moving, any people in frame.
+
+HARD CUT
+
+SHOT 6 (16.0 to 20.0s). WIDE: THE FREEZE.
+Camera: in the kitchen doorway on the hallway side, at standing eye height, about 12 feet from the counter, matching <<<image_5>>>. 28mm lens, about a 65-degree view. Locked-off.
+Frame: the dim kitchen, with the counter and the monitor on the back wall and the back door at the left. The three stand frozen mid-tiptoe in single file in the middle of the floor: Vince in front and nearest the camera, his head at about x 60% / y 38%; Marco behind him at about x 47% / y 36%; Duane at the back, nearest the door, towering at about x 33% / y 26%.
+16.0 to 17.0s: All three hold perfectly still, one foot lifted mid-step, eyes wide, like statues.
+17.0 to 18.2s: Without moving anything else, Duane slowly reaches forward with his right hand and grabs Marco's upper arm. The sleeve bunches in his grip.
+18.2 to 20.0s: Hold. Nobody moves. Only the green lights glow, and dust drifts through the slivers of light.
+Light: dim, with slivers of sunlight through the blinds across the floor and the three, and the monitor's green lights glowing on the counter.
+Last frame: the three frozen mid-step, Duane gripping Marco's arm.
+Avoid: anyone speaking, anyone moving except Duane's arm, Brayden appearing, anyone else in the kitchen.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly six shots joined by exactly five hard cuts, at 3.5s, 6.0s, 11.0s, 13.5s and 16.0s.
+- Only Vince, Marco and Duane are on screen, and all three match their reference images 100% in every shot.
+- Brayden is only a voice coming out of the monitor's speaker.
+- Shoes are on until Shot 3 and off from then on. The socks are always: Vince black with gold toes, Marco black, Duane white tube socks.
+- Marco's pen gadget stays tucked in his vest pocket the whole clip.
+- Every movement happens with the hand or foot written, at the time written, and nothing extra is added.
+- Vince's voice is the nasal, fast tenor, and Brayden's is the high, raspy, sing-song voice through the speaker. They never swap.
+- The written pauses are kept.
+- The backyard matches <<<image_4>>> and the kitchen matches <<<image_5>>>.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. VINCE: "Shoes off. Professionals don't leave footprints."
+  2. BRAYDEN, through the monitor: "Hiiiiiii."
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people, and nobody at any window.
+- No ad-libs, extra lines or narration. Marco and Duane say nothing. During "Hiiiiiii," nobody on screen moves his mouth.
+- No damage to the door or the house.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands, feet and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: small and natural. Vince raises his hand before they stop and his finger before his line; there's a breath of static before the voice.
+3. Staging: one clear action per shot: the sneak, the lock, the shoes, the socks, the voice, the freeze.
+4. Straight ahead and pose to pose: continuous, natural motion; in the freeze, they simply stop, like real people holding their breath.
+5. Follow-through: subtle. The shoes tumble once and settle, the door drifts to a stop, and Marco's sleeve bunches and stays bunched.
+6. Slow in and slow out: every move eases at human speed, including the pan, the push-ins and the dolly.
+7. Arcs: the crouch-walk, the kicked shoes and Duane's reach all follow natural arcs.
+8. Secondary action: birds and fence shadows in the yard, dust in the slivers of light and the hum of the fridge in the kitchen.
+9. Timing: careful and unhurried; the freeze is the longest, stillest moment.
+10. Exaggeration: minimal. The comedy is three grown men tiptoeing in socks and freezing at one sing-song word.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: three lovable idiots trying to look like professionals. It's a comedy.
