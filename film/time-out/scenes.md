@@ -75,7 +75,7 @@
 ### 2.2 · `0:35` · 4s · Medium
 - **Image:** BRAYDEN stands on the coffee table in front of the couch, a chewed crayon in his mouth, eye level with GLENN and scowling at him from under heavy eyebrows.
 - **Motion:** Brayden spits out the crayon and stomps his foot on the table. Glenn's head turns slowly and suspiciously toward him.
-- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. Right fucking now."
+- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW, bitch."
 
 ### 2.3 · `0:39` · 4s · Close-up, Glenn
 - **Image:** Close-up of GLENN, wide unblinking eyes narrowing with suspicion, his grin frozen in place, coffee mug halfway to his mouth.
@@ -142,7 +142,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 3.7 · `1:11` · 4s · Wide, low angle hero shot
 - **Image:** BRAYDEN in war mode, backlit in the basement doorway in silhouette, with camo stripes and a giant wobbling army helmet. Dust hangs in the light behind him.
 - **Motion:** Slow push-in. Brayden rolls his head and cracks his neck, then grins.
-- **Dialogue:** BRAYDEN *(gravelly whisper)*: "Nap time, motherfuckers."
+- **Dialogue:** BRAYDEN *(gravelly whisper)*: "Nap time, bitches."
 - **Audio:** The music hits its last big drum hit and cuts out.
 
 ---
@@ -213,7 +213,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 6.3 · `1:53` · 5s · Medium
 - **Image:** VINCE in a crumpled heap in the doorway on top of a smashed baby gate, his spiky hair blown straight back, the seat of his pants scorched and smoking.
 - **Motion:** Smoke curls up from the seat of his pants. He lifts his head, outraged.
-- **Dialogue:** VINCE: "ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!" / BRAYDEN *(V.O.)*: "Daddy says the real ones make a fucking mess."
+- **Dialogue:** VINCE: "ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!" / BRAYDEN *(V.O.)*: "Daddy says the real ones make a mess."
 - **Continuity:** Vince's pants are scorched and smoking from here on.
 
 ---

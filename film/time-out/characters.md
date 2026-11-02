@@ -35,7 +35,7 @@ Paste this at the end of **every** image and video prompt:
 
 **Reference:** [`refs/brayden-sketch.jpg`](refs/brayden-sketch.jpg)
 
-**Who he is:** A brat, and he doesn't hide it for a second. He's loud, grabby and sticky, and his grin is way too big with way too many teeth, just like Dad's. He can't read, but he's memorized every picture in Daddy's army field manual. He screams when he wants something and cackles when he gets it. He swears like Dad's old platoon, and he runs the swear jar like a loan shark. The rule only applies to other people. The only time he goes quiet is right before something terrible happens to you.
+**Who he is:** A brat, and he doesn't hide it for a second. He's loud, grabby and sticky, and his grin is way too big with way too many teeth, just like Dad's. He can't read, but he's memorized every picture in Daddy's army field manual. He screams when he wants something and cackles when he gets it. He runs the swear jar like a loan shark. He barely swears himself (he's four), and when he does it's only "bitch." The jar rule only applies to other people. The only time he goes quiet is right before something terrible happens to you.
 
 **Look tag:**
 > BRAYDEN, a short stocky 4-year-old boy with a wide round head, big jug ears sticking straight out, short messy dark-brown hair sticking up in tufts, thick heavy eyebrows slanted down in a scheming scowl, small beady eyes that always glance sideways, a tiny upturned button nose, and an enormous ear-to-ear grin full of small jagged teeth, wearing a grubby ketchup-stained green dinosaur onesie with orange back spikes and a little tail, hood down

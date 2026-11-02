@@ -84,7 +84,7 @@ Below it sits the same man, years later: **GLENN KOWALSKI** (41, bushy hair, ful
 Brayden stomps in, chewing on a crayon. He climbs onto the coffee table to get eye level with his dad and spits the crayon out.
 
 **BRAYDEN**
-Daddy. Nap time. Right fucking now.
+Daddy. Nap time. NOW, bitch.
 
 Glenn's head turns. Slowly. Suspiciously.
 
@@ -140,7 +140,7 @@ A sawed-off shotgun gets bolted inside a little safe in the den. A box labeled *
 Brayden stands in the basement doorway, backlit, in war paint and a helmet three sizes too big. He cracks his neck.
 
 **BRAYDEN**
-Nap time, motherfuckers.
+Nap time, bitches.
 
 ---
 
@@ -225,7 +225,7 @@ A blast from inside the safe launches Vince backward across the room in a cloud 
 ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!
 
 **BRAYDEN (V.O.)**
-Daddy says the real ones make a fucking mess.
+Daddy says the real ones make a mess.
 
 ---
 
