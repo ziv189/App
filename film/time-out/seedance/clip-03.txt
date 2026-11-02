@@ -1,96 +1,135 @@
 SCENE CONTEXT & STYLE
 
-What happens: This continues straight on from the moment before, inside the beat-up white van parked across the street from the beige house on Maple Court. DUANE, on the back bench, is holding Vince's laminated plan, which has two small photos paper-clipped to it. He looks closely at one of them: a photo of BRAYDEN, who lives in the house. Duane stops mid-snack, drops his gummy bear, and quietly warns Vince about who's in the photo. VINCE, in the driver's seat, is completely unbothered. He puts on his gold aviator sunglasses and brushes it off with a smug one-liner. Hard cut outside to the house. In the upstairs window with the frilly curtains, Brayden has been watching the van through red toy binoculars the whole time. He slowly lowers them, and a huge grin spreads across his face. He is the real problem, and the guys in the van have no idea. Then a hard cut to the title shot: a green sippy cup slams down onto a blank sheet of white paper.
+What happens: This continues straight on from the moment before, inside the beat-up white van parked across the street from the beige house on Maple Court. DUANE, on the back bench, is holding Vince's laminated plan, which has two small photos paper-clipped to it. He looks closely at one of them: a photo of BRAYDEN, who lives in the house. Duane stops mid-snack, drops his gummy bear, and quietly warns Vince about who's in the photo. VINCE, in the driver's seat, is completely unbothered. He puts on his gold aviator sunglasses and brushes it off with a smug one-liner. Hard cut outside to the house. In the upstairs window with the frilly curtains, Brayden has been watching the van through red toy binoculars the whole time. He slowly lowers them, and a huge grin spreads across his face. He is the real problem, and the guys in the van have no idea. Then a hard cut to the title shot: a green sippy cup lands on a blank sheet of white paper.
 
-Tone and pace: a dry, deadpan, sarcastic comedy. The van part is slow and relaxed, with real pauses: after every line there is a pause before anyone reacts or answers, and nobody rushes or talks over anyone. The window reveal is even slower: quiet, still and ominous in a funny way. The sippy-cup slam is sudden, a comic button to end on.
+Continuity from the previous clip, true from the first frame: Vince's phone lies face-down in his lap, where he put it. Duane holds the laminated plan. Vince's gold aviator sunglasses are hooked by one arm on the collar of his turtleneck, not on his face. The air in the van is clear, with no mist. Everyone is in the same seats as before.
+
+Tone and pace: a dry, deadpan, sarcastic comedy. The van part is slow and relaxed, with real pauses: after every line there is a pause before anyone reacts or answers, and nobody rushes or talks over anyone. The window reveal is even slower: quiet, still and ominous in a funny way. The sippy-cup landing is sudden, a comic button to end on.
 
 Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
+
+Color palette: warm golden afternoon light, cream and beige house siding, white trim, the worn greys of the van interior, deep blue sky. The strongest color accents in this clip are the bright red toy binoculars and the green sippy cup. No color grading changes between shots.
+
+Camera language for this film: eye level or close to it, real lenses between 35mm and 85mm, natural perspective with straight vertical lines. Camera moves are slow and smooth. No fisheye, no Dutch angles, no drone shots, no whip pans, no zooms, no shaky handheld except where a shot says otherwise.
 
 Acting and movement: grounded and natural. The characters are designed like cartoons, but they move like real actors. Small, economical movements at real human speed, subtle facial expressions, relaxed bodies. A raised eyebrow, a slow glance or a tiny smirk is a big reaction in this film. No rubbery faces, no bouncing, no big arm-waving, no snappy cartoon poses. Every movement in this prompt is described exactly, including which hand does it, so do exactly that movement and nothing extra.
 
 Format: 20 seconds, 16:9, five shots joined by four hard cuts. Natural real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
 
-Lighting: a sunny Saturday at about 2 PM, the same light as the rest of the film. One sun, high and to the upper left, warm and bright, with soft blue fill from the sky. Inside the van: warm sunlight pours in through the windshield and side window, dust floats slowly in the light beams, and the cargo area at the back sits a bit darker. Outside: the front of the beige house is in full sun, with crisp, soft-edged shadows falling to the right. The room behind the upstairs window is darker than the bright siding, so Brayden starts half in the shade of the curtains, and the sun catches his face once the binoculars come down. The title shot is lit by the same warm daylight from the upper left, with a soft shadow falling to the lower right of the cup. The light is fixed to the world, not to the characters. No flicker, no color shift, no change in time of day.
+Lighting: a sunny Saturday at about 2 PM, the same light as the rest of the film. One sun, high and to the upper left, warm and bright, with soft blue fill from the sky. Inside the van: warm sunlight pours in through the windshield and side window, dust floats slowly in the light beams, and the cargo area at the back sits a bit darker. Outside: the front of the beige house is in full sun, with crisp, soft-edged shadows falling to the right. The room behind the upstairs window is darker than the bright siding. The title shot is lit by the same warm daylight from the upper left. The light is fixed to the world, not to the characters: when they move, the light and shadows travel across them. No flicker, no color shift, no change in time of day.
 
-Physics: real weight, gravity and timing. The van is parked with the engine off and never moves. It only dips slightly on its springs when Duane shifts. Faces and bodies keep their shape: no squash and stretch. The laminated plan is stiff and flat and never bends. The gummy bear drops with gravity into Duane's lap and stays there. The sunglasses are rigid metal and glass. The frilly curtains are light fabric and sway gently when the binoculars move past them. The sippy cup is hard plastic: it lands with a solid knock, rocks once and settles upright without changing shape. A few drops of juice fly out of the spout on impact, arc and land on the paper.
+Physics: real weight, gravity and timing. The van is parked with the engine off and never moves. It only dips slightly on its springs when Duane shifts. Faces and bodies keep their shape: no squash and stretch. The laminated plan is stiff and flat and never bends. The photos on it are still prints: nothing in them ever moves. The gummy bear is small, soft and red; it drops with gravity into Duane's lap and stays there. The sunglasses are rigid metal and dark glass. The frilly curtains are light fabric and sway gently when the binoculars move past them. The sippy cup is hard plastic: it lands with a solid knock, rocks once and settles upright without changing shape. A few drops of juice fly out of the spout on impact, arc and land on the paper.
 
-Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the scene would really make. In the van: faint street sounds through the glass, the laminated sheet creaking softly in Duane's grip, the gummy-bear bag rustling, a tiny soft tap as the gummy bear lands, the click of the sunglasses unfolding, the creak of Vince's leather jacket. At the window: a faint sprinkler and one bird chirp, then almost complete quiet. In the title shot: one hard plastic knock and a short rattle as the cup rocks. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
+Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, recorded close and intimate inside the van, plus only the sounds the scene would really make. In the van: a low, quiet interior room tone, faint street sounds through the glass, the laminated sheet creaking softly in Duane's grip, the gummy-bear bag rustling, a tiny soft tap as the gummy bear lands, the click of the sunglasses opening, the creak of Vince's leather jacket. At the window: a faint sprinkler and one distant bird chirp, then almost complete quiet. In the title shot: one hard plastic knock and a short rattle as the cup rocks. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
 
 
 ACTIVE REFERENCES
 
-<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group. Smug, overconfident and theatrical, always performing for a crew that isn't impressed. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. He leans on certain words for effect and talks a bit too loud for a small van. When he's being smug, his voice gets drier and slower. Never deep, never gravelly. Face, hair, body, clothes, gold chain and gold aviator sunglasses 100% match <<<image_1>>>.
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group. Smug, overconfident and theatrical, always performing for a crew that isn't impressed. In this clip he's completely unbothered by Duane's warning and enjoying his own coolness. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. He leans on certain words for effect and talks a bit too loud for a small van. When he's being smug, his voice gets drier and slower. Never deep, never gravelly. Appears in Shot 3. Face, hair, body, clothes, gold chain and gold aviator sunglasses 100% match <<<image_1>>>.
 
-<<<image_2>>> = MARCO, a man in his 30s. The only competent one, and bored by everything. In this clip he appears only as the soft, out-of-focus edge of a shoulder and beard at the left side of Vince's close-up. He doesn't speak or move. Face, hair, beard and clothes 100% match <<<image_2>>>.
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, and bored by everything. In this clip he appears only as the soft, out-of-focus edge of a shoulder and beard at the left side of Shot 3. He doesn't speak, turn or move. Face, hair, beard and clothes 100% match <<<image_2>>>.
 
-<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, the first one to sense trouble. Voice: a deep, soft, warm bass, gentle and a bit breathy, slow and hesitant. Sincere, never sarcastic. When he's worried it goes quieter and wobbles. Face, beard, body and clothes 100% match <<<image_3>>>.
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, the first one to sense trouble. In this clip he goes from snacking to quietly worried. Voice: a deep, soft, warm bass, gentle and a bit breathy, slow and hesitant. Sincere, never sarcastic. When he's worried it goes quieter and wobbles. Appears in Shots 1 (only his hands) and 2. Face, beard, body and clothes 100% match <<<image_3>>>.
 
 <<<image_4>>> = the inside of the van, used in Shots 1 to 3. Seats, dashboard, clutter, colors and materials 100% match <<<image_4>>>. The seating never changes: Vince in the driver's seat, Marco in the passenger seat, Duane alone on the back bench.
 
-<<<image_5>>> = Maple Court and the beige house, used in Shot 4. The house, its siding, roof and windows 100% match <<<image_5>>>. Brayden's window is the upstairs window on the right side of the front of the house, directly above the big picture window, with the frilly white curtains.
+<<<image_5>>> = Maple Court and the beige house, used in Shot 4 and in the small house photo in Shot 1. The house, its siding, roof and windows 100% match <<<image_5>>>. Brayden's window is the upstairs window on the right side of the front of the house, directly above the big picture window, with the frilly white curtains.
 
-<<<image_6>>> = BRAYDEN. He lives in the house and has been watching the van all along. A brat with a scheming, gleeful streak who is already planning something. In this clip he is completely still and silent: calm, smug and patient. Face, hair, ears, teeth, body and green dinosaur onesie 100% match <<<image_6>>>. Regular look: no face paint, no helmet. He appears in the small photo in Shot 1 and at the window in Shot 4.
+<<<image_6>>> = BRAYDEN. He lives in the house and has been watching the van all along. A brat with a scheming, gleeful streak who is already planning something. In this clip he is completely still and silent: calm, smug and patient. Regular look: no face paint, no helmet. Appears as the small photo in Shot 1 and at the window in Shot 4. Face, hair, ears, teeth, body and clothes 100% match <<<image_6>>>.
 
 Things with no reference image (keep them simple and identical every time they appear):
-- Vince's laminated plan: one stiff laminated letter-size sheet with two small photos paper-clipped along its top edge. The photo at the top left shows BRAYDEN from <<<image_6>>>, grinning his huge grin. The photo at the top right shows the beige house from <<<image_5>>>.
-- Duane's snack: a small clear bag of colorful gummy bears, sitting on the bench beside his right thigh.
-- Vince's phone: a plain black smartphone lying face-down in his lap. He doesn't touch it in this clip.
-- Brayden's binoculars: a pair of bright red plastic toy binoculars.
+- Vince's laminated plan: one stiff laminated letter-size sheet with two small printed photos paper-clipped along its top edge. The photo at the top left shows BRAYDEN from <<<image_6>>>, grinning his huge grin. The photo at the top right shows the beige house from <<<image_5>>>. The rest of the sheet has only blurry, unreadable shapes.
+- Duane's snack: a small clear bag of colorful gummy bears, open, sitting on the bench beside his right thigh.
+- Vince's phone: a plain black smartphone lying face-down in his lap. Nobody touches it in this clip.
+- Brayden's binoculars: a pair of bright red plastic toy binoculars, chunky and rounded.
 - The title shot: one plain sheet of white paper and one green plastic sippy cup with a spout lid.
 
-Characters, environments and props 100% match the references. Only Duane, Vince and Brayden act in this clip. Marco is only a blurred shoulder at the edge of Vince's close-up.
+Characters, environments and props 100% match the references. Only Duane, Vince and Brayden act in this clip. Marco is only a blurred shoulder at the edge of Vince's shot.
 
 
 SHOT STRUCTURE
 
-In the van, the camera always looks from the front of the van toward the back, as in the earlier clips. Vince sits in the driver's seat on the right of frame, Marco in the passenger seat on the left of frame, and Duane in the center of the back bench.
+The five shots at a glance:
+1. 0.0 to 2.5s: extreme close-up insert of Brayden's photo on the plan in Duane's hands. Gentle handheld.
+2. 2.5 to 8.0s: close-up of Duane as he realizes and warns Vince. Very slow push-in.
+3. 8.0 to 13.5s: medium close-up of Vince putting on his sunglasses and brushing it off. Locked-off, no movement.
+4. 13.5 to 18.0s: Brayden's upstairs window from across the street, the binoculars coming down and the grin. Barely noticeable push-in.
+5. 18.0 to 20.0s: the title shot, top-down on white paper, the sippy cup landing. Locked-off.
 
-SHOT 1 (0.0 to 2.5s). INT. VAN. Insert, camera between the two front seats angled steeply down at the laminated plan in Duane's hands in his lap, static, 50mm lens.
-First frame: Duane holds the laminated plan flat in his lap with both hands, one at each side. The two photos are clipped along its top edge: Brayden's photo on the left, the house photo on the right. Only his hands, the plan and the fabric of his shorts are in frame.
-0.0 to 1.2s: Hold. Brayden's photo sits sharp in the center-left of the frame, with his huge jagged grin clearly visible. The house photo is softer on the right.
-1.2 to 2.5s: Duane's right thumb slides slowly across the plan and stops just beside Brayden's photo. Hold.
-Sound: the laminated sheet creaking softly in his grip, faint street sounds through the glass.
+Every cut changes both the shot size and the camera movement. In the van, the camera always looks from the front of the van toward the back, as in the earlier clips: Vince sits in the driver's seat on the right side of the van as we see it, Marco in the passenger seat on the left, and Duane in the center of the back bench.
 
-HARD CUT
-
-SHOT 2 (2.5 to 8.0s). INT. VAN. Close-up on Duane, static camera low between the two front seats looking back at him, 50mm lens. Duane fills the center of the frame on the back bench.
-First frame: Duane holds the plan up at chest height in his left hand, looking down at it. His right hand rests on the gummy-bear bag on the bench beside his right thigh.
-2.5 to 3.3s: Without taking his eyes off the photo, Duane picks one gummy bear out of the bag with his right hand and lifts it toward his mouth.
-3.3 to 4.3s: He stops with the gummy bear halfway to his mouth. His eyes widen slowly, his eyebrows lift, and his lips part slightly.
-4.3 to 4.8s: The gummy bear slips from his fingers and drops into his lap. His right hand stays frozen in the air for a moment, then slowly lowers.
-4.8 to 5.6s: Pause. He slowly lifts his eyes from the plan and looks up past the camera to the right, toward Vince in the driver's seat.
-5.6 to 7.0s: DUANE, quiet, slow and worried, with a small catch in his voice and a short pause after the name: "Vince... there's a kid."
-7.0 to 8.0s: Pause. He turns the plan a few inches toward Vince with his left hand, as if to show him, and keeps looking at him, waiting.
-Sound: the gummy bag rustling, a tiny soft tap as the gummy bear lands in his lap, Duane's voice, faint street sounds through the glass.
-
-HARD CUT
-
-SHOT 3 (8.0 to 13.5s). INT. VAN. Close-up on Vince, static camera on the dashboard just right of center, 50mm lens, the same angle as the earlier close-ups of Vince. Vince is sharp on the right of frame, twisted around in the driver's seat toward the back. The soft, out-of-focus edge of Marco's shoulder and beard is in the left foreground.
-First frame: Vince's phone lies face-down in his lap. His gold aviator sunglasses are hooked by one arm on the collar of his turtleneck. His face is relaxed, looking back toward Duane.
-8.0 to 8.8s: Pause. Vince looks back at Duane without any concern. One eyebrow lifts slightly.
-8.8 to 9.8s: With his right hand, he unhooks the sunglasses from his collar, opens them with one small flick of the wrist, and slides them onto his face, then pushes them up the bridge of his nose with his right index finger. Sunlight glints across the lenses.
-9.8 to 12.6s: VINCE, dry, slow and smug, with a short pause between the two sentences: "He's four, Duane. What the [BLEEP]'s he gonna do, cry at us?" A small scoff through his nose on "cry at us."
-12.6 to 13.5s: Hold. He keeps the smug half-smile behind the sunglasses and doesn't move.
-Sound: the soft click of the sunglasses opening, the leather jacket creaking, Vince's voice, one censor beep.
+SHOT 1 (0.0 to 2.5s). INT. VAN. INSERT: THE PHOTO.
+Camera: extreme close-up insert. The camera is between the two front seats, about two feet from Duane's lap, angled steeply down at the laminated plan. 50mm lens. Very gentle handheld: a slow, barely visible drift, as if someone is holding their breath.
+Framing: the laminated plan fills the frame. Brayden's photo (<<<image_6>>>) sits center-left, sharp, about a third of the frame's height. The house photo (<<<image_5>>>) sits to the right, a bit softer. Duane's (<<<image_3>>>) hands hold the plan at its left and right edges.
+Light on set: warm sunlight from the windshield falls across the plan from the upper left of frame, with a soft sheen on the laminate. No glare covers the photo.
+First frame: Duane holds the plan flat in his lap with both hands. The photo shows Brayden's face from <<<image_6>>>, grinning his huge grin and glancing sideways.
+0.0 to 1.2s: Hold. Brayden's photo is clear and readable in the center-left of the frame. It is a still print and nothing in it moves.
+1.2 to 2.2s: Duane's right thumb slides slowly across the laminate from the right edge toward the photo and stops just beside its corner.
+2.2 to 2.5s: Hold.
+Last frame: Duane's right thumb rests beside Brayden's photo.
+Sound: the soft creak of the laminate under his thumb, the quiet room tone of the van, faint street sounds through the glass.
+Must not happen: the photo moving or coming alive, a different face in the photo, extra photos, readable text on the plan.
 
 HARD CUT
 
-SHOT 4 (13.5 to 18.0s). EXT. THE BEIGE HOUSE. Medium shot of Brayden's upstairs window from across the street, very slow push-in, 85mm lens. The window is centered in the frame, surrounded by beige siding in bright sun.
-First frame: the frilly white curtains are parted a few inches. In the gap, BRAYDEN holds the bright red toy binoculars up to his eyes with both hands, pointed straight at the van and the camera. Only his hands, the binoculars and the top of his tufty hair show. He is completely still.
+SHOT 2 (2.5 to 8.0s). INT. VAN. CLOSE-UP: DUANE REALIZES.
+Camera: close-up. The camera is low between the two front seats at Duane's chest height, about three feet from him, looking straight back at him. 50mm lens. Very slow push-in: over the whole shot the frame tightens slightly, from head and chest to head and shoulders.
+Framing: Duane (<<<image_3>>>) is centered, his eyes on the upper third of the frame, with a little space above his head. The back bench and the rear windows of the van are soft behind him. The open gummy-bear bag sits at the lower right edge of the frame on the bench.
+Light on set: soft warm light on Duane's face from the windshield behind the camera. A bright, warm rim of sunlight on the top of his head from the side window. The cargo area behind him is a bit darker.
+First frame: Duane holds the plan at chest height in his left hand, angled toward himself, looking down at the photo. His right hand rests on top of the open gummy-bear bag beside his right thigh. His mouth is closed and his eyebrows are relaxed.
+2.5 to 3.3s: With his eyes still on the photo, his right hand picks one red gummy bear out of the bag and raises it toward his mouth.
+3.3 to 4.3s: His hand stops halfway, at chin height. His eyes widen slowly, his eyebrows rise, and his mouth opens slightly. He holds his breath.
+4.3 to 4.8s: The gummy bear slips from his fingers and drops into his lap. His right hand stays frozen in the air for a moment, then sinks slowly onto his knee.
+4.8 to 5.6s: Pause. He lifts his eyes from the photo and looks up, just to the right of the lens, toward Vince in the driver's seat.
+5.6 to 7.0s: DUANE: "Vince... there's a kid." Delivery: quiet, close to a whisper at the start, slow, about two words per second, with a short pause after "Vince..." and a small catch in his voice on the last word.
+7.0 to 8.0s: Pause. With his left hand he turns the plan a few inches toward Vince, photo facing out, as if to show him. He keeps looking at Vince with his eyebrows raised, waiting.
+Last frame: Duane holds the plan turned toward Vince, looking up and to the right of the lens.
+Sound: the gummy bag rustling, a tiny soft tap as the gummy bear lands in his lap, his breath catching, his voice close and soft, the quiet room tone of the van.
+Must not happen: Duane speaking in another man's voice, more gummy bears falling, the plan changing size, Duane standing up, anyone else appearing in the frame.
+
+HARD CUT
+
+SHOT 3 (8.0 to 13.5s). INT. VAN. MEDIUM CLOSE-UP: VINCE BRUSHES IT OFF.
+Camera: medium close-up, locked-off with no movement at all. The camera sits at the center of the dashboard, angled toward the driver's seat, at Vince's eye height. 50mm lens.
+Framing: Vince (<<<image_1>>>) fills the right two-thirds of the frame, head and upper chest, twisted around toward the back of the van so his face is in three-quarter profile, turned toward the left of the frame. His gold chain is visible. In the left foreground, the soft, out-of-focus edge of Marco's (<<<image_2>>>) shoulder and beard takes up about a fifth of the frame. Behind Vince, the van's side window shows a soft, sunny street.
+Light on set: warm sunlight from the windshield lights Vince's face from the camera side. The side window behind him puts a warm rim of light on his hair and shoulder. The gold chain and the sunglasses catch small glints.
+First frame: Vince's gold aviator sunglasses hang by one arm from the collar of his turtleneck. His phone lies face-down in his lap, below the frame. He is looking toward the back center of the van (toward the left of frame), at Duane. His face is relaxed, his mouth closed.
+8.0 to 8.8s: Pause. Vince looks at Duane, completely unbothered. His left eyebrow lifts slightly.
+8.8 to 9.8s: With his right hand, he unhooks the sunglasses from his collar, opens them with one small flick of the wrist, slides them onto his face, and pushes them up the bridge of his nose with his right index finger. A single soft glint of sunlight crosses the lenses.
+9.8 to 12.6s: VINCE: "He's four, Duane. What the [BLEEP]'s he gonna do, cry at us?" Delivery: dry and slow on the first sentence, a short pause, then quicker and smug on the second, about two and a half words per second, with a small scoff through his nose on "cry at us." The beep covers one word while his mouth keeps moving.
+12.6 to 13.5s: Hold. He keeps a smug half-smile behind the sunglasses and doesn't move.
+Last frame: Vince in his sunglasses with a smug half-smile, looking toward the left of frame.
+Sound: the soft click of the sunglasses opening, the leather jacket creaking, Vince's voice, one censor beep, the quiet room tone of the van.
+Must not happen: sunglasses already on his face at the start, two pairs of sunglasses, anything visible reflected in the lenses (they stay plain dark glass with one soft glint), Marco turning or speaking, the phone moving, the camera moving.
+
+HARD CUT
+
+SHOT 4 (13.5 to 18.0s). EXT. THE BEIGE HOUSE. MEDIUM SHOT: THE WINDOW.
+Camera: medium shot from across the street, 85mm lens, from standing height, looking slightly up at the upstairs window. A barely noticeable push-in, tightening only slightly over the whole shot.
+Framing: Brayden's window (the upstairs right window from <<<image_5>>>, directly above the big picture window) is centered and fills the middle third of the frame. Beige siding in bright sun surrounds it on all sides. The top edge of the white trim of the picture window below runs along the bottom of the frame.
+Light on set: full afternoon sun on the siding from the upper left. The window glass is clean and clear where the curtains are parted, with no reflections covering what's behind it. The room behind is dim. When the binoculars come down, a slice of sunlight falls across Brayden's face.
+First frame: the frilly white curtains are parted a few inches. In the gap, BRAYDEN (<<<image_6>>>) holds the bright red toy binoculars up to his eyes with both hands, pointed straight at the camera. Only his hands, the binoculars and the tufts on top of his hair are visible. He is completely still.
 13.5 to 14.5s: Hold. Nothing moves except the slow push-in.
-14.5 to 16.0s: Slowly, over a second and a half, he lowers the binoculars with both hands down to chest height. His face is revealed: heavy eyebrows slanted down, small eyes looking sideways straight at the camera. The edges of the curtains sway gently as the binoculars pass them.
-16.0 to 17.3s: A grin slowly spreads across his face from ear to ear, showing his jagged teeth, and stops at full width.
-17.3 to 18.0s: Hold. He doesn't blink. Nothing moves.
-Sound: a faint sprinkler and one bird chirp, then almost complete quiet.
+14.5 to 16.0s: Slowly and evenly, over a second and a half, he lowers the binoculars with both hands down to chest height. His face is revealed: heavy eyebrows slanted down, eyes glancing sideways straight at the camera. The edges of the curtains sway gently as the binoculars pass them.
+16.0 to 17.3s: A grin slowly spreads from the corners of his mouth out to his ears, revealing his jagged teeth, and stops at full width.
+17.3 to 18.0s: Hold. He does not blink. Nothing moves.
+Last frame: Brayden's full grin in the gap between the curtains, the red binoculars held at his chest.
+Sound: a faint sprinkler and one distant bird chirp at the start, then almost complete quiet, with just soft outdoor air.
+Must not happen: the curtains opening wide, the window opening, Brayden leaning out, the binoculars changing color or turning into real metal binoculars, anyone else at any window, Brayden blinking, speaking or waving, reflections hiding his face.
 
 HARD CUT
 
-SHOT 5 (18.0 to 20.0s). TITLE SHOT. Top-down, locked-off camera. One plain sheet of white paper fills the entire frame.
-First frame: the empty white paper, evenly lit, nothing on it.
+SHOT 5 (18.0 to 20.0s). TITLE SHOT.
+Camera: top-down, locked-off, looking straight down at the paper. 50mm lens.
+Framing: one sheet of white paper fills the entire frame edge to edge. Nothing else is visible: no table, no edges, no background.
+Light on set: the same warm daylight from the upper left. The paper is evenly lit, a slightly warm white. The cup casts a soft shadow to the lower right.
+First frame: the empty white paper.
 18.0 to 18.3s: Hold on the empty paper.
-18.3 to 18.6s: The green sippy cup drops straight down into frame from above and lands upright in the center of the paper with a solid knock. A few drops of juice fly out of the spout and land around it.
+18.3 to 18.6s: The green sippy cup drops straight down into frame from above and lands upright in the dead center of the paper with a solid knock. Four or five drops of juice fly out of the spout and land around it.
 18.6 to 20.0s: The cup rocks once and settles upright. Hold on the cup and the juice drops until the end.
-Sound: one hard plastic knock, a short rattle as the cup rocks.
+Last frame: the green sippy cup standing upright in the center of the white paper, with small juice drops around it.
+Sound: one hard plastic knock and a short rattle as the cup rocks.
+Must not happen: any text, letters or logos, any hands, arms or people, a table or background, more than one cup, the cup breaking, bending or squashing, a big puddle of juice.
 
 
 LOCKS & CONSTRAINTS
@@ -99,38 +138,39 @@ LOCKS & CONSTRAINTS
 - Only Duane, Vince and Brayden act in this clip. Marco appears only as the blurred edge of a shoulder and beard in Shot 3. No other people anywhere: no neighbors, no pedestrians, nobody else in the house windows.
 - Characters match their reference images 100% in every shot: same faces, hair, beards, bodies, clothes, colors and proportions. Nothing is added, removed or changed between shots.
 - Do exactly the movements written, with the hands written, at the times written. No extra gestures, no extra actions, no fidgeting that isn't described.
-- Hands and props: the plan stays in Duane's hands for the whole van part. The gummy bear goes from the bag to his right hand to his lap and stays there. Vince's phone stays face-down in his lap untouched. The sunglasses go from Vince's collar onto his face with his right hand only. Brayden holds the binoculars with both hands.
+- Hands and props: the plan stays in Duane's hands for the whole van part. The gummy bear goes from the bag to his right hand to his lap and stays there. Vince's phone stays face-down in his lap, untouched. The sunglasses go from Vince's collar onto his face with his right hand only, and they are not on his face before that. Brayden holds the binoculars with both hands the whole time.
 - Brayden appears only in the small photo in Shot 1 and at the upstairs window in Shot 4. At the window he stays inside the house behind the curtains. He never opens the window, never waves, never speaks, never leaves the window and never makes a sound. The only things he does are lower the binoculars and grin. He has no face paint and no helmet.
-- The photo on the plan shows the same face as Brayden at the window.
+- The photo on the plan shows the same face as Brayden at the window, and it never moves.
 - The seats never change: Vince in the driver's seat, Duane on the back bench. Nobody gets into or out of the van.
-- Voices: Duane has the deep, soft, hesitant bass and Vince the nasal, fast tenor. Voices never swap and never change mid-clip. Marco and Brayden make no sound.
-- Pacing: keep every pause as written. Nobody rushes a line and nobody fills the silences. The window reveal stays slow.
+- Voices: Duane has the deep, soft, hesitant bass and Vince the nasal, fast tenor. Voices never swap and never change mid-clip. Marco and Brayden make no sound. No voices are heard outside the van.
+- Pacing: keep every pause as written. Nobody rushes a line and nobody fills the silences. The window reveal stays slow and still.
 - Movement: grounded and natural, at real human speed. Small gestures and subtle expressions only. No squash and stretch, no rubbery faces, no bouncing, no big theatrical gestures, no fast snapping moves. Brayden's grin spreads slowly and naturally.
+- Camera: only the moves written for each shot. No extra zooms, pans, shakes or angle changes.
 - Exact dialogue only. These lines, by these speakers, in this order, word for word, and nothing else. No ad-libs, no extra lines, no narration, no background chatter.
   1. DUANE: "Vince... there's a kid."
   2. VINCE: "He's four, Duane. What the [BLEEP]'s he gonna do, cry at us?"
 - [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
 - Lip sync: only the character who is speaking moves his mouth. Brayden's mouth stays closed until the grin, and the grin is silent.
 - No readable text anywhere. The plan has no readable words. The title paper stays completely blank, with no letters, no title, no writing and no logo; the title is added later in editing. No subtitles, no captions, no watermarks.
-- No hands, arms or people in the title shot. Only the sippy cup, the juice drops and the paper.
+- No reflections showing scenes or faces in the sunglasses or in the window glass.
 - The van interior stays identical to <<<image_4>>> and the house stays identical to <<<image_5>>>.
 - Same lighting in every shot: sunny 2 PM, one sun from the upper left, light fixed to the world. No flicker, no color shift.
 - No music, no score, no stingers. Diegetic sound only, plus the one censor beep.
 - Stylized 3D animated feature-film look throughout. Never photorealistic, never anime, never flat 2D.
-- No morphing. Faces, hands and props never melt, merge, stretch out of shape or swap. Hands always have five fingers. The plan, sunglasses, binoculars and sippy cup keep their exact shape and size.
+- No morphing. Faces, hands and props never melt, merge, stretch out of shape or swap. Hands always have five fingers. The plan, sunglasses, binoculars and sippy cup keep their exact shape, size and color.
 
 
 12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
 1. Squash and stretch: almost none. Only natural movement of real faces, like cheeks shifting as someone talks or eyebrows lifting. Faces never stretch, bulge or go rubbery, and the sippy cup doesn't squash when it lands.
-2. Anticipation: small and natural, never a cartoon wind-up. Duane's eyes settle on the photo before his hand stops. Vince's eyebrow lifts before he reaches for the sunglasses. Brayden holds perfectly still before he lowers the binoculars.
+2. Anticipation: small and natural, never a cartoon wind-up. Duane's eyes settle on the photo before his hand stops. Vince's eyebrow lifts before he reaches for the sunglasses. Brayden holds perfectly still for a full second before he lowers the binoculars.
 3. Staging: one clear action at a time. The photo is centered and readable in Shot 1, Duane's face fills Shot 2, Vince's face fills Shot 3, and the window is dead center in Shot 4.
 4. Straight ahead and pose to pose: continuous, natural motion with no snapping into poses. During pauses, people simply hold still, the way real people do.
 5. Follow-through and overlapping action: subtle. Duane's raised hand lingers for a moment after the gummy bear falls, then lowers. Vince's gold chain settles after he puts the sunglasses on. The curtains keep swaying softly after the binoculars come down. The juice drops land just after the cup.
-6. Slow in and slow out: every move starts and stops gently at human speed. The binoculars lower with a slow ease-in and ease-out, and the push-in on the window is barely noticeable.
+6. Slow in and slow out: every move starts and stops gently at human speed. The binoculars lower with a slow ease-in and ease-out, and the push-ins start and stop so gently they're barely noticed.
 7. Arcs: the gummy bear falls on a short, natural arc, the sunglasses travel up onto Vince's face on a smooth arc, and the binoculars lower on a gentle arc.
 8. Secondary action: quiet background life that never pulls focus. Dust drifts in the sunbeams in the van, and the curtain fabric stirs at the window.
-9. Timing: realistic and unhurried in the van, with pauses left between lines. The window reveal is the slowest, stillest moment in the clip. The sippy-cup knock is instant.
+9. Timing: realistic and unhurried in the van, with the pauses left between lines. The window reveal is the slowest, stillest moment in the clip. The sippy-cup knock is instant.
 10. Exaggeration: minimal. The comedy comes from deadpan timing and small reactions: Duane's slowly widening eyes, Vince's single raised eyebrow, Brayden's calm stare. Brayden's grin is wide because that's his design, not because it's stretched.
 11. Solid drawing: consistent anatomy, weight and volume in every frame. Hands have five fingers and hold objects firmly. Nobody flattens, warps or melts.
 12. Appeal: appealing designs and believable people. Brayden reads as a funny, charismatic villain with a plan. It's a comedy.
