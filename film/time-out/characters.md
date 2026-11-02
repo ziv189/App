@@ -125,20 +125,21 @@ For Brayden, swap the expressions for the ones listed in his section, and make a
 
 ## Sets
 
-Make each one empty, with no characters, as a location reference.
+All the location prompts, and the house map they follow, are in **[`environment-prompts.md`](environment-prompts.md)**. There are 12 sets:
 
-| Set | Prompt (add the style block) |
-|---|---|
-| **Maple Court (ext.)** | Sunny suburban cul-de-sac on a Saturday afternoon, neat lawns with ticking sprinklers, a tired beige two-story house with an overgrown lawn, a tipped-over plastic tricycle and a dented minivan in the driveway, a dented white panel van parked across the street, bright blue sky, long afternoon shadows. |
-| **The van (int.)** | Cramped messy interior of an old white panel van, fast-food wrappers on the dashboard, fuzzy dice, a dusty windshield with warm sunlight pouring through, a worn back bench seat. |
-| **Living room** | Chaotic suburban living room: saggy brown couch facing a TV, toys covering every surface, baby gates, clear plastic childproof covers on every doorknob, a crayon-covered whiteboard, a framed military photo with medals on the wall, a staircase on the left, the front door on the right, a basement door, a big window with half-closed blinds. |
-| **Basement** | Dim, cluttered suburban basement with bare wooden stairs, a single hanging bulb, old boxes, a dusty exercise bike, a grey electrical breaker box on the wall, and an olive-green army footlocker tucked under the stairs. |
-| **Kitchen** | Dim suburban kitchen with the blinds drawn, cluttered with sippy cups, cereal boxes and kid drawings on the fridge, a white baby monitor with glowing green lights on the counter, a back door with a window. |
-| **Downstairs hallway** | Long dim hallway with family photos crooked on the walls. *(For the trap shots: the floor is scattered wall to wall with four-pointed metal caltrops.)* |
-| **Upstairs hallway** | Long carpeted upstairs hallway at the top of the stairs, framed family photos on the walls, a ceiling light, and a hall closet door partway down. *(For the blackout shots: the same hallway in pitch darkness, and as grainy green night-vision footage.)* |
-| **Den** | Small wood-paneled den with a recliner, a baby gate across the doorway, and a small black safe sitting on the floor against the wall. |
-| **Brayden's room** | Pastel kid's bedroom, crayon murals of dinosaurs eating stick-figure men on the walls, a tiny pink plastic tea table with tiny chairs, a booster seat at the head, a toy chest, a speaker, a frilly window. |
-| **Backyard** | Small suburban backyard with a plastic kiddie pool, a sandbox and a back door with a window, sunny afternoon. |
+- Maple Court
+- the front yard
+- the van
+- the living room (two sides)
+- the basement
+- the backyard
+- the kitchen
+- the downstairs hallway (plus a spike version)
+- the den
+- the upstairs hallway (plus night-vision and blackout versions)
+- Brayden's room
+
+Make each one as an empty set with no characters, and attach it to your shots as the location reference.
 
 ---
 
