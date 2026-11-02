@@ -12,6 +12,7 @@ An adult animated comedy short, about **3:45**. It looks like a family movie and
 |---|---|
 | [`screenplay.md`](screenplay.md) | The full script: 10 scenes with every line of dialogue |
 | [`characters.md`](characters.md) | Character look tags, voice notes, character-sheet and set prompts, the style block, on-screen text list, continuity tracker, music cues, and "The Wiggly Worm Song" |
+| [`refs/brayden-sketch.jpg`](refs/brayden-sketch.jpg) | The original Brayden drawing. Use it as the reference for his character sheet |
 | [`scenes.md`](scenes.md) | Shot-by-shot breakdown: 50 shots with timecodes, durations, start-frame **Image** prompts, **Motion** prompts, dialogue, audio and post notes |
 
 ## Making it in Higgsfield

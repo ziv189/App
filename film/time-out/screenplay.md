@@ -44,7 +44,7 @@ Vince holds up his phone. It shows a post on a neighborhood app: *"Me + the litt
 **VINCE**
 He posts everything on the neighborhood app. Saturdays, two to four: nap time.
 
-Duane squints at a photo clipped to the plan. It shows a toddler in a dinosaur onesie and a bike helmet.
+Duane squints at a photo clipped to the plan. It shows a jug-eared toddler grinning like he just bit somebody.
 
 **DUANE**
 Vince... there's a kid.
@@ -56,9 +56,9 @@ It's a four-year-old, Duane. What's it gonna do, cry at us?
 
 ### EXT. KOWALSKI HOUSE, UPSTAIRS WINDOW, SAME
 
-The frilly curtains are parted a crack. A tiny figure in a green dinosaur onesie and a red bike helmet slowly lowers a pair of plastic toy binoculars.
+The frilly curtains are parted a crack. A tiny figure in a grubby green dinosaur onesie slowly lowers a pair of plastic toy binoculars.
 
-This is **BRAYDEN KOWALSKI** (4 "and three-quarters"). He smiles. It is not a nice smile.
+This is **BRAYDEN KOWALSKI** (4 "and three-quarters"). He has jug ears and mean little eyebrows. He grins, and the grin keeps going: ear to ear, all jagged little teeth.
 
 SMASH CUT TO:
 
@@ -72,10 +72,10 @@ A war zone of toys. Baby gates everywhere. Clear plastic childproof covers sit o
 
 **GLENN KOWALSKI** (41, bathrobe, three-day stubble, thousand-yard stare) sits on a saggy couch holding a mug: **WORLD'S OKAYEST DAD.** A toy rolls past. He doesn't blink.
 
-Brayden toddles in and stands in front of him, hands clasped politely behind his back.
+Brayden stomps in, chewing on a crayon. He climbs up onto the coffee table to get eye level with his dad and spits the crayon out.
 
 **BRAYDEN**
-Daddy. It's nap time.
+Daddy. Nap time. NOW.
 
 Glenn's head turns. Slowly. Suspiciously.
 
@@ -84,10 +84,10 @@ Glenn's head turns. Slowly. Suspiciously.
 You've never once in your life asked for nap time.
 
 **BRAYDEN**
-*(sweet as pie)*
+*(grinning way too wide, eyes darting sideways, the worst liar alive)*
 I'm a growing boy.
 
-Glenn studies him. Then he decides he doesn't have the energy to care. He puts on huge noise-cancelling headphones and a sleep mask with cartoon wide-open eyes printed on it.
+He wipes his nose on Glenn's bathrobe. Glenn studies him. Then he decides he doesn't have the energy to care. He puts on huge noise-cancelling headphones and a sleep mask with cartoon wide-open eyes printed on it.
 
 **GLENN**
 Fifteen minutes. Fifteen minutes where nobody touches me, talks to me, or puts anything in my ear.
@@ -181,7 +181,8 @@ She stands there. Sparkling. Motionless. Dead calm.
 No. No, no, no. This doesn't come out. They're gonna find this on my corpse.
 
 **BRAYDEN (V.O.)**
-You look pretty.
+*(cackling)*
+HA! You look like a disco ball!
 
 **PETRA**
 You little sh—
@@ -205,7 +206,7 @@ He grabs the knob. It's under a childproof cover, which spins uselessly. He sque
 **VINCE**
 How does anyone... OPEN THESE THINGS?!
 
-A tiny hand reaches past him and pops the cover open with one flick. Brayden smiles up at him.
+A tiny hand reaches past him and pops the cover open with one flick. Brayden grins up at him, all teeth.
 
 **BRAYDEN**
 Like that.
@@ -251,7 +252,7 @@ Petra lifts her tiny cup and sniffs it. Frowns.
 This isn't apple juice.
 
 **BRAYDEN**
-*(innocently)*
+*(grinning)*
 I never said it was apple.
 
 Beat. All three slowly lower their cups to the table in perfect sync. *Clink. Clink. Clink.*

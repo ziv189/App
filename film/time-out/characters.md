@@ -10,7 +10,7 @@ Paste this at the end of **every** image and video prompt:
 
 > Stylized 3D animated feature-film look, exaggerated cartoon proportions, big expressive eyes, squash-and-stretch comedic acting, soft global illumination, warm saturated suburban colors, cinematic composition, shallow depth of field, consistent character design, no distortion, no extra fingers, no garbled text.
 
-**Tone rule:** it *looks* like a family movie and *plays* like an adult comedy. That contrast is the joke. Don't make it dark or gritty. The brighter and cuter it looks, the funnier the crimes against the burglars get.
+**Tone rule:** it *looks* like a family movie and *plays* like an adult comedy. That contrast is the joke. Don't make it dark or gritty. The brighter and cozier the house looks, the funnier the crimes against the burglars get.
 
 ---
 
@@ -31,14 +31,18 @@ Paste this at the end of **every** image and video prompt:
 
 ### BRAYDEN KOWALSKI: the brat (4 "and three-quarters")
 
-**Who he is:** He has an angel face and a war criminal's soul. He never yells. When he's threatening someone he gets *slower and calmer*. He runs the swear jar like a loan shark.
+**Who he is:** A brat, and he doesn't hide it for a second. He's loud, grabby and sticky, and his grin is way too big with way too many teeth. He screams when he wants something and cackles when he gets it. He lies badly and doesn't care that you know. He runs the swear jar like a loan shark. The only time he goes quiet is right before something terrible happens to you.
+
+**Reference:** [`refs/brayden-sketch.jpg`](refs/brayden-sketch.jpg) is the original drawing. Attach it as the reference image when you generate his character sheet, then use that sheet for every shot.
 
 **Look tag:**
-> BRAYDEN, a tiny 4-year-old boy, huge round innocent blue eyes, chubby rosy cheeks, blond bowl-cut hair, bright green dinosaur onesie with orange back spikes and a little tail, small red bike helmet he never takes off
+> BRAYDEN, a short stocky 4-year-old boy with a wide round head, big jug ears sticking straight out, short messy dark-brown hair sticking up in tufts, thick heavy eyebrows slanted down in a scheming scowl, small beady eyes that always glance sideways, a tiny upturned button nose, and an enormous ear-to-ear grin full of small jagged teeth, wearing a grubby ketchup-stained green dinosaur onesie with orange back spikes and a little tail, hood down
+
+**Expressions for his sheet:** wicked ear-to-ear grin · screaming tantrum · scheming side-eye · cackling with his head thrown back
 
 **Props:** red plastic toy binoculars · crayon battle plan · red RC monster truck with the SWEAR JAR duct-taped on · pink GLITTER canister with a big red button · toy teapot · green sippy cup
 
-**Voice:** Small, high, and sweet, with a slight lisp. He's adorable until he's quietly terrifying.
+**Voice:** Loud, raspy and whiny. A bratty, demanding little voice with a nasty cackle. When he threatens someone he drops to a gravelly, creepy whisper.
 
 ---
 
@@ -150,7 +154,7 @@ AI video almost always garbles writing. Leave these blank in the prompts and add
 | 5.2 | Petra **covered in pink glitter** | End |
 | 7.1 | All three thieves wearing **plastic tiaras** | End |
 | 8.6 | Swear jar **overflowing with cash** | 10.2 (dumped on rug) |
-| Always | Brayden's **red bike helmet** stays on | Always |
+| Always | Brayden's **jagged ear-to-ear grin and side-eye**. His teeth always show. | Always |
 
 ---
 

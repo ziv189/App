@@ -40,7 +40,7 @@
 - **Post:** Phone screen reads "Me + the little guy nap Sat 2–4. Pray for me 🙏"
 
 ### 1.4 · `0:18` · 3s · Close-up, Duane
-- **Image:** Close-up of DUANE squinting worriedly at a small photo clipped to the plan. The photo shows a smiling toddler in a green dinosaur onesie and a red bike helmet. A gummy bear is halfway to his mouth.
+- **Image:** Close-up of DUANE squinting worriedly at a small photo clipped to the plan. The photo shows a jug-eared toddler with a huge jagged-tooth grin in a green dinosaur onesie. A gummy bear is halfway to his mouth.
 - **Motion:** Duane's eyes widen and the gummy bear drops from his fingers.
 - **Dialogue:** DUANE: "Vince... there's a kid."
 
@@ -51,7 +51,7 @@
 
 ### 1.6 · `0:25` · 4s · Exterior, upstairs window
 - **Image:** Exterior of an upstairs window on the beige house, frilly curtains parted a crack. BRAYDEN peers out through bright red plastic toy binoculars.
-- **Motion:** Slow push-in. Brayden lowers the binoculars to reveal a slow, unsettling, far-too-calm smile.
+- **Motion:** Slow push-in. Brayden lowers the binoculars, his eyes slide sideways, and a huge ear-to-ear grin full of jagged teeth spreads across his face.
 - **Audio:** The heist jazz cuts dead. A single detuned music-box note (M2).
 
 ### 0.0 · `0:29` · 3s · Title card
@@ -71,9 +71,9 @@
 - **Post:** Whiteboard "BRAYDEN'S RULES. 1. NO 2. NO 3. NUGGETS". Mug "WORLD'S OKAYEST DAD".
 
 ### 2.2 · `0:35` · 4s · Medium
-- **Image:** BRAYDEN stands directly in front of the couch with his hands clasped politely behind his back, looking up at GLENN with huge innocent eyes.
-- **Motion:** Brayden tilts his head sweetly. Glenn's head turns slowly and suspiciously to look down at him.
-- **Dialogue:** BRAYDEN: "Daddy. It's nap time."
+- **Image:** BRAYDEN stands on the coffee table in front of the couch, a chewed crayon in his mouth, eye level with GLENN and scowling at him from under heavy eyebrows.
+- **Motion:** Brayden spits out the crayon and stomps his foot on the table. Glenn's head turns slowly and suspiciously toward him.
+- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW."
 
 ### 2.3 · `0:39` · 4s · Close-up, Glenn
 - **Image:** Close-up of GLENN, eyes narrowing with deep suspicion, coffee mug frozen halfway to his mouth.
@@ -81,10 +81,10 @@
 - **Dialogue:** GLENN *(flat)*: "You've never once in your life asked for nap time."
 
 ### 2.4 · `0:43` · 3s · Close-up, Brayden
-- **Image:** Close-up of BRAYDEN beaming an angelic, too-perfect smile, rosy cheeks, soft warm backlight glowing around his helmet like a halo.
-- **Motion:** Brayden bats his eyelashes and his smile gets wider.
-- **Dialogue:** BRAYDEN *(sweet)*: "I'm a growing boy."
-- **Audio:** A tiny ironic angelic-choir "aaah."
+- **Image:** Close-up of BRAYDEN with an enormous ear-to-ear grin full of jagged teeth, his eyes darting sideways, very obviously lying.
+- **Motion:** Brayden's grin stretches wider and his eyes shift left and right. Then he wipes his nose on the sleeve of Glenn's bathrobe.
+- **Dialogue:** BRAYDEN *(the worst liar alive)*: "I'm a growing boy."
+- **Audio:** A single low, ominous organ note.
 
 ### 2.5 · `0:46` · 7s · Medium, Glenn
 - **Image:** Medium shot of GLENN on the couch holding chunky black over-ear headphones and a blue sleep mask printed with cartoon wide-open eyes.
@@ -180,7 +180,7 @@
 ### 5.4 · `1:47` · 4s · Wide
 - **Image:** PETRA, covered in pink glitter, standing in the bedroom. The red RC monster truck with the swear jar is parked at her feet, waiting.
 - **Motion:** Petra looks down at the truck, clenches her jaw, and jams a dollar into the jar.
-- **Dialogue:** BRAYDEN *(V.O.)*: "You look pretty." / PETRA: "You little sh—" *(cut her off hard)*
+- **Dialogue:** BRAYDEN *(V.O., cackling)*: "HA! You look like a disco ball!" / PETRA: "You little sh—" *(cut her off hard)*
 
 ---
 
@@ -199,7 +199,7 @@
 
 ### 6.3 · `2:00` · 3s · Close-up, hands, then tilt up
 - **Image:** Close-up on the doorknob: VINCE's big hairy hands frozen mid-struggle, and a tiny child's hand reaching in from below.
-- **Motion:** The tiny hand squeezes and pops the cover open in one effortless flick. The camera tilts up to reveal BRAYDEN smiling up at Vince.
+- **Motion:** The tiny hand squeezes and pops the cover open in one effortless flick. The camera tilts up to reveal BRAYDEN grinning up at Vince, all jagged teeth.
 - **Dialogue:** BRAYDEN: "Like that."
 
 ### 6.4 · `2:03` · 6s · Medium to wide
@@ -226,8 +226,8 @@
 
 ### 7.3 · `2:19` · 5s · Medium, Petra to Brayden
 - **Image:** PETRA, glitter on her eyelashes and a tiara on her bob, lifting a tiny teacup to her nose.
-- **Motion:** Petra sniffs, freezes, and slowly looks over at Brayden. Brayden smiles innocently.
-- **Dialogue:** PETRA: "This isn't apple juice." / BRAYDEN *(innocent)*: "I never said it was apple."
+- **Motion:** Petra sniffs, freezes, and slowly looks over at Brayden. Brayden's grin spreads ear to ear, showing every jagged tooth.
+- **Dialogue:** PETRA: "This isn't apple juice." / BRAYDEN *(grinning)*: "I never said it was apple."
 
 ### 7.4 · `2:24` · 2s · Wide
 - **Image:** The three thieves in tiaras around the tiny table, each holding a tiny teacup.
@@ -270,7 +270,7 @@
 
 ### 8.6 · `2:53` · 3s · Medium, staircase
 - **Image:** BRAYDEN sitting on the bottom stair hugging the swear jar, now stuffed to overflowing with cash.
-- **Motion:** Brayden pats the jar lovingly and smiles.
+- **Motion:** Brayden pats the jar, throws his head back, and cackles.
 - **Dialogue:** BRAYDEN: "Swear jar."
 
 ### 8.7 · `2:56` · 5s · Medium wide
@@ -318,7 +318,7 @@
 
 ### 10.4 · `3:27` · 5s · Medium close-up two-shot
 - **Image:** GLENN sitting at the laptop with BRAYDEN perched on his shoulder like a tiny general, both lit by the glow of the screen.
-- **Motion:** Brayden points at the screen. Glenn shakes his head. Brayden turns slowly to look straight into the camera.
+- **Motion:** Brayden points at the screen. Glenn shakes his head. Brayden turns slowly to look straight into the camera and grins ear to ear.
 - **Dialogue:** BRAYDEN: "Say we have a boat." / GLENN: "We don't have a boat." / BRAYDEN *(to camera)*: "Not yet."
 
 ### 10.5 · `3:32` · 3s + credits · Black
