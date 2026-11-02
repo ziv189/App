@@ -1,0 +1,147 @@
+SCENE CONTEXT & STYLE
+
+What happens: The upstairs hallway of the beige house. VINCE, MARCO and DUANE regroup just past the top of the stairs, looking much worse for wear. Duane limps, with caltrops still stuck in his socks. Vince's hair is still blown straight back, there's salt in it, and a faint wisp of steam still rises from his trousers. Vince has had enough. He pulls a small black pistol out of his jacket and holds it up beside his face, pointed at the ceiling, like a gangster in a movie, and announces that the games are over. Marco looks at him and asks, completely flat, whether he really brought that to rob a nap. Before Vince can answer, a distant clack comes from somewhere far below, and every light in the hallway goes out at once. Pitch black. All we can see are the whites of their three pairs of eyes, blinking. Vince panics and orders everyone not to move.
+
+Continuity: all three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops still stuck in them. Vince's hair is still blown back, with salt crystals in it, his sunglasses are still hooked on his collar, and a faint wisp of steam rises from the seat of his trousers. Marco's pen gadget stays in his vest pocket.
+
+Tone and pace: a dry, deadpan comedy. Vince's tough-guy moment falls flat. Marco's line is the flattest, slowest thing in the clip. The blackout is sudden, and the dark is quiet and funny: just eyes.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: warm beige walls and carpet, white trim and banister, the warm ceiling light, then near-total black.
+
+Camera language: real lenses between 28mm and 50mm, eye level, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. Duane limps carefully and winces. Vince tries hard to look dangerous and doesn't. Marco barely moves. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, four shots joined by three hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: at first, the round ceiling light is on, giving the hallway soft, even, warm light. When the power goes out, every light goes off at the same moment and the hallway goes almost completely black. The hallway has no window, so no daylight reaches it, and the only things still faintly visible are the whites of their eyes, catching a tiny glimmer. No flicker before or after the blackout, no flashlights, no other light sources.
+
+Physics: real weight and timing. Duane steps down carefully on each foot, and the caltrops stuck in his socks click against each other. The steam from Vince's trousers is a faint, thin wisp that drifts up and fades. What Vince holds is a solid, rigid object that stays in his right hand. When the lights go out, it happens instantly, with no fade. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: the creak of the top stair; Duane's careful steps and small pained breaths, with the tiny metallic clicks of the caltrops in his socks; the rustle of Vince's leather jacket; Vince's voice with one censor beep; a pause; Marco's voice; a pause; one distant, sharp CLACK from somewhere far below; the faint hum of the ceiling light cutting out; silence; nervous breathing in the dark; Vince's voice with one censor beep; then silence. Two words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beeps are the only sounds that don't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug, overconfident and theatrical, until something rattles him. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. When he's rattled, it goes quieter and higher. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. He would rather breathe a cloud in your face than argue with you. Voice: a low, flat baritone with heavy vocal fry, close to a mumble, slow and monotone; he barely moves his mouth when he talks. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>. In this clip the pen gadget stays in his vest pocket.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, limping and miserable right now. He doesn't speak in this clip. Face, beard, body and clothes 100% match <<<image_3>>>.
+
+<<<image_4>>> = the upstairs hallway with the ceiling light on. The white wooden banister and the top of the staircase, the beige carpet, the warm beige walls, the hall closet door partway down the right wall, the long blank stretch of wall opposite it, and the door with crayon drawings at the far end 100% match <<<image_4>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The pistol: one small black cartoon pistol. It comes out of the left inside pocket of Vince's jacket in his right hand, stays in his right hand, and is held up beside his face, pointing straight up at the ceiling. It is never pointed at anyone, never goes off in this clip, and there is never a second one.
+- The caltrops in Duane's socks: three or four small four-pointed steel caltrops, like oversized metal jacks, stuck in the fabric of his white tube socks.
+
+Only three people exist in this clip: Vince, Marco and Duane.
+
+Hallway map, true in every shot: the top of the stairs and the white banister are at the near end of the hallway, and the hallway runs away from them toward the door at the far end. The three stand together just past the top of the stairs: Marco on the left, nearest the banister, Vince in the middle, and Duane on the right.
+
+
+SHOT STRUCTURE
+
+The four shots at a glance:
+1. 0.0 to 4.0s: wide. The three regroup at the top of the stairs. Locked-off.
+2. 4.0 to 8.5s: medium on Vince. His big tough-guy moment: "No more [BLEEP] games." Slow push-in.
+3. 8.5 to 13.0s: medium two-shot in profile. Marco's flat question, then the clack and the blackout. Locked-off.
+4. 13.0 to 20.0s: darkness. Only their eyes, and Vince's panicked order. Very slow push-in.
+
+SHOT 1 (0.0 to 4.0s). WIDE: THE REGROUP.
+Camera: at the top of the stairs, at standing eye height, looking down the hallway, matching <<<image_4>>>. 28mm lens, about a 65-degree view. Locked-off.
+Frame: the white banister and the top of the staircase along the left edge of the frame, and the hallway running away from the camera. The ceiling light is on.
+0.0 to 1.5s: Marco (<<<image_2>>>) stands in the hallway just past the top of the stairs, on the left. Vince (<<<image_1>>>) steps up off the top stair from the left edge of the frame and joins him, his hair blown back, a faint wisp of steam rising from his trousers.
+1.5 to 3.0s: Duane (<<<image_3>>>) limps up the last stair last, wincing with every step, the caltrops in his socks clicking.
+3.0 to 4.0s: The three huddle together: Marco on the left, Vince in the middle, Duane on the right. They look at each other, battered.
+Light: soft, even, warm light from the ceiling light.
+Last frame: the three huddled together just past the top of the stairs.
+Avoid: anyone falling down the stairs, anyone else in the hallway, the lights changing yet.
+
+HARD CUT
+
+SHOT 2 (4.0 to 8.5s). MEDIUM: THE PISTOL.
+Camera: in front of Vince at his chest height, about 5 feet away. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: Vince (<<<image_1>>>) in the center, from the waist up, his head at about x 50% / y 30%. Marco is soft and out of focus at the left edge of the frame, Duane at the right edge.
+4.0 to 5.0s: With his right hand, Vince reaches into the left inside pocket of his leather jacket and pulls out the small black pistol.
+5.0 to 5.6s: He holds it up beside his face, pointing straight up at the ceiling, sideways like a movie gangster, and lifts his chin.
+5.6 to 7.6s: VINCE: "Okay. No more [BLEEP] games." Delivery: a tough-guy growl that doesn't suit his nasal voice at all, slow and dramatic. The beep covers one word while his mouth keeps moving.
+7.6 to 8.5s: He holds the pose, very pleased with himself.
+Light: soft, warm light from the ceiling light across his face.
+Last frame: Vince holding it up beside his face, pointing at the ceiling, chin up.
+Avoid: it pointing at anyone, it going off, a second one, it changing shape.
+
+HARD CUT
+
+SHOT 3 (8.5 to 13.0s). MEDIUM TWO-SHOT IN PROFILE: THE QUESTION.
+Camera: at the side of the huddle, at their eye height, about 6 feet away, seeing Marco and Vince in profile facing each other. 35mm lens, about a 54-degree view. Locked-off.
+Frame: Marco (<<<image_2>>>) on the left of frame, facing right, his head at about x 34% / y 32%. Vince (<<<image_1>>>) on the right of frame, facing left, his head at about x 64% / y 34%, still holding the pistol up beside his face, pointed at the ceiling.
+8.5 to 9.4s: Pause. Marco slowly turns his head to Vince, heavy-lidded.
+9.4 to 11.2s: MARCO: "You brought a gun to rob a nap?" Delivery: flat, low and slow, utterly unimpressed.
+11.2 to 12.2s: Pause. Vince's tough-guy face falters. He opens his mouth to answer.
+12.2 to 12.6s: A distant, sharp CLACK from somewhere far below. Both of them freeze.
+12.6 to 13.0s: Every light in the hallway goes out at once, and the frame goes black.
+Light: soft, warm light, then instant black.
+Last frame: black.
+Avoid: anything pointed at anyone, flickering before the lights go out, a fade instead of an instant cut to black.
+
+HARD CUT
+
+SHOT 4 (13.0 to 20.0s). DARKNESS: THE EYES.
+Camera: in front of the three, at their eye height, about 6 feet away. 35mm lens. A very slow push-in.
+Frame: almost total darkness. The only things visible are the whites of three pairs of eyes, faintly catching a tiny glimmer: Marco's half-lidded pair on the left at about x 32% / y 38%, Vince's pair in the middle at about x 50% / y 40%, and Duane's pair on the right, higher and bigger, at about x 68% / y 28%. Nothing else is visible.
+13.0 to 14.2s: The three pairs of eyes blink, look left, then look right.
+14.2 to 15.0s: They turn toward each other.
+15.0 to 16.8s: VINCE, in the dark: "Nobody [BLEEP] move!" Delivery: loud and panicky, his voice cracking up high. The beep covers one word.
+16.8 to 20.0s: All three pairs of eyes freeze, wide open. Silence. Hold.
+Light: no light at all except the faint glimmer in their eyes.
+Last frame: three pairs of wide-open eyes, frozen in the black.
+Avoid: faces, bodies or anything in their hands becoming visible, any light source, flashlights, glowing eyes.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly four shots joined by exactly three hard cuts, at 4.0s, 8.5s and 13.0s.
+- Only Vince, Marco and Duane are in this clip, and all three match their reference images 100% in every shot.
+- All three are in their socks. Duane has caltrops stuck in his white tube socks, Vince's hair is blown back with salt in it, and his sunglasses stay hooked on his collar.
+- The pistol stays in Vince's right hand, held up beside his face and pointing straight up at the ceiling whenever it's visible. It is never pointed at anyone and never goes off.
+- Marco's pen gadget stays in his vest pocket.
+- The lights go out instantly at 12.6s, and from then on the frame stays almost completely black except for the whites of their eyes.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Vince's nasal tenor and Marco's low, flat mumble never swap.
+- The written pauses are kept.
+- The hallway matches <<<image_4>>> while the light is on.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. VINCE: "Okay. No more [BLEEP] games."
+  2. MARCO: "You brought a gun to rob a nap?"
+  3. VINCE: "Nobody [BLEEP] move!"
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people, and nobody else is seen or heard. Duane says nothing.
+- No ad-libs, extra lines or narration.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: small and natural. Vince's hand goes to his jacket before he pulls anything out, Marco's head turns before his line, and both freeze at the clack before the lights die.
+3. Staging: one clear action per shot: the regroup, the tough-guy pose, the question, the eyes.
+4. Straight ahead and pose to pose: continuous, natural motion, landing on held poses: Vince's gangster pose, the frozen pairs of eyes.
+5. Follow-through: subtle. Vince's jacket settles after he reaches into it, and the steam wisp drifts and fades.
+6. Slow in and slow out: every move eases at human speed. Only the blackout is instant.
+7. Arcs: Vince's arm comes up on a smooth arc, and Marco's head turns on a slow arc.
+8. Secondary action: the clicking caltrops in Duane's socks and the faint steam from Vince's trousers, never pulling focus.
+9. Timing: Marco's line is the slowest; the blackout is sudden; the darkness holds long and quiet.
+10. Exaggeration: minimal. The comedy is Vince's failed tough-guy moment and three pairs of eyes in the dark.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: three battered idiots, one of them pretending to be a movie gangster. It's a comedy.
