@@ -56,7 +56,7 @@ SHOT 1 (0.0 to 3.0s). MEDIUM: THE SWITCH.
 Camera: in the basement at Brayden's head height, about 5 feet from the breaker box, at a slight angle to the wall. 35mm lens, about a 54-degree view. Locked-off.
 Frame: Brayden (<<<image_1>>>) stands on the upturned orange bucket in front of the open grey breaker box, at the center of the frame, his head at about x 46% / y 34%, his helmet and face-paint stripes on. The bare bulb hangs glowing in the top of the frame.
 0.0 to 0.8s: He reaches up and grips the big main switch with both hands.
-0.8 to 1.6s: He leans his weight into it and yanks it down. CLACK.
+0.8 to 1.6s: He leans his weight into it and pulls it down hard. CLACK.
 1.6 to 2.2s: The bulb above him goes out at once. The basement drops into dim, cool grey light from the small high window.
 2.2 to 3.0s: He stays still in the dim light, hands still on the switch, and turns his head slightly toward the stairs.
 Light: warm bulb light, then instantly dim, cool grey window light.
@@ -81,7 +81,7 @@ SHOT 3 (6.5 to 14.0s). NIGHT-VISION POINT OF VIEW: THE HALLWAY.
 Camera: Brayden's point of view through the goggles in the dark upstairs hallway, at his eye height, low to the ground, starting about 8 feet from the three men. A slow, gentle forward glide with the slightest natural sway. Green night-vision footage with heavy grain and a black circular vignette.
 Frame: the hallway from <<<image_6>>> in monochrome green. Marco (<<<image_3>>>) on the left, facing the lens, one arm stretched out in front of him, feeling the air. Vince (<<<image_2>>>) in the middle, with his back to the lens and his hands held close to his chest, out of view, his blown-back hair glowing pale green. Duane (<<<image_4>>>) on the right, towering, eyes wide and glowing, both arms out.
 6.5 to 8.5s: The three stand blind in the dark, eyes wide, glowing in the night vision. Marco sweeps his outstretched arm slowly through the air. Duane takes one small, careful step.
-8.5 to 10.0s: Duane bumps his shoulder softly into the wall beside the closet door, flinches and whimpers. Marco's hand touches Vince's back, and Vince flinches without turning around.
+8.5 to 10.0s: Duane bumps his shoulder softly into the wall beside the closet door, flinches and whimpers. Marco's hand bumps into Vince's back, and Vince flinches without turning around.
 10.0 to 12.0s: The point of view moves slowly closer. Close, slow breathing right next to the lens. None of the three notices anything.
 12.0 to 13.0s: One short, raspy giggle right by the lens. All three freeze and turn their heads in different wrong directions.
 13.0 to 14.0s: Hold. The three stand frozen, staring in the wrong directions.

@@ -1,24 +1,24 @@
 SCENE CONTEXT & STYLE
 
-What happens: Meanwhile, in the small, dark, wood-paneled den of the beige house. VINCE steps over the white plastic gate in the den doorway and tiptoes in, in his socks. Against the right wall sits a small black safe with a sheet of paper taped to its door (in the finished film it reads "DADDY'S MONEY" in crayon). Vince crouches in front of it, rubs his hands together, and figures an army guy must keep gold bars in there. He yanks the handle. BOOM: a huge burst of white salt bursts out of the safe and throws him backward across the room. He crashes through the plastic gate and lands in a heap in the doorway, his hair blown straight back and a thin wisp of steam rising from the seat of his trousers. He demands to know who keeps rock salt. From somewhere in the dark, BRAYDEN's calm voice answers: his dad says the real ones make a mess. Vince slowly looks over his shoulder into the darkness.
+What happens: Meanwhile, in the small, dim, wood-paneled den of the beige house. VINCE steps over the white plastic gate in the den doorway and tiptoes in, in his socks. Against the right wall sits a small black safe with a blank sheet of paper taped to its door. Vince crouches in front of it, rubs his hands together, and figures an army guy must keep gold bars in there. He pulls the handle. WHOOMP: a huge cloud of white rock salt puffs out of the safe like a giant sneeze and knocks him backward across the room. He tumbles back onto the plastic gate, knocks it flat, and ends up in a heap in the doorway, covered in salt, his hair blown straight back, a thin wisp of steam curling up from his trousers. He demands to know who keeps rock salt. Then he goes very still, as if he has heard something in the dark hallway behind him, and slowly looks over his shoulder.
 
-Continuity: Vince is in his black socks with gold toes, with no shoes, as in the previous clips. His gold aviator sunglasses stay hooked on his collar, as in his reference image. The safe is the same one seen earlier in the film. Its inside is never shown in this clip; only the burst comes out of it. Duane, Marco and Brayden are not seen. Brayden's voice comes from somewhere off-screen in the dark.
+Continuity: Vince is in his black socks with gold toes, with no shoes, as in the previous clips. His gold aviator sunglasses stay hooked on his collar, as in his reference image. The safe is the same one seen earlier in the film. Its inside is never shown in this clip; only the salt comes out of it. Vince is the only person in this clip, and the only voice.
 
-Tone and pace: slapstick played completely straight, in a dry comedy. Vince's greedy setup is slow and smug, the burst is sudden and fast, and the aftermath is slow: his outrage, then a quiet, ominous answer from the dark.
+Tone and pace: slapstick played completely straight, in a dry comedy. Vince's greedy setup is slow and smug, the puff of salt is sudden and fast, and the aftermath is slow: his outrage, then a long, silent, uneasy beat.
 
-Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair, wood and metal textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: dark glossy wood paneling, brown shag carpet, warm amber window light, the black safe with its chrome handle, and the white burst of salt as the accent.
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair, wood and metal textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: dark glossy wood paneling, brown shag carpet, warm amber window light, the black safe with its chrome handle, and the white cloud of salt as the accent.
 
 Camera language: real lenses between 28mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
 
-Acting and movement: grounded and natural. Vince is designed like a cartoon but moves like a real actor, at real human speed: smug and greedy at the safe, then knocked flat and outraged. The burst and the fall are cartoon slapstick: big and funny, never graphic. No bouncing, no rubbery faces, no stretching. Every movement is described exactly, including which hand or foot does it: do exactly that and nothing extra.
+Acting and movement: grounded and natural. Vince is designed like a cartoon but moves like a real actor, at real human speed: smug and greedy at the safe, then knocked flat and outraged, then quietly uneasy. The puff and the tumble are harmless cartoon slapstick: he ends up covered in salt and furious, nothing more. No bouncing, no rubbery faces, no stretching. Every movement is described exactly, including which hand or foot does it: do exactly that and nothing extra.
 
 Format: 20 seconds, 16:9, five shots joined by four hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
 
-Lighting: the den is dim in the middle of a sunny afternoon. Soft, warm, amber light filters in through the plaid curtains of the small window, with some light coming from the hallway doorway. The floor lamp stays off. When the burst of salt crosses the window light, the white powder glows warm. The hallway behind the doorway is dark. The light is fixed to the world, not to Vince: when he moves, light and shadow slide across him. No flicker, no color shift.
+Lighting: the den is dim in the middle of a sunny afternoon. Soft, warm, amber light filters in through the plaid curtains of the small window, with some light coming from the hallway doorway. The floor lamp stays off. Where the cloud of salt crosses the window light, the crystals glitter warm. The hallway behind the doorway is dark. The light is fixed to the world, not to Vince: when he moves, light and shadow slide across him. No flicker, no color shift.
 
-Physics: real weight and gravity. The safe door is heavy steel and swings open toward Vince on its hinges. The burst is a big puff of coarse white salt crystals and fine white powder, like a giant sneeze of table salt; nothing in it burns or sparks. It lifts Vince off his feet and throws him backward across the room in a low arc. He crashes into the plastic gate, which pops out of the doorway and folds flat under him. Salt crystals patter down on him and the carpet like hail and settle, and fine white powder hangs in the air for a few seconds. His hair stays blown straight back. A thin wisp of white steam rises from the seat of his trousers. Nothing graphic is ever shown. Faces and bodies keep their shape: no squash and stretch.
+Physics: real weight and gravity. The safe door is heavy steel and swings open toward Vince on its hinges. The salt comes out in one big, soft puff of coarse white crystals, like a giant sneeze of table salt. The puff lifts Vince off his feet and sends him tumbling backward across the room in a low arc. He lands on the plastic gate, which pops out of the doorway and folds flat under him. Salt crystals patter down on him and the carpet like hail and settle, and a few fine crystals keep drifting in the window light for a few seconds. His hair stays blown straight back. A thin wisp of white steam curls up from his trousers. Faces and bodies keep their shape: no squash and stretch.
 
-Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: the quiet room tone of the den; the soft creak of the gate as he steps over it; his socks brushing the shag carpet; his hands rubbing together; Vince's voice; the clunk of the handle and the creak of the door; one huge BOOM and a whoosh; the crash and plastic clatter of the gate; salt pattering down like hail; Vince's voice with one censor beep; a short silence; Brayden's voice from off-screen, echoing slightly in the hallway; Vince swallowing. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: the quiet room tone of the den; the soft creak of the gate as he steps over it; his socks brushing the shag carpet; his hands rubbing together; Vince's voice; the clunk of the handle and the creak of the door; one huge, deep WHOOMP and a whoosh; the plastic clatter of the gate folding under him; salt pattering down like hail; Vince's voice with one censor beep; his hard breathing; then a long silence with only the room tone; Vince swallowing. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
 
 
 ACTIVE REFERENCES
@@ -27,17 +27,15 @@ ACTIVE REFERENCES
 
 <<<image_2>>> = the den. The dark wood paneling, the brown shag carpet, the doorway on the left wall with the white plastic gate across it, the brown leather recliner against the back wall, the old TV in the back right corner, the small window with plaid curtains, the small black safe on the floor against the right wall, and the shelf above it 100% match <<<image_2>>>.
 
-BRAYDEN is never seen. His voice comes from somewhere off-screen in the dark: high and raspy, here calm, matter-of-fact and almost bored.
-
 Objects; each keeps exactly the same shape, size and color in every frame:
 - The safe: small, black, steel, about knee-high, with a chrome handle, a round combination dial and a blank sheet of white paper taped to the outside of its door. It never becomes a cabinet, a fridge or a mailbox. It stays in its place against the right wall and never moves. Its inside is never shown.
 - Beside the safe on the carpet: one small plain cardboard box with its flaps closed and no readable writing.
 - The gate: one white plastic gate fitted across the doorway. It pops out and folds flat under Vince, and stays flat.
-- The burst: coarse white salt crystals and fine white powder, nothing else.
+- The salt: coarse white rock salt crystals, like big grains of table salt, and nothing else.
 
-Vince is the only person on screen in this clip.
+Vince is the only person in this clip. Nobody else is seen or heard.
 
-Den map, true in every shot: the doorway with the gate is on the left wall, the recliner is against the back wall, and the safe sits on the floor against the right wall, with the cardboard box beside it. Vince crosses from the doorway to the safe, and the burst throws him back to the doorway.
+Den map, true in every shot: the doorway with the gate is on the left wall, the recliner is against the back wall, and the safe sits on the floor against the right wall, with the cardboard box beside it. Vince crosses from the doorway to the safe, and the puff of salt knocks him back to the doorway.
 
 
 SHOT STRUCTURE
@@ -45,19 +43,19 @@ SHOT STRUCTURE
 The five shots at a glance:
 1. 0.0 to 4.5s: medium-wide from the corner of the den. Vince steps over the gate and tiptoes to the safe. Locked-off.
 2. 4.5 to 8.5s: close-up of Vince at the safe. "Gold bars," and his hand goes to the handle. Slow push-in.
-3. 8.5 to 10.5s: wide. The door opens, BOOM, and the burst throws him back through the gate. Locked-off.
+3. 8.5 to 10.5s: wide. The door opens, WHOOMP, and the salt knocks him back onto the gate. Locked-off.
 4. 10.5 to 15.5s: medium, low, on Vince in a heap in the doorway. His outraged line. Slow push-in.
-5. 15.5 to 20.0s: close-up of Vince. The voice from the dark, and he looks over his shoulder. Locked-off.
+5. 15.5 to 20.0s: close-up of Vince. A long, uneasy silence, and he looks over his shoulder. Locked-off.
 
 SHOT 1 (0.0 to 4.5s). MEDIUM-WIDE: INTO THE DEN.
 Camera: in the front corner of the den opposite the recliner, at standing eye height, about 10 feet from the safe, matching <<<image_2>>>. 35mm lens, about a 54-degree view. Locked-off.
-Frame: the doorway with the white plastic gate is on the left of the frame, the recliner against the back wall in the center, and the black safe on the floor against the right wall on the right of the frame, its paper sign facing into the room.
+Frame: the doorway with the white plastic gate is on the left of the frame, the recliner against the back wall in the center, and the black safe on the floor against the right wall on the right of the frame, its blank paper facing into the room.
 0.0 to 1.0s: Vince (<<<image_1>>>) appears in the doorway on the left and carefully steps over the plastic gate, right foot first, then left.
 1.0 to 3.0s: He tiptoes across the shag carpet toward the safe, glancing around the dim room.
-3.0 to 4.5s: He stops in front of the safe and crouches down, eyes fixed on the paper taped to its door. A slow, greedy smile spreads across his face.
+3.0 to 4.5s: He stops in front of the safe and crouches down, eyes fixed on its door. A slow, greedy smile spreads across his face.
 Light: he passes through a patch of warm amber window light on his way across the room.
 Last frame: Vince crouched in front of the safe, smiling.
-Avoid: Vince touching the safe yet, the gate breaking now, anyone else in the room.
+Avoid: Vince reaching for the safe yet, the gate falling now, anyone else in the room.
 
 HARD CUT
 
@@ -73,66 +71,64 @@ Avoid: the door opening in this shot, the safe changing shape, anyone else.
 
 HARD CUT
 
-SHOT 3 (8.5 to 10.5s). WIDE: THE BURST.
+SHOT 3 (8.5 to 10.5s). WIDE: THE SALT.
 Camera: in the front corner of the den, at standing eye height, about 11 feet from the safe. 28mm lens, about a 65-degree view. Locked-off.
 Frame: the whole den: the doorway with the gate on the left, the recliner at the back, and Vince crouched in front of the safe on the right, his right hand on the handle.
-8.5 to 9.0s: Vince yanks the handle, and the heavy door swings open toward him.
-9.0 to 9.3s: BOOM. A huge burst of white salt crystals and white powder bursts out of the open safe straight at him. The inside of the safe is not visible.
-9.3 to 10.2s: The burst lifts Vince off his feet and throws him backward across the room in a low arc toward the doorway. He crashes into the plastic gate, which pops out of the doorway and folds flat under him.
-10.2 to 10.5s: He lands in a heap on the flattened gate in the doorway. White powder hangs in the air across the room.
-Light: the white powder glows warm where it crosses the amber window light.
-Last frame: Vince in a heap on the flattened gate in the doorway, white powder hanging in the air.
-Avoid: anything burning, the inside of the safe being shown, the safe moving, anything graphic.
+8.5 to 9.0s: Vince pulls the handle, and the heavy door swings open toward him.
+9.0 to 9.3s: WHOOMP. A huge cloud of white rock salt puffs out of the open safe straight at him, like a giant sneeze. The inside of the safe is not visible.
+9.3 to 10.2s: The puff lifts Vince off his feet and sends him tumbling backward across the room in a low arc toward the doorway. He lands on the plastic gate, which pops out of the doorway and folds flat under him.
+10.2 to 10.5s: He ends up in a heap on the flattened gate in the doorway. Salt crystals drift in the air across the room.
+Light: the drifting salt glitters warm where it crosses the amber window light.
+Last frame: Vince in a heap on the flattened gate in the doorway, salt drifting in the air.
+Avoid: the inside of the safe being shown, the safe moving, anything coming out of the safe except white salt.
 
 HARD CUT
 
 SHOT 4 (10.5 to 15.5s). MEDIUM, LOW: ROCK SALT.
 Camera: on the den side of the doorway, low, about 2 feet off the floor, about 6 feet from Vince, looking at him. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
-Frame: Vince (<<<image_1>>>) sits sprawled on the flattened white gate in the doorway, his head at about x 50% / y 40%, his hair blown straight back. White salt crystals are sprinkled over him and the carpet. The hallway behind him is dark and empty.
-10.5 to 11.5s: The last salt crystals patter down on him and settle. A thin wisp of white steam rises from the seat of his trousers. He blinks.
+Frame: Vince (<<<image_1>>>) sits slumped on the flattened white gate in the doorway, his head at about x 50% / y 40%, his hair blown straight back. White salt crystals are sprinkled over him and the carpet. The hallway behind him is dark and empty.
+10.5 to 11.5s: The last salt crystals patter down on him and settle. A thin wisp of steam curls up from his trousers. He blinks.
 11.5 to 12.2s: He lifts his head, outraged, his hair still blown straight back.
 12.2 to 14.6s: VINCE: "ROCK SALT?! WHO THE [BLEEP] KEEPS ROCK SALT?!" Delivery: loud, high and outraged, his voice cracking. The beep covers one word while his mouth keeps moving.
 14.6 to 15.5s: Pause. He breathes hard, glaring toward the safe.
 Light: warm amber window light across him; the hallway behind him stays dark.
 Last frame: Vince glaring, his hair blown back, the steam wisp rising.
-Avoid: Vince standing up, anyone in the hallway behind him, anything graphic.
+Avoid: Vince standing up, anyone in the hallway behind him.
 
 HARD CUT
 
-SHOT 5 (15.5 to 20.0s). CLOSE-UP: THE VOICE.
-Camera: close on Vince at his eye height as he sits sprawled, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
-Frame: Vince's face and shoulders, his head at about x 50% / y 36%, with the dark hallway behind him.
+SHOT 5 (15.5 to 20.0s). CLOSE-UP: THE SILENCE.
+Camera: close on Vince at his eye height as he sits slumped, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Vince's face and shoulders, his head at about x 50% / y 36%, with the dark, empty hallway behind him.
 15.5 to 16.0s: Silence. He keeps glaring at the safe.
-16.0 to 18.0s: BRAYDEN, off-screen, from somewhere in the dark: "Daddy says the real ones make a mess." Delivery: calm, matter-of-fact and almost bored, high and raspy, echoing slightly. Vince's mouth stays closed.
-18.0 to 20.0s: Vince's eyes go wide. He swallows. Slowly, he turns his head to look over his shoulder into the dark hallway behind him. Hold.
+16.0 to 18.0s: Silence. He goes completely still, as if he has just heard something in the dark behind him. His eyes slowly go wide. His mouth stays closed.
+18.0 to 20.0s: He swallows. Slowly, he turns his head to look over his shoulder into the dark hallway behind him. Hold.
 Light: a soft edge of amber light on one side of his face; the hallway behind him stays dark.
 Last frame: Vince looking over his shoulder into the darkness, eyes wide.
-Avoid: Brayden appearing, anyone in the hallway, Vince speaking.
+Avoid: anyone appearing in the hallway, any voice, Vince speaking.
 
 
 LOCKS & CONSTRAINTS
 
 Positive locks (true in every frame):
 - Exactly five shots joined by exactly four hard cuts, at 4.5s, 8.5s, 10.5s and 15.5s.
-- Vince is the only person on screen, and he matches <<<image_1>>> 100% in every shot, in black socks with gold toes and no shoes, his sunglasses hooked on his collar.
-- Brayden is only a voice from off-screen in the dark.
-- The safe never moves, and its inside is never shown. Only the burst of salt and powder comes out of it.
+- Vince is the only person on screen and the only voice. He matches <<<image_1>>> 100% in every shot, in black socks with gold toes and no shoes, his sunglasses hooked on his collar.
+- The safe never moves, and its inside is never shown. Only white salt comes out of it.
 - From Shot 3 onward, the gate stays flat under Vince, his hair stays blown back, and salt stays on him and the carpet.
 - Every movement happens with the hand or foot written, at the time written, and nothing extra is added.
-- The slapstick is cartoon only: nothing graphic and nothing burning.
-- Vince's nasal tenor and Brayden's calm, raspy voice from the dark never swap.
+- The slapstick is harmless cartoon fun: a puff of salt, a tumble and a lot of outrage.
+- From 15.5s to the end there is no dialogue at all, only silence and room tone.
 - The den matches <<<image_2>>> in every shot.
 
-Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+Exact dialogue (these lines, by this speaker, in this order, word for word, and nothing else):
   1. VINCE: "Army guy. Bet he's got gold bars in there."
   2. VINCE: "ROCK SALT?! WHO THE [BLEEP] KEEPS ROCK SALT?!"
-  3. BRAYDEN, off-screen: "Daddy says the real ones make a mess."
 - [BLEEP] means a censor beep tone plays in place of a word while Vince's mouth keeps moving. Nobody ever says the word "bleep" out loud.
 
 Constraints (these never happen):
 - No other cuts, transitions, dissolves or extra shots.
-- No other people. Duane, Marco and Brayden are never seen.
-- No ad-libs, extra lines or narration. During Brayden's line, Vince's mouth stays closed.
+- No other people and no other voices.
+- No ad-libs, extra lines or narration.
 - No squash and stretch, rubbery faces or bouncing.
 - No camera moves except the ones written: no zooms, pans, shakes or angle changes.
 - No readable text anywhere: the paper on the safe and the box stay blank; the sign is added in editing. No subtitles, captions or watermarks.
@@ -143,15 +139,15 @@ Constraints (these never happen):
 
 12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
-1. Squash and stretch: none on faces or bodies. Vince stays solid even when he's thrown.
-2. Anticipation: he crouches and rubs his hands before he reaches, grips the handle and holds a beat before he yanks, and goes still before he turns his head.
-3. Staging: one clear action per shot: the tiptoe, the greed, the burst, the outrage, the voice.
-4. Straight ahead and pose to pose: continuous, natural motion, landing on clear held poses: crouched and grinning, sprawled and outraged, looking over his shoulder.
-5. Follow-through: the gate folds and settles under him, the salt patters down and settles, the powder hangs and slowly drifts.
-6. Slow in and slow out: his tiptoe, his reach and his head turn ease in and out; the burst is instant.
-7. Arcs: he flies back in one clean, low arc; the salt rains down on short arcs.
-8. Secondary action: the steam wisp, the drifting powder and the room tone of the den, never pulling focus.
-9. Timing: slow and smug, then a sudden burst, then a slow, quiet ending.
-10. Exaggeration: kept to the slapstick itself: a big burst, a big fall, and a face that stays on model.
+1. Squash and stretch: none on faces or bodies. Vince stays solid even when he tumbles.
+2. Anticipation: he crouches and rubs his hands before he reaches, grips the handle and holds a beat before he pulls, and goes still before he turns his head.
+3. Staging: one clear action per shot: the tiptoe, the greed, the puff of salt, the outrage, the silence.
+4. Straight ahead and pose to pose: continuous, natural motion, landing on clear held poses: crouched and grinning, slumped and outraged, looking over his shoulder.
+5. Follow-through: the gate folds and settles under him, the salt patters down and settles, and a few crystals keep drifting.
+6. Slow in and slow out: his tiptoe, his reach and his head turn ease in and out; the puff of salt is instant.
+7. Arcs: he tumbles back in one clean, low arc; the salt rains down on short arcs.
+8. Secondary action: the steam wisp, the drifting salt and the room tone of the den, never pulling focus.
+9. Timing: slow and smug, then a sudden puff, then a slow, silent ending.
+10. Exaggeration: kept to the slapstick itself: a big puff, a big tumble, and a face that stays on model.
 11. Solid drawing: consistent anatomy and volume in every frame, even mid-air; five fingers.
 12. Appeal: a greedy, smug guy getting exactly what he deserved. It's a comedy.

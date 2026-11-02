@@ -62,7 +62,7 @@ Camera: in front of the three, at their eye height, about 6 feet away. 35mm lens
 Frame: almost total darkness. The only things visible are the whites of three pairs of eyes, faintly catching a tiny glimmer: Marco's half-lidded pair on the left at about x 32% / y 38%, Vince's pair in the middle at about x 50% / y 40%, and Duane's pair on the right, higher and bigger, at about x 68% / y 28%.
 0.0 to 0.6s: Hold. All three pairs of eyes are wide open and frozen. Nervous breathing.
 0.6 to 1.0s: Vince's eyes snap down and to the right, toward Duane's feet, where the squeak came from.
-1.0 to 1.2s: BANG. One bright orange-white flash bursts from low in the middle of the group, at about Vince's hip height, and for a split second lights the walls and ceiling of the whole hallway, with the three of them as dark shapes against the bright walls. Then it's black again.
+1.0 to 1.2s: BANG. One bright orange-white flash, low in the middle of the group at about Vince's hip height, lights the walls and ceiling of the whole hallway for a split second, with the three of them as dark shapes against the bright walls. Then it's black again.
 1.2 to 2.0s: The three pairs of eyes reappear and blink once, in shock.
 2.0 to 2.5s: Duane's eyes go huge and perfectly round. A sharp gasp.
 2.5 to 3.0s: Duane's eyes drop straight down to about x 68% / y 82% as he goes down. A heavy THUD shakes the floor.
@@ -160,7 +160,7 @@ Constraints (these never happen):
 12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
 1. Squash and stretch: none. Faces and bodies keep their shape.
-2. Anticipation: small. Vince's eyes snap toward the sound before the flash, Duane's eyes go huge before they drop, and the two hold the laugh in before it bursts out.
+2. Anticipation: small. Vince's eyes snap toward the sound before the flash, Duane's eyes go huge before they drop, and the two hold the laugh in before it breaks out.
 3. Staging: one clear idea per shot: the flash, the scream, the sleeping dad, the reveal, the laugh.
 4. Straight ahead and pose to pose: natural motion landing on clear, held poses: the frozen eyes, Duane clutching his shin, the two face to face.
 5. Follow-through: subtle. Duane keeps rocking after the thud, and laughter keeps shaking their shoulders.

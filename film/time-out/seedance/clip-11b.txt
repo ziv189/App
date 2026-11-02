@@ -1,0 +1,89 @@
+SCENE CONTEXT & STYLE
+
+What happens: A short insert. Somewhere in the dark downstairs hallway of the beige house, BRAYDEN, in his mission look, stands perfectly still in the shadows. Only his eyes and the face-paint stripes on his cheekbones catch a thin band of dim amber light; everything else is black. Calm and almost bored, he says one flat line to someone just past the camera, like he's stating an obvious house rule. Then he slowly lowers his chin, the brim of his helmet comes down over his eyes, and he's gone into the dark.
+
+Continuity: Brayden is in his mission look, with the black face-paint stripes and his dad's oversized army helmet, as in <<<image_1>>>. He is alone in the frame. His hands are down at his sides, out of view in the dark, and he holds nothing. This is a short insert that gets cut into another scene in editing.
+
+Tone and pace: quiet, deadpan and ominous in a funny way. He is completely calm and in control. Everything is slow and still: the stillness is the joke.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: near-total black, one warm amber band of light, the black face-paint stripes and the olive helmet.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. Brayden is designed like a cartoon but moves like a real actor, at real human speed, and here he barely moves at all: only his eyes, one slow blink and the final lowering of his chin. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly: do exactly that and nothing extra.
+
+Format: 6 seconds, 16:9, one continuous shot with no cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: almost total darkness. One thin, soft-edged horizontal band of dim, warm amber light, like light spilling from a doorway further down the hall, falls across his eyes and the face-paint stripes on his cheekbones. Above the band, the brim of the oversized helmet is a dark shape with a faint amber edge along it. Below the band, from his nose down, everything is black. The light is fixed to the world, not to him: when he lowers his chin, his eyes move down out of the band and into the shadow of the brim. No flicker, no color shift, no other light.
+
+Physics: real weight. He stands with his weight settled and completely still. The helmet sits heavy and low on his head and doesn't wobble. When he lowers his chin, his head and the helmet move down together, slowly and smoothly, as one. Faces keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Only these sounds, in order: the quiet room tone of an empty house; Brayden's slow, even breathing; Brayden's voice, echoing slightly down the hallway; silence; his slow breathing again. His mouth stays in the dark, so no lip sync is visible.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = BRAYDEN in his mission look: the black face-paint stripes and his dad's oversized army helmet. A scheming brat who runs the house, calm and completely in control. Voice: high and raspy; here calm, flat, matter-of-fact and almost bored, at a slow, even pace, like he's reminding someone of a house rule. Face, eyes, eyebrows, face-paint stripes and helmet 100% match <<<image_1>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The helmet: his dad's oversized olive army helmet from <<<image_1>>>, sitting low on his head, its brim just above his eyebrows. It never becomes a cap, a bowl or a hood.
+- Nothing else: his hands stay out of view, and he holds nothing.
+
+Brayden is the only person in this clip. Nobody else is seen or heard.
+
+
+SHOT STRUCTURE
+
+One shot, 0.0 to 6.0s: a close-up in the dark. The line, a blink, and the eyes disappear under the helmet brim. Locked-off.
+
+SHOT 1 (0.0 to 6.0s). CLOSE-UP IN THE DARK: THE LINE.
+Camera: in the dark hallway in front of Brayden, at his eye height, about 3 feet away. 85mm lens, about a 24-degree view. Locked-off.
+Frame: almost total darkness. The thin band of amber light crosses the frame horizontally at about y 42%, lighting Brayden's (<<<image_1>>>) eyes, centered at about x 50% / y 42%, and the face-paint stripes on his cheekbones. The dark brim of the helmet sits just above the band, at about y 30%, with a faint amber edge. Below his nose, everything is black. He looks just past the right side of the lens.
+0.0 to 1.0s: Hold. He stares past the lens, perfectly still, his eyes calm and half-lidded. Slow breathing.
+1.0 to 3.4s: BRAYDEN: "Daddy says the real ones make a mess." Delivery: calm, flat and matter-of-fact, high and raspy, almost bored, slow and even, echoing slightly. Only his eyes are visible, and they don't change.
+3.4 to 4.6s: Silence. He holds the stare and blinks once, slowly.
+4.6 to 6.0s: He slowly lowers his chin. His eyes move down out of the band of light, and the brim of the helmet comes down over them, putting them in its shadow. Hold on the dark, with only the faint amber edge of the brim still visible.
+Light: one band of warm amber light across his eyes; everything else in darkness.
+Last frame: almost black, with only the faint amber edge of the helmet brim.
+Avoid: his mouth or body becoming visible, his hands appearing, a smile, any other light, anyone else, the helmet changing shape.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- One continuous 6-second shot, with no cuts.
+- Brayden is the only person, and he matches <<<image_1>>> 100% in his mission look.
+- Only his eyes, the face-paint stripes on his cheekbones and the helmet brim are ever visible. His mouth stays in darkness the whole time.
+- The camera and the band of light never move.
+- Every movement happens at the time written, and nothing extra is added.
+- His voice stays high and raspy, calm and flat.
+
+Exact dialogue (this line, by this speaker, word for word, and nothing else):
+  1. BRAYDEN: "Daddy says the real ones make a mess."
+
+Constraints (these never happen):
+- No cuts, transitions, dissolves or extra shots.
+- No other people and no other voices.
+- No ad-libs, extra lines or narration.
+- No squash and stretch, rubbery faces or bouncing.
+- No camera moves: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: the face, eyes and helmet never melt, merge or change shape.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. His face and the helmet keep their shape.
+2. Anticipation: a still hold and a breath before the line, and a beat of silence before he lowers his chin.
+3. Staging: one clear idea: two calm eyes in the dark and one line.
+4. Straight ahead and pose to pose: a still pose, the line, the blink, then the final pose with his eyes in shadow.
+5. Follow-through: very small. The helmet settles when his chin stops.
+6. Slow in and slow out: the blink and the chin drop ease in and out.
+7. Arcs: his head moves down on a small, smooth arc.
+8. Secondary action: his slow breathing, never pulling focus.
+9. Timing: slow, even and unhurried.
+10. Exaggeration: minimal. He's completely calm while saying something unsettling.
+11. Solid drawing: consistent face and helmet volume in every frame.
+12. Appeal: a calm, funny mastermind who is always one step ahead. It's a comedy.
