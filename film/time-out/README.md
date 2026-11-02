@@ -1,6 +1,6 @@
 # TIME OUT
 
-An adult animated comedy short, about **4:00**. It looks like a cozy family movie, and what happens in it is an adult cartoon.
+An **18+** animated comedy short, about **4:00**. Strong language throughout, nothing bleeped. It looks like a cozy family movie, and what happens in it is an adult cartoon.
 
 > Three bumbling burglars hit a single dad's house during nap time, figuring his army days are long behind him. They didn't count on his four-year-old son finding Daddy's old footlocker.
 
@@ -25,12 +25,12 @@ An adult animated comedy short, about **4:00**. It looks like a cozy family movi
 4. **Voices.** There are two routes:
    - A video model with native audio: add `CHARACTER says: "line"` to the Motion prompt.
    - *Recommended:* record or generate each character's lines separately, then lip-sync. This keeps each voice the same across all 63 clips.
-5. **Edit.** Assemble the shots in order in CapCut, Premiere or DaVinci. Then add the on-screen text (signs, stencils, phone and laptop screens), the bleeps, the music cues and the SFX.
+5. **Edit.** Assemble the shots in order in CapCut, Premiere or DaVinci. Then add the on-screen text (signs, stencils, phone and laptop screens), the music cues and the SFX.
 
 ## Tips
 
 - **Kid + weapon in one frame usually gets blocked** by AI video tools. The breakdown already keeps knives, guns and spikes in their own shots, away from Brayden. Cut them back to back and it plays the same.
-- Keep swear words **out of generation prompts**. Put them in the voice track and bleep them in the edit.
+- **It's 18+ and nothing is bleeped.** If a video tool refuses a prompt because of the swearing, leave that line out of the video prompt, generate the voice separately, and lip-sync it.
 - AI video garbles text. Every sign, stencil and screen is listed in `characters.md` so you can add them as overlays.
 - If a prompt still gets flagged, call the weapons "cartoon props" and describe Brayden as "a small cartoon toddler character."
 - If you need it shorter, the end of `scenes.md` shows what to cut to get to about 3:30.

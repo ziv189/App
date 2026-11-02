@@ -10,7 +10,7 @@ Paste this at the end of **every** image and video prompt:
 
 > Stylized 3D animated feature-film look, exaggerated cartoon proportions, big expressive faces, squash-and-stretch comedic acting, soft global illumination, warm saturated suburban colors, cinematic composition, shallow depth of field, consistent character design, no distortion, no extra fingers, no garbled text.
 
-**Tone rule:** the house *looks* like a cozy family movie, and what happens in it is an adult cartoon. That contrast is the joke. The violence is slapstick, like a Looney Tunes cartoon: nobody dies, they just get hurt badly and hilariously. The brighter and cozier the house looks, the funnier the traps get.
+**Tone rule:** the house *looks* like a cozy family movie, and what happens in it is an 18+ cartoon with uncensored swearing. That contrast is the joke. The violence is slapstick, like a Looney Tunes cartoon: nobody dies, they just get hurt badly and hilariously. The brighter and cozier the house looks, the funnier the traps get.
 
 ---
 
@@ -20,7 +20,7 @@ Paste this at the end of **every** image and video prompt:
 
 **Reference:** [`refs/glenn-sketch.jpg`](refs/glenn-sketch.jpg)
 
-**Who he is:** He's ex-army and did three tours overseas. Now he's just a regular stay-at-home dad in a bathrobe. His default face is a wide-eyed, too-big grin. It's not happiness. It's the face of a man who has seen things and decided to smile through all of them, including fatherhood. He talks in a flat monotone and never panics. The twist is that he's in on it: he posts the "nap schedule" bait online himself, and Brayden learned everything from Daddy's old footlocker.
+**Who he is:** He's ex-army and did three tours overseas. Now he's just a regular stay-at-home dad in a bathrobe. His default face is a wide-eyed, too-big grin. It's not happiness. It's the face of a man who has seen things and decided to smile through all of them, including fatherhood. He talks in a flat monotone and never panics. He says "Language" to Brayden on reflex, then swears himself in the next breath. The twist is that he's in on it: he posts the "nap schedule" bait online himself, and Brayden learned everything from Daddy's old footlocker.
 
 **Look tag (paste into prompts):**
 > GLENN, a 41-year-old ex-army dad with thick bushy dark hair, heavy straight black eyebrows, big round wide-open eyes with a thousand-yard stare, a long straight nose, a full thick dark beard and mustache, and a big open-mouthed grin with crooked gappy teeth, broad soldier's shoulders gone soft with a dad belly, wearing a faded maroon bathrobe over an olive-green army t-shirt, metal dog tags on a chain, plaid pajama pants, one red sock and one green sock
@@ -35,7 +35,7 @@ Paste this at the end of **every** image and video prompt:
 
 **Reference:** [`refs/brayden-sketch.jpg`](refs/brayden-sketch.jpg)
 
-**Who he is:** A brat, and he doesn't hide it for a second. He's loud, grabby and sticky, and his grin is way too big with way too many teeth, just like Dad's. He can't read, but he's memorized every picture in Daddy's army field manual. He screams when he wants something and cackles when he gets it. He runs the swear jar like a loan shark. The only time he goes quiet is right before something terrible happens to you.
+**Who he is:** A brat, and he doesn't hide it for a second. He's loud, grabby and sticky, and his grin is way too big with way too many teeth, just like Dad's. He can't read, but he's memorized every picture in Daddy's army field manual. He screams when he wants something and cackles when he gets it. He swears like Dad's old platoon, and he runs the swear jar like a loan shark. The rule only applies to other people. The only time he goes quiet is right before something terrible happens to you.
 
 **Look tag:**
 > BRAYDEN, a short stocky 4-year-old boy with a wide round head, big jug ears sticking straight out, short messy dark-brown hair sticking up in tufts, thick heavy eyebrows slanted down in a scheming scowl, small beady eyes that always glance sideways, a tiny upturned button nose, and an enormous ear-to-ear grin full of small jagged teeth, wearing a grubby ketchup-stained green dinosaur onesie with orange back spikes and a little tail, hood down

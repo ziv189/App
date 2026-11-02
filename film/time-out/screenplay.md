@@ -4,7 +4,7 @@
 
 **Written by:** ____________
 
-**Rating:** Adult (language, crude humor, extreme slapstick violence)
+**Rating:** 18+ (strong language throughout, crude humor, extreme slapstick violence). Nothing is bleeped.
 
 **Logline:** Three bumbling burglars hit a single dad's house during nap time, figuring his army days are long behind him. They didn't count on his four-year-old son finding Daddy's old footlocker.
 
@@ -37,19 +37,19 @@ Wow.
 Gentlemen *and Duane.*
 
 **DUANE**
-...Hey.
+...Hey. What the fuck, Vince?
 
 Vince holds up his phone. It shows a post on a neighborhood app: *"Me + the little guy nap Sat 2–4. Pray for me 🙏"*
 
 **VINCE**
-Kowalski house. Single dad. Posts his nap schedule online. Saturdays, two to four.
+Kowalski house. Single dad. Dumbass posts his nap schedule online. Saturdays, two to four.
 
 **MARCO**
 *(squinting at the phone)*
 Says here he's ex-army.
 
 **VINCE**
-*Was.* Now he drives a minivan.
+*Was.* Now he drives a fucking minivan.
 
 Duane squints at a photo clipped to the plan. It shows a jug-eared toddler grinning like he just bit somebody.
 
@@ -59,7 +59,7 @@ Vince... there's a kid.
 Vince slides on his gold aviators.
 
 **VINCE**
-It's a four-year-old, Duane. What's he gonna do, cry at us?
+It's a four-year-old, Duane. What the fuck's he gonna do, cry at us?
 
 ### EXT. KOWALSKI HOUSE, UPSTAIRS WINDOW, SAME
 
@@ -84,12 +84,14 @@ Below it sits the same man, years later: **GLENN KOWALSKI** (41, bushy hair, ful
 Brayden stomps in, chewing on a crayon. He climbs onto the coffee table to get eye level with his dad and spits the crayon out.
 
 **BRAYDEN**
-Daddy. Nap time. NOW.
+Daddy. Nap time. Right fucking now.
 
 Glenn's head turns. Slowly. Suspiciously.
 
 **GLENN**
 *(flat)*
+Language.
+*(beat)*
 You've never once in your life asked for nap time.
 
 **BRAYDEN**
@@ -101,7 +103,7 @@ He wipes his nose on Glenn's bathrobe.
 Glenn studies him. Then he decides he doesn't have the energy to care. He pulls on a pair of olive military ear defenders and a sleep mask printed with cartoon wide-open eyes.
 
 **GLENN**
-Daddy did three tours overseas, Brayden. You're worse. Fifteen minutes.
+Daddy did three tours overseas, Brayden. You're worse. Fifteen goddamn minutes.
 
 He falls face-first into the cushions like a felled tree. A squeaky toy dies underneath him. Instant snoring.
 
@@ -138,7 +140,7 @@ A sawed-off shotgun gets bolted inside a little safe in the den. A box labeled *
 Brayden stands in the basement doorway, backlit, in war paint and a helmet three sizes too big. He cracks his neck.
 
 **BRAYDEN**
-Nap time.
+Nap time, motherfuckers.
 
 ---
 
@@ -172,12 +174,12 @@ It's not a recording, Vince.
 Beat.
 
 **VINCE**
-...How does he know my name?
+...How the fuck does he know my name?
 
 Marco exhales vapor directly into his face.
 
 **MARCO**
-It's on the van, Vince. Your name is on the van.
+It's on the van, Vince. Your name is on the fucking van.
 
 ---
 
@@ -189,17 +191,19 @@ The hallway is dim and long. Duane tiptoes ahead. In slow motion, his sock comes
 
 A four-pointed steel caltrop.
 
-Duane's face does a full, silent scream. He hops and lands on another one. **CRUNCH.** Then another. **CRUNCH CRUNCH.** He topples backward, full-length, onto a hallway floor covered wall to wall in spikes.
+Duane's face does a full, silent scream. Then the sound arrives, one swear per spike as he hops down the hallway.
 
 **DUANE**
-SON OF A *[BLEEP]*!
+SON OF A BITCH! *(crunch)* MOTHERFUCKER! *(crunch)* SHIT! *(crunch)* SHIT! *(crunch)* SHIIIIT!
+
+He topples backward, full-length, onto a hallway floor covered wall to wall in spikes.
 
 A red remote-control monster truck putters out of the shadows. A big plastic jar is duct-taped to its back, labeled **SWEAR JAR** in crayon. It has a little grabber claw on the front.
 
 **BRAYDEN (V.O.)**
-Ooooh. That's a swear. That's a dollar.
+Ooooh. That's five swears. That's five dollars.
 
-Duane, weeping, feeds a crumpled dollar into the jar. The truck reverses away.
+Duane, weeping, feeds five crumpled dollars into the jar, one at a time. The truck reverses away.
 
 ---
 
@@ -218,10 +222,10 @@ He yanks the handle.
 A blast from inside the safe launches Vince backward across the room in a cloud of white smoke. He smashes straight through a baby gate and lands in a heap. The seat of his pants is smoking. His hair is blown straight back.
 
 **VINCE**
-ROCK SALT?! WHO KEEPS ROCK SALT?!
+ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!
 
 **BRAYDEN (V.O.)**
-Daddy says the real ones make a mess.
+Daddy says the real ones make a fucking mess.
 
 ---
 
@@ -232,7 +236,7 @@ The crew regroups at the top of the stairs. Duane is limping, with caltrops stil
 Vince reaches into his jacket and pulls out a pistol.
 
 **VINCE**
-Okay. No more games.
+Okay. No more fucking games.
 
 **MARCO**
 *(deadpan)*
@@ -247,7 +251,7 @@ A tiny hand yanks the main breaker down. **CLACK.**
 Pitch black. Three pairs of cartoon eyes blink in the darkness.
 
 **VINCE**
-Nobody move!
+Nobody fucking move!
 
 **NIGHT-VISION POV** *(green):* The three thieves grope blindly with their arms out, bumping into each other. We hear small breathing close to the lens. A tiny giggle.
 
@@ -262,7 +266,7 @@ The muzzle flash lights up the hallway for one frame. Then darkness again.
 A beat. Then Duane's eyes go huge.
 
 **DUANE**
-AAAAH! You SHOT me! Vince, you *[BLEEP]*-ing SHOT me!
+AAAAH! You SHOT me! You fucking SHOT me, you stupid son of a bitch!
 
 ### INT. LIVING ROOM, SAME
 
@@ -275,6 +279,14 @@ The lights snap back on.
 Duane is on the floor, clutching his leg, rolling around and sobbing like a baby. Vince stands over him holding a smoking gun.
 
 Vince and Marco look down at Duane. Then at each other. Then they burst out laughing.
+
+**MARCO**
+*(cracking up)*
+Holy shit. You shot Duane.
+
+**VINCE**
+*(wheezing)*
+I shot Duane!
 
 They're still laughing as they stroll on down the hallway, pointing back at him. Vince's sock catches a string stretched across the floor at ankle height.
 
@@ -291,19 +303,22 @@ The knives pin Marco flat against the wall in a perfect outline of his body, lik
 Marco looks down. His voice comes out an octave higher.
 
 **MARCO**
-...Holy sh—
+...That was almost my dick.
 
 Vince looks down at his gun hand. There's a knife stuck in it. The gun clatters to the floor. He stares at the knife. Then he SCREAMS.
 
 **VINCE**
-*[BLEEP]!!!*
+MOTHERFUUUUUCKER!!!
 
 On the floor, Duane stops crying. He looks up at the other two. And he starts laughing through his tears.
+
+**DUANE**
+Not so funny now, is it, you assholes?!
 
 The swear-jar truck putters down the hallway. Without stopping, its little claw snatches all three wallets, one after another.
 
 **BRAYDEN (V.O.)**
-Three swears. Wallets.
+That's a lot of swears. Wallets.
 
 ---
 
@@ -340,7 +355,7 @@ Marco lifts his tiny cup and sniffs it. Frowns.
 
 **MARCO**
 *(still an octave up)*
-This isn't apple juice.
+This isn't fucking apple juice.
 
 **BRAYDEN**
 *(grinning)*
@@ -368,12 +383,12 @@ Vince.
 The crew tumbles down the stairs in a panicked, tiara-wearing pile and hits the front door. It has a childproof cover too. Marco yanks. Duane yanks. It spins and spins.
 
 **DUANE**
-It's got one TOO!
+It's got one TOO! What the FUCK!
 
 They rush the couch. Duane gently shakes Glenn.
 
 **VINCE**
-Sir. Sir! Wake up. We're robbing you.
+Sir. Sir! Wake the fuck up. We're robbing you.
 
 Glenn lifts one corner of his sleep mask. One wide, unblinking eye checks his wristwatch.
 
@@ -386,7 +401,7 @@ They dump everything at his feet: a laptop, a TV remote, Glenn's own medals, and
 We're giving it all back.
 
 **VINCE**
-We'll pay you! Just open the door!
+We'll pay you! Just open the goddamn door!
 
 All three pat their pockets. No wallets. Slowly, they turn toward the stairs.
 
@@ -422,7 +437,7 @@ Arrest us. Please. Somewhere with walls.
 
 **DUANE**
 *(sobbing)*
-And no kids.
+And no fucking kids.
 
 Dale cuffs them without urgency and glances up at the house.
 
@@ -449,7 +464,7 @@ Brayden salutes. The helmet slides down over his eyes.
 He dumps the swear jar out on the rug and licks his thumb to count.
 
 **BRAYDEN**
-Forty-seven dollars.
+Four hundred and twelve dollars.
 
 **GLENN**
 Daddy gets half.

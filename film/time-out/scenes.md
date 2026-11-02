@@ -15,7 +15,7 @@
 
 **Always add the style block** from `characters.md` to the end of every prompt.
 
-**Never put swear words in a generation prompt.** Add them in the voice track and bleep them in the edit.
+**The swearing is uncensored. This is 18+ and nothing gets bleeped.** Some AI video tools refuse prompts with strong language. If one does, leave that line out of the video prompt, generate the voice separately (voice generators are usually fine with it), and lip-sync it.
 
 **Weapons and the kid.** Most AI video tools block a child and a weapon in the same frame. That's why every knife, gun and spike shot here is a close-up or a trap firing on its own, with Brayden in a separate shot. Edit them back to back and it reads the same. If a shot still gets blocked, call the item a "cartoon prop" (e.g. "cartoon prop knives") or describe Brayden as "a small cartoon toddler character."
 
@@ -32,13 +32,13 @@
 ### 1.2 · `0:04` · 6s · Medium three-shot, inside the van
 - **Image:** Inside a cramped, messy white van. VINCE is turned backward in the driver's seat, proudly holding up a laminated plan with photos paper-clipped to it. MARCO slouches in the passenger seat exhaling a cloud of vape smoke, bored. DUANE fills the entire back bench, eating gummy bears from a bag. Fast-food wrappers on the dashboard, warm sunlight through a dusty windshield.
 - **Motion:** Vince raises the plan dramatically. Marco exhales vapor and rolls his eyes. Vince glances at Duane. Duane gives a small, hurt wave. Static camera.
-- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE: "Gentlemen *and Duane.*" / DUANE: "...Hey."
+- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE: "Gentlemen *and Duane.*" / DUANE: "...Hey. What the fuck, Vince?"
 - **Audio:** M1 heist jazz kicks in.
 
 ### 1.3 · `0:10` · 8s · Over-the-shoulder, Vince and Marco
 - **Image:** Over-the-shoulder shot from behind MARCO toward VINCE, who is holding up a smartphone showing a social-media post and grinning with self-satisfaction.
 - **Motion:** Vince taps the screen and holds it out. Marco leans in and squints at it. Vince waves the concern away with a flick of his hand.
-- **Dialogue:** VINCE: "Kowalski house. Single dad. Posts his nap schedule online. Saturdays, two to four." / MARCO: "Says here he's ex-army." / VINCE: "*Was.* Now he drives a minivan."
+- **Dialogue:** VINCE: "Kowalski house. Single dad. Dumbass posts his nap schedule online. Saturdays, two to four." / MARCO: "Says here he's ex-army." / VINCE: "*Was.* Now he drives a fucking minivan."
 - **Post:** Phone screen reads "Me + the little guy nap Sat 2–4. Pray for me 🙏"
 
 ### 1.4 · `0:18` · 3s · Close-up, Duane
@@ -49,7 +49,7 @@
 ### 1.5 · `0:21` · 4s · Close-up, Vince
 - **Image:** Close-up of VINCE looking smug, holding a pair of gold aviator sunglasses.
 - **Motion:** Vince slides the aviators on and smirks with his buck teeth. Light glints off his gold chain.
-- **Dialogue:** VINCE: "It's a four-year-old, Duane. What's he gonna do, cry at us?"
+- **Dialogue:** VINCE: "It's a four-year-old, Duane. What the fuck's he gonna do, cry at us?"
 
 ### 1.6 · `0:25` · 4s · Exterior, upstairs window
 - **Image:** Exterior of an upstairs window on the beige house, frilly curtains parted a crack. BRAYDEN (regular look, no war paint yet) peers out through bright red plastic toy binoculars.
@@ -75,23 +75,23 @@
 ### 2.2 · `0:35` · 4s · Medium
 - **Image:** BRAYDEN stands on the coffee table in front of the couch, a chewed crayon in his mouth, eye level with GLENN and scowling at him from under heavy eyebrows.
 - **Motion:** Brayden spits out the crayon and stomps his foot on the table. Glenn's head turns slowly and suspiciously toward him.
-- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW."
+- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. Right fucking now."
 
-### 2.3 · `0:39` · 3s · Close-up, Glenn
+### 2.3 · `0:39` · 4s · Close-up, Glenn
 - **Image:** Close-up of GLENN, wide unblinking eyes narrowing with suspicion, his grin frozen in place, coffee mug halfway to his mouth.
 - **Motion:** Glenn's eyes narrow slowly. The grin doesn't move at all.
-- **Dialogue:** GLENN *(flat)*: "You've never once in your life asked for nap time."
+- **Dialogue:** GLENN *(flat)*: "Language." *(beat)* "You've never once in your life asked for nap time."
 
-### 2.4 · `0:42` · 3s · Close-up, Brayden
+### 2.4 · `0:43` · 3s · Close-up, Brayden
 - **Image:** Close-up of BRAYDEN with an enormous ear-to-ear grin full of jagged teeth, his eyes darting sideways, very obviously lying.
 - **Motion:** Brayden's grin stretches wider and his eyes shift left and right. Then he wipes his nose on the sleeve of Glenn's bathrobe.
 - **Dialogue:** BRAYDEN *(the worst liar alive)*: "I'm a growing boy."
 - **Audio:** A single low, ominous organ note.
 
-### 2.5 · `0:45` · 7s · Medium, Glenn
+### 2.5 · `0:46` · 6s · Medium, Glenn
 - **Image:** Medium shot of GLENN on the couch holding olive-green military ear defenders and a blue sleep mask printed with cartoon wide-open eyes.
 - **Motion:** Glenn sets down the mug, clamps on the ear defenders, then snaps the sleep mask over his eyes. He's totally deadpan the whole time.
-- **Dialogue:** GLENN: "Daddy did three tours overseas, Brayden. You're worse. Fifteen minutes."
+- **Dialogue:** GLENN: "Daddy did three tours overseas, Brayden. You're worse. Fifteen goddamn minutes."
 
 ### 2.6 · `0:52` · 2s · Wide
 - **Image:** GLENN in ear defenders and the cartoon-eyes sleep mask, sitting stiff and upright on the couch.
@@ -142,7 +142,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 3.7 · `1:11` · 4s · Wide, low angle hero shot
 - **Image:** BRAYDEN in war mode, backlit in the basement doorway in silhouette, with camo stripes and a giant wobbling army helmet. Dust hangs in the light behind him.
 - **Motion:** Slow push-in. Brayden rolls his head and cracks his neck, then grins.
-- **Dialogue:** BRAYDEN *(gravelly whisper)*: "Nap time."
+- **Dialogue:** BRAYDEN *(gravelly whisper)*: "Nap time, motherfuckers."
 - **Audio:** The music hits its last big drum hit and cuts out.
 
 ---
@@ -170,7 +170,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 4.4 · `1:30` · 4s · Two-shot
 - **Image:** Two-shot of VINCE and MARCO in the dim kitchen. Vince looks horrified. Marco looks at him with total contempt.
 - **Motion:** Vince slowly turns to Marco. Marco exhales a cloud of vapor directly into his face.
-- **Dialogue:** VINCE: "...How does he know my name?" / MARCO: "It's on the van, Vince. Your name is on the van."
+- **Dialogue:** VINCE: "...How the fuck does he know my name?" / MARCO: "It's on the van, Vince. Your name is on the fucking van."
 
 ---
 
@@ -183,15 +183,15 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 
 ### 5.2 · `1:37` · 5s · Medium wide
 - **Image:** A long dim hallway, the floor scattered wall to wall with four-pointed metal caltrops. DUANE balances on one foot, his bald head bright red, mouth stretched into an enormous silent scream.
-- **Motion:** Duane hops on one foot, lands on more spikes, flails his arms, and topples backward full-length onto the caltrops, which bounce everywhere.
-- **Dialogue:** DUANE: "SON OF A [BLEEP]!"
-- **Audio:** CRUNCH CRUNCH CRUNCH, a guitar stinger, and a bleep in post.
+- **Motion:** Duane hops down the hallway on one foot, landing on a new spike with every hop and flailing his arms, then topples backward full-length onto the caltrops, which bounce everywhere.
+- **Dialogue:** DUANE *(one swear per spike)*: "SON OF A BITCH! MOTHERFUCKER! SHIT! SHIT! SHIIIIT!"
+- **Audio:** A CRUNCH under every swear, then a guitar stinger.
 - **Continuity:** Duane limps with caltrops stuck in his socks from here on.
 
 ### 5.3 · `1:42` · 5s · Low angle along the floor
 - **Image:** Low angle along the floor: a red remote-control monster truck with a big plastic jar duct-taped to its back and a little grabber claw on its front rolls out of the shadows. DUANE lies on the spikes in the background, crying.
-- **Motion:** The truck putters to a stop beside Duane's face and waits. Duane sniffles and feeds a crumpled dollar bill into the jar. The truck reverses away.
-- **Dialogue:** BRAYDEN *(V.O.)*: "Ooooh. That's a swear. That's a dollar."
+- **Motion:** The truck putters to a stop beside Duane's face and waits. Duane sniffles and feeds five crumpled dollar bills into the jar, one at a time. The truck reverses away.
+- **Dialogue:** BRAYDEN *(V.O.)*: "Ooooh. That's five swears. That's five dollars."
 - **Audio:** M2 music box, briefly.
 - **Post:** Jar label "SWEAR JAR" in crayon.
 
@@ -213,7 +213,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 6.3 · `1:53` · 5s · Medium
 - **Image:** VINCE in a crumpled heap in the doorway on top of a smashed baby gate, his spiky hair blown straight back, the seat of his pants scorched and smoking.
 - **Motion:** Smoke curls up from the seat of his pants. He lifts his head, outraged.
-- **Dialogue:** VINCE: "ROCK SALT?! WHO KEEPS ROCK SALT?!" / BRAYDEN *(V.O.)*: "Daddy says the real ones make a mess."
+- **Dialogue:** VINCE: "ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!" / BRAYDEN *(V.O.)*: "Daddy says the real ones make a fucking mess."
 - **Continuity:** Vince's pants are scorched and smoking from here on.
 
 ---
@@ -225,7 +225,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.1 · `1:58` · 5s · Medium three-shot
 - **Image:** Top of the stairs in a long upstairs hallway with a closet door partway down it. VINCE (pants still smoking), MARCO and DUANE (limping, caltrops in his socks) huddle together. Vince is reaching into his leather jacket.
 - **Motion:** Vince pulls out a pistol and holds it up sideways like a movie gangster. Marco slowly turns his head to look at him, unimpressed.
-- **Dialogue:** VINCE: "Okay. No more games." / MARCO *(deadpan)*: "You brought a gun to rob a nap?"
+- **Dialogue:** VINCE: "Okay. No more fucking games." / MARCO *(deadpan)*: "You brought a gun to rob a nap?"
 
 ### 7.2 · `2:03` · 2s · Insert, no faces
 - **Image:** Close-up of a grey electrical breaker box in a dim basement, the main switch in the up position.
@@ -235,7 +235,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.3 · `2:05` · 2s · Black frame
 - **Image:** A completely pitch-black frame with only three pairs of white cartoon eyes floating in the darkness.
 - **Motion:** The three pairs of eyes blink, look left, look right, then look at each other.
-- **Dialogue:** VINCE: "Nobody move!"
+- **Dialogue:** VINCE: "Nobody fucking move!"
 
 ### 7.4 · `2:07` · 3s · Night-vision POV
 - **Image:** Grainy green night-vision camera footage of a hallway with a circular goggle vignette. VINCE, MARCO and DUANE are blindly groping in the dark with their arms stretched out in front of them.
@@ -250,7 +250,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.6 · `2:11` · 3s · Black frame
 - **Image:** Pitch-black frame with three pairs of cartoon eyes. One pair, low down near the floor, is huge and watering.
 - **Motion:** The low pair of eyes goes enormous, then squeezes shut and starts streaming cartoon tears.
-- **Dialogue:** DUANE: "AAAAH! You SHOT me! Vince, you [BLEEP]-ing SHOT me!"
+- **Dialogue:** DUANE: "AAAAH! You SHOT me! You fucking SHOT me, you stupid son of a bitch!"
 
 ### 7.7 · `2:14` · 2s · Medium, cutaway
 - **Image:** GLENN face-down on the living-room couch in his military ear defenders and cartoon-eyes sleep mask, peacefully asleep.
@@ -260,6 +260,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.8 · `2:16` · 5s · Wide
 - **Image:** The upstairs hallway, lights back on. DUANE lies on the floor clutching his leg and sobbing. VINCE stands over him holding a smoking pistol, and MARCO stands next to Vince.
 - **Motion:** Duane rolls around wailing like a baby. Vince and Marco look down at him, then at each other, then burst out laughing, doubling over.
+- **Dialogue:** MARCO *(cracking up)*: "Holy shit. You shot Duane." / VINCE *(wheezing)*: "I shot Duane!"
 - **Audio:** Lights buzzing back on. Big, mean laughter.
 
 ### 7.9 · `2:21` · 4s · Medium tracking
@@ -270,21 +271,21 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.10 · `2:25` · 4s · Wide, fast action
 - **Image:** The upstairs hallway. The hall closet door has burst open and a dozen cartoon combat knives are streaking out toward MARCO, who stands frozen with his back against the wall and arms out.
 - **Motion:** The knives thunk into the wall one after another in a perfect outline around Marco's body, pinning his vest and hoodie without touching him. A beat later, the final knife thunks into the wall right between his legs.
-- **Dialogue:** MARCO *(an octave higher)*: "...Holy sh—"
+- **Dialogue:** MARCO *(an octave higher)*: "...That was almost my dick."
 - **Audio:** THUNK THUNK THUNK-THUNK-THUNK... pause... THUNK. Guitar stinger.
 - **Continuity:** Marco's clothes have knife slits for the rest of the film, and his voice stays an octave higher.
 
 ### 7.11 · `2:29` · 3s · Close-up
 - **Image:** Close-up of VINCE staring at his own raised hand, which has a cartoon prop knife stuck in the palm, cartoon style with no blood. The pistol is dropping from his fingers.
 - **Motion:** The pistol clatters to the floor. Vince stares at the knife, his eyes bulge, and he screams at the ceiling.
-- **Dialogue:** VINCE: "[BLEEP]!!!"
+- **Dialogue:** VINCE: "MOTHERFUUUUUCKER!!!"
 - **Continuity:** Vince's hand is wrapped in a huge wad of bandage with the knife handle sticking out from here on.
 - **If blocked:** Show the knife pinning his jacket sleeve to the wall instead, with his hand flapping uselessly at the end of it.
 
 ### 7.12 · `2:32` · 5s · Low angle from the floor
 - **Image:** Low angle from the floor: DUANE lying on his back in the foreground, tears on his face. MARCO is pinned to the wall and VINCE is clutching his hand in the background. The red RC swear-jar truck is rolling into frame.
 - **Motion:** Duane stops crying and starts laughing through his tears, pointing at the other two. The truck putters past without stopping, and its little claw snatches three wallets one after another: Duane's, Marco's, Vince's.
-- **Dialogue:** BRAYDEN *(V.O.)*: "Three swears. Wallets."
+- **Dialogue:** DUANE *(laughing through tears)*: "Not so funny now, is it, you assholes?!" / BRAYDEN *(V.O.)*: "That's a lot of swears. Wallets."
 
 ---
 
@@ -305,7 +306,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 8.3 · `2:46` · 5s · Medium, Marco to Brayden to wide
 - **Image:** MARCO, a tiara perched on his messy hair, lifting a tiny teacup to his nose.
 - **Motion:** Marco sniffs, freezes, and slowly looks over at Brayden. Brayden's grin spreads ear to ear. All three thieves slowly lower their teacups to the table in perfect sync.
-- **Dialogue:** MARCO *(still an octave up)*: "This isn't apple juice." / BRAYDEN *(grinning)*: "I never said it was apple."
+- **Dialogue:** MARCO *(still an octave up)*: "This isn't fucking apple juice." / BRAYDEN *(grinning)*: "I never said it was apple."
 - **Audio:** Three tiny porcelain clinks.
 
 ### 8.4 · `2:51` · 5s · Medium, Vince, with Brayden in the background
@@ -320,12 +321,12 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 9.1 · `2:56` · 4s · Wide
 - **Image:** VINCE, MARCO and DUANE in tiaras tumbling down the staircase in a tangled heap toward the front door. The doorknob has a childproof cover.
 - **Motion:** They hit the bottom of the stairs and scramble to the door. Marco and Duane both yank the childproof knob, and it spins uselessly.
-- **Dialogue:** DUANE: "It's got one TOO!"
+- **Dialogue:** DUANE: "It's got one TOO! What the FUCK!"
 
 ### 9.2 · `3:00` · 4s · Medium
 - **Image:** The three thieves crowded around the couch, where GLENN lies face-down snoring in his ear defenders and cartoon-eyes sleep mask.
 - **Motion:** Duane gently shakes Glenn's shoulder while Vince leans in, pleading.
-- **Dialogue:** VINCE: "Sir. Sir! Wake up. We're robbing you."
+- **Dialogue:** VINCE: "Sir. Sir! Wake the fuck up. We're robbing you."
 
 ### 9.3 · `3:04` · 4s · Close-up, Glenn
 - **Image:** Close-up of GLENN's face half-buried in a couch cushion, sleep mask on.
@@ -335,7 +336,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 9.4 · `3:08` · 5s · Medium
 - **Image:** The thieves dumping armfuls of stolen goods onto the rug at GLENN's feet: a laptop, a TV remote, a handful of military medals, and a family-size bag of dinosaur-shaped chicken nuggets.
 - **Motion:** The items tumble onto the rug. Glenn slowly sits up, completely unbothered.
-- **Dialogue:** MARCO: "We're giving it all back." / VINCE: "We'll pay you! Just open the door!"
+- **Dialogue:** MARCO: "We're giving it all back." / VINCE: "We'll pay you! Just open the goddamn door!"
 
 ### 9.5 · `3:13` · 3s · Medium three-shot
 - **Image:** VINCE, MARCO and DUANE standing in a row, patting their pockets.
@@ -370,7 +371,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 10.2 · `3:32` · 4s · Medium
 - **Image:** VINCE, MARCO and DUANE lined up in front of OFFICER DALE, wrists thrust out together, desperate.
 - **Motion:** Vince and Marco hold out their wrists. Duane sobs and holds his out too.
-- **Dialogue:** VINCE: "Arrest us. Please. Somewhere with walls." / DUANE *(sobbing)*: "And no kids."
+- **Dialogue:** VINCE: "Arrest us. Please. Somewhere with walls." / DUANE *(sobbing)*: "And no fucking kids."
 
 ### 10.3 · `3:36` · 5s · Medium close-up
 - **Image:** OFFICER DALE snapping handcuffs onto the thieves, mustache twitching, glancing up at the house.
@@ -389,7 +390,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 11.2 · `3:45` · 5s · Medium two-shot
 - **Image:** BRAYDEN sitting on the rug with a pile of cash and three wallets dumped out of the swear jar. GLENN stands over him.
 - **Motion:** Brayden licks his thumb and counts bills. At Glenn's line, Brayden's head turns slowly and he stares up, unblinking. Glenn visibly wilts.
-- **Dialogue:** BRAYDEN: "Forty-seven dollars." / GLENN: "Daddy gets half." / *(stare)* / GLENN: "...Daddy gets nuggets."
+- **Dialogue:** BRAYDEN: "Four hundred and twelve dollars." / GLENN: "Daddy gets half." / *(stare)* / GLENN: "...Daddy gets nuggets."
 
 ### 11.3 · `3:50` · 3s · Insert, laptop screen
 - **Image:** Over-the-shoulder shot of a beat-up laptop screen showing a neighborhood social app with a blank new-post box.
