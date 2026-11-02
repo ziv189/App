@@ -1,0 +1,117 @@
+SCENE CONTEXT & STYLE
+
+What happens: Three quick close-ups of objects from the gear-up montage, with no people in them at all. These shots get cut between Brayden's montage shots in editing. First, looking straight down into his dad's open army footlocker in the basement: everything inside is packed in neat military rows and bathed in a warm golden glow, like treasure. Second, the dim downstairs hallway: a shower of small four-pointed steel caltrops pours down from above the frame and scatters across the bare wooden floor toward the camera. Third, the small black safe on the floor of the wood-paneled den: inside it, an old double-barreled shotgun is clamped in place with its barrels pointing straight at the safe door, with a box beside the safe; then the heavy safe door slowly swings shut by itself and clicks. Each shot is still and simple, like the gear close-ups in an 80s action-movie montage.
+
+Tone and pace: an 80s action-movie montage played completely straight, in a comedy. Each shot is clean, still and deliberate, with one single thing happening in it. Everything is a cartoon prop in a cartoon world: nothing is gory, scary or realistic.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Smooth, slightly rounded, chunky stylized props with clean shapes, detailed but simple metal, wood, canvas and paint textures, warm saturated colors and soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: olive drab, brass, steel grey, honey-colored wood and the warm golden glow.
+
+Camera language: real lenses between 35mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Format: 15 seconds, 16:9, three shots joined by two hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: the same sunny Saturday afternoon as the rest of the film. In the basement, the warm yellow bare bulb lights the footlocker from above, and a soft warm golden glow rises from inside it. In the hallway, the ceiling light is off, and soft daylight leaks in from the kitchen doorway at the far end, so the floor is dim with warm highlights that the metal spikes catch. In the den, warm amber afternoon light filters through the plaid curtains. The light is fixed to the world in each shot, with no flicker and no color shift.
+
+Physics: real weight and gravity. The objects in the footlocker are completely still. The caltrops are small, heavy steel pieces: they fall straight down, hit the wooden floor with sharp metallic clinks, bounce once or twice, skitter a short way, and settle with one point sticking straight up. They never float, never roll forever and never pile up into a mountain. The safe door is heavy steel: it swings slowly and evenly on its hinges, slows down near the end, and closes with a solid click. Everything else stays still.
+
+Sound: diegetic sound only. No music: the montage music is added later in editing. Only these sounds, in order: the quiet hum of the basement and the faint buzz of the bulb; a rushing metallic clatter and many small clinks as the caltrops hit the floor, then a few last skitters; the slow creak of the safe door's hinges and one heavy metal click as it shuts. No voices.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = the basement, used in Shot 1. The concrete floor and the olive-green footlocker 100% match <<<image_1>>>.
+
+<<<image_2>>> = the downstairs hallway, used in Shot 2. The long, narrow hallway, the bare honey-colored wooden floor, the tilted family photos and the glowing kitchen doorway at the far end 100% match <<<image_2>>>. At the start of the shot, the floor is completely clear.
+
+<<<image_3>>> = the den, used in Shot 3. The dark wood paneling, the brown carpet, the small black safe on the floor against the wall, and the shelf above it 100% match <<<image_3>>>.
+
+Objects; each keeps exactly the same shape, size, material and color in every frame:
+- The footlocker contents, seen from above and packed in neat rows: four knives in brown leather sheaths; three spools of thin silver wire; a canvas bag full of four-pointed steel caltrops; a pair of olive night-vision goggles; one olive-green, pineapple-shaped metal paperweight with a ring on top; and one worn olive army field manual with a plain, blank cover. Nothing else is in the footlocker.
+- The golden glow: a soft, warm golden light coming up from the bottom of the footlocker. Nothing flies out of it: no sparkles or particles.
+- The caltrops: small, four-pointed steel spikes, like oversized metal jacks, each about the size of a walnut, with a dull steel finish.
+- The safe: small, black, steel, about knee-high, with a chrome handle, a round combination dial and a blank sheet of white paper taped to the outside of its door. It never becomes a cabinet, a fridge or a mailbox.
+- Inside the safe: one old double-barreled shotgun with a worn wooden stock, held flat by two metal clamps, its two barrels pointing straight out at the door. A thin piece of string runs loosely from it to the inside of the door handle.
+- Beside the safe on the carpet: one small plain cardboard box with its flaps closed and no readable writing.
+
+There are no people in this clip: no hands, no arms, no characters, nobody at all.
+
+
+SHOT STRUCTURE
+
+The three shots at a glance:
+1. 0.0 to 5.0s: top-down into the open footlocker, glowing like treasure. Slow push-in.
+2. 5.0 to 10.0s: floor level in the hallway. The caltrops rain down and scatter. Locked-off.
+3. 10.0 to 15.0s: close-up on the open safe in the den. The door swings shut by itself. Slow push-in.
+
+SHOT 1 (0.0 to 5.0s). TOP-DOWN INSERT: THE FOOTLOCKER.
+Camera: directly above the open footlocker, looking straight down, about 3 feet above it. 35mm lens, about a 54-degree view. A slow, smooth push-in straight down, easing in and out.
+Frame: the open footlocker fills the frame. Its contents lie in neat rows: the sheathed knives along the top row, the spools of wire and the night-vision goggles in the middle, and the bag of caltrops, the pineapple-shaped paperweight and the field manual along the bottom row. The olive edges of the footlocker frame the shot, with a strip of the concrete floor of <<<image_1>>> at the corners.
+0.0 to 1.5s: Hold. The golden glow fills the inside of the footlocker. Dust motes drift slowly through the light.
+1.5 to 4.0s: The camera pushes slowly down toward the contents. Nothing inside moves.
+4.0 to 5.0s: The push-in eases to a stop. Hold.
+Light: the golden glow lights everything from below and inside; the bulb adds a warm highlight along the brass corners and the steel.
+Last frame: the neat rows of gear, glowing gold, filling the frame.
+Avoid: anything moving inside the footlocker, objects not listed, sparkles or particles, readable text on anything, hands or people.
+
+HARD CUT
+
+SHOT 2 (5.0 to 10.0s). FLOOR-LEVEL: THE CALTROPS.
+Camera: on the floor of the downstairs hallway, about 6 inches up, looking straight down the length of the hallway toward the glowing kitchen doorway at the far end, matching <<<image_2>>>. 35mm lens, about a 54-degree view. Locked-off.
+Frame: the bare wooden floor runs away from the camera in one-point perspective, with the walls and tilted photos on both sides and the kitchen doorway glowing softly at the far end. The floor is completely clear at the start.
+5.0 to 5.8s: Hold on the empty, quiet hallway.
+5.8 to 8.0s: A shower of caltrops pours down from above the top of the frame onto the middle of the floor. They hit the boards with sharp metallic clinks, bounce once or twice, and skitter outward across the whole floor, some sliding toward the camera.
+8.0 to 9.2s: The last few caltrops skitter to a stop and rock into place, each with one point sticking straight up.
+9.2 to 10.0s: Hold. The floor is covered from wall to wall in caltrops glinting in the light from the kitchen.
+Light: dim hallway, with warm highlights from the kitchen doorway catching the points of the steel caltrops.
+Last frame: the hallway floor covered wall to wall in caltrops, points up.
+Avoid: hands, arms, a bag or a person appearing in frame, caltrops floating or rolling endlessly, a pile or mound, the camera moving.
+
+HARD CUT
+
+SHOT 3 (10.0 to 15.0s). CLOSE-UP: THE SAFE.
+Camera: low, at the height of the safe, about 3 feet from it, looking straight into the open safe. 50mm lens, about a 40-degree view. A very slow push-in, easing in and out.
+Frame: the small black safe from <<<image_3>>> sits in the center of the frame against the wood paneling, its door standing wide open toward the left of the frame. Inside, the old double-barreled shotgun is clamped flat, its barrels pointing straight out toward the door, with the thin string running loosely from it to the inside of the door handle. The small closed cardboard box sits on the carpet just right of the safe. The bottom edge of the shelf is visible at the top of the frame.
+10.0 to 11.0s: Hold. Nothing moves.
+11.0 to 13.5s: The heavy safe door slowly swings shut by itself, steady and even, slowing down near the end. The string stays loose.
+13.5 to 14.0s: The door closes with one heavy metal click. The blank sheet of paper taped to the outside of the door now faces the camera.
+14.0 to 15.0s: Hold on the closed safe, the box beside it.
+Light: warm amber light from the curtained window falls across the safe; the chrome handle catches a small highlight.
+Last frame: the closed black safe with the blank paper taped to its door, the cardboard box beside it.
+Avoid: the gun moving or changing shape, hands or people, readable text on the paper or the box, the door bouncing back open.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly three shots joined by exactly two hard cuts, at 5.0s and 10.0s.
+- No people, hands or arms anywhere in the clip.
+- Each location matches its reference image 100%: the basement <<<image_1>>>, the hallway <<<image_2>>>, the den <<<image_3>>>.
+- Every object keeps its exact shape, size and color, and only the things written move: the camera push-ins, the falling caltrops and the safe door.
+- Everything stays intact: nothing is thrown, lit or broken. The gun stays clamped and perfectly still in the safe.
+- Diegetic sound only.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No voices, no music.
+- No readable text anywhere: the manual cover, the paper on the safe and the box stay blank. No subtitles, captions or watermarks.
+- No sparks, flashes or anything graphic or scary. It's a comedy montage.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: objects never melt, merge, multiply or change shape.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Every object is rigid.
+2. Anticipation: the safe door hesitates for a moment before it starts to swing.
+3. Staging: one clear thing happens per shot: the glow, the caltrops, the door.
+4. Straight ahead and pose to pose: continuous, natural motion that ends on a clean, still final frame.
+5. Follow-through: the caltrops bounce, skitter and rock into place; the door slows down before it clicks.
+6. Slow in and slow out: the push-ins and the door swing ease in and out.
+7. Arcs: the caltrops fall and bounce on short, natural arcs.
+8. Secondary action: dust motes drift in the golden glow and in the hallway light.
+9. Timing: still, then one action, then still again, like gear close-ups in a montage.
+10. Exaggeration: minimal. The comedy is how seriously everything is presented.
+11. Solid drawing: every object keeps its volume and shape from every angle.
+12. Appeal: clean, chunky, readable cartoon props, glowing like treasure.
