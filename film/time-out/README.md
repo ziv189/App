@@ -21,7 +21,10 @@ An **18+** animated comedy short, about **4:00**. Strong language throughout, no
 
 ## Making it in Higgsfield
 
-1. **Lock the look first.** For each character, upload their sketch from `refs/` as the reference and use their prompt in `character-prompts.md` (start with Glenn, then use his image as the style reference for everyone else). Optionally, also make turnaround sheets with the template in `characters.md`. Then make the empty sets from `environment-prompts.md`, starting with the living room. Brayden needs two sheets: regular, and war mode with camo paint and helmet. Then generate an empty image of each set. Pick one favorite of each. If you use Higgsfield's character-consistency or reference tools, build each character from those sheets.
+1. **Lock the look first.**
+   - **Characters:** use `character-prompts.md`, uploading each character's sketch from `refs/` as the reference. Start with Glenn, then use his image as the style reference for everyone else. Brayden needs two images: regular, and war mode.
+   - **Sets:** use `environment-prompts.md`, starting with the living room, then use it as the style reference for the other sets.
+   - Pick one favorite of each. If you use Higgsfield's character-consistency or reference tools, build each character from those images.
 2. **Start frames.** For each shot in `scenes.md`, generate the **Image** prompt with that shot's character and set references attached, plus the style block.
 3. **Animate.** Run image-to-video with the **Motion** prompt, one action per clip. Generate at the model's minimum length and trim to the listed duration.
 4. **Voices.** There are two routes:
