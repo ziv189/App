@@ -1,25 +1,25 @@
 SCENE CONTEXT & STYLE
 
-What happens: A sunny Saturday afternoon on Maple Court, a quiet suburban cul-de-sac. Three bumbling small-time crooks sit in a beat-up white panel van parked across the street from a tired beige house, going over their big plan for the house. VINCE, the self-appointed mastermind, is twisted around in the driver's seat holding up a laminated plan, and he opens with a big, self-important "Gentlemen." MARCO, bored in the passenger seat, mocks him with a flat "Wow." Vince turns it on DUANE, the huge, soft guy who takes up the whole back seat: "Gentlemen and Duane." Duane is hurt. Marco piles on: he turns around and blows a giant cloud of vape straight into Duane's face, and Duane coughs and complains. Then Vince holds up his phone and explains the target: the single dad who lives in that house posts his nap schedule online, Saturdays from two to four. Marco reads that the dad is ex-army, and Vince waves it away. The clip opens outside on the street, then cuts inside the van for the rest. Tone: an adult comedy that looks like a family movie, with dry, fast banter, deadpan reactions and sharp cartoon timing.
+What happens: A sunny Saturday afternoon on Maple Court, a quiet suburban cul-de-sac. Three bumbling guys sit in a beat-up white panel van parked across the street from a tired beige house, going over their big plan. VINCE, the self-appointed mastermind, is twisted around in the driver's seat holding up a laminated plan, and he opens with a big, self-important "Gentlemen." MARCO, bored in the passenger seat, mocks him with a flat "Wow." Vince turns it on DUANE, the huge, soft guy who takes up the whole back seat: "Gentlemen and Duane." Duane sulks. Marco piles on: he turns around and puffs a giant cloud of white mist from his pen gadget straight at Duane's face, and Duane coughs and complains. Then Vince holds up his phone and explains the plan: the single dad who lives in that house posts his nap schedule online, Saturdays from two to four. Marco reads that the dad is ex-army, and Vince waves it away. The clip opens outside on the street, then cuts inside the van for the rest. Tone: a sarcastic comedy that looks like a family movie, with dry, fast banter, deadpan reactions and sharp cartoon timing.
 
-Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon proportions, big expressive faces, smooth sculpted forms, soft skin with subtle subsurface scattering, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon proportions, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
 
 Format: 20 seconds, 16:9, five shots joined by four hard cuts. Natural real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
 
 Lighting: a sunny Saturday at about 2 PM, the same light in every shot. One sun, high and to the upper left of the street, warm and bright, with soft blue fill from the sky. Outside: crisp, soft-edged shadows falling to the right, a bright blue sky with a few puffy white clouds, sprinkler spray sparkling in the sun. Inside the van: warm sunlight pours in through the windshield and the side window, dust floats in the light beams, and the cargo area at the back sits a little darker. The light is fixed to the world, not to the characters: when they move, the light and shadows travel across them. No flicker, no color shift, no change in time of day between shots.
 
-Physics: real weight and gravity with cartoon expressiveness. The van is parked with the engine off and never drives; it only rocks gently on its springs when someone shifts, most of all when Duane moves. Bodies keep their volume. Faces squash and stretch for expressions, then settle back exactly on model. Vape vapor is thick, white and slow: it rolls out in a big billowing cloud, hangs in the air, then drifts and thins over a few seconds. It never vanishes instantly. Clothing, Vince's gold chain, Marco's beard and Duane's cheeks follow through and settle after every move. Sprinkler water arcs and falls with gravity.
+Physics: real weight and gravity with cartoon expressiveness. The van is parked with the engine off and never drives; it only rocks gently on its springs when someone shifts, most of all when Duane moves. Bodies keep their volume. Faces squash and stretch for expressions, then settle back exactly on model. The mist from Marco's pen gadget is thick, white and slow: it rolls out in a big billowing cloud, hangs in the air, then drifts and thins over a few seconds. It never vanishes instantly. Clothing, Vince's gold chain, Marco's beard and Duane's cheeks follow through and settle after every move. Sprinkler water arcs and falls with gravity.
 
-Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the scene would really make: sprinklers ticking, birds, a distant lawnmower, the creak of Vince's leather jacket, the laminated sheet crinkling, the soft hiss of the vape, the gummy-bear bag rustling, coughing, the van's springs creaking. Swear words are censored with bleeps. Wherever a line says [BLEEP], a short, loud, clean TV censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The bleeps are the only sound that doesn't come from the scene itself.
+Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the scene would really make: sprinklers ticking, birds, a distant lawnmower, the creak of Vince's leather jacket, the laminated sheet crinkling, the soft hiss of Marco's pen gadget, the gummy-bear bag rustling, coughing, the van's springs creaking. A few words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, loud, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beeps are the only sound that doesn't come from the scene itself.
 
 
 ACTIVE REFERENCES
 
-<<<image_1>>> = VINCE. The self-appointed criminal mastermind. Fast-talking, cocky and theatrical, always performing for a crew that isn't impressed. Nasal big-shot voice, quick delivery, smug little smirks, eyes that slide sideways. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+<<<image_1>>> = VINCE. The self-appointed mastermind of the group. Fast-talking, smug, overconfident and theatrical, always performing for a crew that isn't impressed. Nasal big-shot voice, quick delivery, smug little smirks, eyes that slide sideways. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
 
-<<<image_2>>> = MARCO. The only competent one, and bored by everything. Deadpan and heavy-lidded. He says as little as possible and answers people by blowing vape at them instead of arguing. Low, dry voice with vocal fry. Face, hair, beard, body, clothes and vape pen 100% match <<<image_2>>>.
+<<<image_2>>> = MARCO. The only competent one, and bored by everything. Deadpan and heavy-lidded. He says as little as possible and answers people by puffing mist from his pen gadget at them instead of arguing. Low, dry voice with vocal fry. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
 
-<<<image_3>>> = DUANE. A huge, soft-hearted guy, nervous and easily hurt, the punching bag of the group. Deep, gentle voice that wobbles when he's upset. Face, beard, body and clothes 100% match <<<image_3>>>.
+<<<image_3>>> = DUANE. A huge, soft-hearted guy, nervous and sensitive, the one everyone picks on. Deep, gentle voice that wobbles when he's upset. Face, beard, body and clothes 100% match <<<image_3>>>.
 
 <<<image_4>>> = the inside of the van, used in Shots 2 to 5. Seats, dashboard, clutter, cargo gear, colors and materials 100% match <<<image_4>>>. The seating never changes: Vince in the driver's seat, Marco in the passenger seat, Duane alone on the back bench.
 
@@ -38,7 +38,7 @@ SHOT STRUCTURE
 
 Every interior shot looks from the front of the van toward the back. In every interior shot, Marco is on the left of frame, Vince is on the right of frame, and Duane sits in the center of the back bench behind them.
 
-SHOT 1 (0.0 to 3.5s). EXT. MAPLE COURT. Wide establishing shot, smooth stabilized dolly push-in, 28mm lens, adult eye height.
+SHOT 1 (0.0 to 3.5s). EXT. MAPLE COURT. Wide establishing shot, smooth stabilized dolly push-in, 28mm lens, standing eye height.
 0.0 to 1.0s: Wide on the cul-de-sac from <<<image_5>>>. The beige house sits across the street, center-left of frame. The white van is parked at our curb in the right third of the frame, side-on, its painted side facing the camera. Neighbors' sprinklers spray arcs of water over bright green lawns. The camera starts a slow, smooth push toward the van.
 1.0 to 2.5s: The push continues. A sprinkler arc sweeps through the foreground and the droplets catch the sun. A small bird flutters down onto the van's side mirror, bobs twice and settles.
 2.5 to 3.5s: The camera eases to a stop framed on the side of the van, with the house still visible beyond it. Through the side window are the dim shapes of the three men inside, faces not readable. Hold.
@@ -48,20 +48,20 @@ HARD CUT
 
 SHOT 2 (3.5 to 8.0s). INT. VAN. Wide three-shot, locked-off camera mounted in the middle of the dashboard looking straight back into the van, 24mm lens, no fisheye. Marco on the left, Vince on the right, Duane in the center of the back bench.
 3.5 to 4.3s: Vince is twisted around in the driver's seat toward the others, in three-quarter profile to the camera. He takes a breath, lifts the laminated plan high in both hands like a historic document, chin up: "Gentlemen."
-4.3 to 4.9s: Marco, slouched low in the passenger seat and facing the camera, lets a slow stream of vapor out of the corner of his mouth, eyes half-closed: "Wow." Totally flat.
+4.3 to 4.9s: Marco, slouched low in the passenger seat and facing the camera, lets a slow wisp of white mist out of the corner of his mouth, eyes half-closed: "Wow." Totally flat.
 4.9 to 6.4s: Vince's eyes slide over to Duane. A tiny smug pause. Then, tipping the plan toward Duane on the last word: "Gentlemen and Duane."
-6.4 to 7.2s: Duane freezes mid-chew with a gummy bear halfway to his mouth. His shoulders sink and the van dips slightly as he slumps. Small, hurt voice: "...Hey."
-7.2 to 8.0s: Hold on the hurt pause. Nothing moves except the dust drifting in the sunbeams.
-Sound: leather creak as Vince twists, the laminated sheet crinkling, the soft vape hiss, the gummy bag rustling, faint street sounds through the glass.
+6.4 to 7.2s: Duane freezes mid-chew with a gummy bear halfway to his mouth. His shoulders sink and the van dips slightly as he slumps. Small, sad voice: "...Hey."
+7.2 to 8.0s: Hold on the sad pause. Nothing moves except the dust drifting in the sunbeams.
+Sound: leather creak as Vince twists, the laminated sheet crinkling, the soft hiss of the pen gadget, the gummy bag rustling, faint street sounds through the glass.
 
 HARD CUT
 
 SHOT 3 (8.0 to 11.5s). INT. VAN. Medium two-shot, gentle handheld, camera low between the two front seats looking back. Marco in the foreground on the left, in the passenger seat. Duane in the center of the back bench, facing the camera.
-8.0 to 8.6s: Marco takes a long drag on his vape, cheeks hollowing, eyes still bored. The tip glows.
-8.6 to 9.4s: In one smooth arc, Marco twists around over his seatback toward Duane and blows a huge, billowing white cloud straight into Duane's face. The cloud swallows Duane's whole head.
-9.4 to 10.6s: Inside the cloud, Duane coughs hard twice and waves one huge hand through the vapor. His watering eyes appear through a gap in the smoke: "What the [BLEEP], Marco?" A cough breaks in the middle of the line, and the swear is covered by a censor beep.
+8.0 to 8.6s: Marco lifts his pen gadget and breathes in slowly through it, chest rising, eyes still bored. A tiny light on the pen blinks on.
+8.6 to 9.4s: In one smooth arc, Marco twists around over his seatback toward Duane and puffs a huge, billowing cloud of white mist straight at Duane's face. The cloud swallows Duane's whole head.
+9.4 to 10.6s: Inside the cloud, Duane coughs twice and waves one huge hand through the mist. His watering eyes appear through a gap in the mist: "What the [BLEEP], Marco?" A cough breaks in the middle of the line, and one word is covered by a censor beep.
 10.6 to 11.5s: Marco turns back to face forward, his expression completely unchanged, as if nothing happened. Behind him the cloud slowly drifts and thins around Duane.
-Sound: a long inhale, a big soft whoosh of vapor, two thick coughs, one censor beep, the seat creaking as Marco turns.
+Sound: a slow breath in, a big soft whoosh of mist, two thick coughs, one censor beep, the seat creaking as Marco turns.
 
 HARD CUT
 
@@ -69,15 +69,15 @@ SHOT 4 (11.5 to 16.5s). INT. VAN. Medium close-up on Vince, static camera on the
 11.5 to 12.0s: Vince pulls out his black phone and holds it up toward Marco, the screen angled so its glow reaches the camera.
 12.0 to 16.0s: Fast and smug, tapping the screen twice on the first words: "Kowalski house. Single dad. [BLEEP] posts his nap schedule online. Saturdays, two to four." His eyebrows bounce on the beep and he gives a little shrug on "two to four."
 16.0 to 16.5s: Vince holds the phone up with a buck-tooth grin, waiting for applause that isn't coming.
-Sound: two soft screen taps, Vince's voice, one censor beep, a faint vape hiss from Marco off-screen.
+Sound: two soft screen taps, Vince's voice, one censor beep, a faint hiss from Marco's pen gadget off-screen.
 
 HARD CUT
 
-SHOT 5 (16.5 to 20.0s). INT. VAN. Medium two-shot of the front seats from the dashboard, slow push-in, 35mm lens. Marco on the left, Vince on the right, Duane soft in the background between them, still fanning away the last of the vapor.
+SHOT 5 (16.5 to 20.0s). INT. VAN. Medium two-shot of the front seats from the dashboard, slow push-in, 35mm lens. Marco on the left, Vince on the right, Duane soft in the background between them, still fanning away the last of the mist.
 16.5 to 17.8s: Marco leans toward the phone and squints at it with heavy lids, deadpan: "Says he's ex-army."
 17.8 to 19.5s: Vince pulls the phone back and flicks his free hand dismissively through the air: "Was. Now he drives a [BLEEP] minivan." A smug half-smile, eyes sliding sideways.
-19.5 to 20.0s: Hold. Marco stares at Vince, completely unconvinced. A thin curl of vapor rises from his vape. The push-in eases to a stop on the last frame.
-Sound: leather creak on the hand flick, both voices, one censor beep, the soft vape hiss.
+19.5 to 20.0s: Hold. Marco stares at Vince, completely unconvinced. A thin curl of mist rises from his pen gadget. The push-in eases to a stop on the last frame.
+Sound: leather creak on the hand flick, both voices, one censor beep, the soft hiss of the pen gadget.
 
 
 LOCKS & CONSTRAINTS
@@ -88,7 +88,7 @@ LOCKS & CONSTRAINTS
 - Characters match their reference images 100% in every shot: same faces, hair, beards, bodies, clothes, colors and proportions. Nothing is added, removed or changed between shots.
 - The seats never change: Vince in the driver's seat, Marco in the passenger seat, Duane alone on the back bench. Nobody gets into or out of the van.
 - Screen direction holds: in every interior shot, Marco is on the left of frame and Vince is on the right.
-- Props stay exactly as described and identical across shots: one laminated plan, one phone, one vape pen, one bag of gummy bears. No weapons, no money, no other props.
+- Props stay exactly as described and identical across shots: one laminated plan, one phone, one pen gadget, one bag of gummy bears. No other props of any kind.
 - Exact dialogue only. These lines, by these speakers, in this order, word for word, and nothing else. No ad-libs, no extra lines, no narration, no background chatter.
   1. VINCE: "Gentlemen."
   2. MARCO: "Wow."
@@ -110,15 +110,15 @@ LOCKS & CONSTRAINTS
 
 12 PRINCIPLES OF ANIMATION
 
-1. Squash and stretch: faces squash and stretch on big expressions. Marco's cheeks hollow on the drag and puff on the blow, and Duane's face scrunches on every cough. Then they settle exactly back on model. Bodies keep their volume.
-2. Anticipation: every big action has a small wind-up. Vince breathes in and lifts the plan before "Gentlemen." Marco takes a long drag before he turns to blow. Vince's hand cocks back before the dismissive flick.
+1. Squash and stretch: faces squash and stretch on big expressions. Marco's cheeks puff out as he releases the mist, and Duane's face scrunches on every cough. Then they settle exactly back on model. Bodies keep their volume.
+2. Anticipation: every big action has a small wind-up. Vince breathes in and lifts the plan before "Gentlemen." Marco breathes in through his pen gadget before he turns. Vince's hand pulls back before the dismissive flick.
 3. Staging: one clear action at a time, with readable silhouettes. Whoever is speaking or acting is the clearest thing in the frame.
 4. Straight ahead and pose to pose: strong key poses (the plan held high, Marco's twist over the seat, the phone held up) with smooth motion in between.
-5. Follow-through and overlapping action: Vince's gold chain swings and settles after he twists. Duane's cheeks and belly jiggle as he coughs. Marco's beard sways as he turns. The vape cloud keeps rolling after Marco stops blowing.
+5. Follow-through and overlapping action: Vince's gold chain swings and settles after he twists. Duane's cheeks and shoulders wobble as he coughs. Marco's beard sways as he turns. The mist cloud keeps rolling after Marco stops puffing.
 6. Slow in and slow out: the dolly in Shot 1 and the push-in in Shot 5 start and stop gently, and every big move eases in and out.
-7. Arcs: head turns, arm gestures and the vape cloud travel on smooth arcs, not straight lines.
-8. Secondary action: Duane chews gummy bears while he listens. The sprinklers and the bird move in Shot 1. Dust drifts in the sunbeams inside the van. The tip of Marco's vape glows.
-9. Timing: comedic timing. Hold the hurt pause after Duane's "...Hey." Snap Marco's turn fast. Leave a beat of stillness at the end of Shot 5 before the clip ends.
+7. Arcs: head turns, arm gestures and the mist cloud travel on smooth arcs, not straight lines.
+8. Secondary action: Duane chews gummy bears while he listens. The sprinklers and the bird move in Shot 1. Dust drifts in the sunbeams inside the van. The tiny light on Marco's pen gadget blinks.
+9. Timing: comedic timing. Hold the sad pause after Duane's "...Hey." Snap Marco's turn fast. Leave a beat of stillness at the end of Shot 5 before the clip ends.
 10. Exaggeration: cartoon-sized reactions. Duane's eyes water enormously in the cloud, and Vince's smugness is big and theatrical, but faces never go off model.
 11. Solid drawing: everyone stays fully three-dimensional with consistent anatomy and weight, even in fast moves. Nobody flattens, warps or melts.
-12. Appeal: clear, readable, likable designs and expressions, even while the characters are being jerks.
+12. Appeal: clear, readable, likable designs and expressions, even while the characters are being rude to each other.
