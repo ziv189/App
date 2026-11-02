@@ -109,6 +109,8 @@ Two lines. You can cut him if you want to keep the cast to five.
 
 ## Character sheet prompts
 
+**Start with [`character-prompts.md`](character-prompts.md).** It has a long, full-body reference prompt for every character with matching style, framing and lighting. The turnaround template below is optional, for extra angles once those are locked.
+
 Make one per character, uploading their sketch as the reference image. Use the same template every time:
 
 > Character model sheet based on the reference sketch: **[LOOK TAG]**. Full-body turnaround showing front, three-quarter, side and back views, plus a row of four facial expressions: neutral, terrified, furious, smug. Plain light-grey background, even studio lighting. **[STYLE BLOCK]**
