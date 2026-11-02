@@ -1,0 +1,117 @@
+SCENE CONTEXT & STYLE
+
+What happens: This continues straight on from the moment before, inside the beat-up white van parked across the street from the beige house on Maple Court. The air in the van has cleared; the mist from before is gone. VINCE, in the driver's seat, ignores the bickering and gets back to business. He puts his laminated plan down on the center console, takes out his phone and shows Marco what he found about the house: the single dad who lives there posts his nap schedule online, Saturdays from two to four. MARCO, in the passenger seat, leans in, reads the screen and points out that the dad is ex-army. Meanwhile DUANE, on the back bench, leans forward to see, notices the laminated plan lying on the console and picks it up. Vince brushes Marco's worry away with a flick of his hand: the guy was in the army once, but now he drives a minivan. Nobody leaves the van, and nothing else happens.
+
+Tone and pace: a dry, deadpan, sarcastic comedy. Slow and relaxed. The comedy lives in the pauses: after every line there is a real pause before anyone reacts or answers. Nobody rushes and nobody talks over anyone. The dialogue flows like a real conversation between three guys who know each other far too well, with natural rhythm and natural breathing. The listener reacts with his eyes first, then answers. Nothing is shouted or performed.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons, but they move like real actors. Small, economical movements at real human speed, subtle facial expressions, relaxed bodies. A raised eyebrow, a slow glance or a tiny smirk is a big reaction in this film. No rubbery faces, no bouncing, no big arm-waving, no snappy cartoon poses. Every movement in this prompt is described exactly, including which hand does it, so do exactly that movement and nothing extra.
+
+Format: 15 seconds, 16:9, three shots joined by two hard cuts. Natural real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: a sunny Saturday at about 2 PM, the same light as the rest of the film. One sun, high and to the upper left, warm and bright, with soft blue fill from the sky. Inside the van, warm sunlight pours in through the windshield and the side window, dust floats slowly in the light beams, and the cargo area at the back sits a bit darker. The phone screen adds only a faint cool glow on Vince's hand and chin when it's facing him. The light is fixed to the world, not to the characters: when they move, the light and shadows travel across them. No flicker, no color shift, no change in time of day.
+
+Physics: real weight, gravity and timing. The van is parked with the engine off and never moves. It only dips slightly on its springs when Duane leans forward and sits back. Faces and bodies keep their shape: no squash and stretch. The laminated plan is stiff and flat: it stays rigid when it's put down and picked up, and it never bends or folds. The phone is a solid, rigid object. Clothing and Vince's gold chain settle naturally after each move.
+
+Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the scene would really make: the laminated sheet tapping softly onto the console, the creak of Vince's leather jacket, the rustle of the jacket's inside pocket, one soft tap on the phone screen, the van's springs creaking when Duane moves, the gummy-bear bag rustling, faint street sounds through the glass. Two words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beeps are the only sound that doesn't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group. Smug, overconfident and theatrical, always performing for a crew that isn't impressed. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. He leans on certain words for effect and talks a bit too loud for a small van. When he's being smug, his voice gets drier and slower. Never deep, never gravelly. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, and bored by everything. Deadpan and heavy-lidded. He says as few words as possible. Voice: a low, flat baritone with heavy vocal fry, close to a mumble. Slow, quiet and monotone, with zero energy, as if every word costs him something. He barely moves his mouth when he talks. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, curious about everything. Voice: a deep, soft, warm bass, gentle and a bit breathy, slow and hesitant. He doesn't speak in this clip. Face, beard, body and clothes 100% match <<<image_3>>>.
+
+<<<image_4>>> = the inside of the van. Seats, dashboard, center console, clutter, cargo gear, colors and materials 100% match <<<image_4>>>. The seating never changes: Vince in the driver's seat, Marco in the passenger seat, Duane alone on the back bench.
+
+<<<image_5>>> = Maple Court, the street outside, glimpsed through the van's side window. The lawns, houses and sprinklers 100% match <<<image_5>>>.
+
+Things with no reference image (keep them simple and identical every time they appear):
+- Vince's laminated plan: one stiff laminated letter-size sheet with two small photos paper-clipped to it.
+- Vince's phone: a plain black smartphone. Its screen shows a social-media post with a small profile picture and lines that can't be read.
+- Duane's snack: a small clear bag of colorful gummy bears, lying in his lap.
+- Marco's pen gadget from <<<image_2>>>: in this clip it just rests in his right hand on his knee. He doesn't use it.
+
+Characters, environments and props 100% match the references. Only three people exist in this clip: Vince, Marco and Duane.
+
+
+SHOT STRUCTURE
+
+Every shot looks from the front of the van toward the back. Marco is always on the left of frame, Vince is always on the right of frame, and Duane sits in the center of the back bench behind them.
+
+SHOT 1 (0.0 to 7.2s). INT. VAN. Medium close-up on Vince, static camera on the dashboard just right of center, 50mm lens. Vince sharp on the right of frame, twisted around in the driver's seat toward the back, in three-quarter profile. The soft, out-of-focus edge of Marco's shoulder and beard is in the left foreground.
+First frame: Vince holds the laminated plan in his left hand at chest height. His right hand rests on the back of his seat. His phone is inside his leather jacket, out of sight. The air in the van is clear.
+0.0 to 0.8s: Vince lowers the laminated plan with his left hand and lays it flat on the center console between the two front seats. It lands with a soft tap and stays there.
+0.8 to 1.8s: His right hand goes inside the left side of his leather jacket, pulls out the black phone, and his right thumb presses the side button. The screen lights up.
+1.8 to 2.2s: He turns the phone around in his right hand so the screen faces Marco, and holds it up beside his own face at shoulder height. The phone stays in his right hand for the rest of the clip.
+2.2 to 6.6s: VINCE, fast and confident, leaning on certain words, with a tiny pause after each sentence: "Kowalski house. Single dad. [BLEEP] posts his nap schedule online. Saturdays, two to four." On "Kowalski house" he taps the screen once with his left index finger. On "Single dad" he gives one small nod. On the beep his eyebrows lift. On "two to four" he gives one small shrug of his right shoulder.
+6.6 to 7.2s: He keeps the phone up and raises his eyebrows, waiting for a reaction. Nobody gives one.
+Sound: the soft tap of the plan on the console, the leather jacket creaking, the inside pocket rustling, one soft tap on the screen, Vince's voice, one censor beep.
+
+HARD CUT
+
+SHOT 2 (7.2 to 11.4s). INT. VAN. Medium two-shot of the front seats from the dashboard, static, 35mm lens. Marco on the left, Vince on the right, Duane in the center of the back bench between and behind them. The laminated plan lies flat on the center console between the front seats.
+First frame: Vince is twisted toward Marco, holding the phone up in his right hand with the screen facing Marco. Marco is slouched in the passenger seat facing forward, the pen gadget resting in his right hand on his knee, eyes half-closed. Duane sits back on the bench with the gummy-bear bag in his lap.
+7.2 to 7.9s: Pause. Marco keeps his body still and leans only his head a few inches toward the phone, eyes narrowing. At the same time, Duane leans forward from the back bench, putting his head between the two front seats to see the screen too. The van dips slightly.
+7.9 to 8.4s: Marco's eyes move slowly from left to right across the screen, reading. Duane squints at the screen over Marco's shoulder.
+8.4 to 9.4s: MARCO, flat, low and slow, barely moving his mouth: "Says he's ex-army."
+9.4 to 10.4s: Pause. Vince's eyes move from the phone to Marco. Duane, still leaning forward, glances down, notices the laminated plan lying on the console, picks it up with both hands, and sits back onto the bench holding it. The van rises slightly as he sits back.
+10.4 to 11.4s: Duane looks down at the plan in his hands. Marco doesn't move. Vince turns the phone back around toward himself and glances at the screen.
+Sound: the van's springs creaking as Duane leans forward and sits back, the soft scrape of the plan leaving the console, Marco's voice, faint street sounds through the glass.
+
+HARD CUT
+
+SHOT 3 (11.4 to 15.0s). INT. VAN. Close-up on Vince, slow push-in, static camera on the dashboard just right of center, 50mm lens. Vince on the right of frame. The soft edge of Marco's shoulder and beard in the left foreground.
+First frame: Vince is looking at the phone in his right hand. The plan is no longer on the console; Duane has it, out of frame.
+11.4 to 11.9s: Vince lowers the phone to his lap with his right hand, screen down.
+11.9 to 12.3s: He lifts his left hand and flicks it once from the wrist, brushing the idea away. Then he lets the hand drop.
+12.3 to 14.0s: VINCE, dry, slower and smug, with a short pause after the first word: "Was. Now he drives a [BLEEP] minivan." A small smirk on "minivan." His eyes slide sideways toward Marco on the left.
+14.0 to 15.0s: Hold. Vince keeps the smirk and blinks once, slowly. Nothing else moves. The push-in eases to a stop on the last frame.
+Sound: the leather jacket creaking on the hand flick, Vince's voice, one censor beep, faint street sounds through the glass.
+
+
+LOCKS & CONSTRAINTS
+
+- Exactly three shots joined by exactly two hard cuts, at 7.2s and 11.4s. No other cuts, no transitions, no dissolves, no extra shots, no title cards.
+- Only Vince, Marco and Duane appear. No other people anywhere, inside or outside the van.
+- Characters match their reference images 100% in every shot: same faces, hair, beards, bodies, clothes, colors and proportions. Nothing is added, removed or changed between shots.
+- Do exactly the movements written, with the hands written, at the times written. No extra gestures, no extra actions, no fidgeting that isn't described.
+- Hands and props: the phone comes out of Vince's jacket in his right hand and stays in his right hand until he lowers it to his lap. It never switches hands. The laminated plan lies on the console from 0.8s until Duane picks it up with both hands at about 10.0s; after that it stays in Duane's hands. Marco's pen gadget rests in his right hand on his knee for the whole clip and is never used. Duane's gummy-bear bag stays in his lap.
+- No mist, cloud or haze anywhere in this clip.
+- Voices: each man keeps exactly the voice described for him. Vince has the nasal, fast tenor and Marco the low, flat mumble with vocal fry. Duane doesn't speak. Voices never swap between characters and never change mid-clip.
+- Pacing: keep every pause as written. Nobody rushes a line, nobody speaks over anyone, and nobody fills the silences.
+- Movement: grounded and natural, at real human speed. Small gestures and subtle expressions only. No squash and stretch, no rubbery faces, no bouncing, no big theatrical gestures, no fast snapping moves.
+- The seats never change: Vince in the driver's seat, Marco in the passenger seat, Duane on the back bench. Duane only leans forward between the seats and sits back again. Nobody gets into or out of the van.
+- Screen direction holds: in every shot, Marco is on the left of frame and Vince is on the right.
+- Props stay exactly as described and identical across shots: one laminated plan, one phone, one pen gadget, one bag of gummy bears. No other props of any kind.
+- Exact dialogue only. These lines, by these speakers, in this order, word for word, and nothing else. No ad-libs, no extra lines, no narration, no background chatter. Duane says nothing.
+  1. VINCE: "Kowalski house. Single dad. [BLEEP] posts his nap schedule online. Saturdays, two to four."
+  2. MARCO: "Says he's ex-army."
+  3. VINCE: "Was. Now he drives a [BLEEP] minivan."
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+- Lip sync: only the character who is speaking moves his mouth. Everyone else keeps his mouth closed.
+- No readable text anywhere. The phone screen and the plan stay as unreadable shapes. No subtitles, no captions, no watermarks.
+- The van interior stays identical to <<<image_4>>> in every shot.
+- Same lighting in every shot: sunny 2 PM, one sun from the upper left, light fixed to the world. No flicker, no color shift.
+- No music, no score, no stingers. Diegetic sound only, plus the two censor beeps.
+- Stylized 3D animated feature-film look throughout. Never photorealistic, never anime, never flat 2D.
+- No morphing. Faces, hands and props never melt, merge, stretch out of shape or swap. Hands always have five fingers. The phone and the plan keep their exact shape and size.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: almost none. Only natural movement of real faces and bodies, like cheeks shifting as someone talks. Faces never stretch, bulge or go rubbery.
+2. Anticipation: small and natural, never a cartoon wind-up. Vince's eyes go to his jacket before his hand does. Marco's eyes narrow before he leans in. Duane glances down before he reaches for the plan.
+3. Staging: one clear action at a time. Whoever is speaking or acting is the clearest thing in the frame, and everyone else stays still or reacts quietly.
+4. Straight ahead and pose to pose: continuous, natural motion with no snapping into poses. During pauses, people simply hold still, the way real people do.
+5. Follow-through and overlapping action: subtle. Vince's gold chain settles after he twists, the jacket settles after he pulls out the phone, and the van settles after Duane sits back. Nothing flops or wobbles.
+6. Slow in and slow out: every move starts and stops gently at human speed, including the push-in in Shot 3. Nothing pops into place.
+7. Arcs: the phone comes out of the jacket on a natural arc, Duane's lean forward and back follow a natural arc, and the hand flick is a small, smooth arc from the wrist.
+8. Secondary action: quiet background life that never pulls focus. Dust drifts in the sunbeams, and the gummy-bear bag shifts in Duane's lap when he moves.
+9. Timing: realistic and unhurried. Leave the pauses between lines. Let silences sit. Reactions start a beat after a line ends, not on top of it.
+10. Exaggeration: minimal. The comedy comes from deadpan timing and small reactions (an eyebrow, a glance, a smirk), not from big expressions.
+11. Solid drawing: consistent anatomy, weight and volume in every frame. Hands have five fingers and hold objects firmly. Nobody flattens, warps or melts.
+12. Appeal: appealing designs and believable people. The humor is dry and lived-in, and the characters feel like real guys who've known each other too long.
