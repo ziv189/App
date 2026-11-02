@@ -1,6 +1,6 @@
 # TIME OUT: Cast, Sets & Style Bible
 
-Make everything on this page **before** you make any shots. Each character has an original sketch in [`refs/`](refs/). Upload that sketch as the reference image when you generate the character sheet. Then pick your favorite sheet for each character and attach it to every shot they're in. That keeps everyone looking the same across all ~57 clips.
+Make everything on this page **before** you make any shots. Each character has an original sketch in [`refs/`](refs/). Upload that sketch as the reference image when you generate the character sheet. Then pick your favorite sheet for each character and attach it to every shot they're in. That keeps everyone looking the same across all ~63 clips.
 
 ---
 
@@ -45,7 +45,7 @@ Paste this at the end of **every** image and video prompt:
 
 **Expressions for his sheet:** wicked ear-to-ear grin · screaming tantrum · scheming side-eye · cackling with his head thrown back
 
-**Props:** red plastic toy binoculars · crayon battle plan · red RC monster truck with the SWEAR JAR duct-taped on top and a little grabber claw on the front · toy teapot · green sippy cup · Dad's dummy training grenade
+**Props:** red plastic toy binoculars · crayon battle plan · red RC monster truck with the SWEAR JAR duct-taped on top and a little grabber claw on the front · toy teapot · green sippy cup · Dad's dummy training grenade · Dad's night-vision goggles (seen only as his green POV during the blackout)
 
 **Voice:** Loud, raspy and whiny. A bratty, demanding little voice with a nasty cackle. When he threatens someone he drops to a gravelly, creepy whisper.
 
@@ -55,12 +55,12 @@ Paste this at the end of **every** image and video prompt:
 
 **Reference:** [`refs/vince-sketch.jpg`](refs/vince-sketch.jpg)
 
-**Who he is:** A self-appointed criminal genius who talks like he's in a heist movie. He painted his own name and phone number on the getaway van. He's the loudest one, and he's also the first to crack.
+**Who he is:** A self-appointed criminal genius who talks like he's in a heist movie. He painted his own name and phone number on the getaway van. He also brought a gun to rob a nap, and he ends up shooting his own guy in the leg in the dark. He's the loudest one, and he's also the first to crack.
 
 **Look tag:**
 > VINCE, a wiry man in his 50s with a big swoop of spiky jet-black hair, heavy angled black eyebrows, shifty eyes that always glance sideways, a long pointy nose, a bushy black mustache, a scruffy black goatee on a sharp pointed chin, big jug ears, crooked buck teeth, wearing a chunky gold chain, a black leather jacket over a tight black turtleneck, and black slacks
 
-**Props:** laminated heist plan with photos paper-clipped on · smartphone · gold aviator sunglasses · black socks with gold toes (once his shoes come off)
+**Props:** laminated heist plan with photos paper-clipped on · smartphone · gold aviator sunglasses · a black pistol he holds sideways like a movie gangster · black socks with gold toes (once his shoes come off)
 
 **Voice:** Fast-talking, nasal big-shot swagger that cracks into a squeak when he's scared.
 
@@ -130,10 +130,10 @@ Make each one empty, with no characters, as a location reference.
 | **Maple Court (ext.)** | Sunny suburban cul-de-sac on a Saturday afternoon, neat lawns with ticking sprinklers, a tired beige two-story house with an overgrown lawn, a tipped-over plastic tricycle and a dented minivan in the driveway, a dented white panel van parked across the street, bright blue sky, long afternoon shadows. |
 | **The van (int.)** | Cramped messy interior of an old white panel van, fast-food wrappers on the dashboard, fuzzy dice, a dusty windshield with warm sunlight pouring through, a worn back bench seat. |
 | **Living room** | Chaotic suburban living room: saggy brown couch facing a TV, toys covering every surface, baby gates, clear plastic childproof covers on every doorknob, a crayon-covered whiteboard, a framed military photo with medals on the wall, a staircase on the left, the front door on the right, a basement door, a big window with half-closed blinds. |
-| **Basement** | Dim, cluttered suburban basement with bare wooden stairs, a single hanging bulb, old boxes, a dusty exercise bike, and an olive-green army footlocker tucked under the stairs. |
+| **Basement** | Dim, cluttered suburban basement with bare wooden stairs, a single hanging bulb, old boxes, a dusty exercise bike, a grey electrical breaker box on the wall, and an olive-green army footlocker tucked under the stairs. |
 | **Kitchen** | Dim suburban kitchen with the blinds drawn, cluttered with sippy cups, cereal boxes and kid drawings on the fridge, a white baby monitor with glowing green lights on the counter, a back door with a window. |
 | **Downstairs hallway** | Long dim hallway with family photos crooked on the walls. *(For the trap shots: the floor is scattered wall to wall with four-pointed metal caltrops.)* |
-| **Master bedroom** | Messy master bedroom, unmade bed, a mountain of laundry, a dresser with a pink ballerina jewelry box on it, a closet door, a sunbeam through the curtains. |
+| **Upstairs hallway** | Long carpeted upstairs hallway at the top of the stairs, framed family photos on the walls, a ceiling light, and a hall closet door partway down. *(For the blackout shots: the same hallway in pitch darkness, and as grainy green night-vision footage.)* |
 | **Den** | Small wood-paneled den with a recliner, a baby gate across the doorway, and a small black safe sitting on the floor against the wall. |
 | **Brayden's room** | Pastel kid's bedroom, crayon murals of dinosaurs eating stick-figure men on the walls, a tiny pink plastic tea table with tiny chairs, a booster seat at the head, a toy chest, a speaker, a frilly window. |
 | **Backyard** | Small suburban backyard with a plastic kiddie pool, a sandbox and a back door with a window, sunny afternoon. |
@@ -155,7 +155,7 @@ AI video almost always garbles writing. Leave these blank in the prompts and add
 | Field manual (3.2) | ARMY FIELD MANUAL: BOOBY TRAPS |
 | Box in safe shot (3.6) | ROCK SALT |
 | Jar (5.3 onward) | SWEAR JAR in crayon |
-| Safe (7.1) | DADDY'S MONEY in crayon, taped on |
+| Safe (6.1) | DADDY'S MONEY in crayon, taped on |
 | Laptop (11.3) | "Out of town all weekend. Back door's a little sticky 🙂" |
 
 ---
@@ -168,8 +168,11 @@ AI video almost always garbles writing. Leave these blank in the prompts and add
 | 3.3 | Brayden in **war mode**: camo face stripes + oversized army helmet | End |
 | 4.1 | All three thieves in **socks, no shoes** | End |
 | 5.2 | Duane **limping**, a few caltrops still stuck in his socks | End |
-| 6.2 | Marco's vest and hoodie **slashed with knife holes**; voice up an octave | End |
-| 7.2 | Vince's pants **scorched and smoking** at the seat, hair blown back | End |
+| 6.3 | Vince's pants **scorched and smoking** at the seat, hair blown back | End |
+| 7.6 | Duane **shot in the leg**; from 8.1 it's wrapped in pink princess bandages | End |
+| 7.10 | Marco's vest and hoodie **slashed with knife holes**; voice up an octave | End |
+| 7.11 | Vince has a **knife in his hand**; from 8.1 it's a huge wad of bandage with the handle sticking out | End |
+| 7.12 | All three **wallets taken** by the swear-jar truck | 9.5 (they find empty pockets) |
 | 8.1 | All three thieves wearing **plastic tiaras** | End |
 | 9.6 | Swear jar **overflowing with cash plus three wallets** | 11.2 (dumped on rug) |
 | Always | Glenn's and Brayden's **matching too-big grins** | Always |
@@ -180,9 +183,10 @@ AI video almost always garbles writing. Leave these blank in the prompts and add
 
 | Cue | Description | Used in |
 |---|---|---|
-| **M1 "Cul-de-Sac Caper"** | Cheap, sneaky heist jazz. Upright bass, brushed snare, slightly off-key sax. | 1.2–1.6, 4.1 |
-| **M2 "Music Box"** | A detuned, slightly-too-slow music-box lullaby. Brayden's theme. | 1.7, 2.7, 5.3 |
-| **M5 "Suit Up"** | Over-the-top 80s action-movie montage: pounding drums, power synths, screaming electric guitar. | Scene 3, with stingers on each trap (5.2, 6.2, 7.2) |
+| **M1 "Cul-de-Sac Caper"** | Cheap, sneaky heist jazz. Upright bass, brushed snare, slightly off-key sax. | 1.2–1.5, 4.1 |
+| **M2 "Music Box"** | A detuned, slightly-too-slow music-box lullaby. Brayden's theme. | 1.6, 2.7, 5.3 |
+| **M5 "Suit Up"** | Over-the-top 80s action-movie montage: pounding drums, power synths, screaming electric guitar. | Scene 3, with stingers on each trap (5.2, 6.2, 7.10) |
+| **Blackout** | No music: dead silence, breathing on the mic, a giggle, one squeak, one BANG. Music only comes back when the lights snap on (7.8). | 7.3–7.7 |
 | **M3 "Wiggly Worm Song"** | Relentless kids' song. Ukulele, kazoo, toddler choir. | Scene 8 (soft, on loop), 10.1 (faint), end credits |
 | **M4 "The Deal"** | Spaghetti-western whistle and twang parody. | 9.5–9.7 |
 
