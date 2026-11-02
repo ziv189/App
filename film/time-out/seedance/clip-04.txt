@@ -1,101 +1,171 @@
 SCENE CONTEXT & STYLE
 
-What happens: The living room of the beige house, a few minutes later. GLENN, Brayden's dad, sits frozen in the middle of the couch holding a coffee mug, staring past the camera with a big frozen grin. He hasn't blinked in a while. A toy car rolls across the rug. BRAYDEN marches in with a red crayon in his mouth, climbs onto the right end of the coffee table so he's level with Glenn, and spits the crayon into Glenn's coffee. Glenn doesn't flinch. Brayden orders him to take a nap. Glenn slowly turns to him and gets teary, because Brayden never wants him to nap. Brayden flashes an obviously fake smile and says he's growing. Glenn believes him completely.
+What happens: A few minutes later, inside the beige house. The living room is a mess of toys. GLENN KOWALSKI, Brayden's dad, an ex-army guy, sits in the middle of the saggy couch holding a coffee mug, staring at nothing with a big frozen grin. He hasn't blinked in a while. A toy car rolls across the rug. Then BRAYDEN marches in with a red crayon in his mouth, climbs up onto the coffee table so he's level with his dad, and spits the crayon into Glenn's coffee. Glenn doesn't even flinch. Brayden orders his dad to take a nap. Glenn slowly turns to look at him and gets emotional, because Brayden has never once wanted him to take a nap. Brayden flashes a way-too-big fake smile, his eyes darting everywhere, the worst liar alive, and claims he just needs it because he's growing. The joke of the scene: anyone can see Brayden is up to something, except his dad, who thinks he's an angel.
 
-Continuity: Brayden is in his regular look, with no face paint and no helmet. Glenn has no ear protectors and no sleep mask yet.
+Continuity: Brayden has just come downstairs from the upstairs window in the previous scene. He is in his regular look, with no face paint and no helmet. Glenn has no ear protectors and no sleep mask yet; those come in the next clip.
 
-Style: stylized 3D animated feature film, like a modern big-studio CG movie, matching the reference images exactly. Grounded, natural acting at real human speed: Glenn barely moves, and his stillness is the joke; Brayden is quick and bossy. Small gestures, subtle faces, no squash and stretch, no rubbery faces, no bouncing. Slow pace, with a real pause after every line. Camera at eye level, 28mm to 50mm lenses, smooth moves, no zooms, no shake, no fisheye.
+Tone and pace: a dry, deadpan comedy. Glenn is slow, flat and frozen; Brayden is quick, bossy and stompy. The contrast between them is the joke. Leave a real pause after every line before anyone reacts or answers. Nobody rushes and nobody talks over anyone.
 
-Lighting: sunny Saturday, about 2 PM. Warm sunlight comes through the half-closed blinds of the front window and lays striped bars of light across the rug, the couch and the characters. The light is fixed to the world and never flickers.
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
 
-Physics: real weight and gravity. The crayon flies on a short arc into the coffee with a small plop. The mug stays in Glenn's right hand the whole clip. Glenn's tears well up but never fall.
+Color palette: warm beige walls, a tan rug, the brown corduroy couch, bright primary-colored toys, and warm bars of afternoon sunlight. The strongest color accent in this clip is the red crayon. No color grading changes between shots.
 
-Sound: diegetic only, no music. A clock ticking, the toy car's wheels on the rug, quick footsteps, the coffee table creaking, a spit and a plop, one stomp, the voices.
+Camera language for this film: eye level or close to it, real lenses between 24mm and 85mm, natural perspective with straight vertical lines. Camera moves are slow and smooth. No fisheye, no Dutch angles, no drone shots, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons, but they move like real actors. Small, economical movements at real human speed, subtle facial expressions. Glenn barely moves at all: his stillness is the comedy. Brayden moves with short, quick, stomping steps and firm, bossy gestures, but nothing rubbery. No bouncing, no big arm-waving, no snappy cartoon poses. Every movement in this prompt is described exactly, including which hand or foot does it, so do exactly that movement and nothing extra.
+
+Format: 20 seconds, 16:9, five shots joined by four hard cuts. Natural real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: a sunny Saturday at about 2 PM, the same day as the rest of the film. Warm sunlight comes in through half-closed blinds on the big front window and lays soft, striped bars of light across the rug, the coffee table, the couch, Glenn and the back wall. When the camera looks at the couch, that window is behind the camera. When the camera looks toward the front of the room, the window blinds glow bright behind Brayden and his face is lit by soft, warm light bouncing off the room. The lamp beside the couch is off. The light is fixed to the world, not to the characters: when they move, the stripes of light travel across them. No flicker, no color shift, no change in time of day.
+
+Physics: real weight, gravity and timing. The couch cushions sag under Glenn. The coffee table is sturdy: it creaks and shifts very slightly when Brayden climbs on it and stomps, but it never tips. The toy car rolls on the rug, slows down and stops against a building block. The crayon flies out of Brayden's mouth on a short arc and drops into the coffee with a small plop and a few tiny splashes on the rim of the mug. The mug doesn't move in Glenn's hand. Glenn's eyes get glossy and tears well up along his lower lids, but they never spill down his cheeks. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the room would really make: a quiet house room tone, a wall clock ticking somewhere out of frame, a toy somewhere chirping its low-battery beep once, the toy car's plastic wheels on the rug and a soft clack when it stops, quick footsteps thumping on the carpet, the coffee table creaking, a wet spit sound, a plop in the coffee, one stomp on the table with a rattle of the things on it, a small sniff from Glenn.
 
 
 ACTIVE REFERENCES
 
-<<<image_1>>> = GLENN, a man in his early 40s, Brayden's dad. Ex-army, worn out, with a frozen, wide-eyed grin. He thinks Brayden is a perfect angel. Voice: low, flat, gravelly monotone, slow and even; it softens slightly when he's moved. Face, body, clothes and mug 100% match <<<image_1>>>.
+<<<image_1>>> = GLENN KOWALSKI, a man in his early 40s. Brayden's dad. Ex-army, now a worn-out stay-at-home dad. His face is locked in a wide-eyed, frozen grin with a thousand-yard stare; he looks like he decided years ago to smile through everything. He is completely blind to how bratty Brayden is: to Glenn, Brayden is a perfect angel. Voice: a low, flat, gravelly baritone monotone. He never raises his voice and every word comes out at the same slow, even volume, like a drill sergeant who's too tired to yell. When he's touched, his voice softens slightly and gets a small crack in it, but it stays flat. In this clip he stays seated on the couch and holds his coffee mug in his right hand the whole time. Appears in Shots 1, 2 and 4, and as a blurred shoulder in Shots 3 and 5. Face, hair, beard, body, clothes, dog tags and mug 100% match <<<image_1>>>.
 
-<<<image_2>>> = BRAYDEN. A bossy, scheming brat and a terrible liar. Voice: high, raspy and bossy; a fake, sweet sing-song when he lies. Regular look. Face, body and clothes 100% match <<<image_2>>>.
+<<<image_2>>> = BRAYDEN. He lives here and runs the house. A bossy, scheming brat who knows exactly how to work his dad, and a terrible liar who doesn't care that he's obvious. Voice: high, raspy and whiny, loud and demanding, with a clipped, bossy delivery, like he's giving orders. When he lies he switches to an obviously fake, sweet, sing-song voice. Regular look: no face paint, no helmet. Appears in Shots 2, 3 and 5, and as a blurred shoulder in Shot 4. Face, hair, ears, teeth, body and clothes 100% match <<<image_2>>>.
 
-<<<image_3>>> = the living room, looking at the couch (Shots 1, 2 and 4). 100% match.
+<<<image_3>>> = the living room seen from the front, looking toward the couch. Used for Shots 1, 2 and 4, whenever the camera looks at the couch. Walls, couch, coffee table, rug, toys, framed photo, medal case, whiteboard, stairs, basement door and archway 100% match <<<image_3>>>. Positions that never change: the couch is against the back wall in the center, with the framed photo and medal case above it. The coffee table stands in front of the couch. The stairs run along the left wall. The archway to the hallway is at the far right of the back wall.
 
-<<<image_4>>> = the same living room, looking toward the front windows (background of Shots 3 and 5). 100% match.
+<<<image_4>>> = the same living room seen from the couch, looking toward the front of the room. Used as the background in Shots 3 and 5, whenever the camera looks past Glenn at Brayden. The front window with the glowing blinds, the TV and the front door 100% match <<<image_4>>>.
 
-No reference image: one red crayon, dark coffee in Glenn's mug, one small blue toy car.
+Things with no reference image (keep them simple and identical every time they appear):
+- The crayon: one red wax crayon, chewed at one end.
+- The coffee: dark brown coffee filling Glenn's mug about two-thirds of the way.
+- The toy car: one small blue plastic toy car.
 
-Room map: the couch is against the back wall with the framed photo above it, the coffee table is in front of it, and the stairs are on the left. Glenn sits in the middle of the couch. Brayden comes in from the left and stands on the right end of the coffee table.
+Characters, environments and props 100% match the references. Only two people exist in this clip: Glenn and Brayden.
 
 
 SHOT STRUCTURE
 
-SHOT 1 (0.0 to 3.0s). Wide from the front of the room, 28mm, slow push-in. Glenn is centered on the couch, mug in his right hand, staring just past the lens.
-0.0 to 1.2s: Hold. He doesn't blink.
-1.2 to 2.4s: The blue toy car rolls in from the left across the rug and bumps a block.
-2.4 to 3.0s: Hold.
+The five shots at a glance:
+1. 0.0 to 3.0s: wide of the living room, Glenn frozen on the couch, a toy car rolls in. Slow dolly push-in.
+2. 3.0 to 8.0s: medium-wide from low at the front of the room. Brayden marches in, climbs onto the coffee table and spits the crayon into Glenn's coffee. Locked-off.
+3. 8.0 to 10.5s: medium close-up on Brayden over Glenn's shoulder as he gives his order. Slow push-in.
+4. 10.5 to 16.0s: close-up on Glenn as he turns and gets emotional. Locked-off.
+5. 16.0 to 20.0s: tight close-up on Brayden's fake smile. Very slow push-in.
+
+Every cut changes both the shot size and the camera movement. Geography that never changes: Glenn sits in the middle of the couch facing the front of the room. Brayden comes in from the left side of the room, where the stairs are, and stands on the right end of the coffee table, slightly off to the side of where Glenn is staring.
+
+SHOT 1 (0.0 to 3.0s). INT. LIVING ROOM. WIDE: GLENN ALONE.
+Camera: wide establishing shot from the front of the room where the TV stands, at standing eye height, about five feet off the floor, looking straight at the couch. 28mm lens. A slow, smooth dolly push-in toward the couch.
+Framing: matches <<<image_3>>>. The couch is centered against the back wall with Glenn (<<<image_1>>>) in the middle of it and the framed photo above his head. The coffee table runs across the middle of the frame. The rug and scattered toys fill the foreground. The edge of the stairs is at the left of frame and the archway at the right.
+Light on set: striped bars of warm sunlight from the blinds behind the camera fall across the rug, the coffee table, the couch and Glenn.
+First frame: Glenn sits upright in the middle of the couch, both feet on the floor. His right hand holds the mug at chest height and his left hand rests on his left knee. His eyes are wide open, his big frozen grin is in place, and he stares straight ahead, just past the lens. Nobody else is in the room.
+0.0 to 1.2s: Hold as the push-in begins. Glenn doesn't move or blink.
+1.2 to 2.4s: The small blue toy car rolls slowly into frame from the left across the rug in front of the coffee table, as if pushed from off-screen, and bumps to a stop against a building block.
+2.4 to 3.0s: Hold. Glenn still doesn't blink.
+Last frame: Glenn frozen on the couch with his grin; the toy car stopped against the block.
+Sound: the wall clock ticking, one faint low-battery chirp from a toy, the car's plastic wheels on the rug, a soft clack against the block.
+Must not happen: Glenn blinking or moving, anyone else visible, readable text on the whiteboard or mug, the camera moving any way except straight forward.
 
 HARD CUT
 
-SHOT 2 (3.0 to 8.0s). Medium-wide, low, from the front of the room, 35mm, locked-off.
-3.0 to 4.2s: Brayden marches in from the left with short, stomping steps, the crayon sticking out of his mouth like a cigar.
-4.2 to 5.7s: He puts his hands, then his right knee, on the coffee table, climbs up, and stands on the right end facing Glenn.
-5.7 to 6.7s: He spits the crayon into Glenn's mug: a small plop. Glenn doesn't flinch.
-6.7 to 8.0s: Brayden stares with his fists on his hips. Glenn keeps staring straight past him.
+SHOT 2 (3.0 to 8.0s). INT. LIVING ROOM. MEDIUM-WIDE: BRAYDEN ARRIVES.
+Camera: medium-wide from the front of the room, low, at about the height of Brayden's chest, looking at the coffee table and the couch. 35mm lens. Locked-off, with no movement at all.
+Framing: matches the layout of <<<image_3>>>. Glenn (<<<image_1>>>) sits in the center background, head to knees, on the couch. The coffee table runs across the middle of the frame, cluttered with sippy cups, crayons and a TV remote, with a clear spot at its right end. Rug and toys in the foreground. The left edge of frame is open floor where Brayden will enter.
+Light on set: the same striped sunlight across the rug, the table and the couch.
+First frame: Glenn is frozen exactly as before, mug in his right hand at chest height, staring past the lens. Nobody else is in frame.
+3.0 to 4.2s: BRAYDEN (<<<image_2>>>) marches into frame from the left with short, quick, stomping steps, a red crayon sticking out of the side of his mouth like a cigar, chewing on it. He walks straight to the coffee table.
+4.2 to 5.7s: At the table he puts both hands on it, then his right knee, climbs up, and stands on the clear spot at the right end of the table. He turns to face Glenn, his back three-quarters to the camera. Standing on the table, his head is level with Glenn's head.
+5.7 to 6.7s: He leans slightly toward Glenn's mug, pulls his head back an inch, and spits the crayon: it pops out of his mouth, flies on a short arc and drops into the coffee with a small plop. Glenn doesn't flinch, and the mug doesn't move.
+6.7 to 8.0s: Pause. Brayden puts his fists on his hips and stares at Glenn. Glenn keeps staring straight ahead past him, still grinning, not reacting at all.
+Last frame: Brayden standing on the coffee table with his fists on his hips, facing Glenn; the crayon sticking out of the coffee in Glenn's mug.
+Sound: quick footsteps thumping on the carpet, the coffee table creaking as he climbs, a wet spit sound, a small plop in the coffee, the clock ticking.
+Must not happen: Brayden falling, jumping or running, the table tipping or breaking, coffee spilling out of the mug, Glenn reacting, more than one crayon.
 
 HARD CUT
 
-SHOT 3 (8.0 to 10.5s). Medium close-up of Brayden over Glenn's left shoulder, 50mm, slow push-in. The glowing blinds are behind Brayden.
+SHOT 3 (8.0 to 10.5s). INT. LIVING ROOM. MEDIUM CLOSE-UP: THE ORDER.
+Camera: medium close-up of Brayden, shot from just over Glenn's left shoulder at Brayden's face height, looking toward the front of the room. 50mm lens. A slow push-in.
+Framing: Brayden (<<<image_2>>>) is centered, from the waist up, standing on the coffee table and facing the camera. The soft, out-of-focus edge of Glenn's (<<<image_1>>>) shoulder and beard fills the left edge of the frame. Behind Brayden, soft and out of focus, is the front of the room from <<<image_4>>>: the glowing window blinds and the TV.
+Light on set: the window blinds glow bright behind Brayden, putting a warm rim of light around his hair and ears. His face is lit by soft, warm light bouncing off the room.
+First frame: Brayden stands with his fists on his hips, chin down, glaring at Glenn from under his heavy eyebrows. His mouth is empty now.
 8.0 to 8.4s: He takes a quick breath and lifts his chin.
-8.4 to 10.0s: BRAYDEN, loud and clipped, with one stomp on the last word: "Daddy. Nap time. Now."
-10.0 to 10.5s: He holds the glare.
+8.4 to 10.0s: BRAYDEN: "Daddy. Nap time. Now." Delivery: loud, bossy and raspy, each word clipped short like an order, with a tiny pause after "Daddy." and after "Nap time." On "Now." he stomps his right foot once on the table.
+10.0 to 10.5s: He holds the glare, fists still on his hips.
+Last frame: Brayden glaring at Glenn, fists on his hips.
+Sound: Brayden's voice, one thump of the stomp, a small rattle of the things on the table.
+Must not happen: a crayon still in his mouth, him jumping, him throwing anything, Glenn's face turning toward the camera.
 
 HARD CUT
 
-SHOT 4 (10.5 to 16.0s). Close-up of Glenn from the right end of the table, 50mm, locked-off. The army photo is soft above his head.
-10.5 to 11.3s: He slowly turns his head to Brayden, looking just right of the lens.
-11.3 to 12.0s: His eyes turn glossy and tears well up but don't fall. He blinks once, slowly.
-12.0 to 13.5s: GLENN, flat, with a tiny crack on the last word: "You want Daddy to take a nap?"
-13.5 to 14.2s: He swallows.
-14.2 to 15.5s: GLENN, slower, almost reverent: "You never want me to take a nap."
-15.5 to 16.0s: Hold.
+SHOT 4 (10.5 to 16.0s). INT. LIVING ROOM. CLOSE-UP: GLENN IS TOUCHED.
+Camera: close-up of Glenn from the right end of the coffee table, beside Brayden, at Glenn's eye height. 50mm lens. Locked-off, with no movement at all.
+Framing: Glenn's (<<<image_1>>>) head and shoulders, slightly left of center. On the wall above and behind him, the framed army photo from <<<image_3>>> is soft but recognizable. The soft, out-of-focus edge of Brayden's (<<<image_2>>>) shoulder is at the right edge of the frame.
+Light on set: a stripe of warm sunlight across Glenn's chest and the back of the couch. His face is in soft, warm light. His eyes catch the light as they get wet.
+First frame: Glenn stares straight ahead toward the left of frame, with his big frozen grin. His right hand holds the mug at chest height, with the crayon sticking out of the coffee.
+10.5 to 11.3s: Slowly, Glenn turns his head toward Brayden until he is looking just to the right of the lens.
+11.3 to 12.0s: His wide eyes turn glossy and tears well up along his lower lids, but they don't fall. He blinks once, slowly. His frozen grin softens slightly.
+12.0 to 13.5s: GLENN: "You want Daddy to take a nap?" Delivery: low, flat, gravelly and slow, with a tiny crack of emotion on the last word.
+13.5 to 14.2s: Beat. He swallows.
+14.2 to 15.5s: GLENN: "You never want me to take a nap." Delivery: the same flat monotone, even slower, almost reverent.
+15.5 to 16.0s: Hold. Glossy eyes and a soft grin, looking at Brayden.
+Last frame: Glenn looking just right of the lens with wet eyes and a softened grin, the mug still in his right hand.
+Sound: Glenn's voice, one small sniff, the clock ticking.
+Must not happen: tears running down his cheeks, open crying or sobbing, Glenn putting the mug down, Glenn standing up, Brayden's face appearing in frame.
 
 HARD CUT
 
-SHOT 5 (16.0 to 20.0s). Tight close-up of Brayden over Glenn's shoulder, 50mm, very slow push-in.
-16.0 to 16.8s: A huge fake smile, innocent raised eyebrows, his eyes darting left, then right.
-16.8 to 18.2s: BRAYDEN, in a fake, sweet sing-song: "I'm a growing boy."
-18.2 to 20.0s: He holds the smile perfectly still; only his eyes dart, twice.
+SHOT 5 (16.0 to 20.0s). INT. LIVING ROOM. TIGHT CLOSE-UP: THE WORST LIAR ALIVE.
+Camera: tight close-up of Brayden's face from just over Glenn's left shoulder, the same side as Shot 3 but much closer. 50mm lens. A very slow push-in.
+Framing: Brayden's (<<<image_2>>>) face fills most of the frame, his eyes on the upper third. The soft edge of Glenn's beard is at the left edge of frame. The glowing blinds of <<<image_4>>> are a soft blur behind him.
+Light on set: the same warm rim from the glowing blinds behind him, and soft, warm light on his face.
+First frame: Brayden looks at Glenn with a flat, neutral face, mouth closed.
+16.0 to 16.8s: His face shifts into a huge, way-too-wide fake smile that shows all his jagged teeth. His eyebrows lift into an innocent arch. His eyes dart to the left, then to the right.
+16.8 to 18.2s: BRAYDEN: "I'm a growing boy." Delivery: fake-sweet and sing-song, higher than before, far too innocent, drawing out "growing."
+18.2 to 20.0s: He holds the fake smile completely still. Only his eyes move, darting left and right twice, like a bad liar.
+Last frame: Brayden frozen in the fake smile, eyes glancing sideways.
+Sound: Brayden's voice, the quiet room tone, the clock ticking.
+Must not happen: Brayden touching Glenn, wiping his nose (that comes in the next clip), laughing out loud, turning away, his face changing design.
 
 
 LOCKS & CONSTRAINTS
 
-- Exactly five shots, with hard cuts at 3.0s, 8.0s, 10.5s and 16.0s.
-- Only Glenn and Brayden appear, and both match their references 100% in every shot.
-- Glenn stays seated with the mug in his right hand the whole clip. After climbing up, Brayden stays on the right end of the table and doesn't reach for Glenn.
-- There is exactly one crayon: it goes from Brayden's mouth into the coffee and stays there.
-- Glenn doesn't blink until his one slow blink in Shot 4. His tears never spill.
-- Exact dialogue only, in this order, nothing added:
+- Exactly five shots joined by exactly four hard cuts, at 3.0s, 8.0s, 10.5s and 16.0s. No other cuts, no transitions, no dissolves, no extra shots.
+- Only Glenn and Brayden appear. No other people, no pets, nobody at the windows.
+- Characters match their reference images 100% in every shot: same faces, hair, beards, bodies, clothes, colors and proportions. Nothing is added, removed or changed between shots.
+- Brayden is in his regular look: no face paint, no helmet. Glenn has no ear protectors and no sleep mask in this clip.
+- Do exactly the movements written, with the hands and feet written, at the times written. No extra gestures, no extra actions, no fidgeting that isn't described.
+- Positions: Glenn stays seated in the middle of the couch for the whole clip and never stands. Brayden enters from the left, climbs onto the right end of the coffee table and stays standing there. Brayden never touches Glenn in this clip.
+- Props: Glenn holds the mug in his right hand for the whole clip and never puts it down. There is exactly one crayon: it goes from Brayden's mouth into the coffee and stays there. The toy car rolls in once and stops. No other props are added.
+- Glenn doesn't blink in Shots 1 and 2. In Shot 4 he blinks once, slowly, as his eyes fill. His tears never spill.
+- The framed photo above the couch is a still photo and never moves.
+- Voices: Glenn has the low, flat, gravelly monotone and Brayden the high, raspy, bossy voice that turns fake-sweet in Shot 5. Voices never swap and never change mid-clip.
+- Pacing: keep every pause as written. Nobody rushes a line and nobody talks over anyone.
+- Movement: grounded and natural, at real human speed. Small gestures and subtle expressions only. No squash and stretch, no rubbery faces, no bouncing, no big theatrical gestures, no fast snapping moves.
+- Camera: only the moves written for each shot. No extra zooms, pans, shakes or angle changes.
+- Exact dialogue only. These lines, by these speakers, in this order, word for word, and nothing else. No ad-libs, no extra lines, no narration.
   1. BRAYDEN: "Daddy. Nap time. Now."
   2. GLENN: "You want Daddy to take a nap?"
   3. GLENN: "You never want me to take a nap."
   4. BRAYDEN: "I'm a growing boy."
-- Only the speaker moves his mouth. The voices never swap.
-- Keep the pauses. Grounded movement only. The camera moves only as written.
-- No readable text, no music, no other people, no morphing. Hands always have five fingers.
+- Lip sync: only the character who is speaking moves his mouth. Everyone else keeps his mouth closed.
+- No readable text anywhere. The whiteboard shows only crayon scribbles, and the mug, toys and crayons have no readable words. No subtitles, no captions, no watermarks.
+- No reflections showing faces or scenes in the TV, the window or the framed photo glass.
+- The living room stays identical to <<<image_3>>> and <<<image_4>>> in every shot.
+- Same lighting in every shot: sunny 2 PM, warm striped light through the half-closed blinds, light fixed to the world. No flicker, no color shift.
+- No music, no score, no stingers. Diegetic sound only.
+- Stylized 3D animated feature-film look throughout. Never photorealistic, never anime, never flat 2D.
+- No morphing. Faces, hands and props never melt, merge, stretch out of shape or swap. Hands always have five fingers. The mug, crayon and toy car keep their exact shape, size and color.
 
 
-12 PRINCIPLES OF ANIMATION (GROUNDED)
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
-1. Squash and stretch: none on faces or bodies.
-2. Anticipation: small. Hands on the table before the knee, a breath before the order, eyes before the head turn.
-3. Staging: one clear action per shot.
-4. Pose to pose: smooth motion, and people hold still during pauses.
-5. Follow-through: the coffee ripples, the table creaks and settles.
-6. Slow in and slow out: every move eases at human speed.
-7. Arcs: the crayon's arc, Glenn's slow head turn.
-8. Secondary action: the toy car, dust in the sunbeams, the clock ticking.
-9. Timing: Glenn slow, Brayden quick. Keep the pauses.
-10. Exaggeration: minimal. The contrast between them is the joke.
-11. Solid drawing: consistent volume and anatomy, five fingers.
-12. Appeal: a sweet, broken dad and a charismatic tyrant.
+1. Squash and stretch: almost none. Only natural movement of real faces, like cheeks shifting as someone talks. Faces never stretch, bulge or go rubbery. Brayden's fake smile is wide because that's his design, not because his face stretches.
+2. Anticipation: small and natural, never a cartoon wind-up. Brayden puts his hands on the table before his knee goes up. He pulls his head back an inch before he spits. He takes a quick breath before his order. Glenn's eyes move toward Brayden a moment before his head turns.
+3. Staging: one clear action at a time. The toy car in Shot 1, the climb and the spit in Shot 2, Brayden's order in Shot 3, Glenn's face in Shot 4 and the fake smile in Shot 5 are each the only thing happening in their shot.
+4. Straight ahead and pose to pose: continuous, natural motion with no snapping into poses. During pauses, people simply hold still, the way real people do.
+5. Follow-through and overlapping action: subtle. Glenn's clothes and the couch cushions settle as Brayden climbs onto the table next to him. The things on the coffee table rattle once after the stomp. A ripple spreads across the coffee after the crayon lands.
+6. Slow in and slow out: every move starts and stops gently at human speed. Glenn's head turn is the slowest move in the clip, and the push-ins start and stop gently.
+7. Arcs: the crayon flies on a short, natural arc, Glenn's head turns on a smooth arc, and Brayden's climb follows a natural arc up onto the table.
+8. Secondary action: quiet background life that never pulls focus. The toy car rolls to a stop, dust drifts in the bars of sunlight, and the clock keeps ticking.
+9. Timing: Glenn is slow and late, Brayden is quick and snappy. Leave the pauses between lines. Glenn's beat before his second line is long enough to feel.
+10. Exaggeration: minimal. The comedy comes from contrast and timing: Glenn's total stillness against Brayden's bossiness, Glenn's wet eyes, Brayden's obviously fake innocence and darting eyes.
+11. Solid drawing: consistent anatomy, weight and volume in every frame. Hands have five fingers and hold objects firmly. Nobody flattens, warps or melts.
+12. Appeal: appealing designs and believable people. Glenn is a sweet, broken dad, and Brayden is a funny, charismatic tyrant. It's a comedy.

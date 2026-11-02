@@ -1,105 +1,187 @@
 SCENE CONTEXT & STYLE
 
-What happens: The living room, straight after the last moment. Brayden, still standing on the right end of the coffee table with his fake smile, leans over and wipes his nose on Glenn's sleeve. Glenn, teary, puts his hand on his heart: to him, Brayden is an angel. Glenn sets his mug on the side table, puts on olive ear protectors and a blue sleep mask with cartoon eyes printed on it, announces he's off duty, and tips over sideways onto the cushions, stiff as a falling tree. A hidden toy squeaks, and he's snoring before he lands. Brayden pokes him twice. Nothing. Then Brayden slowly turns his head toward the basement door, whispers one word and grins.
+What happens: This continues straight on from the moment before, in the living room of the beige house. BRAYDEN is still standing on the right end of the coffee table with a fake smile, and GLENN, his dad, is still sitting in the middle of the couch with wet, emotional eyes. Brayden leans over and wipes his nose on Glenn's sleeve. Glenn doesn't see a brat; he sees an angel. He puts his hand on his heart and tells him so. Then Glenn sets his coffee down, puts on his olive ear protectors and his sleep mask with cartoon eyes printed on it, announces that he's going off duty for fifteen minutes, and tips over sideways onto the couch, stiff as a falling tree. A squeaky toy squeaks under him, and he's snoring before he finishes landing. Brayden pokes him twice. Nothing. Then Brayden slowly turns his head toward the basement door and whispers one word. His plan has started.
 
-Continuity: Brayden is on the right end of the coffee table, in his regular look. Glenn sits in the middle of the couch holding his mug in his right hand, with the red crayon still in the coffee. The ear protectors and the sleep mask lie on the side table at Glenn's right, next to the lamp.
+Continuity from the previous clip, true from the first frame: Brayden stands on the right end of the coffee table, facing Glenn, wearing his huge fake smile. Glenn sits upright in the middle of the couch with glossy eyes, holding his white mug in his right hand; the red crayon is still standing in the coffee. Brayden is in his regular look: no face paint, no helmet. The ear protectors and the sleep mask are lying on the side table at Glenn's right, next to the lamp. Glenn is not wearing them yet.
 
-Style: stylized 3D animated feature film, like a modern big-studio CG movie, matching the reference images exactly. Grounded, natural acting at real human speed: Glenn moves slowly, like a tired soldier doing a routine; Brayden's moves are small and precise. No squash and stretch, no rubbery faces, no bouncing. Slow pace, with a real pause after every line; only the fall is quick. Camera at eye level, 28mm to 50mm lenses, smooth moves, no zooms, no shake, no fisheye.
+Tone and pace: a dry, deadpan comedy. Glenn is slow, flat and sincere. Brayden is quietly scheming. The biggest laugh is the stiff fall into instant snoring, so it plays fast and clean. Everything else has room to breathe: leave a real pause after every line. The last moment, Brayden's whisper, is quiet and slow.
 
-Lighting: sunny Saturday, about 2 PM. Warm striped sunlight through the half-closed front-window blinds falls across the couch and the characters. The light is fixed to the world and slides across bodies as they move. The lamp stays off. No flicker.
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, clean appealing shapes, warm saturated colors, soft global illumination. The rendering style matches the reference images exactly and stays identical from the first frame to the last.
 
-Physics: real weight and gravity. The ear protectors are rigid and the sleep mask's elastic snaps into place. When Glenn falls, he goes rigid and tips over in one piece, pivoting at the hips, with his feet staying on the floor; the cushions puff up and settle.
+Color palette: warm beige walls, a tan rug, the brown corduroy couch, bright primary-colored toys, warm bars of afternoon sunlight. Accent colors in this clip: the olive-green ear protectors, the blue sleep mask and the red crayon. No color grading changes between shots.
 
-Sound: diegetic only, no music, in this order: a sniff and a fabric rustle, Glenn's voice, the clunk of the mug, the snap of the ear protectors, the snap of the elastic, Glenn's voice, a thump into the cushions, a squeak, a deep, steady snore that continues to the end, two soft taps, Brayden's whisper. A clock ticks underneath.
+Camera language for this film: eye level or close to it, real lenses between 24mm and 85mm, natural perspective with straight vertical lines. Camera moves are slow and smooth. No fisheye, no Dutch angles, no drone shots, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons, but they move like real actors, at real human speed, with subtle facial expressions. Glenn moves slowly and deliberately, like a tired soldier going through a routine he's done a thousand times. Brayden's moves are small and precise, like he's already thinking three steps ahead. No bouncing, no rubbery faces, no big arm-waving, no snappy cartoon poses. Every movement in this prompt is described exactly, including which hand does it, so do exactly that movement and nothing extra.
+
+Format: 20 seconds, 16:9, five shots joined by four hard cuts. Natural real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: a sunny Saturday at about 2 PM, the same day as the rest of the film. One light source: the sun, coming in through the half-closed blinds of the big front window. It lays hard-edged, warm, striped bars of light across the rug, the coffee table, the couch, the characters and the back wall, with soft, slightly cooler shadow between the stripes. Warm light bounces softly off the beige walls and fills the shadows, so no face is ever lost in darkness. Dust drifts slowly through the bars of light. The lamp on the side table stays off. The light is fixed to the world, not to the characters: when they move, the stripes slide across their bodies and faces, and that sliding is intended. Light position, color and strength stay identical for the whole clip. No flicker, no color shift, no second light source.
+
+Physics: real weight, gravity and timing. When Brayden wipes his nose, his face drags along Glenn's sleeve and the fabric bunches up slightly, then relaxes. The mug sets down on the side table with a solid clunk and stays exactly where it's put, crayon still standing in the coffee. The ear protectors are rigid: the headband flexes open in Glenn's hands and springs closed over his ears. The sleep mask is soft fabric on an elastic strap: the strap stretches and snaps back into place around his head. When Glenn tips over, he goes rigid and falls as one stiff piece, pivoting at the hips, with gravity doing all the work: his legs stay where they are with his feet on the floor, and the top half of his body drops sideways onto the seat cushions. The cushions compress and puff up around him, then settle. A toy hidden under a cushion gets squashed and squeaks. Brayden's fingertip pokes into the fabric on Glenn's shoulder and dents it slightly; Glenn's body doesn't move at all. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score, no stingers. Clean dialogue with accurate lip sync, plus only the sounds the room would really make, in this order: a wet sniff and the rustle of fabric as Brayden wipes his nose; Glenn's soft, flat voice; the clunk of the mug on the side table; the plastic creak and soft snap of the ear protectors closing over his ears; the soft snap of the sleep mask's elastic; Glenn's flat voice again; the rustle of him tipping over; a heavy, muffled thump into the cushions; a squashed squeak from a toy under him; a deep, rumbling, steady snore that starts just before he lands and continues to the end of the clip; two soft fingertip taps; Brayden's raspy whisper. Under everything: a quiet house room tone and a wall clock ticking somewhere out of frame.
 
 
 ACTIVE REFERENCES
 
-<<<image_1>>> = GLENN, a man in his early 40s, Brayden's dad. Ex-army and worn out. He thinks Brayden is a perfect angel. Voice: low, flat, gravelly monotone, slow and even, like a drill sergeant too tired to yell. Face, body, clothes and mug 100% match <<<image_1>>>.
+<<<image_1>>> = GLENN KOWALSKI, a man in his early 40s. Brayden's dad. Ex-army, now a worn-out stay-at-home dad. His face is locked in a wide-eyed, frozen grin with a thousand-yard stare. He is completely blind to how bratty Brayden is: to Glenn, Brayden is a perfect angel. When he puts on his gear and tips over, he does it with the stiff, practiced precision of an old soldier. Voice: a low, flat, gravelly baritone monotone. He never raises his voice and every word comes out at the same slow, even volume, like a drill sergeant who's too tired to yell. When he's moved, his voice softens slightly but stays flat. Face, hair, beard, body, clothes, dog tags and mug 100% match <<<image_1>>>.
 
-<<<image_2>>> = BRAYDEN. A scheming brat who knows how to work his dad. Voice: high and raspy; his whisper is low and gravelly. Regular look. Face, body and clothes 100% match <<<image_2>>>.
+<<<image_2>>> = BRAYDEN. He lives here and runs the house. A bossy, scheming brat who knows exactly how to work his dad. In this clip he goes from fake-sweet to quietly plotting. Voice: high, raspy and whiny, with a clipped, bossy delivery. When he whispers, it drops to a low, gravelly, raspy hush. Regular look: no face paint, no helmet. Face, hair, ears, teeth, body and clothes 100% match <<<image_2>>>.
 
-<<<image_3>>> = the living room, looking at the couch (Shots 1 to 4). 100% match.
+<<<image_3>>> = the living room seen from the front, looking toward the couch. Used whenever the camera looks at the couch (Shots 1 to 4). Walls, couch, coffee table, rug, toys, framed photo, medal case, whiteboard, stairs, basement door, side table, lamp and archway 100% match <<<image_3>>>.
 
-<<<image_4>>> = the same living room, looking toward the front windows (background of Shot 5). 100% match.
+<<<image_4>>> = the same living room seen from the back of the room, looking toward the front. Used as the background in Shot 5. The front window with the glowing blinds, the TV and the front door 100% match <<<image_4>>>.
 
-Objects with no image (they never change shape or color):
-- Ear protectors: olive-green, two hard rounded ear cups joined by a curved headband. They never become headphones, earbuds or a headset.
-- Sleep mask: soft blue fabric with an elastic strap, with two cartoon eyes printed on the front. The printed eyes are flat print: they never blink, move or become real eyes.
-- The mug, with the red crayon in it. A squeaky toy under a cushion, which is heard but never seen.
+Room map, true in every shot: the couch stands against the back wall in the center, with the framed army photo and the medal case above it. The coffee table stands in front of the couch. Seen from the front of the room: the side table with the lamp is at the left end of the couch (Glenn's right), the stairs run along the left wall, the basement door is in the back left corner under the stairs, and the archway is at the far right of the back wall. Glenn sits in the middle of the couch facing the front of the room. Brayden stands on the right end of the coffee table (Glenn's left).
 
-Room map: the couch is against the back wall. The side table and lamp are at the couch's left end as seen from the front (Glenn's right). The basement door is in the back left corner. Brayden stays on the right end of the coffee table.
+Objects with no reference image. Each one keeps exactly the same shape, size, material and color in every frame:
+- The ear protectors: one pair of olive-green over-ear hearing protectors, like military range earmuffs: two rounded, hard plastic ear cups joined by one curved headband. They never become headphones with a cord, earbuds, a headset with a microphone, a helmet or a headband on its own. They sit over his ears, outside his hair, with the band over the top of his head.
+- The sleep mask: one soft, flat, blue fabric sleep mask with a black elastic strap. On its front are two printed cartoon eyes, wide open, white with black dots for pupils. The printed eyes are flat print on fabric: they never blink, move, glow or come alive, and they never turn into real eyes. The mask never becomes sunglasses, goggles or a scarf.
+- The mug: Glenn's plain white mug from <<<image_1>>>, two-thirds full of dark coffee with the one red crayon standing in it. It goes from his right hand onto the side table and stays there.
+- The squeaky toy: hidden under the left seat cushion. It is only heard, never seen.
+
+Characters, environments and props 100% match the references. Only two people exist in this clip: Glenn and Brayden.
 
 
 SHOT STRUCTURE
 
-SHOT 1 (0.0 to 4.5s). Medium two-shot from the front of the room, 35mm, locked-off. Glenn faces the camera with the mug in his right hand and his left forearm on his thigh. Brayden is in profile on the table, facing him.
-0.0 to 0.6s: Hold.
-0.6 to 1.8s: Brayden bends over and wipes his nose along Glenn's left sleeve, from the elbow to the wrist, then straightens up.
-1.8 to 2.6s: Glenn looks at his sleeve, then back at Brayden. His left hand rises to his heart.
-2.6 to 3.9s: GLENN, slow and sincere: "...My little angel."
-3.9 to 4.5s: Hold.
+The five shots at a glance:
+1. 0.0 to 4.5s: medium two-shot from the front of the room. The nose wipe and Glenn's sweet reply. Locked-off.
+2. 4.5 to 11.0s: medium close-up on Glenn. The mug goes down, the ear protectors and the sleep mask go on, "Fifteen minutes. Daddy's off duty." Slow push-in.
+3. 11.0 to 13.5s: wide from the front of the room. Glenn tips over stiff as a tree, lands on the cushions, squeak, instant snoring. Locked-off.
+4. 13.5 to 16.0s: medium close-up on Brayden poking Glenn twice. Slow push-in.
+5. 16.0 to 20.0s: close-up on Brayden from the basement-door side. He turns his head, whispers "Company," and grins. Locked-off.
+
+Every cut changes both the shot size and the camera movement.
+
+SHOT 1 (0.0 to 4.5s). INT. LIVING ROOM. MEDIUM TWO-SHOT: THE NOSE WIPE.
+Location map: the camera stands at the front of the room, slightly right of center, looking at the couch. Foreground: the near edge of the coffee table along the bottom of the frame. Midground: Glenn (<<<image_1>>>) on the couch and Brayden (<<<image_2>>>) standing on the right end of the coffee table. Background: the back wall with the framed army photo above Glenn's head.
+Optics: 35mm lens, about a 54-degree horizontal view, camera about 7 feet from Glenn, at Glenn's seated eye height. No zoom, no change of focal length.
+Camera: locked-off, with no movement at all.
+First frame / blocking: Glenn sits upright in the middle of the couch facing the camera, with his head at about x 38% / y 34%. His right hand holds the mug at chest height at about x 30% / y 55%. His left forearm rests along his left thigh, sleeve exposed, at about x 44% / y 68%. His eyes are glossy, his grin is soft. Brayden stands on the right end of the coffee table, in profile, facing left toward Glenn, with his head at about x 66% / y 30%. His fists are on his hips and he wears the huge fake smile.
+0.0 to 0.6s: Hold. Nobody moves. Glenn gazes at Brayden with wet eyes.
+0.6 to 1.8s: Brayden bends at the waist, leans toward Glenn, puts his face against Glenn's left forearm sleeve, and wipes his nose along it from the elbow to the wrist in one slow, deliberate pass. Then he straightens back up, fists on his hips again.
+1.8 to 2.6s: Glenn looks down at his sleeve, then back up at Brayden. His expression doesn't change except that his eyes get even softer. His left hand rises slowly and settles flat over his heart.
+2.6 to 3.9s: GLENN: "...My little angel." Delivery: low, flat and gravelly, very slow and sincere, with a soft breath before the first word.
+3.9 to 4.5s: Hold. Glenn keeps his hand on his heart. Brayden keeps the fake smile, eyes glancing sideways.
+Light in this shot: a bar of sunlight crosses Glenn's chest and his hand on his heart. As Brayden bends in for the wipe, his face passes out of a bright stripe into soft shadow, then back into the light as he straightens.
+Last frame: Glenn with his left hand over his heart and the mug in his right hand; Brayden on the table with his fists on his hips and the fake smile.
+Sound: a wet sniff, the rustle of fabric, Glenn's voice, the clock ticking.
+Must not happen: the wipe landing anywhere except the sleeve, anything visible coming out of his nose, Glenn reacting with disgust, Glenn putting the mug down in this shot, the camera moving.
 
 HARD CUT
 
-SHOT 2 (4.5 to 11.0s). Medium close-up of Glenn from the front, 50mm, slow push-in. The side table with the ear protectors and the mask is at the left edge of the frame. Brayden is out of frame.
-4.5 to 5.3s: His left hand goes to his knee. His right hand sets the mug on the side table.
-5.3 to 6.6s: He picks up the ear protectors, spreads the band with both hands and lets them close over his ears.
-6.6 to 7.9s: He pulls the mask on and down over his eyes. The printed eyes face the camera, flat and still.
-7.9 to 8.4s: He sits bolt upright with his hands on his knees.
-8.4 to 10.3s: GLENN, flat, like reporting to an officer: "Fifteen minutes. Daddy's off duty."
-10.3 to 11.0s: Hold, perfectly still.
+SHOT 2 (4.5 to 11.0s). INT. LIVING ROOM. MEDIUM CLOSE-UP: GEARING UP.
+Location map: the camera is at the front of the room, slightly left of center, at Glenn's seated eye height, looking straight at him. Foreground: nothing. Midground: Glenn (<<<image_1>>>) from the chest up. At the left edge of the frame: the side table with the lamp (switched off), and lying on it, the olive ear protectors and the blue sleep mask. Background: the back wall and the lower edge of the framed photo above his head. Brayden is out of frame.
+Optics: 50mm lens, about a 40-degree horizontal view, camera about 5 feet from Glenn. No zoom, no change of focal length.
+Camera: a slow, steady push-in that tightens from chest-up to shoulders-up over the whole shot, easing in at the start and easing out at the end. Framing priority: Glenn's face and both of his hands stay fully visible at all times.
+First frame / blocking: Glenn's head at about x 55% / y 30%, facing the camera. His left hand is still flat over his heart at about x 58% / y 64%. His right hand holds the mug at about x 40% / y 62%. The ear protectors and the sleep mask lie side by side on the side table at about x 10% / y 72%.
+4.5 to 5.3s: Glenn lowers his left hand from his heart to his knee. With his right hand he leans slightly to his right and sets the mug down on the side table with a clunk, next to the ear protectors. The crayon stays standing in the coffee.
+5.3 to 6.6s: With his right hand he picks up the ear protectors. With both hands he spreads the headband open, lifts them over his head and lets them close over his ears. He presses each cup once to seat it. The band sits over the top of his head.
+6.6 to 7.9s: With his right hand he picks up the sleep mask. With both hands he stretches the elastic strap, pulls it over his head and lets it snap into place, then pulls the mask down over his eyes. The two printed cartoon eyes now face the camera, wide open, flat and motionless.
+7.9 to 8.4s: Beat. He sits perfectly upright, back straight, both hands resting flat on his knees, like a soldier at attention.
+8.4 to 10.3s: GLENN: "Fifteen minutes. Daddy's off duty." Delivery: flat, low and gravelly, slow and even, like reporting to an officer, with a short pause between the two sentences.
+10.3 to 11.0s: Hold. He stays upright and perfectly still.
+Light in this shot: a soft bar of sunlight lies across his chest. The hard plastic of the ear protectors catches a small highlight as they close over his ears. The printed eyes on the mask sit in soft, even light.
+Last frame: Glenn sitting bolt upright with the ear protectors and the sleep mask on, hands flat on his knees.
+Sound: the clunk of the mug, the plastic creak and soft snap of the ear protectors, the soft snap of the elastic, Glenn's voice, the clock ticking.
+Must not happen: the printed eyes on the mask blinking or moving, the ear protectors turning into headphones, earbuds or a headset, a cord appearing, the mug falling or spilling, the lamp turning on, Brayden entering the frame.
 
 HARD CUT
 
-SHOT 3 (11.0 to 13.5s). Wide from the front of the room, 28mm, locked-off. The whole couch and both characters are in frame.
-11.0 to 11.5s: Glenn sways once.
-11.5 to 12.4s: He goes rigid and tips over sideways to his right (toward the left of the frame) like a falling tree, pivoting at the hips, feet staying on the floor. The snore starts just before he lands.
-12.4 to 13.5s: He lands on his side across the cushions with his face pressed into the left cushion. The cushions puff up, a toy squeaks, and he snores steadily. Brayden watches.
+SHOT 3 (11.0 to 13.5s). INT. LIVING ROOM. WIDE: THE FALLEN TREE.
+Location map: the camera is at the front of the room where the TV stands, at standing eye height, looking straight at the couch, matching <<<image_3>>>. Foreground: the rug and scattered toys. Midground: the coffee table, with Brayden (<<<image_2>>>) standing on its right end, and the couch with Glenn (<<<image_1>>>) sitting bolt upright in the middle. Background: the back wall, the framed photo, the side table and lamp at the left end of the couch, the basement door in the back left corner.
+Optics: 28mm lens, about a 65-degree horizontal view, camera about 13 feet from the couch. No zoom, no change of focal length.
+Camera: locked-off, with no movement at all. Framing priority: the whole couch and both characters stay fully in frame.
+First frame / blocking: Glenn sits bolt upright in the middle of the couch with the ear protectors and the sleep mask on, his head at about x 48% / y 40%. Brayden stands on the right end of the coffee table watching him, his head at about x 68% / y 42%.
+11.0 to 11.5s: Glenn sways very slightly, once.
+11.5 to 12.4s: He goes rigid and tips over sideways to his right (toward the left of the frame) in one stiff piece, like a falling tree, pivoting at the hips. His legs stay where they are with his feet flat on the floor. A deep snore starts just before he lands.
+12.4 to 13.5s: The top half of his body lands on its side across the seat cushions, his face pressed into the left cushion, his head at about x 26% / y 58%. The cushions puff up around him and settle. A toy under the cushion squeaks. He keeps snoring steadily, completely still. Brayden watches without moving.
+Light in this shot: as Glenn falls, the bars of sunlight slide across his body from his head down to his legs. A small puff of dust rises from the cushions into a beam of light and drifts.
+Last frame: Glenn lying on his side across the couch cushions, face pressed into the left cushion, ear protectors and mask still on, feet still on the floor; Brayden standing on the right end of the coffee table, looking down at him.
+Sound: the rustle of him tipping, a heavy, muffled thump into the cushions, one squashed squeak, a deep, rumbling, steady snore.
+Must not happen: Glenn bending or flailing as he falls, Glenn falling forward onto the coffee table or the floor, Glenn sliding off the couch, the ear protectors or mask falling off, Brayden moving, the camera moving.
 
 HARD CUT
 
-SHOT 4 (13.5 to 16.0s). Medium close-up, low from the front right of the table, 50mm, slow push-in. Brayden is at the right of frame, and Glenn's top shoulder is at the lower left.
-13.5 to 14.3s: Brayden pokes Glenn's shoulder with his left index finger.
-14.3 to 14.8s: He pokes again, slightly harder.
-14.8 to 16.0s: Nothing; the snoring goes on. Brayden straightens up with a tiny smirk.
+SHOT 4 (13.5 to 16.0s). INT. LIVING ROOM. MEDIUM CLOSE-UP: THE POKES.
+Location map: the camera is low at the front right of the coffee table, at Brayden's chest height, looking toward the couch. Foreground: the corner of the coffee table. Midground: Brayden (<<<image_2>>>) standing on the right end of the table at the right of frame, and Glenn's (<<<image_1>>>) upper body lying on its side on the cushions at the left of frame, his left shoulder on top. Background: the couch back and the back wall, soft.
+Optics: 50mm lens, about a 40-degree horizontal view, camera about 4 feet from Brayden. No zoom, no change of focal length.
+Camera: a slow push-in that tightens slightly over the whole shot, easing in and out. Framing priority: Brayden's face and pointing hand, and Glenn's shoulder, stay fully visible at all times.
+First frame / blocking: Brayden stands looking down at Glenn, his head at about x 64% / y 28%. Glenn's upper body lies across the lower left of the frame, his top shoulder at about x 34% / y 60%, the strap of the sleep mask and one ear cup visible on his head.
+13.5 to 14.3s: Brayden leans forward and pokes Glenn's top shoulder once with his left index finger. The fabric dents slightly. Glenn doesn't move and keeps snoring.
+14.3 to 14.8s: He pokes once more, slightly harder, in the same spot. Still nothing. The snoring doesn't change.
+14.8 to 16.0s: Brayden straightens up slowly, lowers his hand, and tilts his head slightly, studying Glenn. A tiny, satisfied smirk appears.
+Light in this shot: Brayden's pointing finger moves from soft shadow into a bright bar of sunlight as it reaches Glenn's shoulder.
+Last frame: Brayden standing upright with a tiny smirk, looking down at Glenn, who is still asleep.
+Sound: two soft fingertip taps on fabric, the steady snore, the clock ticking.
+Must not happen: Glenn waking, moving or reacting, Brayden climbing on Glenn, Brayden pulling off the mask or the ear protectors, more than two pokes.
 
 HARD CUT
 
-SHOT 5 (16.0 to 20.0s). Close-up of Brayden from the basement-door corner, 50mm, locked-off. The door is behind the camera, and the front of the room is soft behind him.
-16.0 to 17.0s: He lifts his eyes from Glenn and turns his head to look just past the lens. His eyes move into a single bar of sunlight.
-17.0 to 17.4s: His brows lower and his eyes narrow.
-17.4 to 18.4s: BRAYDEN, in a low, raspy whisper: "Company."
-18.4 to 20.0s: A slow, wicked grin, and a hold. He doesn't blink. The snoring continues off-screen.
+SHOT 5 (16.0 to 20.0s). INT. LIVING ROOM. CLOSE-UP: "COMPANY."
+Location map: the camera is near the back left corner of the room, by the basement door, at Brayden's face height, looking at Brayden on the coffee table. Foreground: nothing. Midground: Brayden (<<<image_2>>>) from the shoulders up. Background, soft and out of focus: the front of the room from <<<image_4>>>, with the glowing window blinds and the front door. The basement door itself is behind the camera, so when Brayden looks at it, he looks just past the lens.
+Optics: 50mm lens, about a 40-degree horizontal view, camera about 3 feet from Brayden. No zoom, no change of focal length.
+Camera: locked-off, with no movement at all. Framing priority: Brayden's whole face stays in frame and sharp.
+First frame / blocking: Brayden's head at about x 52% / y 38%, his eyes on the upper third of the frame. He is looking down and to the right of frame, at Glenn sleeping below him. The snoring continues off-screen.
+16.0 to 17.0s: He lifts his eyes from Glenn and slowly turns his head until he is looking just past the lens, toward the basement door. As his head turns, his eyes move into a single bar of sunlight while the rest of his face stays in soft shadow.
+17.0 to 17.4s: His heavy eyebrows lower and his eyes narrow.
+17.4 to 18.4s: BRAYDEN: "Company." Delivery: a low, raspy, gravelly whisper, drawn out slowly.
+18.4 to 20.0s: A slow, wicked grin spreads across his face from ear to ear, revealing his jagged teeth, and stops at full width. Hold. He doesn't blink.
+Light in this shot: one bar of warm sunlight across his eyes; the rest of his face in soft, warm shadow lit by the light bouncing off the walls. The window blinds glow behind him.
+Last frame: Brayden's full grin, eyes in the bar of light, looking just past the lens.
+Sound: the steady snore off-screen, Brayden's whisper, the clock ticking.
+Must not happen: Brayden speaking loudly, Brayden moving his body or leaving the table, the basement door appearing in frame, a second person appearing, the camera moving.
 
 
 LOCKS & CONSTRAINTS
 
-- Exactly five shots, with hard cuts at 4.5s, 11.0s, 13.5s and 16.0s.
-- Only Glenn and Brayden appear, and both match their references 100% in every shot. Brayden stays on the coffee table in his regular look.
-- Glenn stays on the couch: sitting until Shot 3, then lying on his side with his feet on the floor until the end.
-- The mug goes onto the side table and stays there, with the crayon still in it.
-- Once they're on, the ear protectors and the mask stay on and never change. The printed eyes never move.
-- Exact dialogue only, in this order, nothing added:
+Positive locks (these are true in every frame):
+- There are exactly five shots joined by exactly four hard cuts, at 4.5s, 11.0s, 13.5s and 16.0s.
+- Only Glenn and Brayden are in this clip, and both match their reference images 100%: same faces, hair, beard, bodies, clothes, colors and proportions in every shot.
+- Brayden stays standing on the right end of the coffee table for the whole clip and is in his regular look, with no face paint and no helmet.
+- Glenn stays on the couch for the whole clip. He sits until Shot 3, then lies on his side across the cushions with his feet on the floor until the end.
+- The mug goes from Glenn's right hand to the side table in Shot 2 and stays there, with the one red crayon still standing in the coffee.
+- From the moment Glenn puts them on, the ear protectors and the sleep mask stay on his head, unchanged, until the end of the clip.
+- The printed eyes on the sleep mask are flat and motionless in every frame.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Glenn's voice is the low, flat, gravelly monotone; Brayden's is the high, raspy voice that drops to a gravelly whisper. They never swap.
+- The pauses written between lines are kept.
+- The light is the same one sun through the blinds in every shot, fixed to the world, with the stripes sliding across the characters as they move.
+- Diegetic sound only, with the snore running continuously from just before Glenn lands to the last frame.
+- The look is stylized 3D animated feature film in every frame, and the living room matches <<<image_3>>> and <<<image_4>>>.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
   1. GLENN: "...My little angel."
   2. GLENN: "Fifteen minutes. Daddy's off duty."
   3. BRAYDEN: "Company."
-- Only the speaker moves his mouth. The voices never swap. The snore is continuous after Glenn lands.
-- Keep the pauses. Grounded movement only, except the stiff fall. The camera moves only as written.
-- No readable text, no music, no other people, no lamp turning on, no morphing. Hands always have five fingers.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people, no pets, nobody at the windows.
+- No ad-libs, no extra lines, no narration. Only the speaker moves his mouth; while Glenn is asleep, only his snoring is heard from him.
+- No squash and stretch, no rubbery faces, no bouncing, no big theatrical gestures, no fast snapping moves, except the sudden but stiff fall in Shot 3.
+- No camera moves except the ones written. No zooms, pans, shakes or angle changes.
+- No readable text anywhere: the whiteboard shows only crayon scribbles, and the mug, toys and mask have no readable words. No subtitles, no captions, no watermarks.
+- No reflections showing faces or scenes in the TV, the window or the glass of the framed photo.
+- No lamps turning on, no flicker, no color shift.
+- No music, no score, no stingers.
+- Never photorealistic, never anime, never flat 2D.
+- No morphing. Faces, hands and props never melt, merge, stretch out of shape or swap. Hands always have five fingers. The mug, crayon, ear protectors and sleep mask keep their exact shape, size and color.
 
 
-12 PRINCIPLES OF ANIMATION (GROUNDED)
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
 
-1. Squash and stretch: none on faces or bodies; only the cushions squash.
-2. Anticipation: small. A bend before the wipe, a sway before the fall, eyes before the head turn.
-3. Staging: one clear action per shot.
-4. Pose to pose: smooth motion, and people hold still during pauses.
-5. Follow-through: the sleeve fabric settles, the elastic settles, the cushions settle.
-6. Slow in and slow out: Glenn's routine eases; the fall speeds up with gravity and stops dead.
-7. Arcs: the fall pivots at the hips on a clean arc; Brayden's head turns on a smooth arc.
-8. Secondary action: dust in the sunbeams, the clock, the steady snore.
-9. Timing: Glenn slow, the fall quick, the whisper slowest of all.
-10. Exaggeration: minimal. The comedy is Glenn's sincerity and the instant snore.
-11. Solid drawing: consistent volume and anatomy, five fingers.
-12. Appeal: a sweet, broken dad and a charismatic schemer.
+1. Squash and stretch: almost none. Only natural movement of real faces and bodies, like cheeks shifting as someone talks. The cushions are the only thing that squashes, when Glenn lands on them.
+2. Anticipation: small and natural, never a cartoon wind-up. Brayden bends at the waist before the wipe. Glenn looks at his sleeve before his hand goes to his heart. Glenn sways once before he tips over. Brayden's eyes move a moment before his head turns.
+3. Staging: one clear action at a time. The wipe, the gear going on, the fall, the pokes and the whisper each have their own shot and are the only thing happening in it.
+4. Straight ahead and pose to pose: continuous, natural motion with no snapping into poses. During pauses, people simply hold still, the way real people do.
+5. Follow-through and overlapping action: subtle. The sleeve fabric relaxes after the wipe. The elastic settles after the snap. The cushions puff up and settle after Glenn lands. The dust drifts after the impact.
+6. Slow in and slow out: Glenn's movements in Shot 2 ease in and out like a tired routine. The fall starts slowly with the sway, then speeds up naturally with gravity and stops dead on the cushions. Brayden's head turn eases in and out.
+7. Arcs: Glenn's body falls on a clean arc pivoting at the hips. Brayden's head turns on a smooth arc. His hand travels on a short arc to each poke.
+8. Secondary action: quiet background life that never pulls focus. Dust drifts in the sunbeams, the clock ticks, and the snore keeps its steady rhythm.
+9. Timing: Glenn is slow and ceremonial, the fall is quick and clean, the pokes are short and dry, and the whisper and grin are the slowest moment of the clip. Leave the pauses between lines.
+10. Exaggeration: minimal. The comedy comes from Glenn's total sincerity, the stiff fall into instant snoring and Brayden's quiet scheming, not from big expressions.
+11. Solid drawing: consistent anatomy, weight and volume in every frame, including while Glenn falls and lies on his side. Hands have five fingers and hold objects firmly. Nobody flattens, warps or melts.
+12. Appeal: appealing designs and believable people. Glenn is a sweet, broken dad, and Brayden is a funny, charismatic schemer. It's a comedy.
