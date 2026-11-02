@@ -70,7 +70,7 @@ Paste this at the end of **every** image and video prompt:
 
 **Reference:** [`refs/marco-and-duane-sketch.jpg`](refs/marco-and-duane-sketch.jpg) (the **left** face)
 
-**Who he is:** The only competent member of the crew, and he knows it. He's bored by everything and says it all in a dry deadpan. He's unimpressed even when he's pinned to a wall by twelve knives.
+**Who he is:** The only competent member of the crew, and he knows it. He blows vape in people's faces instead of answering them. He's bored by everything and says it all in a dry deadpan. He's unimpressed even when he's pinned to a wall by twelve knives.
 
 **Look tag:**
 > MARCO, a lanky man in his 30s with messy dark hair, a long narrow face, heavy-lidded bored eyes with dark bags under them, a few moles on his cheeks and forehead, a long thin nose, a huge bushy black beard that comes to a point, and crooked jagged teeth, wearing a black puffer vest over a black hoodie and black cargo pants, holding a slim vape pen

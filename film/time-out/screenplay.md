@@ -1,513 +1,507 @@
 # TIME OUT
 
-*An 18+ animated short. Runtime about 4:00 with credits.*
+Written by ____________
 
-**Written by:** ____________
-
-**Rating:** 18+ (strong language throughout, crude humor, extreme slapstick violence). Nothing is bleeped.
-
-**Logline:** Three bumbling burglars hit a single dad's house during nap time, figuring his army days are long behind him. They didn't count on his four-year-old son finding Daddy's old footlocker.
+*18+ animated short. Strong language, crude humor, cartoon violence. Runs about 4 minutes.*
 
 ---
 
 FADE IN:
 
-### 1. EXT. MAPLE COURT CUL-DE-SAC, DAY  `0:00`
+**1. EXT. MAPLE COURT - DAY**
 
-A perfect suburban Saturday. Sprinklers tick. A lawnmower drones somewhere.
+Saturday afternoon in a cul-de-sac. Sprinklers going. Somebody's mowing a lawn a couple streets over.
 
-A dented minivan sits in the driveway of a tired beige two-story house. Across the street sits a dented white van. Hand-painted on its side: **VINCE'S PRESTIGE CARPET CARE: ASK FOR VINCE!** It has a phone number.
+A beige two-story house with a minivan in the driveway. The lawn needs cutting.
 
-### INT. VAN, CONTINUOUS
+Across the street, a beat-up white van. Hand-painted on the side: VINCE'S PRESTIGE CARPET CARE - ASK FOR VINCE! And a phone number.
 
-**VINCE** (50s, spiky swoop of black hair, goatee, gold chain, leather jacket) is turned around in the driver's seat. He holds up a laminated plan like it's the Declaration of Independence.
+**INT. VAN - CONTINUOUS**
 
-**MARCO** (30s, long pointed beard, dead eyes) vapes in the passenger seat, unimpressed.
+VINCE (50s, spiky black hair, goatee, gold chain, leather jacket) is twisted around in the driver's seat, holding up a laminated plan.
 
-**DUANE** (30s, bald, bearded, enormous) fills the whole back bench, eating gummy bears.
+MARCO (30s, long pointy beard, bored by everything) vapes in the passenger seat.
 
-**VINCE**
+DUANE (30s, bald, big beard, big everything) takes up the whole back seat with a bag of gummy bears.
+
+**VINCE**  
 Gentlemen.
 
-**MARCO**
-*(exhaling vapor)*
+**MARCO**  
 Wow.
 
-**VINCE**
-Gentlemen *and Duane.*
+**VINCE**  
+Gentlemen and Duane.
 
-**DUANE**
-...Hey. What the fuck, Vince?
+**DUANE**  
+...Hey.
 
-Vince holds up his phone. It shows a post on a neighborhood app: *"Me + the little guy nap Sat 2–4. Pray for me 🙏"*
+Marco turns around and blows a huge cloud of vape right in Duane's face. Duane coughs.
 
-**VINCE**
+**DUANE**  
+What the fuck, Marco?
+
+Marco turns back around like nothing happened.
+
+Vince holds up his phone. A post on the neighborhood app: "Me + the little guy nap Sat 2-4. Pray for me 🙏"
+
+**VINCE**  
 Kowalski house. Single dad. Dumbass posts his nap schedule online. Saturdays, two to four.
 
-**MARCO**
-*(squinting at the phone)*
-Says here he's ex-army.
+**MARCO**  
+*(reading over his shoulder)*  
+Says he's ex-army.
 
-**VINCE**
-*Was.* Now he drives a fucking minivan.
+**VINCE**  
+Was. Now he drives a fucking minivan.
 
-Duane squints at a photo clipped to the plan. It shows a jug-eared toddler grinning like he just bit somebody.
+Duane squints at a photo paper-clipped to the plan. A little kid with big ears, grinning like he just bit somebody.
 
-**DUANE**
+**DUANE**  
 Vince... there's a kid.
 
-Vince slides on his gold aviators.
+Vince puts on his aviators.
 
-**VINCE**
-It's a four-year-old, Duane. What the fuck's he gonna do, cry at us?
+**VINCE**  
+He's four, Duane. What the fuck's he gonna do, cry at us?
 
-### EXT. KOWALSKI HOUSE, UPSTAIRS WINDOW, SAME
+**EXT. KOWALSKI HOUSE - UPSTAIRS WINDOW - SAME**
 
-The frilly curtains are parted a crack. A tiny figure in a grubby green dinosaur onesie slowly lowers a pair of plastic toy binoculars.
+The curtain moves. A little kid in a dirty green dinosaur onesie lowers a pair of plastic binoculars.
 
-This is **BRAYDEN KOWALSKI** (4 "and three-quarters"). He has jug ears and mean little eyebrows. He grins, and the grin keeps going: ear to ear, all jagged little teeth.
+BRAYDEN KOWALSKI, four and three-quarters. Big ears, mean little eyebrows. He smiles, and it's way too many teeth.
 
 SMASH CUT TO:
 
-**TITLE CARD: "TIME OUT"** is scrawled in red crayon. A sippy cup SLAMS down on the "O."
+TITLE: "TIME OUT," scrawled in red crayon. A sippy cup slams down on the O.
 
 ---
 
-### 2. INT. KOWALSKI LIVING ROOM, DAY  `0:32`
+**2. INT. KOWALSKI HOUSE - LIVING ROOM - DAY**
 
-A war zone of toys. Baby gates everywhere. Clear plastic childproof covers sit on every doorknob. A whiteboard on the wall reads, in crayon: **BRAYDEN'S RULES. 1. NO 2. NO 3. NUGGETS.**
+Toys everywhere. Baby gates. Plastic childproof covers on every doorknob. A whiteboard on the wall, in crayon: BRAYDEN'S RULES. 1. NO 2. NO 3. NUGGETS.
 
-Above the couch hangs a framed photo of a young, clean-shaven soldier in dress uniform, his chest full of medals.
+Over the couch hangs a framed photo of a young soldier in dress uniform, chest full of medals.
 
-Below it sits the same man, years later: **GLENN KOWALSKI** (41, bushy hair, full beard, bathrobe over an olive army t-shirt, dog tags). He holds a mug that reads **WORLD'S OKAYEST DAD.** His eyes are wide open and he's grinning. He hasn't blinked in a while. It's not happiness. It's what's left.
+On the couch sits the same guy, fifteen years later. GLENN KOWALSKI (41): big beard, bathrobe, army t-shirt, dog tags, WORLD'S OKAYEST DAD mug. He's staring at nothing with a big frozen grin. He hasn't blinked in a while.
 
-Brayden stomps in, chewing on a crayon. He climbs onto the coffee table to get eye level with his dad and spits the crayon out. It lands in Glenn's coffee.
+Brayden marches in chewing a crayon, climbs onto the coffee table, and spits the crayon into Glenn's coffee.
 
-**BRAYDEN**
-Daddy. Nap time. NOW.
+**BRAYDEN**  
+Daddy. Nap time. Now.
 
-Glenn's head turns. Slowly. His wide eyes go misty.
+Glenn slowly turns his head. His eyes get a little wet.
 
-**GLENN**
-*(flat, but deeply touched)*
-You want Daddy to take a nap?
-*(beat)*
-You never ask for nap time.
+**GLENN**  
+You want Daddy to take a nap?  
+*(beat)*  
+You never want me to take a nap.
 
-**BRAYDEN**
-*(grinning way too wide, eyes darting sideways, the worst liar alive)*
+**BRAYDEN**  
+*(way too big a smile, eyes all over the place)*  
 I'm a growing boy.
 
-He wipes his nose on Glenn's bathrobe.
+He wipes his nose on Glenn's robe. Glenn puts a hand on his heart.
 
-Glenn doesn't see a brat. He has never once seen a brat. He sees a perfect little angel who's looking out for his old man.
-
-**GLENN**
-*(melting)*
+**GLENN**  
 ...My little angel.
 
-He pulls on a pair of olive military ear defenders and a sleep mask printed with cartoon wide-open eyes.
+He puts on a pair of army ear protectors and a sleep mask with cartoon eyes printed on it.
 
-**GLENN**
+**GLENN**  
 Fifteen minutes. Daddy's off duty.
 
-He falls face-first into the cushions like a felled tree. A squeaky toy dies underneath him. Instant snoring.
+He tips over face-first into the cushions. Something squeaks under him. He's snoring before he lands.
 
 Brayden pokes him. Nothing.
 
-He turns to the basement door. Grins.
+He looks over at the basement door.
 
-**BRAYDEN**
-*(whispers)*
+**BRAYDEN**  
+*(whispering)*  
 Company.
 
 ---
 
-### 3. INT. BASEMENT, CONTINUOUS: THE SUIT-UP  `0:57`
+**3. INT. BASEMENT - CONTINUOUS**
 
-*80s action-movie music: drums, power synths, a screaming guitar.*
+Cheesy 80s action music kicks in.
 
-Fast cuts.
+MONTAGE:
 
-Brayden drags an olive-green army footlocker out from under the stairs. It's stenciled **SGT. G. KOWALSKI · DO NOT OPEN.** He flips the latches. A golden glow lights up his grin.
+-- Brayden drags an army footlocker out from under the stairs. Stenciled on the lid: SGT. G. KOWALSKI - DO NOT OPEN. He pops the latches, and golden light hits his face.
 
-Inside, everything is packed in neat military rows: combat knives, spools of tripwire, a bag of four-pointed metal caltrops, night-vision goggles, a grenade, and an army field manual titled **BOOBY TRAPS.**
+-- Inside are knives, rolls of wire, a bag of metal spikes, night-vision goggles, a grenade, and an army manual called BOOBY TRAPS. Brayden flips through the manual upside down. He's just looking at the pictures.
 
-He can't read, but he likes the pictures.
+-- Camo paint. Two stripes under each eye.
 
-Two fingers drag thick black camo paint under each eye.
+-- Dad's helmet drops onto his head and covers his whole face. He shoves it up. His ears stick out the sides.
 
-Daddy's army helmet drops onto his head and swallows it whole. He shoves it up. His jug ears stick out the sides.
+-- Spikes get dumped all over the downstairs hallway.
 
-Caltrops rain down across the downstairs hallway floor.
+-- A sawed-off shotgun gets bolted inside the little safe in the den. Next to it sits a box: ROCK SALT.
 
-A sawed-off shotgun gets bolted inside a little safe in the den. A box labeled **ROCK SALT** sits beside it.
+-- Brayden in the basement doorway, backlit, war paint, helmet way too big. He cracks his neck.
 
-Brayden stands in the basement doorway, backlit, in war paint and a helmet three sizes too big. He cracks his neck.
-
-**BRAYDEN**
+**BRAYDEN**  
 Nap time, bitches.
+
+END MONTAGE.
 
 ---
 
-### 4. EXT. KOWALSKI BACKYARD, BACK DOOR, DAY  `1:15`
+**4. EXT. KOWALSKI HOUSE - BACKYARD - DAY**
 
-The crew crouch-walks to the back door in a single-file conga line. Marco picks the lock in two seconds flat. *Click.*
+The three of them sneak across the yard single file, crouched over. Duane is not hiding anything.
 
-**VINCE**
-Shoes off. Professionals leave no footprints.
+Marco picks the back door lock in about two seconds.
 
-Marco and Duane exchange a look. Sigh. They kick off their sneakers.
+**VINCE**  
+Shoes off. Professionals don't leave footprints.
 
-### INT. KITCHEN, CONTINUOUS
+Marco and Duane look at each other. They kick off their sneakers.
 
-The blinds are drawn. Sippy cups everywhere. Three thieves stand in their socks.
+**INT. KITCHEN - CONTINUOUS**
 
-A baby monitor on the counter CRACKLES. Its little green lights flicker.
+Blinds down. Sippy cups everywhere. Three grown men in socks.
 
-**BRAYDEN (V.O.)**
-*(sing-song, through the monitor)*
+The baby monitor on the counter crackles. Its little green lights flicker.
+
+**BRAYDEN (V.O.)**  
+*(through the monitor, singsong)*  
 Hiiiiiii.
 
-They freeze like statues. Duane grabs Marco's arm.
+Everybody freezes. Duane grabs Marco's arm.
 
-**VINCE**
-Relax. It's a baby monitor. Probably a recording.
+**VINCE**  
+Relax. It's a baby monitor. It's probably a recording.
 
-**BRAYDEN (V.O.)**
+**BRAYDEN (V.O.)**  
 It's not a recording, Vince.
 
-Beat.
+Long pause.
 
-**VINCE**
+**VINCE**  
 ...How the fuck does he know my name?
 
-Marco exhales vapor directly into his face.
+Marco blows vape in his face.
 
-**MARCO**
+**MARCO**  
 It's on the van, Vince. Your name is on the fucking van.
 
 ---
 
-### 5. INT. DOWNSTAIRS HALLWAY, MOMENTS LATER: SPIKES  `1:34`
+**5. INT. DOWNSTAIRS HALLWAY - CONTINUOUS**
 
-The hallway is dim and long. Duane tiptoes ahead. In slow motion, his sock comes down on something.
+A dark hallway. Duane tiptoes in first.
 
-**CRUNCH.**
+In slow motion, his sock comes down on a metal spike. CRUNCH.
 
-A four-pointed steel caltrop.
+His face goes through about six emotions with no sound coming out. Then he starts hopping, and every hop lands on another one.
 
-Duane's face does a full, silent scream. Then the sound arrives, one swear per spike as he hops down the hallway.
+**DUANE**  
+SON OF A BITCH! *(crunch)* MOTHERFUCKER! *(crunch)* SHIT! SHIT! SHIIIIT!
 
-**DUANE**
-SON OF A BITCH! *(crunch)* MOTHERFUCKER! *(crunch)* SHIT! *(crunch)* SHIT! *(crunch)* SHIIIIT!
+He goes down flat on his back, right on top of the rest of them.
 
-He topples backward, full-length, onto a hallway floor covered wall to wall in spikes.
+A red RC monster truck rolls out of the dark. There's a plastic jar duct-taped to the back with SWEAR JAR written on it in crayon, and a little grabber claw on the front.
 
-A red remote-control monster truck putters out of the shadows. A big plastic jar is duct-taped to its back, labeled **SWEAR JAR** in crayon. It has a little grabber claw on the front.
+**BRAYDEN (V.O.)**  
+Ooooh. That's five swears. Five dollars.
 
-**BRAYDEN (V.O.)**
-Ooooh. That's five swears. That's five dollars.
-
-Duane, weeping, feeds five crumpled dollars into the jar, one at a time. The truck reverses away.
+Duane, crying, feeds five crumpled bills into the jar one at a time. The truck backs away.
 
 ---
 
-### 6. INT. DEN, DAY: ROCK SALT  `1:47`
+**6. INT. DEN - DAY**
 
-Vince creeps into a wood-paneled den. On the floor sits a little black safe with a crayon sign taped to it: **DADDY'S MONEY.**
+Wood paneling, a recliner, a baby gate in the doorway. Vince creeps in.
 
-**VINCE**
-*(rubbing his hands together)*
-Army guy. Bet he's got gold bars.
+On the floor sits a little black safe with a crayon sign taped to it: DADDY'S MONEY.
+
+**VINCE**  
+*(rubbing his hands together)*  
+Army guy. Bet he's got gold bars in there.
 
 He yanks the handle.
 
-**BLAM!**
+BLAM!
 
-A blast from inside the safe launches Vince backward across the room in a cloud of white smoke. He smashes straight through a baby gate and lands in a heap. The seat of his pants is smoking. His hair is blown straight back.
+Vince flies backward across the room in a cloud of white smoke, takes out the baby gate, and lands in a pile. His hair's blown straight back. The seat of his pants is smoking.
 
-**VINCE**
+**VINCE**  
 ROCK SALT?! WHO THE FUCK KEEPS ROCK SALT?!
 
-**BRAYDEN (V.O.)**
+**BRAYDEN (V.O.)**  
 Daddy says the real ones make a mess.
 
 ---
 
-### 7. INT. UPSTAIRS HALLWAY, DAY: BLACKOUT  `1:58`
+**7. INT. UPSTAIRS HALLWAY - DAY**
 
-The crew regroups at the top of the stairs. Duane is limping, with caltrops still stuck in his socks. Vince is still gently smoking.
+The three of them meet up at the top of the stairs. Duane's limping with spikes still stuck in his socks. Vince is still smoking a little.
 
-Vince reaches into his jacket and pulls out a pistol.
+Vince pulls a pistol out of his jacket.
 
-**VINCE**
+**VINCE**  
 Okay. No more fucking games.
 
-**MARCO**
-*(deadpan)*
+**MARCO**  
 You brought a gun to rob a nap?
 
-### INT. BASEMENT, BREAKER BOX, SAME
+**INT. BASEMENT - SAME**
 
-A tiny hand yanks the main breaker down. **CLACK.**
+A tiny hand yanks down the main breaker. CLACK.
 
-### INT. UPSTAIRS HALLWAY, CONTINUOUS
+**INT. UPSTAIRS HALLWAY - CONTINUOUS**
 
-Pitch black. Three pairs of cartoon eyes blink in the darkness.
+Total darkness. Three pairs of eyes blinking.
 
-**VINCE**
+**VINCE**  
 Nobody fucking move!
 
-**NIGHT-VISION POV** *(green):* The three thieves grope blindly with their arms out, bumping into each other. We hear small breathing close to the lens. A tiny giggle.
+NIGHT-VISION POV, green and grainy: the three of them feel around with their arms out, bumping into each other. Someone small is breathing right next to the lens. A little giggle.
 
-Somewhere in the dark, a squeaky toy goes off. **SQUEAK.**
+Somewhere in the dark, a squeaky toy goes off. SQUEAK.
 
-Vince's eyes whip toward the sound.
+Vince's eyes snap toward it.
 
-**BANG!**
+BANG!
 
-The muzzle flash lights up the hallway for one frame. Then darkness again.
+The muzzle flash lights up the hall for a split second, then it's black again.
 
-A beat. Then Duane's eyes go huge.
+Duane's eyes go huge.
 
-**DUANE**
+**DUANE**  
 AAAAH! You SHOT me! You fucking SHOT me, you stupid son of a bitch!
 
-### INT. LIVING ROOM, SAME
+**INT. LIVING ROOM - SAME**
 
-Glenn snores on the couch, military ear defenders clamped on. He doesn't twitch. They were designed for exactly this.
+Glenn is face down on the couch, ear protectors on, snoring. He doesn't move a muscle.
 
-### INT. UPSTAIRS HALLWAY, CONTINUOUS
+**INT. UPSTAIRS HALLWAY - CONTINUOUS**
 
-The lights snap back on.
+The lights come back on.
 
-Duane is on the floor, clutching his leg, rolling around and sobbing like a baby. Vince stands over him holding a smoking gun.
+Duane's on the floor holding his leg, rolling around, bawling. Vince stands over him with a smoking gun.
 
-Vince and Marco look down at Duane. Then at each other. Then they burst out laughing.
+Vince and Marco look at Duane, then at each other, and lose it.
 
-**MARCO**
-*(cracking up)*
+**MARCO**  
 Holy shit. You shot Duane.
 
-**VINCE**
-*(wheezing)*
+**VINCE**  
 I shot Duane!
 
-They're still laughing as they stroll on down the hallway, pointing back at him. Vince's sock catches a string stretched across the floor at ankle height.
+They keep laughing and walk off down the hall, pointing back at him. Vince's foot catches a string stretched across the floor.
 
-**TWANG.**
+TWANG.
 
-The laughing stops.
+They stop laughing.
 
-The hall closet door BANGS open. A rack of combat knives fires down the hallway.
+The hall closet door bangs open and a rack of knives fires out.
 
-**THUNK. THUNK. THUNK-THUNK-THUNK.**
+THUNK THUNK THUNK THUNK THUNK.
 
-The knives pin Marco flat against the wall in a perfect outline of his body, like a circus knife act. Not a scratch on him. The last knife takes its time. **THUNK.** It lands right between his legs.
+Marco's pinned flat to the wall with knives all the way around him in a perfect outline. He doesn't have a scratch on him.
 
-Marco looks down. His voice comes out an octave higher.
+One more. THUNK. Right between his legs.
 
-**MARCO**
+Marco looks down. When he talks, his voice is an octave higher.
+
+**MARCO**  
 ...That was almost my dick.
 
-Vince looks down at his gun hand. There's a knife stuck in it. The gun clatters to the floor. He stares at the knife. Then he SCREAMS.
+Vince looks down at his gun hand. There's a knife sticking out of it. The gun hits the floor.
 
-**VINCE**
+**VINCE**  
 MOTHERFUUUUUCKER!!!
 
-On the floor, Duane stops crying. He looks up at the other two. And he starts laughing through his tears.
+On the floor, Duane stops crying. He looks at the two of them and starts laughing.
 
-**DUANE**
-Not so funny now, is it, you assholes?!
+**DUANE**  
+Not so funny now, is it, assholes?!
 
-The swear-jar truck putters down the hallway. Without stopping, its little claw snatches all three wallets, one after another.
+The swear jar truck putters down the hall without stopping. The claw grabs all three wallets on the way past.
 
-**BRAYDEN (V.O.)**
+**BRAYDEN (V.O.)**  
 That's a lot of swears. Wallets.
 
 ---
 
-### 8. INT. BRAYDEN'S ROOM, LATER: THE TEA PARTY  `2:37`
+**8. INT. BRAYDEN'S ROOM - LATER**
 
-The Wiggly Worm Song plays softly on loop. Forever.
+A kids' song plays on repeat: "Wiggle, wiggle, wiggly worm, wiggle all day long..."
 
-> ♪ *Wiggle, wiggle, wiggly worm, wiggle all day long...* ♪
+The three of them are squeezed onto tiny pink chairs around a tiny pink tea table, knees up by their chins, plastic princess tiaras on all three. Duane's leg is wrapped in pink princess Band-Aids. Vince's hand is a huge ball of bandages with a knife handle sticking out of it. Marco's clothes are cut to ribbons.
 
-Three wrecked criminals sit on tiny pink chairs around a tiny pink tea table with their knees up at their chins. Each wears a plastic princess tiara.
+Brayden sits at the head of the table in war paint and the helmet, one finger through the pin of a grenade.
 
-- Duane's leg is wrapped in pink princess bandages.
-- Vince's hand is a giant wad of bandage with a knife handle still sticking out of it, and he's still gently smoking.
-- Marco's clothes are full of knife slits.
-
-Brayden presides from a booster seat in war paint and the giant helmet. His finger is hooked through the pin of a grenade.
-
-**BRAYDEN**
+**BRAYDEN**  
 More tea, Mister Duane?
 
-**DUANE**
-*(trembling)*
+**DUANE**  
 Yes, please.
 
-Brayden stops pouring. Waits.
+Brayden stops pouring.
 
-**BRAYDEN**
-"Yes please, *your majesty.*"
+**BRAYDEN**  
+"Yes please, your majesty."
 
-**DUANE**
+**DUANE**  
 Yes please, your majesty.
 
-Marco lifts his tiny cup and sniffs it. Frowns.
+Marco sniffs his tiny cup.
 
-**MARCO**
-*(still an octave up)*
+**MARCO**  
+*(still an octave up)*  
 This isn't fucking apple juice.
 
-**BRAYDEN**
-*(grinning)*
+**BRAYDEN**  
 I never said it was apple.
 
-Beat. All three slowly lower their cups to the table in perfect sync. *Clink. Clink. Clink.*
+All three put their cups down. Very slowly.
 
-**VINCE**
-*(whispering out of the corner of his mouth)*
+**VINCE**  
+*(out of the side of his mouth)*  
 On three, we run. One... two...
 
 Brayden's finger tightens on the pin.
 
-**BRAYDEN**
+**BRAYDEN**  
 Vince.
 
-**VINCE**
-*(lifting his cup with his good hand, huge fake smile)*
+Vince picks his cup back up and gives a big smile.
+
+**VINCE**  
 ...Lovely tea.
 
 ---
 
-### 9. INT. LIVING ROOM, FRONT DOOR, LATER: THE DEAL  `2:56`
+**9. INT. LIVING ROOM - LATER**
 
-The crew tumbles down the stairs in a panicked, tiara-wearing pile and hits the front door. It has a childproof cover too. Marco yanks. Duane yanks. It spins and spins.
+The three of them come tumbling down the stairs in their tiaras and pile into the front door. It has a childproof cover. Marco yanks on it. Duane yanks on it. It just spins.
 
-**DUANE**
+**DUANE**  
 It's got one TOO! What the FUCK!
 
-They rush the couch. Duane gently shakes Glenn.
+They run to the couch. Duane shakes Glenn, gently.
 
-**VINCE**
+**VINCE**  
 Sir. Sir! Wake the fuck up. We're robbing you.
 
-Glenn lifts one corner of his sleep mask. One wide, unblinking eye checks his wristwatch.
+Glenn lifts one corner of the sleep mask and checks his watch.
 
-**GLENN**
+**GLENN**  
 Twelve minutes. I said fifteen.
 
-They dump everything at his feet: a laptop, a TV remote, Glenn's own medals, and a family-size bag of dinosaur nuggets.
+They dump everything at his feet: a laptop, the TV remote, Glenn's medals, a family-size bag of dino nuggets.
 
-**MARCO**
+**MARCO**  
 We're giving it all back.
 
-**VINCE**
+**VINCE**  
 Your kid is a fucking psycho!
 
-Glenn's eyes narrow. Deeply offended.
+Glenn looks genuinely hurt.
 
-**GLENN**
-*(flat)*
+**GLENN**  
 He's an angel.
 
-**VINCE**
+**VINCE**  
 We'll pay you! Just open the goddamn door!
 
-All three pat their pockets. No wallets. Slowly, they turn toward the stairs.
+They pat their pockets. No wallets. They turn around.
 
-Brayden sits on the bottom step, hugging the swear jar. It's stuffed with cash and three wallets.
+Brayden's sitting on the bottom step hugging the swear jar. It's packed with cash and three wallets.
 
-**BRAYDEN**
+**BRAYDEN**  
 Swear jar.
 
-Glenn looks at his son and beams with pride. See? An angel. He walks to the front door and pops the childproof cover with one precise, military flick. He swings the door open to bright daylight.
+Glenn smiles at him like he just won the spelling bee. Then he gets up, pops the childproof cover off the doorknob with one flick, and opens the door.
 
-**GLENN**
+**GLENN**  
 Thanks for stopping by.
 
-As the crew bolts for the door, the grenade comes bouncing across the floor after them. *Clonk. Clonk. Clonk.*
+They run for it. The grenade comes bouncing across the floor after them. Clonk. Clonk. Clonk.
 
-They SCREAM and dive out the door in a heap.
+They scream and dive out the door.
 
-Glenn picks up the grenade and turns it over in his hand. Unbothered.
+Glenn picks up the grenade and looks at it.
 
-**GLENN**
+**GLENN**  
 ...Paperweight.
 
 ---
 
-### 10. EXT. KOWALSKI HOUSE, FRONT YARD, DAY  `3:28`
+**10. EXT. KOWALSKI HOUSE - FRONT YARD - DAY**
 
-The crew staggers out into the sun, bandaged, limping, slashed, smoking, and wearing tiaras. A police cruiser is parked at the curb, lights flashing. **OFFICER DALE** (50s, walrus mustache) leans on the hood, eating a donut.
+The three of them stagger out into the sun: bandages, limps, smoke, tiaras.
 
-The crew limp-sprints to him and thrusts out their wrists.
+A police cruiser is parked at the curb with its lights going. OFFICER DALE (50s, big mustache) leans on the hood eating a donut.
 
-**VINCE**
+They run straight to him and hold out their wrists.
+
+**VINCE**  
 Arrest us. Please. Somewhere with walls.
 
-**DUANE**
-*(sobbing)*
+**DUANE**  
+*(crying)*  
 And no fucking kids.
 
-Dale cuffs them without urgency and glances up at the house.
+Dale cuffs them, taking his time. He looks up at the house.
 
-**OFFICER DALE**
+**DALE**  
 Kowalski house?
 
-They nod, traumatized.
+They nod.
 
-**OFFICER DALE**
-*(sighs through his mustache)*
+**DALE**  
 ...Third crew this month.
 
 ---
 
-### 11. INT. LIVING ROOM, CONTINUOUS  `3:41`
+**11. INT. LIVING ROOM - CONTINUOUS**
 
-Glenn and Brayden stand at the window, lit by red and blue light, watching the cruiser pull away. Without looking, Glenn holds out a fist. Without looking, Brayden bumps it.
+Glenn and Brayden stand at the window with red and blue lights on their faces, watching the cruiser pull away. Glenn holds his fist out without looking. Brayden bumps it without looking.
 
-**GLENN**
+**GLENN**  
 Good work, soldier.
 
 Brayden salutes. The helmet slides down over his eyes.
 
-He dumps the swear jar out on the rug and licks his thumb to count.
+LATER - Brayden's on the rug with the jar dumped out, licking his thumb, counting.
 
-**BRAYDEN**
+**BRAYDEN**  
 Four hundred and twelve dollars.
 
-**GLENN**
+**GLENN**  
 Daddy gets half.
 
-Brayden's head turns. Slowly. He stares, unblinking.
+Brayden turns his head and just stares at him.
 
-**GLENN**
+**GLENN**  
 ...Daddy gets nuggets.
 
-Glenn sits at his laptop, opens the neighborhood app, and hunt-and-pecks a new post: *"Out of town all weekend. Back door's a little sticky 🙂"*
+Glenn's at his laptop on the neighborhood app, typing with two fingers: "Out of town all weekend. Back door's a little sticky 🙂"
 
-Brayden climbs onto his shoulder like a tiny general.
+Brayden climbs up on his shoulder to read it.
 
-**BRAYDEN**
+**BRAYDEN**  
 Say we have a boat.
 
-**GLENN**
+**GLENN**  
 We don't have a boat.
 
-Brayden turns and looks straight into the camera. Grins, ear to ear.
+Brayden looks right at the camera. Big grin.
 
-**BRAYDEN**
+**BRAYDEN**  
 Not yet.
 
 SMASH TO BLACK.
 
-> ♪ *WIGGLE, WIGGLE, WIGGLY WORM...* ♪ (key change)
+The wiggly worm song comes back in, one key higher.
 
 ROLL CREDITS.
 
-**THE END**
+THE END

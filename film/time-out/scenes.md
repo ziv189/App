@@ -29,16 +29,16 @@
 - **Audio:** Birdsong, sprinkler ticking, a distant lawnmower. Light sitcom acoustic guitar.
 - **Post:** Van lettering "VINCE'S PRESTIGE CARPET CARE: ASK FOR VINCE!" plus a phone number.
 
-### 1.2 · `0:04` · 6s · Medium three-shot, inside the van
+### 1.2 · `0:04` · 7s · Medium three-shot, inside the van
 - **Image:** Inside a cramped, messy white van. VINCE is turned backward in the driver's seat, proudly holding up a laminated plan with photos paper-clipped to it. MARCO slouches in the passenger seat exhaling a cloud of vape smoke, bored. DUANE fills the entire back bench, eating gummy bears from a bag. Fast-food wrappers on the dashboard, warm sunlight through a dusty windshield.
-- **Motion:** Vince raises the plan dramatically. Marco exhales vapor and rolls his eyes. Vince glances at Duane. Duane gives a small, hurt wave. Static camera.
-- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE: "Gentlemen *and Duane.*" / DUANE: "...Hey. What the fuck, Vince?"
+- **Motion:** Vince raises the plan dramatically. Marco rolls his eyes, then twists around in his seat and blows a huge cloud of vape straight into Duane's face. Duane coughs and waves it away. Marco turns back around like nothing happened. Static camera.
+- **Dialogue:** VINCE: "Gentlemen." / MARCO: "Wow." / VINCE: "Gentlemen and Duane." / DUANE: "...Hey." / *(Marco blows vape in his face)* / DUANE *(coughing)*: "What the fuck, Marco?"
 - **Audio:** M1 heist jazz kicks in.
 
-### 1.3 · `0:10` · 8s · Over-the-shoulder, Vince and Marco
+### 1.3 · `0:11` · 7s · Over-the-shoulder, Vince and Marco
 - **Image:** Over-the-shoulder shot from behind MARCO toward VINCE, who is holding up a smartphone showing a social-media post and grinning with self-satisfaction.
 - **Motion:** Vince taps the screen and holds it out. Marco leans in and squints at it. Vince waves the concern away with a flick of his hand.
-- **Dialogue:** VINCE: "Kowalski house. Single dad. Dumbass posts his nap schedule online. Saturdays, two to four." / MARCO: "Says here he's ex-army." / VINCE: "*Was.* Now he drives a fucking minivan."
+- **Dialogue:** VINCE: "Kowalski house. Single dad. Dumbass posts his nap schedule online. Saturdays, two to four." / MARCO: "Says he's ex-army." / VINCE: "*Was.* Now he drives a fucking minivan."
 - **Post:** Phone screen reads "Me + the little guy nap Sat 2–4. Pray for me 🙏"
 
 ### 1.4 · `0:18` · 3s · Close-up, Duane
@@ -49,7 +49,7 @@
 ### 1.5 · `0:21` · 4s · Close-up, Vince
 - **Image:** Close-up of VINCE looking smug, holding a pair of gold aviator sunglasses.
 - **Motion:** Vince slides the aviators on and smirks with his buck teeth. Light glints off his gold chain.
-- **Dialogue:** VINCE: "It's a four-year-old, Duane. What the fuck's he gonna do, cry at us?"
+- **Dialogue:** VINCE: "He's four, Duane. What the fuck's he gonna do, cry at us?"
 
 ### 1.6 · `0:25` · 4s · Exterior, upstairs window
 - **Image:** Exterior of an upstairs window on the beige house, frilly curtains parted a crack. BRAYDEN (regular look, no war paint yet) peers out through bright red plastic toy binoculars.
@@ -75,12 +75,12 @@
 ### 2.2 · `0:35` · 4s · Medium
 - **Image:** BRAYDEN stands on the coffee table in front of the couch, a chewed crayon in his mouth, eye level with GLENN and scowling at him from under heavy eyebrows.
 - **Motion:** Brayden spits the crayon into Glenn's coffee mug and stomps his foot on the table. Glenn's head turns slowly toward him.
-- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. NOW."
+- **Dialogue:** BRAYDEN *(bratty, demanding)*: "Daddy. Nap time. Now."
 
 ### 2.3 · `0:39` · 4s · Close-up, Glenn
 - **Image:** Close-up of GLENN, wide unblinking eyes, his grin frozen in place, a crayon floating in the coffee mug he's holding.
 - **Motion:** Glenn's wide eyes slowly fill with proud, happy tears. The grin doesn't move at all.
-- **Dialogue:** GLENN *(flat, but deeply touched)*: "You want Daddy to take a nap?" *(beat)* "You never ask for nap time."
+- **Dialogue:** GLENN *(flat, but touched)*: "You want Daddy to take a nap?" *(beat)* "You never want me to take a nap."
 
 ### 2.4 · `0:43` · 3s · Close-up, Brayden
 - **Image:** Close-up of BRAYDEN with an enormous ear-to-ear grin full of jagged teeth, his eyes darting sideways, very obviously lying.
@@ -152,7 +152,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 4.1 · `1:15` · 6s · Medium wide, back door
 - **Image:** Sunny suburban backyard with a plastic kiddie pool and a sandbox. VINCE, MARCO and DUANE crouch-walk single file toward the back door in exaggerated cartoon sneaking poses. Duane is at the back, way too big to hide.
 - **Motion:** Marco kneels and picks the lock in two seconds. The door clicks open. Vince raises one finger like a professor and points down at their shoes. Marco and Duane sigh and kick their sneakers off onto the doormat.
-- **Dialogue:** VINCE: "Shoes off. Professionals leave no footprints."
+- **Dialogue:** VINCE: "Shoes off. Professionals don't leave footprints."
 - **Audio:** M1 tiptoe pizzicato. Lock click.
 - **Continuity:** All three thieves are in socks from here on.
 
@@ -165,7 +165,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 4.3 · `1:25` · 5s · Medium
 - **Image:** VINCE waving a dismissive hand at the baby monitor on the counter, forcing a confident grin. DUANE cowers behind MARCO.
 - **Motion:** Vince waves it off. The monitor's lights blink in time with a voice. Vince's grin freezes on his face.
-- **Dialogue:** VINCE: "Relax. It's a baby monitor. Probably a recording." / BRAYDEN *(V.O.)*: "It's not a recording, Vince."
+- **Dialogue:** VINCE: "Relax. It's a baby monitor. It's probably a recording." / BRAYDEN *(V.O.)*: "It's not a recording, Vince."
 
 ### 4.4 · `1:30` · 4s · Two-shot
 - **Image:** Two-shot of VINCE and MARCO in the dim kitchen. Vince looks horrified. Marco looks at him with total contempt.
@@ -191,7 +191,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 5.3 · `1:42` · 5s · Low angle along the floor
 - **Image:** Low angle along the floor: a red remote-control monster truck with a big plastic jar duct-taped to its back and a little grabber claw on its front rolls out of the shadows. DUANE lies on the spikes in the background, crying.
 - **Motion:** The truck putters to a stop beside Duane's face and waits. Duane sniffles and feeds five crumpled dollar bills into the jar, one at a time. The truck reverses away.
-- **Dialogue:** BRAYDEN *(V.O.)*: "Ooooh. That's five swears. That's five dollars."
+- **Dialogue:** BRAYDEN *(V.O.)*: "Ooooh. That's five swears. Five dollars."
 - **Audio:** M2 music box, briefly.
 - **Post:** Jar label "SWEAR JAR" in crayon.
 
@@ -202,7 +202,7 @@ A fast 80s action-movie montage. Cut hard on the beats of **M5 "Suit Up."** Most
 ### 6.1 · `1:47` · 4s · Medium
 - **Image:** A small wood-paneled den with a baby gate across the doorway. VINCE crouches in front of a little black safe on the floor, rubbing his hands together greedily.
 - **Motion:** Vince rubs his hands, grins, and grabs the safe handle.
-- **Dialogue:** VINCE: "Army guy. Bet he's got gold bars."
+- **Dialogue:** VINCE: "Army guy. Bet he's got gold bars in there."
 - **Post:** A crayon sign taped to the safe: "DADDY'S MONEY".
 
 ### 6.2 · `1:51` · 2s · Wide, impact
@@ -285,7 +285,7 @@ The big set piece. In the dark section, **the darkness does the work**: you see 
 ### 7.12 · `2:32` · 5s · Low angle from the floor
 - **Image:** Low angle from the floor: DUANE lying on his back in the foreground, tears on his face. MARCO is pinned to the wall and VINCE is clutching his hand in the background. The red RC swear-jar truck is rolling into frame.
 - **Motion:** Duane stops crying and starts laughing through his tears, pointing at the other two. The truck putters past without stopping, and its little claw snatches three wallets one after another: Duane's, Marco's, Vince's.
-- **Dialogue:** DUANE *(laughing through tears)*: "Not so funny now, is it, you assholes?!" / BRAYDEN *(V.O.)*: "That's a lot of swears. Wallets."
+- **Dialogue:** DUANE *(laughing through tears)*: "Not so funny now, is it, assholes?!" / BRAYDEN *(V.O.)*: "That's a lot of swears. Wallets."
 
 ---
 
