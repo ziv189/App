@@ -1,0 +1,164 @@
+SCENE CONTEXT & STYLE
+
+What happens: Straight after the kitchen, DUANE tiptoes first into the long, dim downstairs hallway of the beige house, in his white tube socks. He doesn't see that the bare wooden floor is covered from wall to wall in small four-pointed steel caltrops. In slow motion, his socked foot comes down on one. His face goes through a slow series of expressions without a sound. Then he starts hopping on one foot down the hallway, and every hop lands on another caltrop, with one bleeped yell for each. He loses his balance and falls flat on his back, right on top of the rest of them. A red remote-control monster truck rolls out of the dark den doorway with a big plastic jar duct-taped to its back and a grabber claw on its front, and stops next to his face. BRAYDEN's voice comes from somewhere in the dark, counting his yells and charging him five dollars. Duane, crying, pulls five crumpled bills out of his fanny pack and feeds them into the jar one at a time. The truck backs away into the dark.
+
+Continuity: Duane is in his white tube socks, with no shoes. Vince and Marco are still back in the kitchen and are not seen in this clip. Brayden is never seen: his voice comes from somewhere off-screen in the dark, and the truck is driven by remote control from off-screen.
+
+Tone and pace: slapstick played completely straight, in a dry comedy. The slow-motion first step and Duane's silent face are long and quiet. The hopping and yelling are fast and rhythmic, one crunch and one beep per hop. Brayden's line and Duane paying up are slow, sad and dry.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, beard and wood textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: the dim honey-colored hallway, steel-grey caltrops, Duane's white socks, and the red truck as the accent.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. Duane is designed like a cartoon but moves like a real, very large man, with real weight. The pain is cartoon slapstick: big and funny, never graphic. His face changes slowly and clearly, not in a rubbery way. His hops are real one-footed hops with weight behind them. No bouncing, no rubbery faces, no stretching. Every movement is described exactly, including which hand or foot does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, five shots joined by four hard cuts. Shot 1 is in slow motion, and it is the only slow-motion shot. All the other shots are real-time at 24 fps. No speed ramps inside a shot, no freeze frames.
+
+Lighting: the hallway is dim in the middle of a sunny afternoon. The ceiling light is off. Soft daylight leaks in from the kitchen doorway at the far end and from the den doorway on the right, so the hallway is mostly in shadow, with warm highlights on the floor. The steel points of the caltrops catch small glints. The truck's red paint catches the light when it rolls out. The light is fixed to the world, not to the characters. No flicker, no color shift.
+
+Physics: real weight and gravity. Each caltrop always has one point sticking straight up. When Duane steps on one, it stays in place under his sock. His hops have real weight, and each landing makes the floor thud and the nearby caltrops jump and rattle. When he falls, he goes down backward in one heavy movement onto the floor, and the caltrops around him scatter and clatter. The truck is a toy with real weight: it rolls on its knobby tires, stops with a small rock, and backs up in a straight line. The bills are soft, crumpled paper and drop into the jar. Nothing graphic is ever shown. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: in the slow-motion shot, a low, slowed-down hush, then one loud, sharp CRUNCH as the foot lands; silence while Duane's face changes; one CRUNCH under each hop, each with his yell and a censor beep; a heavy thud and a scattering metallic clatter as he lands on his back; the thin electric whine of the truck's motor and its tires on wood; Brayden's voice from off-screen, echoing slightly down the hallway; Duane sniffling; the zip of his fanny pack; five soft rustles of paper going into the jar; the motor whining in reverse as the truck backs away. Five words are covered by a TV censor beep. Wherever a line says [BLEEP] or [BLEEEEP], a short, clean censor beep plays instead of that word ([BLEEEEP] is longer), and Duane's mouth keeps moving under it. The beeps are the only sounds that don't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = DUANE, a man in his 30s. A huge, soft-hearted, sensitive guy, the one everyone picks on, and today the one who walks into everything first. Voice: a deep, soft, warm bass, gentle and hesitant. When he yells in pain, it cracks into high, strained yelps. When he cries, it wobbles. Face, beard, body and clothes, including his fanny pack, 100% match <<<image_1>>>. In this clip he wears white tube socks and no shoes.
+
+<<<image_2>>> = the downstairs hallway. The long, narrow hallway, the honey-colored wooden floor, the tilted family photos, the den doorway on the right side with a white plastic gate across it, and the glowing kitchen doorway at the far end 100% match <<<image_2>>>. In this clip, the floor is covered from wall to wall in caltrops.
+
+BRAYDEN is never seen. His voice comes from somewhere in the dark off-screen: high and raspy, here first in a fake-shocked sing-song "Ooooh," then smug and businesslike.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The caltrops: small four-pointed steel spikes, like oversized metal jacks, each about the size of a walnut, dull steel, always with one point straight up. Hundreds of them cover the floor.
+- The truck: one red remote-control monster truck, about the size of a shoebox, with four big black knobby tires. A big clear plastic jar with no lid is duct-taped upright to its back with silver tape, and a paper label on the jar is scribbled in red crayon with no readable words. A small grey plastic grabber claw sits on a short arm on the front bumper. It never becomes a real car, a robot or a toy with a face. No one is seen controlling it.
+- The bills: five crumpled green paper bills with no readable printing, taken out of Duane's fanny pack.
+
+Duane is the only person on screen in this clip.
+
+Hallway map, true in every shot: the hallway runs from the kitchen doorway at the far end to the living-room archway at the near end. The den doorway is on the right side, halfway down. Duane comes from the kitchen end and hops toward the living-room end, and then falls backward onto the floor, about halfway down, beside the den doorway.
+
+
+SHOT STRUCTURE
+
+The five shots at a glance:
+1. 0.0 to 3.0s: slow motion, floor level. His socked foot comes down on the first caltrop. Locked-off.
+2. 3.0 to 6.0s: close-up of Duane's face going through silent expressions. Slow push-in.
+3. 6.0 to 12.0s: medium-wide. He hops toward the camera, one beeped yell per caltrop, and falls flat on his back. Slow dolly back.
+4. 12.0 to 15.5s: floor level beside his head. The truck rolls out of the den doorway, and Brayden's voice charges him. Locked-off.
+5. 15.5 to 20.0s: high angle above Duane. He pays, five bills, and the truck backs away. Slow push-in.
+
+SHOT 1 (0.0 to 3.0s). SLOW MOTION, FLOOR LEVEL: THE FIRST STEP.
+Camera: on the floor of the hallway, about 4 inches up, about 2 feet from the spot where the foot will land. 85mm lens, about a 24-degree view. Locked-off. This shot is in slow motion.
+Frame: one caltrop sits sharp in the center of the frame on the dark wooden boards, its top point straight up, with more caltrops soft and out of focus around it and the warm glow of the kitchen doorway far behind.
+0.0 to 2.2s: In slow motion, Duane's big foot in a white tube sock comes down from the top of the frame toward the caltrop, heel first, slowly and gently, completely unaware.
+2.2 to 3.0s: The sock presses down onto the point of the caltrop. The sock dents around it. Hold.
+Light: a warm glint on the caltrop's top point; the sock glows softly white in the dim hallway.
+Last frame: Duane's white sock pressed down onto the caltrop.
+Avoid: anything graphic, the caltrop going through the sock, real-speed motion in this shot.
+
+HARD CUT
+
+SHOT 2 (3.0 to 6.0s). CLOSE-UP: SIX EXPRESSIONS.
+Camera: in front of Duane at his face height, about 4 feet away. 50mm lens, about a 40-degree view. A slow push-in, easing in and out. Real-time.
+Frame: Duane's (<<<image_1>>>) face and shoulders fill the frame, his head at about x 50% / y 34%, with the dim hallway soft behind him. He is standing on one foot, completely still, his weight on the caltrop.
+3.0 to 3.5s: His face is blank and calm. He hasn't felt it yet.
+3.5 to 4.2s: His eyebrows slowly rise in confusion.
+4.2 to 4.9s: His eyes widen as he realizes something is very wrong.
+4.9 to 5.5s: His face slowly scrunches up, eyes squeezing shut, as the pain arrives.
+5.5 to 6.0s: His mouth opens wide in a completely silent scream. No sound at all.
+Light: a soft warm edge of light from the kitchen doorway on one side of his face.
+Last frame: Duane's silent, wide-open scream, eyes squeezed shut.
+Avoid: any sound from Duane, his face stretching or bulging, him moving his body yet.
+
+HARD CUT
+
+SHOT 3 (6.0 to 12.0s). MEDIUM-WIDE: THE HOPS.
+Camera: in the hallway at the living-room end, at his waist height, looking down the hallway toward the kitchen doorway, matching <<<image_2>>>. 35mm lens, about a 54-degree view. A slow dolly backward as he hops toward it.
+Frame: the long hallway in one-point perspective, the floor covered in caltrops. Duane (<<<image_1>>>) stands near the kitchen end, filling much of the hallway's height, his head at about x 50% / y 26%.
+6.0 to 7.2s: He yanks his foot up and hops forward on his other foot, and it lands on a caltrop. CRUNCH. DUANE: "SON OF A [BLEEP]!"
+7.2 to 8.0s: He hops forward again, lands on another one. CRUNCH. DUANE: "[BLEEP]!"
+8.0 to 8.6s: Another hop, another one. CRUNCH. DUANE: "[BLEEP]!"
+8.6 to 9.2s: Another hop, another one. CRUNCH. DUANE: "[BLEEP]!"
+9.2 to 10.4s: One last hop lands on another one. CRUNCH. DUANE: "[BLEEEEP]!" His arms windmill as he loses his balance.
+10.4 to 11.4s: He falls backward in one heavy movement and lands flat on his back on the floor, halfway down the hallway beside the den doorway. Caltrops scatter and clatter around him.
+11.4 to 12.0s: He lies still on his back, arms spread, staring at the ceiling.
+Light: as he hops forward, he moves from the kitchen's warm backlight into the dimmer part of the hallway.
+Last frame: Duane flat on his back on the floor among the caltrops, staring up.
+Avoid: anything graphic, Duane hitting the walls or photos, Duane getting up, anyone else in the hallway.
+
+HARD CUT
+
+SHOT 4 (12.0 to 15.5s). FLOOR LEVEL: THE TRUCK.
+Camera: on the floor beside Duane's head, about 4 inches up, looking along the floor toward the den doorway on the right side of the hallway. 35mm lens, about a 54-degree view. Locked-off.
+Frame: the side of Duane's head and his teary face fill the left foreground, lying on the floor, his head at about x 22% / y 60%. The den doorway, with its white plastic gate, is soft and dark in the right background. Caltrops are scattered across the floor between them.
+12.0 to 13.2s: The red truck rolls out of the dark den doorway, under the gate, and drives straight along the floor toward Duane's head, its motor whining and its knobby tires rolling over the boards between the caltrops.
+13.2 to 13.6s: It stops right beside Duane's face and rocks once. The jar on its back and the claw on its front are both clearly in view.
+13.6 to 15.5s: BRAYDEN, off-screen, from somewhere in the dark: "Ooooh. That's five swears. Five dollars." Delivery: a fake-shocked, sing-song "Ooooh," then smug and businesslike. Duane turns his eyes toward the truck without moving his head.
+Light: the truck rolls out of the darkness into a warm patch of light from the kitchen, and its red paint lights up.
+Last frame: the truck parked beside Duane's teary face.
+Avoid: anyone seen controlling the truck, Brayden appearing, Duane's mouth moving during Brayden's line, the truck talking or having a face.
+
+HARD CUT
+
+SHOT 5 (15.5 to 20.0s). HIGH ANGLE: PAYING UP.
+Camera: above Duane, looking down at him at a steep angle, about 5 feet up. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: Duane (<<<image_1>>>) lies on his back among the caltrops, filling the frame from his head to his waist, his head at about x 40% / y 30%. The truck is parked beside his head at about x 64% / y 24%, with the open jar on its back facing up. His fanny pack is at his waist at the bottom of the frame.
+15.5 to 16.3s: Sniffling, with tears rolling from the corners of his eyes, Duane unzips his fanny pack with his right hand and pulls out a small wad of crumpled bills.
+16.3 to 18.8s: One at a time, he reaches up with his right hand and drops five crumpled bills into the jar on the truck's back. His chin trembles with each one.
+18.8 to 20.0s: The truck backs away in a straight line, out of the frame toward the den doorway, its motor whining. Duane lets his arm fall back to the floor and stares at the ceiling.
+Light: soft, dim light from above, and the warm glow from the kitchen across his chest.
+Last frame: Duane alone on his back among the caltrops, tears on his cheeks, staring up.
+Avoid: readable printing on the bills, the bills multiplying, the jar tipping or spilling, Duane getting up, anyone else appearing.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly five shots joined by exactly four hard cuts, at 3.0s, 6.0s, 12.0s and 15.5s.
+- Shot 1 is the only slow-motion shot; every other shot is real-time.
+- Duane is the only person on screen, and he matches <<<image_1>>> 100% in every shot, in white tube socks with no shoes.
+- Brayden is only a voice from off-screen. The truck moves by remote control, with nobody seen.
+- The floor stays covered with caltrops, each with one point straight up.
+- Exactly five bleeped yells in Shot 3, each one on its own hop and its own crunch.
+- Exactly five bills go into the jar in Shot 5.
+- Every movement happens with the hand or foot written, at the time written, and nothing extra is added.
+- The pain is cartoon slapstick only: nothing graphic and no damage.
+- The hallway matches <<<image_2>>> in every shot.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. DUANE: "SON OF A [BLEEP]!"
+  2. DUANE: "[BLEEP]!"
+  3. DUANE: "[BLEEP]!"
+  4. DUANE: "[BLEEP]!"
+  5. DUANE: "[BLEEEEP]!"
+  6. BRAYDEN, off-screen: "Ooooh. That's five swears. Five dollars."
+- [BLEEP] and [BLEEEEP] mean a censor beep tone plays in place of a word while Duane's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people. Vince, Marco and Brayden are never seen.
+- No ad-libs, extra lines or narration. Apart from his five yells, Duane only gasps, sniffles and whimpers. During Brayden's line, Duane's mouth stays closed.
+- No sound from Duane in Shot 2.
+- No squash and stretch, rubbery faces or bouncing.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere: the jar label, the bills and the photos stay unreadable. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands, feet and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none on faces or bodies. His face changes through clear expressions without stretching.
+2. Anticipation: the slow-motion foot coming down is the setup; each hop pushes off before it lands; his arms windmill before he falls.
+3. Staging: one clear action per shot: the step, the face, the hops, the truck, paying up.
+4. Straight ahead and pose to pose: each of the five expressions in Shot 2 is a clear held pose with a smooth change between them.
+5. Follow-through: the caltrops jump and rattle after each landing and scatter after the fall; the truck rocks once when it stops.
+6. Slow in and slow out: the slow-motion descent eases down; the dolly and the push-ins ease in and out.
+7. Arcs: his hops and his fall backward follow natural, heavy arcs.
+8. Secondary action: glints on the caltrops and the sniffles and the trembling chin while he pays, never pulling focus.
+9. Timing: slow and silent at the start, fast and rhythmic in the hops, slow and sad at the end.
+10. Exaggeration: kept to the slapstick itself. His face is expressive but never rubbery, and the comedy is the rhythm of crunch, yell, beep.
+11. Solid drawing: a huge man with real weight and consistent volume in every frame; five fingers.
+12. Appeal: a big, sweet guy having the worst day of his life. It's a comedy.
