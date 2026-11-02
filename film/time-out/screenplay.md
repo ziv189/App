@@ -1,6 +1,6 @@
 # TIME OUT
 
-*An adult animated short. Runtime about 4:00 with credits.*
+*An 18+ animated short. Runtime about 4:00 with credits.*
 
 **Written by:** ____________
 
