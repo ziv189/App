@@ -1,0 +1,151 @@
+SCENE CONTEXT & STYLE
+
+What happens: This continues straight on from the moment before, in the dim kitchen of the beige house. VINCE, MARCO and DUANE have just frozen mid-tiptoe because a voice said hi through the small white audio monitor on the counter. Vince decides it's nothing: he turns to the monitor, waves it off, and says it's probably just a recording. The monitor crackles, and BRAYDEN's voice answers him, by name. A long, silent pause. Vince slowly turns to Marco and asks how the voice knows his name. Marco doesn't answer right away. He takes out his pen gadget, breathes in through it, turns, and breathes a thick white cloud right into Vince's face. Then he points out, flatly, that Vince's name is painted on the side of their van. Through all of it, Duane keeps clinging to Marco's arm.
+
+Continuity from the previous clip, true from the first frame: the three stand in single file in the middle of the kitchen floor, in their socks (Vince black socks with gold toes, Marco black socks, Duane white tube socks), with one foot still raised from the freeze. Duane's right hand grips Marco's left upper arm. Marco's pen gadget is tucked in his vest pocket. Brayden is never seen; his voice only comes out of the monitor's speaker.
+
+Tone and pace: a dry, deadpan comedy. Slow and relaxed, with real pauses after every line. The long pause after the voice says Vince's name is the biggest beat: let it sit. Marco's answer is the flattest, slowest thing in the clip.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: a dim kitchen in cool shadow, pale yellow walls, a checkered floor, warm slivers of sunlight, and the monitor's three small green lights as the accent.
+
+Camera language: real lenses between 35mm and 85mm, eye level, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. Vince goes from confident to quietly rattled; his smile freezes rather than drops. Marco barely moves except for the pen gadget. Duane stays scared and still, holding on. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, four shots joined by three hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: the kitchen is dim and quiet in the middle of a sunny afternoon. Every blind is shut, so thin slivers of warm sunlight leak through the slats and lie across the floor, the counter and the three of them. The monitor's three small green lights are the brightest points in the room. When Marco's cloud rolls through a sliver of sunlight, it lights up warm. The light is fixed to the world, not to the characters: when they move, the slivers of light slide across them. No flicker, no color shift.
+
+Physics: real weight and timing. They set their raised feet down softly. The monitor's lights flicker with the static and pulse in time with the voice. Marco's cloud is thick white mist that comes out of his mouth only when he breathes out: it flows forward in a soft billow, wraps around Vince's head, hangs in the air, then drifts and thins over a few seconds. It never vanishes instantly and it never comes out of the pen. Duane's grip stays closed on Marco's sleeve the whole time. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: the quiet hum of the fridge; Vince's voice; a crackle of static from the monitor; Brayden's voice through a small, tinny speaker; a long silence with only the fridge humming; Vince's voice with one censor beep; the soft rustle of Marco's vest pocket; a slow breath in; a long, soft breath out; one small cough from Vince; Marco's voice with one censor beep. Two words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beeps are the only sounds that don't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug, overconfident and theatrical, until something rattles him. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie. When he's rattled, it goes quieter and higher. Face, hair, body, clothes and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. He would rather breathe a cloud in your face than argue with you. Voice: a low, flat baritone with heavy vocal fry, close to a mumble, slow and monotone; he barely moves his mouth when he talks. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted guy, nervous and sensitive, scared stiff right now. He doesn't speak in this clip. Face, beard, body and clothes 100% match <<<image_3>>>.
+
+<<<image_4>>> = the kitchen. The cabinets and counter along the back wall, the shut blinds, the back door on the left wall, the fridge on the right, the small round table and the checkered floor 100% match <<<image_4>>>.
+
+BRAYDEN is never seen. His voice comes only out of the monitor's speaker: high and raspy, here calm, flat and quietly amused, slightly tinny and crackly through the small speaker.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The audio monitor: one small white plastic monitor standing on the counter, with a speaker grille and three small green lights on the front. It has no screen. It never becomes a phone, a radio or a camera.
+- Marco's pen gadget, from <<<image_2>>>: a slim pen with a mouthpiece at one end. He only ever breathes in through it. The pen itself never puffs, sprays or gives off any mist.
+
+Only three people are on screen in this clip: Vince, Marco and Duane.
+
+Kitchen map, true in every shot: the counter with the monitor runs along the back wall. The three stand in single file in the middle of the floor. After Shot 1 they all face the counter: Vince in front, nearest the counter, Marco behind him, and Duane behind Marco, still gripping his arm.
+
+
+SHOT STRUCTURE
+
+The four shots at a glance:
+1. 0.0 to 4.5s: medium on Vince from beside the monitor. He turns to it and waves it off. Slow push-in.
+2. 4.5 to 7.5s: extreme close-up on the monitor. The voice answers, by name. Locked-off.
+3. 7.5 to 12.0s: close-up on Vince. A long silence, then he turns to Marco and asks. Slow push-in.
+4. 12.0 to 20.0s: medium two-shot in profile. Marco's cloud and his answer. Locked-off.
+
+SHOT 1 (0.0 to 4.5s). MEDIUM: "PROBABLY A RECORDING."
+Camera: on the counter beside the monitor, at standing eye height, looking out at the three, about 6 feet from Vince. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
+Frame: the white monitor sits soft and out of focus in the right foreground, its green lights glowing. Vince (<<<image_1>>>) is in the center, from the waist up, his head at about x 48% / y 32%. Marco (<<<image_2>>>) is behind him on the left, and Duane (<<<image_3>>>) towers behind Marco, gripping his arm.
+0.0 to 0.8s: Vince sets his raised foot down, lets out a breath, and turns to face the monitor. Behind him, Marco and Duane set their feet down too and stay still.
+0.8 to 1.2s: He waves his right hand at the monitor, brushing it off.
+1.2 to 3.8s: VINCE: "Relax. It's a baby monitor. It's probably a recording." Delivery: confident, quick and a bit too loud, trying to sound in charge.
+3.8 to 4.5s: Pause. He keeps a confident smirk aimed at the monitor.
+Light: a sliver of sunlight across Vince's chest; the green lights glow in the foreground.
+Last frame: Vince facing the monitor with a confident smirk; Marco and Duane still behind him.
+Avoid: anyone else speaking, Vince touching the monitor, Duane letting go of Marco.
+
+HARD CUT
+
+SHOT 2 (4.5 to 7.5s). EXTREME CLOSE-UP: THE ANSWER.
+Camera: on the counter, about 1 foot from the monitor, at its height. 85mm lens, about a 24-degree view. Locked-off.
+Frame: the small white monitor fills the center of the frame, its three green lights on the front. The counter edge and some plastic cups are soft behind it.
+4.5 to 5.0s: Silence. The lights glow steadily.
+5.0 to 5.3s: A short crackle of static. The lights flicker.
+5.3 to 7.0s: BRAYDEN, through the monitor: "It's not a recording, Vince." Delivery: calm, flat and quietly amused, tinny through the speaker. The green lights pulse in time with the words.
+7.0 to 7.5s: The lights settle. Silence.
+Light: the three green lights are the brightest thing in frame, glowing on the counter around them.
+Last frame: the monitor with three steady green lights.
+Avoid: a screen, a face or a picture on the monitor, the monitor moving, any people in frame.
+
+HARD CUT
+
+SHOT 3 (7.5 to 12.0s). CLOSE-UP: VINCE IS RATTLED.
+Camera: on the counter beside the monitor, at Vince's eye height, about 4 feet from him. 50mm lens, about a 40-degree view. A very slow push-in.
+Frame: Vince's head and shoulders, his face toward the camera at about x 50% / y 34%. Marco is soft and out of focus behind his left shoulder.
+7.5 to 9.0s: Long pause. Vince doesn't move. His confident smirk stays frozen in place while his eyes slowly widen. Nobody makes a sound; only the fridge hums.
+9.0 to 9.8s: Slowly, he turns his head over his left shoulder toward Marco, the frozen smile still on his face.
+9.8 to 11.6s: VINCE: "...How the [BLEEP] does he know my name?" Delivery: quiet and a bit higher than before, through the frozen smile. The beep covers one word while his mouth keeps moving.
+11.6 to 12.0s: Hold, his eyes on Marco.
+Light: a sliver of sunlight across his cheek and the side of his nose.
+Last frame: Vince looking back over his left shoulder at Marco, the smile frozen.
+Avoid: Vince shouting, Vince running, the monitor speaking again, anyone else moving.
+
+HARD CUT
+
+SHOT 4 (12.0 to 20.0s). MEDIUM TWO-SHOT IN PROFILE: THE ANSWER.
+Camera: at the side of the kitchen, at their eye height, about 7 feet away, seeing Vince and Marco in profile facing each other. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Vince is on the right of frame, turned to face left toward Marco, his head at about x 66% / y 34%. Marco is on the left of frame, facing right toward Vince, his head at about x 38% / y 32%. Duane towers behind Marco at the far left, his right hand still gripping Marco's left upper arm.
+12.0 to 12.6s: Marco's face stays completely flat. With his right hand, he takes the pen gadget out of his vest pocket.
+12.6 to 13.6s: He holds the mouthpiece of the pen gadget to his mouth and breathes in slowly through it for one full second. His chest rises a bit. His eyes stay half-closed. There is no mist anywhere yet.
+13.6 to 14.0s: He lowers the pen to his side and holds the breath, mouth closed.
+14.0 to 15.0s: He leans his face a few inches toward Vince's and breathes out, slow and steady: a thick white cloud flows out of Marco's mouth into Vince's face and rolls around his head. Nothing comes out of the pen. Vince squeezes his eyes shut and coughs once, quietly.
+15.0 to 18.2s: MARCO: "It's on the van, Vince. Your name is on the [BLEEP] van." Delivery: flat, low and slow, barely moving his mouth, with a short pause between the two sentences. The beep covers one word while his mouth keeps moving.
+18.2 to 20.0s: Hold. Vince stands in the thinning cloud, blinking. Marco looks at him, completely unbothered. Duane still clings to Marco's arm.
+Light: the cloud lights up warm where it rolls through a sliver of sunlight between them.
+Last frame: Vince blinking in the drifting cloud, Marco deadpan, Duane holding on.
+Avoid: the mist coming from the pen, Marco puffing on or into the pen, Vince speaking, Duane letting go, the cloud vanishing instantly.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly four shots joined by exactly three hard cuts, at 4.5s, 7.5s and 12.0s.
+- Only Vince, Marco and Duane are on screen, and all three match their reference images 100% in every shot. They stay in their socks.
+- Brayden is only a voice coming out of the monitor's speaker.
+- Duane's right hand grips Marco's left upper arm the whole clip.
+- Marco only breathes in through the pen gadget's mouthpiece, then breathes the cloud out of his own mouth. The pen never puffs or gives off mist by itself.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Vince's nasal tenor, Marco's low, flat mumble and Brayden's tinny voice through the speaker never swap.
+- The written pauses are kept, especially the long silence in Shot 3.
+- The kitchen matches <<<image_4>>> in every shot.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. VINCE: "Relax. It's a baby monitor. It's probably a recording."
+  2. BRAYDEN, through the monitor: "It's not a recording, Vince."
+  3. VINCE: "...How the [BLEEP] does he know my name?"
+  4. MARCO: "It's on the van, Vince. Your name is on the [BLEEP] van."
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people, and Brayden never appears.
+- No ad-libs, extra lines or narration. Duane says nothing. While Brayden's voice plays, nobody on screen moves his mouth.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: small and natural. A breath before Vince turns, a crackle before the voice, a breath in before Marco's cloud.
+3. Staging: one clear action per shot: the dismissal, the answer, the realization, the cloud.
+4. Straight ahead and pose to pose: continuous, natural motion; during the long pause, everyone simply holds still.
+5. Follow-through: subtle. The cloud keeps rolling and thinning after Marco stops breathing out, and Vince keeps blinking after it hits him.
+6. Slow in and slow out: Vince's head turn and Marco's lean ease in and out at human speed.
+7. Arcs: Vince's head turns on a smooth arc; the pen gadget travels on a short arc to Marco's mouth and back down.
+8. Secondary action: dust in the slivers of light and the hum of the fridge, never pulling focus.
+9. Timing: the long silence in Shot 3 is the biggest beat; Marco's answer is the slowest line.
+10. Exaggeration: minimal. The comedy is Vince's frozen smile and Marco's total flatness.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: three lovable idiots, one of them slightly less of an idiot. It's a comedy.
