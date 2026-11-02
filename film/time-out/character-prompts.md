@@ -6,7 +6,7 @@ There's one prompt per character. They all share the same **Style**, **Framing**
 
 1. **Use one image model for the whole cast** and keep the same settings every time: vertical 2:3, highest quality.
 2. **Attach the character's sketch** from `refs/` as the reference image, then paste their prompt.
-3. **Make Glenn first.** Once you have a Glenn you like, attach that image as a *second* reference for everyone else. Each prompt tells the model to copy only the style from it, not the character. This is what keeps the cast consistent.
+3. **Make Glenn first.** Once you have a Glenn you like (that's what "your finished Glenn image" means below), attach that image as a *second* reference for everyone else. Each prompt tells the model to copy only the style from it, not the character. This is what keeps the cast consistent.
 4. **Brayden needs two images.** Make the regular one first. For war mode, attach your finished regular Brayden instead of the sketch.
 5. **Officer Dale has no sketch.** Generate him from the prompt with just your Glenn image attached for style.
 6. **Make a few versions of each** and pick the one closest to the sketch. These become the reference images for every shot in `scenes.md`.

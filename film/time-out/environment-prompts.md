@@ -16,6 +16,8 @@ Every prompt follows this layout, so all the rooms agree with each other and wit
 
 ## How to use them
 
+None of these come with pictures. You make every image yourself in Higgsfield. Wherever this file says **"your living room image,"** it means the picture you make from prompt 4 (living room, couch side).
+
 1. **Make the living room (couch side) first.** Put it next to your character images. If the style doesn't match, make it again with your Glenn image attached. Each prompt says to copy only the style from an attached image, never its contents.
 2. **For every other set, attach that living room image for style,** with two exceptions:
    - The **living room (front door side)** gets the couch-side image, because it's the same room.
