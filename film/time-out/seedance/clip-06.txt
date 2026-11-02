@@ -1,0 +1,170 @@
+SCENE CONTEXT & STYLE
+
+What happens: The basement of the beige house, right after Brayden whispered "Company" upstairs. This is a gear-up montage in the style of an 80s action movie, played completely straight by BRAYDEN: six quick shots, each showing one single action. He pulls his dad's olive-green army footlocker out from under the basement stairs. He flips the latches and opens the lid, and a warm golden glow from inside lights up his face. He sits down with an old army field manual and studies it seriously, holding it upside down. He draws two stripes of black face paint under each eye. He drops his dad's oversized army helmet onto his head; it slides down over his face, and he shoves it back up. Finally he stands at the top of the basement stairs, backlit in the open doorway, cracks his neck, and delivers his action-hero line. We never see inside the footlocker, only its glow.
+
+Continuity: Glenn is asleep on the couch upstairs and is never seen in this clip. Brayden starts in his regular look (<<<image_1>>>) and ends in his mission look (<<<image_2>>>): the face paint goes on in Shot 4 and the helmet in Shot 5, and both stay on from then on.
+
+Tone and pace: a parody of an 80s action-movie gear-up montage, performed with total seriousness. The cutting is quick and snappy, one action per shot, but the acting inside each shot stays grounded and at real speed. The final shot is slower and heroic.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, metal, wood and concrete textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: grey concrete, off-white cinder block, raw wood, warm yellow bulb light, the olive-green footlocker and helmet, and the warm golden glow as the accent.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld. Shots 1 to 5 are at Brayden's eye level or close to it. Shot 6 is a low-angle hero shot, the only low angle in the clip.
+
+Acting and movement: grounded and natural. Brayden is designed like a cartoon but moves like a real actor, at real human speed, with subtle facial expressions. He takes every step of this seriously, like a soldier gearing up for a mission: deliberate, precise, focused. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, six shots joined by five hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: the dim, unfinished basement in the middle of a sunny afternoon. The main light is one bare bulb hanging from the middle of the ceiling, giving a warm yellow pool of light with hard shadows around it. A dusty shaft of daylight slants in through the small, high window. The door at the top of the stairs stands open, and the warm light of the living room behind it glows bright, which backlights Brayden in Shot 6. In Shots 2 and 3, a soft, warm golden glow rises from inside the open footlocker; it is the only extra light, and it only exists while the lid is open. Dust floats in the air. The light is fixed to the world, not to Brayden: when he moves, light and shadow slide across him. No flicker, no color shift.
+
+Physics: real weight, gravity and timing. The footlocker is heavy: Brayden has to lean back with his whole weight, and it moves in short tugs, scraping on the concrete and kicking up small puffs of dust. The latches snap open. The lid swings up on its hinges and stays standing open. The manual's soft pages flop over when turned. The face paint is a thick, matte black cream that leaves clean stripes. The helmet is heavy steel and far too big: it drops onto his head, slides down over his whole face to his chin, and when he pushes it up it wobbles once and settles tilted, sitting low on his forehead and resting on top of his ears, which stick out underneath the rim. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music: the montage music is added later in editing. Clean dialogue with accurate lip sync, plus only these sounds, in order: the footlocker scraping on concrete and Brayden's short effort breaths; two latch clacks and a lid creak; soft page turns; the small pop of a tin lid and a soft smear; a heavy metal clunk of the helmet and a muffled thump; two small neck pops; Brayden's line with one censor beep. Under everything: a quiet basement room tone, the low hum of the water heater and the faint buzz of the bulb.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = BRAYDEN in his regular look, used in Shots 1 to 4. A scheming brat who takes this mission completely seriously. Voice: high and raspy; for his one line he puts on a low, gravelly action-hero growl that is still clearly his own high, raspy voice. Face, hair, ears, teeth, body and clothes 100% match <<<image_1>>>.
+
+<<<image_2>>> = BRAYDEN in his mission look: the same character, showing exactly how the black face-paint stripes and the oversized army helmet look on him. Used for the finished stripes from the end of Shot 4 and the helmet from Shot 5 onward. His face, body and clothes are identical to <<<image_1>>>; the stripes and the helmet 100% match <<<image_2>>>.
+
+<<<image_3>>> = the basement. The wooden stairs, the door at the top, the footlocker under the stairs, the breaker box, the bare bulb, the boxes, the exercise bike, the water heater, the concrete floor, the cinder-block walls and the small high window 100% match <<<image_3>>>.
+
+Basement map, true in every shot: the wooden stairs come down along the left side of the room from the door at the top, which leads up to the living room. The footlocker sits under the stairs. The bare bulb hangs in the middle of the ceiling.
+
+Objects; each keeps exactly the same shape, size, material and color in every frame:
+- The footlocker, from <<<image_3>>>: an olive-green army footlocker with two metal latches, brass corner caps and a leather end handle. The white stencil area on the lid stays blank; the text is added in editing. It never becomes a treasure chest, a toy box, a suitcase or a coffin. Its inside is never shown.
+- The golden glow: a soft, warm golden light rising out of the open footlocker. Nothing flies out of it: no objects, sparkles or particles.
+- The field manual: one worn olive-drab army manual with a soft cover and pages of simple black line drawings, with no readable words.
+- The face paint: one small round tin of thick black face paint.
+- The helmet: his dad's full-size olive army helmet from <<<image_2>>>, far too big for him.
+
+Brayden is the only person in this clip.
+
+
+SHOT STRUCTURE
+
+The six shots at a glance:
+1. 0.0 to 3.5s: wide. Brayden pulls the footlocker out from under the stairs. Locked-off.
+2. 3.5 to 6.5s: medium close-up. Latches, lid, golden glow on his face. Slow push-in.
+3. 6.5 to 9.5s: medium. He studies the manual upside down. Locked-off.
+4. 9.5 to 12.0s: extreme close-up. Two stripes of face paint under each eye. Slow push-in.
+5. 12.0 to 15.0s: close-up. The helmet drops on, slides over his face, and gets pushed up. Locked-off.
+6. 15.0 to 20.0s: low-angle hero shot from the bottom of the stairs. The neck crack and his line. Slow push-in.
+
+SHOT 1 (0.0 to 3.5s). WIDE: THE FOOTLOCKER.
+Camera: in the far corner of the basement, low, about 2.5 feet off the floor, about 10 feet from the stairs. 35mm lens, about a 54-degree view. Locked-off.
+Frame: matching <<<image_3>>>. The wooden stairs come down from the upper left. The footlocker is tucked under the stairs at about x 38% / y 70%. The bare bulb hangs at the top center. Brayden (<<<image_1>>>) stands at the near end of the footlocker, gripping its leather handle with both hands, his head at about x 52% / y 52%.
+0.0 to 0.8s: Brayden plants his feet and leans back with his whole weight, both hands on the handle.
+0.8 to 2.8s: In three short, heavy tugs, he pulls the footlocker out from under the stairs into the pool of light under the bulb. It scrapes on the concrete, and small puffs of dust rise with each tug.
+2.8 to 3.5s: He lets go, straightens up, wipes his palms on his front, and looks down at the footlocker.
+Light: as the footlocker slides into the pool of bulb light, its olive paint and brass corners catch the warm light. The daylight shaft crosses the room behind him.
+Last frame: Brayden standing over the closed footlocker in the pool of light.
+Avoid: the lid opening yet, Brayden lifting the footlocker off the floor, anyone else in the basement.
+
+HARD CUT
+
+SHOT 2 (3.5 to 6.5s). MEDIUM CLOSE-UP: THE GLOW.
+Camera: on the far side of the footlocker, facing Brayden, at his face height as he kneels, about 3 feet from him. 50mm lens, about a 40-degree view. A slow push-in, easing in and out. The lid opens toward the camera, so once it's up it hides the inside of the footlocker from view.
+Frame: Brayden (<<<image_1>>>) kneels behind the footlocker facing the camera, his head at about x 50% / y 30%. The closed lid runs along the bottom of the frame, with its two latches at about x 36% and x 64%, y 84%.
+3.5 to 4.3s: With his thumbs he flips the two metal latches open, left, then right. Clack, clack.
+4.3 to 5.3s: With both hands he lifts the lid toward the camera until it stands upright, blocking our view of the inside. A warm golden glow rises from inside and lights his face from below.
+5.3 to 6.5s: He stares down into the footlocker, the glow on his face, and a slow, delighted grin spreads across his face. Hold.
+Light: the golden glow from below is the main light on his face. Behind him, the bulb puts a warm rim on his hair and ears.
+Last frame: Brayden's grinning face lit gold from below, the lid standing upright in front of the footlocker.
+Avoid: seeing inside the footlocker, anything flying out of it, the glow flickering or changing color.
+
+HARD CUT
+
+SHOT 3 (6.5 to 9.5s). MEDIUM: THE MANUAL.
+Camera: facing Brayden at his seated eye height, about 4 feet from him. 35mm lens, about a 54-degree view. Locked-off.
+Frame: Brayden (<<<image_1>>>) sits cross-legged on the concrete floor with his back against the side of the footlocker, its raised lid behind his head, the inside never in view. His head is at about x 50% / y 34%. He holds the open manual in both hands at chest height.
+6.5 to 7.3s: He studies the open manual very seriously, eyebrows lowered. The drawings on its pages are upside down from where he sits.
+7.3 to 8.5s: With his right hand he turns two pages, slowly, one at a time, nodding once at each, as if memorizing them.
+8.5 to 9.5s: He narrows his eyes at one page and gives one small, serious nod. Hold.
+Light: warm bulb light from above. A faint golden glow edges the top of the lid behind him.
+Last frame: Brayden holding the open manual upside down, mid-nod.
+Avoid: readable words or recognizable pictures on the pages, the manual being turned the right way up, the inside of the footlocker.
+
+HARD CUT
+
+SHOT 4 (9.5 to 12.0s). EXTREME CLOSE-UP: FACE PAINT.
+Camera: very close on Brayden's face at eye height, about 1.5 feet away. 85mm lens, about a 24-degree view. A slow push-in.
+Frame: from his eyebrows to his chin, eyes at about y 40%. His left hand holds the open tin of black face paint at the lower left edge of the frame, at about x 14% / y 86%.
+9.5 to 10.1s: He dips the first two fingers of his right hand into the tin.
+10.1 to 10.8s: He draws the two fingers slowly across his right cheek, just under his right eye, leaving two thick black stripes.
+10.8 to 11.5s: He dips again and does the same on his left cheek, under his left eye.
+11.5 to 12.0s: His eyes narrow. Hold. The stripes now match <<<image_2>>>.
+Light: warm bulb light from above. The paint has a flat, matte finish.
+Last frame: two black stripes under each eye, eyes narrowed.
+Avoid: paint anywhere else on his face, smudges spreading, more or fewer than two stripes per side.
+
+HARD CUT
+
+SHOT 5 (12.0 to 15.0s). CLOSE-UP: THE HELMET.
+Camera: facing Brayden at his face height, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Brayden's head and shoulders, the face-paint stripes on, his head at about x 50% / y 48%, with room above his head.
+12.0 to 12.6s: He lifts the oversized olive army helmet high above his head with both hands.
+12.6 to 13.2s: He drops it onto his head with a heavy clunk, and it slides straight down over his whole face to his chin.
+13.2 to 14.2s: With both hands he pushes it back up. It wobbles once and settles slightly tilted, low on his forehead, resting on top of his ears, which stick out under the rim. His look now matches <<<image_2>>> completely.
+14.2 to 15.0s: He stares straight ahead, deadly serious. Hold.
+Light: the helmet's rim throws a soft shadow across his eyebrows, and the bulb puts a highlight on the curve of the helmet.
+Last frame: Brayden in his full mission look, stripes and helmet on, ears sticking out.
+Avoid: the helmet changing shape, size or color, a chin strap appearing, the helmet floating, the stripes disappearing.
+
+HARD CUT
+
+SHOT 6 (15.0 to 20.0s). LOW-ANGLE HERO SHOT: THE LINE.
+Camera: at the bottom of the basement stairs, low, about 2 feet off the floor, looking up the stairs at the open doorway at the top, about 10 feet away. 35mm lens, about a 54-degree view. A slow push-in up toward him. This is the only low angle in the clip.
+Frame: the open doorway at the top of the stairs sits in the upper center of the frame, glowing warm. Brayden (<<<image_2>>>, mission look) stands in the doorway, his body at about x 50% / y 30%, his helmet and ears outlined by a bright rim of light. The stair treads lead up to him from the foreground.
+15.0 to 16.0s: He stands perfectly still in the doorway, feet apart, arms at his sides, facing down the stairs toward the camera. Dust floats in the light behind him.
+16.0 to 17.2s: He tilts his head slowly to the left until his neck pops, then slowly to the right until it pops again.
+17.2 to 18.5s: BRAYDEN: "Nap time, [BLEEP]." Delivery: a low, gravelly action-hero growl that's still clearly his high, raspy voice, slow and deadly serious. The beep covers the last word while his mouth keeps moving.
+18.5 to 20.0s: A slow, wicked grin. Hold. He doesn't blink.
+Light: strong warm backlight from the doorway behind him, with a soft, low fill from the basement bulb on his face, so the stripes, the grin and the jagged teeth stay readable.
+Last frame: Brayden backlit in the doorway in his full mission look, grinning down the stairs.
+Avoid: him coming down the stairs, his face going fully black, anything in his hands, the camera tilting or shaking.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly six shots joined by exactly five hard cuts, at 3.5s, 6.5s, 9.5s, 12.0s and 15.0s.
+- Brayden is the only person in this clip. He matches <<<image_1>>> before the paint and <<<image_2>>> once the stripes and the helmet are on.
+- The face-paint stripes stay exactly the same from the end of Shot 4 on, and the helmet stays on from Shot 5 on.
+- The inside of the footlocker is never shown; only its golden glow is seen.
+- His hands only ever hold the things written: the handle, the latches and lid, the manual, the paint tin and the helmet. In Shot 6 his hands are empty.
+- Grounded movement at real human speed. The quick rhythm comes from the cutting, not from fast acting.
+- Diegetic sound only, plus the one censor beep.
+- The basement matches <<<image_3>>> in every shot.
+
+Exact dialogue (this line, by this speaker, word for word, and nothing else):
+  1. BRAYDEN: "Nap time, [BLEEP]."
+- [BLEEP] means a censor beep tone plays in place of a word while his mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people. Glenn is never seen.
+- Nothing else ever comes out of the footlocker, and nothing appears in Brayden's hands except the objects written.
+- No ad-libs, extra lines or narration. Only effort breaths and his one line come from Brayden.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text: the footlocker lid, the manual and the paint tin stay blank or unreadable. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: his face, hands and the props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: almost none. His face and body keep their shape; even the helmet sliding over his face is a rigid object moving, not a stretch.
+2. Anticipation: small and natural. He plants his feet before he pulls, lifts the helmet high before he drops it, and stands still before the neck crack.
+3. Staging: one clear action per shot: the pull, the glow, the manual, the paint, the helmet, the line.
+4. Straight ahead and pose to pose: continuous, natural motion with no snapping into poses; each shot ends on a clean, held pose.
+5. Follow-through: subtle. Dust settles after each tug, the lid settles on its hinges, the helmet wobbles once and settles.
+6. Slow in and slow out: every move eases at human speed; the neck tilts are slow and deliberate.
+7. Arcs: the lid swings up on a clean arc, his fingers draw the paint in smooth arcs, and the helmet comes down on a straight, heavy drop.
+8. Secondary action: dust in the bulb light and the daylight shaft, and the faint hum of the basement, never pulling focus.
+9. Timing: quick cuts, but real-speed acting inside each shot; the final hero shot is the slowest.
+10. Exaggeration: minimal. The comedy is his total seriousness: an action-movie gear-up done by Brayden in a basement.
+11. Solid drawing: consistent anatomy and volume in every frame; the footlocker, manual, tin and helmet stay solid; five fingers.
+12. Appeal: a funny, charismatic schemer who believes he's an action hero. It's a comedy.
