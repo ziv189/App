@@ -17,7 +17,7 @@ All eight share one film bible (`_shared/film-bible.md`): the story, style lock,
 | Video prompts | `ill-catch-you-shots` | "video prompt for 4-2" |
 | Review (asset manager) | `ill-catch-you-asset-review` | share an image or take and ask "good?" |
 
-Style frames (SF1 to SF5) come first. Ask the characters skill for SF2 and SF3, and the environments skill for SF1, SF4 and SF5.
+Style frames (SF1 to SF5) come first: the environments skill writes SF1 and SF5 (the sky), and the characters skill writes SF2, SF3 and SF4 (people in a place).
 
 ## Install
 

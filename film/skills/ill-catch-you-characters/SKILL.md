@@ -1,6 +1,6 @@
 ---
 name: ill-catch-you-characters
-description: Writes Higgsfield-ready image prompts for every character asset in the animated short I'll Catch You (Picasso-style cubist characters in a Van Gogh-style world, no dialogue) - hero faces, turnarounds, expression sheets, pose sheets, age lineups, the flat gray crowd, the soul lights, and special states such as the unfinished newborn face, the flattening and unfolding stages and the all-ages portraits. Use this whenever the user asks for a character, character sheet, model sheet, turnaround, expressions, poses, lineup or design for the mother, the daughter, the partner, their child, the grandchild, the flat people or the lights, or gives a code like HF1, HF2, CM1 to CM8, CD1 to CD16, CP1, CP2, CC1, CG1, CF1, CX1, CS1 or CS2, even if the request is only a few words or written in German.
+description: Writes Higgsfield-ready image prompts for every character asset in the animated short I'll Catch You (Picasso-style cubist characters in a Van Gogh-style world, no dialogue) - the style frames with people in them (SF2, SF3, SF4), hero faces, turnarounds, expression sheets, pose sheets, age lineups, the flat gray crowd, the soul lights, and special states such as the unfinished newborn face, the flattening and unfolding stages and the all-ages portraits. Use this whenever the user asks for a character, character sheet, model sheet, turnaround, expressions, poses, lineup or design for the mother, the daughter, the partner, their child, the grandchild, the flat people or the lights, or gives a code like SF2, SF3, SF4, HF1, HF2, CM1 to CM8, CD1 to CD16, CP1, CP2, CC1, CG1, CF1, CX1, CS1 or CS2, even if the request is only a few words or written in German.
 ---
 
 # I'll Catch You: character prompts
@@ -29,7 +29,7 @@ Image models weigh the start of a prompt most, so the most important information
 2. **Face map:** the block from section 8 for every character in the image, word for word. Don't add facial details beyond it; extra description makes the model redesign the face.
 3. **Age and clothes:** from section 9, including the facet count for that age ("age adds facets").
 4. **Content list:** the six expressions, four poses, lineup order or stages, in order from left to right.
-5. **Style lock:** CHARACTERS, word for word. Add LIGHTS for the lights and FLAT PEOPLE for flat states. Add WORLD and MIX only if the image includes a place.
+5. **Style lock:** CHARACTERS, word for word. Add LIGHTS for the lights and FLAT PEOPLE for flat states. Add WORLD and MIX only if the image includes a place (always for the style frames), plus that place's lighting lock from section 6.
 6. **Layout:** the matching block below.
 7. **Consistency line:** from section 4, whenever references are attached.
 8. **Negative:** from section 4.
@@ -45,7 +45,7 @@ Write in plain sentences. Use color names, never hex codes, because models paint
 - **Lineup:** Lineup sheet on a plain warm off-white paper background: the figures stand side by side in one row, front view, full body, at true relative heights, soft even light, generous space between them.
 - **Stages:** Sequence sheet on a plain warm off-white paper background: the subject drawn in stages from left to right, the same size and in the same position in every stage.
 - **Light sheet:** Design sheet on a plain deep night-blue background: the lights drawn side by side in one row, to scale, with space between them.
-- **Key frame** (only CM7): Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
+- **Key frame** (style frames SF2, SF3, SF4 and CM7): Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
 
 ## Output format
 

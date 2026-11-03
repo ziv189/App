@@ -1,6 +1,6 @@
 ---
 name: ill-catch-you-environments
-description: Writes Higgsfield-ready prompts for background plates and locations in the animated short I'll Catch You - the swirling night sky, the world seen from above, the tall sky for the fall, the birth room, the garden and stone wall in every season and mood, the cottage window at night, and the rainy flat city. Applies the film's Van Gogh world style, the fixed lighting lock for each location, and the no-people rule for empty plates, and makes seasonal and emotional variants as edits of one canon base plate so the place never changes. Use this whenever the user asks for a background, BG, plate, location, environment, set, sky, landscape or establishing image, any of the codes BG1 to BG17, or wants to change the time of day, season, weather or mood of a place.
+description: Writes Higgsfield-ready prompts for background plates, locations and the sky style frames (SF1, SF5) in the animated short I'll Catch You - the swirling night sky, the world seen from above, the tall sky for the fall, the birth room, the garden and stone wall in every season and mood, the cottage window at night, and the rainy flat city. Applies the film's Van Gogh world style, the fixed lighting lock for each location, and the no-people rule for empty plates, and makes seasonal and emotional variants as edits of one canon base plate so the place never changes. Use this whenever the user asks for a background, BG, plate, location, environment, set, sky, landscape or establishing image, any of the codes SF1, SF5 or BG1 to BG17, or wants to change the time of day, season, weather or mood of a place.
 ---
 
 # I'll Catch You: environment prompts
@@ -43,10 +43,15 @@ Rules that keep plates usable:
 - For the stillness of scene 8, write "completely still, every brushstroke stopped mid-swirl, painted only in shades of blue". Never write "frozen" (ice) or "Blue Period" (Picasso paintings).
 - In scene 7, the wall looks small because the camera is higher. Never make the wall itself smaller.
 
+## Sky style frames (SF1, SF5)
+
+These two are the film's first gate, so write them before any plate. Add the LIGHTS block after WORLD, describe the lights' positions and moods in the layout of the space (section 10 of the bible), use the key-frame layout instead of the plate layout, and replace the no-people line with "No people, no figures and no faces anywhere. The lights have no faces."
+
 ## Layout blocks
 
 - **Plate:** Background plate with no people, no characters and no animals. Cinematic 16:9 widescreen composition with clear open space where characters will be placed later.
 - **Tall plate** (BG6): Background plate with no people, no characters and no animals. Tall vertical composition made for a slow downward camera move.
+- **Key frame** (SF1, SF5): Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
 - **Triptych** (BG15): Three panels side by side, the same camera angle in each, no people, no characters and no animals.
 
 ## Output format
