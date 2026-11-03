@@ -1,153 +1,92 @@
 ---
 name: ill-catch-you-shots
-description: Writes Higgsfield video generation prompts for the shots of the animated short I'll Catch You in a fixed five-block structure - scene context and style, an active-reference call sheet, shot structure with beat-by-beat timing, locks and constraints, and animation principles - for an asset-first, no-3D pipeline where approved sheets and plates are attached as image inputs and keyframes serve as start and end frames. Handles the film's hard parts - subtle acting, faceless lights, the flat crowd, brushstrokes that move with emotion and stop in grief, and empty frames that attract strangers. Use this whenever the user asks for a video prompt, shot prompt, scene prompt, animation prompt, image-to-video or text-to-video prompt, wants to generate, animate or fix a shot or scene, or names a scene or shot of the film.
+description: Writes Seedance 2.5 video prompts for the shots and scenes of the animated short I'll Catch You, in the production's house format - INPUTS with numbered image reference tags, scene context, style, location map, first frame and blocking, format mode, optics, camera, timed action with x/y screen positions read from the approved plates, physics, animation principles, lighting, audio, positive locks and negatives - for an asset-first, no-3D pipeline where every detail a 3D previs would have given is written out. Handles the film's hard parts - subtle acting, faceless lights, the flat crowd, brushstrokes that move with emotion and stop in grief, and empty frames that attract strangers - and keeps every prompt under Seedance's 20,000-character limit. Use this whenever the user asks for a video prompt, shot prompt, scene prompt, animation prompt, image-to-video or text-to-video prompt or a Seedance prompt, wants to generate, animate or fix a shot or scene, or names a scene or shot of the film.
 ---
 
-# I'll Catch You: video shot prompts
+# I'll Catch You: video prompts
 
-Turn a planned shot ("4-2, the toddler jumps and is caught") into a complete video prompt for Higgsfield, with the inputs to attach and what to check in the take.
+Turn a planned shot or a whole scene ("scene 2, one 15-second take") into a complete Seedance 2.5 prompt for Higgsfield, with the references to upload and what to check in the take.
 
-## Why the prompt is long
+## Why the prompt is so long
 
-The Higgsfield team writes "an essay for a four-second shot" because every detail you leave out, the model decides for you, and it guesses badly. Two things about their structure matter most:
-- **Order.** The model weighs the start of the prompt most and follows the rest less strictly, so the first block carries what matters most.
-- **Looks come from the images.** The prompt names each attached input and its role. It describes personality and behavior, never looks. Visual description in a video prompt competes with the references.
+The Higgsfield team writes "an essay for a four-second shot" because every detail you leave out, the model decides for you, and it guesses badly. Their prompts also had a 3D previs to lock camera and timing. This production has none, so the prompt carries everything a previs would have shown: where everything is on screen, when each beat happens, how the camera moves, how things move and how they sound. Three rules matter most:
+- **Order.** The model weighs the start of the prompt most, so INPUTS, SCENE CONTEXT and STYLE come first.
+- **Every detail, once.** Describe everything, but say each thing in one place. Repeated lines waste the character budget and blur what matters.
+- **Agree with the images.** Describe the references only as they really are. If you haven't seen an approved image, ask the user to share it before writing positions, because a description that contradicts a reference fights it.
+
+## Seedance 2.5 in Higgsfield
+
+- Takes of up to 30 seconds at 21:9. A whole scene can be one take. When one beat keeps failing, split it off and redo only that part.
+- **The prompt limit is 20,000 characters.** Count before delivering and stay under it with some margin.
+- Upload the canon images as references and tag them in the prompt as <<<image_1>>>, <<<image_2>>> and so on, in upload order. Give the upload order with the prompt.
+- Seedance generates sound in the same pass. Write "Sound effects only: no music, no score, no singing, no humming, no speech" in FORMAT MODE and again in AUDIO, and list the sounds with timestamps. The five-note melody is added in post.
+- If a last-frame slot works alongside the references, the end plate or keyframe can go there too.
 
 ## Before writing
 
-Read `references/film-bible.md`, sections 1 (scenes), 4 (the consistency line), 6 (lighting locks), 7 (literal words), 10 (the lights), 11 (flat people), 15 (personalities), 16 (known risks) and 17 (asset register).
+Read `references/film-bible.md`, sections 1 (scenes), 4 (style lock), 6 (lighting locks), 7 (literal words), 8 (face maps, for the never-change items), 10 (the lights), 11 (flat people), 15 (personalities), 16 (known risks) and 17 (asset register). Read `references/example-scene-1.md`, the approved scene 1 prompt, as the model for format, depth and length.
 
-Settle four things, asking only if they can't be inferred:
-1. **The one beat this shot must land.** One emotional beat per shot (section 16).
-2. **The route:** K (keyframes as start and end frames) or T (assets only). If the shot needs keyframes and they don't exist yet, say so and offer the keyframes skill.
-3. **The inputs:** which canon sheets, plate, keyframes and camera screenshots will be attached, in order.
-4. **The duration:** write the shot for the length you will generate, which is usually the video model's shortest option (often 5 seconds), not the length the shot will have in the film. Start and end with a short hold, so the edit has room to trim the shot to its planned length. Split any action longer than about 8 seconds into separate generations.
+Settle five things, asking only if they can't be inferred:
+1. **The beats,** in story order, one emotional beat per moment (section 16).
+2. **The length** the user wants (often 15 seconds). Budget the beats so they add up exactly, with a short hold at the start and the end.
+3. **The references:** which canon sheets, plates and keyframes, in upload order. If a needed asset doesn't exist yet, say so and offer the matching skill.
+4. **The screen map:** positions as x / y percentages of the frame (x from the left, y from the top), read from the approved plates themselves: landmarks, the path of every move, where characters stand and land, sizes as a share of the frame width. A position that doesn't match the plate is a mistake.
+5. **The camera:** locked off, push-in, pan or tilt, one clear move at a time, each ending on a named plate.
 
-## The five blocks
+## The blocks
 
-Write them in this order, each under its heading.
+Write them in this order, each under its heading in capitals.
 
-**1. SCENE CONTEXT AND STYLE.** Three to five plain sentences: where we are in the story, what happens in this shot, and the feeling. Then the rules of this world:
-- a hand-painted Van Gogh world whose brushstrokes are always gently moving (they stop only in scene 8);
-- clean, flat cubist characters who keep their face maps from every angle;
-- all texture stays in the world;
-- the lights glow and drift on curves; they don't fly like comets, and they have no faces.
+1. **INPUTS.** One entry per reference: `<<<image_n>>> = ...`. Say what it is, describe what is actually in it (identifying details and positions), give personality from section 15 for characters and lights, and end with "100% match <<<image_n>>>". Put the never-change items here: the face maps' halves and marks, which items on a sheet appear and which never do, and what an object must never turn into ("it never rotates, and it is not the moon").
+2. **SCENE CONTEXT.** Plain sentences: where we are in the story, what happens in summary, the length ("One continuous shot, 15 seconds, no cuts") and the feeling.
+3. **STYLE.** A hand-painted 2D Van Gogh world whose strokes always move gently (they stop only in scene 8) and never melt, blur or smear; clean, flat cubist characters who keep their face maps from every angle; all texture in the world. Add the LIGHTS block word for word whenever a light is in the shot, and the FLAT PEOPLE block for flat people.
+4. **LOCATION MAP.** Where the camera is and what it faces; foreground, middle ground and background; which plate each part of the shot plays on; what lies out of frame until a camera move reveals it.
+5. **FIRST FRAME / BLOCKING.** The exact first frame: who and what is where (x / y), poses, expressions, sizes and the light already on them.
+6. **FORMAT MODE.** One continuous take, or labeled shots separated by "HARD CUT"; the length; 21:9; no transitions unless wanted; the sound-effects-only line.
+7. **OPTICS.** A normal lens feel for this painted film: no distortion, no depth-of-field blur, no motion-blur smear, parallax between painted layers, no zoom.
+8. **CAMERA.** Timestamped moves that add up to the full length, each easing in and out and ending on a named plate; framing rules (who must stay readable and never cropped); no shake, no handheld wobble.
+9. **ACTION TIMING.** The heart of the prompt: timestamped beats that cover every second with no gaps or overlaps (`0.0-0.4 s: ...`). For each beat: who moves where (x / y), how (arcs, speed), which named state or expression from the sheets, what the world does in answer, and how long each hold lasts. Holds are acting, so write them.
+10. **PHYSICS.** How things move in this world: weight or weightlessness, the flow of the strokes, soft impacts, and what never happens (nothing burns, breaks or splashes).
+11. **ANIMATION PRINCIPLES.** The ones this shot needs, tuned to the film: anticipation before every jump, reach and hop; arcs; squash and stretch gentle on bodies and on the little light, none on faces or on the amber light's shape; follow-through on hair, dress hems, scarves, wheat and trails of dabs; slow in and slow out; secondary action, with the world's strokes answering the emotion; timing, holding on the emotional beat; staging, one clear action at a time; restrained exaggeration; solid drawing, with planes and face maps consistent as characters turn; appeal.
+12. **LIGHTING.** The location's lighting lock from section 6 word for word, then the details: what is lit by what, which lights move, the brightness order, what changes during the shot, and what must never appear (no moon, no lamp, no lens flare, no color shift).
+13. **AUDIO.** The no-music line again, then the sound effects with timestamps that match ACTION TIMING.
+14. **POSITIVE LOCKS.** The rules that must hold, written positively: the order of events, counts ("it flares exactly twice"), what stays the same in every frame, how the shot starts and ends. End with "Clean, crisp frame."
+15. **NEGATIVES.** Always: no people, figures or faces anywhere (or "other than the referenced characters"); the lights have no faces and no bodies; no text, letters, numbers, subtitles, logos, watermark or signature; no photorealism, no 3D render, no CGI look, no anime, no flat vector illustration. Then the shot's own, such as no brush or hands in a sky that paints itself, or no fire or smoke on the lights.
 
-Then the location's lighting lock, word for word.
+## Before delivering
 
-**2. ACTIVE REFERENCES.** A call sheet: one line per attached input, in attachment order. Give its role, and for characters a few words of personality from section 15 ("Image 2: the mother in her thirties (CM2): calm, tender, endlessly patient."). Name keyframes as "Start frame" and "End frame", and a camera screenshot as "Camera reference". Then the consistency line: "Characters, environments and props 100% match the reference images." No visual description here; that is what the images are for.
-
-**3. SHOT STRUCTURE.** Each shot under its own label, separated by "HARD CUT" (or "One continuous shot."). Give each shot its duration, the camera (static, slow push-in, gentle pan left, rising) and the action beat by beat with timestamps, written like a storyboard panel in words: what happens first, what comes next, and how long each hold lasts ("0.0 to 1.0 s: ... Holds still until 2.5 s."). Holds are part of the acting, so write them explicitly.
-
-**4. LOCKS AND CONSTRAINTS.** The rules the model must follow. Always include:
-- No music, no singing, no speech. Sound effects only. (The five-note melody is added in post.)
-- No text, subtitles or logos.
-- No people, figures or faces other than the referenced characters. In shots without characters: "No people, no figures and no faces anywhere."
-- Characters keep their face maps from every angle. Then name this shot's never-change items, for example: "the mother's amber crescent-shaped mark stays under her left eye; the daughter's blue half and amber eye stay on her left".
-- The lights have no faces and no bodies (whenever a light is in frame).
-- Texture stays in the world. Characters stay clean, flat and cubist. No realism, no 3D look, no camera shake.
-
-Then add the locks specific to this shot: the order of events ("she stays on the wall until 1.0 s"), what must not happen ("the mother does not step forward"), and what must stay still.
-
-**5. ANIMATION PRINCIPLES.** List the ones this shot needs, tuned to the film:
-- Anticipation before every jump and every reach.
-- Squash and stretch gentle on bodies and none on faces: cubist planes stay rigid.
-- Follow-through and overlapping action on hair, scarf, dress hems and the wheat.
-- Slow in and slow out on every tender movement.
-- Arcs: the lights and the reaching arms move on curves.
-- Secondary action: the world's brushstrokes answer the emotion (the wheat swirls with joy; the sky slows in sadness).
-- Timing: hold on the emotional beat.
-- Staging: one clear action at a time, readable silhouettes.
-- Restrained exaggeration: this is a tender film.
-- Solid drawing: the planes and face maps stay consistent as characters turn.
-- Appeal: warm, gentle, lovable.
-
-The Higgsfield team found the model doesn't follow all of these, but including them got them closer to the movement they wanted.
+- The ACTION TIMING and CAMERA timestamps each run from 0.0 to the full length with no gaps or overlaps, and the AUDIO cues sit on the same seconds.
+- Every position matches the plate it plays on, and every path stays inside the frame when it must.
+- No contradictions: a light that "never rotates" doesn't "turn around", and something that "rises" ends higher than it started.
+- No literal-word traps (section 7). The models also take "river", "wave", "eye", "storm", "candle" and "sparks" literally.
+- Under 20,000 characters.
 
 ## The performance gap
 
-Video models handle big action well and small acting badly, and this film is full of small acting. For acting shots:
-- Put the change of expression into the keyframes: the start frame holds the first expression, the end frame the second.
-- Write the pause. A realization only reads if the shot holds still for a beat ("holds still, eyes on the empty hands, from 1.5 to 3.0 s").
-- Keep acting shots medium-close and the hands simple.
+Video models handle big action well and small acting badly, and this film is full of small acting. For acting moments:
+- Give each change of expression its own beat, with a hold before and after it ("holds still, eyes on the empty hands, from 5.5 to 7.0 s").
+- Name the expressions from the expression sheets and upload those sheets.
+- Keep acting moments medium-close and the hands simple.
 - Let the world carry the feeling: strokes speeding up, slowing, stopping, color draining or returning.
-- If the beat still doesn't land after a few takes, split it into two shots, or plan it as painted stills dissolving in the edit. Tell the user plainly when a shot is in the high-risk list (section 16).
+- If a beat still doesn't land after a few takes, give it a keyframe (the keyframes skill), split it into its own take, or plan it as painted stills dissolving in the edit. Say plainly when a moment is on the high-risk list (section 16).
 
 ## Output format
 
-**Scene [N] · Shot [N-x]: [name]**
-Route: K / T · Generate: [seconds] at 21:9, cut to [seconds] in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
-Attach, in this order: [the list matching the call sheet]
+**Scene [N] · [name]** (or **Shot [N-x]: [name]**)
+Settings: Seedance 2.5 · [length] · 21:9 · about [count] characters (limit 20,000)
+Upload as references, in this order: 1. [code]: [what it is] 2. ...
 
 ```
-SCENE CONTEXT AND STYLE
+INPUTS
 ...
-
-ACTIVE REFERENCES
-...
-
-SHOT STRUCTURE
-...
-
-LOCKS AND CONSTRAINTS
-...
-
-ANIMATION PRINCIPLES
-...
+(all fifteen blocks, in order)
 ```
 
 **Check the take**
-- Timing matches the beats and the holds.
-- The camera matches the keyframes or camera reference.
-- Face maps hold when characters turn; marks are in place.
-- No extra people, no faces on the lights, no text, no music or speech.
-- Texture isn't crawling on characters or props.
+- [four to six checks: beats and holds on time, positions and paths, never-change items, the first and last frames, no strangers, no faces on the lights, no text, no music or speech]
 
-If the take fails, name the likely cause and the next move: a wider keyframe ("zoom out"), a repaired reference, a shorter shot, a split beat, or a new end frame. Don't just reroll the same prompt.
+If the take fails, name the likely cause and the next move: a repaired or wider reference, a keyframe, a split take or a shorter beat. Don't just reroll the same prompt.
 
 ## Example
 
-Request: "video prompt for 4-2, the jump"
-
-**Scene 4 · Shot 4-2: The jump**
-Route: K · Generate: 5 s at 21:9, cut to 3 s in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
-Attach, in this order: start frame 4-2, end frame 4-2, CD4, CM2, BG8, SF2
-
-```
-SCENE CONTEXT AND STYLE
-A little girl's first fearless jump from the garden wall into her mother's arms, the moment the film's promise is born: she jumps, and her mother catches her. Pure joy. A hand-painted Van Gogh world whose brushstrokes are always gently moving; clean, flat cubist characters who keep their face maps from every angle; all texture stays in the world. When she is caught, the wheat answers the joy and swirls around them. Golden late afternoon. Low warm sun from the left, long soft shadows, warm gold light on every edge.
-
-ACTIVE REFERENCES
-Start frame: the toddler leaving the wall, her mother waiting below.
-End frame: caught, mid-spin.
-Image 1: the daughter at two (CD4): fearless, wobbly, delighted.
-Image 2: the mother in her thirties (CM2): calm, tender, endlessly patient.
-Image 3: the garden (BG8).
-Image 4: the style frame (SF2), for the look only.
-Characters, environments and props 100% match the reference images.
-
-SHOT STRUCTURE
-One continuous shot, 5 seconds. Static camera at a child's eye level.
-0.0 to 0.5 s: hold on the start frame.
-0.5 to 1.3 s: the toddler is already in the air, arms wide, dress lifting, drifting toward her mother on a soft arc.
-1.3 to 2.0 s: the mother takes her weight against her chest, bending her knees to absorb it.
-2.0 to 3.6 s: the mother turns one slow full spin with her; the yellow dress swings out; the wheat behind them bends into a swirl.
-3.6 to 5.0 s: they settle, both laughing; hold.
-
-LOCKS AND CONSTRAINTS
-No music, no singing, no speech. Sound effects only.
-No text, subtitles or logos.
-No people, figures or faces other than the mother and the daughter.
-Characters keep their face maps from every angle: the mother's amber crescent-shaped mark stays under her left eye; the daughter's blue half and amber eye stay on her left.
-The mother stays on the grass and does not step toward the wall; the catch happens at the center of the frame.
-Texture stays in the world. Characters stay clean, flat and cubist. No realism, no 3D look, no camera shake.
-
-ANIMATION PRINCIPLES
-Squash and stretch gentle on the bodies as she lands, none on the faces. Follow-through on the dress, the hair and the wheat. Slow in and slow out on the spin. Arcs for the flight and the spin. Secondary action: the wheat swirls in answer. Hold on the laugh. Solid drawing: the planes stay consistent as they turn. Appeal: warm and lovable.
-```
-
-**Check the take**
-- She is caught by 2.0 s and the spin ends by 3.6 s.
-- The mother's mark stays visible through the spin.
-- No figures appear in the wheat.
-- The dress stays the heirloom yellow (PR4).
+`references/example-scene-1.md` is the approved scene 1 prompt: a 15-second single take with no characters that shows the house format, the depth of detail and the length. For shots with characters, add their never-change items to INPUTS and POSITIVE LOCKS, name their expressions from the sheets, and give their positions and poses as precisely as the lights' positions are given there.

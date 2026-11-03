@@ -94,7 +94,7 @@ The single source of truth for every prompt in this production. Every skill in t
 - **If Soul 2.0 pulls the cubist faces toward realism** or a plastic 3D look after a few batches, try the same text-only prompt in Nano Banana Pro and compare. Decide during the style-frame gate.
 - **Aspect ratio:** the film is 21:9 widescreen. Every background, keyframe and video is 21:9, so check the setting before every generation. Sheets, portraits and the style frames use the ratio listed in the asset register.
 - **Resolution:** the highest available.
-- **Video:** attach the assets as image inputs, and keyframes as start and end frames where the video model supports them. Use a video model that can generate at 21:9.
+- **Video: Seedance 2.5** in Higgsfield. Takes of up to 30 seconds at 21:9, so a whole scene can be one take. **The prompt limit is 20,000 characters.** Upload the canon images as references and tag them in the prompt as <<<image_1>>>, <<<image_2>>> and so on, in upload order. It generates sound in the same pass, so every video prompt says "sound effects only" and lists the sounds. If a last-frame slot works alongside the references, put the end plate or keyframe there too. The prompt format is in the shots skill.
 - Higgsfield's lineup changes often. Test any new model against the approved style frames before switching mid-production.
 
 ---
@@ -380,6 +380,7 @@ Both are approved and in canon. From here on they, not the style frames, define 
 |---|---|---|---|---|---|---|
 | CS1 | The lights | light sheet | 21:9 | 1, 2, 6, 10 | SF1 | All five lights in one row, to scale (section 10). |
 | CS2 | The little light: moods | light sheet | 21:9 | 1, 2, 10 | CS1 | Calm; laughing flare; scared and dim; trembling; letting go. |
+| CS3 | The amber light: states | light sheet | 21:9 | 2, 8, 10 | CS1, CS2 | Calm; pulled by a current; letting go, a soft vertical streak drifting down; far away, a tiny point. |
 | CX1 | The flat crowd | lineup | 21:9 | 6 | SF3 | Ten flat gray cut-out people in strict profile: coat and hat, umbrella, briefcase, cane, hands in pockets, carrying a bag, a child holding a hand, reading a newspaper, a couple walking apart, hurrying. |
 | CM1 | Mother: ages | lineup | 3:2 | 3 to 8 | HF1 | Early 30s, late 40s and mid-60s side by side. |
 | CM2 | Mother, 30s: turnaround | turnaround | 3:2 | 3, 4 | HF1, CM1 | Cobalt dress, sleeves pushed up, barefoot. |
@@ -429,8 +430,8 @@ Both are approved and in canon. From here on they, not the style frames, define 
 |---|---|---|---|---|---|---|
 | BG1 | Sky: play | plate | 21:9 | 1 | SF1 | Night sky with no ground; rivers of cobalt and gold swirling; stars with soft rings of dabs. |
 | BG2 | Sky: the calm eye | plate | 21:9 | 1, 2 | SF1 | Looking into the calm center of a great swirl. |
-| BG3 | Sky: the spiral opens | plate | 21:9 | 2 | SF1, BG2 | Looking down a downward spiral of brushstrokes; the tiny world at the bottom with one amber window. |
-| BG4 | Sky: alone | plate | 21:9 | 2 | BG1 | The same sky, colder; bigger, darker swirls; stars far apart. |
+| BG3 | Sky: the spiral opens | plate | 21:9 | 2 | BG2 (edit), BG5 | An edit of BG2: the calm center opens into a downward spiral of brushstrokes; at its far end, tiny, the world of BG5 with one amber window. |
+| BG4 | Sky: alone | plate | 21:9 | 2 | BG1 (edit) | An edit of BG1: the same sky, colder; the gold drained, rougher strokes, few stars far apart, one large ringed star. |
 | BG5 | The world from above | plate | 21:9 | 1, 2 | SF1, PR3 | A night landscape from high above; one cottage window glows amber. |
 | BG6 | The fall | tall plate | 9:16 | 3 | SF1, SF2 | Night blue, dawn violet, morning gold from top to bottom; clouds of thick paint; brushstroke birds. |
 | BG7 | The birth room | plate | 21:9 | 3 | SF2, PR3 | A cottage bedroom at dawn. |
