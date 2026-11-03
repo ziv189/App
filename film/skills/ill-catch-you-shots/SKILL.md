@@ -21,7 +21,7 @@ Settle four things, asking only if they can't be inferred:
 1. **The one beat this shot must land.** One emotional beat per shot (section 16).
 2. **The route:** K (keyframes as start and end frames) or T (assets only). If the shot needs keyframes and they don't exist yet, say so and offer the keyframes skill.
 3. **The inputs:** which canon sheets, plate, keyframes and camera screenshots will be attached, in order.
-4. **The duration:** 3 to 8 seconds. Split anything longer into separate generations.
+4. **The duration:** write the shot for the length you will generate, which is usually the video model's shortest option (often 5 seconds), not the length the shot will have in the film. Start and end with a short hold, so the edit has room to trim the shot to its planned length. Split any action longer than about 8 seconds into separate generations.
 
 ## The five blocks
 
@@ -76,7 +76,7 @@ Video models handle big action well and small acting badly, and this film is ful
 ## Output format
 
 **Scene [N] · Shot [N-x]: [name]**
-Route: K / T · Duration: [seconds] · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
+Route: K / T · Generate: [seconds], cut to [seconds] in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
 Attach, in this order: [the list matching the call sheet]
 
 ```
@@ -110,7 +110,7 @@ If the take fails, name the likely cause and the next move: a wider keyframe ("z
 Request: "video prompt for 4-2, the jump"
 
 **Scene 4 · Shot 4-2: The jump**
-Route: K · Duration: 3 s · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
+Route: K · Generate: 5 s, cut to 3 s in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
 Attach, in this order: start frame 4-2, end frame 4-2, CD4, CM2, BG8, SF2
 
 ```
@@ -127,11 +127,12 @@ Image 4: the style frame (SF2), for the look only.
 Characters, environments and props 100% match the reference images.
 
 SHOT STRUCTURE
-One continuous shot, 3 seconds. Static camera at a child's eye level.
-0.0 to 0.6 s: the toddler is already in the air, arms wide, dress lifting, drifting toward her mother on a soft arc.
-0.6 to 1.2 s: the mother takes her weight against her chest, bending her knees to absorb it.
-1.2 to 2.4 s: the mother turns one slow full spin with her; the yellow dress swings out; the wheat behind them bends into a swirl.
-2.4 to 3.0 s: they settle, both laughing; hold.
+One continuous shot, 5 seconds. Static camera at a child's eye level.
+0.0 to 0.5 s: hold on the start frame.
+0.5 to 1.3 s: the toddler is already in the air, arms wide, dress lifting, drifting toward her mother on a soft arc.
+1.3 to 2.0 s: the mother takes her weight against her chest, bending her knees to absorb it.
+2.0 to 3.6 s: the mother turns one slow full spin with her; the yellow dress swings out; the wheat behind them bends into a swirl.
+3.6 to 5.0 s: they settle, both laughing; hold.
 
 LOCKS AND CONSTRAINTS
 No music, no singing, no speech. Sound effects only.
@@ -146,7 +147,7 @@ Squash and stretch gentle on the bodies as she lands, none on the faces. Follow-
 ```
 
 **Check the take**
-- She is caught by 1.2 s and the spin ends by 2.4 s.
+- She is caught by 2.0 s and the spin ends by 3.6 s.
 - The mother's mark stays visible through the spin.
 - No figures appear in the wheat.
 - The dress stays the heirloom yellow (PR4).

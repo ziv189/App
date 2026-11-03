@@ -23,7 +23,7 @@ The Higgsfield team marked their storyboard panels orange for previs. Mark each 
 
 Boards are a guide, not a contract. Plan the story beats, leave the atmospheric shots open, and expect changes once generation starts.
 
-Present the plan as a short list: shot number, one-line action, K or T, a one-line reason, and a duration of 3 to 8 seconds. Split anything longer.
+Present the plan as a short list: shot number, one-line action, K or T, a one-line reason, and its length in the edit. Each shot is generated at the video model's shortest option (often 5 seconds) and trimmed in the edit. Split anything longer than about 8 seconds.
 
 ## Step 2: write the keyframes
 
