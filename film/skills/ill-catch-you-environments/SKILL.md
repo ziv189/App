@@ -45,7 +45,7 @@ Rules that keep plates usable:
 
 ## Sky style frames (SF1, SF5)
 
-These two are the film's first gate, so write them before any plate. Add the LIGHTS block after WORLD, describe the lights' positions and moods in the layout of the space (section 10 of the bible), use the key-frame layout instead of the plate layout, and replace the no-people line with "No people, no figures and no faces anywhere. The lights have no faces."
+These two are the film's first gate, so write them before any plate. Add the LIGHTS block after WORLD, describe the lights' positions and moods in the layout of the space (section 10 of the bible), use the key-frame layout instead of the plate layout, and replace the no-people line with "No people, no figures and no faces anywhere. The lights have no faces." SF5 attaches SF1 for its paint only, so replace the consistency line with: "The attached image is the film's first style frame. Match its paint handling, brushwork and colors; make this sky warmer and brighter, and don't copy its composition."
 
 ## Layout blocks
 

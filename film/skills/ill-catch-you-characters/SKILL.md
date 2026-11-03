@@ -31,7 +31,7 @@ Image models weigh the start of a prompt most, so the most important information
 4. **Content list:** the six expressions, four poses, lineup order or stages, in order from left to right.
 5. **Style lock:** CHARACTERS, word for word. Add LIGHTS for the lights and FLAT PEOPLE for flat states. Add WORLD and MIX only if the image includes a place (always for the style frames), plus that place's lighting lock from section 6.
 6. **Layout:** the matching block below.
-7. **Consistency line:** from section 4, whenever references are attached.
+7. **References:** whenever character references are attached, the consistency line from section 4. When an earlier style frame is attached, name it and give it a paint-only job instead, for example: "The attached image is the film's first style frame. Match its paint handling, brushwork and colors; don't copy its composition." The consistency line would make the model copy that frame's scene.
 8. **Negative:** from section 4.
 
 Write in plain sentences. Use color names, never hex codes, because models paint hex codes into images as text. Check every noun against section 7: write "crescent-shaped mark, horns pointing up", never "like a cradle"; write "smooth unfinished oval", never "blank face".
