@@ -1,0 +1,89 @@
+SCENE CONTEXT & STYLE
+
+What happens: A short insert. In the upstairs hallway of the beige house, VINCE slowly raises his right hand in front of his face and stares at it in silent horror. The wooden handle of a kitchen knife pokes out of the back of his hand, cartoon style and completely clean, like a dart stuck in a dartboard. His fingers go limp, and the small black pistol he was holding slides out of them and drops out of the bottom of the frame with a heavy thud. He just keeps staring, mouth hanging open.
+
+Continuity: Vince's hair still sticks straight back with salt in it, and his gold aviator sunglasses are hooked on his collar. The ceiling light is on. This is a short insert that is edited into another clip.
+
+Tone and pace: slow, frozen, horrified disbelief, played completely deadpan. Nothing moves fast except one quick drop.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and leather textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. Vince is designed like a cartoon but moves like a real actor, at real human speed, and here he barely moves: his hand rises slowly, his fingers tremble and go limp, and his eyes stare. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly: do exactly that and nothing extra.
+
+Format: 5 seconds, 16:9, one continuous shot with no cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: soft, even, warm light from the hallway's round ceiling light. The light is fixed to the world: as the hand rises, light and shadow slide across it. No flicker, no color shift.
+
+Physics: real weight. The wooden handle is solid and doesn't move in his hand. What he holds is heavy: it slides out of his limp fingers and falls straight down. The hand is otherwise completely clean, cartoon style. Faces and hands keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Only these sounds, in order: the quiet room tone of the hallway; a small, high whimper from Vince; a heavy thud on the carpet below the frame as it lands; silence. Nobody speaks.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug and theatrical, now frozen in horror. Face, hair, body, hands, leather jacket and accessories 100% match <<<image_1>>>.
+
+<<<image_2>>> = the upstairs hallway with the ceiling light on, soft and out of focus in the background. The warm beige walls and the white closet door 100% match <<<image_2>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The knife: one kitchen knife with a plain wooden handle. Only its wooden handle is visible, poking out of the back of his right hand. It never moves, never changes and never becomes a pen, a stick or a dart.
+- The pistol: one small black cartoon pistol, held loosely in his right fingers and pointing at the floor until it drops out of the frame. There is never a second one.
+
+Vince is the only person in this clip.
+
+
+SHOT STRUCTURE
+
+One shot, 0.0 to 5.0s: a close-up on Vince's raised right hand, with his face soft behind it. Locked-off.
+
+SHOT 1 (0.0 to 5.0s). CLOSE-UP: THE HAND.
+Camera: in front of Vince at his chest height, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Vince's (<<<image_1>>>) right hand in the center of the frame at chest height, the back of the hand toward the camera, in crisp focus. Behind it, his face is soft and slightly out of focus, at about x 50% / y 30%, his eyes huge, staring at the hand.
+0.0 to 1.2s: He slowly raises his right hand into the center of the frame, the back of the hand toward the camera. The wooden knife handle pokes out of the back of it. The small black pistol hangs loosely from his fingers, pointing at the floor.
+1.2 to 2.4s: He stares at the hand. His fingers tremble slightly. A small, high whimper.
+2.4 to 3.2s: His fingers go limp. It slides out of them and drops straight down out of the bottom of the frame. A heavy thud below.
+3.2 to 5.0s: Hold. His hand stays up, fingers limp, the wooden handle still in it. Behind it, his mouth hangs open, silent.
+Light: soft, even, warm ceiling light.
+Last frame: his raised right hand with the wooden handle, his horrified face soft behind it.
+Avoid: any mark on the hand, the handle moving, the pistol pointing anywhere but at the floor, Vince speaking, anyone else.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- One continuous 5-second shot, with no cuts.
+- Vince is the only person, and he matches <<<image_1>>> 100%.
+- The knife handle stays in the back of his right hand, completely still. The hand is otherwise clean, cartoon style.
+- The pistol points at the floor until it drops out of the frame at 2.4 to 3.2s, and it is not seen again.
+- The camera never moves.
+
+Exact dialogue: none. Nobody speaks. The only voice sound is Vince's one small whimper.
+
+Constraints (these never happen):
+- No cuts, transitions, dissolves or extra shots.
+- No other people and no voices.
+- Nothing on the hand except the wooden handle.
+- No squash and stretch, rubbery faces or bouncing.
+- No camera moves: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: the face, the hand and everything in it never melt, merge or change shape. The hand always has five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none.
+2. Anticipation: his fingers tremble before they go limp.
+3. Staging: one clear idea: the hand and the drop.
+4. Straight ahead and pose to pose: the hand rises to a held pose and stays there.
+5. Follow-through: his limp fingers settle after the drop.
+6. Slow in and slow out: the hand rises slowly and eases to a stop.
+7. Arcs: the hand rises on a small, smooth arc, and the drop is straight down.
+8. Secondary action: the trembling fingers and the small whimper, never pulling focus.
+9. Timing: slow and frozen, with one quick drop.
+10. Exaggeration: minimal. The comedy is how calmly horrified he is.
+11. Solid drawing: consistent hand and face volume in every frame; five fingers.
+12. Appeal: a smug guy who finally got exactly what he deserved. It's a slapstick comedy.

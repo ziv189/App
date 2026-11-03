@@ -1,0 +1,175 @@
+SCENE CONTEXT & STYLE
+
+What happens: The upstairs hallway of the beige house, a moment later, with the light on. VINCE and MARCO, still laughing at DUANE, walk off down the hallway away from him, Vince pointing back at him with his thumb, while Duane sits bawling against the wall near the top of the stairs behind them. Right in front of the hall closet, Vince's sock catches a thin string stretched across the carpet at ankle height. TWANG. The laughter stops instantly. They freeze and slowly turn to look at the closet door. It flies open, and kitchen knives come zipping out of the dark closet one after another, fast, like a circus knife-throwing act. Marco jumps back flat against the wall opposite, and they thunk into the wall all around him in a perfect outline of his body. Every single one misses him. A beat. One more knife thunks into the wall low between his knees. Marco slowly looks down and says, deadpan, in a voice that has suddenly jumped an octave higher, what that one almost hit. Then Vince, frozen beside the closet, slowly looks down at his own right hand, below the frame. Something heavy drops from it onto the carpet, and he screams.
+
+Continuity: this picks up right after the last laugh, with the ceiling light on. All three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops still stuck in them. Vince's hair still sticks straight back with salt in it, and his sunglasses are hooked on his collar. Vince's right arm hangs down at his side for the whole clip, and his right hand is never in frame. Marco's pen gadget stays in his vest pocket. Duane sits on the carpet against the wall near the top of the stairs, hugging his shin and bawling.
+
+Tone and pace: a dark, dry slapstick comedy. The walk is loose and mean, the TWANG stops everything instantly, and the action is fast. Then everything slows right down: Marco's line is flat and small, and Vince's realization is slow before his big scream. Keep every written pause.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: warm beige walls and carpet, white trim and the white closet door, and clean steel, all under the soft, warm ceiling light.
+
+Camera language: real lenses between 28mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. The flying knives are the only fast thing in the clip. Marco barely moves his face, even now. Vince's horror builds slowly. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand or foot does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, six shots joined by five hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: soft, even, warm light from the round ceiling light, the same in every shot. The inside of the closet stays dark. The steel catches small, clean highlights. No flicker, no color shift.
+
+Physics: real weight and timing. The string is thin and tight; when Vince's sock hits it, it snaps taut and vibrates. The closet door is heavy and swings open fast against its stop. Each knife flies straight and fast in a flat line and sticks in the wall with a solid THUNK, its wooden handle quivering for a moment, then still. A few of them catch the loose edges of Marco's vest and sleeves and hold the fabric to the wall. None of them lands on Marco. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: Vince's high, wheezing cackle and Marco's low chuckle, their socks brushing the carpet, and Duane's bawling, faint and far behind them; one loud, vibrating TWANG; the laughter stopping instantly, leaving only Duane's faint bawling; a small click from inside the closet; a loud WHAM as the closet door flies open; a fast run of whooshes and solid THUNKs; silence, with Duane's faint bawling; one more whoosh and THUNK; Marco's voice, an octave higher, with one censor beep; a heavy thud on the carpet; Vince's scream with one long censor beep; Vince gasping. Two words are covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. In Vince's line the beep is long, about one and a half seconds. The beeps are the only sounds that don't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug, overconfident and theatrical, until something rattles him. Voice: a nasal, slightly raspy tenor with a fast, clipped big-city cadence, like a used-car salesman who thinks he's in a heist movie; rattled, it goes quieter and higher, and when he screams it cracks into a shriek. His laugh: a high, nasal, wheezing cackle. Face, hair, body, clothes and accessories 100% match <<<image_1>>>. In this clip his right arm hangs down at his side, and his right hand is never in frame.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. Voice: a low, flat baritone with heavy vocal fry, close to a mumble, slow and monotone; he barely moves his mouth when he talks. After the last knife lands, his voice jumps a full octave higher, small and squeaky, but still completely deadpan. His laugh is rare: a low, breathy chuckle, shoulders shaking, face barely moving. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
+
+<<<image_3>>> = DUANE, a man in his 30s. A huge, soft-hearted, sensitive guy. Voice: a deep, soft, warm bass; in this clip he only bawls, a long, high, wobbling wail, faint and far away. He appears only small in the background of Shot 1. Face, beard, body and clothes 100% match <<<image_3>>>.
+
+<<<image_4>>> = the upstairs hallway with the ceiling light on. The white wooden banister and the top of the staircase, the beige carpet, the warm beige walls, the plain white hall closet door partway down the right wall and the long blank stretch of wall opposite it 100% match <<<image_4>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The string: one thin white string stretched tight across the carpet at ankle height, tied at one end to the bottom corner of the closet door.
+- The knives: about eleven identical kitchen knives with plain wooden handles. They come only out of the dark closet, fly straight across the hallway, stick in the wall around Marco, and stay exactly where they land. They never become swords, arrows, darts or forks.
+- The closet door: the plain white hall closet door from <<<image_4>>>. The inside of the closet stays dark.
+
+Only three people exist in this clip: Vince, Marco and Duane. Duane is seen only in the background of Shot 1 and heard faintly after that.
+
+Hallway map, true in every shot: seen from the top of the stairs, the white banister is at the near end, the hallway runs away from it, the closet door is partway down the right wall, and the long blank stretch of wall is opposite it on the left. Duane sits against the right wall near the top of the stairs. Vince and Marco walk away from him down the hallway: Vince on the closet side, Marco on the blank-wall side. The string is stretched across the carpet right in front of the closet door. In Shots 1 and 3 the camera looks back up the hallway toward the stairs, so the closet side is on the left of the frame and the blank wall is on the right.
+
+
+SHOT STRUCTURE
+
+The six shots at a glance:
+1. 0.0 to 4.0s: medium from the front. Walking off, laughing. Slow dolly back.
+2. 4.0 to 5.5s: insert at ankle height. The string. TWANG. Locked-off.
+3. 5.5 to 8.0s: medium two-shot. Frozen; they turn to the closet; it flies open. Slow push-in.
+4. 8.0 to 12.0s: wide across the hallway. Knives outline Marco; the last one lands between his knees. Locked-off.
+5. 12.0 to 15.0s: medium close-up on Marco: "...That was almost my [BLEEP]." Slow push-in.
+6. 15.0 to 20.0s: close-up on Vince. He looks down at his hand, a thud, and the scream. Locked-off.
+
+SHOT 1 (0.0 to 4.0s). MEDIUM FROM THE FRONT: WALKING OFF.
+Camera: in the hallway ahead of them, at their chest height, about 6 feet in front of them, looking back up the hallway toward the stairs. 35mm lens, about a 54-degree view. A slow, smooth dolly back at their walking pace.
+Frame: Vince (<<<image_1>>>) on the left of the frame and Marco (<<<image_2>>>) on the right, side by side, from the waist up, walking toward the camera. Vince's head at about x 38% / y 34%; Marco, taller, at about x 62% / y 26%. Far behind them at the end of the hallway, small and soft, Duane (<<<image_3>>>) sits on the carpet against the wall on the left of the frame, hugging his shin, at about x 20% / y 60%, with the white banister on the right of the frame.
+0.0 to 1.5s: They walk toward the camera, laughing. Vince cackles and points back over his left shoulder with his left thumb, toward Duane. Marco chuckles, shoulders shaking.
+1.5 to 3.0s: Marco glances back over his shoulder at Duane and slowly shakes his head, still chuckling. Vince wipes a tear from his eye with the knuckle of his left hand.
+3.0 to 4.0s: Still laughing, they keep walking toward the camera.
+Light: soft, even, warm ceiling light.
+Last frame: the two of them mid-stride, laughing.
+Avoid: Vince's right hand or anything in it appearing, Duane getting up, either of them stopping yet.
+
+HARD CUT
+
+SHOT 2 (4.0 to 5.5s). INSERT AT ANKLE HEIGHT: THE STRING.
+Camera: on the carpet in front of the closet, about 4 inches up, looking along the floor. 50mm lens, about a 40-degree view. Locked-off.
+Frame: the beige carpet. A thin white string runs straight across the frame from left to right at ankle height, its right end tied to the bottom corner of the white closet door at the right edge of the frame.
+4.0 to 4.6s: Vince's right foot, in a black sock with a gold toe, steps into the frame from the bottom and walks into the string.
+4.6 to 5.0s: TWANG. The string snaps taut and vibrates.
+5.0 to 5.5s: The foot freezes. A small click comes from inside the closet door.
+Light: soft, even, warm ceiling light.
+Last frame: the sock frozen against the taut, vibrating string.
+Avoid: anything above the ankles, anyone's hands, any other object in frame.
+
+HARD CUT
+
+SHOT 3 (5.5 to 8.0s). MEDIUM TWO-SHOT: FROZEN.
+Camera: in front of them at their chest height, about 6 feet away, looking back up the hallway toward the stairs, as in Shot 1. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
+Frame: Vince on the left of the frame and Marco on the right, from the waist up, frozen mid-step. At the left edge of the frame, right beside Vince, the closed white closet door.
+5.5 to 6.3s: Both stand frozen, the laughter gone in an instant, their mouths still half open.
+6.3 to 7.3s: Slowly, both turn their eyes, then their heads, toward the closet door at the left edge of the frame.
+7.3 to 8.0s: WHAM: the closet door flies open. Both flinch.
+Light: soft, even, warm ceiling light; the inside of the closet is dark.
+Last frame: the closet door flung open at the left edge of the frame, both of them flinching.
+Avoid: anything coming out of the closet in this shot, Vince's right hand appearing.
+
+HARD CUT
+
+SHOT 4 (8.0 to 12.0s). WIDE ACROSS THE HALLWAY: THE OUTLINE.
+Camera: on the closet side of the hallway, just past the open closet door, at standing chest height, looking straight across the hallway at the long blank wall opposite. 28mm lens, about a 65-degree view. Locked-off.
+Frame: the long, blank beige wall fills the frame. Marco (<<<image_2>>>) stands in front of the middle of it, his head at about x 50% / y 24%.
+8.0 to 8.4s: Marco jumps back and flattens himself against the wall, arms pressed out to his sides, feet slightly apart, eyes huge.
+8.4 to 10.0s: About ten kitchen knives zip into the frame from the left edge, one after another, fast, like a circus knife-throwing act, and stick in the wall all around him with a rapid run of THUNKs: around his head, along both arms, and down both sides of his body and legs. A few catch the loose edges of his vest and sleeves and hold the fabric to the wall. Every single one misses him.
+10.0 to 10.8s: Marco stays frozen inside the perfect outline. The wooden handles quiver, then go still. Silence.
+10.8 to 11.2s: THUNK. One last knife zips in and sticks in the wall low, between his knees.
+11.2 to 12.0s: Marco squeezes his eyes shut, his face stiff.
+Light: soft, even, warm ceiling light; the steel catches small, clean highlights.
+Last frame: Marco flat against the wall inside the outline, his eyes shut.
+Avoid: anything landing on Marco, Vince in frame, anything on Marco's face or body, the handles changing shape or number after they land.
+
+HARD CUT
+
+SHOT 5 (12.0 to 15.0s). MEDIUM CLOSE-UP: MARCO.
+Camera: in front of Marco at his eye height, about 4 feet away. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: Marco from the chest up, flat against the wall, the wooden handles around his head and shoulders framing him. His head at about x 50% / y 32%.
+12.0 to 12.6s: He opens his eyes.
+12.6 to 13.4s: Slowly, without moving his head, he lowers his eyes and looks straight down, toward the handle between his knees, below the frame.
+13.4 to 14.6s: MARCO: "...That was almost my [BLEEP]." Delivery: still flat and deadpan, but his voice has suddenly jumped an octave higher, small and squeaky. The beep covers the last word while his mouth keeps moving.
+14.6 to 15.0s: Hold. He doesn't move.
+Light: soft, even, warm ceiling light.
+Last frame: Marco looking down, perfectly still, framed by wooden handles.
+Avoid: the frame going below his chest, anything on his face or body, his face changing shape.
+
+HARD CUT
+
+SHOT 6 (15.0 to 20.0s). CLOSE-UP: VINCE.
+Camera: in front of Vince at his eye height, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Vince (<<<image_1>>>) from the chest up, his head at about x 50% / y 32%, the open closet door soft and out of focus behind him on the left. His right arm hangs down at his side, below the bottom of the frame.
+15.0 to 15.8s: Vince is still frozen, staring across at Marco. Slowly, he lowers his eyes toward his right hand, below the frame.
+15.8 to 16.6s: A beat. His face drains, his eyes go huge, and his mouth falls open.
+16.6 to 16.9s: A heavy thud on the carpet below the frame, as something drops from his right hand.
+16.9 to 19.2s: VINCE: "MOTHER[BLEEP]!!!" Delivery: a huge scream that starts low and climbs into a high, cracking shriek. The beep is long and covers the whole drawn-out second half of the word, about one and a half seconds, while his mouth stays wide open. His head falls back as he screams.
+19.2 to 20.0s: He runs out of air and gasps, his eyes watering. Hold.
+Light: soft, even, warm ceiling light.
+Last frame: Vince with his head back, mouth open, eyes watering.
+Avoid: his right hand or anything in it appearing, anything on his face or body, anyone else in frame.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly six shots joined by exactly five hard cuts, at 4.0s, 5.5s, 8.0s, 12.0s and 15.0s.
+- Only Vince, Marco and Duane are in this clip, all matching their reference images 100%. Duane appears only small in the background of Shot 1.
+- All three are in their socks. Vince's hair still sticks straight back with salt in it, and his sunglasses stay hooked on his collar. Marco's pen gadget stays in his vest pocket.
+- Vince's right hand never appears in any shot.
+- The knives come only from the closet, fly in straight lines, stick in the wall around Marco and stay where they land. None of them lands on Marco.
+- Every movement happens with the hand or foot written, at the time written, and nothing extra is added.
+- Marco's voice is his low, flat mumble until the last knife lands, then a full octave higher. Vince's nasal tenor and Marco's voice never swap.
+- The written pauses are kept.
+- The hallway matches <<<image_4>>> in every shot.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. MARCO: "...That was almost my [BLEEP]."
+  2. VINCE: "MOTHER[BLEEP]!!!"
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+- Laughing before the TWANG, gasping, and Duane's faint bawling are the only other voice sounds.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people and no other voices.
+- No ad-libs, extra lines or narration.
+- Nothing is ever shown on anyone's face, hands or body.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands and props never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: the click inside the closet before the door flies open, the slow head turns before it, and a beat of silence before the last knife.
+3. Staging: one clear idea per shot: the mean walk, the string, the freeze, the outline, the line, the scream.
+4. Straight ahead and pose to pose: natural motion landing on clear, held poses: frozen mid-step, Marco flat inside the outline, Vince's horrified stare.
+5. Follow-through: the string vibrates, the door bounces off its stop, and the wooden handles quiver, then go still.
+6. Slow in and slow out: the walking, head turns and eye moves ease in and out; only the door and the flying knives are instant.
+7. Arcs: the door swings on a clean arc and heads turn on slow arcs; the knives fly in straight lines.
+8. Secondary action: Duane's faint bawling and the quivering handles, never pulling focus.
+9. Timing: loose and mean, then a sudden stop, then fast action, then a slow realization and a long scream.
+10. Exaggeration: minimal. The comedy is the perfect outline, the deadpan squeaky line and Vince's slow realization.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: two mean, laughing idiots getting it right back. It's a slapstick comedy.
