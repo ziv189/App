@@ -79,7 +79,7 @@ Route: by hand if possible (paint the mark from CM6). Otherwise, by model:
 ```
 Image 1 is the base to edit: a frame from a video take. Image 2 is the mother's character sheet, for reference only. Keep everything in Image 1 exactly the same except the change described below.
 
-CHANGE: The mother's amber crescent-shaped mark is missing. Add it on her right cheek (the light half), just under her right eye, horns pointing up, about as wide as the eye, glowing softly, exactly as on her character sheet in Image 2.
+CHANGE: The mother's amber crescent-shaped mark is missing. Add it on her left cheek (the light half), just under her left eye, horns pointing up, about as wide as the eye, glowing softly, exactly as on her character sheet in Image 2.
 
 KEEP EXACTLY THE SAME: the camera angle and framing, both characters' poses and expressions, the lighting, the background and everything else in Image 1.
 

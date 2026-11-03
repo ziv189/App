@@ -84,20 +84,20 @@ The user shares a CM6 turnaround take and says "good?"
 **Verdict: FIX.** The face map, clothes and style are right; the mark is missing in one view, and the hair differs in the back view.
 
 **Matches**
-- The split, with the light rose-peach half on her right, in the front and three-quarter views.
-- Many small facets; silver-white bun; blue cardigan with wooden buttons.
+- The split, with the light rose-peach half on her left (screen-right), in the front and three-quarter views.
+- Many small facets; silver-white side buns; blue cardigan with wooden buttons.
 - Clean flat planes and bold contours on a plain off-white sheet.
 
 **Off**
 1. The crescent-shaped mark is missing in the three-quarter view · blocks canon · by hand (paint it from the front view).
-2. The back view shows a high bun instead of her low round bun · blocks canon · by edit.
+2. The back view shows a single high bun instead of her two round side buns · blocks canon · by edit.
 3. The amber of the mark in the front view leans orange · minor · by hand (toward Amber #F5A623).
 
 **Fix prompts**
 ```
 Edit the attached image. Keep everything exactly the same except the change described below.
 
-CHANGE: In the back view (the fourth figure from the left), change her hair to a large, low, round silver-white bun at the nape of her neck, matching the front view (the first figure).
+CHANGE: In the back view (the fourth figure from the left), change her hair to two large round silver-white buns, one at each side of her head, matching the front view (the first figure).
 
 KEEP EXACTLY THE SAME: all four figures, their poses, faces, clothes and colors; the layout and the plain off-white background.
 

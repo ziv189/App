@@ -109,7 +109,7 @@ EXPRESSIONS: The toddler: fearless delight, laughing. The mother: calm, warm and
 
 PLACE AND LIGHT: The garden from Image 3. Golden late afternoon. Low warm sun from the left, long soft shadows, warm gold light on every edge.
 
-REFERENCES: Image 1 is the daughter at two. Image 2 is the mother in her thirties. Image 3 is the garden plate. Use Images 1 to 3 as the exact design: characters, environments and props 100% match them, with the same face maps, proportions, colors and clothing. Image 4 is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition. The mother keeps her split face (light rose-peach half on her right, deeper ochre-brown half on her left) and the amber crescent-shaped mark under her right eye; the daughter keeps her blue left half with the amber eye.
+REFERENCES: Image 1 is the daughter at two. Image 2 is the mother in her thirties. Image 3 is the garden plate. Use Images 1 to 3 as the exact design: characters, environments and props 100% match them, with the same face maps, proportions, colors and clothing. Image 4 is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition. The mother keeps her split face (deeper ochre-brown half on her right, light rose-peach half on her left) and the amber crescent-shaped mark under her left eye; the daughter keeps her blue left half with the amber eye.
 
 The world is painted in thick Van Gogh impasto; the people are painted in clean, flat cubist planes. Keep them separate: no swirling strokes on the people, no geometric planes in the landscape. All the texture lives in the world.
 
@@ -130,4 +130,4 @@ EXPRESSIONS: Both laughing; the mother's eyes closed with joy.
 ```
 (Keep the PLACE AND LIGHT, REFERENCES, style, layout and negative blocks from the start frame unchanged.)
 
-**Check before using it:** the mother's mark is visible on her right cheek in both frames; the toddler's dress matches PR4; the wall and the light from the left match BG8; no extra figures in the wheat.
+**Check before using it:** the mother's mark is visible on her left cheek in both frames; the toddler's dress matches PR4; the wall and the light from the left match BG8; no extra figures in the wheat.

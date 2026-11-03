@@ -196,12 +196,12 @@ Cubist faces drift more than any other style, because the model reinvents the fr
 In image prompts, paste the block verbatim. In video prompts, don't describe faces at all: the attached references carry them.
 
 **THE MOTHER (the split face)**
-> THE MOTHER: a tall, gentle oval face split vertically down the middle into two warm halves: her right half (screen-left) a light rose-peach plane, her left half (screen-right) a deeper ochre-brown plane. Both eyes face forward: large dark almond-shaped eyes under fine dark brows, one in each half. Just under her right eye (screen-left), on the light half of her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her nose is drawn as a single line along the split. Small full red lips. Bright auburn hair parted in the middle and gathered into a large, low round bun at the nape of her neck. She always wears blue.
+> THE MOTHER: a tall, gentle oval face split vertically down the middle into two warm halves: her right half (screen-left) a deeper ochre-brown plane, her left half (screen-right) a light rose-peach plane. Both eyes face forward: large dark almond-shaped eyes under fine dark brows, one in each half. Just under her left eye (screen-right), on the light half of her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her nose is drawn as a single line along the split. Small full red lips. Copper-auburn hair parted in the middle and gathered into two large round buns, one at each side of her head, just behind the ears. She always wears blue.
 
-Never changes: the split into a light rose-peach half (her right, screen-left) and a deeper ochre-brown half (her left) · both eyes facing forward · the amber crescent-shaped mark under her right eye · auburn hair in a low round bun · blue clothes.
+Never changes: the split into a deeper ochre-brown half (her right, screen-left) and a light rose-peach half (her left, screen-right) · both eyes facing forward · the amber crescent-shaped mark under her left eye, on the light half · copper-auburn hair in two round side buns · blue clothes.
 
 **THE DAUGHTER (the blue half)**
-> THE DAUGHTER: a soft oval face split vertically down the middle. Her right half (screen-left) is pale cream-peach, with a dark brown eye. Her left half (screen-right) is a clear medium-blue plane, and the eye in it is amber. Both eyes face forward under bold dark brows. Her nose is drawn as a single line along the split. Small mouth. Deep auburn hair, a little darker than her mother's; white in old age.
+> THE DAUGHTER: a soft oval face split vertically down the middle. Her right half (screen-left) is pale cream-peach, with a dark brown eye. Her left half (screen-right) is a clear medium-blue plane, and the eye in it is amber. Both eyes face forward under bold dark brows. Her nose is drawn as a single line along the split. Small mouth. Deep brick-red auburn hair, darker and redder than her mother's copper; white in old age.
 
 Never changes: the blue left half (screen-right) with the amber eye in it · the cream-peach right half with the dark brown eye · the nose line along the split · deep auburn hair. From scene 9 only: a small amber crescent-shaped mark under her right eye, on the cream half, smaller than her mother's.
 
@@ -224,14 +224,14 @@ Never changes: the horizontal split · olive over terracotta · the uneven eyes.
 
 | Who | Age | Scenes | Hair | Clothes |
 |---|---|---|---|---|
-| Mother | early 30s | 3, 4 | bright auburn, low round bun | cobalt-blue dress, sleeves pushed up, barefoot |
-| Mother | late 40s | 5 | auburn bun with one silver streak | faded cobalt dress, work apron |
-| Mother | mid-60s | 7, 8 | silver-white bun | blue knitted cardigan with wooden buttons over a gray dress |
+| Mother | early 30s | 3, 4 | copper-auburn, two round side buns | cobalt-blue dress, sleeves pushed up, barefoot |
+| Mother | late 40s | 5 | the same two side buns, one silver streak | faded cobalt dress, work apron |
+| Mother | mid-60s | 7, 8 | silver-white, the same two side buns | blue knitted cardigan with wooden buttons over a gray dress |
 | Daughter | newborn | 3 | none | cream knitted blanket with one pale-blue border stripe |
 | Daughter | 2 | 4 | short auburn curls | sunflower-yellow smock dress, round collar, one patched pocket; bare feet |
 | Daughter | 7 | 4 | two short auburn bunches | yellow pinafore over a white shirt, scuffed knees, sandals |
 | Daughter | 16 | 5 | short asymmetrical cut | charcoal hoodie, black trousers, scuffed boots, olive canvas duffel bag |
-| Daughter | 25 | 6 | shoulder-length auburn | gray wool coat, mustard scarf |
+| Daughter | 25 | 6 | long, wavy deep auburn, center part | gray wool coat, mustard scarf |
 | Daughter | 30 | 6, 7 | auburn, tied back | mustard coat |
 | Daughter | 34 | 8 | auburn, low bun | ochre cardigan |
 | Daughter | 75 | 9, 10 | white bun | her mother's blue cardigan, her own mustard scarf |
@@ -242,7 +242,7 @@ Never changes: the horizontal split · olive over terracotta · the uneven eyes.
 | Their child | 45 | 9 | dark curls going gray | plain dark clothes |
 | Grandchild | 3 | 9 | dark auburn, one curl on top | the heirloom yellow smock dress |
 
-**Color logic:** the mother always wears blue, the color of her daughter's light. The daughter wears yellow and mustard, the warmth of her mother's amber, except as a teenager and when she goes flat. Auburn is the family hair: the mother's is bright, the daughter's a little deeper. In scene 8 (SF4) the world and the daughter's skin turn blue, while her auburn hair, her ochre cardigan and her amber eye keep their warm colors.
+**Color logic:** the mother always wears blue, the color of her daughter's light. The daughter wears yellow and mustard, the warmth of her mother's amber, except as a teenager and when she goes flat. Auburn is the family hair: the mother's is copper, the daughter's a deeper brick red. In scene 8 (SF4) the world and the daughter's skin turn blue, while her auburn hair, her ochre cardigan and her amber eye keep their warm colors.
 
 ---
 
@@ -262,7 +262,7 @@ The lights show feeling only through brightness, size and motion. Laughing is a 
 
 ## 11. Flat people
 
-Anyone nobody really looks at: the city crowd, the mother as her teenage daughter sees her (scene 5), the daughter in the city before he looks at her, and the partner before he looks up. Strict side profile, one flat gray, a darker outline, paper grain, a slight drop shadow. Each flat silhouette must still be recognizably that person (her bun and apron, her coat and scarf).
+Anyone nobody really looks at: the city crowd, the mother as her teenage daughter sees her (scene 5), the daughter in the city before he looks at her, and the partner before he looks up. Strict side profile, one flat gray, a darker outline, paper grain, a slight drop shadow. Each flat silhouette must still be recognizably that person (her two buns and apron, her coat and scarf).
 
 Unfolding is flattening in reverse: color seeps in, the planes turn outward, the full cubist face returns. The mustard scarf's color is the first thing to come back.
 
@@ -302,12 +302,12 @@ Build a sheet only for props that recur and must match from shot to shot. That i
 
 ## 14. Palette
 
-Hex codes are for checking and grading only. Keep them out of prompts, because image models sometimes paint them into the picture as text. In prompts, use the color names. The character colors below were sampled from the approved style frames (SF2, SF3, SF4).
+Hex codes are for checking and grading only. Keep them out of prompts, because image models sometimes paint them into the picture as text. In prompts, use the color names. The character colors below were sampled from the approved hero faces (HF1, HF2) and from SF3 and SF4.
 
 - **Sky and lights:** Midnight #0E1A3D · Cobalt #23449A · Swirl blue #5B86C5 · Star gold #F2C14E · Cream light #FFF2C6 · **Amber #F5A623 (the key color of the film)** · Amber glow #FFC46B · Pale light #DDEBFF · Green-tinted light #E4F5E0 · Lilac light #EEE6FF
 - **Earth:** Wheat #E8B33A · Deep ochre #C98A1E · Field green #6E8B3D · Cypress #1F3B2D · Vermilion #D9482B
-- **Faces:** Mother light half #EDBD98 · Mother dark half #984E1C · Daughter cream half #D4C4A5 · Daughter blue half #3680B5 · Partner olive #8A9A5B · Partner terracotta #C9714F · Contour ink #2B1E1A
-- **Hair and clothes:** Mother's auburn #B45009 · Daughter's auburn #6D3E2B · Mother's cobalt #124990 · Heirloom yellow #F2B233 · Mustard scarf #A37629 · Ochre cardigan #AA6622 · Daughter's gray coat #817C7F · Cardigan blue #3E5F99 · Charcoal #3B3D42 · Blanket cream #EFE6D2
+- **Faces:** Mother's light half #E6A38C · Mother's dark half #96561A · Daughter's cream half #EBC296 · Daughter's blue half #3680B5 (lift HF2's grayer #547C94 toward it) · Partner olive #8A9A5B · Partner terracotta #C9714F · Contour ink #2B1E1A
+- **Hair and clothes:** Mother's copper-auburn #964617 · Daughter's brick-red auburn #782414 · Mother's cobalt #394886 · Heirloom yellow #F2B233 · Mustard scarf #B9893C · Ochre cardigan #AA6622 · Daughter's gray coat #767269 · Cardigan blue #3E5F99 · Charcoal #3B3D42 · Blanket cream #EFE6D2
 - **Flat world:** Paper gray #959090 · Gray outline #5E636B · Wet street #2A3140
 - **Grief (scene 8):** #1E3557 · #2F4F7A · #6B8DB5 · #A9BFD9 · her skin #71A5EF
 - **Sheet background:** plain warm off-white paper #F4EEE3
@@ -367,12 +367,12 @@ All five are approved and in canon. Attach them for paint only, with the style f
 | SF5 | The catch in the sky | key frame | 16:9 | 10 | none | A warm glowing sky. The amber crescent-shaped glow curls around a small pale light at the calm center of a great swirl. |
 
 ### Hero faces
-Made from text alone in Soul 2.0. Compare each take with SF2 before approving.
+Both are approved and in canon. From here on they, not the style frames, define the characters. HF1 is a mirror image of SF2; the bible follows HF1.
 
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
 | HF1 | The mother | portrait | 4:5 | 3, 4 | none | The mother in her early 30s, calm and tender, faint smile, cobalt dress. |
-| HF2 | The daughter | portrait | 4:5 | 6 | none | The daughter at 25, curious and open, shoulder-length auburn hair, mustard scarf. |
+| HF2 | The daughter | portrait | 4:5 | 6 | none | The daughter at 25, curious and open, long wavy auburn hair, mustard scarf. |
 
 ### Characters
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
@@ -385,7 +385,7 @@ Made from text alone in Soul 2.0. Compare each take with SF2 before approving.
 | CM3 | Mother, 30s: expressions | expressions | 3:2 | 3, 4 | HF1, CM2 | Tender smile down at a baby; laughing, head back; calling encouragement, arms open; worried; tears of joy; humming with lips and eyes closed. |
 | CM4 | Mother: catching poses | poses | 3:2 | 3 to 5 | HF1, CM2 | Holding a newborn, arm curved around its head; standing below the wall, arms open, looking up; catching a jumping toddler; spinning a child. |
 | CM5 | Mother, late 40s: turnaround | turnaround | 3:2 | 5 | HF1, CM1 | Faded cobalt dress, apron, one silver streak. |
-| CM6 | Mother, 60s: turnaround | turnaround | 3:2 | 7, 8 | HF1, CM1 | Blue cardigan over a gray dress, silver-white bun, many small facets, the mark as bright as ever. |
+| CM6 | Mother, 60s: turnaround | turnaround | 3:2 | 7, 8 | HF1, CM1 | Blue cardigan over a gray dress, silver-white side buns, many small facets, the mark as bright as ever. |
 | CM7 | Mother, flat | key frame | 16:9 | 5 | CM5, CX1 | Her late-40s silhouette as a flat gray cut-out in the cottage doorway, arms half open; the cottage stays painted. |
 | CM8 | Mother: all of her | portrait | 4:5 | 7 | HF1, CM1 | One face whose planes show her in her mid-60s, her 30s and as a girl of about seven, fitted together, the mark at the center; overwhelming tenderness. |
 | CD1 | Daughter: ages 0 to 16 | lineup | 3:2 | 3 to 5 | HF2 | Newborn in the cream blanket; 2 in the yellow dress; 7 in the yellow pinafore; 16 in the charcoal hoodie. |
@@ -396,7 +396,7 @@ Made from text alone in Soul 2.0. Compare each take with SF2 before approving.
 | CD6 | Daughter, 2 and 7: jumping poses | poses | 3:2 | 4 | CD4, CD5 | Wobbling along the wall with arms out; leaping off with arms wide; mid-air, laughing; running through wheat. |
 | CD7 | Daughter, 16: turnaround | turnaround | 3:2 | 5 | HF2, CD1 | Sharp clashing planes, asymmetrical cut, charcoal hoodie, black trousers, boots, olive duffel bag. |
 | CD8 | Daughter, 16: expressions | expressions | 3:2 | 5 | CD7 | Defiant, looking down; hesitating; jaw set, turning away; eyes forward, walking; a glance back over her shoulder; holding back tears. |
-| CD9 | Daughter, 25: turnaround | turnaround | 3:2 | 6 | HF2, CD2 | Shoulder-length auburn hair, gray wool coat, mustard scarf. |
+| CD9 | Daughter, 25: turnaround | turnaround | 3:2 | 6 | HF2, CD2 | Long, wavy deep auburn hair, gray wool coat, mustard scarf. |
 | CD10 | Daughter, 25: full to flat | stages | 21:9 | 6 | CD9, CX1 | Five stages from full color to a flat gray cut-out in profile; read backwards for unfolding. |
 | CD11 | Daughter, 30: turnaround with baby | turnaround | 3:2 | 6, 7 | HF2, CD2 | Mustard coat, hair tied back, the baby in the cream blanket in the crook of her arm. |
 | CD12 | Daughter, 30: expressions | expressions | 3:2 | 6 to 8 | CD11 | Surprised at her own humming; love, looking down; recognition and shock; face breaking into tears; laughing through tears; grief, looking at empty hands. |
