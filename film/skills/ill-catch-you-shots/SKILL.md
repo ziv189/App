@@ -76,7 +76,7 @@ Video models handle big action well and small acting badly, and this film is ful
 ## Output format
 
 **Scene [N] · Shot [N-x]: [name]**
-Route: K / T · Generate: [seconds], cut to [seconds] in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
+Route: K / T · Generate: [seconds] at 21:9, cut to [seconds] in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
 Attach, in this order: [the list matching the call sheet]
 
 ```
@@ -110,7 +110,7 @@ If the take fails, name the likely cause and the next move: a wider keyframe ("z
 Request: "video prompt for 4-2, the jump"
 
 **Scene 4 · Shot 4-2: The jump**
-Route: K · Generate: 5 s, cut to 3 s in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
+Route: K · Generate: 5 s at 21:9, cut to 3 s in the edit · In Higgsfield: attach the inputs below as image inputs; use the keyframes as start and end frames if the video model supports them.
 Attach, in this order: start frame 4-2, end frame 4-2, CD4, CM2, BG8, SF2
 
 ```

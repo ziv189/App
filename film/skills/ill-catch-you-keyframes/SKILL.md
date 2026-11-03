@@ -37,7 +37,7 @@ Prompt order:
 5. **Place and light:** which plate, plus its lighting lock, word for word.
 6. **References:** name each attached image ("Image 1 is the daughter at two (CD4)..."), then the consistency line for the sheets and plates and the style frame line from section 4 for any style frame. Add one sentence anchoring each character's never-change items. Don't paste full face maps here; the attached sheets carry the looks, and the prompt should spend its words on the composition.
 7. **Style:** the MIX block, word for word.
-8. **Layout:** Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
+8. **Layout:** Cinematic 21:9 widescreen film still, composed like a key frame from a hand-painted animated film.
 9. **Negative:** from section 4, plus "No other people, figures or faces anywhere."
 
 Model: Seedream 5.0 Pro, which handles several reference images in one composite (Nano Banana Pro is the alternative). Attach the character sheets, the plate and the matching style frame.
@@ -75,7 +75,7 @@ The film flows best when one scene hands over to the next through a shared shape
 Then, for each K shot:
 
 **[N-x] start frame** (and **[N-x] end frame**)
-Model: Seedream 5.0 Pro · Aspect ratio: 16:9
+Model: Seedream 5.0 Pro · Aspect ratio: 21:9
 Attach (canon only): [Image 1, Image 2... with codes]
 
 ```
@@ -95,7 +95,7 @@ Request: "keyframes for the jump in scene 4"
 - 4-4 The field swirling with joy, wide · T · atmosphere · 2 s
 
 **4-2 start frame**
-Model: Seedream 5.0 Pro · Aspect ratio: 16:9
+Model: Seedream 5.0 Pro · Aspect ratio: 21:9
 Attach (canon only): Image 1 CD4 (the daughter at two), Image 2 CM2 (the mother in her thirties), Image 3 BG8 (the garden), Image 4 SF2 (style frame)
 
 ```
@@ -113,7 +113,7 @@ REFERENCES: Image 1 is the daughter at two. Image 2 is the mother in her thirtie
 
 The world is painted in thick Van Gogh impasto; the people are painted in clean, flat cubist planes. Keep them separate: no swirling strokes on the people, no geometric planes in the landscape. All the texture lives in the world.
 
-Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
+Cinematic 21:9 widescreen film still, composed like a key frame from a hand-painted animated film.
 
 No text, letters, labels, numbers, captions, watermark, signature or picture frame anywhere in the image. No photorealism, no 3D render, no anime, no flat vector illustration. No other people, figures or faces anywhere.
 ```

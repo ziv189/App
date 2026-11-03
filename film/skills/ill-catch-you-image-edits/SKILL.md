@@ -55,7 +55,7 @@ Request: "make the garden for scene 9 from the base plate"
 
 **Fix: the garden decades later, for scene 9 (BG12, from BG8)**
 Route: by model. A season-and-time variant of the canon base plate keeps the wall, the door and the trees identical.
-Model: Seedream 5.0 Pro · Aspect ratio: 16:9
+Model: Seedream 5.0 Pro · Aspect ratio: 21:9
 Attach: BG8 (the image to edit), PR1 (the wall, for reference)
 
 ```

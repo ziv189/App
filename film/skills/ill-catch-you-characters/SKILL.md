@@ -45,7 +45,7 @@ Write in plain sentences. Use color names, never hex codes, because models paint
 - **Lineup:** Lineup sheet on a plain warm off-white paper background: the figures stand side by side in one row, front view, full body, at true relative heights, soft even light, generous space between them.
 - **Stages:** Sequence sheet on a plain warm off-white paper background: the subject drawn in stages from left to right, the same size and in the same position in every stage.
 - **Light sheet:** Design sheet on a plain deep night-blue background: the lights drawn side by side in one row, to scale, with space between them.
-- **Key frame** (style frames SF2, SF3, SF4 and CM7): Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
+- **Key frame** (style frames SF2, SF3, SF4 and CM7): Cinematic 21:9 widescreen film still, composed like a key frame from a hand-painted animated film.
 
 ## Output format
 

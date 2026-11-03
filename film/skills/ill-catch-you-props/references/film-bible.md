@@ -25,7 +25,7 @@ The single source of truth for every prompt in this production. Every skill in t
 
 ## 1. The film
 
-**I'll Catch You** (German title: *Ich fang dich auf*). A wordless animated short, about 2:40, 16:9, ten scenes. Van Gogh-style world, Picasso-style characters. No dialogue. Apart from sound effects, the only sound that matters is a five-note hummed melody that falls and then rises on its last note. It is composed and recorded separately, never generated.
+**I'll Catch You** (German title: *Ich fang dich auf*). A wordless animated short, about 2:40, in cinematic 21:9 widescreen, ten scenes. Van Gogh-style world, Picasso-style characters. No dialogue. Apart from sound effects, the only sound that matters is a five-note hummed melody that falls and then rises on its last note. It is composed and recorded separately, never generated.
 
 **Story:** two small lights play in a swirling sky before they are born. The amber one goes first and becomes the mother who catches the little one at birth. A lifetime later, the daughter is caught again in the sky, and becomes the brave one for a new little light.
 
@@ -92,8 +92,9 @@ The single source of truth for every prompt in this production. Every skill in t
 - **Made from text alone: Soul 2.0.** Soul 2.0 can't take image inputs, so it makes the images that start from nothing: the five style frames and the two hero faces. Cinema Studio, Soul 2.0, paste the prompt, set the aspect ratio, batch of 4, generate. Compare the four, keep the best, and borrow details from the others with an edit.
 - **Anything that must match an approved image: Seedream 5.0 Pro,** with the canon images attached. That covers every sheet, plate, prop and effect after the hero faces, every edit and variant, and every keyframe. The Higgsfield team split the work the same way: Soul 2.0 for the first designs, Seedream 5.0 Pro (their tutorial transcript calls it "Cream 5.0 Pro") whenever they attached the approved car. If Seedream drifts, try Nano Banana Pro with the same prompt and attachments.
 - **If Soul 2.0 pulls the cubist faces toward realism** or a plastic 3D look after a few batches, try the same text-only prompt in Nano Banana Pro and compare. Decide during the style-frame gate.
-- **Resolution:** the highest available. **Aspect ratio:** as listed in the asset register.
-- **Video:** attach the assets as image inputs, and keyframes as start and end frames where the video model supports them.
+- **Aspect ratio:** the film is 21:9 widescreen. Every background, keyframe and video is 21:9, so check the setting before every generation. Sheets, portraits and the style frames use the ratio listed in the asset register.
+- **Resolution:** the highest available.
+- **Video:** attach the assets as image inputs, and keyframes as start and end frames where the video model supports them. Use a video model that can generate at 21:9.
 - Higgsfield's lineup changes often. Test any new model against the approved style frames before switching mid-production.
 
 ---
@@ -386,7 +387,7 @@ Both are approved and in canon. From here on they, not the style frames, define 
 | CM4 | Mother: catching poses | poses | 3:2 | 3 to 5 | HF1, CM2 | Holding a newborn, arm curved around its head; standing below the wall, arms open, looking up; catching a jumping toddler; spinning a child. |
 | CM5 | Mother, late 40s: turnaround | turnaround | 3:2 | 5 | HF1, CM1 | Faded cobalt dress, apron, one silver streak. |
 | CM6 | Mother, 60s: turnaround | turnaround | 3:2 | 7, 8 | HF1, CM1 | Blue cardigan over a gray dress, silver-white side buns, many small facets, the mark as bright as ever. |
-| CM7 | Mother, flat | key frame | 16:9 | 5 | CM5, CX1 | Her late-40s silhouette as a flat gray cut-out in the cottage doorway, arms half open; the cottage stays painted. |
+| CM7 | Mother, flat | key frame | 21:9 | 5 | CM5, CX1 | Her late-40s silhouette as a flat gray cut-out in the cottage doorway, arms half open; the cottage stays painted. |
 | CM8 | Mother: all of her | portrait | 4:5 | 7 | HF1, CM1 | One face whose planes show her in her mid-60s, her 30s and as a girl of about seven, fitted together, the mark at the center; overwhelming tenderness. |
 | CD1 | Daughter: ages 0 to 16 | lineup | 3:2 | 3 to 5 | HF2 | Newborn in the cream blanket; 2 in the yellow dress; 7 in the yellow pinafore; 16 in the charcoal hoodie. |
 | CD2 | Daughter: ages 25 to 75 | lineup | 3:2 | 6 to 9 | HF2, CD1 | 25 in the gray coat and mustard scarf; 30 in the mustard coat; 34 in the ochre cardigan; 75 in the blue cardigan and mustard scarf, with the small mark. |
@@ -426,23 +427,23 @@ Both are approved and in canon. From here on they, not the style frames, define 
 ### Background plates
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
-| BG1 | Sky: play | plate | 16:9 | 1 | SF1 | Night sky with no ground; rivers of cobalt and gold swirling; stars with soft rings of dabs. |
-| BG2 | Sky: the calm eye | plate | 16:9 | 1, 2 | SF1 | Looking into the calm center of a great swirl. |
-| BG3 | Sky: the spiral opens | plate | 16:9 | 2 | SF1, BG2 | Looking down a downward spiral of brushstrokes; the tiny world at the bottom with one amber window. |
-| BG4 | Sky: alone | plate | 16:9 | 2 | BG1 | The same sky, colder; bigger, darker swirls; stars far apart. |
-| BG5 | The world from above | plate | 16:9 | 1, 2 | SF1, PR3 | A night landscape from high above; one cottage window glows amber. |
+| BG1 | Sky: play | plate | 21:9 | 1 | SF1 | Night sky with no ground; rivers of cobalt and gold swirling; stars with soft rings of dabs. |
+| BG2 | Sky: the calm eye | plate | 21:9 | 1, 2 | SF1 | Looking into the calm center of a great swirl. |
+| BG3 | Sky: the spiral opens | plate | 21:9 | 2 | SF1, BG2 | Looking down a downward spiral of brushstrokes; the tiny world at the bottom with one amber window. |
+| BG4 | Sky: alone | plate | 21:9 | 2 | BG1 | The same sky, colder; bigger, darker swirls; stars far apart. |
+| BG5 | The world from above | plate | 21:9 | 1, 2 | SF1, PR3 | A night landscape from high above; one cottage window glows amber. |
 | BG6 | The fall | tall plate | 9:16 | 3 | SF1, SF2 | Night blue, dawn violet, morning gold from top to bottom; clouds of thick paint; brushstroke birds. |
-| BG7 | The birth room | plate | 16:9 | 3 | SF2, PR3 | A cottage bedroom at dawn. |
-| BG8 | Garden: childhood | plate | 16:9 | 4 | SF2, PR1 | The garden base plate. Every other garden plate is an edit of this one. |
-| BG9 | Garden: the leaving | plate | 16:9 | 5 | BG8, PR1, PR2 | Both sides of the wall visible, the road twisting away, the cottage door behind. |
-| BG10 | Garden: the return | plate | 16:9 | 7 | BG8, PR1, PR2 | Autumn; the camera higher, so the wall looks small. |
-| BG11 | Garden: the stillness | plate | 16:9 | 8 | BG8, SF4 | Night, painted in deep blues and blue-greens, every stroke stopped. |
-| BG12 | Garden: late life | plate | 16:9 | 9 | BG8, PR1 | Decades later: a mossier wall, wildflowers. |
-| BG13 | Cottage: the night window | plate | 16:9 | 8 to 10 | SF4, PR3 | Window seat, armchair, a dim lamp, the night sky through the glass. |
-| BG14 | The flat city | plate | 16:9 | 6 | SF3 | A rainy night street, gas lamps, long swirling reflections. |
+| BG7 | The birth room | plate | 21:9 | 3 | SF2, PR3 | A cottage bedroom at dawn. |
+| BG8 | Garden: childhood | plate | 21:9 | 4 | SF2, PR1 | The garden base plate. Every other garden plate is an edit of this one. |
+| BG9 | Garden: the leaving | plate | 21:9 | 5 | BG8, PR1, PR2 | Both sides of the wall visible, the road twisting away, the cottage door behind. |
+| BG10 | Garden: the return | plate | 21:9 | 7 | BG8, PR1, PR2 | Autumn; the camera higher, so the wall looks small. |
+| BG11 | Garden: the stillness | plate | 21:9 | 8 | BG8, SF4 | Night, painted in deep blues and blue-greens, every stroke stopped. |
+| BG12 | Garden: late life | plate | 21:9 | 9 | BG8, PR1 | Decades later: a mossier wall, wildflowers. |
+| BG13 | Cottage: the night window | plate | 21:9 | 8 to 10 | SF4, PR3 | Window seat, armchair, a dim lamp, the night sky through the glass. |
+| BG14 | The flat city | plate | 21:9 | 6 | SF3 | A rainy night street, gas lamps, long swirling reflections. |
 | BG15 | The street through the seasons | triptych | 21:9 | 6 | BG14 | Blossom, snow, blossom. |
-| BG16 | City apartment window | plate | 16:9 | 6 | BG14 | A window over wet rooftops; a long road out to the countryside. |
-| BG17 | Sky: the return | plate | 16:9 | 10 | SF5, BG1 | The opening sky, warmer and brighter, the calm eye glowing. |
+| BG16 | City apartment window | plate | 21:9 | 6 | BG14 | A window over wet rooftops; a long road out to the countryside. |
+| BG17 | Sky: the return | plate | 21:9 | 10 | SF5, BG1 | The opening sky, warmer and brighter, the calm eye glowing. |
 
 ### Effects
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
@@ -452,4 +453,4 @@ Both are approved and in canon. From here on they, not the style frames, define 
 | FX3 | Brushstroke birds | FX sheet | 3:2 | 3 | SF2 | Single dark curved strokes in flight positions; a loose V. |
 | FX4 | Rain, blossom, snow | FX sheet | 3:2 | 6, 9 | SF3 | Slanted strokes; pink-white dabs; round white dabs. |
 | FX5 | The crescent-shaped mark | design sheet | 3:2 | 3, 7, 9 | HF1 | The mark alone, large; beside it, the smaller version for the old daughter. |
-| FX6 | End card | design sheet | 16:9 | 10 | CS1, SF5 | One continuous stroke of amber light drawing a crescent shape curled around a small pale dot, with empty space for the title. The title is added in the edit, never generated. |
+| FX6 | End card | design sheet | 21:9 | 10 | CS1, SF5 | One continuous stroke of amber light drawing a crescent shape curled around a small pale dot, with empty space for the title. The title is added in the edit, never generated. |

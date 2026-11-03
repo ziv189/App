@@ -49,9 +49,9 @@ These two are the film's first gate, so write them before any plate. Add the LIG
 
 ## Layout blocks
 
-- **Plate:** Background plate with no people, no characters and no animals. Cinematic 16:9 widescreen composition with clear open space where characters will be placed later.
+- **Plate:** Background plate with no people, no characters and no animals. Cinematic 21:9 widescreen composition with clear open space where characters will be placed later.
 - **Tall plate** (BG6): Background plate with no people, no characters and no animals. Tall vertical composition made for a slow downward camera move.
-- **Key frame** (SF1, SF5): Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
+- **Key frame** (SF1, SF5): Cinematic 21:9 widescreen film still, composed like a key frame from a hand-painted animated film.
 - **Triptych** (BG15): Three panels side by side, the same camera angle in each, no people, no characters and no animals.
 
 ## Output format
@@ -79,7 +79,7 @@ Request: "the garden plate for the jumping scene"
 **BG8 Garden: childhood**
 Base plate or variant: the base plate. Every other garden plate is an edit of this one.
 Lighting lock: L-GOLD
-Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 16:9
+Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 21:9
 Attach (canon only): SF2 (style frame: catch at the wall), PR1 (the garden wall)
 
 ```
@@ -91,7 +91,7 @@ Golden late afternoon. Low warm sun from the left, long soft shadows, warm gold 
 
 Hand-painted oil environment in the style of Vincent van Gogh's late landscapes: thick impasto paint, long rhythmic brushstrokes that follow every form, skies built from swirling curved dashes, cypress trees like dark green flames, wheat fields of rippling ochre and gold strokes, visible canvas weave. Bold complementary color pairs, cobalt against chrome yellow and viridian against vermilion. Clear, readable shapes: the strokes describe the forms instead of burying them in noise. No smooth gradients, no photographic detail, no hard geometric shapes in the landscape.
 
-Background plate with no people, no characters and no animals. Cinematic 16:9 widescreen composition with clear open space where characters will be placed later.
+Background plate with no people, no characters and no animals. Cinematic 21:9 widescreen composition with clear open space where characters will be placed later.
 
 Image 1 is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition. Image 2 is the garden wall's prop sheet: the wall 100% matches it.
 
