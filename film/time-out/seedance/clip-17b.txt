@@ -1,0 +1,84 @@
+SCENE CONTEXT & STYLE
+
+What happens: A short object-only insert, with no people and no hands in the frame. On a small pink plastic tea table, beside the pink plastic teapot and a pink teacup, an old olive-green army grenade stands upright on a pink saucer, served like a dessert. Warm afternoon sunlight from the window catches the metal ring on top. Nothing moves. The camera slowly pushes in on it.
+
+Continuity: this is the same tea table, teapot, cups and saucers seen in the tea party scene, in the same golden afternoon light. This is a short insert that is edited into another clip.
+
+Tone and pace: still, quiet and ominous in a funny way, like the close-up of a prop in an old suspense movie. Slow.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Smooth sculpted forms, clean shapes, detailed plastic and metal textures, warm saturated colors, soft global illumination. The rendering matches the reference image exactly and stays identical from the first frame to the last.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Movement: nothing in the frame moves at all. Only the camera moves, in one slow, smooth push-in.
+
+Format: 5 seconds, 16:9, one continuous shot with no cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: warm, golden afternoon sunlight comes through the frilly white curtains of the window, from behind the table. It gives the pink plastic a soft glow and puts one small, clean highlight on the metal ring and the metal lever. Soft bounce light from the pale mint-green walls fills the shadows. No flicker, no color shift.
+
+Physics: everything is still and solid. It rests upright and steady on the saucer and never moves, rolls or falls over. The ring hangs still through the pin at the top.
+
+Sound: diegetic sound only. No music, no score. Only the quiet room tone of the afternoon. Nobody speaks.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = the room with the tea table. The small pink plastic tea table, the pink teapot, cups and saucers, and the soft background of pale mint-green walls and the window with frilly white curtains 100% match <<<image_1>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The grenade: one old olive-green army grenade, about the size of a lemon, round and ribbed, with a curved metal lever along one side and a round metal ring through the pin at the top. It never becomes a fruit, a toy, a bottle or anything else, and there is never a second one.
+- The saucer: one small pink plastic saucer under it.
+- The teapot and the teacup: the pink plastic teapot on one side of the saucer and one small pink teacup on its saucer on the other side, both from <<<image_1>>>.
+
+There are no people and no hands in this clip.
+
+
+SHOT STRUCTURE
+
+One shot, 0.0 to 5.0s: a close-up on the saucer on the tea table. Slow push-in.
+
+SHOT 1 (0.0 to 5.0s). CLOSE-UP: SERVED LIKE DESSERT.
+Camera: at the height of the table top, about 2 feet from the grenade, looking straight at it across the table. 50mm lens, about a 40-degree view. One slow, smooth push-in from about 2 feet to about 1 foot, easing in and out.
+Frame: the grenade upright on its pink saucer in the center of the frame, at about x 50% / y 52%. The pink teapot is on the left of the frame and a pink teacup on its saucer on the right, both slightly soft. Behind the table, the pale mint-green wall and the glowing window are soft and out of focus.
+0.0 to 1.5s: Stillness. Nothing moves. The camera begins to push in.
+1.5 to 3.5s: The camera keeps pushing in slowly. The highlight on the metal ring stays in place.
+3.5 to 5.0s: The camera eases to a stop, close on it and its ring. Hold.
+Light: golden window light from behind; one small, clean highlight on the ring.
+Last frame: a close view of it upright on the pink saucer, the ring at the top.
+Avoid: any people, any hands, anything moving, it rolling or falling over, a second one.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- One continuous 5-second shot, with no cuts.
+- No people and no hands appear.
+- The grenade stays upright and still on its saucer the whole time.
+- Only the camera moves.
+- The table, teapot and teacup match <<<image_1>>>.
+
+Exact dialogue: none. Nobody speaks.
+
+Constraints (these never happen):
+- No cuts, transitions, dissolves or extra shots.
+- No people, no hands and no voices.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: the objects never melt, merge or change shape.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none.
+2. Anticipation: the stillness before the push-in settles.
+3. Staging: one clear idea: an army prop served on a saucer at a tea party.
+4. Straight ahead and pose to pose: one held composition that the camera slowly moves into.
+5. Follow-through: the camera eases to a soft stop.
+6. Slow in and slow out: the push-in starts and ends gently.
+7. Arcs: none; the push-in is a straight line.
+8. Secondary action: the soft glow of the window behind, never pulling focus.
+9. Timing: slow and quiet.
+10. Exaggeration: none. The comedy is how politely it's served.
+11. Solid drawing: consistent shapes and volumes in every frame.
+12. Appeal: a clean, funny, suspenseful prop shot. It's a comedy.

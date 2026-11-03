@@ -1,0 +1,164 @@
+SCENE CONTEXT & STYLE
+
+What happens: Later that afternoon, in BRAYDEN's room, a pastel playroom upstairs in the beige house. VINCE, MARCO and DUANE sit squeezed onto toy-sized pink plastic chairs around a small pink plastic tea table, their knees up near their chins, each wearing a pink plastic princess tiara. They are a mess from the day: Duane's shin is wrapped in pink bandages, Vince's right hand is a huge ball of white bandage, and Marco's clothes are covered in neat slits. Brayden, in his mission look, sits at the head of the table on a taller pink seat and plays the perfect hostess. The three men are too scared of him to move. He holds the teapot over Duane's cup and asks if he wants more tea. Duane says yes, please. Brayden stops pouring and waits until Duane says it properly, with "your majesty," then finishes pouring. Marco lifts his own cup, sniffs it, and announces in his new, squeaky voice that it isn't apple juice. Brayden grins and points out that he never said it was.
+
+Continuity: this is later the same afternoon. All three men are still in their socks, under the table. Vince's hair still sticks straight back, and his sunglasses are hooked on his collar. Marco's voice is still a full octave higher than normal, and his pen gadget stays in his vest pocket. Brayden is in his mission look, with the black face-paint stripes and his dad's oversized army helmet, as in <<<image_1>>>. Everyone stays seated the whole clip.
+
+Tone and pace: a dark, dry comedy played as a polite tea party. Brayden is calm, sweet and completely in charge; the men are frozen, bolt upright and terrified, like nervous guests on their best behavior. Every line gets a real pause after it. Nothing is rushed.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair, beard and plastic textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: pale mint-green walls, bright pink plastic furniture and tea set, white bandages, soft golden sunlight.
+
+Camera language: real lenses between 28mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. The three men barely move: big, heavy men folded onto toy-sized chairs, sitting very still so they don't upset anyone. Brayden's movements are small, neat and deliberate, like a fussy host. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, four shots joined by three hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: a sunny afternoon. Warm, golden sunlight comes through the frilly white curtains of the window behind Brayden, giving him and the back of the room a soft, glowing rim of light, and making the pink tea set glow. Soft light bounces off the pale mint-green walls and fills every face, so no face is ever lost in shadow. The light is fixed to the room, the same in every shot. No flicker, no color shift.
+
+Physics: real weight and scale. The men are huge next to the furniture: the chairs are toy-sized, so their knees come up near their chins, and the small plastic chairs flex and creak slightly under their weight but never break. Their fingers are too big for the cup handles, so they pinch the cups between thumb and forefinger. The teapot is light plastic. When Brayden tilts it, a thin, steady stream of cloudy, greenish-brown liquid, like pond water, arcs from the spout into the cup; when he tilts it back up, the stream stops cleanly with one last drip. The cup fills to just below the rim and never spills. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score: the song playing in this room is added in editing, so the speaker on the dresser stays silent here. Clean dialogue with accurate lip sync, plus only these sounds, in order: quiet room tone; the faint creak of the small plastic chairs; the light scrape of the plastic teapot lifting off the table; Brayden's voice; Duane's voice; the thin trickle of the pour; one drip; silence; Brayden's voice; Duane's voice; the trickle again; one soft sniff from Marco; Marco's voice with one censor beep; Brayden's voice; silence. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = BRAYDEN in his mission look: the black face-paint stripes and his dad's oversized army helmet. A scheming brat who runs the house, calm and completely in control, playing the perfect host. Voice: high and raspy; here a sweet, fake-polite, sing-song hostess voice that goes flat and impatient when he corrects someone. Face, ears, teeth, body, clothes, face-paint stripes and helmet 100% match <<<image_1>>>.
+
+<<<image_2>>> = DUANE, a man in his 30s. A huge, soft-hearted, sensitive guy, terrified and eager to please. Voice: a deep, soft, warm bass, gentle and hesitant; here small, quiet and trembling. Face, beard, body and clothes, including his fanny pack, 100% match <<<image_2>>>.
+
+<<<image_3>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. Voice: since the hallway it sits a full octave higher than normal, small and squeaky, but just as flat, deadpan and monotone as ever; he barely moves his mouth when he talks. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_3>>>.
+
+<<<image_4>>> = VINCE, a man in his 50s. The self-appointed mastermind, smug and theatrical, now sitting frozen and silent. He doesn't speak in this clip. Face, hair, body, clothes and accessories 100% match <<<image_4>>>.
+
+<<<image_5>>> = Brayden's room. The pale mint-green walls with crayon murals, the window with frilly white curtains in the middle of the back wall, the wooden toy chest under it, the small white dresser with a round speaker on the right wall, the play rug, and the small pink tea table with its chairs and tea set 100% match <<<image_5>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The tea table: one small, low, rectangular pink plastic table, about as high as a man's knee, just big enough for the tea set.
+- The chairs: three toy-sized pink plastic chairs with seats about a foot off the floor, one for each man, and one taller pink seat at the head of the table for Brayden.
+- The teapot: one pink plastic toy teapot, about the size of a grapefruit, with a curved spout, a loop handle and a lid with a small knob. Only Brayden holds it.
+- The cups: four small pink plastic teacups, each about the size of an egg cup, on matching pink saucers, one at each place.
+- The liquid: cloudy, greenish-brown, like pond water. Every cup already holds some; in this clip Brayden only pours more into Duane's cup. It never spills.
+- The tiaras: three pink plastic princess tiaras with plastic jewels, one on each man's head. Duane's rests crooked on his bald head; nobody fixes it.
+- Vince's bandage: a huge, round ball of white bandage wrapped around his right hand, as big as a cantaloupe, with a short wooden handle poking out of the top. It rests on the edge of the table.
+- Duane's bandages: his right shin is wrapped in pink bandages printed with small yellow crowns.
+- Marco's clothes: his black puffer vest and hoodie are covered in long, neat slits, with tufts of white stuffing poking out of the vest.
+
+Only four people exist in this clip: Brayden, Duane, Marco and Vince.
+
+Table map, true in every shot: Brayden sits at the head of the table, with his back to the window. Marco sits on the left side and Duane on the right side, as seen from the foot of the table, facing each other across it. Vince sits at the foot, facing Brayden down the length of the table. The table is so small that Marco's and Duane's places are right beside the head of the table, within Brayden's reach. Seen from the foot, the window is behind Brayden, the toy chest is under it, and the dresser is on the right wall.
+
+
+SHOT STRUCTURE
+
+The four shots at a glance:
+1. 0.0 to 4.0s: wide from the corner of the room. The tea party, everyone frozen. Slow push-in.
+2. 4.0 to 12.5s: two-shot, Brayden and Duane. "More tea," the stopped pour and "your majesty." Locked-off.
+3. 12.5 to 17.0s: medium on Marco. The sniff and the apple-juice line. Slow push-in.
+4. 17.0 to 20.0s: close-up on Brayden. "I never said it was apple." Locked-off.
+
+SHOT 1 (0.0 to 4.0s). WIDE: THE TEA PARTY.
+Camera: in the corner of the room by the door, at standing eye height, looking across the room toward the window and the tea table, matching <<<image_5>>>. 28mm lens, about a 65-degree view. A slow push-in, easing in and out.
+Frame: the tea table in the center of the frame. Brayden (<<<image_1>>>) at the head on his taller seat, facing the camera, the glowing window behind him, his head at about x 50% / y 40%. Marco (<<<image_3>>>) on the left side, facing right, his head at about x 32% / y 44%. Duane (<<<image_2>>>) on the right side, facing left, towering even sitting down, his head at about x 70% / y 32%. Vince (<<<image_4>>>) at the foot of the table nearest the camera, seen from behind and slightly to the side, his tiara on his swept-back hair and his bandage ball on the table edge, his head at about x 52% / y 62%. All three men's knees come up near their chins.
+0.0 to 1.5s: Hold. Nobody moves. The three men sit frozen and bolt upright. Brayden sits up straight with his hands folded on the table.
+1.5 to 2.5s: Duane's tiara slowly slides slightly further crooked on his bald head. He doesn't dare fix it. Nobody moves.
+2.5 to 4.0s: Brayden picks up the pink teapot with both hands, his right hand on the handle and his left hand flat on the lid.
+Light: golden window light behind Brayden; soft bounce light on every face.
+Last frame: Brayden holding the teapot, the three men frozen around the table.
+Avoid: anyone standing up, the bandage ball changing size, extra people, extra cups.
+
+HARD CUT
+
+SHOT 2 (4.0 to 12.5s). TWO-SHOT: "YOUR MAJESTY."
+Camera: on Marco's side of the table, at the men's seated eye height, about 5 feet from Duane, looking across the table at him. Marco is out of frame. 35mm lens, about a 54-degree view. Locked-off.
+Frame: Brayden on the left of the frame at the head of the table, turned toward Duane, holding the teapot with both hands, his head at about x 30% / y 42%. Duane on the right of the frame facing the camera, his knees up near his chin, his crooked tiara on his head, his head at about x 68% / y 30%. Duane's small pink cup rests on its saucer on the table in front of him, at about x 52% / y 70%.
+4.0 to 4.4s: Brayden holds the teapot's spout over Duane's cup.
+4.4 to 5.8s: BRAYDEN: "More tea, Mister Duane?" Delivery: sweet, fake-polite and sing-song, like a perfect hostess.
+5.8 to 6.2s: Pause. Duane swallows.
+6.2 to 7.0s: DUANE: "Yes, please." Delivery: small, quiet and trembling.
+7.0 to 7.6s: Brayden tilts the teapot. A thin stream of cloudy, greenish-brown liquid pours into Duane's cup.
+7.6 to 8.0s: Halfway through the pour, Brayden tilts the teapot back up. The stream stops, with one last drip. He holds the teapot still and stares at Duane.
+8.0 to 9.6s: BRAYDEN: "Yes please, your majesty." Delivery: flat and impatient, correcting him, every word separate.
+9.6 to 10.0s: Pause. Duane's eyes dart to the teapot and back.
+10.0 to 11.4s: DUANE: "Yes please, your majesty." Delivery: quick, high and trembling.
+11.4 to 12.5s: Brayden smiles sweetly and tilts the teapot again. The stream fills the cup to just below the rim and stops cleanly.
+Light: golden window light rims Brayden's helmet; soft light on Duane's face.
+Last frame: Duane's full cup, Brayden lifting the teapot away, Duane frozen.
+Avoid: the liquid spilling or overflowing, Duane drinking, the teapot changing shape, Marco in frame.
+
+HARD CUT
+
+SHOT 3 (12.5 to 17.0s). MEDIUM: MARCO SNIFFS.
+Camera: on Duane's side of the table, at Marco's seated eye height, about 4 feet from him, looking across the table at him. Duane is out of frame. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: Marco (<<<image_3>>>) from the chest up, facing the camera, his head at about x 46% / y 32%, his tiara perched on his messy hair, white stuffing poking out of the slits in his vest. At the right edge of the frame, Brayden is soft and out of focus at the head of the table.
+12.5 to 13.3s: With his left hand, Marco lifts his small pink cup off its saucer, pinched between his thumb and forefinger, and raises it to his nose.
+13.3 to 13.8s: He sniffs once. He freezes.
+13.8 to 14.3s: Beat. His face stays completely flat.
+14.3 to 15.9s: MARCO: "This isn't [BLEEP] apple juice." Delivery: small, squeaky and a full octave higher than normal, but totally deadpan. The beep covers one word while his mouth keeps moving.
+15.9 to 17.0s: Without moving his head, he slowly turns his eyes toward Brayden at the right edge of the frame. The cup stays just under his nose.
+Light: soft, even light on his face; the window glow behind Brayden at the right edge.
+Last frame: Marco holding the cup under his nose, eyes on Brayden.
+Avoid: Marco drinking, the cup changing size, the liquid spilling, his voice dropping back to normal.
+
+HARD CUT
+
+SHOT 4 (17.0 to 20.0s). CLOSE-UP: BRAYDEN.
+Camera: at the foot of the table just beside Vince's shoulder, at Brayden's eye height, about 3 feet from him, looking straight at him. Vince is out of frame. 50mm lens, about a 40-degree view. Locked-off.
+Frame: Brayden (<<<image_1>>>) from the shoulders up, his head at about x 50% / y 38%, the helmet and face-paint stripes clear, the frilly curtains and the glowing window soft and out of focus behind him.
+17.0 to 17.6s: He turns his eyes to Marco, toward the left of the frame. A slow grin spreads across his face, showing his jagged teeth.
+17.6 to 19.2s: BRAYDEN: "I never said it was apple." Delivery: sweet, slow and sing-song, dropping almost to a whisper on the last word.
+19.2 to 20.0s: Hold on the grin. He doesn't blink.
+Light: a soft golden rim of window light around his helmet and shoulders; soft bounce light on his face.
+Last frame: Brayden's wide grin under the helmet, eyes on Marco.
+Avoid: Brayden standing up, his teeth or face changing shape, anyone else in frame.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly four shots joined by exactly three hard cuts, at 4.0s, 12.5s and 17.0s.
+- Only Brayden, Duane, Marco and Vince are in this clip, all matching their reference images 100%. Everyone stays seated the whole time.
+- Each man wears his pink tiara the whole clip; Duane's stays crooked.
+- Vince's bandage ball, Duane's pink shin bandages and the slits and stuffing in Marco's clothes stay exactly the same.
+- Only Brayden holds the teapot, and only Duane's cup gets poured. Nothing spills, and nobody drinks.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Brayden's high, raspy hostess voice, Duane's small, trembling bass and Marco's squeaky, deadpan voice never swap.
+- The written pauses are kept.
+- The room matches <<<image_5>>> in every shot.
+
+Exact dialogue (these lines, by these speakers, in this order, word for word, and nothing else):
+  1. BRAYDEN: "More tea, Mister Duane?"
+  2. DUANE: "Yes, please."
+  3. BRAYDEN: "Yes please, your majesty."
+  4. DUANE: "Yes please, your majesty."
+  5. MARCO: "This isn't [BLEEP] apple juice."
+  6. BRAYDEN: "I never said it was apple."
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people and no other voices. Vince says nothing.
+- No ad-libs, extra lines or narration.
+- No music and no singing: the speaker on the dresser stays silent.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands, tiaras, cups and the teapot never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape; only the plastic chairs flex slightly under the men's weight.
+2. Anticipation: Brayden lifts the teapot before he pours, stops the pour before he corrects Duane, and Marco sniffs before he speaks.
+3. Staging: one clear idea per shot: the tea party, the "your majesty" lesson, the sniff, the grin.
+4. Straight ahead and pose to pose: natural motion landing on clear, held poses: the frozen guests, the held teapot, Marco's eyes sliding over, Brayden's grin.
+5. Follow-through: one last drip after each pour, and the tiara slides and settles.
+6. Slow in and slow out: the teapot tilts and lifts smoothly; Marco's cup rises slowly to his nose.
+7. Arcs: the stream of liquid falls in a clean arc, and the teapot tilts on a smooth arc.
+8. Secondary action: the creaking chairs and Duane's darting eyes, never pulling focus.
+9. Timing: slow and polite; every line gets its pause; Brayden's last line is the slowest of all.
+10. Exaggeration: minimal. The comedy is three big, battered men in tiaras being perfect guests for a calm, terrifying host.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: a calm, funny mastermind and three lovable idiots minding their manners. It's a comedy.
