@@ -89,5 +89,16 @@ No text, letters, labels, numbers, captions, watermark, signature or picture fra
 ```
 After the repair, check every never-change item for every character in the frame before you attach it as a reference.
 
+**Matching a style frame's paint.** Request: "SF3 doesn't look like SF1." Attach the frame to fix as Image 1 and SF1 as Image 2.
+```
+Image 1 is the base to edit. Image 2 is the film's first style frame, for the paint only. Keep everything in Image 1 exactly the same except the change described below.
+
+CHANGE: Repaint the setting in Image 1 (everything except the people) with the same paint handling as Image 2: the same thickness of impasto, the same long rhythmic brushstrokes and swirling curved dashes, the same visible canvas weave.
+
+KEEP EXACTLY THE SAME: the composition and camera, the characters and their faces, and the colors and light of Image 1. The characters stay clean, flat cubist planes. Don't copy Image 2's composition, sky or colors.
+
+No text, letters, labels, numbers, captions, watermark, signature or picture frame anywhere in the image. No photorealism, no 3D render, no anime, no flat vector illustration.
+```
+
 **Combining takes.** Request: "take 2 has the best face but take 4 has the right hair."
 Attach take 2 as Image 1 (the base) and take 4 as Image 2. CHANGE: "Replace the hair in Image 1 with the hair from Image 2: [describe it in face-map words]." KEEP EXACTLY THE SAME: the face, its planes, the eyes and the marks, the clothes, the pose and the layout.

@@ -48,7 +48,7 @@ Decide two things:
 
 **[Code] [Effect name]**
 Route: generate as the final element / generate as the design, build it in the edit ([one-line reason])
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: [ratio] · Batch: 4
+Model: Soul 2.0 in Cinema Studio, batch of 4, if nothing is attached; Seedream 5.0 Pro if anything is attached (Soul 2.0 can't take image inputs) · Aspect ratio: [ratio]
 Attach (canon only): [codes and what each one is]
 
 ```
@@ -68,7 +68,7 @@ Request: "the light leaving her body"
 
 **FX2 A light rising**
 Route: generate as the design, build it in the edit. A composited glow on a curve stays steadier than a generated one, and it lets you time the rise exactly to the missing last note.
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: 21:9 · Batch: 4
+Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 21:9
 Attach (canon only): CS1 (the lights)
 
 ```

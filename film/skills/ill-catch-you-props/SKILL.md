@@ -48,7 +48,7 @@ Generate the main sheet once. Make every variant (the window at night, the scarf
 
 **[Code] [Prop name]**
 Sheet: needed / optional ([one-line reason]) · Painted like: the characters / the world
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: 3:2 · Batch: 4
+Model: Soul 2.0 in Cinema Studio, batch of 4, if nothing is attached; Seedream 5.0 Pro if anything is attached (Soul 2.0 can't take image inputs) · Aspect ratio: 3:2
 Attach (canon only): [codes and what each one is]
 
 ```
@@ -70,7 +70,7 @@ Request: "the blue cardigan"
 
 **PR8 The blue cardigan**
 Sheet: needed (an heirloom: the mother wears it in scenes 7 and 8, the daughter at 75 in scene 9) · Painted like: the characters
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: 3:2 · Batch: 4
+Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 3:2
 Attach (canon only): CM6 (the mother in her sixties wearing it)
 
 ```

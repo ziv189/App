@@ -33,7 +33,7 @@ Each skill triggers on its own when your request matches. You can also name it: 
 | Asset-first: image inputs decide the film | Same. Five style frames and two hero faces gate everything. |
 | Asset managers keep everything in one world | The asset-review skill does that check on every image. |
 | Short request to Claude, then the full prompt | Every skill takes a short request or an asset code. |
-| Soul 2.0, batch of 4, then hand edits in Photoshop | Same, plus a hand-finish pass: palette color, missing marks, a brushed contour on characters. |
+| Soul 2.0, batch of 4, then hand edits in Photoshop | Soul 2.0 (text only; it takes no image inputs) for the style frames and hero faces; Seedream 5.0 Pro for everything with an attachment; then a hand-finish pass: palette color, missing marks, a brushed contour on characters. |
 | Edits in Seedream 5.0 Pro ("Cream 5.0 Pro" in the transcript) | The image-edits skill: one change per pass. |
 | Watercolor taxi broke in motion; the car went clean | Texture budget: the world keeps the paint; characters and held props stay clean. |
 | Golden hour fixed the dull locations | A lighting lock per location, pasted word for word. |

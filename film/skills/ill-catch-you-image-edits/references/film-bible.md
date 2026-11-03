@@ -61,7 +61,7 @@ The single source of truth for every prompt in this production. Every skill in t
 
 **No 3D.** Where the Higgsfield team used a Blender previs to control a shot, this production uses keyframes (painted start and end frames), rough hand-drawn layout sketches, and screenshots of good takes.
 
-**Gates, in order.** Each gate uses approved images from earlier gates as references.
+**Gates, in order.** Gates 1 and 2 start from text alone (Soul 2.0). From gate 3 on, each gate attaches approved images from the earlier gates (Seedream 5.0 Pro).
 1. Style frames (5): the look. Make nothing else until all five feel like the same film.
 2. Hero faces (2): one close-up of the mother, one of the daughter. Make many takes and keep one of each.
 3. Lineups: each of them at every age, built from her hero face.
@@ -89,9 +89,9 @@ The single source of truth for every prompt in this production. Every skill in t
 
 ## 3. Higgsfield settings
 
-- **Image generation:** Cinema Studio, Soul 2.0, paste the prompt, set the aspect ratio, batch of 4, generate. Compare the four, keep the best, and borrow details from the others with an edit.
-- **Edits, variants and multi-reference composites** (including keyframes): Seedream 5.0 Pro, with the canon images attached. The Higgsfield tutorial transcript calls it "Cream 5.0 Pro"; it is Seedream.
-- **If Soul 2.0 pulls the cubist faces toward realism** or a plastic 3D look after a few batches, run the same prompt and references in Nano Banana Pro and compare. Decide during the style-frame gate, then stay with one model for the whole production.
+- **Made from text alone: Soul 2.0.** Soul 2.0 can't take image inputs, so it makes the images that start from nothing: the five style frames and the two hero faces. Cinema Studio, Soul 2.0, paste the prompt, set the aspect ratio, batch of 4, generate. Compare the four, keep the best, and borrow details from the others with an edit.
+- **Anything that must match an approved image: Seedream 5.0 Pro,** with the canon images attached. That covers every sheet, plate, prop and effect after the hero faces, every edit and variant, and every keyframe. The Higgsfield team split the work the same way: Soul 2.0 for the first designs, Seedream 5.0 Pro (their tutorial transcript calls it "Cream 5.0 Pro") whenever they attached the approved car. If Seedream drifts, try Nano Banana Pro with the same prompt and attachments.
+- **If Soul 2.0 pulls the cubist faces toward realism** or a plastic 3D look after a few batches, try the same text-only prompt in Nano Banana Pro and compare. Decide during the style-frame gate.
 - **Resolution:** the highest available. **Aspect ratio:** as listed in the asset register.
 - **Video:** attach the assets as image inputs, and keyframes as start and end frames where the video model supports them.
 - Higgsfield's lineup changes often. Test any new model against the approved style frames before switching mid-production.
@@ -353,19 +353,23 @@ Lessons from the Higgsfield team's test stage, translated to this film:
 The short request for every image input. Write the full prompt with the matching skill. "Attach" lists the canon codes to add as references.
 
 ### Style frames
+Made from text alone in Soul 2.0; the identical style lock in every prompt is what holds them together. If one frame's paint drifts from SF1, match it with a Seedream edit (the image-edits skill).
+
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
 | SF1 | The two lights | key frame | 16:9 | 1 | none | Two small lights, an amber crescent-shaped glow and a pale dot, play on the curve of a great swirl in a night sky of cobalt and gold; far below, wheat fields, cypresses, a village with lit windows. |
-| SF2 | Catch at the wall | key frame | 16:9 | 4 | SF1 | Golden late afternoon. The young mother in cobalt catches the laughing toddler in yellow as she jumps from the stone wall, and spins her; the wheat swirls around them. |
-| SF3 | The flat city | key frame | 16:9 | 6 | SF1 | A rainy night street. Flat gray cut-out people slide past; in the middle, the daughter at 25 is half flattened. |
-| SF4 | The stillness | key frame | 16:9 | 8 | SF1, SF2 | Night through a cottage window. The garden and wheat are completely still and painted only in blues; the daughter at 34 stands at the window, also blue, hands raised and empty. |
-| SF5 | The catch in the sky | key frame | 16:9 | 10 | SF1 | A warm glowing sky. The amber crescent-shaped glow curls around a small pale light at the calm center of a great swirl. |
+| SF2 | Catch at the wall | key frame | 16:9 | 4 | none | Golden late afternoon. The young mother in cobalt catches the laughing toddler in yellow as she jumps from the stone wall, and spins her; the wheat swirls around them. |
+| SF3 | The flat city | key frame | 16:9 | 6 | none | A rainy night street. Flat gray cut-out people slide past; in the middle, the daughter at 25 is half flattened. |
+| SF4 | The stillness | key frame | 16:9 | 8 | none | Night through a cottage window. The garden and wheat are completely still and painted only in blues; the daughter at 34 stands at the window, also blue, hands raised and empty. |
+| SF5 | The catch in the sky | key frame | 16:9 | 10 | none | A warm glowing sky. The amber crescent-shaped glow curls around a small pale light at the calm center of a great swirl. |
 
 ### Hero faces
+Made from text alone in Soul 2.0. Compare each take with SF2 before approving.
+
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
-| HF1 | The mother | portrait | 4:5 | 3, 4 | SF2 | The mother in her early 30s, calm and tender, faint smile, cobalt dress. |
-| HF2 | The daughter | portrait | 4:5 | 6 | SF2 | The daughter at 25, curious and open, shoulder-length auburn hair, mustard scarf. |
+| HF1 | The mother | portrait | 4:5 | 3, 4 | none | The mother in her early 30s, calm and tender, faint smile, cobalt dress. |
+| HF2 | The daughter | portrait | 4:5 | 6 | none | The daughter at 25, curious and open, shoulder-length auburn hair, mustard scarf. |
 
 ### Characters
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |

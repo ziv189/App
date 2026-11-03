@@ -17,7 +17,7 @@ Work out four things from the request:
 1. Who, and at what age.
 2. Sheet type: hero face, turnaround, expressions, poses, lineup, stages, light sheet or key frame.
 3. The asset code, if the request matches a row in the register.
-4. Which canon images to attach. Use the register's Attach column, and remind the user that each one must already be approved.
+4. Which canon images to attach. Use the register's Attach column, and remind the user that each one must already be approved. Anything attached means Seedream 5.0 Pro, because Soul 2.0 can't take image inputs.
 
 If something is missing, choose the most sensible option from the register and say what you chose in one line. Ask only when the answer changes the design, for example a new character the bible doesn't cover. For a new character, propose a face map in the same format as section 8 (a distinct cubist signature, colors, never-change list) and get it approved before writing sheets.
 
@@ -52,7 +52,7 @@ Write in plain sentences. Use color names, never hex codes, because models paint
 Use this template every time:
 
 **[Code] [Asset name]**
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: [ratio] · Batch: 4
+Model: Soul 2.0 in Cinema Studio, batch of 4, if nothing is attached; Seedream 5.0 Pro if anything is attached (Soul 2.0 can't take image inputs) · Aspect ratio: [ratio]
 Attach (canon only): [each code and what it is], or "Nothing, this is the first image of this character."
 
 ```
@@ -70,7 +70,7 @@ If the request covers several assets, repeat the template for each, in productio
 
 ## Special states
 
-- **Hero faces (HF1, HF2):** tell the user to make several batches and keep exactly one. Every later image of that character is built from it.
+- **Hero faces (HF1, HF2):** made from text alone in Soul 2.0. Tell the user to make several batches and keep exactly one. Every later image of that character is built from it.
 - **Unfinished newborn (CD3, CC1):** "a smooth unfinished oval with no features yet, soft and peaceful". Gentle, never eerie.
 - **Flat and unfolding (CM7, CD10, CP2):** use the FLAT PEOPLE block. The silhouette must stay recognizably that person (her bun and apron; her coat and scarf). Stage sheets are read backwards for unfolding.
 - **All of her (CM8, CD16):** one face whose planes each show a different age, fitted together and centered on the character's mark. Warn the user that this is the hardest image in the film. If one prompt can't hold it, build it with edit passes from the lineup (the image-edits skill) or assemble it by hand.
@@ -88,7 +88,7 @@ Watch for two failures the Higgsfield team saw: a different hairstyle in every v
 Request: "mom at 65 turnaround"
 
 **CM6 Mother, 60s: turnaround**
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: 3:2 · Batch: 4
+Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 3:2
 Attach (canon only): HF1 (her hero face), CM1 (her age lineup)
 
 ```

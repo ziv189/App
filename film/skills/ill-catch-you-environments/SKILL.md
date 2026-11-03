@@ -45,7 +45,7 @@ Rules that keep plates usable:
 
 ## Sky style frames (SF1, SF5)
 
-These two are the film's first gate, so write them before any plate. Add the LIGHTS block after WORLD, describe the lights' positions and moods in the layout of the space (section 10 of the bible), use the key-frame layout instead of the plate layout, and replace the no-people line with "No people, no figures and no faces anywhere. The lights have no faces." SF5 attaches SF1 for its paint only, so replace the consistency line with: "The attached image is the film's first style frame. Match its paint handling, brushwork and colors; make this sky warmer and brighter, and don't copy its composition."
+These two are the film's first gate, so write them before any plate. Add the LIGHTS block after WORLD, describe the lights' positions and moods in the layout of the space (section 10 of the bible), use the key-frame layout instead of the plate layout, and replace the no-people line with "No people, no figures and no faces anywhere. The lights have no faces." Both are made from text alone in Soul 2.0, which can't take image inputs, so they have no consistency line. If SF5's paint drifts from SF1, match it afterwards with a Seedream edit (the image-edits skill).
 
 ## Layout blocks
 
@@ -59,7 +59,7 @@ These two are the film's first gate, so write them before any plate. Add the LIG
 **[Code] [Location name]**
 Base plate or variant: [base / edit of BG8, BG14 or BG1, in which case give the edit prompt from the image-edits skill instead]
 Lighting lock: [lock name]
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: [ratio] · Batch: 4
+Model: Soul 2.0 in Cinema Studio, batch of 4, if nothing is attached; Seedream 5.0 Pro if anything is attached (Soul 2.0 can't take image inputs) · Aspect ratio: [ratio]
 Attach (canon only): [codes and what each one is]
 
 ```
@@ -79,7 +79,7 @@ Request: "the garden plate for the jumping scene"
 **BG8 Garden: childhood**
 Base plate or variant: the base plate. Every other garden plate is an edit of this one.
 Lighting lock: L-GOLD
-Model: Soul 2.0 in Cinema Studio · Aspect ratio: 16:9 · Batch: 4
+Model: Seedream 5.0 Pro (references attached) · Aspect ratio: 16:9
 Attach (canon only): SF2 (style frame: catch at the wall), PR1 (the garden wall)
 
 ```
