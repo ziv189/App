@@ -16,7 +16,7 @@ Format: 5 seconds, 16:9, one continuous shot with no cuts. Real-time motion at 2
 
 Lighting: warm, golden afternoon sunlight comes through the frilly white curtains of the window, from behind the table. It gives the pink plastic a soft glow and puts one small, clean highlight on the metal ring and the metal lever. Soft bounce light from the pale mint-green walls fills the shadows. No flicker, no color shift.
 
-Physics: everything is still and solid. It rests upright and steady on the saucer and never moves, rolls or falls over. The ring hangs still through the pin at the top.
+Physics: everything is still and solid. The grenade rests upright and steady on the saucer and never moves, rolls or falls over. The ring hangs still through the pin at the top.
 
 Sound: diegetic sound only. No music, no score. Only the quiet room tone of the afternoon. Nobody speaks.
 
