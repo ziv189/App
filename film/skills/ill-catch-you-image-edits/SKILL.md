@@ -20,7 +20,7 @@ Read `references/film-bible.md`, sections 4 (style lock), 6 (lighting locks), 7 
 Choose the route:
 - **By hand** (Photoshop, Procreate): color and saturation, a small missing mark (the crescent-shaped mark, the amber fleck, the blue plane), the brushed contour line, small cleanup. This is fastest and exact. Recommend it first whenever the fix is small.
 - **By model** (Seedream 5.0 Pro in Higgsfield, or Nano Banana Pro): variants (an older age, other clothes, a season, a time of day, a mood, another view), borrowing a part from another take, larger fixes, and composites of several references.
-- **Regenerate:** when the face map itself is wrong (the wrong split, the front eye on the wrong side, the wrong number of eyes), or the style is wrong (realistic, plastic, textured characters). Edits rarely fix a wrong foundation. Send the user back to the asset's skill with one line saying what to change in the prompt.
+- **Regenerate:** when the face map itself is wrong (the halves swapped or in the wrong colors, the mark on the wrong side, the wrong number of eyes), or the style is wrong (realistic, plastic, textured characters). Edits rarely fix a wrong foundation. Send the user back to the asset's skill with one line saying what to change in the prompt.
 
 ## Edit prompt structure
 
@@ -79,7 +79,7 @@ Route: by hand if possible (paint the mark from CM6). Otherwise, by model:
 ```
 Image 1 is the base to edit: a frame from a video take. Image 2 is the mother's character sheet, for reference only. Keep everything in Image 1 exactly the same except the change described below.
 
-CHANGE: The mother's amber crescent-shaped mark is missing. Add it on her right cheek, just under her front-facing eye, horns pointing up, about as wide as the eye, glowing softly, exactly as on her character sheet in Image 2.
+CHANGE: The mother's amber crescent-shaped mark is missing. Add it on her right cheek (the light half), just under her right eye, horns pointing up, about as wide as the eye, glowing softly, exactly as on her character sheet in Image 2.
 
 KEEP EXACTLY THE SAME: the camera angle and framing, both characters' poses and expressions, the lighting, the background and everything else in Image 1.
 

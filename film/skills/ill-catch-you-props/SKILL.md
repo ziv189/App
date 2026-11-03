@@ -29,7 +29,7 @@ Decide three things:
 3. **Views:** the angles or states, from left to right, plus one close-up detail.
 4. **Style:** OBJECTS or WORLD, word for word.
 5. **Layout:** the matching block below.
-6. **Consistency line:** whenever references are attached.
+6. **References:** the consistency line from section 4 for attached sheets and plates, and the style frame line from section 4 for any attached style frame (paint only).
 7. **Negative:** from section 4, plus "No people, no hands, no figures." Leave out "no people" only when the asset is deliberately shown with a character.
 
 Use color names, never hex codes. Check nouns against section 7.

@@ -33,7 +33,7 @@ Decide two things:
 3. **Literal-word guard:** one sentence saying what it is not (not the moon, not a flame, not a comet, not water), whenever a shape could be read as an object.
 4. **Style:** LIGHTS for anything glowing, WORLD for weather and birds, CHARACTERS for the face-building stages and the mark.
 5. **Layout block:** below.
-6. **Consistency line:** whenever references are attached.
+6. **References:** the consistency line from section 4 for attached sheets and plates, and the style frame line from section 4 for any attached style frame (paint only).
 7. **Negative:** from section 4, plus "No people, no figures and no faces anywhere." Leave the people line out of FX1, which is a face.
 
 ## Layout blocks

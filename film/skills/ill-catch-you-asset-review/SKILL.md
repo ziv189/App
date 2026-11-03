@@ -16,7 +16,7 @@ Identify the asset (its code, if any) and the references it was made from. If yo
 ## What to check, most serious first
 
 1. **Style split:** the world is Van Gogh impasto and the people are clean flat cubist planes. Swirls on a face, or geometric planes in a sky, fail.
-2. **Face map:** each never-change item for every character (section 8): the split direction, which eye faces front, the nose direction, plane colors, and the marks (the mother's crescent-shaped mark; the daughter's blue plane and amber fleck).
+2. **Face map:** each never-change item for every character (section 8): the split and the color of each half, the eyes, the nose, and the marks (the mother's crescent-shaped mark; the daughter's blue half and amber eye).
 3. **Anatomy:** exactly two eyes, one nose and one mouth per face; five fingers per hand.
 4. **Age and clothes:** match section 9, including the color logic (the mother in blue; the daughter in yellow or mustard except as a teenager and when flat).
 5. **Consistency across views:** the same hairstyle, proportions and clothes in every view of a sheet. The Higgsfield team rejected a sheet with a different hairstyle in every view.
@@ -84,20 +84,20 @@ The user shares a CM6 turnaround take and says "good?"
 **Verdict: FIX.** The face map, clothes and style are right; the mark is missing in one view, and the hair differs in the back view.
 
 **Matches**
-- Vertical split with the front eye on her right in the front and three-quarter views.
+- The split, with the light rose-peach half on her right, in the front and three-quarter views.
 - Many small facets; silver-white bun; blue cardigan with wooden buttons.
 - Clean flat planes and bold contours on a plain off-white sheet.
 
 **Off**
 1. The crescent-shaped mark is missing in the three-quarter view · blocks canon · by hand (paint it from the front view).
-2. The back view shows a high bun instead of her low bun with one lock · blocks canon · by edit.
+2. The back view shows a high bun instead of her low round bun · blocks canon · by edit.
 3. The amber of the mark in the front view leans orange · minor · by hand (toward Amber #F5A623).
 
 **Fix prompts**
 ```
 Edit the attached image. Keep everything exactly the same except the change described below.
 
-CHANGE: In the back view (the fourth figure from the left), change her hair to a low, loose silver-white bun at the nape of her neck with one wavy lock falling over her left shoulder, matching the front view (the first figure).
+CHANGE: In the back view (the fourth figure from the left), change her hair to a large, low, round silver-white bun at the nape of her neck, matching the front view (the first figure).
 
 KEEP EXACTLY THE SAME: all four figures, their poses, faces, clothes and colors; the layout and the plain off-white background.
 

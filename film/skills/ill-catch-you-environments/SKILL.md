@@ -33,7 +33,7 @@ Decide three things:
 3. **Lighting lock:** word for word from section 6.
 4. **Style:** the WORLD block, word for word.
 5. **Layout block:** below.
-6. **Consistency line:** whenever references are attached.
+6. **References:** the consistency line from section 4 for attached sheets and plates, and the style frame line from section 4 for any attached style frame (paint only).
 7. **Negative:** from section 4, plus "No people, no figures, no animals and no faces anywhere."
 
 Rules that keep plates usable:
@@ -93,7 +93,7 @@ Hand-painted oil environment in the style of Vincent van Gogh's late landscapes:
 
 Background plate with no people, no characters and no animals. Cinematic 16:9 widescreen composition with clear open space where characters will be placed later.
 
-Use the attached reference images as the exact design. Characters, environments and props 100% match the reference images: the same face maps, proportions, colors and clothing.
+Image 1 is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition. Image 2 is the garden wall's prop sheet: the wall 100% matches it.
 
 No text, letters, labels, numbers, captions, watermark, signature or picture frame anywhere in the image. No photorealism, no 3D render, no anime, no flat vector illustration. No people, no figures, no animals and no faces anywhere.
 ```

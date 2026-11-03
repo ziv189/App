@@ -43,7 +43,7 @@ Then the location's lighting lock, word for word.
 - No music, no singing, no speech. Sound effects only. (The five-note melody is added in post.)
 - No text, subtitles or logos.
 - No people, figures or faces other than the referenced characters. In shots without characters: "No people, no figures and no faces anywhere."
-- Characters keep their face maps from every angle. Then name this shot's never-change items, for example: "the mother's amber crescent-shaped mark stays on her right cheek; the daughter's pale-blue plane and higher left eye stay on her left".
+- Characters keep their face maps from every angle. Then name this shot's never-change items, for example: "the mother's amber crescent-shaped mark stays under her right eye; the daughter's blue half and amber eye stay on her left".
 - The lights have no faces and no bodies (whenever a light is in frame).
 - Texture stays in the world. Characters stay clean, flat and cubist. No realism, no 3D look, no camera shake.
 
@@ -137,7 +137,7 @@ LOCKS AND CONSTRAINTS
 No music, no singing, no speech. Sound effects only.
 No text, subtitles or logos.
 No people, figures or faces other than the mother and the daughter.
-Characters keep their face maps from every angle: the mother's amber crescent-shaped mark stays on her right cheek; the daughter's pale-blue plane and higher left eye stay on her left.
+Characters keep their face maps from every angle: the mother's amber crescent-shaped mark stays under her right eye; the daughter's blue half and amber eye stay on her left.
 The mother stays on the grass and does not step toward the wall; the catch happens at the center of the frame.
 Texture stays in the world. Characters stay clean, flat and cubist. No realism, no 3D look, no camera shake.
 

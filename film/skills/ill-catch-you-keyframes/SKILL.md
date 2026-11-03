@@ -35,7 +35,7 @@ Prompt order:
 3. **Staging:** who is where (screen-left, screen-right, center, foreground, background), poses, eye lines, distances, and what is in their hands.
 4. **Expressions:** one clear emotion per face.
 5. **Place and light:** which plate, plus its lighting lock, word for word.
-6. **References:** name each attached image ("Image 1 is the daughter at two (CD4)..."), then the consistency line. Add one sentence anchoring each character's never-change items. Don't paste full face maps here; the attached sheets carry the looks, and the prompt should spend its words on the composition.
+6. **References:** name each attached image ("Image 1 is the daughter at two (CD4)..."), then the consistency line for the sheets and plates and the style frame line from section 4 for any style frame. Add one sentence anchoring each character's never-change items. Don't paste full face maps here; the attached sheets carry the looks, and the prompt should spend its words on the composition.
 7. **Style:** the MIX block, word for word.
 8. **Layout:** Cinematic 16:9 film still, composed like a key frame from a hand-painted animated film.
 9. **Negative:** from section 4, plus "No other people, figures or faces anywhere."
@@ -109,7 +109,7 @@ EXPRESSIONS: The toddler: fearless delight, laughing. The mother: calm, warm and
 
 PLACE AND LIGHT: The garden from Image 3. Golden late afternoon. Low warm sun from the left, long soft shadows, warm gold light on every edge.
 
-REFERENCES: Image 1 is the daughter at two. Image 2 is the mother in her thirties. Image 3 is the garden plate. Image 4 is the style frame, for the look only. Use the attached reference images as the exact design. Characters, environments and props 100% match the reference images: the same face maps, proportions, colors and clothing. The mother keeps her vertical split, with the front eye and the amber crescent-shaped mark on her right cheek; the daughter keeps her higher left eye inside her pale-blue plane.
+REFERENCES: Image 1 is the daughter at two. Image 2 is the mother in her thirties. Image 3 is the garden plate. Use Images 1 to 3 as the exact design: characters, environments and props 100% match them, with the same face maps, proportions, colors and clothing. Image 4 is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition. The mother keeps her split face (light rose-peach half on her right, deeper ochre-brown half on her left) and the amber crescent-shaped mark under her right eye; the daughter keeps her blue left half with the amber eye.
 
 The world is painted in thick Van Gogh impasto; the people are painted in clean, flat cubist planes. Keep them separate: no swirling strokes on the people, no geometric planes in the landscape. All the texture lives in the world.
 

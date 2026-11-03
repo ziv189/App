@@ -31,7 +31,7 @@ Image models weigh the start of a prompt most, so the most important information
 4. **Content list:** the six expressions, four poses, lineup order or stages, in order from left to right.
 5. **Style lock:** CHARACTERS, word for word. Add LIGHTS for the lights and FLAT PEOPLE for flat states. Add WORLD and MIX only if the image includes a place (always for the style frames), plus that place's lighting lock from section 6.
 6. **Layout:** the matching block below.
-7. **References:** whenever character references are attached, the consistency line from section 4. When an earlier style frame is attached, name it and give it a paint-only job instead, for example: "The attached image is the film's first style frame. Match its paint handling, brushwork and colors; don't copy its composition." The consistency line would make the model copy that frame's scene.
+7. **References:** the consistency line from section 4 for attached character sheets, and the style frame line from section 4 for any attached style frame (it guides the paint only; the consistency line would make the model copy that frame's scene).
 8. **Negative:** from section 4.
 
 Write in plain sentences. Use color names, never hex codes, because models paint hex codes into images as text. Check every noun against section 7: write "crescent-shaped mark, horns pointing up", never "like a cradle"; write "smooth unfinished oval", never "blank face".
@@ -94,9 +94,9 @@ Attach (canon only): HF1 (her hero face), CM1 (her age lineup)
 ```
 The mother in her mid-sixties, frail but warm, shown as a full character turnaround.
 
-THE MOTHER: a tall, gentle oval face split vertically down the middle. Her right half (screen-left) is seen from the front: a rose-pink plane with one large dark almond-shaped eye, and just under that eye, on her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her left half (screen-right) is seen in profile: a warm ochre plane with a sideways eye. Her nose is drawn in profile along the split, pointing to screen-right. Small full lips. Dark umber hair in a low, loose bun with one wavy lock falling over her left shoulder. She always wears blue.
+THE MOTHER: a tall, gentle oval face split vertically down the middle into two warm halves: her right half (screen-left) a light rose-peach plane, her left half (screen-right) a deeper ochre-brown plane. Both eyes face forward: large dark almond-shaped eyes under fine dark brows, one in each half. Just under her right eye (screen-left), on the light half of her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her nose is drawn as a single line along the split. Small full red lips. Bright auburn hair parted in the middle and gathered into a large, low round bun at the nape of her neck. She always wears blue.
 
-She is in her mid-sixties. Her hair is now silver-white, in the same low bun with the same single lock. Her face is divided into many small facets, while the vertical split, the eyes and the amber crescent-shaped mark stay exactly the same; the mark glows as brightly as ever. She wears a blue knitted cardigan with wooden buttons over a plain gray dress.
+She is in her mid-sixties. Her hair is now silver-white, in the same low round bun. Her face is divided into many small facets, while the vertical split, the eyes and the amber crescent-shaped mark stay exactly the same; the mark glows as brightly as ever. She wears a blue knitted cardigan with wooden buttons over a plain gray dress.
 
 Characters designed in the style of Pablo Picasso's cubist portraits: each face shows the front view and the profile at the same time, built from a few flat planes of matte color separated by bold dark contour lines. Simplified, slightly elongated bodies, large gentle hands, flat matte paint with only a faint brush texture, clean edges. No swirling brushwork and no heavy texture on the characters, no soft shading, no realism, no plastic 3D look. Warm, gentle and appealing, never grotesque: exactly two eyes, one nose and one mouth per face, five fingers on each hand.
 
@@ -108,10 +108,10 @@ No text, letters, labels, numbers, captions, watermark, signature or picture fra
 ```
 
 **Check before approving**
-- Vertical split, front eye on her right (screen-left), ochre profile half on her left.
-- The amber crescent-shaped mark under the front eye, horns up, visible in the front and three-quarter views.
+- The split: light rose-peach half on her right (screen-left), deeper ochre-brown half on her left; both eyes facing forward.
+- The amber crescent-shaped mark under her right eye, horns up, visible in the front and three-quarter views.
 - More, smaller facets than CM2, but the same split and the same eyes.
-- The same bun and lock in all four views.
+- The same low round bun in all four views.
 - Blue cardigan with wooden buttons. It becomes an heirloom, so PR8 and CD14 must match it.
 - Exactly two eyes, one nose and one mouth; five fingers; no text anywhere.
 

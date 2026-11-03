@@ -35,7 +35,7 @@ The single source of truth for every prompt in this production. Every skill in t
 - You get your face by being seen. A newborn's face is a smooth unfinished oval until someone looks at it with love; under that gaze it builds itself.
 - People nobody really looks at go flat: gray cut-out silhouettes in strict side profile.
 - Love sees every side and every age at once. That is why the faces are cubist. At the two biggest moments (scenes 7 and 9) a face shows every age at once.
-- The world feels what they feel. Brushstrokes swirl faster with joy and stop completely in grief (scene 8).
+- The world feels what they feel. Brushstrokes swirl faster with joy and stop completely in grief (scene 8). In grief the world and her skin turn blue; only her hair, her cardigan and her amber eye keep their warmth.
 - One shape runs through the film: a crescent curled around a dot, like an arm around a baby's head.
 
 **Scenes**
@@ -123,8 +123,11 @@ These exact sentences go into prompts. Changing the wording changes the look, so
 **NEGATIVE** (end of every image prompt)
 > No text, letters, labels, numbers, captions, watermark, signature or picture frame anywhere in the image. No photorealism, no 3D render, no anime, no flat vector illustration.
 
-**CONSISTENCY LINE** (whenever references are attached)
+**CONSISTENCY LINE** (whenever character sheets, prop sheets or plates are attached)
 > Use the attached reference images as the exact design. Characters, environments and props 100% match the reference images: the same face maps, proportions, colors and clothing.
+
+**STYLE FRAME LINE** (whenever a style frame is attached: style frames guide the paint, never the design or the layout)
+> Image [N] is a style frame, for the paint only: match its paint handling, brushwork and colors; don't copy its composition.
 
 ---
 
@@ -155,7 +158,7 @@ From the Higgsfield team's golden-hour lesson: flat midday light made everything
 | L-RAIN | City, scene 6 | Night rain. Warm pools of gas-lamp light; everything else muted cool gray-blue. |
 | L-AUTUMN | Garden, scene 7 | Autumn late afternoon. Low warm sun from the left, long shadows, falling leaves catching the light. |
 | L-WINDOW | Cottage at night, scenes 8 to 10 | Night. One small warm lamp inside, cool blue moonlight through the window. |
-| L-GRIEF | Scene 8, after the light leaves | Night in monochrome blue. No warm light anywhere. |
+| L-GRIEF | Scene 8, after the light leaves | Night in deep blues and blue-greens. No warm light anywhere. |
 | L-EVENING | Garden, scene 9 | Warm early-summer evening. Low gold sun from the left, long gentle shadows. |
 | L-HOME | Scene 10 after the catch, end card | Night that glows warm: gold and amber light spreading from the center of the sky. |
 
@@ -193,14 +196,14 @@ Cubist faces drift more than any other style, because the model reinvents the fr
 In image prompts, paste the block verbatim. In video prompts, don't describe faces at all: the attached references carry them.
 
 **THE MOTHER (the split face)**
-> THE MOTHER: a tall, gentle oval face split vertically down the middle. Her right half (screen-left) is seen from the front: a rose-pink plane with one large dark almond-shaped eye, and just under that eye, on her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her left half (screen-right) is seen in profile: a warm ochre plane with a sideways eye. Her nose is drawn in profile along the split, pointing to screen-right. Small full lips. Dark umber hair in a low, loose bun with one wavy lock falling over her left shoulder. She always wears blue.
+> THE MOTHER: a tall, gentle oval face split vertically down the middle into two warm halves: her right half (screen-left) a light rose-peach plane, her left half (screen-right) a deeper ochre-brown plane. Both eyes face forward: large dark almond-shaped eyes under fine dark brows, one in each half. Just under her right eye (screen-left), on the light half of her cheek, a small glowing amber crescent-shaped mark, horns pointing up, about as wide as the eye. Her nose is drawn as a single line along the split. Small full red lips. Bright auburn hair parted in the middle and gathered into a large, low round bun at the nape of her neck. She always wears blue.
 
-Never changes: the vertical split · the front eye and the crescent-shaped mark on her right · rose and ochre halves · the bun with one lock · blue clothes.
+Never changes: the split into a light rose-peach half (her right, screen-left) and a deeper ochre-brown half (her left) · both eyes facing forward · the amber crescent-shaped mark under her right eye · auburn hair in a low round bun · blue clothes.
 
-**THE DAUGHTER (the high eye)**
-> THE DAUGHTER: a round, soft face seen from the front. Both eyes face forward, but her left eye (screen-right) sits a little higher and is a little larger, with a tiny amber fleck in the iris. A pale-blue plane covers her left temple and cheek around that eye; the rest of her face is warm peach. Her nose is drawn in profile, pointing to screen-left. Small mouth with one corner lifted. Chestnut-auburn hair, white in old age.
+**THE DAUGHTER (the blue half)**
+> THE DAUGHTER: a soft oval face split vertically down the middle. Her right half (screen-left) is pale cream-peach, with a dark brown eye. Her left half (screen-right) is a clear medium-blue plane, and the eye in it is amber. Both eyes face forward under bold dark brows. Her nose is drawn as a single line along the split. Small mouth. Deep auburn hair, a little darker than her mother's; white in old age.
 
-Never changes: the blue plane · the higher eye with the amber fleck · the nose pointing to her right. From scene 9 only: a small amber crescent-shaped mark on her right cheek, smaller than her mother's.
+Never changes: the blue left half (screen-right) with the amber eye in it · the cream-peach right half with the dark brown eye · the nose line along the split · deep auburn hair. From scene 9 only: a small amber crescent-shaped mark under her right eye, on the cream half, smaller than her mother's.
 
 **THE PARTNER (the two-level eyes)**
 > THE PARTNER: a squarish face seen from the front, split horizontally at the eye line, olive green above and terracotta below. Both eyes face forward at clearly different heights, his right eye (screen-left) lower. A long nose drawn in profile, pointing to screen-right. Short curly black hair, white in old age. Navy peacoat and dark green scarf.
@@ -221,8 +224,8 @@ Never changes: the horizontal split · olive over terracotta · the uneven eyes.
 
 | Who | Age | Scenes | Hair | Clothes |
 |---|---|---|---|---|
-| Mother | early 30s | 3, 4 | dark umber bun | cobalt-blue dress, sleeves pushed up, barefoot |
-| Mother | late 40s | 5 | bun with one silver streak | faded cobalt dress, work apron |
+| Mother | early 30s | 3, 4 | bright auburn, low round bun | cobalt-blue dress, sleeves pushed up, barefoot |
+| Mother | late 40s | 5 | auburn bun with one silver streak | faded cobalt dress, work apron |
 | Mother | mid-60s | 7, 8 | silver-white bun | blue knitted cardigan with wooden buttons over a gray dress |
 | Daughter | newborn | 3 | none | cream knitted blanket with one pale-blue border stripe |
 | Daughter | 2 | 4 | short auburn curls | sunflower-yellow smock dress, round collar, one patched pocket; bare feet |
@@ -239,7 +242,7 @@ Never changes: the horizontal split · olive over terracotta · the uneven eyes.
 | Their child | 45 | 9 | dark curls going gray | plain dark clothes |
 | Grandchild | 3 | 9 | dark auburn, one curl on top | the heirloom yellow smock dress |
 
-**Color logic:** the mother always wears blue, the color of her daughter's light. The daughter wears yellow and mustard, the warmth of her mother's amber, except as a teenager and when she goes flat.
+**Color logic:** the mother always wears blue, the color of her daughter's light. The daughter wears yellow and mustard, the warmth of her mother's amber, except as a teenager and when she goes flat. Auburn is the family hair: the mother's is bright, the daughter's a little deeper. In scene 8 (SF4) the world and the daughter's skin turn blue, while her auburn hair, her ochre cardigan and her amber eye keep their warm colors.
 
 ---
 
@@ -299,14 +302,14 @@ Build a sheet only for props that recur and must match from shot to shot. That i
 
 ## 14. Palette
 
-Hex codes are for checking and grading only. Keep them out of prompts, because image models sometimes paint them into the picture as text. In prompts, use the color names.
+Hex codes are for checking and grading only. Keep them out of prompts, because image models sometimes paint them into the picture as text. In prompts, use the color names. The character colors below were sampled from the approved style frames (SF2, SF3, SF4).
 
 - **Sky and lights:** Midnight #0E1A3D · Cobalt #23449A · Swirl blue #5B86C5 · Star gold #F2C14E · Cream light #FFF2C6 · **Amber #F5A623 (the key color of the film)** · Amber glow #FFC46B · Pale light #DDEBFF · Green-tinted light #E4F5E0 · Lilac light #EEE6FF
 - **Earth:** Wheat #E8B33A · Deep ochre #C98A1E · Field green #6E8B3D · Cypress #1F3B2D · Vermilion #D9482B
-- **Faces:** Mother rose #E8A495 · Mother ochre #D39A5B · Daughter peach #F0B9A0 · Daughter blue #A9C8EC · Partner olive #8A9A5B · Partner terracotta #C9714F · Contour ink #2B1E1A
-- **Hair and clothes:** Auburn #7A3B1F · Mother's cobalt #2C4F9E · Heirloom yellow #F2B233 · Mustard #D9A21B · Cardigan blue #3E5F99 · Charcoal #3B3D42 · Blanket cream #EFE6D2
-- **Flat world:** Paper gray #8A8F98 · Gray outline #5E636B · Wet street #2A3140
-- **Grief (scene 8):** #1E3557 · #2F4F7A · #6B8DB5 · #A9BFD9
+- **Faces:** Mother light half #EDBD98 · Mother dark half #984E1C · Daughter cream half #D4C4A5 · Daughter blue half #3680B5 · Partner olive #8A9A5B · Partner terracotta #C9714F · Contour ink #2B1E1A
+- **Hair and clothes:** Mother's auburn #B45009 · Daughter's auburn #6D3E2B · Mother's cobalt #124990 · Heirloom yellow #F2B233 · Mustard scarf #A37629 · Ochre cardigan #AA6622 · Daughter's gray coat #817C7F · Cardigan blue #3E5F99 · Charcoal #3B3D42 · Blanket cream #EFE6D2
+- **Flat world:** Paper gray #959090 · Gray outline #5E636B · Wet street #2A3140
+- **Grief (scene 8):** #1E3557 · #2F4F7A · #6B8DB5 · #A9BFD9 · her skin #71A5EF
 - **Sheet background:** plain warm off-white paper #F4EEE3
 
 ---
@@ -353,14 +356,14 @@ Lessons from the Higgsfield team's test stage, translated to this film:
 The short request for every image input. Write the full prompt with the matching skill. "Attach" lists the canon codes to add as references.
 
 ### Style frames
-Made from text alone in Soul 2.0; the identical style lock in every prompt is what holds them together. If one frame's paint drifts from SF1, match it with a Seedream edit (the image-edits skill).
+All five are approved and in canon. Attach them for paint only, with the style frame line from section 4. SF1 is close to the layout of Van Gogh's Starry Night, so never let it guide a composition. SF4 sets the grief look: the world and her skin blue; her hair, her cardigan and her amber eye still warm.
 
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
 | SF1 | The two lights | key frame | 16:9 | 1 | none | Two small lights, an amber crescent-shaped glow and a pale dot, play on the curve of a great swirl in a night sky of cobalt and gold; far below, wheat fields, cypresses, a village with lit windows. |
 | SF2 | Catch at the wall | key frame | 16:9 | 4 | none | Golden late afternoon. The young mother in cobalt catches the laughing toddler in yellow as she jumps from the stone wall, and spins her; the wheat swirls around them. |
 | SF3 | The flat city | key frame | 16:9 | 6 | none | A rainy night street. Flat gray cut-out people slide past; in the middle, the daughter at 25 is half flattened. |
-| SF4 | The stillness | key frame | 16:9 | 8 | none | Night through a cottage window. The garden and wheat are completely still and painted only in blues; the daughter at 34 stands at the window, also blue, hands raised and empty. |
+| SF4 | The stillness | key frame | 16:9 | 8 | none | Night through a cottage window. The garden completely still in deep blues and blue-greens; the daughter at 34 in profile at the window, her skin blue, her hair, cardigan and amber eye still warm, hands raised and open. |
 | SF5 | The catch in the sky | key frame | 16:9 | 10 | none | A warm glowing sky. The amber crescent-shaped glow curls around a small pale light at the calm center of a great swirl. |
 
 ### Hero faces
@@ -433,7 +436,7 @@ Made from text alone in Soul 2.0. Compare each take with SF2 before approving.
 | BG8 | Garden: childhood | plate | 16:9 | 4 | SF2, PR1 | The garden base plate. Every other garden plate is an edit of this one. |
 | BG9 | Garden: the leaving | plate | 16:9 | 5 | BG8, PR1, PR2 | Both sides of the wall visible, the road twisting away, the cottage door behind. |
 | BG10 | Garden: the return | plate | 16:9 | 7 | BG8, PR1, PR2 | Autumn; the camera higher, so the wall looks small. |
-| BG11 | Garden: the stillness | plate | 16:9 | 8 | BG8, SF4 | Night, painted only in blues, every stroke stopped. |
+| BG11 | Garden: the stillness | plate | 16:9 | 8 | BG8, SF4 | Night, painted in deep blues and blue-greens, every stroke stopped. |
 | BG12 | Garden: late life | plate | 16:9 | 9 | BG8, PR1 | Decades later: a mossier wall, wildflowers. |
 | BG13 | Cottage: the night window | plate | 16:9 | 8 to 10 | SF4, PR3 | Window seat, armchair, a dim lamp, the night sky through the glass. |
 | BG14 | The flat city | plate | 16:9 | 6 | SF3 | A rainy night street, gas lamps, long swirling reflections. |
