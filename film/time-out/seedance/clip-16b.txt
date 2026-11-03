@@ -1,0 +1,91 @@
+SCENE CONTEXT & STYLE
+
+What happens: A short insert. At the far end of the upstairs hallway of the beige house, the door at the end of the hall stands open just a few inches, and the room behind it is dark. In the gap, BRAYDEN, in his mission look, looks out over the top of a red toy remote control that he holds up in front of his chin with both hands. A thin vertical strip of warm hallway light falls across one of his eyes and the face-paint stripes on that cheek; everything else is in shadow. Quietly, almost to himself, calm and businesslike, he says one line. Then the door slowly swings shut, and the strip of light narrows to nothing.
+
+Continuity: Brayden is in his mission look, with the black face-paint stripes and his dad's oversized army helmet, as in <<<image_1>>>. He is alone. The remote control drives the red toy truck, which is heard coming back up the hallway toward him. This is a short insert that is edited into another clip.
+
+Tone and pace: quiet, smug and deadpan, like a shopkeeper ringing up a sale. Slow and still.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and plastic textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last.
+
+Camera language: real lenses between 35mm and 85mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. Brayden is designed like a cartoon but moves like a real actor, at real human speed, and here he barely moves: only his eye, his thumbs on the remote, and one slight narrowing of the eye. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly: do exactly that and nothing extra.
+
+Format: 5 seconds, 16:9, one continuous shot with no cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: the room behind the door is dark. One thin, soft-edged vertical strip of warm light from the hallway's ceiling light comes through the gap and falls across his eye, the face-paint stripes on his cheek, the edge of the helmet brim above, and the top of the red remote below. Everything else in the gap is in shadow. The light is fixed to the world: as the door closes, the strip narrows and disappears. No flicker, no color shift.
+
+Physics: real weight. He holds the remote steady in both hands. The helmet sits heavy and low on his head and doesn't wobble. The door swings shut slowly and smoothly on its hinges and closes with a soft click. Faces keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Only these sounds, in order: the quiet room tone; the faint whine of a small toy motor coming closer up the hallway; Brayden's voice, quiet; the soft click of the door closing. His mouth stays behind the remote, so no lip sync is visible.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = BRAYDEN in his mission look: the black face-paint stripes and his dad's oversized army helmet. A scheming brat who runs the house, calm and completely in control. Voice: high and raspy; here quiet, smug and businesslike, almost to himself. Face, eyes, eyebrows, face-paint stripes and helmet 100% match <<<image_1>>>.
+
+<<<image_2>>> = the upstairs hallway. The door at the far end of the hallway, with its taped-up crayon drawings, 100% matches <<<image_2>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The remote control: one red toy remote control, about the size of a sandwich, with two small black joysticks and a long silver antenna. It never becomes a phone, a game controller or anything else.
+- The door: the door at the far end of the hallway from <<<image_2>>>, open a few inches until it swings shut.
+
+Brayden is the only person in this clip. Nobody else is seen or heard.
+
+
+SHOT STRUCTURE
+
+One shot, 0.0 to 5.0s: a close-up on the gap in the door. The line, then the door swings shut. Locked-off.
+
+SHOT 1 (0.0 to 5.0s). CLOSE-UP: THE DOOR GAP.
+Camera: in the hallway in front of the door, at Brayden's eye height, about 3 feet away. 50mm lens, about a 40-degree view. Locked-off.
+Frame: the edge of the door on the left of the frame and the dark gap in the center. In the gap, Brayden's (<<<image_1>>>) eye at about x 52% / y 40%, with the face-paint stripes on his cheek, lit by the strip of light. The edge of the helmet brim is just above his eye. Below it, the top edge of the red remote and its silver antenna cover his mouth and chin.
+0.0 to 1.0s: Hold. His eye looks out past the right side of the lens, down the hallway, calm and steady. His thumbs rest on the joysticks. The faint whine of the toy motor comes closer.
+1.0 to 3.0s: BRAYDEN: "That's a lot of swears. Wallets." Delivery: quiet, flat, smug and businesslike, almost to himself. Only his eye is visible; his mouth stays behind the remote.
+3.0 to 3.8s: His eye narrows slightly, satisfied.
+3.8 to 5.0s: The door slowly swings shut. The dark gap and the strip of light narrow until the door closes with a soft click. Hold on the closed door.
+Light: one thin vertical strip of warm hallway light on his eye; everything else in the gap is dark.
+Last frame: the closed door.
+Avoid: his mouth becoming visible, a big smile, anyone else, the remote or the helmet changing shape.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- One continuous 5-second shot, with no cuts.
+- Brayden is the only person, and he matches <<<image_1>>> 100% in his mission look.
+- Only his eye, the face-paint stripes on his cheek, the edge of the helmet brim and the top of the remote are visible. His mouth stays behind the remote the whole time.
+- The camera never moves.
+- Every movement happens at the time written, and nothing extra is added.
+- His voice stays high and raspy, quiet and businesslike.
+
+Exact dialogue (this line, by this speaker, word for word, and nothing else):
+  1. BRAYDEN: "That's a lot of swears. Wallets."
+
+Constraints (these never happen):
+- No cuts, transitions, dissolves or extra shots.
+- No other people and no other voices.
+- No ad-libs, extra lines or narration.
+- No squash and stretch, rubbery faces or bouncing.
+- No camera moves: no zooms, pans, shakes or angle changes.
+- No readable text anywhere. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: the face, the helmet, the remote and the door never melt, merge or change shape.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. His face and the helmet keep their shape.
+2. Anticipation: a still hold before the line, and a satisfied beat before the door closes.
+3. Staging: one clear idea: one eye in the gap and one line.
+4. Straight ahead and pose to pose: a still pose, the line, the narrowed eye, then the closed door.
+5. Follow-through: very small. The door settles as it clicks shut.
+6. Slow in and slow out: the door swings shut slowly and eases to a stop.
+7. Arcs: the door swings on one smooth arc.
+8. Secondary action: his thumbs resting on the joysticks and the faint motor whine, never pulling focus.
+9. Timing: slow, even and unhurried.
+10. Exaggeration: minimal. He's completely calm while robbing three grown men.
+11. Solid drawing: consistent face, helmet and remote volume in every frame.
+12. Appeal: a calm, funny mastermind who is always one step ahead. It's a comedy.

@@ -1,0 +1,160 @@
+SCENE CONTEXT & STYLE
+
+What happens: The upstairs hallway of the beige house, a moment later, with the light on. DUANE sits on the carpet against the wall near the top of the stairs, still hugging his shin and bawling. He sniffles, stops crying, and turns his head to look down the hallway at the other two: MARCO stands frozen flat against the wall inside a perfect outline of knife handles, and VINCE sits on the carpet beside the open closet door, hunched over his right hand, whimpering. A grin spreads through Duane's tears. He starts laughing, points at them, and yells his revenge line. While he laughs, a red remote-control toy truck with a clear jar taped to its back putters out of the door at the far end of the hallway and drives straight down the hall without ever stopping. Its small claw plucks Marco's wallet out of the low pocket on his cargo pants, then Vince's wallet out of his jacket pocket, then Duane's wallet out of his shorts pocket, and drops each one into the jar. Nobody notices. The truck turns around and putters back up the hallway, and Duane's laugh winds down into a happy sigh.
+
+Continuity: this picks up right after Vince's scream, with the ceiling light on. All three are in their socks: Vince in black socks with gold toes, Marco in black socks, Duane in white tube socks with a few caltrops still stuck in them. Duane sits with his back against the right wall near the top of the stairs, his left leg stretched out across the carpet and his right knee pulled up, hugging his right shin. The yellow rubber duck sits on the carpet beside his left sock. Marco stands flat against the blank wall opposite the closet, inside the outline of wooden knife handles stuck in the wall around him, with the loose edges of his vest and sleeves still held to the wall; he doesn't move or speak. Vince sits on the carpet against the wall beside the open closet door, his right hand clutched to his chest and completely covered by his left hand and forearm. Vince's hair still sticks straight back with salt in it, and his sunglasses are hooked on his collar. Marco's pen gadget stays in his vest pocket.
+
+Tone and pace: a dark, dry slapstick comedy. Duane's switch from bawling to laughing is slow and sweet; his laugh is big, wobbly and triumphant. The truck is quick, quiet and sneaky, and the joke is that nobody notices it. Keep every written pause.
+
+Look: stylized 3D animated feature film, like a modern big-studio CG movie. Exaggerated cartoon character designs, big expressive faces, smooth sculpted forms, soft warm subsurface shading, detailed fabric, hair and beard textures, warm saturated colors, soft global illumination. The rendering matches the reference images exactly and stays identical from the first frame to the last. Palette: warm beige walls and carpet, white trim and doors, and the bright red toy truck as the accent, all under the soft, warm ceiling light.
+
+Camera language: real lenses between 28mm and 50mm, straight vertical lines, slow and smooth moves. No fisheye, no Dutch angles, no whip pans, no zooms, no shaky handheld.
+
+Acting and movement: grounded and natural. The characters are designed like cartoons but move like real actors, at real human speed, with subtle facial expressions. Duane laughs like a real, heavy man: his shoulders and belly shake, and his hand slaps the carpet. Vince rocks slightly over his hand. Marco doesn't move at all. No bouncing, no rubbery faces, no big gestures. Every movement is described exactly, including which hand does it: do exactly that and nothing extra.
+
+Format: 20 seconds, 16:9, five shots joined by four hard cuts. Real-time motion at 24 fps. No slow motion, no speed ramps, no freeze frames.
+
+Lighting: soft, even, warm light from the round ceiling light, the same in every shot. The truck's red paint and the clear jar catch small, clean highlights. No flicker, no color shift.
+
+Physics: real weight and timing. The truck is a toy with real weight: it rolls on its knobby tires along the carpet at a steady pace, and the jar on its back wobbles slightly. The claw opens, closes on a wallet, lifts it, swings back over the jar and lets go, and the wallet drops into the jar with a soft thump. The truck never stops while it does this. Duane's laugh shakes his whole body. Faces and bodies keep their shape: no squash and stretch.
+
+Sound: diegetic sound only. No music, no score. Clean dialogue with accurate lip sync, plus only these sounds, in order: Duane bawling; a big sniffle; quiet, with Vince's small, high whimpering far down the hallway; a deep, wobbly chuckle that grows into a big laugh; Duane's voice with one censor beep; Duane laughing harder and slapping the carpet; under his laughter, the thin whine of a small toy motor; the soft click of the claw and a soft thump as a wallet drops into the jar, twice; the motor whine passing close; one more click and soft thump; the motor whine fading back up the hallway; Duane's laugh winding down into a long, happy sigh; silence. One word is covered by a TV censor beep. Wherever a line says [BLEEP], a short, clean censor beep plays instead of that word, and the speaker's mouth keeps moving under it as if he's saying it. The beep is the only sound that doesn't come from the scene itself.
+
+
+ACTIVE REFERENCES
+
+<<<image_1>>> = DUANE, a man in his 30s. A huge, soft-hearted, sensitive guy, the one everyone picks on, and finally the one laughing. Voice: a deep, soft, warm bass, gentle and hesitant. When he cries it wobbles; here it wobbles even while he laughs, deep, loud and delighted. Face, beard, body and clothes, including his cargo shorts and fanny pack, 100% match <<<image_1>>>. In this clip he wears white tube socks and no shoes.
+
+<<<image_2>>> = MARCO, a man in his 30s. The only competent one, bored by everything, deadpan and heavy-lidded. In this clip he stands frozen against the wall and makes no sound. Face, hair, beard, body, clothes and pen gadget 100% match <<<image_2>>>.
+
+<<<image_3>>> = VINCE, a man in his 50s. The self-appointed mastermind of the group, smug and theatrical, now miserable. His only sound in this clip is a small, high, nasal whimper. Face, hair, body, clothes and accessories 100% match <<<image_3>>>. His right hand is never visible: it stays clutched to his chest under his left hand and forearm.
+
+<<<image_4>>> = the upstairs hallway with the ceiling light on. The white wooden banister and the top of the staircase, the beige carpet, the warm beige walls, the plain white hall closet door partway down the right wall, the long blank stretch of wall opposite it, and the door at the far end of the hallway 100% match <<<image_4>>>.
+
+Objects; each keeps exactly the same shape, size and color in every frame:
+- The truck: one red remote-control monster truck, about the size of a shoebox, with four big black knobby tires. A big clear plastic jar with no lid is duct-taped upright to its back with silver tape, and a paper label on the jar is scribbled in red crayon with no readable words. A small grey plastic grabber claw sits on a short arm on the front bumper. It never becomes a real car, a robot or a toy with a face. No one is seen controlling it.
+- The wallets: three plain wallets, each sticking halfway out of a pocket near the carpet. Marco's is black, in the low pocket on the side of his cargo pants, just above his right ankle. Vince's is shiny gold, in the side pocket of his leather jacket, whose hem rests on the carpet as he sits. Duane's is brown, in the side pocket of his cargo shorts, right at carpet level as he sits.
+- The knife handles: the wooden handles stuck in the wall in an outline around Marco. They never move.
+- The rubber duck: one yellow rubber duck, the size of a fist, on the carpet beside Duane's left sock. Nobody moves it.
+
+Only three people exist in this clip: Duane, Marco and Vince.
+
+Hallway map, true in every shot: seen from the top of the stairs, the white banister is at the near end, the hallway runs away from it, the closet door is partway down the right wall, the long blank stretch of wall is opposite it on the left, and a door stands open a few inches at the far end. Duane sits against the right wall near the top of the stairs. Marco stands against the blank wall on the left, and Vince sits against the right wall beside the open closet door, across from him. The truck comes out of the door at the far end and drives toward the stairs, past Marco and Vince first, then Duane.
+
+
+SHOT STRUCTURE
+
+The five shots at a glance:
+1. 0.0 to 3.5s: medium on Duane. Bawling, then he stops and looks down the hallway. Slow push-in.
+2. 3.5 to 6.5s: wide from Duane's eye level, looking down the hallway at Marco and Vince. Locked-off.
+3. 6.5 to 11.0s: medium close-up on Duane: the laugh and "Not so funny now, is it, [BLEEP]?!" Slow push-in.
+4. 11.0 to 16.0s: floor level, looking down the hallway. The truck takes Marco's and Vince's wallets without stopping. Locked-off.
+5. 16.0 to 20.0s: floor level beside Duane. The truck takes his wallet; he never notices. Slow push-in.
+
+SHOT 1 (0.0 to 3.5s). MEDIUM: DUANE STOPS CRYING.
+Camera: in the hallway across from Duane, at his seated eye height, about 6 feet away, facing him. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
+Frame: Duane (<<<image_1>>>) sits against the right wall in the center of the frame, his head at about x 50% / y 34%, hugging his right shin with both hands, his left leg stretched out toward the camera. In this view, down the hallway is to the left of the frame.
+0.0 to 1.2s: He bawls with his eyes squeezed shut, rocking slightly, tears on his cheeks.
+1.2 to 2.2s: He stops mid-sob, opens his eyes and gives one big sniffle. Slowly, he turns his head to his right, toward the left of the frame, down the hallway.
+2.2 to 3.5s: He stares, blinking away tears. One corner of his mouth starts to curl up.
+Light: soft, even, warm ceiling light.
+Last frame: Duane looking down the hallway, the start of a grin on his teary face.
+Avoid: Duane getting up, the truck appearing yet, anyone else in frame.
+
+HARD CUT
+
+SHOT 2 (3.5 to 6.5s). WIDE FROM DUANE'S EYE LEVEL: WHAT HE SEES.
+Camera: near the top of the stairs beside the right wall, at Duane's seated eye height, about 3 feet up, looking straight down the hallway. 28mm lens, about a 65-degree view. Locked-off.
+Frame: the hallway from <<<image_4>>>, seen low. On the left, Marco (<<<image_2>>>) stands flat against the blank wall inside the outline of wooden knife handles, his head at about x 30% / y 30%. On the right, beside the open closet door, Vince (<<<image_3>>>) sits on the carpet against the wall, hunched over, his head at about x 66% / y 52%, his right hand clutched to his chest under his left hand and forearm. At the far end, the door stands open a few inches, dark inside.
+3.5 to 5.0s: Marco stays perfectly still, eyes wide. Vince rocks slightly back and forth over his hidden hand, whimpering.
+5.0 to 6.5s: Vince lets out one small, high whimper. Marco blinks once. Hold.
+Light: soft, even, warm ceiling light.
+Last frame: Marco frozen in the outline on the left and Vince hunched on the right.
+Avoid: Vince's right hand becoming visible, Marco moving, the truck appearing yet, anything on anyone's face or body.
+
+HARD CUT
+
+SHOT 3 (6.5 to 11.0s). MEDIUM CLOSE-UP: THE LAUGH.
+Camera: across from Duane at his seated eye height, about 4 feet away, facing him. 50mm lens, about a 40-degree view. A slow push-in, easing in and out.
+Frame: Duane (<<<image_1>>>) from the chest up, his head at about x 52% / y 32%, the wall behind him.
+6.5 to 7.3s: A deep, wobbly chuckle bubbles up through his tears.
+7.3 to 8.0s: It grows into a big laugh. He takes his right hand off his shin and points to the left of the frame, down the hallway, at the other two.
+8.0 to 9.8s: DUANE: "Not so funny now, is it, [BLEEP]?!" Delivery: loud and triumphant, laughing through tears, his deep, soft bass wobbling. The beep covers the last word while his mouth keeps moving.
+9.8 to 11.0s: He laughs harder, his shoulders and belly shaking, and slaps the carpet beside him with his right hand.
+Light: soft, even, warm ceiling light; his tears catch small highlights.
+Last frame: Duane laughing hard, his right hand slapping the carpet.
+Avoid: Duane getting up, anyone else in frame, his face changing shape.
+
+HARD CUT
+
+SHOT 4 (11.0 to 16.0s). FLOOR LEVEL: THE TRUCK.
+Camera: on the carpet in the middle of the hallway, about 4 inches up, between Duane and the others, looking straight down the hallway toward the door at the far end. 35mm lens, about a 54-degree view. Locked-off.
+Frame: the carpet runs straight away from the camera. On the left, Marco's black cargo pants from the knees down and his black socks against the blank wall, his black wallet sticking out of the low pocket just above his right ankle. On the right, Vince sitting against the wall, his gold wallet sticking out of the side pocket of his leather jacket, right at carpet level. At the far end, the door stands open a few inches.
+11.0 to 12.0s: The red truck putters out through the gap of the door at the far end and drives straight down the middle of the hallway toward the camera, its motor whining.
+12.0 to 13.4s: As it passes Marco's feet on the left, without stopping, the claw grabs his black wallet out of the low pocket, swings back and drops it into the jar. Marco doesn't move.
+13.4 to 14.8s: As it passes Vince on the right, without stopping, the claw grabs his gold wallet out of his jacket pocket, swings back and drops it into the jar. Vince doesn't notice.
+14.8 to 16.0s: The truck keeps coming straight toward the camera and drives out of the frame past its lower right corner.
+Light: soft, even, warm ceiling light; the truck's red paint catches the light.
+Last frame: the empty carpet between Marco's feet and Vince, the door open at the far end.
+Avoid: the truck stopping, anyone noticing the truck, anyone seen controlling it, Vince's right hand appearing, anything else on the carpet.
+
+HARD CUT
+
+SHOT 5 (16.0 to 20.0s). FLOOR LEVEL BESIDE DUANE: THE LAST WALLET.
+Camera: on the carpet across from Duane, about 6 inches up, about 5 feet away, facing him. 35mm lens, about a 54-degree view. A slow push-in, easing in and out.
+Frame: Duane (<<<image_1>>>) sits against the wall, still laughing, his head at about x 56% / y 26%. His brown wallet sticks out of the side pocket of his cargo shorts at carpet level, at about x 44% / y 74%. His left sock and the yellow rubber duck are close to the camera at the bottom of the frame. In this view, down the hallway is to the left of the frame.
+16.0 to 16.6s: Duane is still laughing, wiping his eyes with the back of his right hand. The red truck putters into the frame from the left along the carpet.
+16.6 to 17.6s: As it rolls past his hip, without stopping, the claw grabs the brown wallet out of his shorts pocket, swings back and drops it into the jar. Duane keeps laughing and doesn't notice.
+17.6 to 18.6s: The truck curves around his left foot and the rubber duck in a smooth U-turn and putters back out of the frame to the left, up the hallway.
+18.6 to 20.0s: Duane's laugh winds down into a long, happy sigh. He leans his head back against the wall, smiling, eyes closed. Silence.
+Light: soft, even, warm ceiling light.
+Last frame: Duane resting his head against the wall, smiling, his pocket empty.
+Avoid: Duane noticing the truck or his pocket, the truck stopping, the rubber duck moving, anyone else in frame.
+
+
+LOCKS & CONSTRAINTS
+
+Positive locks (true in every frame):
+- Exactly five shots joined by exactly four hard cuts, at 3.5s, 6.5s, 11.0s and 16.0s.
+- Only Duane, Marco and Vince are in this clip, all matching their reference images 100%.
+- All three are in their socks. Duane has caltrops stuck in his white tube socks. Vince's hair still sticks straight back with salt in it, and his sunglasses stay hooked on his collar. Marco's pen gadget stays in his vest pocket.
+- Marco stays frozen flat against the wall inside the outline of knife handles and never moves or speaks.
+- Vince's right hand never appears: it stays clutched to his chest under his left hand and forearm.
+- The truck never stops, nobody notices it, and no one is seen controlling it. Exactly three wallets go into the jar: black, then gold, then brown.
+- Every movement happens with the hand written, at the time written, and nothing extra is added.
+- Duane's deep, soft, wobbly bass and Vince's small, nasal whimper never swap.
+- The written pauses are kept.
+- The hallway matches <<<image_4>>> in every shot.
+
+Exact dialogue (this line, by this speaker, word for word, and nothing else):
+  1. DUANE: "Not so funny now, is it, [BLEEP]?!"
+- [BLEEP] means a censor beep tone plays in place of a word while the speaker's mouth keeps moving. Nobody ever says the word "bleep" out loud.
+- Duane's bawling, sniffling, laughing and sigh, and Vince's whimpering, are the only other voice sounds.
+
+Constraints (these never happen):
+- No other cuts, transitions, dissolves or extra shots.
+- No other people and no other voices.
+- No ad-libs, extra lines or narration.
+- Nothing is ever shown on anyone's face, hands or body.
+- No squash and stretch, rubbery faces, bouncing or big gestures.
+- No camera moves except the ones written: no zooms, pans, shakes or angle changes.
+- No readable text anywhere: the jar label stays unreadable. No subtitles, captions or watermarks.
+- No music, no flicker, no color shift.
+- Never photorealistic, anime or flat 2D.
+- No morphing: faces, hands, the truck, the wallets and the duck never melt, merge or change shape. Hands always have five fingers.
+
+
+12 PRINCIPLES OF ANIMATION (GROUNDED VERSION FOR THIS FILM)
+
+1. Squash and stretch: none. Faces and bodies keep their shape.
+2. Anticipation: Duane sniffles and stares before the grin, and the grin comes before the laugh. The claw opens before each grab.
+3. Staging: one clear idea per shot: the tears stop, what he sees, the laugh, two wallets, the last wallet.
+4. Straight ahead and pose to pose: natural motion landing on clear, held poses: Duane staring, Duane pointing, Duane resting his head against the wall.
+5. Follow-through: the jar wobbles after each wallet drops in, and Duane's laugh settles into a sigh.
+6. Slow in and slow out: Duane's head turns and his point ease in and out; the truck keeps a steady pace.
+7. Arcs: Duane's head turns and his arm points on smooth arcs, the claw swings on short arcs, and the truck's U-turn is one smooth curve.
+8. Secondary action: Vince's rocking, the wobbling jar and Duane's shaking belly, never pulling focus.
+9. Timing: slow tears, a building laugh, then the quick, steady, sneaky truck under it all.
+10. Exaggeration: minimal. The comedy is Duane finally laughing and the truck robbing all three while nobody notices.
+11. Solid drawing: consistent anatomy and volume in every frame; five fingers.
+12. Appeal: the big softie gets his moment, and the sneaky toy truck gets everyone. It's a slapstick comedy.
