@@ -22,6 +22,14 @@ The Higgsfield team writes "an essay for a four-second shot" because every detai
 - Seedance generates sound in the same pass. Write "Sound effects only: no music, no score, no singing, no humming, no speech" in FORMAT MODE and again in AUDIO, and list the sounds with timestamps. The five-note melody is added in post.
 - If a last-frame slot works alongside the references, the end plate or keyframe can go there too.
 
+## Joins between clips
+
+Every clip has to pick up exactly where the last one left off, or cut cleanly to a new angle. Decide which for each join before writing.
+- **Continuous join** (no cut, the same moment goes on): the next clip starts on the previous clip's last frame. The user exports that frame as a full-quality PNG from the downloaded clip, checks it against the never-change lists (repair it first if anything drifted, or every later clip inherits it), and uploads it as <<<image_1>>>, before the canon references. FIRST FRAME / BLOCKING then says "The shot starts exactly on <<<image_1>>>: every position, size, color and stroke identical" and gives its positions, read from the frame itself. Seedance 2.5's extend option (forward from the last frame) is the alternative; check the seam frame by frame.
+- **Cut** (a new angle or place): no shared frame, but the same canon references, the same STYLE, LIGHTING and NEGATIVES text and the same settings, so the looks match. Keep the sizes and positions of characters and lights consistent with where the previous clip left them, unless the new angle explains the change.
+- **Always:** end every clip on a hold of at least half a second, with its end state (positions, sizes, states) written in POSITIVE LOCKS, so the last frame is clean and the next prompt knows where to begin. Keep the canon references in the same upload order across clips, and the same model, resolution and selectors for every clip of a scene. For a continuous join, overlap: start the next clip half a second before the previous one ended, repeating the end of the movement, so the edit can cut in mid-motion.
+- **Ask for the frame.** Before writing a prompt that continues a clip, ask the user for that clip's last frame and read the positions from it.
+
 ## Before writing
 
 Read `references/film-bible.md`, sections 1 (scenes), 4 (style lock), 6 (lighting locks), 7 (literal words), 8 (face maps, for the never-change items), 10 (the lights), 11 (flat people), 15 (personalities), 16 (known risks) and 17 (asset register). Read `references/example-scene-1.md`, the approved scene 1 prompt, as the model for format, depth and length.
@@ -32,6 +40,7 @@ Settle five things, asking only if they can't be inferred:
 3. **The references:** which canon sheets, plates and keyframes, in upload order. If a needed asset doesn't exist yet, say so and offer the matching skill.
 4. **The screen map:** positions as x / y percentages of the frame (x from the left, y from the top), read from the approved plates themselves: landmarks, the path of every move, where characters stand and land, sizes as a share of the frame width. A position that doesn't match the plate is a mistake.
 5. **The camera:** locked off, push-in, pan or tilt, one clear move at a time, each ending on a named plate.
+6. **The joins:** how this clip continues the previous one (its last frame, or a cut) and how it hands over to the next (a clean final hold).
 
 ## The blocks
 
@@ -59,6 +68,7 @@ Write them in this order, each under its heading in capitals.
 - Every position matches the plate it plays on, and every path stays inside the frame when it must.
 - No contradictions: a light that "never rotates" doesn't "turn around", and something that "rises" ends higher than it started.
 - No literal-word traps (section 7). The models also take "river", "wave", "eye", "storm", "candle" and "sparks" literally.
+- The first frame continues the previous clip's last frame (continuous join) or matches its looks (cut), and the last beat is a clean hold.
 - Under 20,000 characters.
 
 ## The performance gap
@@ -74,7 +84,7 @@ Video models handle big action well and small acting badly, and this film is ful
 
 **Scene [N] · [name]** (or **Shot [N-x]: [name]**)
 Settings: Seedance 2.5 · [length] · 21:9 · about [count] characters (limit 20,000)
-Upload as references, in this order: 1. [code]: [what it is] 2. ...
+Upload as references, in this order: 1. [the previous clip's last frame, for a continuous join] 2. [code]: [what it is] 3. ...
 
 ```
 INPUTS

@@ -77,6 +77,8 @@ The single source of truth for every prompt in this production. Every skill in t
 
 **Fix, don't re-roll.** When an image is 90% right, fix the one wrong detail with an edit or by hand instead of running the prompt again.
 
+**Joins between clips.** Every clip either picks up exactly where the last one ended or cuts cleanly to a new angle. A continuous join starts the next clip on the previous clip's last frame: export it at full quality, check it against the never-change lists, and attach it as the first reference. A cut keeps the same references, style text and settings, so the looks match. Every clip ends on a clean hold. The shots skill has the rules.
+
 **Read every prompt before pasting it.** Claude organizes the information, but check that the details match the design before you generate.
 
 **Hand-finish pass** on every approved asset. This is what made the Higgsfield team's characters and backgrounds look like one film.
@@ -277,7 +279,7 @@ Build a sheet only for props that recur and must match from shot to shot. That i
 |---|---|---|---|---|
 | PR1 | the garden wall | scenes 4, 5, 7, 9 | the world | low dry fieldstone, about 1.2 m (twice a toddler's height), worn flat top a child can walk along, moss in the cracks, a tuft of wheat at its foot. Same stones and same height always. |
 | PR2 | the cottage door | 5, 7 | the world | weathered wood painted faded blue, iron latch, worn stone step, climbing rose beside it |
-| PR3 | the window | 2, 8, 9, 10 | the world | deep-set, wooden frame, a small window seat. From outside at night it glows warm amber: the window the little light sees from the sky in scene 2. |
+| PR3 | the window | 2, 3, 8, 9, 10 | the world | deep-set, wooden frame, a small window seat. From outside at night it glows warm amber: the window the little light sees from the sky in scene 2. |
 | PR4 | the yellow dress | heirloom: 4, 9 | the characters | sunflower-yellow toddler smock, round collar, one patched pocket. The daughter at 2, the grandchild at 3. |
 | PR5 | the cream blanket | heirloom: 3, 5, 6, 7 | the characters | cream knit, one pale-blue border stripe. Optional thread: the teenager packs it, wraps her own baby in it, and her mother recognizes it. |
 | PR6 | the duffel bag | once: 5 | the characters | olive canvas, brown leather strap, brass buckle. Sheet optional. |
@@ -385,7 +387,7 @@ Both are approved and in canon. From here on they, not the style frames, define 
 | CM1 | Mother: ages | lineup | 3:2 | 3 to 8 | HF1 | Early 30s, late 40s and mid-60s side by side. |
 | CM2 | Mother, 30s: turnaround | turnaround | 3:2 | 3, 4 | HF1, CM1 | Cobalt dress, sleeves pushed up, barefoot. |
 | CM3 | Mother, 30s: expressions | expressions | 3:2 | 3, 4 | HF1, CM2 | Tender smile down at a baby; laughing, head back; calling encouragement, arms open; worried; tears of joy; humming with lips and eyes closed. |
-| CM4 | Mother: catching poses | poses | 3:2 | 3 to 5 | HF1, CM2 | Holding a newborn, arm curved around its head; standing below the wall, arms open, looking up; catching a jumping toddler; spinning a child. |
+| CM4 | Mother: catching poses | poses | 3:2 | 3 to 5 | HF1, CM2, CD1, CD3 | Holding a newborn, arm curved around its head; standing below the wall, arms open, looking up; catching a jumping toddler; spinning a child. |
 | CM5 | Mother, late 40s: turnaround | turnaround | 3:2 | 5 | HF1, CM1 | Faded cobalt dress, apron, one silver streak. |
 | CM6 | Mother, 60s: turnaround | turnaround | 3:2 | 7, 8 | HF1, CM1 | Blue cardigan over a gray dress, silver-white side buns, many small facets, the mark as bright as ever. |
 | CM7 | Mother, flat | key frame | 21:9 | 5 | CM5, CX1 | Her late-40s silhouette as a flat gray cut-out in the cottage doorway, arms half open; the cottage stays painted. |
@@ -417,9 +419,9 @@ Both are approved and in canon. From here on they, not the style frames, define 
 |---|---|---|---|---|---|---|
 | PR1 | The garden wall | prop sheet | 3:2 | 4, 5, 7, 9 | SF2 | Garden side, road side, top surface. |
 | PR2 | The cottage door | prop sheet | 3:2 | 5, 7 | SF2 | Front, three-quarter, detail of latch and step. |
-| PR3 | The window | prop sheet | 3:2 | 2, 8 to 10 | SF2 | Inside by day, inside at night, outside at night glowing amber. |
+| PR3 | The window | prop sheet | 3:2 | 2, 3, 8 to 10 | SF2, BG5 | Outside at night glowing amber; inside at dawn; inside at night with the window seat. |
 | PR4 | The yellow dress | prop sheet | 3:2 | 4, 9 | CD4 | Flat, on a hanger, from the back. |
-| PR5 | The cream blanket | prop sheet | 3:2 | 3, 5 to 7 | CD3 | Folded; around a newborn; a corner peeking out of the duffel bag. |
+| PR5 | The cream blanket | prop sheet | 3:2 | 3, 5 to 7 | CD3 | Folded; around a newborn; laid out flat. The duffel-bag view for scene 5 is an edit of this sheet. |
 | PR6 | The duffel bag | prop sheet | 3:2 | 5 | CD7 | Optional. Packed full, three angles. |
 | PR7 | The oranges | prop sheet | 3:2 | 6 | SF3 | Optional. Upright bag; tipped over with oranges rolling; one orange in a hand. |
 | PR8 | The blue cardigan | prop sheet | 3:2 | 7 to 9 | CM6 | Flat, on a chair back, worn. |
@@ -433,7 +435,7 @@ Both are approved and in canon. From here on they, not the style frames, define 
 | BG3 | Sky: the spiral opens | plate | 21:9 | 2 | BG2 (edit), BG5 | An edit of BG2: the calm center opens into a downward spiral of brushstrokes; at its far end, tiny, the world of BG5 with one amber window. |
 | BG4 | Sky: alone | plate | 21:9 | 2 | BG1 (edit) | An edit of BG1: the same sky, colder; the gold drained, rougher strokes, few stars far apart, one large ringed star. |
 | BG5 | The world from above | plate | 21:9 | 1, 2 | SF1, PR3 | A night landscape from high above; one cottage window glows amber. |
-| BG6 | The fall | tall plate | 9:16 | 3 | SF1, SF2 | Night blue, dawn violet, morning gold from top to bottom; clouds of thick paint; brushstroke birds. |
+| BG6 | The fall | tall plate | 9:16 | 3 | SF1, SF2, BG5 | Night blue, dawn violet, morning gold from top to bottom; clouds of thick paint; brushstroke birds; ends on the cottage from BG5, its window glowing. |
 | BG7 | The birth room | plate | 21:9 | 3 | SF2, PR3 | A cottage bedroom at dawn. |
 | BG8 | Garden: childhood | plate | 21:9 | 4 | SF2, PR1 | The garden base plate. Every other garden plate is an edit of this one. |
 | BG9 | Garden: the leaving | plate | 21:9 | 5 | BG8, PR1, PR2 | Both sides of the wall visible, the road twisting away, the cottage door behind. |
@@ -449,7 +451,7 @@ Both are approved and in canon. From here on they, not the style frames, define 
 ### Effects
 | Code | Asset | Type | Ratio | Scenes | Attach | Short request |
 |---|---|---|---|---|---|---|
-| FX1 | A face building itself | stages | 21:9 | 3, 6 | CD3 | Smooth unfinished oval, one eye, a second eye at another angle, profile nose, mouth, finished planes. |
+| FX1 | A face building itself | stages | 21:9 | 3, 6 | CD3 | Smooth unfinished oval; the split and the blue half; the dark brown eye; the amber eye; the nose line and mouth; finished, eyes open. |
 | FX2 | A light rising | FX sheet | 21:9 | 8, 10 | CS1 | An amber glow gathers, lifts as a crescent-shaped glow, rises trailing dabs, and merges into a swirl. |
 | FX3 | Brushstroke birds | FX sheet | 3:2 | 3 | SF2 | Single dark curved strokes in flight positions; a loose V. |
 | FX4 | Rain, blossom, snow | FX sheet | 3:2 | 6, 9 | SF3 | Slanted strokes; pink-white dabs; round white dabs. |

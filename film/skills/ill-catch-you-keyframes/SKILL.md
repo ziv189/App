@@ -46,6 +46,7 @@ Model: Seedream 5.0 Pro, which handles several reference images in one composite
 
 - **Zoom out.** The Higgsfield team's first truck-door shot failed because the frame was mostly big gray shapes, and the model couldn't tell what was where. Show enough of the surroundings to make positions obvious. Avoid frames filled by one face or one shape, except for deliberate close-ups.
 - **Every reference must agree.** Before a keyframe becomes a start frame, check each character's never-change items (section 8). If anything is missing, repair it with the image-edits skill first; a missing detail in a keyframe disappears from the shot.
+- **Chain the takes.** At a continuous join, the last frame of one take is the first frame of the next (the shots skill has the rules). Plan every end frame as a clean hold, and when an end keyframe exists, use it as the next take's start frame too.
 - **Re-lock after any asset update.** A new character design can shift the camera. Regenerate or repair the keyframe whenever a sheet changes.
 - **Layout sketch option.** If a composition is hard to put into words, sketch it roughly (stick figures and boxes are fine), photograph it, and attach it with: "Match the composition and camera of the layout sketch exactly; ignore its drawing style."
 - **Screenshot option.** When a take nails the camera, screenshot it, repair it so it matches the sheets, and attach it to the next attempts as the camera reference.
